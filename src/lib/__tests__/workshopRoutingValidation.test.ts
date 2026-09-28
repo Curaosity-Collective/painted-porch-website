@@ -117,6 +117,23 @@ describe("validateWorkshopRouting", () => {
     });
     expect(validateWorkshopRouting(r).level).toBe("ok");
   });
+
+  // Sierra has a live /speaking/sierra route, is in the nav, and is included
+  // in AllWorkshopTopics' page_status check — but was missing from
+  // SPEAKER_PAGE_URLS, so her rows failed SPEAKER_WRONG_URL and could not be
+  // published. All three speakers must validate identically.
+  it.each(["/speaking/amy", "/speaking/rob", "/speaking/sierra"])(
+    "accepts speaker-page rows on %s",
+    (url) => {
+      const r = makeRow({
+        delivery_format: "keynote",
+        include_on_speaker_page: true,
+        current_url: url,
+        anchor_id: "topic-from-passenger-to-pilot",
+      });
+      expect(validateWorkshopRouting(r).level).toBe("ok");
+    },
+  );
 });
 
 describe("validateTopicSlugPairs", () => {
