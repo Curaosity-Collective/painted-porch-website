@@ -39,6 +39,7 @@ export const DEDICATED_LANDING_KEYS = new Set<string>([
 export const SPEAKER_PAGE_URLS = new Set<string>([
   "/speaking/amy",
   "/speaking/rob",
+  "/speaking/sierra",
 ]);
 
 const WORKSHOPS_URL = "/partner/amplify/workshops";
