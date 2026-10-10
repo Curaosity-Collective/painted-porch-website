@@ -13,7 +13,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ArrowLeft, Save, Upload, ExternalLink } from "lucide-react";
+import { ArrowLeft, Save, Upload, ExternalLink, Sparkles, Loader2, X, Link2 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 
 interface Category {
@@ -43,6 +44,71 @@ export default function MediaAppearanceEditor() {
   const [allCategories, setAllCategories] = useState<Category[]>([]);
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<string[]>([]);
 
+  const [seoTitle, setSeoTitle] = useState("");
+  const [seoDescription, setSeoDescription] = useState("");
+  const [seoKeywords, setSeoKeywords] = useState<string[]>([]);
+  const [aeoTags, setAeoTags] = useState<string[]>([]);
+  const [geoTags, setGeoTags] = useState<string[]>([]);
+  const [tagInputs, setTagInputs] = useState({ seo: "", aeo: "", geo: "" });
+
+  const [pasteUrl, setPasteUrl] = useState("");
+  const [autofilling, setAutofilling] = useState(false);
+
+  const handleAutofill = async () => {
+    const link = pasteUrl.trim();
+    if (!/^https?:\/\//i.test(link)) {
+      toast({ title: "Paste a full link", description: "It should start with https://", variant: "destructive" });
+      return;
+    }
+    setAutofilling(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("fetch-media-metadata", { body: { url: link } });
+      if (error) {
+        let detail = error.message;
+        const ctx = (error as { context?: Response }).context;
+        if (ctx?.text) {
+          const raw = await ctx.text();
+          try { detail = JSON.parse(raw).error || raw; } catch { detail = raw || detail; }
+        }
+        throw new Error(detail);
+      }
+      if (data?.error) throw new Error(data.error);
+      setExternalUrl(data.external_url || link);
+      if (data.title) setTitle(data.title);
+      if (data.show_name) setShowName(data.show_name);
+      if (data.media_type) setMediaType(data.media_type);
+      if (data.appearance_date) setAppearanceDate(data.appearance_date);
+      if (data.description) setDescription(data.description);
+      if (data.thumbnail_url) setThumbnailUrl(data.thumbnail_url);
+      setSeoTitle(data.seo_title || "");
+      setSeoDescription(data.seo_description || "");
+      setSeoKeywords(data.seo_keywords || []);
+      setAeoTags(data.aeo_tags || []);
+      setGeoTags(data.geo_tags || []);
+      if (data.category_ids?.length) setSelectedCategoryIds(data.category_ids);
+      toast({
+        title: "Details filled in",
+        description: data.appearance_date
+          ? "Review everything before saving."
+          : "Review everything before saving. No publish date was found, so add it by hand.",
+      });
+    } catch (err) {
+      toast({
+        title: "Could not read that link",
+        description: err instanceof Error ? err.message : "Something went wrong",
+        variant: "destructive",
+      });
+    } finally {
+      setAutofilling(false);
+    }
+  };
+
+  const addTag = (key: "seo" | "aeo" | "geo", list: string[], setList: (v: string[]) => void) => {
+    const v = tagInputs[key].trim();
+    if (v && !list.includes(v)) setList([...list, v]);
+    setTagInputs((t) => ({ ...t, [key]: "" }));
+  };
+
 
 
   useEffect(() => {
@@ -64,6 +130,11 @@ export default function MediaAppearanceEditor() {
         setExternalUrl(data.external_url || "");
         setAppearanceDate(data.appearance_date || "");
         setFeatured(data.featured);
+        setSeoTitle(data.seo_title || "");
+        setSeoDescription(data.seo_description || "");
+        setSeoKeywords(data.seo_keywords || []);
+        setAeoTags(data.aeo_tags || []);
+        setGeoTags(data.geo_tags || []);
       }
       const { data: links } = await supabase.from("media_appearance_categories").select("category_id").eq("appearance_id", id!);
       setSelectedCategoryIds((links || []).map((l) => l.category_id));
@@ -109,6 +180,11 @@ export default function MediaAppearanceEditor() {
       external_url: externalUrl || null,
       appearance_date: appearanceDate || null,
       featured,
+      seo_title: seoTitle || null,
+      seo_description: seoDescription || null,
+      seo_keywords: seoKeywords,
+      aeo_tags: aeoTags,
+      geo_tags: geoTags,
       updated_at: new Date().toISOString(),
     };
 
@@ -169,6 +245,36 @@ export default function MediaAppearanceEditor() {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="md:col-span-2 space-y-6">
+            {/* Paste-a-link autofill */}
+            <div className="rounded-lg border border-border bg-card p-4 space-y-2">
+              <label className="text-sm font-medium flex items-center gap-1.5">
+                <Link2 className="h-4 w-4" /> Fill in from a link
+              </label>
+              <p className="text-xs text-muted-foreground">
+                Paste a podcast, YouTube, article, or event link. We will fill in the title, show, date,
+                description, thumbnail, SEO / AEO / GEO tags, and categories for you to review.
+              </p>
+              <div className="flex gap-2">
+                <Input
+                  value={pasteUrl}
+                  onChange={(e) => setPasteUrl(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), handleAutofill())}
+                  placeholder="https://..."
+                  disabled={autofilling}
+                />
+                <Button onClick={handleAutofill} disabled={autofilling || !pasteUrl.trim()} size="sm" className="shrink-0">
+                  {autofilling ? (
+                    <><Loader2 className="h-4 w-4 mr-1 animate-spin" /> Reading…</>
+                  ) : (
+                    <><Sparkles className="h-4 w-4 mr-1" /> Auto-fill</>
+                  )}
+                </Button>
+              </div>
+              {!isNew && (
+                <p className="text-xs text-muted-foreground">This will replace the fields below. Nothing is saved until you click Save.</p>
+              )}
+            </div>
+
             <div>
               <label className="text-sm font-medium mb-1.5 block">Title *</label>
               <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Appearance title" />
@@ -207,6 +313,51 @@ export default function MediaAppearanceEditor() {
                   className="flex-1"
                 />
               </div>
+            </div>
+
+            {/* SEO / AEO / GEO */}
+            <div className="rounded-lg border border-border bg-card p-4 space-y-4">
+              <h3 className="text-sm font-semibold">SEO / AEO / GEO</h3>
+              <div>
+                <label className="text-sm font-medium mb-1.5 block">SEO Title</label>
+                <Input value={seoTitle} onChange={(e) => setSeoTitle(e.target.value)} placeholder={title} />
+                <p className="text-xs text-muted-foreground mt-1">{(seoTitle || title).length}/60 characters</p>
+              </div>
+              <div>
+                <label className="text-sm font-medium mb-1.5 block">Meta Description</label>
+                <Textarea value={seoDescription} onChange={(e) => setSeoDescription(e.target.value)} rows={2} />
+                <p className="text-xs text-muted-foreground mt-1">{seoDescription.length}/160 characters</p>
+              </div>
+              {([
+                { key: "seo", label: "Keywords", list: seoKeywords, set: setSeoKeywords, placeholder: "Add keyword" },
+                { key: "aeo", label: "AEO Questions", list: aeoTags, set: setAeoTags, placeholder: "Add a question this answers" },
+                { key: "geo", label: "GEO Tags", list: geoTags, set: setGeoTags, placeholder: "e.g. United States" },
+              ] as const).map((f) => (
+                <div key={f.key}>
+                  <label className="text-sm font-medium mb-1.5 block">{f.label}</label>
+                  <div className="flex gap-2">
+                    <Input
+                      value={tagInputs[f.key]}
+                      onChange={(e) => setTagInputs((t) => ({ ...t, [f.key]: e.target.value }))}
+                      onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addTag(f.key, f.list, f.set))}
+                      placeholder={f.placeholder}
+                    />
+                    <Button size="sm" variant="outline" onClick={() => addTag(f.key, f.list, f.set)}>Add</Button>
+                  </div>
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {f.list.map((tag) => (
+                      <Badge
+                        key={tag}
+                        variant="secondary"
+                        className="cursor-pointer"
+                        onClick={() => f.set(f.list.filter((t) => t !== tag))}
+                      >
+                        {tag} <X className="h-3 w-3 ml-1" />
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 

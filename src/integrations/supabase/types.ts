@@ -504,39 +504,54 @@ export type Database = {
       }
       media_appearances: {
         Row: {
+          aeo_tags: string[]
           appearance_date: string | null
           created_at: string
           description: string | null
           external_url: string | null
           featured: boolean
+          geo_tags: string[]
           id: string
           media_type: Database["public"]["Enums"]["media_type"]
+          seo_description: string | null
+          seo_keywords: string[]
+          seo_title: string | null
           show_name: string
           thumbnail_url: string | null
           title: string
           updated_at: string
         }
         Insert: {
+          aeo_tags?: string[]
           appearance_date?: string | null
           created_at?: string
           description?: string | null
           external_url?: string | null
           featured?: boolean
+          geo_tags?: string[]
           id?: string
           media_type?: Database["public"]["Enums"]["media_type"]
+          seo_description?: string | null
+          seo_keywords?: string[]
+          seo_title?: string | null
           show_name: string
           thumbnail_url?: string | null
           title: string
           updated_at?: string
         }
         Update: {
+          aeo_tags?: string[]
           appearance_date?: string | null
           created_at?: string
           description?: string | null
           external_url?: string | null
           featured?: boolean
+          geo_tags?: string[]
           id?: string
           media_type?: Database["public"]["Enums"]["media_type"]
+          seo_description?: string | null
+          seo_keywords?: string[]
+          seo_title?: string | null
           show_name?: string
           thumbnail_url?: string | null
           title?: string
