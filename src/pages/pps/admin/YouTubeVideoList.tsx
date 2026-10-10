@@ -5,6 +5,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { BulkYouTubeImportDialog } from "@/components/pps/admin/BulkYouTubeImportDialog";
+import { ScanYouTubeButton, ReviewStatusBadge } from "@/components/pps/admin/ScanYouTubeButton";
 import { Toggle } from "@/components/ui/toggle";
 import {
   Select,
@@ -21,7 +22,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Plus, Search, Pencil, Trash2, Eye, ArrowUp, ArrowDown, Star, Youtube } from "lucide-react";
+import { Plus, Search, Pencil, Trash2, Eye, ArrowUp, ArrowDown, Star, Youtube, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface YouTubeVideo {
@@ -34,6 +35,7 @@ interface YouTubeVideo {
   content_type: string;
   playlist: string | null;
   featured: boolean;
+  review_status: string;
   created_at: string;
 }
 
@@ -45,6 +47,7 @@ export default function YouTubeVideoList() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("all");
+  const [pendingOnly, setPendingOnly] = useState(false);
   const [featuredOnly, setFeaturedOnly] = useState(false);
   const [dateSortAsc, setDateSortAsc] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -55,11 +58,14 @@ export default function YouTubeVideoList() {
       setLoading(true);
       let query = supabase
         .from("youtube_videos")
-        .select("id, title, youtube_url, youtube_video_id, duration, published_date, content_type, playlist, featured, created_at")
+        .select("id, title, youtube_url, youtube_video_id, duration, published_date, content_type, playlist, featured, review_status, created_at")
         .order("published_date", { ascending: dateSortAsc, nullsFirst: false });
 
       if (typeFilter !== "all") {
         query = query.eq("content_type", typeFilter as any);
+      }
+      if (pendingOnly) {
+        query = query.eq("review_status", "pending");
       }
       if (featuredOnly) {
         query = query.eq("featured", true);
@@ -73,7 +79,17 @@ export default function YouTubeVideoList() {
       setLoading(false);
     };
     fetchVideos();
-  }, [user, search, typeFilter, featuredOnly, dateSortAsc, refreshKey]);
+  }, [user, search, typeFilter, featuredOnly, pendingOnly, dateSortAsc, refreshKey]);
+
+  const handleApprove = async (id: string) => {
+    const { error } = await supabase.from("youtube_videos").update({ review_status: "published" }).eq("id", id);
+    if (error) {
+      toast({ title: "Error", description: error.message, variant: "destructive" });
+    } else {
+      setItems((prev) => prev.map((i) => (i.id === id ? { ...i, review_status: "published" } : i)));
+      toast({ title: "Approved and live" });
+    }
+  };
 
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this video?")) return;
@@ -96,6 +112,7 @@ export default function YouTubeVideoList() {
             <p className="text-sm text-muted-foreground">Manage your YouTube video content</p>
           </div>
           <div className="flex items-center gap-2">
+            <ScanYouTubeButton onDone={() => setRefreshKey((k) => k + 1)} />
             <BulkYouTubeImportDialog onImported={() => setRefreshKey((k) => k + 1)} />
             <Button size="sm" onClick={() => navigate("/admin/youtube/new")}>
               <Plus className="h-4 w-4 mr-1" /> New Video
@@ -120,6 +137,14 @@ export default function YouTubeVideoList() {
               <SelectItem value="appearance">Appearance</SelectItem>
             </SelectContent>
           </Select>
+          <Toggle
+            size="sm"
+            pressed={pendingOnly}
+            onPressedChange={setPendingOnly}
+            className="gap-1.5 data-[state=on]:bg-secondary/10 data-[state=on]:text-secondary border border-input"
+          >
+            Pending only
+          </Toggle>
           <Toggle
             size="sm"
             pressed={featuredOnly}
@@ -161,7 +186,7 @@ export default function YouTubeVideoList() {
                       {dateSortAsc ? <ArrowUp className="h-3.5 w-3.5" /> : <ArrowDown className="h-3.5 w-3.5" />}
                     </span>
                   </TableHead>
-                  <TableHead className="w-28">Actions</TableHead>
+                  <TableHead className="w-36">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -172,6 +197,7 @@ export default function YouTubeVideoList() {
                     </TableCell>
                     <TableCell>
                       <span className="font-medium">{item.title}</span>
+                      <ReviewStatusBadge status={item.review_status} />
                     </TableCell>
                     <TableCell>
                       <span className="text-sm capitalize">{item.content_type}</span>
@@ -183,6 +209,11 @@ export default function YouTubeVideoList() {
                     </TableCell>
                     <TableCell>
                       <div className="flex gap-1" onClick={(e) => e.stopPropagation()}>
+                        {item.review_status === "pending" && (
+                          <Button variant="ghost" size="icon" className="h-8 w-8 text-primary" title="Approve" aria-label="Approve video" onClick={() => handleApprove(item.id)}>
+                            <Check className="h-4 w-4" />
+                          </Button>
+                        )}
                         <Button variant="ghost" size="icon" className="h-8 w-8" asChild title="View on YouTube" aria-label="View on YouTube">
                           <a href={item.youtube_url} target="_blank" rel="noopener noreferrer">
                             <Eye className="h-4 w-4" />
