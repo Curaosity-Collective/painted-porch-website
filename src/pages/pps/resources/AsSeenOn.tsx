@@ -79,6 +79,7 @@ async function fetchAppearances(): Promise<MediaAppearance[]> {
   const { data: appearances, error } = await supabase
     .from("media_appearances")
     .select("*")
+    .eq("review_status", "published")
     .order("featured", { ascending: false })
     .order("appearance_date", { ascending: false, nullsFirst: false })
     .order("created_at", { ascending: false });
