@@ -38,6 +38,7 @@ async function fetchVideos(): Promise<YouTubeVideo[]> {
   const { data: videos, error } = await supabase
     .from("youtube_videos")
     .select("*")
+    .eq("review_status", "published")
     .order("published_date", { ascending: false, nullsFirst: false });
 
   if (error) throw error;
@@ -147,7 +148,7 @@ export default function YouTubePage() {
         headline="YouTube Channel"
         description="Video content, tutorials, and conversations on leadership, change management, and organizational transformation."
         ctas={[
-          { label: "Subscribe on YouTube", href: "https://youtube.com/@paintedporchstrategies", isPrimary: true },
+          { label: "Subscribe on YouTube", href: "https://youtube.com/@onthepaintedporch", isPrimary: true },
         ]}
         background={{ type: "image", src: youtubeHero }}
         overlayClass="bg-navy/50"

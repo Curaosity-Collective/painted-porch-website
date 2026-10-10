@@ -78,6 +78,7 @@ async function fetchBlogPosts(): Promise<BlogPost[]> {
     supabase
       .from("media_appearances")
       .select("*")
+      .eq("review_status", "published")
       .order("appearance_date", { ascending: false, nullsFirst: false }),
   ]);
 

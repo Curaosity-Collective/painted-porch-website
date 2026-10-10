@@ -513,6 +513,7 @@ export type Database = {
           geo_tags: string[]
           id: string
           media_type: Database["public"]["Enums"]["media_type"]
+          review_status: string
           seo_description: string | null
           seo_keywords: string[]
           seo_title: string | null
@@ -531,6 +532,7 @@ export type Database = {
           geo_tags?: string[]
           id?: string
           media_type?: Database["public"]["Enums"]["media_type"]
+          review_status?: string
           seo_description?: string | null
           seo_keywords?: string[]
           seo_title?: string | null
@@ -549,6 +551,7 @@ export type Database = {
           geo_tags?: string[]
           id?: string
           media_type?: Database["public"]["Enums"]["media_type"]
+          review_status?: string
           seo_description?: string | null
           seo_keywords?: string[]
           seo_title?: string | null
@@ -1017,6 +1020,7 @@ export type Database = {
           id: string
           playlist: string | null
           published_date: string | null
+          review_status: string
           thumbnail_url: string | null
           title: string
           updated_at: string
@@ -1033,6 +1037,7 @@ export type Database = {
           id?: string
           playlist?: string | null
           published_date?: string | null
+          review_status?: string
           thumbnail_url?: string | null
           title: string
           updated_at?: string
@@ -1049,6 +1054,7 @@ export type Database = {
           id?: string
           playlist?: string | null
           published_date?: string | null
+          review_status?: string
           thumbnail_url?: string | null
           title?: string
           updated_at?: string

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
+import { ScanYouTubeButton, ReviewStatusBadge } from "@/components/pps/admin/ScanYouTubeButton";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import {
@@ -20,7 +21,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Plus, Search, Pencil, Trash2, Mic, Radio, Newspaper, Video, MonitorPlay, Users, Eye, ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
+import { Plus, Search, Pencil, Trash2, Mic, Radio, Newspaper, Video, MonitorPlay, Users, Eye, ArrowUpDown, ArrowUp, ArrowDown, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const mediaTypeIcons: Record<string, typeof Mic> = {
@@ -40,6 +41,7 @@ interface Appearance {
   appearance_date: string | null;
   external_url: string | null;
   featured: boolean;
+  review_status: string;
   created_at: string;
   updated_at: string;
 }
@@ -53,6 +55,8 @@ export default function MediaAppearanceList() {
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("all");
   const [dateSortAsc, setDateSortAsc] = useState(false);
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     if (!user) return;
@@ -60,11 +64,14 @@ export default function MediaAppearanceList() {
       setLoading(true);
       let query = supabase
         .from("media_appearances")
-        .select("id, media_type, show_name, title, appearance_date, external_url, featured, created_at, updated_at")
+        .select("id, media_type, show_name, title, appearance_date, external_url, featured, review_status, created_at, updated_at")
         .order("appearance_date", { ascending: dateSortAsc, nullsFirst: false });
 
       if (typeFilter !== "all") {
         query = query.eq("media_type", typeFilter as any);
+      }
+      if (statusFilter !== "all") {
+        query = query.eq("review_status", statusFilter);
       }
       if (search) {
         query = query.or(`title.ilike.%${search}%,show_name.ilike.%${search}%`);
@@ -75,7 +82,17 @@ export default function MediaAppearanceList() {
       setLoading(false);
     };
     fetch();
-  }, [user, search, typeFilter, dateSortAsc]);
+  }, [user, search, typeFilter, statusFilter, dateSortAsc, refreshKey]);
+
+  const handleApprove = async (id: string) => {
+    const { error } = await supabase.from("media_appearances").update({ review_status: "published" }).eq("id", id);
+    if (error) {
+      toast({ title: "Error", description: error.message, variant: "destructive" });
+    } else {
+      setItems((prev) => prev.map((i) => (i.id === id ? { ...i, review_status: "published" } : i)));
+      toast({ title: "Approved and live" });
+    }
+  };
 
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this appearance?")) return;
@@ -97,6 +114,7 @@ export default function MediaAppearanceList() {
             <p className="text-sm text-muted-foreground">Manage your As Seen On content</p>
           </div>
           <div className="flex items-center gap-2">
+            <ScanYouTubeButton onDone={() => setRefreshKey((k) => k + 1)} />
             <Button size="sm" onClick={() => navigate("/admin/media/new")}>
               <Plus className="h-4 w-4 mr-1" /> New Appearance
             </Button>
@@ -122,6 +140,16 @@ export default function MediaAppearanceList() {
               <SelectItem value="webinar">Webinar</SelectItem>
               <SelectItem value="video">Video</SelectItem>
               <SelectItem value="panel">Panel</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select value={statusFilter} onValueChange={setStatusFilter}>
+            <SelectTrigger className="w-40" aria-label="Filter by status">
+              <SelectValue placeholder="All Statuses" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Statuses</SelectItem>
+              <SelectItem value="pending">Pending</SelectItem>
+              <SelectItem value="published">Live</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -154,7 +182,7 @@ export default function MediaAppearanceList() {
                       {dateSortAsc ? <ArrowUp className="h-3.5 w-3.5" /> : <ArrowDown className="h-3.5 w-3.5" />}
                     </span>
                   </TableHead>
-                  <TableHead className="w-24">Actions</TableHead>
+                  <TableHead className="w-32">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -168,13 +196,18 @@ export default function MediaAppearanceList() {
                           <span className="text-sm capitalize">{item.media_type}</span>
                         </div>
                       </TableCell>
-                      <TableCell><span className="font-medium">{item.title}</span></TableCell>
+                      <TableCell><span className="font-medium">{item.title}</span><ReviewStatusBadge status={item.review_status} /></TableCell>
                       <TableCell className="text-sm text-muted-foreground">{item.show_name}</TableCell>
                       <TableCell className="text-sm text-muted-foreground">
                         {item.appearance_date ? new Date(item.appearance_date).toLocaleDateString() : ", "}
                       </TableCell>
                       <TableCell>
                         <div className="flex gap-1" onClick={(e) => e.stopPropagation()}>
+                          {item.review_status === "pending" && (
+                            <Button variant="ghost" size="icon" className="h-8 w-8 text-primary" title="Approve" aria-label="Approve appearance" onClick={() => handleApprove(item.id)}>
+                              <Check className="h-4 w-4" />
+                            </Button>
+                          )}
                           {item.external_url && (
                             <Button variant="ghost" size="icon" className="h-8 w-8" asChild title="View on Website" aria-label="View on website">
                               <a href={item.external_url} target="_blank" rel="noopener noreferrer">
