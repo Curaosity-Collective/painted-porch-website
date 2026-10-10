@@ -282,7 +282,9 @@ export async function scrapeLinkedInArticle(url: string): Promise<ParsedLinkedIn
         headers: { "User-Agent": ua, Accept: "text/html", "Accept-Language": "en-US,en;q=0.9" },
         redirect: "follow",
       });
-      if (!res.ok) {
+      // LinkedIn sometimes answers 404 while still sending the full article,
+      // so judge by the content, not the status code.
+      if (res.status >= 500 || res.status === 429 || res.status === 999) {
         await res.body?.cancel();
         continue;
       }
