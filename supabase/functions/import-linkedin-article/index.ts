@@ -14,6 +14,7 @@ const KNOWN_AUTHOR_SUFFIXES = [
   "rob-hunter",
   "sierra-ramm-cantrell",
   "sierra-cantrell",
+  "yackowski",
 ];
 
 function slugFromUrl(url: string): string {

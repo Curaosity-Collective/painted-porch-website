@@ -31,7 +31,7 @@ const AUTHOR_SLUGS = ["amy-yackowski", "-yackowski-"];
 // Edge functions have a time budget; import at most this many per click.
 const MAX_IMPORTS_PER_RUN = 5;
 
-const KNOWN_AUTHOR_SUFFIXES = ["amy-yackowski", "rob-hunter", "sierra-ramm-cantrell", "sierra-cantrell"];
+const KNOWN_AUTHOR_SUFFIXES = ["amy-yackowski", "rob-hunter", "sierra-ramm-cantrell", "sierra-cantrell", "yackowski"];
 
 function slugFromUrl(url: string): string {
   const match = url.match(/\/pulse\/([^/?]+)/);
