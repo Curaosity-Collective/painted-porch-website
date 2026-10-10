@@ -253,49 +253,77 @@ Rules:
 - seo_keywords: 6-10. aeo_tags: 3-5 natural questions this appearance answers. geo_tags: 2-4 (e.g. "United States", "Global").
 - No em-dashes anywhere.`;
 
-    const ai = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const strArr = { type: "array", items: { type: "string" } };
+    const schema = {
+      type: "object",
+      additionalProperties: false,
+      properties: {
+        title: { type: "string" },
+        show_name: { type: "string" },
+        media_type: { type: "string", enum: [...MEDIA_TYPES] },
+        appearance_date: { type: ["string", "null"] },
+        description: { type: "string" },
+        seo_title: { type: "string" },
+        seo_description: { type: "string" },
+        seo_keywords: strArr,
+        aeo_tags: strArr,
+        geo_tags: strArr,
+        category_ids: strArr,
+      },
+      required: ["title", "show_name", "media_type", "appearance_date", "description", "seo_title", "seo_description", "seo_keywords", "aeo_tags", "geo_tags", "category_ids"],
+    };
+
+    const ai = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
       method: "POST",
-      headers: { Authorization: `Bearer ${lovableKey}`, "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Lovable-API-Key": lovableKey,
+        "X-Lovable-AIG-SDK": "fetch",
+      },
       body: JSON.stringify({
-        model: "google/gemini-3-flash-preview",
-        messages: [{ role: "user", content: prompt }],
-        tools: [{
-          type: "function",
-          function: {
-            name: "fill_media_appearance",
-            parameters: {
-              type: "object",
-              properties: {
-                title: { type: "string" },
-                show_name: { type: "string" },
-                media_type: { type: "string", enum: [...MEDIA_TYPES] },
-                appearance_date: { type: ["string", "null"] },
-                description: { type: "string" },
-                seo_title: { type: "string" },
-                seo_description: { type: "string" },
-                seo_keywords: { type: "array", items: { type: "string" } },
-                aeo_tags: { type: "array", items: { type: "string" } },
-                geo_tags: { type: "array", items: { type: "string" } },
-                category_ids: { type: "array", items: { type: "string" } },
-              },
-              required: ["title", "show_name", "media_type", "description", "seo_title", "seo_description", "seo_keywords", "aeo_tags", "geo_tags", "category_ids"],
-            },
-          },
-        }],
-        tool_choice: { type: "function", function: { name: "fill_media_appearance" } },
+        model: "openai/gpt-6-astra",
+        input: [{ role: "user", content: prompt }],
+        stream: true,
+        store: false,
+        reasoning: { effort: "low", summary: "auto" },
+        include: ["reasoning.encrypted_content"],
+        text: { format: { type: "json_schema", name: "media_appearance", strict: true, schema } },
       }),
     });
 
     if (ai.status === 429) return json({ error: "AI is busy right now. Try again in a minute." }, 429);
     if (ai.status === 402) return json({ error: "AI credits are used up. Add credits in Settings, then retry." }, 402);
-    if (!ai.ok) {
-      console.error("AI error", ai.status, await ai.text());
+    if (!ai.ok || !ai.body) {
+      console.error("AI error", ai.status, await ai.text().catch(() => ""));
       return json({ error: "AI could not process this link." }, 500);
     }
-    const aiData = await ai.json();
-    const args = aiData?.choices?.[0]?.message?.tool_calls?.[0]?.function?.arguments;
+
+    // Read the SSE stream and collect the JSON answer.
+    let outText = "";
+    let finalText = "";
+    const reader = ai.body.pipeThrough(new TextDecoderStream()).getReader();
+    let buf = "";
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buf += value;
+      let nl: number;
+      while ((nl = buf.indexOf("\n")) !== -1) {
+        const line = buf.slice(0, nl).trim();
+        buf = buf.slice(nl + 1);
+        if (!line.startsWith("data:")) continue;
+        const data = line.slice(5).trim();
+        if (!data || data === "[DONE]") continue;
+        try {
+          const ev = JSON.parse(data);
+          if (ev.type === "response.output_text.delta" && typeof ev.delta === "string") outText += ev.delta;
+          else if (ev.type === "response.output_text.done" && typeof ev.text === "string") finalText = ev.text;
+          else if (ev.type === "response.failed" || ev.type === "error") console.error("AI stream error", data);
+        } catch { /* partial line */ }
+      }
+    }
     let filled: any = {};
-    try { filled = typeof args === "string" ? JSON.parse(args) : args || {}; } catch { filled = {}; }
+    try { filled = JSON.parse(finalText || outText); } catch { console.error("AI JSON parse failed", outText.slice(0, 500)); }
 
     const noDash = (s: unknown) => (typeof s === "string" ? s.replace(/\s*—\s*/g, " - ").trim() : s);
     const validIds = new Set(categories.map((c) => c.id));
