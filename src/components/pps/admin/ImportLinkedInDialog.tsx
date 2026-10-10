@@ -107,14 +107,18 @@ export default function ImportLinkedInDialog({ onImported }: ImportLinkedInDialo
 
       if (data?.error) throw new Error(data.error);
 
-      const msg = data.imported > 0
-        ? `Imported ${data.imported} new article(s): ${data.imported_slugs.join(", ")}`
-        : `No new articles found. ${data.skipped} already imported.`;
+      let msg = data.imported > 0
+        ? `Imported ${data.imported} new article(s): ${data.imported_slugs.join(", ")}.`
+        : `No new articles found. ${data.skipped} already on the blog.`;
+      if (data.remaining > 0) msg += ` ${data.remaining} more waiting. Click Scan again to keep going.`;
+      if (data.errors > 0) msg += ` ${data.errors} could not be read.`;
 
       toast({
         title: data.imported > 0 ? "New articles imported!" : "All caught up",
         description: msg,
+        variant: data.errors > 0 && data.imported === 0 ? "destructive" : undefined,
       });
+      if (data.error_details?.length) console.warn("Scan errors:", data.error_details);
 
       if (data.imported > 0) {
         setOpen(false);

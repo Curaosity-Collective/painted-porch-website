@@ -1,4 +1,5 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { scrapeLinkedInArticle } from "../_shared/linkedin-article.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -31,165 +32,42 @@ function slugFromUrl(url: string): string {
   return slug.replace(/[^a-z0-9-]/g, "");
 }
 
+
 /**
- * FALLBACK SCRAPER — LinkedIn serves the full server-rendered article to
- * crawler user agents, even when Firecrawl's proxies get hard-blocked by the
- * anti-bot layer (document_antibot). We fetch the page ourselves and convert
- * the `article-content-blocks` markup into markdown.
+ * Download a LinkedIn-hosted image and store it in the public blog-images
+ * bucket. Returns the new public URL, or null if the copy failed (callers
+ * keep the original URL in that case).
  */
-function decodeEntities(s: string): string {
-  return s
-    .replace(/&nbsp;/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;|&apos;/g, "'")
-    .replace(/&hellip;/g, "…")
-    .replace(/&mdash;/g, "—")
-    .replace(/&ndash;/g, "–")
-    .replace(/&rsquo;/g, "’")
-    .replace(/&lsquo;/g, "‘")
-    .replace(/&rdquo;/g, "”")
-    .replace(/&ldquo;/g, "“")
-    .replace(/&#(\d+);/g, (_m, d) => String.fromCodePoint(Number(d)))
-    .replace(/&#x([0-9a-f]+);/gi, (_m, h) => String.fromCodePoint(parseInt(h, 16)));
-}
-
-function inlineHtmlToMarkdown(html: string): string {
-  let out = html
-    .replace(/<!--[\s\S]*?-->/g, "")
-    .replace(/<br\s*\/?>/gi, "\n")
-    .replace(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi, (_m, href, inner) => {
-      const text = inlineHtmlToMarkdown(inner).trim();
-      return text ? `[${text}](${decodeEntities(href)})` : "";
-    })
-    .replace(/<(strong|b)\b[^>]*>([\s\S]*?)<\/\1>/gi, (_m, _t, inner) => {
-      const text = inlineHtmlToMarkdown(inner).trim();
-      return text ? `**${text}**` : "";
-    })
-    .replace(/<(em|i)\b[^>]*>([\s\S]*?)<\/\1>/gi, (_m, _t, inner) => {
-      const text = inlineHtmlToMarkdown(inner).trim();
-      return text ? `*${text}*` : "";
-    })
-    .replace(/<span\b[^>]*class="[^"]*\bitalic\b[^"]*"[^>]*>([\s\S]*?)<\/span>/gi, (_m, inner) => {
-      const text = inlineHtmlToMarkdown(inner).trim();
-      return text ? `*${text}*` : "";
-    })
-    .replace(/<span\b[^>]*class="[^"]*\bbold\b[^"]*"[^>]*>([\s\S]*?)<\/span>/gi, (_m, inner) => {
-      const text = inlineHtmlToMarkdown(inner).trim();
-      return text ? `**${text}**` : "";
-    })
-    .replace(/<\/?span\b[^>]*>/gi, "")
-    .replace(/<[^>]+>/g, "");
-  out = decodeEntities(out).replace(/[ \t]+/g, " ");
-  return out;
-}
-
-function blockHtmlToMarkdown(html: string): string {
-  const parts: string[] = [];
-  // Images
-  let work = html
-    .replace(/<iframe[\s\S]*?<\/iframe>/gi, "")
-    .replace(/<figcaption\b[^>]*>([\s\S]*?)<\/figcaption>/gi, (_m, inner) => `<p><em>${inner}</em></p>`)
-    .replace(/<img\b[^>]*src="([^"]+)"[^>]*>/gi, (_m, src) => `\n\n@@IMG:${decodeEntities(src)}@@\n\n`);
-
-  const blockRe = /<(h[1-6]|p|blockquote|ul|ol)\b[^>]*>([\s\S]*?)<\/\1>/gi;
-  let match: RegExpExecArray | null;
-  let lastIndex = 0;
-  const pushImages = (chunk: string) => {
-    for (const m of chunk.matchAll(/@@IMG:(.*?)@@/g)) {
-      parts.push(`![](${m[1]})`);
-    }
-  };
-  while ((match = blockRe.exec(work)) !== null) {
-    pushImages(work.slice(lastIndex, match.index));
-    lastIndex = blockRe.lastIndex;
-    const tag = match[1].toLowerCase();
-    const inner = match[2];
-    if (tag === "ul" || tag === "ol") {
-      const items = [...inner.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)]
-        .map((m, i) => {
-          const text = inlineHtmlToMarkdown(m[1]).trim();
-          return text ? (tag === "ul" ? `- ${text}` : `${i + 1}. ${text}`) : "";
-        })
-        .filter(Boolean);
-      if (items.length) parts.push(items.join("\n"));
-      continue;
-    }
-    const text = inlineHtmlToMarkdown(inner).replace(/\n{2,}/g, "\n").trim();
-    if (!text) continue;
-    if (tag === "blockquote") {
-      parts.push(text.split("\n").map((l) => `> ${l.trim()}`).join("\n"));
-    } else if (tag.startsWith("h")) {
-      const level = Math.min(Number(tag[1]) + 1, 6);
-      parts.push(`${"#".repeat(level)} ${text}`);
-    } else {
-      parts.push(text);
-    }
+async function rehostImage(src: string, client: any): Promise<string | null> {
+  if (!/^https?:\/\/media\.licdn\.com\//i.test(src)) return null;
+  try {
+    const res = await fetch(src);
+    if (!res.ok) { await res.body?.cancel(); return null; }
+    const type = (res.headers.get("content-type") || "image/jpeg").split(";")[0].trim();
+    const ext = type.includes("gif") ? "gif" : type.includes("png") ? "png" : type.includes("webp") ? "webp" : "jpg";
+    const bytes = new Uint8Array(await res.arrayBuffer());
+    const hash = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-1", bytes)))
+      .map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 20);
+    const path = `posts/linkedin-${hash}.${ext}`;
+    const { error } = await client.storage.from("blog-images").upload(path, bytes, {
+      contentType: type,
+      upsert: true,
+    });
+    if (error) { console.warn("Image rehost upload failed:", error.message); return null; }
+    return client.storage.from("blog-images").getPublicUrl(path).data.publicUrl;
+  } catch (e) {
+    console.warn("Image rehost failed:", e instanceof Error ? e.message : e);
+    return null;
   }
-  pushImages(work.slice(lastIndex));
-  return parts.join("\n\n").replace(/\n{3,}/g, "\n\n").trim();
 }
 
-async function scrapeLinkedInDirect(url: string): Promise<
-  { markdown: string; metadata: Record<string, unknown> } | null
-> {
-  const userAgents = [
-    "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
-    "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)",
-    "LinkedInBot/1.0 (compatible; Mozilla/5.0; +https://www.linkedin.com)",
-  ];
-  for (const ua of userAgents) {
-    try {
-      const res = await fetch(url, {
-        headers: {
-          "User-Agent": ua,
-          Accept: "text/html,application/xhtml+xml",
-          "Accept-Language": "en-US,en;q=0.9",
-        },
-        redirect: "follow",
-      });
-      if (!res.ok) {
-        console.warn(`Direct fetch with UA "${ua}" returned ${res.status}`);
-        continue;
-      }
-      const html = await res.text();
-      const start = html.indexOf('data-test-id="article-content-blocks"');
-      if (start === -1) {
-        console.warn(`Direct fetch with UA "${ua}" returned no article blocks`);
-        continue;
-      }
-      const end = html.indexOf("</article>", start);
-      const bodyHtml = html.slice(start, end === -1 ? undefined : end);
-      const markdown = blockHtmlToMarkdown(bodyHtml);
-      if (!markdown || markdown.length < 200) {
-        console.warn(`Direct fetch with UA "${ua}" produced too little markdown`);
-        continue;
-      }
-      const title = decodeEntities(
-        html.match(/<h1[^>]*class="[^"]*pulse-title[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ??
-          html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] ??
-          ""
-      )
-        .replace(/<[^>]+>/g, "")
-        .replace(/\s+/g, " ")
-        .replace(/ \| LinkedIn$/, "")
-        .trim();
-      const cover =
-        html.match(/class="cover-img__image[^"]*"\s+src="([^"]+)"/i)?.[1] ??
-        html.match(/<meta[^>]+property="og:image"[^>]+content="([^"]+)"/i)?.[1] ??
-        null;
-      console.log(`Direct fetch succeeded with UA "${ua}" (${markdown.length} chars)`);
-      return {
-        markdown: title ? `# ${title}\n\n${markdown}` : markdown,
-        metadata: { title, ogImage: cover ? decodeEntities(cover) : undefined },
-      };
-    } catch (e) {
-      console.warn(`Direct fetch with UA "${ua}" threw: ${e instanceof Error ? e.message : e}`);
-    }
+async function rehostMarkdownImages(md: string, client: any): Promise<string> {
+  const urls = [...new Set([...md.matchAll(/!\[[^\]]*\]\(([^)\s]+)\)/g)].map((m) => m[1]))];
+  for (const u of urls) {
+    const hosted = await rehostImage(u, client);
+    if (hosted) md = md.split(`](${u})`).join(`](${hosted})`);
   }
-  return null;
+  return md;
 }
 
 function extractTextFromTiptap(node: any): string {
@@ -782,6 +660,17 @@ function markdownToTiptap(markdown: string): any {
       continue;
     }
 
+    // Embedded YouTube video placeholder emitted by the shared LinkedIn reader
+    const ytMatch = line.trim().match(/^@@YOUTUBE:([A-Za-z0-9_-]{11})@@$/);
+    if (ytMatch) {
+      content.push({
+        type: "youtube",
+        attrs: { src: `https://www.youtube.com/watch?v=${ytMatch[1]}` },
+      });
+      i++;
+      continue;
+    }
+
     // Standalone image line: ![alt](url)
     const imageMatch = line.trim().match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)$/);
     if (imageMatch) {
@@ -1033,18 +922,25 @@ Deno.serve(async (req) => {
       },
     };
 
-    // LinkedIn currently blocks Firecrawl's browser engines, while its public
-    // server-rendered article page remains readable. Use that fast path first
-    // so the browser request does not wait through several doomed retries.
-    const direct = await scrapeLinkedInDirect(url);
-    let scrapeData: any = direct
-      ? { success: true, data: direct }
-      : null;
-    let lastDetail = "";
+    // PRIMARY PATH: read LinkedIn's server-rendered article block by block.
+    // This keeps in-body images, captions, and videos, and skips the
+    // "Recommended by LinkedIn" widget and newsletter subscribe chrome.
+    const direct = await scrapeLinkedInArticle(url);
 
-    // Keep one Firecrawl attempt as a fallback for pages whose public markup
-    // changes or is temporarily unavailable.
-    if (!scrapeData) {
+    let title = "";
+    let markdown = "";
+    let coverUrl: string | null = null;
+    let publishedAt: string | null = null;
+
+    if (direct) {
+      title = direct.title || "Untitled Import";
+      coverUrl = direct.coverUrl;
+      publishedAt = direct.publishedAt;
+      markdown = stripLeadingTitleAndCover(direct.markdown, title, coverUrl);
+    } else {
+      // FALLBACK: one Firecrawl attempt for pages whose public markup changes.
+      let lastDetail = "";
+      let scrapeData: any = null;
       const scrapeRes = await fetch("https://api.firecrawl.dev/v2/scrape", {
         method: "POST",
         headers: {
@@ -1057,7 +953,6 @@ Deno.serve(async (req) => {
           formats: ["markdown", jsonFormat],
         }),
       });
-
       const body = await scrapeRes.json().catch(() => ({}));
       if (scrapeRes.ok && body?.success) {
         scrapeData = body;
@@ -1065,67 +960,46 @@ Deno.serve(async (req) => {
         lastDetail = typeof body?.error === "string" ? body.error : JSON.stringify(body ?? {});
         console.warn(`Firecrawl fallback failed [${scrapeRes.status}]: ${lastDetail}`);
       }
-    }
 
-    if (!scrapeData) {
-      return new Response(
-        JSON.stringify({
-          error: "Failed to scrape article",
-          detail:
-            "Could not read this LinkedIn article. Firecrawl was blocked and the direct fetch found no article content. Confirm the article opens in a logged-out browser window, then retry. If it is member-only or was deleted, paste the content into a new post manually.",
-          firecrawl_detail: lastDetail,
-        }),
-        {
-          status: 502,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        }
+      if (!scrapeData) {
+        return new Response(
+          JSON.stringify({
+            error: "Failed to scrape article",
+            detail:
+              "Could not read this LinkedIn article. Confirm the article opens in a logged-out browser window, then retry. If it is member-only or was deleted, paste the content into a new post manually.",
+            firecrawl_detail: lastDetail,
+          }),
+          { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
+      const payload = scrapeData.data ?? scrapeData;
+      const extracted = payload.json ?? {};
+      const metadata = payload.metadata ?? {};
+      const fallbackMarkdown: string = payload.markdown || "";
+
+      title =
+        (extracted.title || "").replace(/ \| LinkedIn$/, "").trim() ||
+        metadata.title?.replace(/ \| LinkedIn$/, "").trim() ||
+        fallbackMarkdown.match(/^#\s+(.+)/m)?.[1] ||
+        "Untitled Import";
+      coverUrl = metadata.ogImage || metadata.image || extracted.cover_image_url || null;
+
+      const cleanedRaw = fallbackMarkdown ? cleanLinkedInMarkdown(fallbackMarkdown, title) : "";
+      const slicedRawMarkdown = sliceRawByBoundaries(
+        cleanedRaw,
+        extracted.first_paragraph_snippet || "",
+        extracted.last_paragraph_snippet || ""
+      );
+      markdown = chooseFormattedBodyMarkdown(
+        slicedRawMarkdown || cleanedRaw,
+        extracted.body_markdown || "",
+        title,
+        coverUrl,
+        extracted.first_paragraph_snippet || "",
+        extracted.last_paragraph_snippet || ""
       );
     }
-
-
-
-    const payload = scrapeData.data ?? scrapeData;
-    const extracted = payload.json ?? {};
-    const metadata = payload.metadata ?? {};
-    const fallbackMarkdown: string = payload.markdown || "";
-
-    let title: string =
-      (extracted.title || "").replace(/ \| LinkedIn$/, "").trim() ||
-      metadata.title?.replace(/ \| LinkedIn$/, "").trim() ||
-      fallbackMarkdown.match(/^#\s+(.+)/m)?.[1] ||
-      "Untitled Import";
-
-    if (extracted.cover_image_url && !metadata.ogImage) {
-      metadata.ogImage = extracted.cover_image_url;
-    }
-
-    // PREFERRED PATH: slice raw markdown between LLM-located boundaries so
-    // bold/italic/links/in-body images survive (LLM body_markdown tends to
-    // flatten inline marks and drop images). Falls back to LLM body_markdown
-    // if the boundaries can't be found in the raw scrape.
-    const cleanedRaw = fallbackMarkdown ? cleanLinkedInMarkdown(fallbackMarkdown, title) : "";
-    const coverUrlForStrip: string | null =
-      metadata.ogImage || metadata.image || extracted.cover_image_url || null;
-
-    // PREFERRED PATH: slice raw markdown between LLM-located boundaries so
-    // bold/italic/links/in-body images survive (LLM body_markdown tends to
-    // flatten inline marks, drop images, AND silently summarize the body —
-    // which is why we no longer fall back to it).
-    const slicedRawMarkdown = sliceRawByBoundaries(
-      cleanedRaw,
-      extracted.first_paragraph_snippet || "",
-      extracted.last_paragraph_snippet || ""
-    );
-
-    let markdown = chooseFormattedBodyMarkdown(
-      slicedRawMarkdown || cleanedRaw,
-      extracted.body_markdown || "",
-      title,
-      coverUrlForStrip,
-      extracted.first_paragraph_snippet || "",
-      extracted.last_paragraph_snippet || ""
-    );
-
 
     if (!markdown) {
       return new Response(
@@ -1146,6 +1020,12 @@ Deno.serve(async (req) => {
         .replace(/^-|-$/g, "")
         .slice(0, 80);
     }
+
+    // Copy LinkedIn-hosted images (body + cover) into our own storage so
+    // they never break if LinkedIn rotates its image links.
+    const storageClient = createClient(supabaseUrl, serviceKey);
+    markdown = await rehostMarkdownImages(markdown, storageClient);
+    if (coverUrl) coverUrl = (await rehostImage(coverUrl, storageClient)) ?? coverUrl;
 
     // Convert markdown to Tiptap JSON
     const bodyJson = markdownToTiptap(markdown);
@@ -1233,7 +1113,7 @@ Deno.serve(async (req) => {
           title,
           excerpt,
           body_json: bodyJson,
-          cover_image_url: metadata.ogImage || metadata.image || null,
+          cover_image_url: coverUrl,
           updated_at: new Date().toISOString(),
         })
         .eq("id", existing.id)
@@ -1258,9 +1138,9 @@ Deno.serve(async (req) => {
           featured: false,
           excerpt,
           body_json: bodyJson,
-          cover_image_url: metadata.ogImage || metadata.image || null,
+          cover_image_url: coverUrl,
           author_id: user.id,
-          publish_date: new Date().toISOString(),
+          publish_date: publishedAt ? new Date(publishedAt).toISOString() : new Date().toISOString(),
         })
         .select("id, slug")
         .single();
