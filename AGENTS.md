@@ -10,20 +10,20 @@ voice or data in here.
 
 ### Client records
 
-Every business in the portfolio is moving off GoHighLevel (GHL), the CRM in use today. Don't build
-anything new on GHL: no new pipeline, nurture, lead-generation, or client or resource delivery
-features. Existing GHL writes keep running until they are migrated. Change them only to keep them
-working.
+Every business in the portfolio is moving off GoHighLevel (GHL), the CRM in use today, to
+self-managed CRM and marketing. Don't build anything new on GHL: no new pipeline, nurture,
+lead-generation, or client or resource delivery features. Existing GHL writes keep running until
+they are migrated. Change them only to keep them working.
 
 New intake and lead capture from this site goes to the PPS Ops Hub, Painted Porch Strategies' own operations platform, not to GHL.
 
 Whatever system holds client records:
 
 - One person, one record: match on email so you never create a duplicate. An email typed into a form doesn't prove who sent it, so an unverified submission may add to an existing record but never overwrite or remove what is there.
-- Record the brand as a field, never a tag. A contact can belong to several brands: add "Painted Porch Strategies" without removing the others, and keep the brand they first came through. A deal belongs to one brand ("Painted Porch Strategies").
-- Record the source (which page or form) and any consent exactly as the person gave it.
+- On every contact, keep the email, the brand ("Painted Porch Strategies"), the source (which page or form), the date, and any consent exactly as the person gave it. Brand and source are fields, never tags. A deal belongs to one brand ("Painted Porch Strategies").
 - Choose pipelines and stages by ID, never by name.
 - Keep CRM and API keys server-side (edge or server functions only), never in browser code.
+- Never copy another business's client records into this project.
 
 ### Business decisions
 
