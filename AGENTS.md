@@ -25,8 +25,6 @@ Whatever system holds client records:
 - Choose pipelines and stages by ID, never by name.
 - Keep CRM and API keys server-side (edge or server functions only), never in browser code.
 
-**Known gap:** The lead form, the Blue Door purchase webhook and course-launch notices write to GHL today, and the purchase records no brand field. Don't fix these in GHL: they move to the PPS Ops Hub.
-
 ### Business decisions
 
 Pricing, offers, tools, roles, and anything that touches another business are decided outside this
