@@ -10,17 +10,22 @@ voice or data in here.
 
 ### Client records
 
-All client relationship data goes to the one shared CRM (GoHighLevel today). This project's own
-database may hold a reference to the CRM contact, never a rival copy of the relationship. When this
-project sends a contact or deal to the CRM:
+Every business in the portfolio is moving off GoHighLevel (GHL), the CRM in use today. Don't build
+anything new on GHL: no new pipeline, nurture, lead-generation, or client or resource delivery
+features. Existing GHL writes keep running until they are migrated. Change them only to keep them
+working.
 
-- Upsert the contact by email. Never create a duplicate contact.
-- Add "Painted Porch Strategies" to the contact's Brands field. Append, never overwrite.
-- Set First Touch Brand only when the contact is new.
+New intake and lead capture from this site goes to the PPS Ops Hub, Painted Porch Strategies' own operations platform, not to GHL.
+
+Whatever system holds client records:
+
+- One person, one record: match on email so you never create a duplicate. An email typed into a form doesn't prove who sent it, so an unverified submission may add to an existing record but never overwrite or remove what is there.
+- Record the brand as a field, never a tag. A contact can belong to several brands: add "Painted Porch Strategies" without removing the others, and keep the brand they first came through. A deal belongs to one brand ("Painted Porch Strategies").
 - Record the source (which page or form) and any consent exactly as the person gave it.
-- If you create an opportunity, set its Brand field to one brand ("Painted Porch Strategies") and choose pipeline and stage by ID, never by name.
-- Never use tags as the brand record.
-- Keep CRM keys server-side (edge or server functions only), never in browser code.
+- Choose pipelines and stages by ID, never by name.
+- Keep CRM and API keys server-side (edge or server functions only), never in browser code.
+
+**Known gap:** The lead form, the Blue Door purchase webhook and course-launch notices write to GHL today, and the purchase records no brand field. Don't fix these in GHL: they move to the PPS Ops Hub.
 
 ### Business decisions
 
