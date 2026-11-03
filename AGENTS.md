@@ -27,9 +27,11 @@ Whatever system holds client records:
 
 ### Business decisions
 
-Pricing, offers, tools, roles, and anything that touches another business are decided outside this
-project, in the portfolio's internal operations hub. If a request would change one of those, flag it
-instead of deciding it in code.
+A decision that concerns only Painted Porch Strategies, such as its own offers, pricing, or a tool
+only PPS uses, is recorded in the PPS Ops Hub's decision register. A decision that affects another
+business or the whole portfolio, such as shared tools, roles or accounts, is made in the portfolio's
+internal operations hub. If a request would change one of these, flag it instead of deciding it in
+code.
 <!-- CURAOSITY-HUB:END -->
 
 # Project rules
