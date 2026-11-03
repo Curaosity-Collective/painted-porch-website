@@ -32,6 +32,10 @@ only PPS uses, is recorded in the PPS Ops Hub's decision register. A decision th
 business or the whole portfolio, such as shared tools, roles or accounts, is made in the portfolio's
 internal operations hub. If a request would change one of these, flag it instead of deciding it in
 code.
+
+### Knowledge-base publication
+
+Every Google Doc used as an Ops Hub knowledge-base view must have a substantive, committed repository source. The repository is authoritative; the Doc is a supporting visual view. Use native Google Docs, not uploaded Word or Markdown files. Keep source path, full commit, version/status and source/view links aligned. Project snapshots are dated references: check current repository main and the linked Doc before relying on a current decision. Deliver repository and native-Doc links by default, not ZIP or Word exports.
 <!-- CURAOSITY-HUB:END -->
 
 # Project rules
