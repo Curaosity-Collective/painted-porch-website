@@ -42,6 +42,16 @@ export const ALWAYS_LIVE_PREFIXES = [
   "/blue-door-archive",
   "/for-teams",
   "/envision-shift",
+  // Relaunch (plan Phase 5, PPS Admin 2026-11-05). The P.A.T.H., Architect ShIFt
+  // and Embody ShIFt are redirect targets (/partner, /partner/amplify/sprints,
+  // /partner/embody), so they must never show "Coming Soon". The old Draft
+  // addresses now only redirect to /, /about and /about/impact.
+  "/the-path",
+  "/architect-shift",
+  "/embody-shift",
+  "/home-next",
+  "/about-next",
+  "/about/impact-next",
 ];
 
 function stripQuery(pathname: string): string {

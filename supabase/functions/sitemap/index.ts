@@ -24,6 +24,14 @@ const ALWAYS_LIVE_PREFIXES = [
   "/blue-door-archive",
   "/for-teams",
   "/envision-shift",
+  // Relaunch (plan Phase 5): redirect targets of /partner, /partner/amplify/sprints
+  // and /partner/embody, and the old Draft addresses that now redirect.
+  "/the-path",
+  "/architect-shift",
+  "/embody-shift",
+  "/home-next",
+  "/about-next",
+  "/about/impact-next",
 ];
 
 function isAlwaysLive(path: string) {
@@ -76,10 +84,13 @@ Deno.serve(async (req) => {
     { loc: "/about", priority: "0.8", changefreq: "monthly" },
     { loc: "/about/approach", priority: "0.7", changefreq: "monthly" },
     { loc: "/about/impact", priority: "0.7", changefreq: "monthly" },
-    { loc: "/partner", priority: "0.9", changefreq: "monthly" },
+    // Relaunch (plan Phase 5): The P.A.T.H. and the three ShIFts. /partner and
+    // /partner/embody now redirect to them, so they are no longer listed.
+    { loc: "/the-path", priority: "0.9", changefreq: "monthly" },
+    { loc: "/architect-shift", priority: "0.9", changefreq: "monthly" },
+    { loc: "/embody-shift", priority: "0.9", changefreq: "monthly" },
     { loc: "/partner/ignite", priority: "0.8", changefreq: "monthly" },
     { loc: "/partner/amplify", priority: "0.8", changefreq: "monthly" },
-    { loc: "/partner/embody", priority: "0.8", changefreq: "monthly" },
     { loc: "/resources", priority: "0.8", changefreq: "weekly" },
     { loc: "/resources/insights", priority: "0.9", changefreq: "daily" },
     { loc: "/resources/free", priority: "0.7", changefreq: "monthly" },

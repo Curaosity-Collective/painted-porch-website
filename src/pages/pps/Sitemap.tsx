@@ -221,7 +221,7 @@ export const sitemapData: SitemapNode[] = [
     path: "/speaking",
     children: [
       { label: "Amy Yackowski", path: "/speaking/amy" },
-      { label: "Rob Yackowski", path: "/speaking/rob" },
+      { label: "Rob Hunter", path: "/speaking/rob" },
       { label: "Sierra", path: "/speaking/sierra" },
       { label: "Speaking & Workshop Topics", path: "/speaking/topics" },
       { label: "As Seen On (Media)", path: "/speaking/media" },

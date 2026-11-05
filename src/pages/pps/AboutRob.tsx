@@ -146,8 +146,8 @@ const equalMattersVideos: YouTubeVideoItem[] = [
 
 export default function AboutRob() {
   useDocumentSeo({
-    title: "Rob Yackowski, Master of Communication | Painted Porch Strategies",
-    description: "Rob Yackowski leads communication architecture at Painted Porch Strategies. Explore Rob's Master Your Message training, keynotes, and podcast.",
+    title: "Rob Hunter, Master of Communication | Painted Porch Strategies",
+    description: "Rob Hunter leads communication architecture at Painted Porch Strategies. Explore Rob's Master Your Message training, keynotes, and podcast.",
     canonical: "/rob",
   });
 

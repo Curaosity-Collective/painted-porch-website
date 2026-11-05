@@ -15,11 +15,12 @@ import { CLIENT_TESTIMONIALS } from "./testimonials";
  * with the live Our Impact page, as PPS Admin directed on 2026-11-05. No case
  * studies yet: the draft's were all placeholders.
  *
- * Draft at /about/impact-next (PageGate in PPSLayout). At go-live it replaces
- * the live page at /about/impact (plan §4).
+ * It became /about/impact at the relaunch (plan Phase 5); the Our Impact page
+ * before it is archived at /about/impact-archive.
  *
- * Figures: 28 organizations (homepage and draft site), $31,474 given (live
- * Our Impact counter), 5% of every fee. Check them before go-live.
+ * Figures: 28 organizations (homepage and draft site), $31,474 given (the
+ * Our Impact counter), 5% of every fee. PPS Admin kept them as they are for
+ * the relaunch (2026-11-05).
  * Images (PPS-DEC-0023): both come from the live Our Impact page and move
  * with it. Styling and the IF in shIFt: PPS-DEC-0022.
  */

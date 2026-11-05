@@ -32,17 +32,16 @@ beforeEach(() => {
 });
 
 describe("restyle switch", () => {
-  it("restyles the speaking, topics, speaker, workshops and contact pages only in preview until go-live", () => {
+  it("restyles the speaking, topics, speaker, workshops and contact pages since the relaunch", () => {
     for (const route of V3_SKIN_ROUTES) {
-      expect(usesV3Skin(route)).toBe(false);
-      expect(usesV3Chrome(route)).toBe(false);
-      expect(usesV3Skin(route, true)).toBe(true);
-      expect(usesV3Chrome(route, true)).toBe(true);
+      expect(usesV3Skin(route)).toBe(true);
+      expect(usesV3Chrome(route)).toBe(true);
     }
-    // Preview doesn't restyle any other page.
-    for (const route of ["/", "/about", "/partner", "/resources/insights"]) {
+    // No other page takes the restyle layer, with or without preview: the
+    // redesign's own pages are built in its style, and the rest keep theirs.
+    for (const route of ["/", "/about", "/the-path", "/partner/ignite", "/resources/insights"]) {
+      expect(usesV3Skin(route)).toBe(false);
       expect(usesV3Skin(route, true)).toBe(false);
-      expect(usesV3Chrome(route, true)).toBe(false);
     }
   });
 });

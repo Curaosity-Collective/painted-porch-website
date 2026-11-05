@@ -1,8 +1,6 @@
 // P.A.T.H.way™ quiz data, branching, and scoring.
 // Mirrors spec: PPS-PATH-Finder-Quiz-v4-2026-06-09.
 
-import { clarityCallHrefFor } from "@/config/epicShiftAppraisal";
-
 export type Track = "b2c" | "b2b";
 
 export type B2CResultType = "RT1" | "RT2" | "RT3" | "RT4" | "RT5" | "RT6";
@@ -129,9 +127,9 @@ export const OFFERINGS = {
   blueDoor: { key: "blueDoor", name: "The Epic ShIFt Organizational Appraisal", tier: "Blue Door", url: "/envision-shift", blurb: "Begins with a Clarity Call. Six interviews, from executives to the frontline, read out as your P.A.T.H. Compass: architecture, capacity signal, Move Now Map, Reinforce First priorities." },
   // Architect ShIFt (PPS-DEC-0020), the engagement that follows the appraisal and,
   // like every engagement, begins with a Clarity Call. It replaces Architect Change,
-  // which is the workshop inside it (PPS Admin, 2026-11-05). Links to the Clarity
-  // Call until /architect-shift goes live (plan Phase 5).
-  architectShift: { key: "architectShift", name: "Architect ShIFt", tier: "Engagement", url: clarityCallHrefFor("Architect ShIFt"), blurb: "Begins with a Clarity Call. A 3-day executive authorship intensive, then a focused 90-day sprint that fortifies the pillars your appraisal shows need to hold first." },
+  // which is the workshop inside it (PPS Admin, 2026-11-05). Its page leads with
+  // the Clarity Call.
+  architectShift: { key: "architectShift", name: "Architect ShIFt", tier: "Engagement", url: "/architect-shift", blurb: "Begins with a Clarity Call. A 3-day executive authorship intensive, then a focused 90-day sprint that fortifies the pillars your appraisal shows need to hold first." },
 
   // ===== Speaking Topics =====
   // Amy

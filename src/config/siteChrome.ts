@@ -1,31 +1,31 @@
 /**
  * Which header and footer a page uses.
  *
- * PPS Admin (2026-11-05): the redesign's header and footer replace today's
- * site-wide at go-live (plan Phase 5), together with the Draft pages. Until
- * then they show only on the Draft pages, so they can be reviewed in context.
- *
- * Go-live: set V3_CHROME_EVERYWHERE to true. PPSNavigation and PPSFooter can
- * be retired after that.
+ * PPS Admin (2026-11-05): the redesign's header and footer replace the old
+ * ones site-wide at the relaunch (plan Phase 5), and the restyled speaking,
+ * workshops and contact pages switch on with them. Setting this back to
+ * false restores the old header and footer everywhere except the redesign's
+ * own pages. PPSNavigation and PPSFooter can be retired once the relaunch
+ * has settled.
  */
-export const V3_CHROME_EVERYWHERE = false;
+export const V3_CHROME_EVERYWHERE = true;
 
-/** The Phase 2 Draft pages, which preview the new header and footer. */
+/** The redesign's own pages, which always use the new header and footer. */
 export const V3_CHROME_PREVIEW_ROUTES = [
-  "/home-next",
+  "/",
   "/the-path",
   "/architect-shift",
   "/embody-shift",
-  "/about-next",
-  "/about/impact-next",
+  "/about",
+  "/about/impact",
 ] as const;
 
 /**
  * Live pages restyled in place (plan Phase 3, §8; PPS Admin, 2026-11-05):
  * same layout and content, the redesign's colors through the `.v3-skin`
- * layer in src/styles/v3.css, plus a few compact additions. Admins and
- * editors preview them with `?v3=1`; at go-live they switch on with
- * V3_CHROME_EVERYWHERE.
+ * layer in src/styles/v3.css, plus a few compact additions. They switch on
+ * with V3_CHROME_EVERYWHERE; with it off, admins and editors preview them
+ * with `?v3=1`.
  */
 export const V3_SKIN_ROUTES = [
   "/speaking",

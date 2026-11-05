@@ -8,8 +8,8 @@
  * Omitted text is marked with "…"; nothing is paraphrased or reworded.
  *
  * - featured: the three quotes PPS Admin chose to keep (Dianne, Brian,
- *   Melanie). Shown on /home-next and the live Our Impact page.
- * - All six show on Results & Impact (/about/impact-next).
+ *   Melanie). Shown on the homepage and the archived Our Impact page.
+ * - All six show on Results & Impact (/about/impact).
  *
  * Not used: the three role-only quotes ("VP of Operations, Healthcare
  * Staffing Company" and so on), which were placeholders (PPS Admin,

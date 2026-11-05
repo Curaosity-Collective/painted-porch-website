@@ -27,11 +27,12 @@ const SITE = "https://onthepaintedporch.com";
 const commonLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Painted Porch Strategies" },
-  { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
-  { href: "/partner", label: "Partner With Us" },
+  { href: "/the-path", label: "The P.A.T.H." },
+  { href: "/envision-shift", label: "Envision ShIFt: the Epic ShIFt Organizational Appraisal" },
+  { href: "/architect-shift", label: "Architect ShIFt" },
+  { href: "/embody-shift", label: "Embody ShIFt" },
   { href: "/partner/ignite", label: "IGNITE — self-led programs" },
-  { href: "/partner/amplify", label: "AMPLIFY — 3–6 month partnership" },
-  { href: "/partner/embody", label: "EMBODY — embedded partnership" },
+  { href: "/partner/amplify", label: "AMPLIFY — workshops and labs" },
   { href: "/resources", label: "Resources hub" },
   { href: "/contact", label: "Contact us" },
 ];
@@ -39,50 +40,65 @@ const commonLinks = [
 /** @type {RouteContent[]} */
 export const routes = [
   {
+    // Relaunch (plan Phase 5, PPS Admin 2026-11-05): the redesign's homepage.
+    // No prices on the homepage (PPS-DEC-0022).
     path: "/",
-    title: "Painted Porch Strategies | Architect Extraordinary Outcomes",
+    title: "Painted Porch Strategies | Build an Organization That Can Do Epic ShIFt",
     description:
-      "Painted Porch Strategies partners with leaders to architect extraordinary outcomes through Phase Zero™ strategic positioning and organizational transformation.",
-    h1: "Painted Porch Strategies — Architect Extraordinary Outcomes",
+      "You have a vision for who your organization can become next. Is that future being authored with intention, or inherited through assumption?",
+    h1: "Build an Organization That Can Do Epic ShIFt",
     intro:
-      "Painted Porch Strategies partners with leaders and organizations at the moment of strategic authorship — before decisions are made, before initiatives get scoped. Founded by Amy Yackowski, PPS brings 20+ years of change origination experience to executives ready to architect market-leading transformation.",
+      "You have a vision for who your organization can become next. Is that future being authored with intention, or inherited through assumption? Painted Porch Strategies partners with leaders at Phase Zero™, before the next major decision hardens into execution.",
     sections: [
       {
-        h2: "What we do",
-        body: "We partner with C-suite leaders and teams through three signature frameworks: Phase Zero™ (strategic positioning and architectural design before implementation), P.A.T.H.™ — Prepare, Align, Take Off, Habit (execution methodology for sustained change), and The Painted Porch Pillars™ — Cultural Cornerstone, Operational Frame, and Living Ecosystem (the load-bearing structure of adaptive organizations).",
+        h2: "There's a lot of shIFt happening right now",
+        body: "Leaders are carrying more change than their organizations were built to hold. The strategy makes sense in the boardroom, then shifts somewhere between the announcement and the people bringing it to life. The change moves forward, just not as far as you knew it could.",
       },
       {
-        h2: "The three-track ecosystem",
-        body: "The Epic ShIFt Organizational Appraisal ($24,000) is an interview-led appraisal that begins with a Clarity Call. IGNITE is a self-led track of mini courses, assessments, and masterclasses. AMPLIFY is a 3–6 month partnership with workshops, sprints, and labs. EMBODY is a 6–12+ month embedded partnership including executive advisory.",
+        h2: "Every major shIFt changes three things at once",
+        body: "A good idea still meets the organization you already have, so before anything is built we read all three Painted Porch Pillars™. Cultural Cornerstone: leadership, culture, values, and the relationships that shape how your organization leads, decides, and evolves. Operational Frame: systems, workflows, structures, and the decision paths that move strategy from intention into reality. Living Ecosystem: the individual and collective capacity, judgment, and communication that keep a meaningful shIFt going.",
+      },
+      {
+        h2: "Who is your organization becoming?",
+        body: "The P.A.T.H.™ is the four stages of change: Prepare, Align, Take Off, Habits. Most change work starts at Take Off. Ours starts at Phase Zero™, inside Prepare. Envision ShIFt partners at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits.",
+      },
+      {
+        h2: "Start with a Clarity Call",
+        body: "In 60 minutes with Amy, you'll read whether your current architecture can carry the shIFt, where misalignment would tax your momentum, and the first decisive move to make. It's also where the Epic ShIFt Organizational Appraisal begins.",
+      },
+      {
+        h2: "Other ways in",
+        body: "Team workshops for leadership and cross-functional teams; keynotes from Amy Yackowski, Rob Hunter and Sierra Cantrell; and mini courses, masterclasses, labs and assessments for individuals on the P.A.T.H.way pages.",
       },
     ],
     links: commonLinks,
   },
   {
+    // Relaunch: the redesign's About page (plan Phase 5).
     path: "/about",
-    title: "About Painted Porch Strategies | Amy Yackowski, Founder",
+    title: "About | Painted Porch Strategies",
     description:
-      "Painted Porch Strategies was founded by Amy Yackowski to help organizations architect change instead of react to it. Meet the team and learn our story.",
-    h1: "About Painted Porch Strategies",
+      "Named for the Stoa Poikile, the painted porch where philosophy went public. Twenty-plus years of organizational change, practiced at the decision, not the delivery.",
+    h1: "Named for a Porch Where Philosophy Went Public",
     intro:
-      "Painted Porch Strategies is a change-origination consultancy founded by Amy Yackowski. Named for the ancient stoa poikile — the painted porch where Zeno taught Stoicism — PPS applies practical Stoic wisdom to modern organizational transformation.",
+      "The Stoa Poikile, the Painted Porch, is where the Stoics taught in Athens: wisdom out in the open, for everyone. We took the name and brought it into the modern world of business.",
     sections: [
       {
-        h2: "Our story",
-        body: "Amy Yackowski spent 20+ years inside change initiatives that failed for the same reason: leaders were reacting to change rather than authoring it. Painted Porch Strategies exists to change that. We partner with executives before decisions are locked, before programs are scoped, before initiatives start burning cash. That upstream moment — Phase Zero™ — is where market leadership is actually decided.",
+        h2: "We design your next shIFt. You make it happen.",
+        body: "Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at the moment where leaders have the greatest leverage: before direction hardens into a plan, while there is still room to imagine, align, and architect what comes next. We look at three things at once: your leadership and culture, your systems and workflows, and the human capacity underneath both.",
       },
       {
-        h2: "The team",
-        body: "Amy Yackowski (Founder & Organizational Shift Strategist), Rob Yackowski (Master of Communication), and Sierra (Chief Joy Officer) lead client engagements. Each brings distinct strengths across strategy, communication architecture, and human capacity.",
+        h2: "Different disciplines. Shared conviction.",
+        body: "Amy Yackowski, Founder, Chief Evolution Officer and Organizational Shift Strategist. Rob Hunter, Chief Storytelling Officer and M.C., Master of Communication. Sierra Cantrell, Chief Joy Officer, M.B.A. (Mind-Body Architect) and Mindfulness Sherpa.",
       },
     ],
     links: [
-      { href: "/amy", label: "Meet Amy Yackowski" },
-      { href: "/rob", label: "Meet Rob Yackowski" },
-      { href: "/sierra", label: "Meet Sierra" },
-      { href: "/about/approach", label: "Our approach and philosophy" },
-      { href: "/about/impact", label: "Our impact" },
-      { href: "/contact", label: "Contact us" },
+      { href: "/speaking/amy", label: "Amy Yackowski" },
+      { href: "/speaking/rob", label: "Rob Hunter" },
+      { href: "/speaking/sierra", label: "Sierra Cantrell" },
+      { href: "/about/approach", label: "Our approach" },
+      { href: "/about/impact", label: "Results & Impact" },
+      { href: "/contact", label: "Start with a Clarity Call" },
     ],
   },
   {
@@ -102,13 +118,24 @@ export const routes = [
     links: commonLinks,
   },
   {
+    // Relaunch: Results & Impact (plan Phase 5). Figures kept by PPS Admin, 2026-11-05.
     path: "/about/impact",
-    title: "Our Impact | Painted Porch Strategies",
+    title: "Results & Impact | Painted Porch Strategies",
     description:
-      "Painted Porch Strategies gives 5% of every engagement to nonprofit partners. See the causes we support and the organizations we've partnered with.",
-    h1: "Our Impact",
+      "What our clients say, the organizations we've worked alongside, and where 5% of every fee has gone: $31,474 given to client-chosen charities to date.",
+    h1: "Proof, Not Promises",
     intro:
-      "Painted Porch Strategies commits 5% of every client engagement to nonprofit partners chosen for their work with mental health, youth development, veterans, and animal welfare.",
+      "We'd rather show you a running tally than tell you we care. Here's what clarity before commitment looks like in practice: in our clients' words, in the organizations we've worked alongside, and in where 5% of every fee has gone.",
+    sections: [
+      {
+        h2: "The running tally",
+        body: "28 organizations and counting, $31,474 given to client-chosen charities, and 5% of every fee.",
+      },
+      {
+        h2: "5% of every fee goes to a charity of your choosing, in your name",
+        body: "When an organization works with us, 5% of that investment goes straight to a cause the client chooses, donated in their name, not ours. Good work should compound beyond the room it happened in. Painted Porch Strategies was created to model the Stoic principles of Reason, Logic, Purpose, and Virtue.",
+      },
+    ],
     links: commonLinks,
   },
   {
@@ -127,19 +154,19 @@ export const routes = [
     ],
     links: [
       { href: "/about", label: "About Painted Porch Strategies" },
-      { href: "/rob", label: "Meet Rob Yackowski" },
+      { href: "/rob", label: "Meet Rob Hunter" },
       { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact Amy" },
     ],
   },
   {
     path: "/rob",
-    title: "Rob Yackowski, Master of Communication | Painted Porch Strategies",
+    title: "Rob Hunter, Master of Communication | Painted Porch Strategies",
     description:
-      "Rob Yackowski is the Master of Communication at Painted Porch Strategies, designing change communication architecture that lands.",
-    h1: "Rob Yackowski — Master of Communication",
+      "Rob Hunter is the Master of Communication at Painted Porch Strategies, designing change communication architecture that lands.",
+    h1: "Rob Hunter — Master of Communication",
     intro:
-      "Rob Yackowski leads communication architecture at Painted Porch Strategies. He designs the messaging systems that make change legible, believable, and adoptable inside complex organizations.",
+      "Rob Hunter leads communication architecture at Painted Porch Strategies. He designs the messaging systems that make change legible, believable, and adoptable inside complex organizations.",
     links: commonLinks,
   },
   {
@@ -173,39 +200,91 @@ export const routes = [
     ],
     links: [
       { href: "/contact", label: "Start with a Clarity Call" },
-      { href: "/partner", label: "Partner with us" },
-      { href: "/partner/amplify", label: "AMPLIFY partnership" },
-      { href: "/partner/embody", label: "EMBODY partnership" },
+      { href: "/the-path", label: "The P.A.T.H." },
+      { href: "/architect-shift", label: "Architect ShIFt" },
+      { href: "/embody-shift", label: "Embody ShIFt" },
     ],
   },
   {
-    path: "/partner",
-    title: "Partner With Us | Painted Porch Strategies",
+    // Relaunch (plan Phase 5): The P.A.T.H. No prices here (PPS-DEC-0022).
+    path: "/the-path",
+    title: "The P.A.T.H.™ | Painted Porch Strategies",
     description:
-      "Three-tier partnership: IGNITE (self-led), AMPLIFY (3–6 months), EMBODY (6–12+ months). Start with a Clarity Call and the Epic ShIFt Organizational Appraisal to find your fit.",
-    h1: "Partner With Painted Porch Strategies",
+      "Prepare, Align, Take Off, Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.",
+    h1: "The P.A.T.H.™",
     intro:
-      "Our partnership follows a three-tier progression. You start with a Clarity Call and the Epic ShIFt Organizational Appraisal — an interview-led appraisal — and then choose the tier that matches your ambition and readiness.",
+      "Prepare. Align. Take Off. Habits. The four stages of change behind every engagement we run, and the reason our work holds after the deck is archived. It is how organizations learn to do epic shIFt: from the first honest question to the habits that make it second nature.",
     sections: [
       {
-        h2: "IGNITE — light the fire",
-        body: "Self-led tools, masterclasses, and frameworks for leaders who want to test transformation before full commitment.",
+        h2: "It starts before Take Off",
+        body: "Most change methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H. begins two stages earlier, while there is still room to shape the possibility: understanding what your organization is built to carry, and bringing the people who will carry it into genuine alignment.",
       },
       {
-        h2: "AMPLIFY — build compound momentum",
-        body: "3–6 month partnership including workshops, sprints, labs, and targeted capability building for teams ready to shape excellence.",
+        h2: "Four stages. Three ShIFts. One map.",
+        body: "Prepare pairs with Envision. Align pairs with Architect: the intensive and sprint fortify your organization before execution. When you're ready, Embody is the invitation at Take Off, reinforcing your practice through Habits while your team designs and delivers the change.",
       },
       {
-        h2: "EMBODY — make it permanent",
-        body: "6–12+ month embedded partnership and executive advisory for C-suites building unshakeable foundations for market leadership.",
+        h2: "Your P.A.T.H., in one page",
+        body: "The Epic ShIFt Organizational Appraisal produces your P.A.T.H. Compass: which stage your organization is actually on, what's blocking the next one, and the sequence that makes each hold. Every stage reads your organization through the three Painted Porch Pillars™: Cultural Cornerstone, Operational Frame, and Living Ecosystem.",
       },
     ],
     links: [
       { href: "/envision-shift", label: "Envision ShIFt" },
-      { href: "/partner/ignite", label: "Explore IGNITE" },
-      { href: "/partner/amplify", label: "Explore AMPLIFY" },
-      { href: "/partner/embody", label: "Explore EMBODY" },
-      { href: "/contact", label: "Contact us" },
+      { href: "/architect-shift", label: "Architect ShIFt" },
+      { href: "/embody-shift", label: "Embody ShIFt" },
+      { href: "/phase-zero", label: "What is Phase Zero?" },
+      { href: "/contact", label: "Start with a Clarity Call" },
+    ],
+  },
+  {
+    // Relaunch (plan Phase 5): Architect ShIFt, prices per PPS-DEC-0020.
+    path: "/architect-shift",
+    title: "Architect ShIFt | Painted Porch Strategies",
+    description:
+      "An executive authorship intensive, a 90-day pillar-fortification sprint and a retrospective that decides your organization's next step. Starting at $90,000, in a weekly or a biweekly version.",
+    h1: "Architect ShIFt",
+    intro:
+      "Author the direction together. Fortify the pillars that need to hold first. Then decide whether your organization is ready to design and lead its next epic shIFt.",
+    sections: [
+      {
+        h2: "Author. Fortify. Decide.",
+        body: "Grounded in your Epic ShIFt Organizational Appraisal, your senior team spends three days authoring shared direction and identifying which pillar or pillars need reinforcement first. A focused 90-day sprint with your leadership team then reinforces the prioritized pillars and the capability your organization needs before it designs and leads its change. A retrospective decides the next step.",
+      },
+      {
+        h2: "One integrated engagement",
+        body: "Starting at $90,000, offered in a weekly and a biweekly version. Architect ShIFt follows the Epic ShIFt Organizational Appraisal, and the appraisal begins with a Clarity Call.",
+      },
+    ],
+    links: [
+      { href: "/the-path", label: "The P.A.T.H." },
+      { href: "/envision-shift", label: "Envision ShIFt" },
+      { href: "/embody-shift", label: "Embody ShIFt" },
+      { href: "/contact", label: "Start with a Clarity Call" },
+    ],
+  },
+  {
+    // Relaunch (plan Phase 5): Embody ShIFt, price per PPS-DEC-0020.
+    path: "/embody-shift",
+    title: "Embody ShIFt | Painted Porch Strategies",
+    description:
+      "Ongoing advisory while your organization designs and leads the change it envisioned and authored, reinforcing it as a continuous practice. $9,000–$18,000 per month, depending on advisory depth and need.",
+    h1: "Embody ShIFt",
+    intro:
+      "Your organization is ready to design and lead the change it envisioned and authored. Ongoing advisory reinforces the habits, judgment, decision authority, and structures that make change, innovation, and transformation a continuous practice.",
+    sections: [
+      {
+        h2: "Where the shIFt becomes who you are",
+        body: "Embody ShIFt begins when your organization is ready to design and lead the change it envisioned and authored for itself. You own that change. Our ongoing advisory partnership begins at Take Off and continues through Habits on the P.A.T.H.™, during your change journey and beyond.",
+      },
+      {
+        h2: "Investment",
+        body: "$9,000–$18,000 per month, depending on advisory depth and need. Every journey starts with a Clarity Call; if you're finishing Architect ShIFt, the invitation to Embody opens at your retrospective.",
+      },
+    ],
+    links: [
+      { href: "/the-path", label: "The P.A.T.H." },
+      { href: "/architect-shift", label: "Architect ShIFt" },
+      { href: "/contact", label: "Start with a Clarity Call" },
     ],
   },
   {
@@ -250,34 +329,13 @@ export const routes = [
     ],
     links: [
       { href: "/partner/amplify/workshops", label: "AMPLIFY workshops" },
-      { href: "/partner/amplify/sprints", label: "AMPLIFY sprints" },
+      { href: "/architect-shift", label: "Architect ShIFt" },
       { href: "/partner/amplify/labs", label: "AMPLIFY labs" },
       {
         href: "/partner/amplify/stractical-leader",
         label: "Stractical Leader Intensive",
       },
       { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
-      { href: "/contact", label: "Contact us" },
-    ],
-  },
-  {
-    path: "/partner/embody",
-    title: "EMBODY | Painted Porch Strategies",
-    description:
-      "EMBODY is a 6–12+ month embedded partnership: full transformation architecture and executive advisory for C-suites building unshakeable foundations.",
-    h1: "EMBODY — Make It Permanent",
-    intro:
-      "EMBODY is the deepest tier of Painted Porch partnership. A 6–12+ month embedded engagement including full transformation architecture and executive advisory for C-suites determined to build unshakeable foundations for sustained market leadership.",
-    sections: [
-      {
-        h2: "What EMBODY includes",
-        body: "Ongoing executive advisory, board-level strategic sessions, transformation architecture design, leadership team development, and hands-on coaching across all three Painted Porch Pillars™: Cultural Cornerstone, Operational Frame, and Living Ecosystem.",
-      },
-    ],
-    links: [
-      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
-      { href: "/partner/amplify", label: "AMPLIFY partnership" },
-      { href: "/about", label: "About PPS" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -344,25 +402,9 @@ export const routes = [
       "Cohort-based workshops that open AMPLIFY engagements or run as targeted capability builds. Every workshop is anchored in Phase Zero™ and The Painted Porch Pillars™ so the work sticks after the room clears.",
     links: [
       { href: "/partner/amplify", label: "AMPLIFY overview" },
-      { href: "/partner/amplify/sprints", label: "AMPLIFY sprints" },
+      { href: "/architect-shift", label: "Architect ShIFt" },
       { href: "/partner/amplify/labs", label: "AMPLIFY labs" },
       { href: "/partner/amplify/stractical-leader", label: "Stractical Leader Intensive" },
-      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
-      { href: "/contact", label: "Contact us" },
-    ],
-  },
-  {
-    path: "/partner/amplify/sprints",
-    title: "AMPLIFY Sprints | Painted Porch Strategies",
-    description:
-      "90-day AMPLIFY sprints that drive focused execution across leadership, communication, and operational capacity.",
-    h1: "AMPLIFY Sprints",
-    intro:
-      "AMPLIFY sprints are 90-day focused execution engagements. Each sprint is designed around a specific transformation target surfaced by the Epic ShIFt Organizational Appraisal and structured through the P.A.T.H.™ methodology.",
-    links: [
-      { href: "/partner/amplify", label: "AMPLIFY overview" },
-      { href: "/partner/amplify/workshops", label: "AMPLIFY workshops" },
-      { href: "/partner/amplify/labs", label: "AMPLIFY labs" },
       { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
@@ -378,7 +420,7 @@ export const routes = [
     links: [
       { href: "/partner/amplify", label: "AMPLIFY overview" },
       { href: "/partner/amplify/workshops", label: "AMPLIFY workshops" },
-      { href: "/partner/amplify/sprints", label: "AMPLIFY sprints" },
+      { href: "/architect-shift", label: "Architect ShIFt" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -429,14 +471,14 @@ export const routes = [
     path: "/speaking",
     title: "Speaking & Workshops | Painted Porch Strategies",
     description:
-      "Book Amy Yackowski, Rob Yackowski, or the Painted Porch team for keynotes, workshops, and executive sessions on change origination.",
+      "Book Amy Yackowski, Rob Hunter, or the Painted Porch team for keynotes, workshops, and executive sessions on change origination.",
     h1: "Speaking & Workshops",
     intro:
       "Amy Yackowski and the Painted Porch team deliver keynotes, workshops, and executive sessions on change origination, Phase Zero™ strategy, Stoic leadership, and communication architecture.",
     links: [
       { href: "/speaking/topics", label: "Talk topics" },
       { href: "/speaking/amy", label: "Amy Yackowski (speaker)" },
-      { href: "/speaking/rob", label: "Rob Yackowski (speaker)" },
+      { href: "/speaking/rob", label: "Rob Hunter (speaker)" },
       { href: "/speaking/media", label: "As seen on" },
       { href: "/contact", label: "Book a session" },
     ],
@@ -470,12 +512,12 @@ export const routes = [
   },
   {
     path: "/speaking/rob",
-    title: "Rob Yackowski, Speaker | Painted Porch Strategies",
+    title: "Rob Hunter, Speaker | Painted Porch Strategies",
     description:
-      "Book Rob Yackowski, Master of Communication at Painted Porch Strategies, for keynotes on change communication architecture.",
-    h1: "Rob Yackowski — Keynote Speaker",
+      "Book Rob Hunter, Master of Communication at Painted Porch Strategies, for keynotes on change communication architecture.",
+    h1: "Rob Hunter — Keynote Speaker",
     intro:
-      "Rob Yackowski speaks on communication architecture, the six communicator styles, and how to make change legible inside complex organizations.",
+      "Rob Hunter speaks on communication architecture, the six communicator styles, and how to make change legible inside complex organizations.",
     links: [
       { href: "/speaking", label: "All speakers" },
       { href: "/6-communicator-styles", label: "Six Communicator Styles" },
@@ -502,7 +544,7 @@ export const routes = [
       "Ready to talk? Send us a message and we will respond within one business day. For engagement inquiries, we recommend starting with a Clarity Call and the Epic ShIFt Organizational Appraisal, our interview-led appraisal.",
     links: [
       { href: "/envision-shift", label: "Envision ShIFt" },
-      { href: "/partner", label: "Partner With Us" },
+      { href: "/the-path", label: "The P.A.T.H." },
       { href: "/speaking", label: "Speaking & workshops" },
     ],
   },
@@ -587,10 +629,10 @@ export const routes = [
     path: "/6-communicator-styles",
     title: "The Six Communicator Styles | Painted Porch Strategies",
     description:
-      "The Six Communicator Styles, Rob Yackowski's framework for making change communication land inside complex organizations.",
+      "The Six Communicator Styles, Rob Hunter's framework for making change communication land inside complex organizations.",
     h1: "The Six Communicator Styles",
     intro:
-      "Rob Yackowski's framework for change communication. Six distinct styles that shape how people receive, interpret, and act on organizational messages.",
+      "Rob Hunter's framework for change communication. Six distinct styles that shape how people receive, interpret, and act on organizational messages.",
     links: commonLinks,
   },
   {

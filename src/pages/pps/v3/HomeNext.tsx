@@ -14,8 +14,8 @@ import { useFeaturedPosts } from "@/hooks/useFeaturedPosts";
 
 /**
  * The go-forward homepage, built from the homepage wireframe PPS Admin approved
- * on 2026-11-05. It is a Draft at /home-next, behind PageGate in PPSLayout,
- * until it replaces the current homepage at release.
+ * on 2026-11-05. It became the homepage at the relaunch (plan Phase 5); the
+ * homepage before it is archived at /home-archive-v2.
  *
  * Spec: pps-ops-hub docs/wireframes/PPS-Homepage-v3-Approved-Wireframe.md
  * Color and type rules: PPS-DEC-0022. Offer names: PPS-DEC-0018.
@@ -487,9 +487,9 @@ export default function HomeNext() {
               begin with is whether what you're considering is the right thing to do right now.
             </p>
           </div>
-          <ul className="grid gap-6 md:grid-cols-3">
+          <ul data-testid="home-promise" className="grid gap-6 md:grid-cols-3">
             {PROMISE.map((p) => (
-              <li key={p.label} className={`flex flex-col gap-2.5 p-8 text-white ${p.box}`}>
+              <li key={p.label} data-testid="home-promise-box" className={`flex flex-col gap-2.5 p-8 text-white ${p.box}`}>
                 <span className="font-display text-[22px] font-bold leading-tight">{p.label}</span>
                 <p className="text-[17px] leading-relaxed">{p.body}</p>
               </li>

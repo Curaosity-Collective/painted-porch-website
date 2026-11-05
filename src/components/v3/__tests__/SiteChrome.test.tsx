@@ -41,14 +41,12 @@ beforeEach(() => {
 });
 
 describe("site chrome switch", () => {
-  it("shows the new header and footer on the Draft pages only until go-live", () => {
-    expect(V3_CHROME_EVERYWHERE).toBe(false);
-    for (const route of V3_CHROME_PREVIEW_ROUTES) {
+  it("shows the new header and footer site-wide since the relaunch", () => {
+    expect(V3_CHROME_EVERYWHERE).toBe(true);
+    expect([...V3_CHROME_PREVIEW_ROUTES]).toEqual(["/", "/the-path", "/architect-shift", "/embody-shift", "/about", "/about/impact"]);
+    for (const route of [...V3_CHROME_PREVIEW_ROUTES, "/envision-shift", "/speaking", "/contact", "/partner/ignite", "/resources/insights"]) {
       expect(usesV3Chrome(route)).toBe(true);
       expect(usesV3Chrome(`${route}/`)).toBe(true);
-    }
-    for (const route of ["/", "/about", "/about/impact", "/envision-shift", "/speaking", "/contact"]) {
-      expect(usesV3Chrome(route)).toBe(false);
     }
   });
 });

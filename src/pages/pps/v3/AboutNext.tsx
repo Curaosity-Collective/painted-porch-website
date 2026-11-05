@@ -14,9 +14,8 @@ import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 
 /**
  * About: ported from pps-simplified src/routes/about.tsx (Oct 2026), the
- * newer of the two About pages. Draft at /about-next (PageGate in
- * PPSLayout); it replaces /about at go-live and the current page is archived
- * (plan §4).
+ * newer of the two About pages. It became /about at the relaunch (plan
+ * Phase 5); the About page before it is archived at /about-archive.
  *
  * Team titles match the live speaker pages each card links to; the draft's
  * /about/amy-style bio pages don't exist here (plan §4 merges those bios into

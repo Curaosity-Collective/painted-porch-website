@@ -133,21 +133,31 @@ const SERVICE_LD = {
       url: `${SITE}/envision-shift`,
     },
   },
-  "/partner": {
+  // Relaunch (plan Phase 5): The P.A.T.H. replaces /partner, which redirects
+  // here. No prices on this page (PPS-DEC-0022).
+  "/the-path": {
     "@type": "Service",
-    name: "The Painted Porch Partnership",
-    serviceType: "Organizational Transformation Partnership",
+    name: "The P.A.T.H.",
+    serviceType: "Organizational Change Advisory",
     category: "Management Consulting",
     provider: ORG_REF,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Partnership Tiers",
+      name: "Three ShIFts",
       itemListElement: [
-        { "@type": "Offer", name: "IGNITE — self-led", url: `${SITE}/partner/ignite` },
-        { "@type": "Offer", name: "AMPLIFY — 3–6 month partnership", url: `${SITE}/partner/amplify` },
-        { "@type": "Offer", name: "EMBODY — embedded partnership", url: `${SITE}/partner/embody` },
+        { "@type": "Offer", name: "Envision ShIFt — the Epic ShIFt Organizational Appraisal", url: `${SITE}/envision-shift` },
+        { "@type": "Offer", name: "Architect ShIFt", url: `${SITE}/architect-shift` },
+        { "@type": "Offer", name: "Embody ShIFt", url: `${SITE}/embody-shift` },
       ],
     },
+  },
+  "/architect-shift": {
+    "@type": "Service",
+    name: "Architect ShIFt",
+    serviceType: "Executive Authorship Intensive and Strategic Sprint",
+    category: "Management Consulting",
+    provider: ORG_REF,
+    areaServed: { "@type": "Country", name: "United States" },
   },
   "/partner/ignite": {
     "@type": "Service",
@@ -163,12 +173,14 @@ const SERVICE_LD = {
     category: "Management Consulting",
     provider: ORG_REF,
   },
-  "/partner/embody": {
+  // Relaunch: Embody ShIFt replaces /partner/embody, which redirects here.
+  "/embody-shift": {
     "@type": "Service",
-    name: "EMBODY — Embedded Executive Partnership",
-    serviceType: "Executive Advisory",
+    name: "Embody ShIFt",
+    serviceType: "Ongoing Organizational Advisory",
     category: "Management Consulting",
     provider: ORG_REF,
+    areaServed: { "@type": "Country", name: "United States" },
   },
   "/partner/amplify/stractical-leader": {
     "@type": "Course",

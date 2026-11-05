@@ -6,7 +6,6 @@
  */
 import { describe, it, expect } from "vitest";
 import { buildResult, type Answers } from "../pathFinderQuiz";
-import { clarityCallHrefFor } from "@/config/epicShiftAppraisal";
 
 const ARCHITECTURAL: Answers[] = ["A", "B", "C", "D"].flatMap((q1) =>
   ["A", "B", "C"].map((pq3) => ({ OrgPQ2: "D", Q1Strategic: q1, OrgPQ3: pq3, Q4DM: "C" }) as Answers),
@@ -19,12 +18,12 @@ const allKeys = (answers: Answers, viewable?: Set<string>) => {
 };
 
 describe("Architect ShIFt replaces Architect Change in the quiz", () => {
-  it("recommends Architect ShIFt for an architectural signal, beginning with a Clarity Call", () => {
+  it("recommends Architect ShIFt for an architectural signal, linking to its page", () => {
     for (const answers of ARCHITECTURAL) {
       const r = buildResult("b2b", answers);
       const arch = r.primaryGroup?.offerings.find((o) => o.key === "architectShift");
       expect(arch, JSON.stringify(answers)).toBeDefined();
-      expect(arch!.url).toBe(clarityCallHrefFor("Architect ShIFt"));
+      expect(arch!.url).toBe("/architect-shift");
       expect(arch!.blurb).toMatch(/^Begins with a Clarity Call\./);
       expect(arch!.tier).toBe("Engagement");
     }
