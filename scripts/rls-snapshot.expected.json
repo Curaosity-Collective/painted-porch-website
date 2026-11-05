@@ -173,6 +173,30 @@
       "with_check": null
     },
     {
+      "cmd": "SELECT",
+      "permissive": "PERMISSIVE",
+      "policyname": "Anonymous can read categories for published posts",
+      "qual": "(EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND ((bp.status = 'published'::blog_post_status) OR ((bp.status = 'scheduled'::blog_post_status) AND (bp.publish_date IS NOT NULL) AND (bp.publish_date <= now()))))))",
+      "roles": [
+        "anon"
+      ],
+      "schemaname": "public",
+      "tablename": "blog_post_categories",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "permissive": "PERMISSIVE",
+      "policyname": "Authenticated can read categories for visible posts",
+      "qual": "((EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND ((bp.status = 'published'::blog_post_status) OR ((bp.status = 'scheduled'::blog_post_status) AND (bp.publish_date IS NOT NULL) AND (bp.publish_date <= now())))))) OR is_admin(auth.uid()) OR (EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND (bp.author_id = auth.uid())))))",
+      "roles": [
+        "authenticated"
+      ],
+      "schemaname": "public",
+      "tablename": "blog_post_categories",
+      "with_check": null
+    },
+    {
       "cmd": "DELETE",
       "permissive": "PERMISSIVE",
       "policyname": "Authors or admins can delete post categories",
@@ -195,18 +219,6 @@
       "schemaname": "public",
       "tablename": "blog_post_categories",
       "with_check": "(is_admin(auth.uid()) OR (EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND (bp.author_id = auth.uid())))))"
-    },
-    {
-      "cmd": "SELECT",
-      "permissive": "PERMISSIVE",
-      "policyname": "Public can read categories for visible posts",
-      "qual": "((EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND (bp.status = ANY (ARRAY['published'::blog_post_status, 'scheduled'::blog_post_status]))))) OR is_admin(auth.uid()) OR (EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND (bp.author_id = auth.uid())))))",
-      "roles": [
-        "public"
-      ],
-      "schemaname": "public",
-      "tablename": "blog_post_categories",
-      "with_check": null
     },
     {
       "cmd": "INSERT",
@@ -488,10 +500,22 @@
     {
       "cmd": "SELECT",
       "permissive": "PERMISSIVE",
-      "policyname": "Public can read appearances",
-      "qual": "true",
+      "policyname": "Public sees published appearances",
+      "qual": "((review_status = 'published'::text) OR is_admin_or_editor(auth.uid()))",
       "roles": [
-        "public"
+        "authenticated"
+      ],
+      "schemaname": "public",
+      "tablename": "media_appearances",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "permissive": "PERMISSIVE",
+      "policyname": "Visitors see approved appearances",
+      "qual": "(review_status = 'published'::text)",
+      "roles": [
+        "anon"
       ],
       "schemaname": "public",
       "tablename": "media_appearances",
@@ -1005,10 +1029,22 @@
     {
       "cmd": "SELECT",
       "permissive": "PERMISSIVE",
-      "policyname": "Anyone can view youtube videos",
-      "qual": "true",
+      "policyname": "Public sees published youtube videos",
+      "qual": "((review_status = 'published'::text) OR is_admin_or_editor(auth.uid()))",
       "roles": [
-        "public"
+        "authenticated"
+      ],
+      "schemaname": "public",
+      "tablename": "youtube_videos",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "permissive": "PERMISSIVE",
+      "policyname": "Visitors see approved youtube videos",
+      "qual": "(review_status = 'published'::text)",
+      "roles": [
+        "anon"
       ],
       "schemaname": "public",
       "tablename": "youtube_videos",
