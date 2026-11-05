@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Mic, Users, ArrowRight, Flame, Pencil } from "lucide-react";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
+import { useV3Skin } from "@/components/v3/v3SkinContext";
+import { getSiteUrl } from "@/lib/site-url";
 import { useUserRole } from "@/hooks/useUserRole";
 import { TierHeroSection } from "@/components/pps/TierHeroSection";
 import { Eyebrow } from "@/components/pps/Eyebrow";
@@ -72,6 +74,9 @@ type MergedTopic = {
 };
 
 const UNTAGGED = "More";
+
+/** Anchor for a theme heading, e.g. "Change & Innovation" → "change-innovation". */
+const themeSlug = (topic: string) => topic.toLowerCase().replace(/&/g, " ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 /** Manual topic overrides for rows whose DB topic should be remapped. */
 const TOPIC_OVERRIDES: Record<string, string> = {
@@ -214,13 +219,15 @@ const IMAGE_MAP: Record<string, string> = {
 // (description preferred, blurb as fallback). Edit copy in /admin/offerings.
 
 
-// Color accent per topic for the image placeholder when no image exists
+// Color accent per topic for the image placeholder when no image exists.
+// "purple" isn't a Tailwind color here (the brand purple is `strategic`); using
+// it left the placeholder blank and its white title invisible.
 const TOPIC_ACCENT: Record<string, string> = {
   "Leadership & Culture": "from-primary/80 to-navy",
-  "Change & Innovation": "from-purple/80 to-navy",
+  "Change & Innovation": "from-strategic/80 to-navy",
   "Communication": "from-gold/80 to-navy",
   "Resilience & Wellbeing": "from-bluedoor/80 to-navy",
-  "Team Dynamics": "from-primary/80 to-purple",
+  "Team Dynamics": "from-primary/80 to-strategic",
   "Philosophy": "from-navy to-bluedoor",
   [UNTAGGED]: "from-navy to-charcoal",
 };
@@ -247,12 +254,8 @@ const ALWAYS_BOTH = new Set<string>([
 
 
 export default function SpeakingWorkshopTopics() {
-  useDocumentSeo({
-    title: "Speaking & Workshop Topics | Painted Porch Strategies",
-    description:
-      "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic can be delivered as a keynote, an interactive workshop, or both.",
-    ogImage: speakingHero,
-  });
+  // Restyle preview and go-live only (plan Phase 3, §8): jump links and an ItemList.
+  const v3 = useV3Skin();
 
   const [searchParams, setSearchParams] = useSearchParams();
   const [rows, setRows] = useState<Row[]>([]);
@@ -416,6 +419,32 @@ export default function SpeakingWorkshopTopics() {
     return Array.from(byTopic.entries()).filter(([, items]) => items.length > 0);
   }, [visible, topics]);
 
+  // Structured data for the full catalogue (plan §8), with the restyle only.
+  const itemListJsonLd = useMemo(() => {
+    if (!v3 || merged.length === 0) return undefined;
+    const base = `${getSiteUrl()}/speaking/topics`;
+    return {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Speaking & Workshop Topics",
+      numberOfItems: merged.length,
+      itemListElement: merged.map((m, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: m.baseName,
+        url: `${base}#${m.key}`,
+      })),
+    };
+  }, [v3, merged]);
+
+  useDocumentSeo({
+    title: "Speaking & Workshop Topics | Painted Porch Strategies",
+    description:
+      "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic can be delivered as a keynote, an interactive workshop, or both.",
+    ogImage: speakingHero,
+    jsonLd: itemListJsonLd,
+  });
+
   return (
     <div>
       <TierHeroSection
@@ -522,6 +551,8 @@ export default function SpeakingWorkshopTopics() {
             </div>
           </div>
 
+          {/* Theme anchors (#theme-…) are on each heading below. Visible jump links were
+              left out: the topic filter above already lists every theme with its count. */}
           {/* Grouped grid */}
           {grouped.length === 0 ? (
             <div className="text-center py-12 text-foreground/70">
@@ -529,7 +560,7 @@ export default function SpeakingWorkshopTopics() {
             </div>
           ) : (
             grouped.map(([topic, items]) => (
-              <div key={topic} className="mb-12">
+              <div key={topic} id={`theme-${themeSlug(topic)}`} className="mb-12 scroll-mt-24">
                 <div className="flex items-end justify-between mb-4">
                   <h3 className="text-2xl md:text-3xl font-poppins font-bold text-navy">{topic}</h3>
                   <span className="text-caption text-foreground/60">{items.length} topic{items.length === 1 ? "" : "s"}</span>

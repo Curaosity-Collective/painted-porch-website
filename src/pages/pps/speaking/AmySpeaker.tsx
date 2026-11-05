@@ -175,6 +175,15 @@ const amy: SpeakerData = {
       },
     ],
   },
+  // From the draft site's Amy page (pps-simplified src/routes/about_.amy.tsx).
+  credentials: [
+    "Prosci Change Practitioner",
+    "ACMP Member",
+    "Lean Change Agent",
+    "Working Genius Certified",
+    "EQ-360 Certified",
+    "DiSC Facilitator",
+  ],
 };
 
 export default function AmySpeaker() {

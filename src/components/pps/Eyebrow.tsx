@@ -80,7 +80,7 @@ export function Eyebrow({
   const base = variant === "pill" ? PILL_BASE : PLAIN_BASE;
   const toneClass = variant === "pill" ? PILL_TONE[tone] : PLAIN_TONE[tone];
   return (
-    <Tag className={cn(base, toneClass, className)} {...rest}>
+    <Tag className={cn(base, toneClass, className)} data-eyebrow={variant} data-tone={tone} {...rest}>
       {children}
     </Tag>
   );

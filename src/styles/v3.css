@@ -205,3 +205,67 @@
     transition: none;
   }
 }
+
+/*
+ * Restyle layer for live pages kept in their layout (plan Phase 3, §8):
+ * speaking, topics, speaker pages, workshops and contact. Applied by
+ * PPSLayout as `.v3-skin` in preview (?v3=1) and at go-live. It only remaps
+ * colors; layout and content stay as they are (PPS Admin, 2026-11-05).
+ */
+.v3-skin {
+  /* Navy bands and overlays become the redesign's deep teal. */
+  --navy: 188 100% 19%;
+  /* Lime text and fills become deep lime, which passes AA with white and on white. */
+  --lime: 83 100% 24%;
+  /* Small gray text: the redesign's gray, which passes AA on white. */
+  --muted-foreground: 211 5% 41%;
+}
+.v3-skin :is(.text-foreground\/60, .text-foreground\/70) {
+  color: hsl(211 5% 41%);
+}
+/* Gold fills carry dark text (PPS-DEC-0022), including gold buttons and labels. */
+.v3-skin :is(.bg-gold, .bg-gold\/90, .bg-gold\/80).text-navy,
+.v3-skin :is(.bg-gold, .bg-gold\/90, .bg-gold\/80) .text-navy {
+  color: #1e2b30;
+}
+/* Gold text: dark gold on light backgrounds, light gold inside dark bands. */
+.v3-skin .text-gold,
+.v3-skin .hover\:text-gold:hover {
+  color: #8a5a00;
+}
+.v3-skin :is(.bg-navy, .bg-navy\/90, .bg-navy\/80, .bg-gradient-strategic) .text-gold {
+  color: #f4c05e;
+}
+/* Navy headings and text become brand Teal (PPS-DEC-0022). */
+.v3-skin .text-navy {
+  color: hsl(var(--v3-teal-heading));
+}
+/* Purple gradient bands become deep teal. */
+.v3-skin .bg-gradient-strategic {
+  background-image: none;
+  background-color: hsl(188 100% 19%);
+}
+/* Plain eyebrows on light backgrounds are Raspberry, never the heading's color (PPS-DEC-0022). */
+.v3-skin [data-eyebrow="plain"]:not([data-tone="white"]) {
+  color: hsl(var(--raspberry));
+}
+/* Tinted chips: darker ink so small text clears 4.5:1 on its tint. */
+.v3-skin .bg-raspberry\/10.text-raspberry {
+  color: hsl(342 100% 34%);
+}
+.v3-skin :is(.bg-navy\/5, .bg-navy\/10).text-navy,
+.v3-skin :is(.bg-navy\/5, .bg-navy\/10) .text-navy {
+  color: hsl(188 100% 19%);
+}
+/* Eyebrows on the dark hero photo are light Gold (PPS-DEC-0022). */
+.v3-skin [data-hero] [data-eyebrow="plain"] {
+  color: #f4c05e;
+}
+/* The IF in shIFt is bold Raspberry (PPS-DEC-0022); light raspberry on dark bands. */
+.v3-skin [data-if] {
+  color: hsl(var(--raspberry));
+  font-weight: 700;
+}
+.v3-skin [data-if="on-dark"] {
+  color: hsl(var(--v3-berry-on-dark));
+}

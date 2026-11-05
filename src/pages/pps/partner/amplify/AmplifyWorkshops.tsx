@@ -209,7 +209,7 @@ export default function AmplifyWorkshops() {
           <div className="text-center mb-12">
             <Eyebrow variant="plain" tone="primary" as="p">AMPLIFY · Team Workshops</Eyebrow>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-4">
-              Workshops That Architect Your Next Sh<span className="text-strategic font-bold">IF</span>t
+              Workshops That Architect Your Next Sh<span data-if="" className="text-strategic font-bold">IF</span>t
             </h1>
             <p className="text-body text-foreground max-w-2xl mx-auto">
               From Phase Zero strategy sessions to leadership and team development, our workshops align teams and build the capacity to lead change well.
@@ -290,7 +290,7 @@ export default function AmplifyWorkshops() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <Info className="w-5 h-5 text-bluedoor" />
-                    <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy">Authoring Your Next Sh<span className="text-strategic font-bold">IF</span>t Begins With the <span className="text-bluedoor">Epic ShIFt Organizational Appraisal</span></h3>
+                    <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy">Authoring Your Next Sh<span data-if="" className="text-strategic font-bold">IF</span>t Begins With the <span className="text-bluedoor">Epic ShIFt Organizational Appraisal</span></h3>
                   </div>
                   <p className="text-body -sm text-foreground mb-2 mt-4">
                     The <span className="font-bold text-bluedoor">Epic ShIFt Organizational Appraisal</span> is our interview-led appraisal that reveals where your business and leadership stands on the path to transformation so that you can lead with clarity and build with confidence.
@@ -438,7 +438,7 @@ export default function AmplifyWorkshops() {
       <ParallaxCTA
         backgroundImage={architectChangeThumb}
         overlayTone="purple"
-        headline={<>Ready to AMPLIFY Your Team&rsquo;s Next Sh<span className="text-white font-bold">IF</span>t?</>}
+        headline={<>Ready to AMPLIFY Your Team&rsquo;s Next Sh<span data-if="on-dark" className="text-white font-bold">IF</span>t?</>}
         description={
           <>
             Our workshops are co-designed around your context, your challenges, and your transformation goals.
