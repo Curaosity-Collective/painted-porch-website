@@ -75,15 +75,6 @@ export const sitemapData: SitemapNode[] = [
         path: "/partner/ignite",
         children: [
           {
-            label: "Courses",
-            path: "/partner/ignite/courses",
-            children: [
-              { label: "Radical Mindfulness", path: "/radical-mindfulness", note: "Top-level URL kept for ease of sharing" },
-              { label: "Master Your Message", path: "/communication", note: "Top-level URL kept for ease of sharing" },
-              { label: "Extraordinary Teams", path: "/extraordinary-teams", note: "Top-level URL kept for ease of sharing" },
-            ],
-          },
-          {
             label: "Assessments",
             path: "/partner/ignite/assessments",
             children: [

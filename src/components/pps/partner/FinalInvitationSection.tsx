@@ -17,7 +17,7 @@ export function FinalInvitationSection() {
             You don't need the entire path today. You only need the next step.
           </p>
           <p className="text-body">
-            Whether that begins with a course, an assessment, a workshop, a strategic conversation, or a long-term partnership, the goal remains the same:
+            Whether that begins with a masterclass, an assessment, a workshop, a strategic conversation, or a long-term partnership, the goal remains the same:
             <br /><br />
             <strong>Creating meaningful progress with intention, clarity, and purpose.</strong>
           </p>

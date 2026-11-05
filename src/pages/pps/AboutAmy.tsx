@@ -45,7 +45,7 @@ const offerings: OfferingCard[] = [
     emoji: "⚡",
     title: "IGNITE: Self-Led Growth",
     description:
-      "Masterclasses, assessments, and self-paced courses designed to light the fire of transformation, on your terms.",
+      "Masterclasses, mini courses, and assessments designed to light the fire of transformation, on your terms.",
     href: "/partner/ignite",
     color: "gold",
   },
@@ -157,7 +157,7 @@ const doEpicShiftVideos: YouTubeVideoItem[] = [
 export default function AboutAmy() {
   useDocumentSeo({
     title: "Amy Yackowski, Founder | Painted Porch Strategies",
-    description: "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, courses, and thought leadership on change origination.",
+    description: "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, masterclasses, and thought leadership on change origination.",
     canonical: "/amy",
   });
 

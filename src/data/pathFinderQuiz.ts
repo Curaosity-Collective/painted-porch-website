@@ -236,7 +236,7 @@ export const B2C_QUESTIONS: Question[] = [
     prompt: "Where are you right now in terms of readiness to invest in your development?",
     options: [
       { id: "A", label: "Still exploring. I want to understand what's here before I commit." },
-      { id: "B", label: "Ready to start something self-paced. A course I can work through on my own terms." },
+      { id: "B", label: "Ready to start something self-paced. A mini course or masterclass I can work through on my own terms." },
       { id: "C", label: "Ready to invest alongside other leaders. A cohort or lab environment sounds right." },
       { id: "D", label: "Fully committed and looking for the deepest level of engagement available." },
     ],
@@ -566,10 +566,12 @@ const SAFE_B2B_FALLBACK: OfferingKey[] = [
 ];
 
 // Safe fallback for B2C primary picks when filtering would empty the group.
+// Courses are retired from the site (PPS-DEC-0021); mini courses and
+// masterclasses replace them, so the fallback never brings a course back.
 const SAFE_B2C_FALLBACK: OfferingKey[] = [
-  "radicalMindfulness",
-  "masterYourMessage",
-  "createExtraordinaryTeams",
+  "radicalMindfulnessMini",
+  "masterYourMessageMini",
+  "elementsOfATeam",
 ];
 
 // Speaking-topic candidates per B2B result type. Only surfaced when admin has
@@ -626,10 +628,10 @@ function b2cResult(rt: B2CResultType, answers: Answers): QuizResult {
         narrative: aspiring
           ? "You're building something real, and you're thinking about it the right way. The leaders who get this right build the foundation — self-awareness, reflective capacity, inner steadiness — before the complexity arrives. That's exactly where you are."
           : "The clearest thing your responses show is that the foundation needs to come first. Not because your capability is in question. Leaders who build self-awareness and reflective capacity before they try to go wider are the ones who stop exhausting themselves in the process.",
-        primaryGroup: grp("Your Starting Point — IGNITE", "radicalMindfulness"),
-        whyThisFits: "Your gap is foundation, not tactics — so we're pointing at the one program built to install it. Radical Mindfulness is the self-paced course that develops the self-awareness and reflective capacity every later capability (communication, team leadership, change) is built on. The free Stoicism prompts and Burnout resources are there to keep the practice alive between sessions.",
+        primaryGroup: grp("Your Starting Point — IGNITE", "radicalMindfulnessMini"),
+        whyThisFits: "Your gap is foundation, not tactics — so we're pointing at the one program built to install it. The Radical Mindfulness Mini Course is the self-paced starting point that develops the self-awareness and reflective capacity every later capability (communication, team leadership, change) is built on. The free Stoicism prompts and Burnout resources are there to keep the practice alive between sessions.",
         groups: [
-          grp("Also Worth Exploring", "radicalMindfulnessMini", "passengerToPilot", "eqi"),
+          grp("Also Worth Exploring", "passengerToPilot", "eqi"),
           grp("Free Starting Points", "stoicLeaderFieldGuide", "fiftyTwoStoicism", "burnoutResources"),
         ],
         whatComesNext: "Once this foundation is in place, two directions open: strengthening how you communicate, or building toward leading others. The AMPLIFY Leadership Labs are available whenever you're ready.",
@@ -639,10 +641,10 @@ function b2cResult(rt: B2CResultType, answers: Answers): QuizResult {
         track: "b2c", resultType: rt, headline: "Build Communication Power",
         subhead: "IGNITE — Self-Paced",
         narrative: "You have the self-awareness. You can read a room. The gap is in the translation: getting what's in your head to consistently land the way you intend. Closing this gap is about mastering the instrument you already have.",
-        primaryGroup: grp("Your Starting Point — IGNITE", "masterYourMessage"),
-        whyThisFits: "Your gap is the translation layer — the space between what you mean and how it lands. Master Your Message is built specifically for that gap: how you frame, deliver, and adapt your message so it consistently reaches the room you're actually in. The companion picks sharpen the same instrument (style awareness, hard conversations, your natural working genius).",
-        groups: [grp("Also Worth Exploring", "masterYourMessageMini", "talkingToStrangers", "workingGenius")],
-        whatComesNext: "Communication work is the direct prerequisite for leading teams through complexity. Create Extraordinary Teams and the AMPLIFY Leadership Labs are the natural next terrain.",
+        primaryGroup: grp("Your Starting Point — IGNITE", "masterYourMessageMini"),
+        whyThisFits: "Your gap is the translation layer — the space between what you mean and how it lands. The Master Your Message Mini Course is built specifically for that gap: how you frame, deliver, and adapt your message so it consistently reaches the room you're actually in. The companion picks sharpen the same instrument (style awareness, hard conversations, your natural working genius).",
+        groups: [grp("Also Worth Exploring", "talkingToStrangers", "workingGenius")],
+        whatComesNext: "Communication work is the direct prerequisite for leading teams through complexity. Elements of a Team and the AMPLIFY Leadership Labs are the natural next terrain.",
       };
     case "RT3": {
       const cohort = q6 === "C" || q6 === "D";
@@ -654,12 +656,12 @@ function b2cResult(rt: B2CResultType, answers: Answers): QuizResult {
           : "You've built real individual capacity. What leadership is testing you on now is the team: building conditions where a group consistently does its best work together. That's a different skill set.",
         primaryGroup: cohort
           ? grp("Your Starting Point — AMPLIFY Lab", "conflictToConnectionLab", "goldilocksLab")
-          : grp("Your Starting Point — IGNITE", "createExtraordinaryTeams"),
+          : grp("Your Starting Point — IGNITE", "elementsOfATeam"),
         whyThisFits: cohort
           ? "You told us you want a live, cohort-based experience — so we picked the two Labs that target the team dynamics most leaders trip on: navigating conflict productively (Conflict to Connection) and calibrating expectations and accountability (Goldilocks). Both put you in a peer cohort where the work is the team, not the theory."
-          : "You told us you want a self-paced path — so we picked the one course designed to give you the team-leadership playbook end to end. Create Extraordinary Teams covers the conditions, rhythms, and decisions that turn a group of capable people into a team that consistently performs.",
+          : "You told us you want a self-paced path — so we picked Elements of a Team, the masterclass on the core components of team health: the conditions that turn a group of capable people into a team that consistently performs.",
         groups: [
-          grp("Also Worth Exploring", "elementsOfATeam", "workingGenius", "kickTheHabit"),
+          grp("Also Worth Exploring", "workingGenius", "kickTheHabitB2C"),
           grp("Free Starting Points", "stoicLeaderFieldGuide"),
         ],
         whatComesNext: "As you build team-leadership capacity, two signals often emerge: toward change architecture, or toward organizational scale. When what you're building for your team is something your whole organization needs, that's a different conversation. We're ready for it.",

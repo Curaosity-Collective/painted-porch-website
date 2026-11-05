@@ -55,7 +55,6 @@ import EmbodyPathAltArchiveV2 from "./pages/pps/partner/EmbodyPathAltArchiveV2";
 // Original components are archived at -archive routes.
 
 // IGNITE Subpages
-import IgniteCourses from "./pages/pps/partner/ignite/IgniteCourses";
 import IgniteAssessments from "./pages/pps/partner/ignite/IgniteAssessments";
 import IgniteMasterclasses from "./pages/pps/partner/ignite/IgniteMasterclasses";
 import EQAssessment from "./pages/pps/partner/ignite/EQAssessment";
@@ -83,9 +82,6 @@ import BurnoutResources from "./pages/pps/resources/BurnoutResources";
 import BurnoutOptIn from "./pages/pps/BurnoutOptIn";
 
 // Program Detail Pages
-import RadicalMindfulness from "./pages/pps/programs/RadicalMindfulness";
-import MasterYourMessage from "./pages/pps/programs/MasterYourMessage";
-import ExtraordinaryTeams from "./pages/pps/programs/ExtraordinaryTeams";
 
 // About Team Hubs
 import AboutAmy from "./pages/pps/AboutAmy";
@@ -306,7 +302,8 @@ const App = () => (
             <Route path="partner-archive" element={<PartnerWithUs />} />
             
             <Route path="partner/ignite" element={<IgnitePathAlt />} />
-            <Route path="partner/ignite/courses" element={<IgniteCourses />} />
+            {/* Courses retired (PPS-DEC-0021): course pages go to mini courses and masterclasses */}
+            <Route path="partner/ignite/courses" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
             <Route path="partner/ignite/assessments" element={<IgniteAssessments />} />
             <Route path="partner/ignite/assessments/working-genius" element={<WorkingGeniusAssessment />} />
             <Route path="partner/ignite/masterclasses" element={<IgniteMasterclasses />} />
@@ -408,9 +405,10 @@ const App = () => (
             <Route path="services" element={<Navigate to="/partner" replace />} />
             <Route path="business-programs" element={<Navigate to="/partner" replace />} />
             <Route path="programs" element={<Navigate to="/partner/ignite" replace />} />
-            <Route path="radical-mindfulness" element={<RadicalMindfulness />} />
-            <Route path="communication" element={<MasterYourMessage />} />
-            <Route path="extraordinary-teams" element={<ExtraordinaryTeams />} />
+            {/* Course sales pages retired (PPS-DEC-0021) */}
+            <Route path="radical-mindfulness" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
+            <Route path="communication" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
+            <Route path="extraordinary-teams" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
 
             {/* Quick-access redirect shortcuts */}
             <Route path="stracticalleader" element={<Navigate to="/partner/amplify/stractical-leader" replace />} />
@@ -423,7 +421,7 @@ const App = () => (
             <Route path="ignite" element={<Navigate to="/partner/ignite" replace />} />
             <Route path="amplify" element={<Navigate to="/partner/amplify" replace />} />
             <Route path="embody" element={<Navigate to="/partner/embody" replace />} />
-            <Route path="courses" element={<Navigate to="/partner/ignite/courses" replace />} />
+            <Route path="courses" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
             <Route path="masterclass" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
             <Route path="workshops" element={<Navigate to="/partner/amplify/workshops" replace />} />
             <Route path="sprints" element={<Navigate to="/partner/amplify/sprints" replace />} />

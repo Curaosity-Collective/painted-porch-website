@@ -260,7 +260,7 @@ export default function PPSHome() {
                       Find Your P.A.T.H.
                     </h3>
                     <p className="text-body text-foreground leading-relaxed mb-3">
-                      From free resources, masterclasses, courses, assessments,
+                      From free resources, masterclasses, mini courses, assessments,
                       and more. For leaders sensing something needs to sh<strong>IF</strong>t,
                       but not sure where to get started.
                     </p>
@@ -675,7 +675,7 @@ export default function PPSHome() {
                 Exploring for Yourself?
               </h3>
               <p className="text-body text-foreground mb-4 leading-relaxed flex-1">
-                Courses, assessments, masterclasses, and self-guided tools to
+                Mini courses, assessments, masterclasses, and self-guided tools to
                 help you communicate, lead, and navigate change more
                 intentionally in the work you&rsquo;re already doing.
               </p>

@@ -32,7 +32,6 @@ const staticPages = [
   { path: "/speaking/media", priority: "0.5", changefreq: "monthly" },
   { path: "/partner", priority: "0.9", changefreq: "monthly" },
   { path: "/partner/ignite", priority: "0.8", changefreq: "monthly" },
-  { path: "/partner/ignite/courses", priority: "0.7", changefreq: "monthly" },
   { path: "/partner/ignite/assessments", priority: "0.7", changefreq: "monthly" },
   { path: "/partner/ignite/assessments/working-genius", priority: "0.6", changefreq: "monthly" },
   { path: "/partner/ignite/masterclasses", priority: "0.7", changefreq: "monthly" },

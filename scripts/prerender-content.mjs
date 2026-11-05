@@ -53,7 +53,7 @@ export const routes = [
       },
       {
         h2: "The three-track ecosystem",
-        body: "The Epic ShIFt Organizational Appraisal ($24,000) is an interview-led appraisal that begins with a Clarity Call. IGNITE is a self-led track of courses, assessments, and masterclasses. AMPLIFY is a 3–6 month partnership with workshops, sprints, and labs. EMBODY is a 6–12+ month embedded partnership including executive advisory.",
+        body: "The Epic ShIFt Organizational Appraisal ($24,000) is an interview-led appraisal that begins with a Clarity Call. IGNITE is a self-led track of mini courses, assessments, and masterclasses. AMPLIFY is a 3–6 month partnership with workshops, sprints, and labs. EMBODY is a 6–12+ month embedded partnership including executive advisory.",
       },
     ],
     links: commonLinks,
@@ -212,18 +212,17 @@ export const routes = [
     path: "/partner/ignite",
     title: "IGNITE | Painted Porch Strategies",
     description:
-      "IGNITE is the self-led Painted Porch track: courses, assessments, and masterclasses for leaders ready to test transformation.",
+      "IGNITE is the self-led Painted Porch track: mini courses, assessments, and masterclasses for leaders ready to test transformation.",
     h1: "IGNITE — Light the Fire",
     intro:
       "IGNITE is the entry-tier Painted Porch partnership. Self-led programs, assessments, and masterclasses designed for leaders and small teams who want to prove transformation works here before committing to a full engagement.",
     sections: [
       {
         h2: "What's inside IGNITE",
-        body: "Self-paced leadership courses, individual and team assessments (including Working Genius and EQ-i), and live masterclasses on change communication, leadership development, and Stoic practical wisdom. Everything is built to move quickly and produce visible wins.",
+        body: "Self-paced mini courses, individual and team assessments (including Working Genius and EQ-i), and live masterclasses on change communication, leadership development, and Stoic practical wisdom. Everything is built to move quickly and produce visible wins.",
       },
     ],
     links: [
-      { href: "/partner/ignite/courses", label: "IGNITE courses" },
       { href: "/partner/ignite/assessments", label: "IGNITE assessments" },
       { href: "/partner/ignite/masterclasses", label: "IGNITE masterclasses" },
       { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
@@ -399,21 +398,6 @@ export const routes = [
     ],
   },
   {
-    path: "/partner/ignite/courses",
-    title: "IGNITE Courses | Painted Porch Strategies",
-    description:
-      "Self-paced leadership and change courses inside the IGNITE tier of Painted Porch Strategies.",
-    h1: "IGNITE Courses",
-    intro:
-      "Self-paced courses covering change origination, leadership fundamentals, communication architecture, and Stoic practical wisdom for modern leaders.",
-    links: [
-      { href: "/partner/ignite", label: "IGNITE overview" },
-      { href: "/partner/ignite/assessments", label: "IGNITE assessments" },
-      { href: "/partner/ignite/masterclasses", label: "IGNITE masterclasses" },
-      { href: "/contact", label: "Contact us" },
-    ],
-  },
-  {
     path: "/partner/ignite/assessments",
     title: "IGNITE Assessments | Painted Porch Strategies",
     description:
@@ -438,7 +422,6 @@ export const routes = [
       "Live and on-demand masterclasses on the topics leaders wrestle with most: originating change, leading through uncertainty, designing communication that lands, and applying Stoic practical wisdom.",
     links: [
       { href: "/partner/ignite", label: "IGNITE overview" },
-      { href: "/partner/ignite/courses", label: "IGNITE courses" },
       { href: "/contact", label: "Contact us" },
     ],
   },

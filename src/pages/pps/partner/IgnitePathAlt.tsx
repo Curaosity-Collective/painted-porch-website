@@ -14,7 +14,6 @@ import {
   FileText,
   BarChart3,
   Lightbulb,
-  Monitor,
 } from "lucide-react";
 import { TierBadge, TIERS } from "@/components/pps/TierBadge";
 import { TierHeroSection } from "@/components/pps/TierHeroSection";
@@ -100,7 +99,7 @@ const archetypes = [
 export default function IgnitePathAlt() {
   useDocumentSeo({
     title: "IGNITE P.A.T.H.way | Self-Led Phase Zero | Painted Porch",
-    description: "Spark new shIFt. Build Phase Zero foundations at your own pace with IGNITE: assessments, courses, and masterclasses for change-curious leaders.",
+    description: "Spark new shIFt. Build Phase Zero foundations at your own pace with IGNITE: assessments, mini courses, and masterclasses for change-curious leaders.",
     ogImage: igniteHeroFlame,
   });
   return (
@@ -111,7 +110,7 @@ export default function IgnitePathAlt() {
         badgeLabel="IGNITE P.A.T.H.way"
         headline="Spark New ShIFt. Build Phase Zero™ Foundations at Your Own Pace."
         headlineHighlight="IF"
-        description="IGNITE is the self-led P.A.T.H.way onto the Painted Porch. Explore courses, assessments, and Phase Zero frameworks at your own pace while sparking the clarity, confidence, and capability for what comes next."
+        description="IGNITE is the self-led P.A.T.H.way onto the Painted Porch. Explore mini courses, masterclasses, assessments, and Phase Zero frameworks at your own pace while sparking the clarity, confidence, and capability for what comes next."
         ctas={[
           {
             label: "Browse IGNITE",
@@ -186,50 +185,11 @@ export default function IgnitePathAlt() {
         <div className="container max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              Three Ways to Spark Sh<span className="text-gold font-bold">IF</span>t
+              Two Ways to Spark Sh<span className="text-gold font-bold">IF</span>t
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 items-stretch">
-            {/* Column 1: Self-Led Courses */}
-            <div className="bg-white p-6 lg:p-8 rounded-xl shadow-sm flex flex-col min-w-0">
-
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                <Monitor className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mb-4">
-                Self-Led Courses
-              </h3>
-              <p className="text-body text-foreground mb-6 leading-relaxed">
-                Transform how you lead, on your schedule. These courses teach you to architect change, communicate with clarity, build resilience, and develop teams where everyone shines.
-              </p>
-              <p className="text-body -sm font-semibold text-navy mb-2">What's Inside:</p>
-              <ul className="space-y-1 flex-grow">
-                <li className="text-body flex items-center gap-2 -sm text-foreground">
-                  <CheckCircle className="w-4 h-4 text-lime flex-shrink-0" />
-                  Video lessons & frameworks
-                </li>
-                <li className="text-body flex items-center gap-2 -sm text-foreground">
-                  <CheckCircle className="w-4 h-4 text-lime flex-shrink-0" />
-                  Workbooks & exercises
-                </li>
-                <li className="text-body flex items-center gap-2 -sm text-foreground">
-                  <CheckCircle className="w-4 h-4 text-lime flex-shrink-0" />
-                  Lifetime access
-                </li>
-                <li className="text-body flex items-center gap-2 -sm text-foreground">
-                  <CheckCircle className="w-4 h-4 text-lime flex-shrink-0" />
-                  Practical application tools
-                </li>
-              </ul>
-              <div className="mt-6">
-                <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-colors text-sm px-2">
-                  <Link to="/partner/ignite/courses">Explore Courses →</Link>
-                </Button>
-
-              </div>
-            </div>
-
+          <div className="grid md:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
             {/* Column 2: Strategic Assessments */}
             <div className="bg-white p-6 lg:p-8 rounded-xl shadow-sm flex flex-col min-w-0">
 
@@ -340,7 +300,7 @@ export default function IgnitePathAlt() {
               <ul className="space-y-2 mb-6">
                 <li className="text-body flex items-center gap-2 -sm text-foreground">
                   <div className="w-1.5 h-1.5 rounded-full bg-gold" />
-                  Complete additional courses
+                  Join more masterclasses and mini courses
                 </li>
                 <li className="text-body flex items-center gap-2 -sm text-foreground">
                   <div className="w-1.5 h-1.5 rounded-full bg-gold" />

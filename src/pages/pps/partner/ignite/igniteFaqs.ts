@@ -2,31 +2,6 @@ import type { FAQCategory } from "@/components/pps/FAQSection";
 
 export const igniteFaqCategories: FAQCategory[] = [
   {
-    name: "Courses",
-    faqs: [
-      {
-        question: "Do I need to take courses in a specific order?",
-        answer: "No. Start with whichever program addresses your most pressing development priority. Many leaders find Radical Mindfulness (ground preparation) or Leading Change (Phase Zero™ foundations) to be natural starting points.",
-      },
-      {
-        question: "How long does it take to complete each course?",
-        answer: "Courses range from 8-12 modules if you follow the suggested pace. Because they're self-paced, you can move faster or slower based on your schedule. You have lifetime access.",
-      },
-      {
-        question: "Can I get organizational funding for courses?",
-        answer: "Absolutely. Many leaders expense IGNITE courses as professional development. We provide invoices and can work with your L&D team if needed.",
-      },
-      {
-        question: "What if I purchase a single course but later want a bundle?",
-        answer: "Start with one program. As an alumni of our programs, you'll receive a discount that may be applied to any future course or other individual offers from the Painted Porch.",
-      },
-      {
-        question: "Can I access courses on mobile devices?",
-        answer: "Yes. All courses are accessible on desktop, tablet, and mobile devices so you can learn wherever works best for you.",
-      },
-    ],
-  },
-  {
     name: "Assessments",
     faqs: [
       {
@@ -62,10 +37,6 @@ export const igniteFaqCategories: FAQCategory[] = [
         question: "Are masterclasses live or recorded?",
         answer: "Both. Attend live for interaction and Q&A, or access the recording if the timing doesn't work for your schedule.",
       },
-      {
-        question: "Do I need to complete courses before attending masterclasses?",
-        answer: "No. Masterclasses are standalone learning experiences that work whether you're new to Phase Zero concepts or deepening existing knowledge.",
-      },
     ],
   },
   {
@@ -73,7 +44,7 @@ export const igniteFaqCategories: FAQCategory[] = [
     faqs: [
       {
         question: "What's the difference between IGNITE and AMPLIFY?",
-        answer: "IGNITE is self-paced individual development (courses, assessments, masterclasses). AMPLIFY is cohort and team-based learning (workshops, strategic sprints, Leadership Labs). IGNITE builds your capacity. AMPLIFY builds your leadership, team, or organizational capacity and skills.",
+        answer: "IGNITE is self-paced individual development (mini courses, assessments, masterclasses). AMPLIFY is cohort and team-based learning (workshops, strategic sprints, Leadership Labs). IGNITE builds your capacity. AMPLIFY builds your leadership, team, or organizational capacity and skills.",
       },
       {
         question: "Can I start with IGNITE and progress to AMPLIFY later?",

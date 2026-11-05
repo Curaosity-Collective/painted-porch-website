@@ -47,7 +47,6 @@ export default function PPSFooter() {
   ];
 
   const pathways = [
-    { label: "Courses", href: "/partner/ignite/courses" },
     { label: "Assessments", href: "/partner/ignite/assessments" },
     { label: "Masterclasses", href: "/partner/ignite/masterclasses" },
     { label: "Leadership Labs", href: "/partner/amplify/labs" },

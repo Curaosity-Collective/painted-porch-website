@@ -37,7 +37,7 @@ const sitewideFaqCategories: FAQCategory[] = [
     faqs: [
       {
         question: "What's the difference between IGNITE, AMPLIFY, and EMBODY?",
-        answer: "IGNITE is self-paced individual development, courses, assessments, and masterclasses you complete on your own schedule. AMPLIFY is cohort and team-based learning through workshops, strategic sprints, and Leadership Labs. EMBODY is an embedded executive partnership for full organizational transformation. Each P.A.T.H.way builds on the last, but you can start wherever fits your needs.",
+        answer: "IGNITE is self-paced individual development: mini courses, assessments, and masterclasses you complete on your own schedule. AMPLIFY is cohort and team-based learning through workshops, strategic sprints, and Leadership Labs. EMBODY is an embedded executive partnership for full organizational transformation. Each P.A.T.H.way builds on the last, but you can start wherever fits your needs.",
       },
       {
         question: "How do I know which P.A.T.H.way is right for me?",
@@ -49,36 +49,11 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "Can I mix offerings from different P.A.T.H.ways?",
-        answer: "Absolutely. Many leaders take IGNITE courses for personal development while their teams participate in AMPLIFY workshops. The P.A.T.H.ways are designed to complement each other, not restrict you.",
+        answer: "Absolutely. Many leaders take IGNITE masterclasses for personal development while their teams participate in AMPLIFY workshops. The P.A.T.H.ways are designed to complement each other, not restrict you.",
       },
       {
         question: "Is there a commitment or contract required?",
         answer: "IGNITE offerings are individual purchases with no ongoing commitment. AMPLIFY engagements are typically 3–6 month partnerships. EMBODY partnerships run 6–12+ months. Every engagement starts with a conversation to make sure it's the right fit for both sides.",
-      },
-    ],
-  },
-  {
-    name: "IGNITE, Courses",
-    faqs: [
-      {
-        question: "Do I need to take courses in a specific order?",
-        answer: "No. Start with whichever program addresses your most pressing development priority. Many leaders find Radical Mindfulness (ground preparation) or Leading Change (Phase Zero foundations) to be natural starting points.",
-      },
-      {
-        question: "How long does it take to complete each course?",
-        answer: "Courses range from 8-12 modules if you follow the suggested pace. Because they're self-paced, you can move faster or slower based on your schedule. You have lifetime access.",
-      },
-      {
-        question: "Can I get organizational funding for courses?",
-        answer: "Absolutely. Many leaders expense IGNITE courses as professional development. We provide invoices and can work with your L&D team if needed.",
-      },
-      {
-        question: "What if I purchase a single course but later want a bundle?",
-        answer: "Start with one program. As an alumni of our programs, you'll receive a discount that may be applied to any future course or other individual offers from the Painted Porch.",
-      },
-      {
-        question: "Can I access courses on mobile devices?",
-        answer: "Yes. All courses are accessible on desktop, tablet, and mobile devices so you can learn wherever works best for you.",
       },
     ],
   },
@@ -118,10 +93,6 @@ const sitewideFaqCategories: FAQCategory[] = [
         question: "Are masterclasses live or recorded?",
         answer: "Both. Attend live for interaction and Q&A, or access the recording if the timing doesn't work for your schedule.",
       },
-      {
-        question: "Do I need to complete courses before attending masterclasses?",
-        answer: "No. Masterclasses are standalone learning experiences that work whether you're new to Phase Zero concepts or deepening existing knowledge.",
-      },
     ],
   },
   {
@@ -129,7 +100,7 @@ const sitewideFaqCategories: FAQCategory[] = [
     faqs: [
       {
         question: "What's the difference between IGNITE and AMPLIFY?",
-        answer: "IGNITE is self-paced individual development (courses, assessments, masterclasses). AMPLIFY is cohort and team-based learning (workshops, strategic sprints, Leadership Labs). IGNITE builds your capacity. AMPLIFY builds your leadership, team, or organizational capacity and skills.",
+        answer: "IGNITE is self-paced individual development (mini courses, assessments, masterclasses). AMPLIFY is cohort and team-based learning (workshops, strategic sprints, Leadership Labs). IGNITE builds your capacity. AMPLIFY builds your leadership, team, or organizational capacity and skills.",
       },
       {
         question: "Can I start with IGNITE and progress to AMPLIFY later?",

@@ -55,15 +55,15 @@ describe("viewableKeys filter (B2B)", () => {
 describe("viewableKeys filter (B2C)", () => {
   it("filters primary group to eligible keys only", () => {
     const r = buildResult("b2c", B2C_RT1, {
-      viewableKeys: new Set(["radicalMindfulness"]),
+      viewableKeys: new Set(["radicalMindfulnessMini"]),
     });
     const keys = r.primaryGroup?.offerings.map((o) => o.key) ?? [];
-    expect(keys).toEqual(["radicalMindfulness"]);
+    expect(keys).toEqual(["radicalMindfulnessMini"]);
   });
 
   it("when no primary key is eligible, falls back to safe defaults that are eligible", () => {
     const r = buildResult("b2c", B2C_RT1, {
-      viewableKeys: new Set(["masterYourMessage"]), // not part of RT1 original picks
+      viewableKeys: new Set(["masterYourMessageMini"]), // not part of RT1 original picks
     });
     // The post-process keeps original group intact rather than blank.
     expect(r.primaryGroup?.offerings.length).toBeGreaterThan(0);

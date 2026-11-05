@@ -13,7 +13,7 @@ export function HowPeopleEnterSection() {
 
         <div className="max-w-3xl mx-auto text-center mb-12 space-y-6">
           <p className="text-body text-foreground leading-relaxed">
-            Sometimes it begins with a keynote, podcast, article, assessment, or course.
+            Sometimes it begins with a keynote, podcast, article, assessment, or masterclass.
           </p>
           <p className="text-body text-foreground leading-relaxed">
             Sometimes it begins with a leadership challenge that's difficult to solve alone.
@@ -43,7 +43,7 @@ export function HowPeopleEnterSection() {
             Your journey through the Porch doesn't need to follow a predetermined sequence.
           </p>
           <p className="text-body text-foreground leading-relaxed max-w-2xl mx-auto mb-4">
-            You may begin with a course, an assessment, a workshop, a strategic conversation, or a long-term partnership.
+            You may begin with a masterclass, an assessment, a workshop, a strategic conversation, or a long-term partnership.
             <br /><br />
             The right path is determined by your goals, your context, and the capability you need to build next.
           </p>
