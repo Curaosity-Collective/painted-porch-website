@@ -17,7 +17,8 @@
 :root {
   --v3-teal-foreground: 194 85% 97%;
   --v3-teal-deep: 188 100% 19%;
-  --v3-teal-heading: 185 100% 25%;
+  /* Section headings: brand Teal #007697 (PPS-DEC-0022). */
+  --v3-teal-heading: 192 100% 29%;
   --v3-bluedoor-deep: 215 100% 26%;
   --v3-strategic-deep: 262 51% 28%;
   --v3-lime-deep: 83 100% 24%;
@@ -41,7 +42,8 @@
 }
 
 .pps-v3 {
-  --background: 40 69% 96%;
+  /* White base; cream comes from bg-linen and surface-painted bands (PPS-DEC-0022). */
+  --background: 0 0% 100%;
   --foreground: 211 9% 20%;
   --card: 0 0% 100%;
   --card-foreground: 211 9% 20%;

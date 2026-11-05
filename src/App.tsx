@@ -97,6 +97,8 @@ import BlueDoorSuccess from "./pages/pps/BlueDoorSuccess";
 // Epic ShIFt redesign ("v3") pages ported from pps-simplified
 import EnvisionShift from "./pages/pps/v3/EnvisionShift";
 import HomeNext from "./pages/pps/v3/HomeNext";
+import ArchitectShift from "./pages/pps/v3/ArchitectShift";
+import EmbodyShift from "./pages/pps/v3/EmbodyShift";
 
 // Other Pages
 import Speaking from "./pages/pps/Speaking";
@@ -387,6 +389,9 @@ const App = () => (
             <Route path="thank-you-strategic-plan" element={<Navigate to="/thank-you-change-canvas" replace />} />
             {/* Epic ShIFt Organizational Appraisal (PPS-DEC-0018) */}
             <Route path="envision-shift" element={<EnvisionShift />} />
+            {/* Draft until release (PageGate in PPSLayout): Phase 2 of the reconciliation plan. */}
+            <Route path="architect-shift" element={<ArchitectShift />} />
+            <Route path="embody-shift" element={<EmbodyShift />} />
             {/* Retired Blue Door addresses (PPS-DEC-0017) */}
             <Route path="blue-door" element={<Navigate to="/envision-shift" replace />} />
             <Route path="blue-door-archive" element={<Navigate to="/envision-shift" replace />} />

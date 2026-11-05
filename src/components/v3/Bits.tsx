@@ -11,6 +11,9 @@ import { GhostLayer, Parallax } from "./Motion";
  * public pages carry no placeholder text.
  */
 
+/** Section H2 on light backgrounds: Poppins Bold, Title Case copy, brand Teal (PPS-DEC-0022). */
+export const V3_H2 = "font-display text-3xl font-bold leading-tight text-heading [text-wrap:balance] md:text-4xl";
+
 export function Kicker({
   children,
   tone = "raspberry",
@@ -57,7 +60,7 @@ export function PageHero({
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 md:py-28 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">
           <Kicker tone="onDark">{kicker}</Kicker>
-          <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight [text-wrap:balance] md:text-6xl">
             {title}
           </h1>
         </div>

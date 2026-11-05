@@ -4,7 +4,7 @@ import blueDoorImg from "@/assets/v3/blue-door.jpg";
 import blueDoorDusk from "@/assets/v3/blue-door-dusk.jpg";
 import porchEvening from "@/assets/v3/porch-evening.jpg";
 import thresholdDusk from "@/assets/v3/threshold-dusk.jpg";
-import { CTABand, EvidenceNote, Kicker, NumberedList, PageHero, Prose } from "@/components/v3/Bits";
+import { CTABand, EvidenceNote, Kicker, NumberedList, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { GhostLayer, ParallaxImage, StickyMedia } from "@/components/v3/Motion";
 import { Reveal } from "@/components/v3/Reveal";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -124,7 +124,7 @@ export default function EnvisionShift() {
   return (
     <div className="pps-v3">
       <PageHero
-        kicker="Step One — Get Clarity"
+        kicker="Prepare · Name It"
         title={
           <>
             Envision Epic <ShIFt onDark />
@@ -150,8 +150,8 @@ export default function EnvisionShift() {
         >
           <div>
             <Kicker>What It Is</Kicker>
-            <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-prepare-deep">
-              An interview-led organizational 360.
+            <h2 className={`mt-5 ${V3_H2}`}>
+              An Interview-Led Organizational 360
             </h2>
             <Prose>
               <p>
@@ -196,7 +196,7 @@ export default function EnvisionShift() {
         <GhostLayer>B</GhostLayer>
         <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-24">
           <Kicker>What It Produces</Kicker>
-          <h2 className="mt-5 max-w-2xl font-display text-3xl font-semibold leading-tight text-prepare-deep">
+          <h2 className={`mt-5 max-w-2xl ${V3_H2}`}>
             Your P.A.T.H. Compass
           </h2>
           <div className="mt-10">
@@ -222,7 +222,7 @@ export default function EnvisionShift() {
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {whoItsFor.map((item) => (
             <div key={item.strong} className="border-l-4 border-prepare bg-linen p-6 md:p-8">
-              <h3 className="font-display text-lg font-semibold text-prepare-deep">{item.strong}</h3>
+              <h3 className="font-display text-lg font-semibold text-foreground">{item.strong}</h3>
               <p className="mt-2 text-sm leading-relaxed text-foreground">{item.body}</p>
             </div>
           ))}
@@ -233,7 +233,7 @@ export default function EnvisionShift() {
         <div className="story-content-space mx-auto max-w-7xl px-6">
           <Reveal>
             <Kicker>How It Works</Kicker>
-            <h2 className="mt-5 max-w-2xl font-display text-3xl font-semibold leading-tight text-prepare-deep md:text-4xl">
+            <h2 className={`mt-5 max-w-2xl ${V3_H2}`}>
               Interviews. Appraisal. Your Compass.
             </h2>
           </Reveal>
@@ -244,7 +244,7 @@ export default function EnvisionShift() {
                   <span aria-hidden className="font-display text-4xl font-semibold text-prepare-deep/15">
                     {step.n}
                   </span>
-                  <h3 className="mt-3 font-display text-xl font-semibold text-prepare-deep">{step.title}</h3>
+                  <h3 className="mt-3 font-display text-xl font-semibold text-foreground">{step.title}</h3>
                   <p className="label-kicker mt-1 text-prepare-deep">{step.time}</p>
                   <p className="mt-4 text-sm leading-relaxed text-foreground">{step.body}</p>
                 </article>
@@ -253,13 +253,13 @@ export default function EnvisionShift() {
           </div>
 
           <Reveal>
-            <h3 className="mt-14 font-display text-2xl font-semibold text-prepare-deep">Practicalities</h3>
+            <h3 className="mt-14 font-display text-2xl font-semibold text-foreground">Practicalities</h3>
           </Reveal>
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
             <Reveal>
               <div className="h-full border-l-4 border-prepare bg-linen p-6 md:p-8">
-                <h3 className="font-display text-xl font-semibold text-prepare-deep">Investment</h3>
-                <p className="mt-4 font-display text-3xl font-semibold text-prepare-deep">
+                <h3 className="font-display text-xl font-semibold text-foreground">Investment</h3>
+                <p className="mt-4 font-display text-3xl font-semibold text-foreground">
                   {EPIC_SHIFT_APPRAISAL.priceDisplay}
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-foreground">
@@ -269,7 +269,7 @@ export default function EnvisionShift() {
             </Reveal>
             <Reveal>
               <div className="h-full border-l-4 border-prepare bg-linen p-6 md:p-8">
-                <h3 className="font-display text-xl font-semibold text-prepare-deep">What to expect</h3>
+                <h3 className="font-display text-xl font-semibold text-foreground">What to expect</h3>
                 <ul className="mt-5 space-y-3">
                   {expect.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground">
@@ -282,7 +282,7 @@ export default function EnvisionShift() {
             </Reveal>
             <Reveal>
               <div className="h-full border-l-4 border-prepare bg-linen p-6 md:p-8">
-                <h3 className="font-display text-xl font-semibold text-prepare-deep">What's included</h3>
+                <h3 className="font-display text-xl font-semibold text-foreground">What's included</h3>
                 <ul className="mt-5 space-y-3">
                   {included.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground">
@@ -300,7 +300,7 @@ export default function EnvisionShift() {
       <CTABand
         tone="prepare"
         photoProfile="cta-photo-envision"
-        title="Ready to begin?"
+        title="Ready to Begin?"
         body={
           <>
             The Epic <ShIFt onDark /> Organizational Appraisal begins with a Clarity Call. Start there, and the appraisal

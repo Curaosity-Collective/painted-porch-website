@@ -35,6 +35,11 @@ export const EPIC_SHIFT_APPRAISAL = {
  * connected (PPS-DEC-0019): the working contact form, prefilled. The
  * `blue-door` interest value is the existing GHL opportunity_type mapping.
  */
-export const CLARITY_CALL_CONTACT_HREF =
-  "/contact?scope=Company&interest=blue-door&message=" +
-  encodeURIComponent("I'd like to start with a Clarity Call about the Epic ShIFt Organizational Appraisal.");
+export function clarityCallHrefFor(topic: string): string {
+  return (
+    "/contact?scope=Company&interest=blue-door&message=" +
+    encodeURIComponent(`I'd like to start with a Clarity Call about ${topic}.`)
+  );
+}
+
+export const CLARITY_CALL_CONTACT_HREF = clarityCallHrefFor("the Epic ShIFt Organizational Appraisal");

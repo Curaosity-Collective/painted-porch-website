@@ -89,6 +89,7 @@ export default {
           deep: "hsl(var(--v3-teal-deep) / <alpha-value>)",
         },
         // Epic ShIFt redesign ("v3") tokens. Variables live in src/styles/v3.css.
+        heading: "hsl(var(--v3-teal-heading) / <alpha-value>)",
         cream: "hsl(var(--v3-cream) / <alpha-value>)",
         linen: "hsl(var(--v3-linen) / <alpha-value>)",
         sand: "hsl(var(--v3-sand) / <alpha-value>)",
