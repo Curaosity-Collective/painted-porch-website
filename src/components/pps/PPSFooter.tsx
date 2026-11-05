@@ -153,7 +153,7 @@ export default function PPSFooter() {
                     <button
                       type="submit"
                       disabled={status === "loading"}
-                      className="inline-flex items-center justify-center bg-lime text-white hover:bg-white hover:text-navy font-semibold text-ui-control py-2 px-4 rounded-lg transition-all disabled:opacity-60 focus-ring-on-dark"
+                      className="inline-flex items-center justify-center bg-lime text-navy hover:bg-white font-semibold text-ui-control py-2 px-4 rounded-lg transition-all disabled:opacity-60 focus-ring-on-dark"
                     >
                       {status === "loading" ? <Loader2 className="w-4 h-4 animate-spin" /> : "Subscribe"}
                     </button>
