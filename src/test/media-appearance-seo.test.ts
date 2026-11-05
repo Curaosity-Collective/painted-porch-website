@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
 import { buildMediaAppearanceSchema, serializeMediaAppearanceSchema, type MediaSeoRecord } from "../lib/media-appearance-seo.mjs";
 
 const approved: MediaSeoRecord = {
@@ -15,6 +16,13 @@ const list = (rows: MediaSeoRecord[]) => buildMediaAppearanceSchema(rows).mainEn
 };
 
 describe("media search and AI summaries", () => {
+  it("limits anonymous media reads to approved records without calling private reviewer functions", () => {
+    const sql = readFileSync("drizzle/migrations/0002_separate_public_media_reads_from_reviewer_checks.sql", "utf8");
+    for (const table of ["media_appearances", "youtube_videos"]) {
+      expect(sql).toMatch(new RegExp(`ON public\\.${table} FOR SELECT TO anon USING \\(review_status = 'published'\\)`));
+      expect(sql).toMatch(new RegExp(`ALTER POLICY [^;]+ ON public\\.${table} TO authenticated`));
+    }
+  });
   it("excludes pending appearances even when the viewer can read them", () => {
     const summary = list([approved, { ...approved, id: "pending-1", review_status: "pending" }]);
     expect(summary.numberOfItems).toBe(1);
