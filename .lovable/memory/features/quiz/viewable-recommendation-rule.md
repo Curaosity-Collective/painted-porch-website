@@ -20,7 +20,7 @@ The dialog fetches this eligible-key set on open and passes it to `buildResult` 
 
 # B2B-allowed categories
 1. **Workshops** (tier `Pathway B`) — Phase Zero + Leadership & Team Development cards on `/partner/amplify/workshops`, plus dedicated pages like `/partner/amplify/stractical-leader` and `/resources/kick-the-habit`.
-2. **Blue Door** (`blueDoor`).
+2. **Epic ShIFt Appraisal** (`blueDoor`, formerly Blue Door; links to `/envision-shift`).
 3. **Speaking topics** (tier `Speaking`) — deep-linked to topic cards on `/speaking/{amy|rob|sierra}` via `topic-{slug}` anchors. Surfaced in a dedicated "Speaking Topics — Bookable Keynotes" group when at least one matches the result type.
 
 Labs remain B2C-only (enforced by the existing `pathFinderQuiz.b2b.test.ts` guardrail).

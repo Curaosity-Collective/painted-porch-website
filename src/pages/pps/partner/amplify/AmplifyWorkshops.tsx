@@ -18,7 +18,7 @@ import { FAQSection, type FAQCategory } from "@/components/pps/FAQSection";
 import { ParallaxCTA } from "@/components/pps/ParallaxCTA";
 import { Eyebrow } from "@/components/pps/Eyebrow";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
-import { BLUE_DOOR_PRICE_DISPLAY } from "@/config/blueDoor";
+import { EPIC_SHIFT_APPRAISAL } from "@/config/epicShiftAppraisal";
 
 
 const workshopFaqCategories: FAQCategory[] = [
@@ -26,8 +26,8 @@ const workshopFaqCategories: FAQCategory[] = [
     name: "Workshops",
     faqs: [
       {
-        question: "Do we need the Blue Door Organizational Appraisal before a workshop?",
-        answer: "The Blue Door Organizational Appraisal is required for all Phase Zero Strategic Workshops and Strategic Sprints. It's not required for our Leadership & Team Development Workshops, though many teams still find it valuable for context. Your Blue Door investment is credited toward any booked engagement.",
+        question: "Do we need the Epic ShIFt Appraisal before a workshop?",
+        answer: "The Epic ShIFt Appraisal is required for all Phase Zero Strategic Workshops and Strategic Sprints. It's not required for our Leadership & Team Development Workshops, though many teams still find it valuable for context.",
       },
       {
         question: "Can we do a workshop first, then decide on a Strategic Sprint?",
@@ -221,7 +221,7 @@ export default function AmplifyWorkshops() {
             <>
               <div className="text-center mb-8">
                 <span className="inline-block bg-bluedoor/10 text-bluedoor font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-4">
-                  Blue Door Required
+                  Epic ShIFt Appraisal Required
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
                   Phase Zero&trade; Strategic Workshops
@@ -290,24 +290,21 @@ export default function AmplifyWorkshops() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <Info className="w-5 h-5 text-bluedoor" />
-                    <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy">Authoring Your Next Sh<span className="text-strategic font-bold">IF</span>t Begins At the <span className="text-bluedoor">Blue Door</span></h3>
+                    <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy">Authoring Your Next Sh<span className="text-strategic font-bold">IF</span>t Begins With the <span className="text-bluedoor">Epic ShIFt Appraisal</span></h3>
                   </div>
                   <p className="text-body -sm text-foreground mb-2 mt-4">
-                    The <span className="font-bold text-bluedoor">Blue Door</span> is our organizational appraisal (less than 30 minutes) that reveals where your business and leadership stands on the path to transformation so that you can lead with clarity and build with confidence.
+                    The <span className="font-bold text-bluedoor">Epic ShIFt Appraisal</span> is our interview-led organizational appraisal that reveals where your business and leadership stands on the path to transformation so that you can lead with clarity and build with confidence.
                   </p>
                   <p className="text-body -sm text-foreground/70 italic mb-3">
                     Required for Phase Zero Strategic Workshops and all Strategic Sprints. Not required for Leadership &amp; Team Development Workshops.
                   </p>
-                  <p className="text-body -sm text-foreground/70 italic mb-3">
-                    The Blue Door investment will be credited toward any booked engagement.
-                  </p>
                   <div className="flex items-center gap-4 text-sm">
-                    <span className="font-semibold text-navy">{BLUE_DOOR_PRICE_DISPLAY}</span>
+                    <span className="font-semibold text-navy">{EPIC_SHIFT_APPRAISAL.priceDisplay}</span>
                     <span className="text-foreground/70">|</span>
-                    <span className="text-foreground/70">Less than 30 minutes</span>
+                    <span className="text-foreground/70">{EPIC_SHIFT_APPRAISAL.beginsWith}</span>
                   </div>
                 </div>
-                <Link to="/blue-door">
+                <Link to="/envision-shift">
                   <Button variant="outline" className="bg-transparent border-2 border-bluedoor text-bluedoor hover:bg-bluedoor hover:text-white transition-colors">
                     Get Started <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
@@ -379,7 +376,7 @@ export default function AmplifyWorkshops() {
                           </ul>
                         </div>
                       )}
-                      <p className="text-body text-foreground/70 italic mt-4">No <span className="font-bold text-bluedoor">Blue Door</span> required</p>
+                      <p className="text-body text-foreground/70 italic mt-4">No <span className="font-bold text-bluedoor">Epic ShIFt Appraisal</span> required</p>
                     </div>
                   );
                 })}

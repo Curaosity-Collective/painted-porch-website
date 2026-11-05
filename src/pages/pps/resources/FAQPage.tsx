@@ -166,8 +166,8 @@ const sitewideFaqCategories: FAQCategory[] = [
     name: "AMPLIFY, Workshops",
     faqs: [
       {
-        question: "Do we need the Blue Door Organizational Appraisal before a workshop?",
-        answer: "The Blue Door Organizational Appraisal is required for all Phase Zero Strategic Workshops and Strategic Sprints. It's not required for our Leadership & Team Development Workshops, though many teams still find it valuable for context. Your Blue Door investment is credited toward any booked engagement.",
+        question: "Do we need the Epic ShIFt Appraisal before a workshop?",
+        answer: "The Epic ShIFt Appraisal is required for all Phase Zero Strategic Workshops and Strategic Sprints. It's not required for our Leadership & Team Development Workshops, though many teams still find it valuable for context.",
       },
       {
         question: "Can we do a workshop first, then decide on a Strategic Sprint?",
@@ -187,12 +187,12 @@ const sitewideFaqCategories: FAQCategory[] = [
         answer: "Change management starts after the direction is set. It manages resistance and pushes adoption of decisions already made. EMBODY is change origination. We partner upstream, at the strategic authorship moment, to architect the shIFt you intend to lead before a single tool gets launched. This is Phase Zero™ work, the work before the work, and it's where market leadership is actually decided.",
       },
       {
-        question: "Why does EMBODY start with The Blue Door?",
-        answer: "The Blue Door Organizational Appraisal is how we see your three Painted Porch Pillars™ clearly: Cultural Cornerstone, Operational Frame, and Living Ecosystem. It surfaces what your organization is built to carry right now and what needs to be reinforced. Without that reading, any partnership is a guess. With it, we co-design an EMBODY engagement that fits your actual architecture, not a template. Your investment is fully credited toward the engagement.",
+        question: "Why does EMBODY start with the Epic ShIFt Appraisal?",
+        answer: "The Epic ShIFt Appraisal is how we see your three Painted Porch Pillars™ clearly: Cultural Cornerstone, Operational Frame, and Living Ecosystem. It surfaces what your organization is built to carry right now and what needs to be reinforced. Without that reading, any partnership is a guess. With it, we co-design an EMBODY engagement that fits your actual architecture, not a template.",
       },
       {
-        question: "What if the Blue Door shows we're not ready for EMBODY yet?",
-        answer: "That's one of the most valuable things The Blue Door can surface. Your P.A.T.H. Compass will include a Reinforcement Path that maps what needs strengthening first, often through AMPLIFY sprints or IGNITE work. We'll be straightforward. We'd rather point you to the right starting line than sell you an engagement your organization can't yet carry.",
+        question: "What if the Epic ShIFt Appraisal shows we're not ready for EMBODY yet?",
+        answer: "That's one of the most valuable things the Epic ShIFt Appraisal can surface. Your P.A.T.H. Compass will include a Reinforcement Path that maps what needs strengthening first, often through AMPLIFY sprints or IGNITE work. We'll be straightforward. We'd rather point you to the right starting line than sell you an engagement your organization can't yet carry.",
       },
       {
         question: "Can we start with AMPLIFY or IGNITE and grow into EMBODY?",
@@ -221,7 +221,7 @@ const sitewideFaqCategories: FAQCategory[] = [
 export default function FAQPage() {
   useDocumentSeo({
     title: "FAQ | Painted Porch Strategies",
-    description: "Answers to the most common questions about Painted Porch Strategies, Phase Zero, the Blue Door, and our IGNITE, AMPLIFY, and EMBODY P.A.T.H.ways.",
+    description: "Answers to the most common questions about Painted Porch Strategies, Phase Zero, the Epic ShIFt Appraisal, and our IGNITE, AMPLIFY, and EMBODY P.A.T.H.ways.",
     ogImage: faqHero,
   });
   const isLoaded = useHeroLoaded();

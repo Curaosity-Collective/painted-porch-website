@@ -16,6 +16,8 @@ export default {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
+        display: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        body: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -55,6 +57,7 @@ export default {
         strategic: {
           DEFAULT: "hsl(var(--strategic))",
           foreground: "hsl(var(--strategic-foreground))",
+          deep: "hsl(var(--v3-strategic-deep) / <alpha-value>)",
         },
         navy: {
           DEFAULT: "hsl(var(--navy))",
@@ -67,6 +70,7 @@ export default {
         lime: {
           DEFAULT: "hsl(var(--lime))",
           foreground: "hsl(var(--lime-foreground))",
+          deep: "hsl(var(--v3-lime-deep) / <alpha-value>)",
         },
         raspberry: {
           DEFAULT: "hsl(var(--raspberry))",
@@ -75,12 +79,38 @@ export default {
         bluedoor: {
           DEFAULT: "hsl(var(--bluedoor))",
           foreground: "hsl(var(--bluedoor-foreground))",
+          deep: "hsl(var(--v3-bluedoor-deep) / <alpha-value>)",
         },
         charcoal: "hsl(0, 0%, 33%)",
         teal: {
           DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          foreground: "hsl(var(--v3-teal-foreground) / <alpha-value>)",
+          deep: "hsl(var(--v3-teal-deep) / <alpha-value>)",
         },
+        // Epic ShIFt redesign ("v3") tokens. Variables live in src/styles/v3.css.
+        cream: "hsl(var(--v3-cream) / <alpha-value>)",
+        linen: "hsl(var(--v3-linen) / <alpha-value>)",
+        sand: "hsl(var(--v3-sand) / <alpha-value>)",
+        berry: {
+          DEFAULT: "hsl(var(--v3-berry) / <alpha-value>)",
+          "on-dark": "hsl(var(--v3-berry-on-dark) / <alpha-value>)",
+        },
+        prepare: {
+          DEFAULT: "hsl(var(--v3-prepare) / <alpha-value>)",
+          deep: "hsl(var(--v3-prepare-deep) / <alpha-value>)",
+          ink: "hsl(var(--v3-prepare-ink) / <alpha-value>)",
+        },
+        align: {
+          DEFAULT: "hsl(var(--v3-align) / <alpha-value>)",
+          deep: "hsl(var(--v3-align-deep) / <alpha-value>)",
+          ink: "hsl(var(--v3-align-ink) / <alpha-value>)",
+        },
+        habits: {
+          DEFAULT: "hsl(var(--v3-habits) / <alpha-value>)",
+          deep: "hsl(var(--v3-habits-deep) / <alpha-value>)",
+          ink: "hsl(var(--v3-habits-ink) / <alpha-value>)",
+        },
+        "journey-foreground": "hsl(var(--v3-journey-foreground) / <alpha-value>)",
         // Legacy `pps-*` aliases used by program/landing pages
         "pps-navy": "hsl(var(--navy))",
         "pps-gold": "hsl(var(--gold))",

@@ -63,7 +63,7 @@ export default function EpicShift() {
         }
         ctas={[
           { label: "See How We Work", href: "/how-we-work", isPrimary: true },
-          { label: "Open Your Blue Door", href: "/blue-door", buttonClassName: "bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor" },
+          { label: "Envision Epic ShIFt", href: "/envision-shift", buttonClassName: "bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor" },
         ]}
         background={{ type: "image", src: aboutHero }}
         overlayClass="bg-navy/60"
@@ -182,7 +182,7 @@ export default function EpicShift() {
         headline="The direction is still yours to write"
         description="Start where every engagement starts: a structured read of what your organization is built to carry."
         actions={[
-          { label: "Open the Blue Door", to: "/blue-door", variant: "bluedoor" },
+          { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
           { label: "Contact Us", to: "/contact", variant: "secondary" },
         ]}
         overlayTone="raspberry"

@@ -8,7 +8,7 @@ const corsHeaders = {
 const BRAND_CONTEXT = `Painted Porch Strategies (PPS) is an organizational change consultancy.
 Voice: conversational yet authoritative, "huggable bear" — supportive and challenging.
 Frameworks: Phase Zero™ (strategic authorship before implementation), P.A.T.H.™ (Prepare, Align, Take Off, Habit), The Painted Porch Pillars™ (Cultural Cornerstone, Operational Frame, Living Ecosystem).
-Tiers: IGNITE (self-led), AMPLIFY (3-6mo partnership), EMBODY (6-12mo+ embedded). Blue Door = $1,500 strategic appraisal, prerequisite for engagements.
+Tiers: IGNITE (self-led), AMPLIFY (3-6mo partnership), EMBODY (6-12mo+ embedded). Epic ShIFt Appraisal = $24,000 interview-led organizational appraisal (six interviews), always preceded by a Clarity Call. The self-guided Blue Door is retired; never describe it as available.
 Tone: 6th-grade reading level, NEVER use em-dashes (—). Avoid servant language (help, assist); use partnership language (partner, co-design, activate, architect).`;
 
 async function generateSeo(path: string, context: string) {
@@ -42,7 +42,7 @@ RULES:
 - 3-5 AEO FAQ pairs, phrased the way real people ask AI engines
 - NEVER use em-dashes (—) — use a comma, period, or colon
 - Use partnership/momentum language, not servant language
-- Include brand terms when relevant (Painted Porch Strategies, Phase Zero, P.A.T.H., Blue Door, IGNITE/AMPLIFY/EMBODY)
+- Include brand terms when relevant (Painted Porch Strategies, Phase Zero, P.A.T.H., Epic ShIFt Appraisal, IGNITE/AMPLIFY/EMBODY)
 - Professional B2B executive/leadership audience`;
 
   const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {

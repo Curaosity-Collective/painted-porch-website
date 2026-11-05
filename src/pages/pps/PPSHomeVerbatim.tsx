@@ -185,8 +185,8 @@ export default function PPSHomeVerbatim() {
         }
         ctas={[
           {
-            label: "Open the Blue Door",
-            href: "/blue-door",
+            label: "Envision Epic ShIFt",
+            href: "/envision-shift",
             buttonClassName:
               "bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor",
             icon: <ArrowRight className="ml-2 w-5 h-5" />,
@@ -400,9 +400,9 @@ export default function PPSHomeVerbatim() {
                   pursuit.
                 </p>
               </div>
-              <Link to="/blue-door">
+              <Link to="/envision-shift">
                 <Button className="bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor text-lg py-5 px-8 transition-colors">
-                  Open the Blue Door
+                  Envision Epic ShIFt
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
@@ -487,10 +487,10 @@ export default function PPSHomeVerbatim() {
                 to take on next. The Blue Door is where to begin.
               </p>
               <Link
-                to="/blue-door"
+                to="/envision-shift"
                 className="text-bluedoor font-semibold hover:underline inline-flex items-center mt-auto"
               >
-                Open the Blue Door
+                Envision Epic ShIFt
                 <ArrowRight className="ml-1 w-4 h-4" />
               </Link>
             </div>
@@ -1139,7 +1139,7 @@ export default function PPSHomeVerbatim() {
           </span>
         }
         actions={[
-          { label: "Open the Blue Door", to: "/blue-door", variant: "bluedoor" },
+          { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
           { label: "Discover Your P.A.T.H.way", to: "/start-here", variant: "secondary" },
         ]}
       />

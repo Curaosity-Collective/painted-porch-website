@@ -58,39 +58,26 @@ describe("Blue Door offer schema — runtime", () => {
   });
 });
 
-describe("Blue Door offer schema — prerendered HTML", () => {
+describe("Retired Blue Door — prerendered HTML (PPS-DEC-0017)", () => {
   const prerender = read("scripts/prerender.mjs");
   const content = read("scripts/prerender-content.mjs");
 
-  it("derives availability from src/config/blueDoor.ts instead of hardcoding it", () => {
-    expect(prerender).toContain("BLUE_DOOR_LAUNCH_DATE = new Date");
-    expect(prerender).toContain("availability: blueDoorAvailability");
-    // No literal availability string left in the Blue Door offer block.
+  it("no longer prerenders a /blue-door page or its $1,500 offer", () => {
+    expect(content).not.toContain('path: "/blue-door"');
+    expect(content).not.toContain("$1,500");
+    expect(prerender).not.toContain('"/blue-door": {');
+    expect(prerender).not.toContain('price: "1500"');
+  });
+
+  it("emits the Epic ShIFt Appraisal service at its canonical page (PPS-DEC-0018)", () => {
+    expect(content).toContain('path: "/envision-shift"');
     const block = prerender.slice(
-      prerender.indexOf('"/blue-door": {'),
+      prerender.indexOf('"/envision-shift": {'),
       prerender.indexOf('"/partner": {'),
     );
-    expect(block).not.toContain('availability: "https://schema.org/');
-  });
-
-  it("uses the same PreOrder/InStock values as the runtime helper", () => {
-    expect(prerender).toContain('"https://schema.org/PreOrder"');
-    expect(prerender).toContain('"https://schema.org/InStock"');
-    const launchIso = prerender.match(
-      /BLUE_DOOR_LAUNCH_DATE = new Date\\\("\(\[\^"\]\+\)"\\\)/,
-    );
-    // The regex literal exists; the parsed date must match the TS config.
-    expect(launchIso ?? prerender.includes("blueDoorLaunchIso")).toBeTruthy();
-  });
-
-  it("keeps prerendered Blue Door metadata aligned with the launch state", () => {
-    const preLaunch = isBlueDoorPreLaunch();
-    const blueDoorRoute = content.slice(
-      content.indexOf('path: "/blue-door"'),
-      content.indexOf('path: "/blue-door"') + 900,
-    );
-    if (preLaunch) {
-      expect(blueDoorRoute).toContain("Coming Soon");
-    }
+    expect(block).toContain('name: "The Epic ShIFt Appraisal"');
+    expect(block).toContain('price: "24000"');
+    // Not sold directly: it begins with a Clarity Call, so no purchase availability.
+    expect(block).not.toContain("availability");
   });
 });

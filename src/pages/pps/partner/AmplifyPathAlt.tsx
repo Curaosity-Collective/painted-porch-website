@@ -141,8 +141,8 @@ const faqItems = [
     answer: "Absolutely. Many leaders participate in labs for their own development while separately engaging their teams in workshops or sprints. Leadership Labs focus on individual leadership capacity; workshops/sprints focus on team alignment.",
   },
   {
-    question: "Do we need the Blue Door Organizational Appraisal before AMPLIFY?",
-    answer: "Not required for leadership labs. Required for Strategic Sprints and multi-day workshops. Highly recommended (but not required) for single-day workshops. Our Blue Door Organizational Appraisal provides the diagnostic foundation for workshop focus and sprint partnerships.",
+    question: "Do we need the Epic ShIFt Appraisal before AMPLIFY?",
+    answer: "Not required for leadership labs. Required for Strategic Sprints and multi-day workshops. Highly recommended (but not required) for single-day workshops. Our Epic ShIFt Appraisal provides the foundation for workshop focus and sprint partnerships.",
   },
   {
     question: "Can we do a workshop first, then decide on Strategic Sprint?",
@@ -539,13 +539,13 @@ export default function AmplifyPathAlt() {
                 Start Your AMPLIFY Partnership <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
-            <Link to="/blue-door">
+            <Link to="/envision-shift">
               <Button
                 variant="outline"
                 size="lg"
                 className="bg-transparent border-2 border-bluedoor text-bluedoor hover:bg-bluedoor hover:text-white transition-colors"
               >
-                Begin with The Blue Door
+                Envision Epic ShIFt
               </Button>
             </Link>
           </div>
@@ -776,10 +776,10 @@ export default function AmplifyPathAlt() {
               <h3 className="text-xl md:text-2xl font-poppins font-bold mb-4">For Organizations & Teams</h3>
               <p className="text-body text-white/90 mb-6">Start with strategic clarity.</p>
               <Button asChild className="bg-bluedoor hover:bg-bluedoor/90 text-white w-full mb-4">
-                  <Link to="/blue-door">Start Your Organizational Appraisal</Link>
+                  <Link to="/envision-shift">Start Your Organizational Appraisal</Link>
                 </Button>
               <p className="text-body -sm text-white/70">
-                Our Blue Door Organizational Appraisal provides the diagnostic foundation for workshop focus and sprint partnerships.
+                Our Epic ShIFt Appraisal provides the foundation for workshop focus and sprint partnerships.
               </p>
             </div>
 

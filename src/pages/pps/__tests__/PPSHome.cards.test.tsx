@@ -67,8 +67,9 @@ describe("PPSHome, Discover cards link alignment", () => {
     const pathLink = yourselfCard.querySelector(
       'a[href="/start-here"]',
     ) as HTMLAnchorElement;
+    // The retired Blue Door card now opens the Epic ShIFt Appraisal (PPS-DEC-0017).
     const blueDoorCardLink = teamCard.querySelector(
-      'a[href="/blue-door"]',
+      'a[href="/envision-shift"]',
     ) as HTMLAnchorElement;
 
     expect(pathLink).toBeTruthy();

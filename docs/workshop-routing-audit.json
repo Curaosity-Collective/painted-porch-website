@@ -1,12 +1,10 @@
 {
-  "generated_at": "2026-08-16T01:58:02.427Z",
-  "live": false,
+  "skipped": "missing-credentials",
+  "rows": [],
   "summary": {
     "total": 0,
     "errors": 0,
     "warnings": 0,
     "byCode": {}
-  },
-  "rows": [],
-  "liveProbes": null
+  }
 }

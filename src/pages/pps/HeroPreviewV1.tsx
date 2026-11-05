@@ -49,10 +49,10 @@ export default function HeroPreviewV1() {
           {/* CTAs */}
           <div className="flex flex-wrap gap-5">
             <Link
-              to="/blue-door"
+              to="/envision-shift"
               className="group inline-flex items-center rounded-sm border-2 border-bluedoor bg-bluedoor px-8 py-4 font-poppins font-semibold text-white transition-all hover:bg-white hover:text-bluedoor focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
             >
-              Open the Blue Door
+              Envision Epic ShIFt
               <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link

@@ -5,7 +5,7 @@ import { CheckCircle, ArrowRight, Info, Download, Compass, PencilRuler, Map } fr
 import { PPSBreadcrumb } from "@/components/pps/PPSBreadcrumb";
 import { FAQSection, type FAQCategory } from "@/components/pps/FAQSection";
 import { ParallaxCTA } from "@/components/pps/ParallaxCTA";
-import { BLUE_DOOR_PRICE_DISPLAY } from "@/config/blueDoor";
+import { EPIC_SHIFT_APPRAISAL } from "@/config/epicShiftAppraisal";
 import amplifyFinalCtaBg from "@/assets/amplify-final-cta-bg.jpg";
 import { Eyebrow } from "@/components/pps/Eyebrow";
 
@@ -41,9 +41,9 @@ const sprintFaqCategories: FAQCategory[] = [
     name: "Strategic Sprints",
     faqs: [
       {
-        question: "Do we need the Blue Door Organizational Appraisal before a Strategic Sprint?",
+        question: "Do we need the Epic ShIFt Appraisal before a Strategic Sprint?",
         answer:
-          "Yes. The Blue Door Organizational Appraisal is required for Strategic Sprints. It gives us (and you) the strategic clarity needed to focus your sprint investment.",
+          "Yes. The Epic ShIFt Appraisal is required for Strategic Sprints. It gives us (and you) the strategic clarity needed to focus your sprint investment.",
       },
       {
         question: "How long is a Strategic Sprint?",
@@ -238,7 +238,7 @@ export default function AmplifySprints() {
               Where Strategic Sprints typically fit
             </h2>
             <p className="text-body text-foreground max-w-2xl mx-auto">
-              Sprints usually architect the front-end of one of these shifts. If yours isn't listed, the <strong className="font-bold text-bluedoor">Blue Door</strong> Organizational Appraisal will tell us whether a Sprint is the right fit.
+              Sprints usually architect the front-end of one of these shifts. If yours isn't listed, the <strong className="font-bold text-bluedoor">Epic ShIFt Appraisal</strong> will tell us whether a Sprint is the right fit.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -319,23 +319,23 @@ export default function AmplifySprints() {
                 <div className="flex items-start gap-2 mb-2">
                   <Info className="w-5 h-5 text-bluedoor flex-shrink-0 mt-1" />
                   <h3 className="text-xl font-poppins font-semibold text-navy break-words">
-                    Prerequisite: The <span className="text-bluedoor">Blue Door</span>
+                    Prerequisite: The <span className="text-bluedoor">Epic ShIFt Appraisal</span>
                   </h3>
                 </div>
                 <p className="text-body -sm text-foreground mb-4">
-                  Our short organizational appraisal (under 30 minutes) that reveals where you really stand on the path to transformation, and what's blocking progress. Required before any Strategic Sprint.
+                  Our interview-led organizational appraisal that reveals where you really stand on the path to transformation, and what's blocking progress. Required before any Strategic Sprint. It begins with a Clarity Call.
                 </p>
                 <div className="flex items-center gap-3 text-sm mb-4">
-                  <span className="font-semibold text-navy">{BLUE_DOOR_PRICE_DISPLAY}</span>
+                  <span className="font-semibold text-navy">{EPIC_SHIFT_APPRAISAL.priceDisplay}</span>
                   <span className="text-foreground/70">·</span>
-                  <span className="text-foreground/70">Under 30 minutes</span>
+                  <span className="text-foreground/70">{EPIC_SHIFT_APPRAISAL.scope}</span>
                 </div>
-                <Link to="/blue-door">
+                <Link to="/envision-shift">
                   <Button
                     variant="outline"
                     className="bg-transparent border-2 border-bluedoor text-bluedoor hover:bg-bluedoor hover:text-white transition-colors w-full"
                   >
-                    Start with the Blue Door <ArrowRight className="ml-2 w-4 h-4" />
+                    Envision Epic ShIFt <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
               </div>
@@ -361,7 +361,7 @@ export default function AmplifySprints() {
         }
         description="A 90-day Strategic Sprint installs a new way for your team to prepare and design every shift that follows, with the architecture and direction to lead what comes next."
         actions={[
-          { label: "Start with the Blue Door", to: "/blue-door", variant: "bluedoor" },
+          { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
         ]}
       />
     </div>

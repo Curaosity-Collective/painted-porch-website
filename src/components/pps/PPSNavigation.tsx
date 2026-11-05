@@ -14,7 +14,7 @@ import { useArePagesLive } from "@/hooks/useIsPageLive";
 
 const navLinks = [
   { label: "What is Phase Zero?", href: "/phase-zero" },
-  { label: "Open Your Blue Door", href: "/blue-door" },
+  { label: "Envision Epic ShIFt", href: "/envision-shift" },
   {
     label: "Partner with Us",
     href: "/partner",

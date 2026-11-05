@@ -68,8 +68,14 @@ function BoldShiftName({ name }: { name: string }) {
   );
 }
 
-function BlueDoorInlineLink({ text }: { text: string }) {
-  const phrase = "The Blue Door Organizational Appraisal";
+/** Display label for an offering tier; the legacy "Blue Door" tier now names the Epic ShIFt Appraisal (PPS-DEC-0018). */
+function displayTier(tier: string): string {
+  return tier === "Blue Door" ? "Epic ShIFt Appraisal" : tier;
+}
+
+/** Links each mention of the appraisal in result copy to its admin-set URL. */
+function BlueDoorInlineLink({ text, href }: { text: string; href: string }) {
+  const phrase = "Epic ShIFt Appraisal";
   const parts = text.split(phrase);
   if (parts.length === 1) return <>{text}</>;
   return (
@@ -79,7 +85,7 @@ function BlueDoorInlineLink({ text }: { text: string }) {
           {part}
           {i < parts.length - 1 && (
             <Link
-              to="/blue-door"
+              to={href}
               className="font-bold text-bluedoor underline hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bluedoor focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
             >
               {phrase}
@@ -460,7 +466,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
             ...(opPlatformGroup ? [opPlatformGroup] : []),
           ].map((g) => ({
             heading: g.heading,
-            items: g.offerings.map((o) => ({ name: o.name, url: o.url, blurb: o.blurb, tier: o.tier })),
+            items: g.offerings.map((o) => ({ name: o.name, url: o.url, blurb: o.blurb, tier: displayTier(o.tier) })),
           })),
           strongestNextStep: result.strongestNextStep
             ? { name: result.strongestNextStep.offering.name, url: result.strongestNextStep.offering.url, label: result.strongestNextStep.label }
@@ -606,7 +612,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
                 </p>
                 <p className="text-[11px] italic text-foreground/70 mb-2">
                   Why: {result.strongestNextStep.kind === "blueDoor"
-                    ? "Your answers point to an organization-level question — not a training gap. The Blue Door Appraisal is where that work begins."
+                    ? "Your answers point to an organization-level question — not a training gap. The Epic ShIFt Appraisal is your best next step, and a Clarity Call is where it begins."
                     : `Your answers point most strongly to ${(result.headline || "this area").toLowerCase()} — and this is the tightest match.`}
                 </p>
                 {(result.strongestNextStep.offering as { isComingSoon?: boolean }).isComingSoon && (
@@ -707,7 +713,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
                 effectivePrimary = { ...result.primaryGroup, offerings: parallelSafe };
                 if (bdr.length > 0) {
                   bdrGroup = {
-                    heading: "Once the Blue Door Work is Complete",
+                    heading: "Once the Epic ShIFt Appraisal Is Complete",
                     offerings: bdr,
                   };
                 }
@@ -767,10 +773,10 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
                 : `Workshops that work directly on ${headlineLower} — the strongest signal in your answers.`;
               const reasonForGroupHeading = (heading: string) => {
                 const h = heading.toLowerCase();
-                if (/once the blue door|after the blue door|after blue door/.test(h))
-                  return "These require the Blue Door Appraisal first so they can be sequenced to what it surfaces about your organization.";
-                if (/blue.?door|deeper/.test(h))
-                  return "The prerequisite for any deeper, organization-wide engagement.";
+                if (/once the epic shift appraisal|once the blue door|after the blue door|after blue door/.test(h))
+                  return "These require the Epic ShIFt Appraisal first so they can be sequenced to what it surfaces about your organization.";
+                if (/epic shift appraisal|blue.?door|deeper/.test(h))
+                  return "The best next step toward any deeper, organization-wide engagement. It begins with a Clarity Call.";
                 if (/speaking|keynote/.test(h))
                   return `A bookable keynote on ${headlineLower}.`;
                 if (/free|resource|porch/.test(h))
@@ -885,7 +891,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
 
             <div className="mt-6 p-4 rounded-lg bg-muted">
               <p className="text-caption uppercase tracking-wider text-foreground/70 font-semibold mb-1">What Comes Next</p>
-              <p className="text-body-sm text-foreground"><BlueDoorInlineLink text={result.whatComesNext} /></p>
+              <p className="text-body-sm text-foreground"><BlueDoorInlineLink text={result.whatComesNext} href={overrides.blueDoor ?? "/envision-shift"} /></p>
             </div>
 
 
@@ -971,7 +977,7 @@ export function RecGroup({ heading, offerings, onClose, primary, reason }: { hea
 
               <div className="flex flex-col items-end gap-1 whitespace-nowrap">
                 <span className="text-[10px] uppercase tracking-wider font-bold text-primary mt-0.5">
-                  {o.tier}
+                  {displayTier(o.tier)}
                   {isExternal && <span className="sr-only"> (opens in new tab)</span>}
                 </span>
                 {o.isComingSoon && (

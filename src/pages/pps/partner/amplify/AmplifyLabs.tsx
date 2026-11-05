@@ -34,8 +34,8 @@ const labFaqCategories: FAQCategory[] = [
         answer: "Absolutely. Many leaders participate in labs for their own development while separately engaging their teams in workshops or sprints. Leadership Labs focus on individual leadership capacity; workshops/sprints focus on team alignment.",
       },
       {
-        question: "Do I need the Blue Door before joining a Leadership Lab?",
-        answer: "No. The Blue Door is not required for Leadership Labs. Labs are designed for individual leaders and don't require an organizational assessment.",
+        question: "Do I need the Epic ShIFt Appraisal before joining a Leadership Lab?",
+        answer: "No. The Epic ShIFt Appraisal is not required for Leadership Labs. Labs are designed for individual leaders and don't require an organizational assessment.",
       },
       {
         question: "What if I'm not in an official leadership capacity?",

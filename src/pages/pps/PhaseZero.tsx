@@ -113,7 +113,7 @@ const pillars = [
 const essentialElements: { label: string; href: string }[] = [
   { label: "Communication", href: "/communication" },
   { label: "Collaboration", href: "/extraordinary-teams" },
-  { label: "Clarity", href: "/blue-door" },
+  { label: "Clarity", href: "/envision-shift" },
   { label: "Resilience", href: "/radical-mindfulness" },
   { label: "Alignment", href: "/working-genius" },
   { label: "Organizational Health", href: "/eq" },
@@ -122,10 +122,10 @@ const essentialElements: { label: string; href: string }[] = [
 const wherePhaseZeroLeads = [
   {
     icon: DoorOpen,
-    title: "The Blue Door",
-    body: "A structured organizational appraisal that reveals how your organization is performing across the three Pillars before additional resources are committed in the wrong direction.",
-    to: "/blue-door",
-    cta: "Open the Blue Door",
+    title: "The Epic ShIFt Appraisal",
+    body: "An interview-led organizational appraisal that reveals how your organization is performing across the three Pillars before additional resources are committed in the wrong direction.",
+    to: "/envision-shift",
+    cta: "Envision Epic ShIFt",
     accent: "text-bluedoor",
     border: "border-bluedoor",
   },
@@ -188,7 +188,7 @@ export default function PhaseZero() {
           </>
         }
         ctas={[
-          { label: "Open the Blue Door", href: "/blue-door", buttonClassName: "bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor" },
+          { label: "Envision Epic ShIFt", href: "/envision-shift", buttonClassName: "bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor" },
           { label: "See Where You'd Start", href: "/start-here" },
         ]}
         background={{ type: "image", src: phaseZeroHero }}
@@ -460,7 +460,7 @@ export default function PhaseZero() {
               Phase Zero isn't something you purchase on its own - it's the stage of work that happens before execution begins. These are the three ways we facilitate it.
             </p>
             <p className="text-body text-foreground/80 mt-6">
-              If you're leading an organization and you know change is coming, the Blue Door is the recommended starting point. If you're still orienting yourself or your team, the P.A.T.H.way Quiz will show you where to begin.
+              If you're leading an organization and you know change is coming, the Epic ShIFt Appraisal, which begins with a Clarity Call, is the recommended starting point. If you're still orienting yourself or your team, the P.A.T.H.way Quiz will show you where to begin.
             </p>
           </FadeIn>
           <div className="grid md:grid-cols-3 gap-6">
@@ -496,7 +496,7 @@ export default function PhaseZero() {
         headline="Every future begins with a clearer understanding of who you're becoming."
         description="Start with a structured organizational appraisal that shows where you stand across the three Pillars - before you spend another dollar on a shIFt you're not (yet) built to carry."
         actions={[
-          { label: "Open the Blue Door", to: "/blue-door", variant: "bluedoor" },
+          { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
           { label: "Find Your P.A.T.H.way", to: "/start-here", variant: "secondary" },
         ]}
       />

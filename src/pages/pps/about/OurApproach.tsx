@@ -611,10 +611,10 @@ export default function OurApproach() {
         backgroundImage={blueDoorHero}
         overlayClass="bg-gradient-to-b from-navy/75 via-navy/60 to-navy/45"
         eyebrow="Start Here"
-        headline="The Blue Door is the simplest place to begin."
-        description="It's our structured appraisal that creates clarity before your next major decision hardens into action."
+        headline="The Epic ShIFt Appraisal is where clarity begins."
+        description="It's our interview-led appraisal that creates clarity before your next major decision hardens into action. It begins with a Clarity Call."
         actions={[
-          { label: "Open the Blue Door", to: "/blue-door", variant: "bluedoor" },
+          { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
           { label: "Find Your P.A.T.H.way", to: "/start-here", variant: "secondary" },
         ]}
       />

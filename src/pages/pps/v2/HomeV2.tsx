@@ -58,7 +58,7 @@ export default function HomeV2() {
           </p>
         }
         ctas={[
-          { label: "Open Your Blue Door", href: "/blue-door", isPrimary: true, buttonClassName: "bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor" },
+          { label: "Envision Epic ShIFt", href: "/envision-shift", isPrimary: true, buttonClassName: "bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor" },
           { label: "See How We Work", href: "/how-we-work" },
         ]}
         background={{ type: "image", src: homeHero }}
@@ -175,11 +175,11 @@ export default function HomeV2() {
           <FadeIn>
             <div className="mt-10">
               <Link
-                to="/blue-door"
+                to="/envision-shift"
                 className="inline-flex items-center gap-2 bg-bluedoor text-white font-poppins font-semibold text-base px-8 h-12 rounded-md hover:bg-white hover:text-bluedoor border-2 border-bluedoor transition-colors focus-ring-on-dark"
               >
                 <DoorOpen className="w-5 h-5" aria-hidden="true" />
-                Open the Blue Door
+                Envision Epic ShIFt
               </Link>
             </div>
           </FadeIn>
@@ -228,7 +228,7 @@ export default function HomeV2() {
         }
         description="Start with a structured appraisal of all three Pillars, then decide what you want to lead."
         actions={[
-          { label: "Open the Blue Door", to: "/blue-door", variant: "bluedoor" },
+          { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
           { label: "Contact Us", to: "/contact", variant: "secondary" },
         ]}
         overlayTone="teal"

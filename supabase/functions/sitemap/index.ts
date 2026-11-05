@@ -19,6 +19,11 @@ const ALWAYS_LIVE_PREFIXES = [
   "/blog",
   "/insights",
   "/media",
+  // Retired Blue Door addresses and their Epic ShIFt Appraisal target (PPS-DEC-0017).
+  "/blue-door",
+  "/blue-door-archive",
+  "/for-teams",
+  "/envision-shift",
 ];
 
 function isAlwaysLive(path: string) {
@@ -93,7 +98,7 @@ Deno.serve(async (req) => {
     { loc: "/for-teams", priority: "0.8", changefreq: "monthly" },
     { loc: "/speaking", priority: "0.7", changefreq: "monthly" },
     { loc: "/start-here", priority: "0.9", changefreq: "monthly" },
-    { loc: "/blue-door", priority: "0.9", changefreq: "monthly" },
+    { loc: "/envision-shift", priority: "0.9", changefreq: "monthly" },
     { loc: "/terms", priority: "0.3", changefreq: "yearly" },
     { loc: "/privacy", priority: "0.3", changefreq: "yearly" },
     { loc: "/cookies", priority: "0.3", changefreq: "yearly" },

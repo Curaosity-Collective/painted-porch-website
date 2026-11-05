@@ -74,11 +74,11 @@ export default function StrategicCanvasThankYou() {
                   </p>
                 </div>
               </Link>
-              <Link to="/blue-door" className="group">
+              <Link to="/envision-shift" className="group">
                 <div className="bg-white border-2 border-border hover:border-bluedoor rounded-xl p-6 h-full transition-colors">
                   <Home className="w-10 h-10 text-bluedoor mb-3" />
                   <h4 className="text-base md:text-lg font-poppins font-semibold text-navy mb-2">
-                    Open <span className="text-bluedoor font-bold">The Blue Door</span>
+                    Explore the <span className="text-bluedoor font-bold">Epic ShIFt Appraisal</span>
                   </h4>
                   <p className="text-body -sm text-charcoal">
                     Ready to go deeper? Our organizational appraisal is the next step.

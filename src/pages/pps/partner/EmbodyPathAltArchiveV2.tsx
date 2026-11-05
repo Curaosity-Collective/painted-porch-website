@@ -313,8 +313,8 @@ export default function EmbodyPathAltArchiveV2() {
         description="EMBODY is for founders and leaders ready to build permanent organizational capacity through deep, sustained partnership. This isn't consulting or change management. This is co-architecting an unshakeable foundation for sustainable transformation."
         ctas={[
           {
-            label: "Open the Blue Door",
-            href: "/blue-door",
+            label: "Envision Epic ShIFt",
+            href: "/envision-shift",
             buttonClassName: "bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor",
           },
         ]}
@@ -723,7 +723,7 @@ export default function EmbodyPathAltArchiveV2() {
             Investment is fully credited toward EMBODY partnership
           </p>
           <div className="flex justify-center">
-            <Link to="/blue-door">
+            <Link to="/envision-shift">
               <Button className="bg-white border-2 border-white text-bluedoor hover:bg-transparent hover:text-white text-lg py-6 px-8 transition-colors">
                 Learn more about the Blue Door
               </Button>
@@ -789,13 +789,13 @@ export default function EmbodyPathAltArchiveV2() {
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             <div className="bg-bluedoor/10 p-8 rounded-xl border border-bluedoor/30">
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-bluedoor mb-4">
-                Open the Blue Door
+                Envision Epic ShIFt
               </h3>
               <p className="text-foreground mb-6">
                 Our <strong className="text-bluedoor">Blue Door Organizational Appraisal</strong> provides the diagnostic foundation for EMBODY partnership fit. Complete the appraisal, receive your strategic report, then we'll schedule a partnership exploration conversation.
               </p>
               <Button asChild className="bg-bluedoor border-2 border-bluedoor text-white font-semibold w-full py-6 hover:bg-transparent hover:text-bluedoor transition-colors">
-                  <Link to="/blue-door">Open the Blue Door</Link>
+                  <Link to="/envision-shift">Envision Epic ShIFt</Link>
                 </Button>
             </div>
             <div className="bg-white p-8 rounded-xl border border-border">

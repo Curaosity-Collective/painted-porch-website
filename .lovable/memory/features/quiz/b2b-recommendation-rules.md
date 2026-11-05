@@ -1,13 +1,13 @@
 ---
 name: B2B Quiz Recommendation Rules
-description: P.A.T.H.finder Quiz B2B recommends up to 3 Workshops + Blue Door + up to 3 Speaking topics + up to 2 Free Resources. Labs are B2C unless individual focus signaled.
+description: P.A.T.H.finder Quiz B2B recommends up to 3 Workshops + the Epic ShIFt Appraisal (internal key blueDoor) + up to 3 Speaking topics + up to 2 Free Resources. Labs are B2C unless individual focus signaled.
 type: feature
 ---
 
 For the P.A.T.H.finder Quiz B2B track (`src/data/pathFinderQuiz.ts`, `b2bResult`):
 
 - **Primary recommendations:** Up to 3 Workshops (no Labs in any RT-A/B/C/D/E primary slate).
-- **Deeper option:** Always include Blue Door Organizational Appraisal. Narrative must name Blue Door as the prerequisite for any deeper engagement.
+- **Deeper option:** Always include the **Epic ShIFt Appraisal** (offering key `blueDoor`, which keeps its legacy name). Narrative names it as the **best next step** toward deeper engagement and says it **begins with a Clarity Call**. Never call it "Blue Door", never say "prerequisite", never mention $1,500, "20 minutes" or credit toward an engagement. The self-guided Blue Door public sale is retired (PPS-DEC-0017); name, $24,000 price and Clarity-first rule are PPS-DEC-0018 in pps-ops-hub docs/decisions.
 - **Speaking Topics:** Up to 3 admin-eligible keynotes per RT via `SPEAKING_BY_RT`.
 - **Free Resources:** Up to 2 admin-eligible resources per RT via `FREE_RESOURCES_BY_RT` (Strategic Change Canvas, Change Comms Workbook, Stractical Mini, Burnout Resources, 52 Weeks of Stoicism).
 - **Additional sessions note:** The renderer already surfaces a `topicArea` note inviting users to ask about additional workshop/speaking sessions in their topic area.

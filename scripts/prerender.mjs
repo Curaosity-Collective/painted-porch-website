@@ -114,40 +114,23 @@ ${
 // structured data for crawlers on our highest-intent pages.
 const ORG_REF = { "@id": `${SITE}/#organization` };
 
-// Blue Door launch state is derived from src/config/blueDoor.ts so prerendered
-// structured data can never drift from the runtime pages. Verified by
-// src/test/blue-door-offer-schema.test.ts.
-const blueDoorConfig = await readFile(
-  path.join(ROOT, "src/config/blueDoor.ts"),
-  "utf8",
-).catch(() => "");
-const blueDoorLaunchIso =
-  blueDoorConfig.match(/BLUE_DOOR_LAUNCH_DATE = new Date\("([^"]+)"\)/)?.[1] ?? "";
-// Mirrors isBlueDoorPreLaunch(): driven by the explicit BLUE_DOOR_LAUNCHED
-// switch, never by the calendar.
-const blueDoorPreLaunch =
-  (blueDoorConfig.match(/BLUE_DOOR_LAUNCHED = (true|false)/)?.[1] ?? "false") === "false";
-const blueDoorAvailability = blueDoorPreLaunch
-  ? "https://schema.org/PreOrder"
-  : "https://schema.org/InStock";
-
+// The self-guided Blue Door is retired (PPS-DEC-0017); its old /blue-door
+// address redirects to the Epic ShIFt Appraisal (PPS-DEC-0018), which is not
+// sold directly: it begins with a Clarity Call, so its Offer carries a price
+// but no purchase availability. Verified by src/test/blue-door-offer-schema.test.ts.
 const SERVICE_LD = {
-  "/blue-door": {
+  "/envision-shift": {
     "@type": "Service",
-    name: "The Blue Door — Strategic Organizational Appraisal",
-    serviceType: "Strategic Organizational Appraisal",
+    name: "The Epic ShIFt Appraisal",
+    serviceType: "Organizational Appraisal",
     category: "Management Consulting",
     provider: ORG_REF,
     areaServed: { "@type": "Country", name: "United States" },
     offers: {
       "@type": "Offer",
-      price: "1500",
+      price: "24000",
       priceCurrency: "USD",
-      availability: blueDoorAvailability,
-      url: `${SITE}/blue-door`,
-      ...(blueDoorPreLaunch
-        ? { availabilityStarts: new Date(blueDoorLaunchIso).toISOString() }
-        : {}),
+      url: `${SITE}/envision-shift`,
     },
   },
   "/partner": {

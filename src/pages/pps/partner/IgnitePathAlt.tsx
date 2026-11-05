@@ -398,7 +398,7 @@ export default function IgnitePathAlt() {
 
             </div>
 
-            {/* Path 3: Open the Blue Door */}
+            {/* Path 3: Envision Epic ShIFt */}
             <div className="bg-bluedoor/10 p-8 rounded-xl border-t-4 border-bluedoor">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full bg-bluedoor/20 flex items-center justify-center">
@@ -431,7 +431,7 @@ export default function IgnitePathAlt() {
                 Best for: Executives exploring what shift to lead next
               </p>
               <Button asChild className="bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor w-full transition-colors">
-                  <Link to="/blue-door">Open the Blue Door</Link>
+                  <Link to="/envision-shift">Envision Epic ShIFt</Link>
                 </Button>
             </div>
           </div>

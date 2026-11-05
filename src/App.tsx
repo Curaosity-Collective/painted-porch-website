@@ -93,11 +93,13 @@ import AboutRob from "./pages/pps/AboutRob";
 import AboutSierra from "./pages/pps/AboutSierra";
 import PPSOverview from "./pages/pps/PPSOverview";
 
-// Blue Door Pages
-import BlueDoorLanding from "./pages/pps/BlueDoorLanding";
-import BlueDoorLandingArchive from "./pages/pps/BlueDoorLandingArchive";
-import BlueDoorPurchase from "./pages/pps/BlueDoorPurchase";
+// Blue Door: public sale retired (PPS-DEC-0017). Only the success page stays,
+// for existing purchasers; every other Blue Door address redirects to the
+// Epic ShIFt Appraisal (PPS-DEC-0018).
 import BlueDoorSuccess from "./pages/pps/BlueDoorSuccess";
+
+// Epic ShIFt redesign ("v3") pages ported from pps-simplified
+import EnvisionShift from "./pages/pps/v3/EnvisionShift";
 
 // Other Pages
 import Speaking from "./pages/pps/Speaking";
@@ -383,9 +385,12 @@ const App = () => (
             {/* Legacy redirects */}
             <Route path="strategic-plan" element={<Navigate to="/change-canvas" replace />} />
             <Route path="thank-you-strategic-plan" element={<Navigate to="/thank-you-change-canvas" replace />} />
-            <Route path="blue-door" element={<BlueDoorLanding />} />
-            <Route path="blue-door-archive" element={<BlueDoorLandingArchive />} />
-            <Route path="blue-door/purchase" element={<BlueDoorPurchase />} />
+            {/* Epic ShIFt Appraisal (PPS-DEC-0018) */}
+            <Route path="envision-shift" element={<EnvisionShift />} />
+            {/* Retired Blue Door addresses (PPS-DEC-0017) */}
+            <Route path="blue-door" element={<Navigate to="/envision-shift" replace />} />
+            <Route path="blue-door-archive" element={<Navigate to="/envision-shift" replace />} />
+            <Route path="blue-door/purchase" element={<Navigate to="/envision-shift" replace />} />
             <Route path="blue-door/success" element={<BlueDoorSuccess />} />
             <Route path="contact" element={<PPSContact />} />
             <Route path="terms" element={<TermsAndConditions />} />
@@ -399,7 +404,7 @@ const App = () => (
             
             {/* Legacy routes — now 301-equivalent redirects to nearest new page */}
             <Route path="for-leaders" element={<Navigate to="/start-here" replace />} />
-            <Route path="for-teams" element={<Navigate to="/blue-door" replace />} />
+            <Route path="for-teams" element={<Navigate to="/envision-shift" replace />} />
             <Route path="services" element={<Navigate to="/partner" replace />} />
             <Route path="business-programs" element={<Navigate to="/partner" replace />} />
             <Route path="programs" element={<Navigate to="/partner/ignite" replace />} />
