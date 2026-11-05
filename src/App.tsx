@@ -100,6 +100,7 @@ import HomeNext from "./pages/pps/v3/HomeNext";
 import ArchitectShift from "./pages/pps/v3/ArchitectShift";
 import EmbodyShift from "./pages/pps/v3/EmbodyShift";
 import ThePath from "./pages/pps/v3/ThePath";
+import ResultsImpact from "./pages/pps/v3/ResultsImpact";
 
 // Other Pages
 import Speaking from "./pages/pps/Speaking";
@@ -394,6 +395,7 @@ const App = () => (
             <Route path="architect-shift" element={<ArchitectShift />} />
             <Route path="embody-shift" element={<EmbodyShift />} />
             <Route path="the-path" element={<ThePath />} />
+            <Route path="about/impact-next" element={<ResultsImpact />} />
             {/* Retired Blue Door addresses (PPS-DEC-0017) */}
             <Route path="blue-door" element={<Navigate to="/envision-shift" replace />} />
             <Route path="blue-door-archive" element={<Navigate to="/envision-shift" replace />} />

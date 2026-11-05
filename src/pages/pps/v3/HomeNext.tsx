@@ -4,6 +4,7 @@ import { ArrowRight, Lightbulb } from "lucide-react";
 import porchColumns from "@/assets/v3/painted-porch-columns.jpg";
 import amySquare from "@/assets/v3/amy-yackowski-square.jpg";
 import { ShIFt } from "@/components/v3/ShIFt";
+import { NAMED_TESTIMONIALS } from "./testimonials";
 import { SmartLink } from "@/components/pps/SmartLink";
 import ClientLogoMarquee from "@/components/pps/ClientLogoMarquee";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
@@ -152,22 +153,7 @@ const OFFERS = [
   },
 ];
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "Amy asks the right question at the right time, follows it to the source, and challenges the status quo without condescension.",
-    who: "Dianne R. · Project Manager",
-  },
-  {
-    quote:
-      "Amy became the bridge between our technology team and the client, creating trust across business leaders, product, and technology.",
-    who: "Brian S. · Chief Technology Officer",
-  },
-  {
-    quote: "Amy aligned technical and organizational readiness while building trust with stakeholders at every level.",
-    who: "Melanie W. · Senior IT Manager",
-  },
-];
+const TESTIMONIALS = NAMED_TESTIMONIALS;
 
 const PROMISE = [
   {
@@ -458,7 +444,7 @@ export default function HomeNext() {
               name.
             </p>
             <SmartLink to="/about/impact" className={`self-start text-[15px] ${LINK}`}>
-              See results and case studies →
+              See results and impact →
             </SmartLink>
           </div>
           <ul className="flex min-w-0 flex-col gap-7">
