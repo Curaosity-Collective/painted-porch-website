@@ -243,7 +243,7 @@ export default function CostCalculatorDialog({
           </DialogTitle>
           <DialogDescription>
             Answer these few questions. We'll estimate what's at risk and how the Epic ShIFt
-            Appraisal can provide the clarity needed to reduce that exposure.
+            Organizational Appraisal can provide the clarity needed to reduce that exposure.
           </DialogDescription>
         </DialogHeader>
 
