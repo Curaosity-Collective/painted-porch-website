@@ -51,6 +51,8 @@ export interface SpeakerData {
     heading?: ReactNode;
     logos?: { name: string; src: string; href?: string }[];
     testimonials?: { quote: string; name: string; title: string; organization: string }[];
+    /** Show the testimonial carousel. Only real, sourced quotes; never the shared placeholders. */
+    showTestimonials?: boolean;
   };
 }
 
@@ -154,7 +156,7 @@ export default function SpeakerDetailPage({ speaker }: { speaker: SpeakerData })
           heading={speaker.trustSignals.heading || <>Where {speaker.firstName} Has Spoken</>}
           logos={speaker.trustSignals.logos}
           testimonials={speaker.trustSignals.testimonials}
-          showTestimonials={false}
+          showTestimonials={Boolean(speaker.trustSignals.showTestimonials && speaker.trustSignals.testimonials?.length)}
         />
       )}
 

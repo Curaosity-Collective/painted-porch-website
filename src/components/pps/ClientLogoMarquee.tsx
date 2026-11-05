@@ -155,8 +155,10 @@ export default function ClientLogoMarquee({
                 <blockquote className="text-lead font-poppins italic text-navy leading-relaxed mb-4">
                   "{testimonials[activeIndex].quote}"
                 </blockquote>
-                <p className="text-body -sm text-muted-foreground">
-                 , {testimonials[activeIndex].name}, {testimonials[activeIndex].title}, {testimonials[activeIndex].organization}
+                <p className="text-body-sm text-muted-foreground">
+                  {[testimonials[activeIndex].name, testimonials[activeIndex].title, testimonials[activeIndex].organization]
+                    .filter(Boolean)
+                    .join(", ")}
                 </p>
               </div>
 
