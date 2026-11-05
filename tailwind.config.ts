@@ -75,6 +75,7 @@ export default {
         raspberry: {
           DEFAULT: "hsl(var(--raspberry))",
           foreground: "hsl(var(--raspberry-foreground))",
+          bright: "hsl(var(--v3-raspberry-bright) / <alpha-value>)",
         },
         bluedoor: {
           DEFAULT: "hsl(var(--bluedoor))",

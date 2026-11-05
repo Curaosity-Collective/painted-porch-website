@@ -26,6 +26,8 @@
   --v3-sand: 40 49% 95%;
   --v3-berry: 340 100% 28%;
   --v3-berry-on-dark: 348 100% 81%;
+  /* The IF in shIFt on dark backgrounds, large headings only (#FF1F5A). */
+  --v3-raspberry-bright: 344 100% 56%;
   --v3-prepare: 197 64% 60%;
   --v3-prepare-deep: 195 100% 31%;
   --v3-prepare-ink: 195 100% 23%;

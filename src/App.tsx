@@ -96,6 +96,7 @@ import BlueDoorSuccess from "./pages/pps/BlueDoorSuccess";
 
 // Epic ShIFt redesign ("v3") pages ported from pps-simplified
 import EnvisionShift from "./pages/pps/v3/EnvisionShift";
+import HomeNext from "./pages/pps/v3/HomeNext";
 
 // Other Pages
 import Speaking from "./pages/pps/Speaking";
@@ -277,6 +278,8 @@ const App = () => (
           {/* Painted Porch Strategies Routes */}
           <Route path="/" element={<PPSLayout />}>
             <Route index element={<PPSHome />} />
+            {/* Go-forward homepage, Draft until release (PageGate in PPSLayout). */}
+            <Route path="home-next" element={<HomeNext />} />
             <Route path="home-alt" element={<PPSHomeAlt />} />
             <Route path="home-archive" element={<PPSHomeArchive />} />
             <Route path="home-verbatim" element={<PPSHomeVerbatim />} />

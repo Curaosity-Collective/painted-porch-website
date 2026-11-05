@@ -1,27 +1,41 @@
 /**
- * The ShIFt wordmark with its emphasised, bold "IF", toned to the journey stage
- * it names. Ported from pps-simplified src/components/site/Nav.tsx.
+ * The ShIFt wordmark. Its "IF" is always bold Raspberry (PPS-DEC-0022, item 6):
+ *
+ * - on light backgrounds: Raspberry (#DB0043)
+ * - on dark backgrounds: a lighter raspberry so it stays readable, the bright
+ *   one in large headings (`large`) and the light one in body-size text
+ * - on solid color fills (buttons, colored boxes): bold in the fill's own text
+ *   color (`onFill`), because Raspberry on Gold or Lime can't be read
+ *
+ * `lowercase` renders "shIFt"; `plural` renders "ShIFts".
  */
-const shiftTones = {
-  prepare: { light: "text-prepare-deep", dark: "text-prepare" },
-  align: { light: "text-align-deep", dark: "text-align" },
-  habits: { light: "text-habits-deep", dark: "text-habits" },
-} as const;
-
 export function ShIFt({
-  tone,
   onDark = false,
+  large = false,
+  onFill = false,
+  lowercase = false,
+  plural = false,
   className = "",
 }: {
-  tone?: keyof typeof shiftTones;
   onDark?: boolean;
+  large?: boolean;
+  onFill?: boolean;
+  lowercase?: boolean;
+  plural?: boolean;
   className?: string;
 }) {
-  const color = tone ? shiftTones[tone][onDark ? "dark" : "light"] : onDark ? "text-berry-on-dark" : "text-berry";
+  const color = onFill
+    ? ""
+    : onDark
+      ? large
+        ? "text-raspberry-bright"
+        : "text-berry-on-dark"
+      : "text-raspberry";
   return (
     <>
-      Sh
-      <span className={`font-bold ${color} ${className}`}>IF</span>t
+      {lowercase ? "sh" : "Sh"}
+      <span className={`font-bold ${color} ${className}`.trim()}>IF</span>
+      {plural ? "ts" : "t"}
     </>
   );
 }

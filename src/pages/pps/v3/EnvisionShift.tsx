@@ -127,10 +127,14 @@ export default function EnvisionShift() {
         kicker="Step One — Get Clarity"
         title={
           <>
-            Envision Epic <ShIFt tone="prepare" onDark />
+            Envision Epic <ShIFt onDark large />
           </>
         }
-        intro="Every epic shIFt begins at a threshold: an honest appraisal of what your organization is realistically able to carry. An interview-led organizational 360 determines which change and direction make sense to pursue next."
+        intro={
+          <>
+            Every epic <ShIFt lowercase onDark /> begins at a threshold: an honest appraisal of what your organization is realistically able to carry. An interview-led organizational 360 determines which change and direction make sense to pursue next.
+          </>
+        }
         image={blueDoorImg}
         imageAlt="A cobalt blue door set in a pale stone wall"
         tone="prepare"
@@ -151,7 +155,7 @@ export default function EnvisionShift() {
             </h2>
             <Prose>
               <p>
-                The Epic ShIFt Organizational Appraisal is an interview-led organizational 360. We conduct six interviews across your
+                The Epic <ShIFt /> Organizational Appraisal is an interview-led organizational 360. We conduct six interviews across your
                 organization, three with executives and three with people from mid-level through the frontline, to
                 appraise its current architecture — the leadership and culture, the systems and workflows, and the
                 human capacity underneath them.
@@ -175,12 +179,12 @@ export default function EnvisionShift() {
                 Clarity is valuable even when it changes the plan.
               </p>
               <p>
-                Every epic shIFt starts with seeing clearly. The Compass shows whether your organization is ready to
+                Every epic <ShIFt lowercase /> starts with seeing clearly. The Compass shows whether your organization is ready to
                 carry the one you're imagining.
               </p>
               <p>
-                Your P.A.T.H. Compass informs your best next step on the journey to do Epic ShIFt. When reinforcement
-                is the right next move, it grounds the executive authorship intensive within your Architect ShIFt
+                Your P.A.T.H. Compass informs your best next step on the journey to do Epic <ShIFt />. When reinforcement
+                is the right next move, it grounds the executive authorship intensive within your Architect <ShIFt />
                 engagement.
               </p>
             </Prose>
@@ -297,7 +301,12 @@ export default function EnvisionShift() {
         tone="prepare"
         photoProfile="cta-photo-envision"
         title="Ready to begin?"
-        body="The Epic ShIFt Organizational Appraisal begins with a Clarity Call. Start there, and the appraisal becomes your natural next step."
+        body={
+          <>
+            The Epic <ShIFt onDark /> Organizational Appraisal begins with a Clarity Call. Start there, and the appraisal
+            becomes your natural next step.
+          </>
+        }
         to={CLARITY_CALL_CONTACT_HREF}
         label="Start with a Clarity Call"
         secondary={

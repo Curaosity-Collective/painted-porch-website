@@ -101,7 +101,7 @@ export function CTABand({
   secondary,
 }: {
   title: ReactNode;
-  body: string;
+  body: ReactNode;
   /** Internal destination for the main button. */
   to: string;
   label: string;
