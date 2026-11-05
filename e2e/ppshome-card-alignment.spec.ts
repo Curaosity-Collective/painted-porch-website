@@ -1,4 +1,12 @@
+import { fileURLToPath } from "node:url";
 import { test, expect } from "../playwright-fixture";
+
+// The sticky site header overlaps tall element screenshots at a
+// scroll-dependent offset (on mobile it landed at a different height on each
+// CI retry), so it is hidden while the cards section is captured.
+const HIDE_SITE_HEADER = fileURLToPath(
+  new URL("./visual-hide-site-header.css", import.meta.url),
+);
 
 /**
  * Visual regression check for the "Discover Your P.A.T.H.way" cards on
@@ -70,6 +78,7 @@ test.describe("PPSHome — Discover cards link alignment", () => {
         {
           maxDiffPixelRatio: 0.02,
           animations: "disabled",
+          stylePath: HIDE_SITE_HEADER,
         },
       );
     });

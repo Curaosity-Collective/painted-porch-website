@@ -1,0 +1,6 @@
+/* Applied only while ppshome-card-alignment takes its section screenshot.
+   The sticky header is not part of the section under test, and its position
+   in a tall element capture depends on scroll offset. */
+[data-testid="site-header"] {
+  visibility: hidden !important;
+}

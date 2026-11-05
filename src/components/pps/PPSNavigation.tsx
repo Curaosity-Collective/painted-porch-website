@@ -95,6 +95,7 @@ export default function PPSNavigation() {
 
   return (
     <nav
+      data-testid="site-header"
       className={`bg-white sticky top-0 z-50 transition-shadow ${
         scrolled ? "shadow-md" : "shadow-sm"
       }`}
