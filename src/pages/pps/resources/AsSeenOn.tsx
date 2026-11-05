@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
-import { buildMediaAppearanceSchema, serializeMediaAppearanceSchema, MEDIA_PAGE_URL, type MediaSeoRecord } from "@/lib/media-appearance-seo.mjs";
+import { buildMediaAppearanceSchema, serializeMediaAppearanceSchema, MEDIA_PAGE_URL, mediaAppearancePath, type MediaSeoRecord } from "@/lib/media-appearance-seo.mjs";
 import { TierHeroSection } from "@/components/pps/TierHeroSection";
 import asSeenOnHero from "@/assets/heroes/as-seen-on-hero.jpg";
 import { Link, useSearchParams } from "react-router-dom";
@@ -415,15 +415,10 @@ export default function AsSeenOn() {
                     ? categoryBorderColors[primaryCategory] || "border-primary"
                     : "border-primary";
 
-                  const CardWrapper = appearance.external_url ? "a" : "div";
-                  const cardProps = appearance.external_url
-                    ? { href: appearance.external_url, target: "_blank", rel: "noopener noreferrer" }
-                    : {};
-
                   return (
-                    <CardWrapper
+                    <Link
                       key={appearance.id}
-                      {...cardProps}
+                      to={mediaAppearancePath(appearance.id)}
                       className={`block group bg-card rounded-xl border-l-4 ${borderColor} transition-all hover:shadow-lg h-full flex flex-col overflow-hidden ${appearance.external_url ? "cursor-pointer" : ""}`}
                     >
                       {/* Thumbnail */}
@@ -485,7 +480,7 @@ export default function AsSeenOn() {
                           )}
                         </div>
                       </div>
-                    </CardWrapper>
+                    </Link>
                   );
                 })}
               </div>

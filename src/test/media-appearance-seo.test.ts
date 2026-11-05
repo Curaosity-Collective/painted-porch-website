@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
-import { buildMediaAppearanceSchema, serializeMediaAppearanceSchema, type MediaSeoRecord } from "../lib/media-appearance-seo.mjs";
+import { buildMediaAppearanceSchema, buildMediaAppearancePage, serializeMediaAppearanceSchema, type MediaSeoRecord } from "../lib/media-appearance-seo.mjs";
 
 const approved: MediaSeoRecord = {
   id: "approved-1", review_status: "published", title: "Real episode title",
@@ -16,6 +16,21 @@ const list = (rows: MediaSeoRecord[]) => buildMediaAppearanceSchema(rows).mainEn
 };
 
 describe("media search and AI summaries", () => {
+  it("uses the appearance's saved search fields and its own share-sized thumbnail", () => {
+    expect(buildMediaAppearancePage(approved)).toMatchObject({
+      title: "Search title", description: "Saved search and AI description",
+      canonical: "https://onthepaintedporch.com/speaking/media/approved-1",
+      ogImage: "https://onthepaintedporch.com/media-share/approved-1.jpg",
+      keywords: ["leadership", "authoring change", "Phoenix"],
+      jsonLd: { url: "https://onthepaintedporch.com/speaking/media/approved-1", sameAs: "https://example.com/episode" },
+    });
+  });
+  it("never produces individual public metadata for pending appearances", () => {
+    expect(buildMediaAppearancePage({ ...approved, review_status: "pending" })).toBeNull();
+  });
+  it("falls back to original appearance text without inventing an image", () => {
+    expect(buildMediaAppearancePage({ ...approved, seo_title: null, seo_description: null, thumbnail_url: null })).toMatchObject({ title: "Real episode title", description: "Visible description", ogImage: undefined });
+  });
   it("limits anonymous media reads to approved records without calling private reviewer functions", () => {
     const sql = readFileSync("drizzle/migrations/0002_separate_public_media_reads_from_reviewer_checks.sql", "utf8");
     for (const table of ["media_appearances", "youtube_videos"]) {
