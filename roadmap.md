@@ -3,5 +3,6 @@
 - [x] Verify summary rules and the public page with real approved records.
 - [x] Diagnose missing email attempts across all immediate-access resources.
 - [x] Repair affected email triggers and verify all five resource forms open access and log emails as sent.
-- [ ] Add live approved appearance pages using saved search titles, descriptions, and share images, excluded from sitemap.
-- [ ] Verify individual appearance metadata and pending exclusion.
+- [x] Add live approved appearance pages using saved search titles, descriptions, and share images, excluded from sitemap.
+- [x] Verify individual appearance metadata and pending exclusion.
+- [ ] Replace unavailable thumbnail for appearance 157f0ec4-5780-4644-95dc-6860c5767121; external image host refuses access (403), so its static share image is omitted.
