@@ -2,6 +2,9 @@ import { useLayoutEffect, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import PPSNavigation from "@/components/pps/PPSNavigation";
 import PPSFooter from "@/components/pps/PPSFooter";
+import SiteHeader from "@/components/v3/SiteHeader";
+import SiteFooter from "@/components/v3/SiteFooter";
+import { usesV3Chrome } from "@/config/siteChrome";
 import PageGate from "@/components/pps/PageGate";
 import GitHubSyncBanner from "@/components/pps/admin/GitHubSyncBanner";
 import { PathFinderQuizProvider } from "@/components/pps/quiz/PathFinderQuizProvider";
@@ -20,6 +23,8 @@ if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
 
 export default function PPSLayout() {
   const { pathname, hash } = useLocation();
+  // The redesign's header and footer: Draft pages now, every page at go-live.
+  const v3Chrome = usesV3Chrome(pathname);
 
   // Immediate scroll before paint — skip when navigating to an in-page anchor
   useLayoutEffect(() => {
@@ -46,13 +51,13 @@ export default function PPSLayout() {
     <PathFinderQuizProvider>
       <div className="min-h-screen flex flex-col overflow-x-clip">
         <GitHubSyncBanner />
-        <PPSNavigation />
+        {v3Chrome ? <SiteHeader /> : <PPSNavigation />}
         <main className="flex-1">
           <PageGate>
             <Outlet />
           </PageGate>
         </main>
-        <PPSFooter />
+        {v3Chrome ? <SiteFooter /> : <PPSFooter />}
       </div>
     </PathFinderQuizProvider>
   );
