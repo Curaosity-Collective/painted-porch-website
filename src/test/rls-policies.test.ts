@@ -36,24 +36,18 @@ describe("Supabase RLS policy snapshot", () => {
   it("anonymous category reads succeed without exposing unpublished posts", () => {
     const result = spawnSync("psql", ["-X", "-t", "-A", "-v", "ON_ERROR_STOP=1", "-c", `
       BEGIN;
+      CREATE TEMP TABLE hidden_category_posts AS
+      SELECT DISTINCT bpc.post_id FROM public.blog_post_categories bpc JOIN public.blog_posts bp ON bp.id = bpc.post_id
+      WHERE NOT (bp.status = 'published' OR (bp.status = 'scheduled' AND bp.publish_date IS NOT NULL AND bp.publish_date <= now()));
+      GRANT SELECT ON hidden_category_posts TO anon;
       SET LOCAL ROLE anon;
       SELECT count(*) FROM public.blog_post_categories;
+      SELECT count(*) FROM public.blog_post_categories bpc JOIN hidden_category_posts h ON h.post_id = bpc.post_id;
+      SELECT has_function_privilege('anon', 'public.is_admin(uuid)', 'EXECUTE');
       ROLLBACK;
     `], { encoding: "utf8" });
     expect(result.status, result.stderr).toBe(0);
-    expect(result.stdout).toMatch(/\n\d+\n/);
-    const privacy = spawnSync("psql", ["-X", "-t", "-A", "-v", "ON_ERROR_STOP=1", "-c", `
-      WITH readable AS (
-        SELECT bpc.post_id FROM public.blog_post_categories bpc
-        JOIN public.blog_posts bp ON bp.id = bpc.post_id
-        WHERE bp.status = 'published' OR (bp.status = 'scheduled' AND bp.publish_date IS NOT NULL AND bp.publish_date <= now())
-      )
-      SELECT count(*) FROM readable r JOIN public.blog_posts bp ON bp.id = r.post_id
-      WHERE bp.status NOT IN ('published', 'scheduled') OR (bp.status = 'scheduled' AND (bp.publish_date IS NULL OR bp.publish_date > now()));
-      SELECT has_function_privilege('anon', 'public.is_admin(uuid)', 'EXECUTE');
-    `], { encoding: "utf8" });
-    expect(privacy.status, privacy.stderr).toBe(0);
-    expect(privacy.stdout.trim()).toBe("0\nf");
+    expect(result.stdout).toMatch(/\n\d+\n0\nf\n/);
   });
 
   it("current policies, buckets, and RLS-enabled tables match snapshot", () => {
