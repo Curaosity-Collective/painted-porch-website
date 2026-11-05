@@ -17,5 +17,10 @@ export interface MediaSeoRecord {
   media_appearance_categories?: { blog_categories: { title: string } | null }[];
 }
 export const MEDIA_PAGE_URL: string;
+export function mediaAppearancePath(id: string): string;
+export function buildMediaAppearancePage(appearance: MediaSeoRecord): {
+  path: string; title: string; description: string; keywords: string[]; canonical: string;
+  ogImage?: string; ogType: string; jsonLd: Record<string, unknown>;
+} | null;
 export function buildMediaAppearanceSchema(appearances: MediaSeoRecord[]): Record<string, unknown>;
 export function serializeMediaAppearanceSchema(schema: Record<string, unknown>): string;
