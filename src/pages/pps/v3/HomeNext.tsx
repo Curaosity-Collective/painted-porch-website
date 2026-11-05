@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Lightbulb } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import porchColumns from "@/assets/v3/painted-porch-columns.jpg";
 import amySquare from "@/assets/v3/amy-yackowski-square.jpg";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -603,22 +603,18 @@ export default function HomeNext() {
               <ul className="grid gap-5 sm:grid-cols-3">
                 {posts.map((post) => (
                   <li key={post.id}>
-                    <Link to={`/resources/insights/${post.slug}`} className="group flex flex-col gap-2.5">
-                      {post.cover_image_url ? (
-                        <img
-                          src={post.cover_image_url}
-                          alt=""
-                          loading="lazy"
-                          className="aspect-[16/10] w-full bg-muted object-cover"
-                        />
-                      ) : (
-                        <span className="flex aspect-[16/10] items-center justify-center bg-muted">
-                          <Lightbulb className="h-8 w-8 text-primary/40" aria-hidden="true" />
-                        </span>
-                      )}
-                      <span className="font-display text-base font-semibold leading-snug text-foreground group-hover:text-primary">
+                    {/* Text-only on purpose: post covers can be illustrations or
+                        graphics, which the redesign pages don't use (PPS-DEC-0022). */}
+                    <Link
+                      to={`/resources/insights/${post.slug}`}
+                      className="group flex h-full flex-col gap-2 border-t-4 border-heading/70 bg-cream px-4 pb-4 pt-3"
+                    >
+                      <span className="font-display text-base font-semibold leading-snug text-foreground group-hover:text-heading">
                         {post.title}
                       </span>
+                      {post.excerpt && (
+                        <span className="line-clamp-3 text-[14px] leading-normal text-foreground">{post.excerpt}</span>
+                      )}
                     </Link>
                   </li>
                 ))}

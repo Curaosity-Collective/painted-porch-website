@@ -1,7 +1,7 @@
 import { Check } from "lucide-react";
 import porchInColor from "@/assets/embody-hero-option1.jpg";
-import sunlitColumns from "@/assets/embody-concept-pillars.jpg";
-import roadAhead from "@/assets/blue-door-begin-cta.jpg";
+import stoa from "@/assets/embody-concept-stoa.jpg";
+import pergola from "@/assets/embody-hero-option10.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -82,8 +82,8 @@ export default function EmbodyShift() {
       {/* The practice */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <StickyMedia
-          src={sunlitColumns}
-          alt="Sunlight streaming between the columns of an enduring stone colonnade"
+          src={stoa}
+          alt="A long stone colonnade in warm afternoon light"
           width={1920}
           height={1080}
         >
@@ -163,10 +163,10 @@ export default function EmbodyShift() {
         }
         to={clarityCallHrefFor("Embody ShIFt")}
         label="Start with a Clarity Call"
-        image={roadAhead}
-        imageAlt="A person walking forward along an open road toward the sunset"
-        imageWidth={1920}
-        imageHeight={1080}
+        image={pergola}
+        imageAlt="A finished pergola with teal, purple, lime, gold and raspberry beams standing on its blueprint"
+        imageWidth={1344}
+        imageHeight={768}
         secondary={
           <>
             Not sure where to begin?{" "}

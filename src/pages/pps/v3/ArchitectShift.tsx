@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import pillarsOnBlueprint from "@/assets/embody-hero-option2.jpg";
-import workshopRoom from "@/assets/v3/workshop-room.jpg";
-import handsBuilding from "@/assets/embody-hero-option3.jpg";
+import architecturalModel from "@/assets/embody-concept-model.jpg";
+import sunlitColumns from "@/assets/embody-concept-pillars.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { GhostLayer, StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -169,10 +169,10 @@ export default function ArchitectShift() {
       {/* The shape */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <StickyMedia
-          src={workshopRoom}
-          alt="A senior leadership team in conversation around a conference table"
-          width={1408}
-          height={1008}
+          src={architecturalModel}
+          alt="A translucent architectural model lit by a single spotlight on a dark stage"
+          width={1920}
+          height={1080}
         >
           <div>
             <Kicker>The Shape</Kicker>
@@ -408,8 +408,8 @@ export default function ArchitectShift() {
         }
         to={clarityCallHrefFor("Architect ShIFt")}
         label="Start with a Clarity Call"
-        image={handsBuilding}
-        imageAlt="Many hands raising a timber frame together as bursts of teal, purple, lime and raspberry paint fly"
+        image={sunlitColumns}
+        imageAlt="Sunlight streaming between the columns of an enduring stone colonnade"
         imageWidth={1920}
         imageHeight={1080}
         secondary={
