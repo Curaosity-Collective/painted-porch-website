@@ -12,18 +12,11 @@ import ppsLogo from "@/assets/pps-logo.png";
 import { SiteSearch } from "@/components/pps/SiteSearch";
 import { useArePagesLive } from "@/hooks/useIsPageLive";
 
+// B2B-first main menu. The P.A.T.H.way partnership pages (/partner, IGNITE,
+// AMPLIFY, EMBODY) are reached from the footer, not from here.
 const navLinks = [
   { label: "What is Phase Zero?", href: "/phase-zero" },
   { label: "Envision Epic ShIFt", href: "/envision-shift" },
-  {
-    label: "Partner with Us",
-    href: "/partner",
-    children: [
-      { label: "Ignite ShIFt", href: "/partner/ignite" },
-      { label: "Amplify ShIFt", href: "/partner/amplify" },
-      { label: "Embody ShIFt", href: "/partner/embody" },
-    ],
-  },
   {
     label: "Insights & Resources",
     href: "/resources",
