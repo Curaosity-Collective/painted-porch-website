@@ -3,6 +3,25 @@ export const MEDIA_PAGE_URL = "https://onthepaintedporch.com/speaking/media";
 const text = (value) => typeof value === "string" ? value.trim() : "";
 const tags = (values) => [...new Set((values ?? []).map(text).filter(Boolean))];
 
+export const mediaAppearancePath = (id) => `/speaking/media/${encodeURIComponent(id)}`;
+
+/** Shared browser/prerender metadata. Unapproved entries never get public metadata. */
+export function buildMediaAppearancePage(appearance) {
+  if (appearance.review_status !== "published") return null;
+  const path = mediaAppearancePath(appearance.id);
+  const title = text(appearance.seo_title) || appearance.title;
+  const description = text(appearance.seo_description) || text(appearance.description);
+  const keywords = tags([...(appearance.seo_keywords ?? []), ...(appearance.aeo_tags ?? []), ...(appearance.geo_tags ?? [])]);
+  const canonical = `https://onthepaintedporch.com${path}`;
+  const item = buildMediaAppearanceSchema([appearance]).mainEntity.itemListElement[0].item;
+  return {
+    path, title, description, keywords, canonical,
+    ogImage: text(appearance.thumbnail_url) ? `https://onthepaintedporch.com/media-share/${encodeURIComponent(appearance.id)}.jpg` : undefined,
+    ogType: appearance.media_type === "article" ? "article" : "website",
+    jsonLd: { "@context": "https://schema.org", ...item, "@id": `${canonical}#appearance`, url: canonical, ...(text(appearance.external_url) ? { sameAs: appearance.external_url } : {}) },
+  };
+}
+
 /** Only approved records belong in the public search/AI summary. */
 export function buildMediaAppearanceSchema(appearances) {
   const approved = appearances.filter((item) => item.review_status === "published");

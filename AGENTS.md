@@ -5,3 +5,4 @@
 - Media appearance structured data uses the shared `src/lib/media-appearance-seo.mjs` builder in the public page and prerender pipeline, independent of filters and page SEO overrides. Why: crawlers and browsers must receive the same approved-only summaries.
 - Public media SELECT policies separate anonymous approved-only reads from authenticated reviewer checks. Why: private role-check functions must not execute for anonymous visitors.
 - Resource opt-ins queue email through `_shared/resource-email.ts` with explicit server credentials and require an acknowledged queue result before returning success. Why: implicit function-client credentials can reject server-only templates silently.
+- Individual media pages use stable record IDs and the shared media SEO builder in React and prerender, with share-sized thumbnail copies generated at publish time. Why: per-appearance metadata must agree across browsers and social crawlers without requiring new editorial fields.
