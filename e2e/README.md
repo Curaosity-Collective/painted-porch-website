@@ -44,9 +44,13 @@ visual diff in CI passes.
 Recommended GitHub Actions step (Ubuntu, single project):
 
 ```yaml
-- run: npm ci
-- run: npx playwright install --with-deps chromium
-- run: npm run test:e2e:ci
+- uses: actions/setup-node@v4
+  with:
+    node-version: "22"
+- uses: oven-sh/setup-bun@v2
+- run: bun install --frozen-lockfile
+- run: bunx playwright install --with-deps chromium
+- run: bun run test:e2e:ci
 - if: failure()
   uses: actions/upload-artifact@v4
   with:
@@ -64,12 +68,12 @@ three browsers with system deps preinstalled.
 # One-off, full keyboard suite in all three browsers
 docker run --rm -it -v "$PWD:/work" -w /work \
   mcr.microsoft.com/playwright:v1.57.0-jammy \
-  bash -lc "npm ci && npm run test:e2e:keyboard:all"
+  bash -lc "npm install -g bun && bun install --frozen-lockfile && bun run test:e2e:keyboard:all"
 
 # Or build the project image (adds caching + sensible defaults)
 docker build -f Dockerfile.playwright -t pps-playwright .
 docker run --rm -it -v "$PWD:/work" -w /work pps-playwright \
-  npm run test:e2e:keyboard:all
+  bun run test:e2e:keyboard:all
 ```
 
 VS Code / Cursor users: "Reopen in Container" picks up

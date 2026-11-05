@@ -64,24 +64,24 @@ interface Flow {
 const FLOWS: Flow[] = [
   // RT1 — PREPARE dominant → IGNITE self-paced foundations
   {
-    name: "RT1 — Start with Foundations (Radical Mindfulness)",
+    name: "RT1 — Start with Foundations (Radical Mindfulness Mini Course)",
     answers: { pq1: "A", pq2: "current", q1: "A", q2: "A", q3: "A", q4: "A", q5: "A", q6: "B" },
     expectedHeadline: /Start with Foundations/i,
-    primaryOfferingKey: "radicalMindfulness",
+    primaryOfferingKey: "radicalMindfulnessMini",
   },
   // RT2 — ALIGN dominant → communication
   {
-    name: "RT2 — Build Communication Power (Master Your Message)",
+    name: "RT2 — Build Communication Power (Master Your Message Mini Course)",
     answers: { pq1: "A", pq2: "current", q1: "B", q2: "B", q3: "D", q4: "B", q5: "B", q6: "B" },
     expectedHeadline: /Build Communication Power/i,
-    primaryOfferingKey: "masterYourMessage",
+    primaryOfferingKey: "masterYourMessageMini",
   },
-  // RT3 self-paced (Q6=B) → Create Extraordinary Teams
+  // RT3 self-paced (Q6=B) → Elements of a Team (courses retired, PPS-DEC-0021)
   {
-    name: "RT3 — Elevate Team Leadership, self-paced (Create Extraordinary Teams)",
+    name: "RT3 — Elevate Team Leadership, self-paced (Elements of a Team masterclass)",
     answers: { pq1: "A", pq2: "current", q1: "C", q2: "A", q3: "B", q4: "A", q5: "C", q6: "B" },
     expectedHeadline: /Elevate Team Leadership/i,
-    primaryOfferingKey: "createExtraordinaryTeams",
+    primaryOfferingKey: "elementsOfATeam",
   },
   // RT3 cohort (Q6=C) → AMPLIFY Lab
   {

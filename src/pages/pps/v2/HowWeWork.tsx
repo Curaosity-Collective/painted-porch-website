@@ -94,7 +94,7 @@ export default function HowWeWork() {
           </p>
         }
         ctas={[
-          { label: "Open Your Blue Door", href: "/blue-door", isPrimary: true, buttonClassName: "bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor" },
+          { label: "Envision Epic ShIFt", href: "/envision-shift", isPrimary: true, buttonClassName: "bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor" },
           { label: "Contact Us", href: "/contact" },
         ]}
         background={{ type: "image", src: approachHero }}
@@ -219,7 +219,7 @@ export default function HowWeWork() {
         headline="Find out what your organization is actually built to carry"
         description="The Blue Door reads all three Pillars together, before resources get committed in the wrong direction."
         actions={[
-          { label: "Open the Blue Door", to: "/blue-door", variant: "bluedoor" },
+          { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
           { label: "Contact Us", to: "/contact", variant: "secondary" },
         ]}
         overlayTone="purple"

@@ -18,7 +18,7 @@ const allInterestOptions = [
   { value: "assessments", label: "Assessments" },
   { value: "self-paced", label: "Self-Paced Learning" },
   { value: "leadership-lab", label: "Leadership Lab" },
-  { value: "blue-door", label: "Blue Door Organizational Appraisal" },
+  { value: "blue-door", label: "Clarity Call / Epic ShIFt Organizational Appraisal" },
   { value: "workshops", label: "Team Workshops" },
   { value: "strategic-partnership", label: "Strategic Partnership" },
   { value: "organizational-advisory", label: "Organizational Advisory" },

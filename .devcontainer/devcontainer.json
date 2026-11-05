@@ -14,7 +14,7 @@
   "containerEnv": {
     "PLAYWRIGHT_BROWSERS_PATH": "/ms-playwright"
   },
-  "postCreateCommand": "npm ci && npx playwright install --with-deps chromium firefox webkit",
+  "postCreateCommand": "bun install --frozen-lockfile && bunx playwright install --with-deps chromium firefox webkit",
   "customizations": {
     "vscode": {
       "extensions": [

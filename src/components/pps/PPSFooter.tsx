@@ -1,45 +1,15 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { Youtube, Facebook, Instagram, Linkedin, Loader2 } from "lucide-react";
 import ppsLogoWhite from "@/assets/pps-logo-white.png";
 import { useArePagesLive } from "@/hooks/useIsPageLive";
-import { supabase } from "@/integrations/supabase/client";
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+import { useNewsletterSignup } from "@/hooks/useNewsletterSignup";
 
 export default function PPSFooter() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [message, setMessage] = useState("");
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const trimmed = email.trim();
-    if (!EMAIL_RE.test(trimmed)) {
-      setStatus("error");
-      setMessage("Please enter a valid email.");
-      return;
-    }
-    setStatus("loading");
-    setMessage("");
-    try {
-      const { error } = await supabase.functions.invoke("submit-newsletter-optin", {
-        body: { email: trimmed, source: "Footer Newsletter" },
-      });
-      if (error) throw error;
-      setStatus("success");
-      setMessage("You're on the list! Check your inbox.");
-      setEmail("");
-    } catch (err) {
-      console.error("Newsletter signup error:", err);
-      setStatus("error");
-      setMessage("Something went wrong. Please try again.");
-    }
-  };
+  const { email, setEmail, status, message, submit: handleSubscribe } = useNewsletterSignup("Footer Newsletter");
 
   const quickLinks = [
     { label: "About Us", href: "/about" },
-    { label: "The Blue Door", href: "/blue-door" },
+    { label: "Epic ShIFt Organizational Appraisal", href: "/envision-shift" },
     { label: "Partner with Us", href: "/partner" },
     { label: "Insights & Resources", href: "/resources" },
     { label: "Speaking", href: "/speaking" },
@@ -47,7 +17,6 @@ export default function PPSFooter() {
   ];
 
   const pathways = [
-    { label: "Courses", href: "/partner/ignite/courses" },
     { label: "Assessments", href: "/partner/ignite/assessments" },
     { label: "Masterclasses", href: "/partner/ignite/masterclasses" },
     { label: "Leadership Labs", href: "/partner/amplify/labs" },
@@ -142,10 +111,7 @@ export default function PPSFooter() {
                       type="email"
                       required
                       value={email}
-                      onChange={(e) => {
-                        setEmail(e.target.value);
-                        if (status === "error") setStatus("idle");
-                      }}
+                      onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
                       disabled={status === "loading"}
                       className="flex-1 min-w-0 bg-white/10 border border-white/30 text-white placeholder:text-white/50 rounded-lg px-3 py-2 text-ui-control focus:outline-none focus:ring-2 focus:ring-lime focus:border-transparent disabled:opacity-60"

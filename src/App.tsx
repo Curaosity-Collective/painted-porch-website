@@ -55,7 +55,6 @@ import EmbodyPathAltArchiveV2 from "./pages/pps/partner/EmbodyPathAltArchiveV2";
 // Original components are archived at -archive routes.
 
 // IGNITE Subpages
-import IgniteCourses from "./pages/pps/partner/ignite/IgniteCourses";
 import IgniteAssessments from "./pages/pps/partner/ignite/IgniteAssessments";
 import IgniteMasterclasses from "./pages/pps/partner/ignite/IgniteMasterclasses";
 import EQAssessment from "./pages/pps/partner/ignite/EQAssessment";
@@ -83,9 +82,6 @@ import BurnoutResources from "./pages/pps/resources/BurnoutResources";
 import BurnoutOptIn from "./pages/pps/BurnoutOptIn";
 
 // Program Detail Pages
-import RadicalMindfulness from "./pages/pps/programs/RadicalMindfulness";
-import MasterYourMessage from "./pages/pps/programs/MasterYourMessage";
-import ExtraordinaryTeams from "./pages/pps/programs/ExtraordinaryTeams";
 
 // About Team Hubs
 import AboutAmy from "./pages/pps/AboutAmy";
@@ -93,11 +89,19 @@ import AboutRob from "./pages/pps/AboutRob";
 import AboutSierra from "./pages/pps/AboutSierra";
 import PPSOverview from "./pages/pps/PPSOverview";
 
-// Blue Door Pages
-import BlueDoorLanding from "./pages/pps/BlueDoorLanding";
-import BlueDoorLandingArchive from "./pages/pps/BlueDoorLandingArchive";
-import BlueDoorPurchase from "./pages/pps/BlueDoorPurchase";
+// Blue Door: public sale retired (PPS-DEC-0017). Only the success page stays,
+// for existing purchasers; every other Blue Door address redirects to the
+// Epic ShIFt Organizational Appraisal (PPS-DEC-0018).
 import BlueDoorSuccess from "./pages/pps/BlueDoorSuccess";
+
+// Epic ShIFt redesign ("v3") pages ported from pps-simplified
+import EnvisionShift from "./pages/pps/v3/EnvisionShift";
+import HomeNext from "./pages/pps/v3/HomeNext";
+import ArchitectShift from "./pages/pps/v3/ArchitectShift";
+import EmbodyShift from "./pages/pps/v3/EmbodyShift";
+import ThePath from "./pages/pps/v3/ThePath";
+import ResultsImpact from "./pages/pps/v3/ResultsImpact";
+import AboutNext from "./pages/pps/v3/AboutNext";
 
 // Other Pages
 import Speaking from "./pages/pps/Speaking";
@@ -278,7 +282,11 @@ const App = () => (
         <Routes>
           {/* Painted Porch Strategies Routes */}
           <Route path="/" element={<PPSLayout />}>
-            <Route index element={<PPSHome />} />
+            {/* Relaunch (plan Phase 5, PPS Admin 2026-11-05): the redesign's homepage. */}
+            <Route index element={<HomeNext />} />
+            <Route path="home-next" element={<Navigate to="/" replace />} />
+            {/* The homepage before the relaunch, kept as an archive (Draft: admins only). */}
+            <Route path="home-archive-v2" element={<PPSHome />} />
             <Route path="home-alt" element={<PPSHomeAlt />} />
             <Route path="home-archive" element={<PPSHomeArchive />} />
             <Route path="home-verbatim" element={<PPSHomeVerbatim />} />
@@ -295,16 +303,24 @@ const App = () => (
             <Route path="capabilities" element={<CapabilitiesV2 />} />
 
             {/* About Section */}
-            <Route path="about" element={<PPSAbout />} />
+            {/* Relaunch: the redesign's About and Results & Impact pages. The pages
+                they replace are kept as archives (Draft: admins only). */}
+            <Route path="about" element={<AboutNext />} />
+            <Route path="about-next" element={<Navigate to="/about" replace />} />
+            <Route path="about-archive" element={<PPSAbout />} />
             <Route path="about/approach" element={<OurApproach />} />
-            <Route path="about/impact" element={<OurImpact />} />
+            <Route path="about/impact" element={<ResultsImpact />} />
+            <Route path="about/impact-next" element={<Navigate to="/about/impact" replace />} />
+            <Route path="about/impact-archive" element={<OurImpact />} />
             
-            {/* Partner Section (P.A.T.H. hub) */}
-            <Route path="partner" element={<PartnerWithUsAlt />} />
+            {/* Partner Section. At the relaunch /partner gives way to The P.A.T.H. (plan §4). */}
+            <Route path="partner" element={<Navigate to="/the-path" replace />} />
             <Route path="partner-archive" element={<PartnerWithUs />} />
+            <Route path="partner-archive-v2" element={<PartnerWithUsAlt />} />
             
             <Route path="partner/ignite" element={<IgnitePathAlt />} />
-            <Route path="partner/ignite/courses" element={<IgniteCourses />} />
+            {/* Courses retired (PPS-DEC-0021): course pages go to mini courses and masterclasses */}
+            <Route path="partner/ignite/courses" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
             <Route path="partner/ignite/assessments" element={<IgniteAssessments />} />
             <Route path="partner/ignite/assessments/working-genius" element={<WorkingGeniusAssessment />} />
             <Route path="partner/ignite/masterclasses" element={<IgniteMasterclasses />} />
@@ -314,15 +330,19 @@ const App = () => (
             <Route path="partner/ignite-archive" element={<IgnitePath />} />
             <Route path="partner/amplify" element={<AmplifyPathAlt />} />
             <Route path="partner/amplify/workshops" element={<AmplifyWorkshops />} />
-            <Route path="partner/amplify/sprints" element={<AmplifySprints />} />
+            {/* Relaunch: Strategic Sprints are Architect ShIFt's 90-day sprint (plan §4). */}
+            <Route path="partner/amplify/sprints" element={<Navigate to="/architect-shift" replace />} />
             <Route path="partner/amplify/sprints-archive" element={<AmplifySprintsArchive />} />
+            <Route path="partner/amplify/sprints-archive-v2" element={<AmplifySprints />} />
             <Route path="partner/amplify/labs" element={<AmplifyLabs />} />
             <Route path="partner/amplify/stractical-leader" element={<StracticalLeaderWorkshop />} />
             <Route path="partner/amplify/stractical-leader/enroll" element={<StracticalLeaderCheckout />} />
             <Route path="partner/amplify-archive" element={<AmplifyPath />} />
-            <Route path="partner/embody" element={<EmbodyPathAlt />} />
+            {/* Relaunch: EMBODY's partnership page gives way to Embody ShIFt (plan §4). */}
+            <Route path="partner/embody" element={<Navigate to="/embody-shift" replace />} />
             <Route path="partner/embody-archive" element={<EmbodyPath />} />
             <Route path="partner/embody-archive-v2" element={<EmbodyPathAltArchiveV2 />} />
+            <Route path="partner/embody-archive-v3" element={<EmbodyPathAlt />} />
             
             {/* Resources Section */}
             <Route path="resources" element={<ResourcesHub />} />
@@ -383,9 +403,17 @@ const App = () => (
             {/* Legacy redirects */}
             <Route path="strategic-plan" element={<Navigate to="/change-canvas" replace />} />
             <Route path="thank-you-strategic-plan" element={<Navigate to="/thank-you-change-canvas" replace />} />
-            <Route path="blue-door" element={<BlueDoorLanding />} />
-            <Route path="blue-door-archive" element={<BlueDoorLandingArchive />} />
-            <Route path="blue-door/purchase" element={<BlueDoorPurchase />} />
+            {/* Epic ShIFt Organizational Appraisal (PPS-DEC-0018) */}
+            <Route path="envision-shift" element={<EnvisionShift />} />
+            {/* Relaunch (plan Phase 5): the redesign's offer pages. Always live, because
+                /partner, /partner/amplify/sprints and /partner/embody redirect to them. */}
+            <Route path="architect-shift" element={<ArchitectShift />} />
+            <Route path="embody-shift" element={<EmbodyShift />} />
+            <Route path="the-path" element={<ThePath />} />
+            {/* Retired Blue Door addresses (PPS-DEC-0017) */}
+            <Route path="blue-door" element={<Navigate to="/envision-shift" replace />} />
+            <Route path="blue-door-archive" element={<Navigate to="/envision-shift" replace />} />
+            <Route path="blue-door/purchase" element={<Navigate to="/envision-shift" replace />} />
             <Route path="blue-door/success" element={<BlueDoorSuccess />} />
             <Route path="contact" element={<PPSContact />} />
             <Route path="terms" element={<TermsAndConditions />} />
@@ -399,13 +427,14 @@ const App = () => (
             
             {/* Legacy routes — now 301-equivalent redirects to nearest new page */}
             <Route path="for-leaders" element={<Navigate to="/start-here" replace />} />
-            <Route path="for-teams" element={<Navigate to="/blue-door" replace />} />
-            <Route path="services" element={<Navigate to="/partner" replace />} />
-            <Route path="business-programs" element={<Navigate to="/partner" replace />} />
+            <Route path="for-teams" element={<Navigate to="/envision-shift" replace />} />
+            <Route path="services" element={<Navigate to="/the-path" replace />} />
+            <Route path="business-programs" element={<Navigate to="/the-path" replace />} />
             <Route path="programs" element={<Navigate to="/partner/ignite" replace />} />
-            <Route path="radical-mindfulness" element={<RadicalMindfulness />} />
-            <Route path="communication" element={<MasterYourMessage />} />
-            <Route path="extraordinary-teams" element={<ExtraordinaryTeams />} />
+            {/* Course sales pages retired (PPS-DEC-0021) */}
+            <Route path="radical-mindfulness" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
+            <Route path="communication" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
+            <Route path="extraordinary-teams" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
 
             {/* Quick-access redirect shortcuts */}
             <Route path="stracticalleader" element={<Navigate to="/partner/amplify/stractical-leader" replace />} />
@@ -417,11 +446,11 @@ const App = () => (
             <Route path="free" element={<Navigate to="/resources/free" replace />} />
             <Route path="ignite" element={<Navigate to="/partner/ignite" replace />} />
             <Route path="amplify" element={<Navigate to="/partner/amplify" replace />} />
-            <Route path="embody" element={<Navigate to="/partner/embody" replace />} />
-            <Route path="courses" element={<Navigate to="/partner/ignite/courses" replace />} />
+            <Route path="embody" element={<Navigate to="/embody-shift" replace />} />
+            <Route path="courses" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
             <Route path="masterclass" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
             <Route path="workshops" element={<Navigate to="/partner/amplify/workshops" replace />} />
-            <Route path="sprints" element={<Navigate to="/partner/amplify/sprints" replace />} />
+            <Route path="sprints" element={<Navigate to="/architect-shift" replace />} />
             <Route path="labs" element={<Navigate to="/partner/amplify/labs" replace />} />
           </Route>
 

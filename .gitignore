@@ -43,3 +43,7 @@ public/videos/**
 # Keep committed visual baselines
 !e2e/__snapshots__/
 !e2e/__snapshots__/**
+
+# Dependencies are locked in bun.lock (used by Lovable and CI). Keep npm from
+# re-adding a second lockfile that drifts out of sync.
+package-lock.json

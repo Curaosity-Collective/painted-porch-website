@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { CredentialBadges } from "@/components/v3/SpeakingExtras";
+import { useV3Skin } from "@/components/v3/v3SkinContext";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { PPSBreadcrumb } from "@/components/pps/PPSBreadcrumb";
@@ -51,10 +53,15 @@ export interface SpeakerData {
     heading?: ReactNode;
     logos?: { name: string; src: string; href?: string }[];
     testimonials?: { quote: string; name: string; title: string; organization: string }[];
+    /** Show the testimonial carousel. Only real, sourced quotes; never the shared placeholders. */
+    showTestimonials?: boolean;
   };
+  /** Names from src/data/certifications.ts, shown as badges with the restyle (Phase 3). */
+  credentials?: string[];
 }
 
 export default function SpeakerDetailPage({ speaker }: { speaker: SpeakerData }) {
+  const v3 = useV3Skin();
   const dbTopics = useSpeakerTopics(speaker.facilitatorKey ?? "");
   const topics =
     speaker.facilitatorKey && dbTopics && dbTopics.length > 0
@@ -143,6 +150,9 @@ export default function SpeakerDetailPage({ speaker }: { speaker: SpeakerData })
                 </p>
               ))}
       <p className="text-body font-semibold text-navy italic">{speaker.closingLine}</p>
+              {v3 && speaker.credentials && (
+                <CredentialBadges names={speaker.credentials} firstName={speaker.firstName} />
+              )}
             </div>
           </div>
         </div>
@@ -154,7 +164,7 @@ export default function SpeakerDetailPage({ speaker }: { speaker: SpeakerData })
           heading={speaker.trustSignals.heading || <>Where {speaker.firstName} Has Spoken</>}
           logos={speaker.trustSignals.logos}
           testimonials={speaker.trustSignals.testimonials}
-          showTestimonials={false}
+          showTestimonials={Boolean(speaker.trustSignals.showTestimonials && speaker.trustSignals.testimonials?.length)}
         />
       )}
 
@@ -187,6 +197,9 @@ export default function SpeakerDetailPage({ speaker }: { speaker: SpeakerData })
                       loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
+                  ) : v3 ? (
+                    // No placeholder text with the restyle (plan §10): a plain tinted panel.
+                    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-primary/20 to-navy/20" />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/40 text-sm font-medium">
                       Image coming soon

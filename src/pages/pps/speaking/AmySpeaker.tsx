@@ -140,7 +140,50 @@ const amy: SpeakerData = {
       { name: "Co+Hoots", src: "/logos/co-hoots.png", href: "https://cohoots.com/" },
       { name: "APC Canada", src: "/logos/apc-canada.jpg", href: "https://www.apccanada.com/" },
     ],
+    // Verbatim from the Speaking section of "Amy Yackowski's LinkedIn
+    // Recommendations" (Google Drive, read 2026-11-05); omissions marked "…".
+    // PPS Admin approved adding these to Amy's page only (2026-11-05).
+    showTestimonials: true,
+    testimonials: [
+      {
+        quote:
+          "Amy’s presentations are always outstanding — thoughtfully researched, curated, and crafted specifically for the audiences in each region she speaks in. Her attention to detail and commitment to providing real, tangible value to attendees shines through in every session.",
+        name: "Amy Ruddell",
+        title: "Vice President",
+        organization: "Project Times & Business Analyst Times",
+      },
+      {
+        quote:
+          "I have been in the staffing industry for over 30 years and have had the opportunity to sit in on quite a few keynote speakers. However, I’ve gotta say Amy by far had me the most engaged of all of them.",
+        name: "Tony Alanis",
+        title: "Vice President of Operations and Client Relations",
+        organization: "",
+      },
+      {
+        quote:
+          "Amy, your keynote session was so engaging and fun but also so relevant. So accessible. I will be thinking about it for a long time and am excited to share the concepts and exercise around discovering elemental (superhero!) strengths with my team.",
+        name: "Katie McLennan",
+        title: "Business Process Consultant",
+        organization: "Marco Technologies",
+      },
+      {
+        quote:
+          "One of the things that immediately caught my attention was Amy's clear comfort on stage. She brought just the right energy to the room. … Amy spoke to the audience and brought relevant content, clearly taking a personalized approach in her delivery.",
+        name: "Ashley Andersen",
+        title: "Change Leadership",
+        organization: "",
+      },
+    ],
   },
+  // From the draft site's Amy page (pps-simplified src/routes/about_.amy.tsx).
+  credentials: [
+    "Prosci Change Practitioner",
+    "ACMP Member",
+    "Lean Change Agent",
+    "Working Genius Certified",
+    "EQ-360 Certified",
+    "DiSC Facilitator",
+  ],
 };
 
 export default function AmySpeaker() {

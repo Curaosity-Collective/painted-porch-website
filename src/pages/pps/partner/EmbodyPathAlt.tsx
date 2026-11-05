@@ -22,7 +22,7 @@ import { FAQSection } from "@/components/pps/FAQSection";
 import { ParallaxCTA } from "@/components/pps/ParallaxCTA";
 import ClientLogoMarquee from "@/components/pps/ClientLogoMarquee";
 import { PartnerIncludedSection, ExploreBeforeCommitSection } from "@/components/pps/partner";
-import { BLUE_DOOR_PRICE_DISPLAY } from "@/config/blueDoor";
+import { EPIC_SHIFT_APPRAISAL } from "@/config/epicShiftAppraisal";
 import embodyFinalCtaBg from "@/assets/embody-final-cta-bg.png";
 
 /**
@@ -162,12 +162,12 @@ const faqs = [
       "Change management starts after the direction is set. EMBODY is change origination. We partner upstream, at the strategic authorship moment, to architect the shIFt you intend to lead before a single tool gets launched.",
   },
   {
-    question: "Why does EMBODY start with the Blue Door Organizational Appraisal?",
+    question: "Why does EMBODY start with the Epic ShIFt Organizational Appraisal?",
     answer:
-      "The Blue Door Organizational Appraisal is how we (and you) see the three Painted Porch Pillars clearly. Without that reading, any partnership is a guess. With it, we co-design an EMBODY engagement that fits your actual architecture, not a template. Your investment is fully credited toward the engagement.",
+      "The Epic ShIFt Organizational Appraisal is how we (and you) see the three Painted Porch Pillars clearly. Without that reading, any partnership is a guess. With it, we co-design an EMBODY engagement that fits your actual architecture, not a template.",
   },
   {
-    question: "What if the Blue Door shows we're not ready for EMBODY yet?",
+    question: "What if the Epic ShIFt Organizational Appraisal shows we're not ready for EMBODY yet?",
     answer:
       "That's one of the most valuable things it can surface. Your results will include a Reinforcement Path that maps what needs strengthening first, often through AMPLIFY sprints or IGNITE work. We'd rather point you to the right starting line than sell you an engagement your organization can't yet carry.",
   },
@@ -212,8 +212,8 @@ export default function EmbodyPathAlt() {
             isAnchor: true,
           },
           {
-            label: "Open the Blue Door",
-            href: "/blue-door",
+            label: "Envision Epic ShIFt",
+            href: "/envision-shift",
             // White outline on the dark navy hero (cobalt/bluedoor would be
             // unreadable here per brand rules), with a bluedoor focus ring
             // so the CTA still carries the cobalt brand signal.
@@ -430,23 +430,23 @@ export default function EmbodyPathAlt() {
                 <div className="flex items-center gap-2 mb-2">
                   <Info className="w-5 h-5 text-bluedoor" />
                   <h3 className="text-base font-poppins font-semibold text-navy">
-                    Prerequisite: The <span className="text-bluedoor">Blue Door</span>
+                    Prerequisite: The <span className="text-bluedoor">Epic ShIFt Organizational Appraisal</span>
                   </h3>
                 </div>
                 <p className="text-body -sm text-foreground mb-3">
-                  Required before any EMBODY engagement. Your investment is fully credited toward the partnership.
+                  Required before any EMBODY engagement. It begins with a Clarity Call.
                 </p>
                 <div className="flex items-center gap-3 text-sm mb-4">
-                  <span className="font-semibold text-navy">{BLUE_DOOR_PRICE_DISPLAY}</span>
+                  <span className="font-semibold text-navy">{EPIC_SHIFT_APPRAISAL.priceDisplay}</span>
                   <span className="text-foreground/70">·</span>
-                  <span className="text-foreground/70">Under 30 minutes</span>
+                  <span className="text-foreground/70">{EPIC_SHIFT_APPRAISAL.scope}</span>
                 </div>
                 <Button
                   asChild
                   className="bg-bluedoor hover:bg-bluedoor/90 text-white w-full"
                 >
-                  <Link to="/blue-door" data-cta="bluedoor">
-                    Open the Blue Door <ArrowRight className="ml-2 w-4 h-4" />
+                  <Link to="/envision-shift" data-cta="bluedoor">
+                    Envision Epic ShIFt <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
               </div>
@@ -592,9 +592,9 @@ export default function EmbodyPathAlt() {
             Ready to architect what's next?
           </>
         }
-        description="Open the Blue Door, then let's see whether an embedded partnership is the right fit."
+        description="Envision Epic ShIFt, then let's see whether an embedded partnership is the right fit."
         actions={[
-          { label: "Open the Blue Door", to: "/blue-door", variant: "bluedoor" },
+          { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
           {
             label: "Contact Us",
             to: "/contact?scope=organization&interest=strategic-partnership",

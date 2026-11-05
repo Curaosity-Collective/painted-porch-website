@@ -25,20 +25,23 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
+          node-version: "22"
 
-      - run: npm ci
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install --frozen-lockfile
 
       - name: Install Playwright (Chromium)
-        run: npx playwright install --with-deps chromium
+        run: bunx playwright install --with-deps chromium
 
       - name: Print resolved Playwright config and installed packages
         run: |
           echo "=== Installed packages ==="
-          npm ls --depth=0
+          bun pm ls
           echo "=== Playwright version ==="
-          npx playwright --version
+          bunx playwright --version
           echo "=== Resolved Playwright config ==="
           cat playwright.config.ts
 
@@ -49,7 +52,7 @@ jobs:
           timeout_minutes: 20
           max_attempts: 3
           retry_wait_seconds: 20
-          command: npm run test:a11y:ci
+          command: bun run test:a11y:ci
 
       - name: Report retry summary
         if: always()

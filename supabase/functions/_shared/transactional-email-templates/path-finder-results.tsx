@@ -28,7 +28,7 @@ const absUrl = (u: string) => (u.startsWith("http") ? u : `${SITE_URL}${u}`)
 const Email = (p: Props) => {
   const name = p.firstName || 'there'
   const recs = p.recommendations ?? []
-  const isBlueDoor = p.strongestNextStep && /blue.?door/i.test(p.strongestNextStep.name)
+  const isBlueDoor = p.strongestNextStep && /blue.?door|epic shift (organizational )?appraisal/i.test(p.strongestNextStep.name)
   return (
     <Html lang="en" dir="ltr">
       <Head />

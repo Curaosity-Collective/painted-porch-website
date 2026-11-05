@@ -9,20 +9,7 @@ import blueDoorHero from "@/assets/blue-door-hero.jpg";
 import { Eyebrow } from "@/components/pps/Eyebrow";
 
 // Certification badges
-import workingGeniusBadge from "@/assets/certifications/working-genius.png";
-import prosciChangeBadge from "@/assets/certifications/prosci-change-practitioner.png";
-import scrumPsdBadge from "@/assets/certifications/scrum-psd.png";
-import csiBadge from "@/assets/certifications/csi.png";
-import changeNavigatorBadge from "@/assets/certifications/change-navigator.png";
-import leanChangeAgentBadge from "@/assets/certifications/lean-change-agent.png";
-import leanChangeAiBadge from "@/assets/certifications/lean-change-ai.png";
-import mawFacilitatorBadge from "@/assets/certifications/maw-facilitator.png";
-import discFacilitatorBadge from "@/assets/certifications/disc-facilitator.png";
-import eq360Badge from "@/assets/certifications/eq360.png";
-import emotionallyEffectiveBadge from "@/assets/certifications/emotionally-effective-leader.png";
-import wpcRecommendedBadge from "@/assets/certifications/wpc-recommended.png";
-import acmpMemberBadge from "@/assets/certifications/acmp-member.png";
-import asaMemberBadge from "@/assets/certifications/asa-member.png";
+import { CERTIFICATIONS as certifications } from "@/data/certifications";
 
 const pathStages = [
   {
@@ -76,22 +63,6 @@ const pathStages = [
   },
 ];
 
-const certifications = [
-  { name: "Working Genius Certified", badge: workingGeniusBadge },
-  { name: "Prosci Change Practitioner", badge: prosciChangeBadge },
-  { name: "Scrum.org PSD", badge: scrumPsdBadge },
-  { name: "CSI Certified", badge: csiBadge },
-  { name: "Change Navigator", badge: changeNavigatorBadge },
-  { name: "Lean Change Agent", badge: leanChangeAgentBadge },
-  { name: "Lean Change AI", badge: leanChangeAiBadge },
-  { name: "MAW Facilitator", badge: mawFacilitatorBadge },
-  { name: "DiSC Facilitator", badge: discFacilitatorBadge },
-  { name: "EQ-360 Certified", badge: eq360Badge },
-  { name: "Emotionally Effective Leader", badge: emotionallyEffectiveBadge },
-  { name: "WPC Recommended", badge: wpcRecommendedBadge },
-  { name: "ACMP Member", badge: acmpMemberBadge },
-  { name: "ASA Member", badge: asaMemberBadge },
-];
 
 
 const coreValues = [
@@ -611,10 +582,10 @@ export default function OurApproach() {
         backgroundImage={blueDoorHero}
         overlayClass="bg-gradient-to-b from-navy/75 via-navy/60 to-navy/45"
         eyebrow="Start Here"
-        headline="The Blue Door is the simplest place to begin."
-        description="It's our structured appraisal that creates clarity before your next major decision hardens into action."
+        headline="The Epic ShIFt Organizational Appraisal is where clarity begins."
+        description="It's our interview-led appraisal that creates clarity before your next major decision hardens into action. It begins with a Clarity Call."
         actions={[
-          { label: "Open the Blue Door", to: "/blue-door", variant: "bluedoor" },
+          { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
           { label: "Find Your P.A.T.H.way", to: "/start-here", variant: "secondary" },
         ]}
       />

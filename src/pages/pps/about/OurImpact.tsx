@@ -11,28 +11,17 @@ import { verifySiteVideoUrl } from "@/lib/verifySiteVideo";
 import VideoFallback from "@/components/pps/VideoFallback";
 import impactCta from "@/assets/images/impact-cta-begin.jpg";
 import { Eyebrow } from "@/components/pps/Eyebrow";
+import { CHARITIES } from "@/data/charities";
+import { FEATURED_TESTIMONIALS } from "@/pages/pps/v3/testimonials";
 // Hero video URL is loaded from the site_videos registry (slot: "impact-hero").
 // Manage at /admin/videos. No fallback file is bundled, videos must live in Cloud Storage.
-const testimonials = [
-  {
-    quote: "Painted Porch helped us transform not just our processes, but our entire approach to change. The results speak for themselves.",
-    author: "VP of Operations",
-    company: "Healthcare Staffing Company",
-    color: "border-strategic",
-  },
-  {
-    quote: "The combination of practical frameworks and Stoic principles gave our leadership team a foundation for making better decisions under pressure.",
-    author: "CEO",
-    company: "Technology Services Firm",
-    color: "border-primary",
-  },
-  {
-    quote: "We've worked with many consultants, but Painted Porch truly partners with you. They care about outcomes, not just deliverables.",
-    author: "Chief People Officer",
-    company: "Manufacturing Company",
-    color: "border-lime",
-  },
-];
+// Real client quotes (Amy's LinkedIn recommendations) shared with the redesign.
+// The three role-only quotes that were here were placeholders (PPS Admin, 2026-11-05).
+const TESTIMONIAL_BORDERS = ["border-strategic", "border-primary", "border-lime"];
+const testimonials = FEATURED_TESTIMONIALS.map((t, i) => {
+  const [author, role] = t.who.split(" · ");
+  return { quote: t.quote, author, company: role, color: TESTIMONIAL_BORDERS[i % TESTIMONIAL_BORDERS.length] };
+});
 
 export default function OurImpact() {
   useDocumentSeo({
@@ -207,37 +196,7 @@ export default function OurImpact() {
             Every partnership makes a difference. Here are the organizations benefiting from your investment.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 items-stretch">
-            {[
-              { name: "Toastmasters International", href: "https://www.toastmasters.org/" },
-              { name: "Junior League of Phoenix", href: "https://www.jlp.org/" },
-              { name: "The Funding Studio", href: "http://thefundingstudio.org/" },
-              { name: "World Wildlife Fund", href: "https://www.worldwildlife.org/" },
-              { name: "City of Hope", href: "https://www.cityofhope.org/" },
-              { name: "A Stepping Stone Foundation", href: "https://asteppingstone.org/" },
-              { name: "AZ Center for the Blind & Visually Impaired", href: "https://www.acbvi.org/" },
-              { name: "St. Jude Children's Research Hospital", href: "https://www.stjude.org/" },
-              { name: "Wounded Warrior Project", href: "https://www.woundedwarriorproject.org/" },
-              { name: "Dr. Lorna Breen Foundation", href: "https://drlornabreen.org/donate/" },
-              { name: "Brock Strong Foundation", href: "https://www.brockstrongfoundation.com/" },
-              { name: "Girls, Inc", href: "https://girlsinc.org/" },
-              { name: "Sandy Hook Promise", href: "https://www.sandyhookpromise.org/" },
-              { name: "American Cancer Society", href: "https://www.cancer.org/" },
-              { name: "Girl Scouts of America", href: "https://www.girlscouts.org/" },
-              { name: "Pasadena Humane Society", href: "https://pasadenahumane.org/" },
-              { name: "Feeding America", href: "https://www.feedingamerica.org/" },
-              { name: "Samaritan's Purse", href: "https://www.samaritanspurse.org/" },
-              { name: "Special Olympics", href: "https://www.specialolympics.org/" },
-              { name: "Down Syndrome Alliance of the Midlands", href: "https://www.dsamidlands.org/" },
-              { name: "Heart Heroes", href: "https://heartheroes.org/" },
-              { name: "Christopher Bremer Foundation", href: "https://www.chrisbremerfoundation.org/" },
-              { name: "Warrior Beach Retreat", href: "https://warriorbeachretreat.org/" },
-              { name: "Blood Cancer United", href: "https://bloodcancerunited.org/" },
-              { name: "Dress for Success", href: "https://dressforsuccess.org/" },
-              { name: "Wreaths Across America", href: "https://www.wreathsacrossamerica.org/" },
-              { name: "Girls on the Run", href: "https://www.girlsontherun.org/" },
-              { name: "Blood Cancer NZ", href: "https://www.bloodcancer.org.nz/" },
-              { name: "Alzheimer's Association", href: "https://act.alz.org/" },
-            ].map((charity) => {
+            {CHARITIES.map((charity) => {
               const domain = new URL(charity.href).hostname;
               return (
                 <a

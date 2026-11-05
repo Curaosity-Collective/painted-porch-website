@@ -1,0 +1,271 @@
+/*
+ * Epic ShIFt redesign ("v3") — scoped design system
+ * ----------------------------------------------------------------------------
+ * Ported from the pps-simplified draft (src/styles.css, Tailwind 4) into this
+ * Tailwind 3 site. Everything here applies ONLY inside a `.pps-v3` wrapper, so
+ * the legacy pages keep their current look until each one is replaced.
+ *
+ * - Shared token names (background, primary, gold, radius …) are re-pointed
+ *   inside `.pps-v3` to the redesign's values.
+ * - New token names (teal-deep, linen, prepare …) are defined once at :root as
+ *   `--v3-*` HSL triplets and mapped in tailwind.config.ts.
+ * - Values were converted from the draft's OKLCH/hex sources to HSL triplets.
+ *
+ * Plan: pps-ops-hub docs/plans/PPS-Website-Reconciliation-Shortest-Path-Plan-v1.0.md §3
+ */
+
+:root {
+  --v3-teal-foreground: 194 85% 97%;
+  --v3-teal-deep: 188 100% 19%;
+  /* Section headings: brand Teal #007697 (PPS-DEC-0022). */
+  --v3-teal-heading: 192 100% 29%;
+  --v3-bluedoor-deep: 215 100% 26%;
+  --v3-strategic-deep: 262 51% 28%;
+  --v3-lime-deep: 83 100% 24%;
+  --v3-cream: 40 69% 96%;
+  --v3-linen: 40 42% 96%;
+  --v3-sand: 40 49% 95%;
+  --v3-berry: 340 100% 28%;
+  --v3-berry-on-dark: 348 100% 81%;
+  /* The IF in shIFt on dark backgrounds, large headings only (#FF1F5A). */
+  --v3-raspberry-bright: 344 100% 56%;
+  --v3-prepare: 197 64% 60%;
+  --v3-prepare-deep: 195 100% 31%;
+  --v3-prepare-ink: 195 100% 23%;
+  --v3-align: 356 97% 74%;
+  --v3-align-deep: 343 100% 44%;
+  --v3-align-ink: 352 60% 34%;
+  --v3-habits: 96 42% 48%;
+  --v3-habits-deep: 77 99% 26%;
+  --v3-habits-ink: 94 62% 20%;
+  --v3-journey-foreground: 0 0% 100%;
+}
+
+.pps-v3 {
+  /* White base; cream comes from bg-linen and surface-painted bands (PPS-DEC-0022). */
+  --background: 0 0% 100%;
+  --foreground: 211 9% 20%;
+  --card: 0 0% 100%;
+  --card-foreground: 211 9% 20%;
+  --primary: 185 100% 25%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 37 80% 55%;
+  --secondary-foreground: 186 100% 16%;
+  --muted: 206 34% 96%;
+  --muted-foreground: 211 5% 41%;
+  --accent: 79 100% 32%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 339 100% 42%;
+  --border: 182 16% 86%;
+  --input: 182 16% 86%;
+  --ring: 185 100% 25%;
+  --gold: 37 80% 55%;
+  --gold-foreground: 186 100% 14%;
+  --navy: 240 100% 21%;
+  --lime: 79 100% 32%;
+  --raspberry: 342 100% 43%;
+  --strategic: 262 45% 36%;
+  --bluedoor: 213 100% 37%;
+  --bluedoor-foreground: 192 100% 98%;
+  --radius: 0.25rem;
+
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base rules use :where() so Tailwind utilities on the same element still win. */
+:where(.pps-v3) :is(h1, h2, h3, h4) {
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+:where(.pps-v3) section {
+  background-color: hsl(var(--background));
+}
+
+/* Headings read at the lighter brand-adjacent teal; surfaces use the deep teal. */
+:where(.pps-v3) .text-teal-deep {
+  color: hsl(var(--v3-teal-heading));
+}
+
+/* Small uppercase editorial label */
+.label-kicker {
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.rule-hair {
+  border-top: 1px solid hsl(var(--border));
+}
+
+/* Scroll-in reveal: content stays visible until the page is interactive. */
+.reveal {
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.reveal-armed:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.story-content-space {
+  padding-block: 5rem;
+}
+@media (min-width: 768px) {
+  .story-content-space {
+    padding-block: 7rem;
+  }
+}
+
+.story-hero-image {
+  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 60%, transparent 100%);
+}
+
+.story-dark .ghost-numeral,
+.bg-teal-deep .ghost-numeral,
+.bg-strategic-deep .ghost-numeral,
+.bg-lime-deep .ghost-numeral,
+.bg-bluedoor-deep .ghost-numeral,
+.bg-prepare-ink .ghost-numeral,
+.bg-align-ink .ghost-numeral,
+.bg-habits-ink .ghost-numeral {
+  -webkit-text-stroke-color: hsl(var(--v3-teal-foreground) / 0.16);
+}
+
+/* Image-backed closing calls to action: a wash tuned per photograph. */
+.story-cta {
+  --cta-wash-start: hsl(var(--v3-bluedoor-deep));
+  --cta-wash-end: hsl(var(--v3-teal-deep));
+}
+.cta-photo-envision {
+  --cta-wash-start: hsl(var(--v3-prepare-ink));
+  --cta-wash-end: hsl(var(--v3-prepare-ink));
+  --cta-wash-top: 66%;
+  --cta-wash-text: 76%;
+  --cta-wash-bottom: 73%;
+}
+.cta-photo-wash {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--cta-wash-start) var(--cta-wash-top), transparent) 0%,
+    color-mix(in oklab, var(--cta-wash-start) var(--cta-wash-text), transparent) 32%,
+    color-mix(in oklab, var(--cta-wash-end) var(--cta-wash-text), transparent) 65%,
+    color-mix(in oklab, var(--cta-wash-end) var(--cta-wash-bottom), transparent) 100%
+  );
+}
+
+.text-shadow-cta {
+  text-shadow:
+    0 1px 2px rgb(0 0 0 / 0.35),
+    0 4px 18px rgb(0 0 0 / 0.3);
+}
+
+.bg-door-gradient {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--bluedoor) / 0.45) 0%,
+    color-mix(in oklab, hsl(var(--bluedoor) / 0.4), hsl(var(--v3-teal-deep) / 0.55)) 55%,
+    hsl(var(--v3-teal-deep) / 0.84) 100%
+  );
+}
+
+/* Oversized outlined numeral behind editorial sections */
+.ghost-numeral {
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 0.75;
+  color: transparent;
+  -webkit-text-stroke: 1px hsl(var(--v3-teal-deep) / 0.18);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Shared atmospheric surface for quieter inner-page sections. */
+.surface-painted {
+  background:
+    linear-gradient(115deg, hsl(var(--gold) / 0.06), transparent 38%),
+    linear-gradient(180deg, hsl(var(--v3-cream)), hsl(var(--v3-linen)));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.reveal-armed:not(.is-visible) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/*
+ * Restyle layer for live pages kept in their layout (plan Phase 3, §8):
+ * speaking, topics, speaker pages, workshops and contact. Applied by
+ * PPSLayout as `.v3-skin` in preview (?v3=1) and at go-live. It only remaps
+ * colors; layout and content stay as they are (PPS Admin, 2026-11-05).
+ */
+.v3-skin {
+  /* Navy bands and overlays become the redesign's deep teal. */
+  --navy: 188 100% 19%;
+  /* Lime text and fills become deep lime, which passes AA with white and on white. */
+  --lime: 83 100% 24%;
+  /* Small gray text: the redesign's gray, which passes AA on white. */
+  --muted-foreground: 211 5% 41%;
+}
+.v3-skin :is(.text-foreground\/60, .text-foreground\/70) {
+  color: hsl(211 5% 41%);
+}
+/* Gold fills carry dark text (PPS-DEC-0022), including gold buttons and labels. */
+.v3-skin :is(.bg-gold, .bg-gold\/90, .bg-gold\/80).text-navy,
+.v3-skin :is(.bg-gold, .bg-gold\/90, .bg-gold\/80) .text-navy {
+  color: #1e2b30;
+}
+/* Gold text: dark gold on light backgrounds, light gold inside dark bands. */
+.v3-skin .text-gold,
+.v3-skin .hover\:text-gold:hover {
+  color: #8a5a00;
+}
+.v3-skin :is(.bg-navy, .bg-navy\/90, .bg-navy\/80, .bg-gradient-strategic) .text-gold {
+  color: #f4c05e;
+}
+/* Navy headings and text become brand Teal (PPS-DEC-0022). */
+.v3-skin .text-navy {
+  color: hsl(var(--v3-teal-heading));
+}
+/* Purple gradient bands become deep teal. */
+.v3-skin .bg-gradient-strategic {
+  background-image: none;
+  background-color: hsl(188 100% 19%);
+}
+/* Plain eyebrows on light backgrounds are Raspberry, never the heading's color (PPS-DEC-0022). */
+.v3-skin [data-eyebrow="plain"]:not([data-tone="white"]) {
+  color: hsl(var(--raspberry));
+}
+/* Tinted chips: darker ink so small text clears 4.5:1 on its tint. */
+.v3-skin .bg-raspberry\/10.text-raspberry {
+  color: hsl(342 100% 34%);
+}
+.v3-skin :is(.bg-navy\/5, .bg-navy\/10).text-navy,
+.v3-skin :is(.bg-navy\/5, .bg-navy\/10) .text-navy {
+  color: hsl(188 100% 19%);
+}
+/* Eyebrows on the dark hero photo are light Gold (PPS-DEC-0022). */
+.v3-skin [data-hero] [data-eyebrow="plain"] {
+  color: #f4c05e;
+}
+/* The IF in shIFt is bold Raspberry (PPS-DEC-0022); light raspberry on dark bands. */
+.v3-skin [data-if] {
+  color: hsl(var(--raspberry));
+  font-weight: 700;
+}
+.v3-skin [data-if="on-dark"] {
+  color: hsl(var(--v3-berry-on-dark));
+}

@@ -75,15 +75,6 @@ export const sitemapData: SitemapNode[] = [
         path: "/partner/ignite",
         children: [
           {
-            label: "Courses",
-            path: "/partner/ignite/courses",
-            children: [
-              { label: "Radical Mindfulness", path: "/radical-mindfulness", note: "Top-level URL kept for ease of sharing" },
-              { label: "Master Your Message", path: "/communication", note: "Top-level URL kept for ease of sharing" },
-              { label: "Extraordinary Teams", path: "/extraordinary-teams", note: "Top-level URL kept for ease of sharing" },
-            ],
-          },
-          {
             label: "Assessments",
             path: "/partner/ignite/assessments",
             children: [
@@ -230,18 +221,17 @@ export const sitemapData: SitemapNode[] = [
     path: "/speaking",
     children: [
       { label: "Amy Yackowski", path: "/speaking/amy" },
-      { label: "Rob Yackowski", path: "/speaking/rob" },
+      { label: "Rob Hunter", path: "/speaking/rob" },
       { label: "Sierra", path: "/speaking/sierra" },
       { label: "Speaking & Workshop Topics", path: "/speaking/topics" },
       { label: "As Seen On (Media)", path: "/speaking/media" },
     ],
   },
   {
-    label: "The Blue Door",
-    path: "/blue-door",
+    label: "Epic ShIFt Organizational Appraisal",
+    path: "/envision-shift",
     children: [
-      { label: "Purchase", path: "/blue-door/purchase" },
-      { label: "Success (post purchase)", path: "/blue-door/success" },
+      { label: "Blue Door purchase success (existing buyers)", path: "/blue-door/success" },
     ],
   },
   {

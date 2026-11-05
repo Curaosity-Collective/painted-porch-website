@@ -168,7 +168,7 @@ export default function PPSPricing() {
                 Contact Us
               </Button>
             </Link>
-            <Link to="/blue-door">
+            <Link to="/envision-shift">
               <Button className="bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor text-lg py-5 px-8 transition-colors">
                 Take the Free Assessment
               </Button>

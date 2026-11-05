@@ -72,13 +72,13 @@ const Email = (p: CalcResultsProps) => {
           </Section>
 
           <Section style={heroBox}>
-            <Text style={heroLabel}>The Blue Door impact</Text>
+            <Text style={heroLabel}>The Epic ShIFt Organizational Appraisal impact</Text>
             <Text style={heroValue}>
-              A $1,500 Blue Door operational appraisal can provide the clarity needed to reduce the risked{' '}
+              The Epic ShIFt Organizational Appraisal, which begins with a Clarity Call, can provide the clarity needed to reduce the risked{' '}
               <strong>{fmt(p.exposureLow)}–{fmt(p.exposureHigh)}</strong> of this exposure.
             </Text>
-            <Button href="https://onthepaintedporch.com/blue-door" style={ctaButton}>
-              Step Through the Blue Door
+            <Button href="https://onthepaintedporch.com/envision-shift" style={ctaButton}>
+              Envision Epic ShIFt
             </Button>
           </Section>
 

@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Mic, Users, ArrowRight, Flame, Pencil } from "lucide-react";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
+import { useV3Skin } from "@/components/v3/v3SkinContext";
+import { getSiteUrl } from "@/lib/site-url";
 import { useUserRole } from "@/hooks/useUserRole";
 import { TierHeroSection } from "@/components/pps/TierHeroSection";
 import { Eyebrow } from "@/components/pps/Eyebrow";
@@ -43,6 +45,7 @@ import findingJoy from "@/assets/speaking/topics/finding-joy-at-work.jpg.asset.j
 import passengerToPilot from "@/assets/speaking/topics/passenger-to-pilot.jpg.asset.json";
 import moveShakeInnovate from "@/assets/speaking/topics/move-shake-innovate.png.asset.json";
 import reignitingResilience from "@/assets/speaking/topics/reigniting-resilience.jpg.asset.json";
+import kickTheHabit from "@/assets/speaking/topics/kick-the-habit.jpg.asset.json";
 import fiveMinKeynote from "@/assets/speaking/topics/five-minute-keynote.jpg.asset.json";
 
 type Row = {
@@ -58,6 +61,8 @@ type Row = {
   is_keynote: boolean;
   include_in_workshops: boolean;
   topic_slug: string | null;
+  /** The row's own format (keynote, speaking, workshop, lab, …). */
+  delivery_format?: string | null;
 };
 
 
@@ -72,6 +77,9 @@ type MergedTopic = {
 };
 
 const UNTAGGED = "More";
+
+/** Anchor for a theme heading, e.g. "Change & Innovation" → "change-innovation". */
+const themeSlug = (topic: string) => topic.toLowerCase().replace(/&/g, " ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 /** Manual topic overrides for rows whose DB topic should be remapped. */
 const TOPIC_OVERRIDES: Record<string, string> = {
@@ -136,6 +144,29 @@ const KEY_ALIASES: Record<string, string> = {
   "your 5-minute keynote": "5-minute keynote",
   "the 5-minute keynote": "5-minute keynote",
   "leadership om: a 21st-century operating model for organizational evolution": "leadership om",
+  // An old row with no topic_slug; it duplicated The Power of Story under "More".
+  "the power of story / the art of storytelling": "power-of-story",
+};
+
+/**
+ * Slug-level fixes (PPS Admin, 2026-11-05). Rows are merged by topic_slug, so
+ * an old row with its own slug showed as a second card.
+ */
+const SLUG_ALIASES: Record<string, string> = {
+  // "Working Genius" duplicated "Genius at Work" (the Working Genius session).
+  "working-genius": "genius-at-work",
+};
+
+/** Topics kept off this page, by slug. Architect Change is the workshop inside Architect ShIFt. */
+const EXCLUDE_SLUGS = new Set<string>(["architect-change"]);
+
+/** Display names by slug (PPS Admin, 2026-11-05); these win over whichever row is seen first. */
+const TITLE_BY_SLUG: Record<string, string> = {
+  "path-to-lasting-change": "The P.A.T.H. to Lasting Change",
+  "communicator-styles": "Speak with Style: The 6 Communicator Styles for Influence & Impact",
+  "lead-at-speed-of-change": "Lead at the Speed of Change",
+  "power-of-story": "The Power of Story",
+  "genius-at-work": "Genius at Work",
 };
 
 /** Preferred display name for canonical keys (overrides whichever row was seen first). */
@@ -205,6 +236,8 @@ const IMAGE_MAP: Record<string, string> = {
   "from passenger to pilot": passengerToPilot.url,
   "move, shake, innovate": moveShakeInnovate.url,
   "reigniting resilience": reignitingResilience.url,
+  // The Kick the Habit cover was in assets but never connected (PPS Admin: every topic has an image).
+  "kick the habit": kickTheHabit.url,
   "5-minute keynote": fiveMinKeynote.url,
   "your 5-minute keynote": fiveMinKeynote.url,
   "the 5-minute keynote": fiveMinKeynote.url,
@@ -214,13 +247,15 @@ const IMAGE_MAP: Record<string, string> = {
 // (description preferred, blurb as fallback). Edit copy in /admin/offerings.
 
 
-// Color accent per topic for the image placeholder when no image exists
+// Color accent per topic for the image placeholder when no image exists.
+// "purple" isn't a Tailwind color here (the brand purple is `strategic`); using
+// it left the placeholder blank and its white title invisible.
 const TOPIC_ACCENT: Record<string, string> = {
   "Leadership & Culture": "from-primary/80 to-navy",
-  "Change & Innovation": "from-purple/80 to-navy",
+  "Change & Innovation": "from-strategic/80 to-navy",
   "Communication": "from-gold/80 to-navy",
   "Resilience & Wellbeing": "from-bluedoor/80 to-navy",
-  "Team Dynamics": "from-primary/80 to-purple",
+  "Team Dynamics": "from-primary/80 to-strategic",
   "Philosophy": "from-navy to-bluedoor",
   [UNTAGGED]: "from-navy to-charcoal",
 };
@@ -238,21 +273,18 @@ const TOPIC_BADGE: Record<string, string> = {
 
 
 // Topics that should always appear as BOTH a keynote and a workshop, even if
-// the database only has one row for them.
+// the database only has one row for them. Keyed by topic_slug, the merge key;
+// the old name keys stopped matching once rows merged by slug.
 const ALWAYS_BOTH = new Set<string>([
-  "driving change: the 3 shifts",
-  "the architecture of organization",
-  "the p.a.t.h. to lasting change",
+  "driving-change-3-shifts",
+  "architecture-of-organizational-shift",
+  "path-to-lasting-change",
 ]);
 
 
 export default function SpeakingWorkshopTopics() {
-  useDocumentSeo({
-    title: "Speaking & Workshop Topics | Painted Porch Strategies",
-    description:
-      "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic can be delivered as a keynote, an interactive workshop, or both.",
-    ogImage: speakingHero,
-  });
+  // Restyle preview and go-live only (plan Phase 3, §8): jump links and an ItemList.
+  const v3 = useV3Skin();
 
   const [searchParams, setSearchParams] = useSearchParams();
   const [rows, setRows] = useState<Row[]>([]);
@@ -282,7 +314,7 @@ export default function SpeakingWorkshopTopics() {
     (async () => {
       const { data, error } = await supabase
         .from("path_finder_offerings")
-        .select("offering_key,name,blurb,description,topic,facilitator,current_url,anchor_id,image_url,is_keynote,include_in_workshops,topic_slug")
+        .select("offering_key,name,blurb,description,topic,facilitator,current_url,anchor_id,image_url,is_keynote,include_in_workshops,topic_slug,delivery_format")
         .or(
           "current_url.eq./partner/amplify/workshops,current_url.eq./speaking/topics,current_url.eq./speaking/amy,current_url.eq./speaking/rob,current_url.eq./speaking/sierra,is_keynote.eq.true,include_in_workshops.eq.true",
         )
@@ -303,19 +335,34 @@ export default function SpeakingWorkshopTopics() {
       if (EXCLUDE_KEYS.has(rawKey)) continue;
       // Prefer DB topic_slug (canonical, kept in sync by trigger). Fall back
       // to legacy alias-based canonical key for any row not yet backfilled.
-      const key = r.topic_slug || canonicalKey(r.name);
-      const baseName = CANONICAL_NAME[key] ?? cleanName(r.name);
+      const rawSlug = r.topic_slug || canonicalKey(r.name);
+      const key = SLUG_ALIASES[rawSlug] ?? rawSlug;
+      if (EXCLUDE_SLUGS.has(key)) continue;
+      const fixedName = TITLE_BY_SLUG[key] ?? CANONICAL_NAME[key];
+      const baseName = fixedName ?? cleanName(r.name);
 
-      // Source of truth for the chips: the boolean flags on the row.
-      // Fall back to legacy URL/name heuristics so older rows keep rendering.
-      const isKeynote = r.is_keynote || r.current_url.startsWith("/speaking/") || /\(Keynote\)/i.test(r.name);
-      const isWorkshop = r.include_in_workshops || r.current_url === "/partner/amplify/workshops";
+      // Source of truth for the chips: the row's flags and its format. A
+      // workshop listed on /speaking/topics is not a keynote (PPS Admin,
+      // 2026-11-05), so the page URL counts only for a row with no format.
+      const isKeynote =
+        r.is_keynote ||
+        /\(Keynote\)/i.test(r.name) ||
+        (r.delivery_format
+          ? r.delivery_format === "keynote" || r.delivery_format === "speaking"
+          : r.current_url.startsWith("/speaking/"));
+      // A topic offered as both a keynote and a workshop shows both labels
+      // (PPS Admin, 2026-11-05). A workshop row counts even when it is not
+      // featured on the Workshops page.
+      const isWorkshop =
+        r.include_in_workshops || r.current_url === "/partner/amplify/workshops" || r.delivery_format === "workshop";
       const existing = map.get(key);
       if (existing) {
         if (isKeynote && !existing.formats.includes("Speaking")) existing.formats.push("Speaking");
         if (isWorkshop && !existing.formats.includes("Workshop")) existing.formats.push("Workshop");
-        // Prefer workshop's topic tag (more detailed)
-        if (isWorkshop && r.topic) existing.topic = topicFor(key, r.topic);
+        // Prefer the workshop's topic tag (more detailed). Otherwise take the first
+        // tag any row has: keynote rows often carry none, which used to leave the
+        // card under "More" when such a row sorted first.
+        if (r.topic && (isWorkshop || existing.topic === topicFor(key, null))) existing.topic = topicFor(key, r.topic);
         // DB is source of truth. Prefer description; fall back to blurb.
         // If both variants have content, keep the workshop row's copy
         // (richer body copy) — otherwise take whichever is non-empty.
@@ -332,8 +379,8 @@ export default function SpeakingWorkshopTopics() {
         }
         // Lock in canonical name if defined; otherwise prefer the longer
         // cleaned name (subtitles beat bare "(Keynote)" rows).
-        if (CANONICAL_NAME[key]) {
-          existing.baseName = CANONICAL_NAME[key];
+        if (fixedName) {
+          existing.baseName = fixedName;
         } else {
           const candidate = cleanName(r.name);
           if (candidate.length > existing.baseName.length) {
@@ -415,6 +462,32 @@ export default function SpeakingWorkshopTopics() {
     }
     return Array.from(byTopic.entries()).filter(([, items]) => items.length > 0);
   }, [visible, topics]);
+
+  // Structured data for the full catalogue (plan §8), with the restyle only.
+  const itemListJsonLd = useMemo(() => {
+    if (!v3 || merged.length === 0) return undefined;
+    const base = `${getSiteUrl()}/speaking/topics`;
+    return {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Speaking & Workshop Topics",
+      numberOfItems: merged.length,
+      itemListElement: merged.map((m, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: m.baseName,
+        url: `${base}#${m.key}`,
+      })),
+    };
+  }, [v3, merged]);
+
+  useDocumentSeo({
+    title: "Speaking & Workshop Topics | Painted Porch Strategies",
+    description:
+      "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic can be delivered as a keynote, an interactive workshop, or both.",
+    ogImage: speakingHero,
+    jsonLd: itemListJsonLd,
+  });
 
   return (
     <div>
@@ -522,6 +595,8 @@ export default function SpeakingWorkshopTopics() {
             </div>
           </div>
 
+          {/* Theme anchors (#theme-…) are on each heading below. Visible jump links were
+              left out: the topic filter above already lists every theme with its count. */}
           {/* Grouped grid */}
           {grouped.length === 0 ? (
             <div className="text-center py-12 text-foreground/70">
@@ -529,7 +604,7 @@ export default function SpeakingWorkshopTopics() {
             </div>
           ) : (
             grouped.map(([topic, items]) => (
-              <div key={topic} className="mb-12">
+              <div key={topic} id={`theme-${themeSlug(topic)}`} className="mb-12 scroll-mt-24">
                 <div className="flex items-end justify-between mb-4">
                   <h3 className="text-2xl md:text-3xl font-poppins font-bold text-navy">{topic}</h3>
                   <span className="text-caption text-foreground/60">{items.length} topic{items.length === 1 ? "" : "s"}</span>

@@ -8,7 +8,7 @@ const tierContent = {
   IGNITE: {
     tagline: "SELF: Light the spark. Prove this works.",
     journey:
-      "Self-led courses, assessments, and frameworks you can apply immediately, at your own pace, on your own terms.",
+      "Self-led masterclasses, mini courses, assessments, and frameworks you can apply immediately, at your own pace, on your own terms.",
     perfectFor: [
       "Leaders exploring Phase Zero concepts",
       "Organizations exploring before making a larger investment",

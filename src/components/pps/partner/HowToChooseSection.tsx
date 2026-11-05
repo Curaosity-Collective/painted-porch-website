@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Info, ArrowRight } from "lucide-react";
 import { TIERS } from "@/config/tiers";
-import { BLUE_DOOR_PRICE_DISPLAY } from "@/config/blueDoor";
+import { EPIC_SHIFT_APPRAISAL } from "@/config/epicShiftAppraisal";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
 
 const choiceCards = [
@@ -116,18 +116,18 @@ export function BlueDoorCalloutSection() {
             </h3>
           </div>
           <p className="text-body text-foreground mb-6">
-            If you're responsible for leading change, setting direction, or navigating a major decision, the <span className="text-bluedoor font-bold">Blue Door</span>&nbsp;provides the clearest place to begin.&nbsp;It offers a structured appraisal of your organization's current reality and reveals which opportunities, challenges, and priorities require attention first.
+            If you're responsible for leading change, setting direction, or navigating a major decision, the <span className="text-bluedoor font-bold">Epic ShIFt Organizational Appraisal</span>&nbsp;provides the clearest place to begin.&nbsp;It offers an interview-led appraisal of your organization's current reality and reveals which opportunities, challenges, and priorities require attention first.
             <br /><br />
             For many leaders, it becomes the bridge between possibility and action.
           </p>
 
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="flex items-center gap-4 text-sm">
-              <span className="font-bold text-bluedoor">{BLUE_DOOR_PRICE_DISPLAY}</span>
+              <span className="font-bold text-bluedoor">{EPIC_SHIFT_APPRAISAL.priceDisplay}</span>
               <span className="text-foreground/60">|</span>
-              <span className="text-foreground/70">Less than 30 minutes</span>
+              <span className="text-foreground/70">{EPIC_SHIFT_APPRAISAL.beginsWith}</span>
             </div>
-            <Link to="/blue-door">
+            <Link to="/envision-shift">
               <Button className="bg-transparent border-2 border-bluedoor text-bluedoor hover:bg-bluedoor hover:text-white transition-colors">
                 Learn More <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

@@ -27,10 +27,10 @@ interface OfferingCard {
 const offerings: OfferingCard[] = [
   {
     emoji: "🚪",
-    title: "The Blue Door Organizational Appraisal",
+    title: "The Epic ShIFt Organizational Appraisal",
     description:
-      "A strategic 11-question assessment that reveals where your organization stands, and what shift you're positioned to lead.",
-    href: "/blue-door",
+      "An interview-led organizational 360 that reveals where your organization stands, and what shift you're positioned to lead.",
+    href: "/envision-shift",
     color: "teal",
   },
   {
@@ -45,7 +45,7 @@ const offerings: OfferingCard[] = [
     emoji: "⚡",
     title: "IGNITE: Self-Led Growth",
     description:
-      "Masterclasses, assessments, and self-paced courses designed to light the fire of transformation, on your terms.",
+      "Masterclasses, mini courses, and assessments designed to light the fire of transformation, on your terms.",
     href: "/partner/ignite",
     color: "gold",
   },
@@ -85,7 +85,7 @@ interface QuickLink {
 }
 
 const quickLinks: QuickLink[] = [
-  { emoji: "🔼", label: "Are You Ready for the Next Big Shift?", href: "/blue-door" },
+  { emoji: "🔼", label: "Are You Ready for the Next Big Shift?", href: "/envision-shift" },
   { emoji: "📈", label: "Develop a Shift-Ready Organization", href: "/partner" },
   { emoji: "🤼‍♀️", label: "Create Extraordinary Teams", href: "/extraordinary-teams" },
   { emoji: "🧭", label: "Explore Stoic Wisdom & Resources", href: "/resources/insights?category=Stoicism%20%26%20Philosophy" },
@@ -157,7 +157,7 @@ const doEpicShiftVideos: YouTubeVideoItem[] = [
 export default function AboutAmy() {
   useDocumentSeo({
     title: "Amy Yackowski, Founder | Painted Porch Strategies",
-    description: "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, courses, and thought leadership on change origination.",
+    description: "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, masterclasses, and thought leadership on change origination.",
     canonical: "/amy",
   });
 

@@ -118,8 +118,8 @@ export default function PPSHome() {
 
         ctas={[
           {
-            label: "Open the Blue Door",
-            href: "/blue-door",
+            label: "Envision Epic ShIFt",
+            href: "/envision-shift",
             buttonClassName: "bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor",
             icon: <ArrowRight className="ml-2 w-5 h-5" />,
           },
@@ -238,7 +238,7 @@ export default function PPSHome() {
                 <strong>Wherever you enter, clarity comes before commitment.</strong>
               </p>
               <p className="text-body text-foreground italic mt-4">
-                Know your organization needs to move? Start with the Blue Door. Still figuring out where to begin? The P.A.T.H.way Quiz will orient you.
+                Know your organization needs to move? Start with a Clarity Call and the Epic ShIFt Organizational Appraisal. Still figuring out where to begin? The P.A.T.H.way Quiz will orient you.
               </p>
             </div>
 
@@ -260,7 +260,7 @@ export default function PPSHome() {
                       Find Your P.A.T.H.
                     </h3>
                     <p className="text-body text-foreground leading-relaxed mb-3">
-                      From free resources, masterclasses, courses, assessments,
+                      From free resources, masterclasses, mini courses, assessments,
                       and more. For leaders sensing something needs to sh<strong>IF</strong>t,
                       but not sure where to get started.
                     </p>
@@ -273,7 +273,7 @@ export default function PPSHome() {
               </Link>
 
               <Link
-                to="/blue-door"
+                to="/envision-shift"
                 className="group block bg-white rounded-xl p-6 md:p-7 border-l-4 border-bluedoor hover:shadow-lg transition-all"
               >
                 <div className="flex gap-5">
@@ -285,15 +285,15 @@ export default function PPSHome() {
                       APPRAISE YOUR REALITY
                     </Eyebrow>
                     <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mb-2 group-hover:text-bluedoor transition-colors">
-                      Open the Blue Door
+                      Envision Epic ShIFt
                     </h3>
                     <p className="text-body text-foreground leading-relaxed mb-3">
                       Already know change is coming and want clarity before you commit?
-                      This is where to start. A structured organizational appraisal that
+                      This is where to start. An interview-led organizational appraisal that
                       reveals what your organization is realistically positioned to pursue before your next initiative begins.
                     </p>
                     <span className="text-sm font-semibold text-bluedoor inline-flex items-center">
-                      Open the Blue Door
+                      Envision Epic ShIFt
                       <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </div>
@@ -316,7 +316,7 @@ export default function PPSHome() {
                       Partner With Us
                     </h3>
                     <p className="text-body text-foreground leading-relaxed mb-3">
-                      Once the Blue Door or P.A.T.H.way quiz reveals what&rsquo;s real now, we partner
+                      Once the Epic ShIFt Organizational Appraisal or P.A.T.H.way quiz reveals what&rsquo;s real now, we partner
                       with you to architect, align, and sustain your next sh<span className="text-raspberry font-bold">IF</span>t.
                       Three engagement styles, shaped to how you want to engage, what you need, and when.
                     </p>
@@ -373,7 +373,7 @@ export default function PPSHome() {
       </section>
 
       {/* ============================================================ */}
-      {/* 3AM Questions strip, lead-in to The Blue Door                */}
+      {/* 3AM Questions strip, lead-in to the Epic ShIFt Organizational Appraisal   */}
       {/* ============================================================ */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container max-w-7xl mx-auto px-6">
@@ -402,7 +402,7 @@ export default function PPSHome() {
 
       {/* ============================================================ */}
 
-      {/* The Blue Door                                                 */}
+      {/* The Epic ShIFt Organizational Appraisal                                      */}
       {/* ============================================================ */}
       <section className="py-16 md:py-24 bg-muted">
         <div className="container max-w-7xl mx-auto px-6">
@@ -413,8 +413,8 @@ export default function PPSHome() {
                 A Different Kind of Strategic Conversation
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">
-                <Link to="/blue-door" className="text-bluedoor hover:underline">
-                  The Blue Door Organizational Appraisal
+                <Link to="/envision-shift" className="text-bluedoor hover:underline">
+                  The Epic ShIFt Organizational Appraisal
                 </Link>
               </h2>
               <p className="text-body text-foreground mb-4">
@@ -422,7 +422,7 @@ export default function PPSHome() {
                 talk or another planning deck. They deserve reality.
               </p>
               <p className="text-body text-foreground mb-4">
-                The Blue Door™ is a structured organizational appraisal. It isn't
+                The Epic ShIFt Organizational Appraisal is an interview-led organizational 360. It isn't
                 a readiness score; it's a clear-eyed look at what future your
                 organization is realistically positioned to pursue right now. It
                 reveals where your momentum will build, and where it will
@@ -448,9 +448,9 @@ export default function PPSHome() {
           </div>
 
           <div className="mt-12 text-center">
-            <Link to="/blue-door">
+            <Link to="/envision-shift">
               <Button className="bg-bluedoor border-2 border-bluedoor text-white hover:bg-white hover:text-bluedoor text-lg py-5 px-8 transition-colors">
-                Open the Blue Door
+                Envision Epic ShIFt
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
@@ -675,7 +675,7 @@ export default function PPSHome() {
                 Exploring for Yourself?
               </h3>
               <p className="text-body text-foreground mb-4 leading-relaxed flex-1">
-                Courses, assessments, masterclasses, and self-guided tools to
+                Mini courses, assessments, masterclasses, and self-guided tools to
                 help you communicate, lead, and navigate change more
                 intentionally in the work you&rsquo;re already doing.
               </p>
@@ -699,17 +699,17 @@ export default function PPSHome() {
                 Exploring for Your Team or Organization?
               </h3>
               <p className="text-body text-foreground mb-4 leading-relaxed flex-1">
-                Organizational clarity, strategic alignment, and the Blue Door
-                experience for leaders navigating questions of growth,
+                Organizational clarity, strategic alignment, and the Epic ShIFt
+                Organizational Appraisal for leaders navigating questions of growth,
                 capability, and strategic direction.
               </p>
               <div className="mt-auto pt-2 min-h-[2.5rem] flex items-center">
                 <Link
-                  to="/blue-door"
+                  to="/envision-shift"
                   data-testid="discover-card-org-link"
                   className="text-bluedoor font-semibold hover:underline inline-flex items-center"
                 >
-                  Open the Blue Door
+                  Envision Epic ShIFt
                   <ArrowRight className="ml-1 w-4 h-4" />
                 </Link>
               </div>
@@ -809,7 +809,7 @@ export default function PPSHome() {
           </>
         }
         actions={[
-          { label: "Open the Blue Door", to: "/blue-door", variant: "bluedoor" },
+          { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
           { label: "Discover Your P.A.T.H.way", to: "/start-here", variant: "secondary" },
         ]}
       />

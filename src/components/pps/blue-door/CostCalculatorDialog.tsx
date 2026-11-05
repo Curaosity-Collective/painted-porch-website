@@ -19,7 +19,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { BLUE_DOOR_PRICE_DISPLAY } from "@/config/blueDoor";
+import { EPIC_SHIFT_APPRAISAL } from "@/config/epicShiftAppraisal";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import SourcedTooltip from "@/components/pps/SourcedTooltip";
@@ -242,8 +242,8 @@ export default function CostCalculatorDialog({
             The Cost of Skipping Phase Zero
           </DialogTitle>
           <DialogDescription>
-            Answer these few questions. We'll estimate what's at risk and how a Blue Door
-            operational appraisal can provide the clarity needed to reduce that exposure.
+            Answer these few questions. We'll estimate what's at risk and how the Epic ShIFt
+            Organizational Appraisal can provide the clarity needed to reduce that exposure.
           </DialogDescription>
         </DialogHeader>
 
@@ -493,11 +493,11 @@ export default function CostCalculatorDialog({
           {/* Phase Zero impact hero strip */}
           <div className="p-4 rounded-lg bg-[hsl(216,100%,30%)]/5 border-2 border-[hsl(216,100%,30%)]/30">
             <p className="text-caption uppercase tracking-wider text-[hsl(216,100%,30%)] font-poppins font-semibold">
-              The Blue Door impact
+              The Epic ShIFt Organizational Appraisal impact
             </p>
             <p className="text-body text-navy mt-1 !leading-snug">
-              A <span className="font-bold text-[hsl(216,100%,30%)]">{BLUE_DOOR_PRICE_DISPLAY} Blue Door</span>{" "}
-              operational appraisal can provide the clarity needed to reduce the risked{" "}
+              The <span className="font-bold text-[hsl(216,100%,30%)]">{EPIC_SHIFT_APPRAISAL.name}</span>{" "}
+              can provide the clarity needed to reduce the risked{" "}
               <span className="font-bold text-[hsl(216,100%,30%)] tabular-nums">
                 {fmt(calc.exposureLow)}–{fmt(calc.exposureHigh)}
               </span>{" "}
@@ -507,8 +507,8 @@ export default function CostCalculatorDialog({
               asChild
               className="mt-3 bg-bluedoor text-white hover:bg-bluedoor/90 h-12 px-8 text-base"
             >
-              <Link to="/blue-door" onClick={() => setOpen(false)}>
-                Step Through the Blue Door <ArrowRight className="ml-2 w-4 h-4" />
+              <Link to={EPIC_SHIFT_APPRAISAL.path} onClick={() => setOpen(false)}>
+                {EPIC_SHIFT_APPRAISAL.ctaLabel} <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
           </div>
@@ -538,7 +538,7 @@ export default function CostCalculatorDialog({
                 worst-case logic.
               </p>
               <p className="text-body">
-                <span className="font-semibold">Blue Door impact</span> = (overrun +
+                <span className="font-semibold">Epic ShIFt Organizational Appraisal impact</span> = (overrun +
                 failure) × {Math.round(PHASE_ZERO_IMPACT.min * 100)}–
                 {Math.round(PHASE_ZERO_IMPACT.max * 100)}% (McKinsey + BCG research
                 on Phase Zero exposure reduction).

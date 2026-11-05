@@ -103,7 +103,7 @@ export function TierHeroSection({
   const bgTransform = `translateY(${parallaxOffset}px) scale(1.08)`;
 
   return (
-    <section ref={sectionRef} className={`relative isolate ${minHeightClass} flex items-center overflow-hidden`}>
+    <section ref={sectionRef} data-hero="" className={`relative isolate ${minHeightClass} flex items-center overflow-hidden`}>
       {/* Background (parallax wrapper) */}
       <div
         className="absolute inset-0 will-change-transform"
