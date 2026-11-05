@@ -16,7 +16,7 @@ import { useArePagesLive } from "@/hooks/useIsPageLive";
 // AMPLIFY, EMBODY) are reached from the footer, not from here.
 const navLinks = [
   { label: "What is Phase Zero?", href: "/phase-zero" },
-  { label: "Envision Epic ShIFt", href: "/envision-shift" },
+  { label: "Envision ShIFt", href: "/envision-shift" },
   {
     label: "Insights & Resources",
     href: "/resources",

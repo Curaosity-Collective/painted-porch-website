@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
-import porchColumns from "@/assets/v3/painted-porch-columns.jpg";
-import studioCorner from "@/assets/v3/studio-corner.jpg";
-import blueDoorDusk from "@/assets/v3/blue-door-dusk.jpg";
+import pillarsOnBlueprint from "@/assets/embody-hero-option2.jpg";
+import workshopRoom from "@/assets/v3/workshop-room.jpg";
+import handsBuilding from "@/assets/embody-hero-option3.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { GhostLayer, StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -128,7 +128,7 @@ export default function ArchitectShift() {
   useDocumentSeo({
     title: TITLE,
     description: DESCRIPTION,
-    ogImage: porchColumns,
+    ogImage: pillarsOnBlueprint,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -160,8 +160,8 @@ export default function ArchitectShift() {
             organization is ready to design and lead its next epic <ShIFt lowercase onDark />.
           </>
         }
-        image={porchColumns}
-        imageAlt="A columned porch painted blue, purple, lime and gold, looking out over a city at sunrise"
+        image={pillarsOnBlueprint}
+        imageAlt="Painted pillars in teal, purple, gold and lime rising from an architectural blueprint"
         tone="align"
         ghost="A"
       />
@@ -169,10 +169,10 @@ export default function ArchitectShift() {
       {/* The shape */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <StickyMedia
-          src={studioCorner}
-          alt="Morning light on a studio chair with strategy sketches and coffee"
-          width={1280}
-          height={1600}
+          src={workshopRoom}
+          alt="A senior leadership team in conversation around a conference table"
+          width={1408}
+          height={1008}
         >
           <div>
             <Kicker>The Shape</Kicker>
@@ -408,8 +408,10 @@ export default function ArchitectShift() {
         }
         to={clarityCallHrefFor("Architect ShIFt")}
         label="Start with a Clarity Call"
-        image={blueDoorDusk}
-        imageAlt="An open cobalt blue door with lamplight spilling onto a porch at dusk"
+        image={handsBuilding}
+        imageAlt="Many hands raising a timber frame together as bursts of teal, purple, lime and raspberry paint fly"
+        imageWidth={1920}
+        imageHeight={1080}
         secondary={
           <>
             Not sure where to begin?{" "}

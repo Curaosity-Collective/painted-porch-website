@@ -14,7 +14,7 @@ import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
 
 /*
- * Envision Epic ShIFt — the Epic ShIFt Organizational Appraisal (PPS-DEC-0018).
+ * Envision ShIFt — the Epic ShIFt Organizational Appraisal (PPS-DEC-0018).
  * Ported from pps-simplified src/routes/envision-shift.tsx. This is the page
  * every retired Blue Door link now lands on (PPS-DEC-0017).
  *
@@ -127,7 +127,7 @@ export default function EnvisionShift() {
         kicker="Prepare · Name It"
         title={
           <>
-            Envision Epic <ShIFt onDark />
+            Envision <ShIFt onDark />
           </>
         }
         intro={

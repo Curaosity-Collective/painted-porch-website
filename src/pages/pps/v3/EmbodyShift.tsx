@@ -1,7 +1,7 @@
 import { Check } from "lucide-react";
-import porchEvening from "@/assets/v3/porch-evening.jpg";
-import studioCorner from "@/assets/v3/studio-corner.jpg";
-import porchColumns from "@/assets/v3/painted-porch-columns.jpg";
+import porchInColor from "@/assets/embody-hero-option1.jpg";
+import sunlitColumns from "@/assets/embody-concept-pillars.jpg";
+import roadAhead from "@/assets/blue-door-begin-cta.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -40,7 +40,7 @@ export default function EmbodyShift() {
   useDocumentSeo({
     title: TITLE,
     description: DESCRIPTION,
-    ogImage: porchEvening,
+    ogImage: porchInColor,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -73,8 +73,8 @@ export default function EmbodyShift() {
           </>
         }
         intro="Your organization is ready to design and lead the change it envisioned and authored. Ongoing advisory reinforces the habits, judgment, decision authority, and structures that make change, innovation, and transformation a continuous practice."
-        image={porchEvening}
-        imageAlt="A painted porch in the evening, lamps lit and chairs ready"
+        image={porchInColor}
+        imageAlt="A wooden porch filled with bursts of teal, purple, lime, gold and raspberry color"
         tone="habits"
         ghost="E"
       />
@@ -82,10 +82,10 @@ export default function EmbodyShift() {
       {/* The practice */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <StickyMedia
-          src={studioCorner}
-          alt="Morning light on a studio chair with strategy sketches and coffee"
-          width={1280}
-          height={1600}
+          src={sunlitColumns}
+          alt="Sunlight streaming between the columns of an enduring stone colonnade"
+          width={1920}
+          height={1080}
         >
           <div>
             <Kicker>The Practice</Kicker>
@@ -163,10 +163,10 @@ export default function EmbodyShift() {
         }
         to={clarityCallHrefFor("Embody ShIFt")}
         label="Start with a Clarity Call"
-        image={porchColumns}
-        imageAlt="A columned porch painted blue, purple, lime and gold, looking out over a city at sunrise"
-        imageWidth={1264}
-        imageHeight={848}
+        image={roadAhead}
+        imageAlt="A person walking forward along an open road toward the sunset"
+        imageWidth={1920}
+        imageHeight={1080}
         secondary={
           <>
             Not sure where to begin?{" "}

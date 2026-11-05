@@ -158,7 +158,7 @@ export const routes = [
     title: "The Epic ShIFt Organizational Appraisal | Painted Porch Strategies",
     description:
       "An interview-led organizational 360 built on six interviews, from executives to the frontline. Your P.A.T.H. Compass clarifies which change and direction make sense to pursue now and what needs reinforcement first. Investment: $24,000.",
-    h1: "Envision Epic ShIFt — The Epic ShIFt Organizational Appraisal",
+    h1: "Envision ShIFt — The Epic ShIFt Organizational Appraisal",
     intro:
       "Every epic shIFt begins at a threshold: an honest appraisal of what your organization is realistically able to carry. The Epic ShIFt Organizational Appraisal is an interview-led organizational 360 that determines which change and direction make sense to pursue next. It begins with a Clarity Call.",
     sections: [
@@ -201,7 +201,7 @@ export const routes = [
       },
     ],
     links: [
-      { href: "/envision-shift", label: "Envision Epic ShIFt" },
+      { href: "/envision-shift", label: "Envision ShIFt" },
       { href: "/partner/ignite", label: "Explore IGNITE" },
       { href: "/partner/amplify", label: "Explore AMPLIFY" },
       { href: "/partner/embody", label: "Explore EMBODY" },
@@ -501,7 +501,7 @@ export const routes = [
     intro:
       "Ready to talk? Send us a message and we will respond within one business day. For engagement inquiries, we recommend starting with a Clarity Call and the Epic ShIFt Organizational Appraisal, our interview-led appraisal.",
     links: [
-      { href: "/envision-shift", label: "Envision Epic ShIFt" },
+      { href: "/envision-shift", label: "Envision ShIFt" },
       { href: "/partner", label: "Partner With Us" },
       { href: "/speaking", label: "Speaking & workshops" },
     ],

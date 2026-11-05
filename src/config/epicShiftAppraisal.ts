@@ -15,7 +15,7 @@
 export const EPIC_SHIFT_APPRAISAL = {
   /** Public offering name. */
   name: "Epic ShIFt Organizational Appraisal",
-  /** Canonical page ("Envision Epic ShIFt"). */
+  /** Canonical page ("Envision ShIFt"; "Epic" is dropped in titles and menus, PPS-DEC-0018). */
   path: "/envision-shift",
   /** Label for buttons that open the appraisal page. */
   ctaLabel: "Envision Epic ShIFt",
