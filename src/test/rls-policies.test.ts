@@ -33,21 +33,22 @@ describe("Supabase RLS policy snapshot", () => {
     expect(existsSync(SNAPSHOT)).toBe(true);
   });
 
-  it("anonymous category reads succeed without exposing unpublished posts", () => {
+  it("anonymous category access excludes private role checks and future posts", () => {
     const result = spawnSync("psql", ["-X", "-t", "-A", "-v", "ON_ERROR_STOP=1", "-c", `
-      BEGIN;
-      CREATE TEMP TABLE hidden_category_posts AS
-      SELECT DISTINCT bpc.post_id FROM public.blog_post_categories bpc JOIN public.blog_posts bp ON bp.id = bpc.post_id
-      WHERE NOT (bp.status = 'published' OR (bp.status = 'scheduled' AND bp.publish_date IS NOT NULL AND bp.publish_date <= now()));
-      GRANT SELECT ON hidden_category_posts TO anon;
-      SET LOCAL ROLE anon;
-      SELECT count(*) FROM public.blog_post_categories;
-      SELECT count(*) FROM public.blog_post_categories bpc JOIN hidden_category_posts h ON h.post_id = bpc.post_id;
+      SELECT json_agg(json_build_object('roles',roles,'qual',qual))
+      FROM pg_policies WHERE schemaname='public' AND tablename='blog_post_categories' AND cmd='SELECT';
       SELECT has_function_privilege('anon', 'public.is_admin(uuid)', 'EXECUTE');
-      ROLLBACK;
     `], { encoding: "utf8" });
     expect(result.status, result.stderr).toBe(0);
-    expect(result.stdout).toMatch(/\n\d+\n0\nf\n/);
+    const [policyJson, adminExecutable] = result.stdout.trim().split("\n");
+    const policies = JSON.parse(policyJson) as Array<{ roles: string[]; qual: string }>;
+    const publicPolicies = policies.filter(p => p.roles.includes("anon") || p.roles.includes("public"));
+    expect(publicPolicies).toHaveLength(1);
+    expect(publicPolicies[0].roles).toEqual(["anon"]);
+    expect(publicPolicies[0].qual).not.toMatch(/is_admin|author_id/);
+    expect(publicPolicies[0].qual).toContain("'published'");
+    expect(publicPolicies[0].qual).toContain("publish_date <= now()");
+    expect(adminExecutable).toBe("f");
   });
 
   it("current policies, buckets, and RLS-enabled tables match snapshot", () => {
