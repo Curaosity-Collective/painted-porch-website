@@ -178,7 +178,9 @@ const PROMISE = [
 ];
 
 const OTHER_WAYS = [
-  { title: "Team Workshops", to: "/partner/amplify/workshops", body: "For leadership and cross-functional teams. Starting at $5,000." },
+  // No price here (PPS-DEC-0022). Workshops start at $7,500; each one's price is on the
+  // Workshops page (PPS Admin, 2026-11-05).
+  { title: "Team Workshops", to: "/partner/amplify/workshops", body: "For leadership and cross-functional teams." },
   { title: "Speaking", to: "/speaking", body: "Keynotes from Amy Yackowski, Rob Hunter and Sierra Cantrell." },
   { title: "For individuals", to: "/partner/ignite", body: "Mini courses, masterclasses, labs and assessments on the P.A.T.H.way pages." },
 ];

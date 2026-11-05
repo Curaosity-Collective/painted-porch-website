@@ -90,6 +90,16 @@ describe("HomeNext (draft go-forward homepage)", () => {
     expect(path.textContent).not.toMatch(/\$\s?\d/);
   });
 
+  it("lists Other Ways In without prices; workshop prices live on the Workshops page", () => {
+    renderHome();
+    // PPS-DEC-0022 item 5; PPS Admin (2026-11-05) took the workshop price off the homepage.
+    // (The Clarity Call section keeps its own price, as the approved wireframe specifies.)
+    const other = sectionByHeading(/Other Ways In/);
+    expect(other.textContent).not.toMatch(/\$\s?\d/);
+    expect(other.textContent).not.toMatch(/Starting at/i);
+    expect(within(other).getByRole("link", { name: /Team Workshops/ })).toHaveAttribute("href", "/partner/amplify/workshops");
+  });
+
   it("sends the Clarity Call button to the contact form and both quiz actions to the quiz", () => {
     renderHome();
     expect(screen.getByRole("link", { name: /Book a Clarity Call/ })).toHaveAttribute("href", CLARITY_CALL_CONTACT_HREF);
