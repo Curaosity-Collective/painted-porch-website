@@ -2,6 +2,8 @@ interface EmailClient {
   functions: { invoke: (name: string, options: { body: Record<string, unknown>; headers: Record<string, string> }) => Promise<{ data: any; error: any }> };
 }
 
+declare const Deno: { env: { get(name: string): string | undefined } };
+
 /** Resource access must not silently report an email as delivered. */
 export async function queueResourceEmail(client: EmailClient, body: Record<string, unknown>) {
   const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
