@@ -1,0 +1,3 @@
+- [x] Add approved-only media SEO/AEO/GEO structured summaries without changing the gallery.
+- [ ] Include the same summaries in crawler-readable prerendered HTML.
+- [ ] Verify summary rules and the public page with real approved records.
