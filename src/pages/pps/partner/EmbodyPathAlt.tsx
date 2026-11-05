@@ -162,12 +162,12 @@ const faqs = [
       "Change management starts after the direction is set. EMBODY is change origination. We partner upstream, at the strategic authorship moment, to architect the shIFt you intend to lead before a single tool gets launched.",
   },
   {
-    question: "Why does EMBODY start with the Epic ShIFt Appraisal?",
+    question: "Why does EMBODY start with the Epic ShIFt Organizational Appraisal?",
     answer:
-      "The Epic ShIFt Appraisal is how we (and you) see the three Painted Porch Pillars clearly. Without that reading, any partnership is a guess. With it, we co-design an EMBODY engagement that fits your actual architecture, not a template.",
+      "The Epic ShIFt Organizational Appraisal is how we (and you) see the three Painted Porch Pillars clearly. Without that reading, any partnership is a guess. With it, we co-design an EMBODY engagement that fits your actual architecture, not a template.",
   },
   {
-    question: "What if the Epic ShIFt Appraisal shows we're not ready for EMBODY yet?",
+    question: "What if the Epic ShIFt Organizational Appraisal shows we're not ready for EMBODY yet?",
     answer:
       "That's one of the most valuable things it can surface. Your results will include a Reinforcement Path that maps what needs strengthening first, often through AMPLIFY sprints or IGNITE work. We'd rather point you to the right starting line than sell you an engagement your organization can't yet carry.",
   },
@@ -430,7 +430,7 @@ export default function EmbodyPathAlt() {
                 <div className="flex items-center gap-2 mb-2">
                   <Info className="w-5 h-5 text-bluedoor" />
                   <h3 className="text-base font-poppins font-semibold text-navy">
-                    Prerequisite: The <span className="text-bluedoor">Epic ShIFt Appraisal</span>
+                    Prerequisite: The <span className="text-bluedoor">Epic ShIFt Organizational Appraisal</span>
                   </h3>
                 </div>
                 <p className="text-body -sm text-foreground mb-3">

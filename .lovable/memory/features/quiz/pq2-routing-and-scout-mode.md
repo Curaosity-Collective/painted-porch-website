@@ -21,12 +21,12 @@ When a B2B respondent picks `Q4DM="A"` ("Just me — exploring before bringing a
 
 - **Primary group** → one mapped AMPLIFY Lab (picked from branch Q1, see lab map in `b2b-recommendation-rules`) + `stracticalMini`
 - **Workshops** → demoted to "When You're Ready to Bring Your Team — Workshops to Pitch"
-- **Epic ShIFt Appraisal** (key `blueDoor`; formerly Blue Door) → reframed as the "when you're ready to go deeper" option for the org
+- **Epic ShIFt Organizational Appraisal** (key `blueDoor`; formerly Blue Door) → reframed as the "when you're ready to go deeper" option for the org
 - **Strongest next step** → the Lab, labeled "Try the Lab Yourself"
 - **Subhead** → "Scout Mode — Start Solo, Bring the Team Later"
 - **Track / contactPrefill / topicArea** → unchanged (preserves org-level intent signal)
 
-**This is the only Q4DM value that rewrites the recommendation slate.** Q4DM=B/C/D keep the standard B2B output and only affect the Epic ShIFt Appraisal's urgency framing inside the narrative.
+**This is the only Q4DM value that rewrites the recommendation slate.** Q4DM=B/C/D keep the standard B2B output and only affect the Epic ShIFt Organizational Appraisal's urgency framing inside the narrative.
 
 # Report Generator Requirements
 

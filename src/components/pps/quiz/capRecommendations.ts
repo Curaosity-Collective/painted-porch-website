@@ -125,7 +125,7 @@ export function capRecommendations<T extends CapOffering>(
     effectivePrimary = { ...primaryGroup, offerings: parallelSafe };
     if (bdr.length > 0) {
       bdrGroup = {
-        heading: "Once the Epic ShIFt Appraisal Is Complete",
+        heading: "Once the Epic ShIFt Organizational Appraisal Is Complete",
         offerings: bdr,
       };
     }

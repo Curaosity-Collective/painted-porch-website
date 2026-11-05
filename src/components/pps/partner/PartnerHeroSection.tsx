@@ -74,7 +74,7 @@ export function PartnerHeroSection() {
                 Your next step depends on where you are and what sh<span className="text-raspberry font-bold">IF</span>t you want to start next, not your title.
               </p>
               <p data-body-allow className="text-lead text-white/80 italic">
-                If you&rsquo;re leading an organization through a known change and want clarity before committing, the Epic ShIFt Appraisal, which begins with a Clarity Call, is the right first move. If you&rsquo;re still orienting - figuring out what you need, what we do, or whether this is the right fit - the P.A.T.H.way Quiz will point you in the right direction.
+                If you&rsquo;re leading an organization through a known change and want clarity before committing, the Epic ShIFt Organizational Appraisal, which begins with a Clarity Call, is the right first move. If you&rsquo;re still orienting - figuring out what you need, what we do, or whether this is the right fit - the P.A.T.H.way Quiz will point you in the right direction.
               </p>
             </div>
 

@@ -238,7 +238,7 @@ export default function PPSHome() {
                 <strong>Wherever you enter, clarity comes before commitment.</strong>
               </p>
               <p className="text-body text-foreground italic mt-4">
-                Know your organization needs to move? Start with a Clarity Call and the Epic ShIFt Appraisal. Still figuring out where to begin? The P.A.T.H.way Quiz will orient you.
+                Know your organization needs to move? Start with a Clarity Call and the Epic ShIFt Organizational Appraisal. Still figuring out where to begin? The P.A.T.H.way Quiz will orient you.
               </p>
             </div>
 
@@ -316,7 +316,7 @@ export default function PPSHome() {
                       Partner With Us
                     </h3>
                     <p className="text-body text-foreground leading-relaxed mb-3">
-                      Once the Epic ShIFt Appraisal or P.A.T.H.way quiz reveals what&rsquo;s real now, we partner
+                      Once the Epic ShIFt Organizational Appraisal or P.A.T.H.way quiz reveals what&rsquo;s real now, we partner
                       with you to architect, align, and sustain your next sh<span className="text-raspberry font-bold">IF</span>t.
                       Three engagement styles, shaped to how you want to engage, what you need, and when.
                     </p>
@@ -373,7 +373,7 @@ export default function PPSHome() {
       </section>
 
       {/* ============================================================ */}
-      {/* 3AM Questions strip, lead-in to the Epic ShIFt Appraisal   */}
+      {/* 3AM Questions strip, lead-in to the Epic ShIFt Organizational Appraisal   */}
       {/* ============================================================ */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container max-w-7xl mx-auto px-6">
@@ -402,7 +402,7 @@ export default function PPSHome() {
 
       {/* ============================================================ */}
 
-      {/* The Epic ShIFt Appraisal                                      */}
+      {/* The Epic ShIFt Organizational Appraisal                                      */}
       {/* ============================================================ */}
       <section className="py-16 md:py-24 bg-muted">
         <div className="container max-w-7xl mx-auto px-6">
@@ -414,7 +414,7 @@ export default function PPSHome() {
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">
                 <Link to="/envision-shift" className="text-bluedoor hover:underline">
-                  The Epic ShIFt Appraisal
+                  The Epic ShIFt Organizational Appraisal
                 </Link>
               </h2>
               <p className="text-body text-foreground mb-4">
@@ -422,7 +422,7 @@ export default function PPSHome() {
                 talk or another planning deck. They deserve reality.
               </p>
               <p className="text-body text-foreground mb-4">
-                The Epic ShIFt Appraisal is an interview-led organizational 360. It isn't
+                The Epic ShIFt Organizational Appraisal is an interview-led organizational 360. It isn't
                 a readiness score; it's a clear-eyed look at what future your
                 organization is realistically positioned to pursue right now. It
                 reveals where your momentum will build, and where it will

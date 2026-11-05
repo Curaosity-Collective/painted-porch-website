@@ -19,7 +19,7 @@ const ALWAYS_LIVE_PREFIXES = [
   "/blog",
   "/insights",
   "/media",
-  // Retired Blue Door addresses and their Epic ShIFt Appraisal target (PPS-DEC-0017).
+  // Retired Blue Door addresses and their Epic ShIFt Organizational Appraisal target (PPS-DEC-0017).
   "/blue-door",
   "/blue-door-archive",
   "/for-teams",

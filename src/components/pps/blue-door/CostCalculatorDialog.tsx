@@ -493,7 +493,7 @@ export default function CostCalculatorDialog({
           {/* Phase Zero impact hero strip */}
           <div className="p-4 rounded-lg bg-[hsl(216,100%,30%)]/5 border-2 border-[hsl(216,100%,30%)]/30">
             <p className="text-caption uppercase tracking-wider text-[hsl(216,100%,30%)] font-poppins font-semibold">
-              The Epic ShIFt Appraisal impact
+              The Epic ShIFt Organizational Appraisal impact
             </p>
             <p className="text-body text-navy mt-1 !leading-snug">
               The <span className="font-bold text-[hsl(216,100%,30%)]">{EPIC_SHIFT_APPRAISAL.name}</span>{" "}
@@ -538,7 +538,7 @@ export default function CostCalculatorDialog({
                 worst-case logic.
               </p>
               <p className="text-body">
-                <span className="font-semibold">Epic ShIFt Appraisal impact</span> = (overrun +
+                <span className="font-semibold">Epic ShIFt Organizational Appraisal impact</span> = (overrun +
                 failure) × {Math.round(PHASE_ZERO_IMPACT.min * 100)}–
                 {Math.round(PHASE_ZERO_IMPACT.max * 100)}% (McKinsey + BCG research
                 on Phase Zero exposure reduction).

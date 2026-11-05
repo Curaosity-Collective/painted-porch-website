@@ -27,7 +27,7 @@ interface OfferingCard {
 const offerings: OfferingCard[] = [
   {
     emoji: "🚪",
-    title: "The Epic ShIFt Appraisal",
+    title: "The Epic ShIFt Organizational Appraisal",
     description:
       "An interview-led organizational 360 that reveals where your organization stands, and what shift you're positioned to lead.",
     href: "/envision-shift",

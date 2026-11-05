@@ -122,9 +122,9 @@ export const OFFERINGS = {
   stoicLeaderFieldGuide: { key: "stoicLeaderFieldGuide", name: "The Stoic Leader Field Guide", facilitator: "Amy", tier: "Free", url: "/stoic-field-guide", blurb: "Stoic principles translated into daily leadership practice. Free download." },
 
   // Blue Door
-  // Epic ShIFt Appraisal (PPS-DEC-0018). Internal key and tier keep the legacy
+  // Epic ShIFt Organizational Appraisal (PPS-DEC-0018). Internal key and tier keep the legacy
   // "blueDoor" / "Blue Door" names; only client-facing words changed.
-  blueDoor: { key: "blueDoor", name: "The Epic ShIFt Appraisal", tier: "Blue Door", url: "/envision-shift", blurb: "Begins with a Clarity Call. Six interviews, from executives to the frontline, read out as your P.A.T.H. Compass: architecture, capacity signal, Move Now Map, Reinforce First priorities." },
+  blueDoor: { key: "blueDoor", name: "The Epic ShIFt Organizational Appraisal", tier: "Blue Door", url: "/envision-shift", blurb: "Begins with a Clarity Call. Six interviews, from executives to the frontline, read out as your P.A.T.H. Compass: architecture, capacity signal, Move Now Map, Reinforce First priorities." },
 
   // ===== Speaking Topics =====
   // Amy
@@ -775,35 +775,35 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
 
   if (rt === "RT-A") {
     headline = "Team & People";
-    narrative = "Your responses point clearly to the team. Not the strategy, not the systems — the people dynamics underneath the work. Whether it's conflict that keeps surfacing, collaboration that's harder than it should be, or team patterns that are costing more than you want to admit, this is addressable. A workshop is a strong starting point. When you're ready to go deeper, the Epic ShIFt Appraisal is the best next step: it begins with a Clarity Call and gives you the architecture map before you commit to a multi-team engagement.";
+    narrative = "Your responses point clearly to the team. Not the strategy, not the systems — the people dynamics underneath the work. Whether it's conflict that keeps surfacing, collaboration that's harder than it should be, or team patterns that are costing more than you want to admit, this is addressable. A workshop is a strong starting point. When you're ready to go deeper, the Epic ShIFt Organizational Appraisal is the best next step: it begins with a Clarity Call and gives you the architecture map before you commit to a multi-team engagement.";
     primaryHeading = "Team Dynamics — Conflict, Friction, and Collaboration";
     primaryKeys = ["masterYourMessageB2B", "radicalMindfulnessB2B", "stoicismB2B"];
-    whyThisFits = "Your signal is people dynamics, not strategy or systems — so we picked workshops that work directly on the team-level behaviors driving the friction. Master Your Message addresses how people talk to each other (the most common source of repeat conflict). Radical Mindfulness installs the self-awareness teams need to stop reacting and start responding. Stoicism gives a shared operating system for handling disagreement well. The Epic ShIFt Appraisal is the best next step when you're ready to address what's underneath those dynamics structurally.";
+    whyThisFits = "Your signal is people dynamics, not strategy or systems — so we picked workshops that work directly on the team-level behaviors driving the friction. Master Your Message addresses how people talk to each other (the most common source of repeat conflict). Radical Mindfulness installs the self-awareness teams need to stop reacting and start responding. Stoicism gives a shared operating system for handling disagreement well. The Epic ShIFt Organizational Appraisal is the best next step when you're ready to address what's underneath those dynamics structurally.";
   } else if (rt === "RT-B") {
     headline = "Change & Transformation";
-    narrative = "Your organization is moving through something significant, or about to. The question isn't whether the change is necessary, but whether your leaders and your organization have the architecture to carry it. A workshop can get traction quickly. The Epic ShIFt Appraisal is the best next step toward any deeper engagement and surfaces the structural readiness gaps a workshop alone won't address.";
+    narrative = "Your organization is moving through something significant, or about to. The question isn't whether the change is necessary, but whether your leaders and your organization have the architecture to carry it. A workshop can get traction quickly. The Epic ShIFt Organizational Appraisal is the best next step toward any deeper engagement and surfaces the structural readiness gaps a workshop alone won't address.";
     primaryHeading = "Change Leadership — Frameworks for Leading Transformation";
     primaryKeys = ["pathToLastingChange", "architectureOfOrganizationalShift", "cultivatingChangeResilience"];
-    whyThisFits = "Your signal is active or imminent change — so we picked the three workshops that give your leaders the frameworks change actually requires. The P.A.T.H.™ to Lasting Change is the end-to-end method (Prepare, Align, Take Off, Habit). Architecture of Organizational ShIFt builds the structural lens for what holds and what breaks. Cultivating Change Resilience addresses the human cost of sustained change. The Epic ShIFt Appraisal surfaces the readiness gaps a workshop alone will paper over.";
+    whyThisFits = "Your signal is active or imminent change — so we picked the three workshops that give your leaders the frameworks change actually requires. The P.A.T.H.™ to Lasting Change is the end-to-end method (Prepare, Align, Take Off, Habit). Architecture of Organizational ShIFt builds the structural lens for what holds and what breaks. Cultivating Change Resilience addresses the human cost of sustained change. The Epic ShIFt Organizational Appraisal surfaces the readiness gaps a workshop alone will paper over.";
   } else if (rt === "RT-C") {
     headline = "Leadership Capability";
-    narrative = "The challenge you're describing is a capability gap. Your leaders need to develop, and you need a way to build that capacity that actually holds rather than fades after the training day ends. A workshop is a good first move. The Epic ShIFt Appraisal is the best next step toward any deeper engagement and shows you which capabilities the architecture is quietly blocking.";
+    narrative = "The challenge you're describing is a capability gap. Your leaders need to develop, and you need a way to build that capacity that actually holds rather than fades after the training day ends. A workshop is a good first move. The Epic ShIFt Organizational Appraisal is the best next step toward any deeper engagement and shows you which capabilities the architecture is quietly blocking.";
     primaryHeading = "Leadership Capability — How Leaders Show Up";
     primaryKeys = ["leadershipOM", "stracticalLeader", "architectureOfOrganizationalShift"];
-    whyThisFits = "Your signal is leadership capability — how your leaders actually show up. So we picked workshops that target the three biggest gaps we see: a clear operating model for leadership (Leadership OM), the strategy-to-tactics translation most leaders struggle with (Stractical Leader), and the structural lens that separates leaders who build durability from leaders who only manage activity (Architecture of Organizational ShIFt). The Epic ShIFt Appraisal shows which of those gaps your architecture is quietly creating.";
+    whyThisFits = "Your signal is leadership capability — how your leaders actually show up. So we picked workshops that target the three biggest gaps we see: a clear operating model for leadership (Leadership OM), the strategy-to-tactics translation most leaders struggle with (Stractical Leader), and the structural lens that separates leaders who build durability from leaders who only manage activity (Architecture of Organizational ShIFt). The Epic ShIFt Organizational Appraisal shows which of those gaps your architecture is quietly creating.";
   } else if (rt === "RT-D") {
     headline = "Strategic / Architectural";
-    narrative = "What you're describing isn't a program gap or training need. It's an architectural question: whether your organization's current identity is built to carry what you're trying to create. The Epic ShIFt Appraisal is your best next step: it's where organizations at strategic inflection points begin, and it starts with a Clarity Call.";
+    narrative = "What you're describing isn't a program gap or training need. It's an architectural question: whether your organization's current identity is built to carry what you're trying to create. The Epic ShIFt Organizational Appraisal is your best next step: it's where organizations at strategic inflection points begin, and it starts with a Clarity Call.";
     primaryHeading = "Workshops — Activate Your Team While the Appraisal Work Is Underway";
     primaryKeys = ["architectChange", "architectureOfOrganizationalShift", "pathToLastingChange"];
-    whyThisFits = "Your signal is architectural — which is why the Epic ShIFt Appraisal is the real next step, not a workshop. The workshops we picked are the ones that activate your team in parallel with that appraisal work, so momentum doesn't stall: Architect Change builds the design discipline, Architecture of Organizational ShIFt gives leaders the structural lens, and the P.A.T.H.™ to Lasting Change gives the org a shared method. None of them replace the appraisal — they make the most of the time it takes.";
+    whyThisFits = "Your signal is architectural — which is why the Epic ShIFt Organizational Appraisal is the real next step, not a workshop. The workshops we picked are the ones that activate your team in parallel with that appraisal work, so momentum doesn't stall: Architect Change builds the design discipline, Architecture of Organizational ShIFt gives leaders the structural lens, and the P.A.T.H.™ to Lasting Change gives the org a shared method. None of them replace the appraisal — they make the most of the time it takes.";
   } else {
     // RT-E
     headline = "Exploring Your Options";
-    narrative = "You're in the right place even if you're not sure exactly what you need yet. Organizational development rarely announces itself with a clear brief. Start with a defined experience that gives your team traction and a shared framework. When you're ready to go deeper, the Epic ShIFt Appraisal is the best next step toward any larger engagement and the clearest way to see your architecture.";
+    narrative = "You're in the right place even if you're not sure exactly what you need yet. Organizational development rarely announces itself with a clear brief. Start with a defined experience that gives your team traction and a shared framework. When you're ready to go deeper, the Epic ShIFt Organizational Appraisal is the best next step toward any larger engagement and the clearest way to see your architecture.";
     primaryHeading = "Workshops to Start With";
     primaryKeys = ["pathToLastingChange", "architectureOfOrganizationalShift", "leadershipOM"];
-    whyThisFits = "You don't have a sharp signal yet — so committing to a deep engagement now would be guessing. The workshops we picked are the three highest-leverage starting points across most organizations: a shared change method (P.A.T.H.™ to Lasting Change), a structural lens (Architecture of Organizational ShIFt), and a leadership operating model (Leadership OM). Any of them gives your team traction and surfaces which signal is actually loudest. The Epic ShIFt Appraisal is there when that signal sharpens.";
+    whyThisFits = "You don't have a sharp signal yet — so committing to a deep engagement now would be guessing. The workshops we picked are the three highest-leverage starting points across most organizations: a shared change method (P.A.T.H.™ to Lasting Change), a structural lens (Architecture of Organizational ShIFt), and a leadership operating model (Leadership OM). Any of them gives your team traction and surfaces which signal is actually loudest. The Epic ShIFt Organizational Appraisal is there when that signal sharpens.";
   }
 
   // `extra` and secondary-signal flags are intentionally not surfaced —
@@ -844,7 +844,7 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
 
   const strongestNextStep =
     strongest === "blueDoor"
-      ? { kind: "blueDoor" as const, offering: blueDoorOff, label: "Best Next Step — The Epic ShIFt Appraisal" }
+      ? { kind: "blueDoor" as const, offering: blueDoorOff, label: "Best Next Step — The Epic ShIFt Organizational Appraisal" }
       : strongest === "workshop"
         ? { kind: "workshop" as const, offering: O[trimmedPrimary[0]], label: "Strongest Next Step — Workshop" }
         : undefined;
@@ -856,7 +856,7 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
   // wins the top slot). Otherwise the same card renders twice.
   const groups: RecommendationGroup[] = strongest === "blueDoor"
     ? []
-    : [grp("Deeper Option — Epic ShIFt Appraisal", "blueDoor")];
+    : [grp("Deeper Option — Epic ShIFt Organizational Appraisal", "blueDoor")];
 
   if (eligibleSpeaking.length > 0) {
     groups.push(grp("Speaking Topics — Bookable Keynotes", ...eligibleSpeaking));
@@ -876,7 +876,7 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
     track: "b2b",
     resultType: rt,
     headline,
-    subhead: rt === "RT-D" ? "Epic ShIFt Appraisal Primary | Workshops Alongside" : "Workshops | Epic ShIFt Appraisal",
+    subhead: rt === "RT-D" ? "Epic ShIFt Organizational Appraisal Primary | Workshops Alongside" : "Workshops | Epic ShIFt Organizational Appraisal",
     narrative,
     whyThisFits,
     primaryGroup: grp(primaryHeading, ...trimmedPrimary),
@@ -886,8 +886,8 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
     topicArea: meta?.topicArea,
     contactPrefill: meta ? { scope: meta.scope, interests: meta.interests } : undefined,
     whatComesNext: rt === "RT-D"
-      ? "The Epic ShIFt Appraisal produces your P.A.T.H. Compass — the organizational roadmap that informs everything that follows. It begins with a Clarity Call, and from there the Compass recommends the engagement that fits."
-      : "A workshop is a powerful starting point. Organizations that go deeper often find the work surfaces something more structural that a single workshop addresses symptomatically but not architecturally. The Epic ShIFt Appraisal is there when you're ready for that conversation, and it begins with a Clarity Call.",
+      ? "The Epic ShIFt Organizational Appraisal produces your P.A.T.H. Compass — the organizational roadmap that informs everything that follows. It begins with a Clarity Call, and from there the Compass recommends the engagement that fits."
+      : "A workshop is a powerful starting point. Organizations that go deeper often find the work surfaces something more structural that a single workshop addresses symptomatically but not architecturally. The Epic ShIFt Organizational Appraisal is there when you're ready for that conversation, and it begins with a Clarity Call.",
   };
 
   return applyScoutReroute(baseResult, rt, answers, filterable ?? null);
@@ -962,9 +962,9 @@ function applyScoutReroute(
     ...r,
     subhead: "Scout Mode — Start Solo, Bring the Team Later",
     narrative:
-      "You said you're exploring before bringing a recommendation to others — that's the scout move, and it changes what makes sense to start with. Workshops, the Epic ShIFt Appraisal, and team engagements all assume buy-in you don't have yet. The smarter play is to experience the work yourself, so when you do bring the conversation back you can speak to it firsthand.",
+      "You said you're exploring before bringing a recommendation to others — that's the scout move, and it changes what makes sense to start with. Workshops, the Epic ShIFt Organizational Appraisal, and team engagements all assume buy-in you don't have yet. The smarter play is to experience the work yourself, so when you do bring the conversation back you can speak to it firsthand.",
     whyThisFits:
-      "Based on your other answers, we picked the AMPLIFY Lab that maps closest to what you're seeing. Pair it with a short, finishable resource you can share with one trusted colleague. Team-facing workshops and the Epic ShIFt Appraisal are still on the menu — they're just the next move, not the first one.",
+      "Based on your other answers, we picked the AMPLIFY Lab that maps closest to what you're seeing. Pair it with a short, finishable resource you can share with one trusted colleague. Team-facing workshops and the Epic ShIFt Organizational Appraisal are still on the menu — they're just the next move, not the first one.",
     primaryGroup: primaryOfferings.length > 0
       ? {
           heading: "Pair It With These — Micro Starter + Free Resource",
@@ -981,7 +981,7 @@ function applyScoutReroute(
     // the individual-track recommendation, so the note would be redundant.
     crossoverNote: undefined,
     whatComesNext:
-      "Once you've experienced the Lab and have a concrete read on what your team needs, team-facing workshops are how you scale it. The Epic ShIFt Appraisal is how you'd read what's underneath at the org level when you're ready for that conversation.",
+      "Once you've experienced the Lab and have a concrete read on what your team needs, team-facing workshops are how you scale it. The Epic ShIFt Organizational Appraisal is how you'd read what's underneath at the org level when you're ready for that conversation.",
   };
 }
 

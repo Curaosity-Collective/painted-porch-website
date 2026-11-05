@@ -69,13 +69,13 @@ describe("Retired Blue Door — prerendered HTML (PPS-DEC-0017)", () => {
     expect(prerender).not.toContain('price: "1500"');
   });
 
-  it("emits the Epic ShIFt Appraisal service at its canonical page (PPS-DEC-0018)", () => {
+  it("emits the Epic ShIFt Organizational Appraisal service at its canonical page (PPS-DEC-0018)", () => {
     expect(content).toContain('path: "/envision-shift"');
     const block = prerender.slice(
       prerender.indexOf('"/envision-shift": {'),
       prerender.indexOf('"/partner": {'),
     );
-    expect(block).toContain('name: "The Epic ShIFt Appraisal"');
+    expect(block).toContain('name: "The Epic ShIFt Organizational Appraisal"');
     expect(block).toContain('price: "24000"');
     // Not sold directly: it begins with a Clarity Call, so no purchase availability.
     expect(block).not.toContain("availability");

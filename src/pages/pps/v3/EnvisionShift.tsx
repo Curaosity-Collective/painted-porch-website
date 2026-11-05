@@ -14,7 +14,7 @@ import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
 
 /*
- * Envision Epic ShIFt — the Epic ShIFt Appraisal (PPS-DEC-0018).
+ * Envision Epic ShIFt — the Epic ShIFt Organizational Appraisal (PPS-DEC-0018).
  * Ported from pps-simplified src/routes/envision-shift.tsx. This is the page
  * every retired Blue Door link now lands on (PPS-DEC-0017).
  *
@@ -26,7 +26,7 @@ import { getSiteUrl } from "@/lib/site-url";
  *   page is brought over (plan Phase 2).
  */
 
-const TITLE = "The Epic ShIFt Appraisal | Painted Porch Strategies";
+const TITLE = "The Epic ShIFt Organizational Appraisal | Painted Porch Strategies";
 const DESCRIPTION =
   "An interview-led organizational 360 built on six interviews, from executives to the frontline. Your P.A.T.H. Compass clarifies which change and direction make sense to pursue NOW and what in your organization needs reinforcement first, so you can lead with clarity and build with confidence. Investment: $24,000.";
 
@@ -151,7 +151,7 @@ export default function EnvisionShift() {
             </h2>
             <Prose>
               <p>
-                The Epic ShIFt Appraisal is an interview-led organizational 360. We conduct six interviews across your
+                The Epic ShIFt Organizational Appraisal is an interview-led organizational 360. We conduct six interviews across your
                 organization, three with executives and three with people from mid-level through the frontline, to
                 appraise its current architecture — the leadership and culture, the systems and workflows, and the
                 human capacity underneath them.
@@ -297,7 +297,7 @@ export default function EnvisionShift() {
         tone="prepare"
         photoProfile="cta-photo-envision"
         title="Ready to begin?"
-        body="The Epic ShIFt Appraisal begins with a Clarity Call. Start there, and the appraisal becomes your natural next step."
+        body="The Epic ShIFt Organizational Appraisal begins with a Clarity Call. Start there, and the appraisal becomes your natural next step."
         to={CLARITY_CALL_CONTACT_HREF}
         label="Start with a Clarity Call"
         secondary={

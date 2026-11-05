@@ -122,7 +122,7 @@ const essentialElements: { label: string; href: string }[] = [
 const wherePhaseZeroLeads = [
   {
     icon: DoorOpen,
-    title: "The Epic ShIFt Appraisal",
+    title: "The Epic ShIFt Organizational Appraisal",
     body: "An interview-led organizational appraisal that reveals how your organization is performing across the three Pillars before additional resources are committed in the wrong direction.",
     to: "/envision-shift",
     cta: "Envision Epic ShIFt",
@@ -460,7 +460,7 @@ export default function PhaseZero() {
               Phase Zero isn't something you purchase on its own - it's the stage of work that happens before execution begins. These are the three ways we facilitate it.
             </p>
             <p className="text-body text-foreground/80 mt-6">
-              If you're leading an organization and you know change is coming, the Epic ShIFt Appraisal, which begins with a Clarity Call, is the recommended starting point. If you're still orienting yourself or your team, the P.A.T.H.way Quiz will show you where to begin.
+              If you're leading an organization and you know change is coming, the Epic ShIFt Organizational Appraisal, which begins with a Clarity Call, is the recommended starting point. If you're still orienting yourself or your team, the P.A.T.H.way Quiz will show you where to begin.
             </p>
           </FadeIn>
           <div className="grid md:grid-cols-3 gap-6">

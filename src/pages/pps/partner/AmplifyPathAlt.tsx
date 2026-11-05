@@ -141,8 +141,8 @@ const faqItems = [
     answer: "Absolutely. Many leaders participate in labs for their own development while separately engaging their teams in workshops or sprints. Leadership Labs focus on individual leadership capacity; workshops/sprints focus on team alignment.",
   },
   {
-    question: "Do we need the Epic ShIFt Appraisal before AMPLIFY?",
-    answer: "Not required for leadership labs. Required for Strategic Sprints and multi-day workshops. Highly recommended (but not required) for single-day workshops. Our Epic ShIFt Appraisal provides the foundation for workshop focus and sprint partnerships.",
+    question: "Do we need the Epic ShIFt Organizational Appraisal before AMPLIFY?",
+    answer: "Not required for leadership labs. Required for Strategic Sprints and multi-day workshops. Highly recommended (but not required) for single-day workshops. Our Epic ShIFt Organizational Appraisal provides the foundation for workshop focus and sprint partnerships.",
   },
   {
     question: "Can we do a workshop first, then decide on Strategic Sprint?",
@@ -779,7 +779,7 @@ export default function AmplifyPathAlt() {
                   <Link to="/envision-shift">Start Your Organizational Appraisal</Link>
                 </Button>
               <p className="text-body -sm text-white/70">
-                Our Epic ShIFt Appraisal provides the foundation for workshop focus and sprint partnerships.
+                Our Epic ShIFt Organizational Appraisal provides the foundation for workshop focus and sprint partnerships.
               </p>
             </div>
 

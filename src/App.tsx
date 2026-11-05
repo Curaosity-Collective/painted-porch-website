@@ -95,7 +95,7 @@ import PPSOverview from "./pages/pps/PPSOverview";
 
 // Blue Door: public sale retired (PPS-DEC-0017). Only the success page stays,
 // for existing purchasers; every other Blue Door address redirects to the
-// Epic ShIFt Appraisal (PPS-DEC-0018).
+// Epic ShIFt Organizational Appraisal (PPS-DEC-0018).
 import BlueDoorSuccess from "./pages/pps/BlueDoorSuccess";
 
 // Epic ShIFt redesign ("v3") pages ported from pps-simplified
@@ -385,7 +385,7 @@ const App = () => (
             {/* Legacy redirects */}
             <Route path="strategic-plan" element={<Navigate to="/change-canvas" replace />} />
             <Route path="thank-you-strategic-plan" element={<Navigate to="/thank-you-change-canvas" replace />} />
-            {/* Epic ShIFt Appraisal (PPS-DEC-0018) */}
+            {/* Epic ShIFt Organizational Appraisal (PPS-DEC-0018) */}
             <Route path="envision-shift" element={<EnvisionShift />} />
             {/* Retired Blue Door addresses (PPS-DEC-0017) */}
             <Route path="blue-door" element={<Navigate to="/envision-shift" replace />} />

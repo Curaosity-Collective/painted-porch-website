@@ -41,9 +41,9 @@ const sprintFaqCategories: FAQCategory[] = [
     name: "Strategic Sprints",
     faqs: [
       {
-        question: "Do we need the Epic ShIFt Appraisal before a Strategic Sprint?",
+        question: "Do we need the Epic ShIFt Organizational Appraisal before a Strategic Sprint?",
         answer:
-          "Yes. The Epic ShIFt Appraisal is required for Strategic Sprints. It gives us (and you) the strategic clarity needed to focus your sprint investment.",
+          "Yes. The Epic ShIFt Organizational Appraisal is required for Strategic Sprints. It gives us (and you) the strategic clarity needed to focus your sprint investment.",
       },
       {
         question: "How long is a Strategic Sprint?",
@@ -238,7 +238,7 @@ export default function AmplifySprints() {
               Where Strategic Sprints typically fit
             </h2>
             <p className="text-body text-foreground max-w-2xl mx-auto">
-              Sprints usually architect the front-end of one of these shifts. If yours isn't listed, the <strong className="font-bold text-bluedoor">Epic ShIFt Appraisal</strong> will tell us whether a Sprint is the right fit.
+              Sprints usually architect the front-end of one of these shifts. If yours isn't listed, the <strong className="font-bold text-bluedoor">Epic ShIFt Organizational Appraisal</strong> will tell us whether a Sprint is the right fit.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -319,7 +319,7 @@ export default function AmplifySprints() {
                 <div className="flex items-start gap-2 mb-2">
                   <Info className="w-5 h-5 text-bluedoor flex-shrink-0 mt-1" />
                   <h3 className="text-xl font-poppins font-semibold text-navy break-words">
-                    Prerequisite: The <span className="text-bluedoor">Epic ShIFt Appraisal</span>
+                    Prerequisite: The <span className="text-bluedoor">Epic ShIFt Organizational Appraisal</span>
                   </h3>
                 </div>
                 <p className="text-body -sm text-foreground mb-4">

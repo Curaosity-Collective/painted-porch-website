@@ -39,7 +39,7 @@ export default function PPSFooter() {
 
   const quickLinks = [
     { label: "About Us", href: "/about" },
-    { label: "Epic ShIFt Appraisal", href: "/envision-shift" },
+    { label: "Epic ShIFt Organizational Appraisal", href: "/envision-shift" },
     { label: "Partner with Us", href: "/partner" },
     { label: "Insights & Resources", href: "/resources" },
     { label: "Speaking", href: "/speaking" },

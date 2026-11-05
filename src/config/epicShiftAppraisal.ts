@@ -1,8 +1,8 @@
-// Epic ShIFt Appraisal: single source of truth for public naming, price, and
+// Epic ShIFt Organizational Appraisal: single source of truth for public naming, price, and
 // where its calls to action go.
 //
 // Governing decisions (pps-ops-hub docs/decisions):
-// - PPS-DEC-0018: public name "Epic ShIFt Appraisal", $24,000, Clarity Call first.
+// - PPS-DEC-0018: public name "Epic ShIFt Organizational Appraisal", $24,000, Clarity Call first.
 // - PPS-DEC-0017: the retired Blue Door's public sale is closed; every Blue Door
 //   link goes to this appraisal's page.
 // - PPS-DEC-0010: six interviews, three executives and three people from
@@ -14,7 +14,7 @@
 
 export const EPIC_SHIFT_APPRAISAL = {
   /** Public offering name. */
-  name: "Epic ShIFt Appraisal",
+  name: "Epic ShIFt Organizational Appraisal",
   /** Canonical page ("Envision Epic ShIFt"). */
   path: "/envision-shift",
   /** Label for buttons that open the appraisal page. */
@@ -37,4 +37,4 @@ export const EPIC_SHIFT_APPRAISAL = {
  */
 export const CLARITY_CALL_CONTACT_HREF =
   "/contact?scope=Company&interest=blue-door&message=" +
-  encodeURIComponent("I'd like to start with a Clarity Call about the Epic ShIFt Appraisal.");
+  encodeURIComponent("I'd like to start with a Clarity Call about the Epic ShIFt Organizational Appraisal.");

@@ -611,7 +611,7 @@ export default function OurApproach() {
         backgroundImage={blueDoorHero}
         overlayClass="bg-gradient-to-b from-navy/75 via-navy/60 to-navy/45"
         eyebrow="Start Here"
-        headline="The Epic ShIFt Appraisal is where clarity begins."
+        headline="The Epic ShIFt Organizational Appraisal is where clarity begins."
         description="It's our interview-led appraisal that creates clarity before your next major decision hardens into action. It begins with a Clarity Call."
         actions={[
           { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },

@@ -115,13 +115,13 @@ ${
 const ORG_REF = { "@id": `${SITE}/#organization` };
 
 // The self-guided Blue Door is retired (PPS-DEC-0017); its old /blue-door
-// address redirects to the Epic ShIFt Appraisal (PPS-DEC-0018), which is not
+// address redirects to the Epic ShIFt Organizational Appraisal (PPS-DEC-0018), which is not
 // sold directly: it begins with a Clarity Call, so its Offer carries a price
 // but no purchase availability. Verified by src/test/blue-door-offer-schema.test.ts.
 const SERVICE_LD = {
   "/envision-shift": {
     "@type": "Service",
-    name: "The Epic ShIFt Appraisal",
+    name: "The Epic ShIFt Organizational Appraisal",
     serviceType: "Organizational Appraisal",
     category: "Management Consulting",
     provider: ORG_REF,

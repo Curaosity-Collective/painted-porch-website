@@ -72,9 +72,9 @@ const Email = (p: CalcResultsProps) => {
           </Section>
 
           <Section style={heroBox}>
-            <Text style={heroLabel}>The Epic ShIFt Appraisal impact</Text>
+            <Text style={heroLabel}>The Epic ShIFt Organizational Appraisal impact</Text>
             <Text style={heroValue}>
-              The Epic ShIFt Appraisal, which begins with a Clarity Call, can provide the clarity needed to reduce the risked{' '}
+              The Epic ShIFt Organizational Appraisal, which begins with a Clarity Call, can provide the clarity needed to reduce the risked{' '}
               <strong>{fmt(p.exposureLow)}–{fmt(p.exposureHigh)}</strong> of this exposure.
             </Text>
             <Button href="https://onthepaintedporch.com/envision-shift" style={ctaButton}>

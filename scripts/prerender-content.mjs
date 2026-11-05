@@ -27,7 +27,7 @@ const SITE = "https://onthepaintedporch.com";
 const commonLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Painted Porch Strategies" },
-  { href: "/envision-shift", label: "The Epic ShIFt Appraisal" },
+  { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
   { href: "/partner", label: "Partner With Us" },
   { href: "/partner/ignite", label: "IGNITE — self-led programs" },
   { href: "/partner/amplify", label: "AMPLIFY — 3–6 month partnership" },
@@ -53,7 +53,7 @@ export const routes = [
       },
       {
         h2: "The three-track ecosystem",
-        body: "The Epic ShIFt Appraisal ($24,000) is an interview-led organizational appraisal that begins with a Clarity Call. IGNITE is a self-led track of courses, assessments, and masterclasses. AMPLIFY is a 3–6 month partnership with workshops, sprints, and labs. EMBODY is a 6–12+ month embedded partnership including executive advisory.",
+        body: "The Epic ShIFt Organizational Appraisal ($24,000) is an interview-led appraisal that begins with a Clarity Call. IGNITE is a self-led track of courses, assessments, and masterclasses. AMPLIFY is a 3–6 month partnership with workshops, sprints, and labs. EMBODY is a 6–12+ month embedded partnership including executive advisory.",
       },
     ],
     links: commonLinks,
@@ -128,7 +128,7 @@ export const routes = [
     links: [
       { href: "/about", label: "About Painted Porch Strategies" },
       { href: "/rob", label: "Meet Rob Yackowski" },
-      { href: "/envision-shift", label: "The Epic ShIFt Appraisal" },
+      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact Amy" },
     ],
   },
@@ -153,14 +153,14 @@ export const routes = [
     links: commonLinks,
   },
   {
-    // Epic ShIFt Appraisal (PPS-DEC-0018). Retired /blue-door redirects here (PPS-DEC-0017).
+    // Epic ShIFt Organizational Appraisal (PPS-DEC-0018). Retired /blue-door redirects here (PPS-DEC-0017).
     path: "/envision-shift",
-    title: "The Epic ShIFt Appraisal | Painted Porch Strategies",
+    title: "The Epic ShIFt Organizational Appraisal | Painted Porch Strategies",
     description:
       "An interview-led organizational 360 built on six interviews, from executives to the frontline. Your P.A.T.H. Compass clarifies which change and direction make sense to pursue now and what needs reinforcement first. Investment: $24,000.",
-    h1: "Envision Epic ShIFt — The Epic ShIFt Appraisal",
+    h1: "Envision Epic ShIFt — The Epic ShIFt Organizational Appraisal",
     intro:
-      "Every epic shIFt begins at a threshold: an honest appraisal of what your organization is realistically able to carry. The Epic ShIFt Appraisal is an interview-led organizational 360 that determines which change and direction make sense to pursue next. It begins with a Clarity Call.",
+      "Every epic shIFt begins at a threshold: an honest appraisal of what your organization is realistically able to carry. The Epic ShIFt Organizational Appraisal is an interview-led organizational 360 that determines which change and direction make sense to pursue next. It begins with a Clarity Call.",
     sections: [
       {
         h2: "What it is",
@@ -182,10 +182,10 @@ export const routes = [
     path: "/partner",
     title: "Partner With Us | Painted Porch Strategies",
     description:
-      "Three-tier partnership: IGNITE (self-led), AMPLIFY (3–6 months), EMBODY (6–12+ months). Start with a Clarity Call and the Epic ShIFt Appraisal to find your fit.",
+      "Three-tier partnership: IGNITE (self-led), AMPLIFY (3–6 months), EMBODY (6–12+ months). Start with a Clarity Call and the Epic ShIFt Organizational Appraisal to find your fit.",
     h1: "Partner With Painted Porch Strategies",
     intro:
-      "Our partnership follows a three-tier progression. You start with a Clarity Call and the Epic ShIFt Appraisal — an interview-led organizational appraisal — and then choose the tier that matches your ambition and readiness.",
+      "Our partnership follows a three-tier progression. You start with a Clarity Call and the Epic ShIFt Organizational Appraisal — an interview-led appraisal — and then choose the tier that matches your ambition and readiness.",
     sections: [
       {
         h2: "IGNITE — light the fire",
@@ -226,7 +226,7 @@ export const routes = [
       { href: "/partner/ignite/courses", label: "IGNITE courses" },
       { href: "/partner/ignite/assessments", label: "IGNITE assessments" },
       { href: "/partner/ignite/masterclasses", label: "IGNITE masterclasses" },
-      { href: "/envision-shift", label: "The Epic ShIFt Appraisal" },
+      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/partner/amplify", label: "AMPLIFY partnership" },
       { href: "/contact", label: "Contact us" },
     ],
@@ -242,7 +242,7 @@ export const routes = [
     sections: [
       {
         h2: "How AMPLIFY works",
-        body: "AMPLIFY engagements typically stack: a targeted workshop opens the work, a 90-day sprint drives execution, and labs deepen specific capabilities. Every AMPLIFY track starts with the Epic ShIFt Appraisal so we design for your actual position, not a template.",
+        body: "AMPLIFY engagements typically stack: a targeted workshop opens the work, a 90-day sprint drives execution, and labs deepen specific capabilities. Every AMPLIFY track starts with the Epic ShIFt Organizational Appraisal so we design for your actual position, not a template.",
       },
       {
         h2: "Signature AMPLIFY programs",
@@ -257,7 +257,7 @@ export const routes = [
         href: "/partner/amplify/stractical-leader",
         label: "Stractical Leader Intensive",
       },
-      { href: "/envision-shift", label: "The Epic ShIFt Appraisal" },
+      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -276,7 +276,7 @@ export const routes = [
       },
     ],
     links: [
-      { href: "/envision-shift", label: "The Epic ShIFt Appraisal" },
+      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/partner/amplify", label: "AMPLIFY partnership" },
       { href: "/about", label: "About PPS" },
       { href: "/contact", label: "Contact us" },
@@ -296,7 +296,7 @@ export const routes = [
       { href: "/resources/faq", label: "Frequently asked questions" },
       { href: "/resources/youtube", label: "YouTube channel" },
       { href: "/resources/stractical-mini", label: "Stractical Leader mini guide" },
-      { href: "/envision-shift", label: "The Epic ShIFt Appraisal" },
+      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -311,7 +311,7 @@ export const routes = [
     links: [
       { href: "/resources/stractical-mini", label: "Stractical Leader mini guide" },
       { href: "/resources/insights", label: "Insights and thought leadership" },
-      { href: "/envision-shift", label: "The Epic ShIFt Appraisal" },
+      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -319,10 +319,10 @@ export const routes = [
     path: "/resources/faq",
     title: "FAQ | Painted Porch Strategies",
     description:
-      "Frequently asked questions about Painted Porch Strategies: engagements, pricing, the Epic ShIFt Appraisal, partnership tiers, and how to work with Amy.",
+      "Frequently asked questions about Painted Porch Strategies: engagements, pricing, the Epic ShIFt Organizational Appraisal, partnership tiers, and how to work with Amy.",
     h1: "Frequently Asked Questions",
     intro:
-      "Answers to the questions we hear most often about Painted Porch Strategies, our engagements, the Epic ShIFt Appraisal, and how our IGNITE / AMPLIFY / EMBODY partnership tiers work.",
+      "Answers to the questions we hear most often about Painted Porch Strategies, our engagements, the Epic ShIFt Organizational Appraisal, and how our IGNITE / AMPLIFY / EMBODY partnership tiers work.",
     links: commonLinks,
   },
   {
@@ -348,7 +348,7 @@ export const routes = [
       { href: "/partner/amplify/sprints", label: "AMPLIFY sprints" },
       { href: "/partner/amplify/labs", label: "AMPLIFY labs" },
       { href: "/partner/amplify/stractical-leader", label: "Stractical Leader Intensive" },
-      { href: "/envision-shift", label: "The Epic ShIFt Appraisal" },
+      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -359,12 +359,12 @@ export const routes = [
       "90-day AMPLIFY sprints that drive focused execution across leadership, communication, and operational capacity.",
     h1: "AMPLIFY Sprints",
     intro:
-      "AMPLIFY sprints are 90-day focused execution engagements. Each sprint is designed around a specific transformation target surfaced by the Epic ShIFt Appraisal and structured through the P.A.T.H.™ methodology.",
+      "AMPLIFY sprints are 90-day focused execution engagements. Each sprint is designed around a specific transformation target surfaced by the Epic ShIFt Organizational Appraisal and structured through the P.A.T.H.™ methodology.",
     links: [
       { href: "/partner/amplify", label: "AMPLIFY overview" },
       { href: "/partner/amplify/workshops", label: "AMPLIFY workshops" },
       { href: "/partner/amplify/labs", label: "AMPLIFY labs" },
-      { href: "/envision-shift", label: "The Epic ShIFt Appraisal" },
+      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -394,7 +394,7 @@ export const routes = [
     links: [
       { href: "/resources/stractical-mini", label: "Stractical mini guide (free)" },
       { href: "/partner/amplify", label: "AMPLIFY overview" },
-      { href: "/envision-shift", label: "The Epic ShIFt Appraisal" },
+      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -513,10 +513,10 @@ export const routes = [
     path: "/contact",
     title: "Contact Painted Porch Strategies",
     description:
-      "Get in touch with Painted Porch Strategies to discuss partnership, the Epic ShIFt Appraisal, speaking, or workshops.",
+      "Get in touch with Painted Porch Strategies to discuss partnership, the Epic ShIFt Organizational Appraisal, speaking, or workshops.",
     h1: "Contact Painted Porch Strategies",
     intro:
-      "Ready to talk? Send us a message and we will respond within one business day. For engagement inquiries, we recommend starting with a Clarity Call and the Epic ShIFt Appraisal, our interview-led organizational appraisal.",
+      "Ready to talk? Send us a message and we will respond within one business day. For engagement inquiries, we recommend starting with a Clarity Call and the Epic ShIFt Organizational Appraisal, our interview-led appraisal.",
     links: [
       { href: "/envision-shift", label: "Envision Epic ShIFt" },
       { href: "/partner", label: "Partner With Us" },
@@ -530,7 +530,7 @@ export const routes = [
       "New to Painted Porch Strategies? Take the P.A.T.H. Compass quiz to find your best entry point across IGNITE, AMPLIFY, and EMBODY.",
     h1: "Start Here — Discover Your P.A.T.H.way",
     intro:
-      "A short guided quiz that maps your situation to the right Painted Porch entry point: IGNITE, AMPLIFY, EMBODY, or the Epic ShIFt Appraisal, so you're not guessing what to do next.",
+      "A short guided quiz that maps your situation to the right Painted Porch entry point: IGNITE, AMPLIFY, EMBODY, or the Epic ShIFt Organizational Appraisal, so you're not guessing what to do next.",
     links: commonLinks,
   },
   {
