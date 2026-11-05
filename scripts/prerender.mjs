@@ -516,11 +516,20 @@ async function prerenderMediaAppearances() {
       if (!metadata) continue;
       if (appearance.thumbnail_url) {
         try {
-          const image = await fetch(appearance.thumbnail_url, { signal: AbortSignal.timeout(15000) });
-          if (!image.ok) throw new Error(`image status ${image.status}`);
+          let imageBuffer;
+          if (appearance.thumbnail_url.startsWith("/") && !appearance.thumbnail_url.startsWith("//")) {
+            const publicRoot = path.join(ROOT, "public");
+            const localImage = path.resolve(publicRoot, `.${appearance.thumbnail_url}`);
+            if (!localImage.startsWith(`${publicRoot}${path.sep}`)) throw new Error("invalid local image path");
+            imageBuffer = await readFile(localImage);
+          } else {
+            const image = await fetch(appearance.thumbnail_url, { signal: AbortSignal.timeout(15000) });
+            if (!image.ok) throw new Error(`image status ${image.status}`);
+            imageBuffer = Buffer.from(await image.arrayBuffer());
+          }
           const imageDir = path.join(DIST, "media-share");
           await mkdir(imageDir, { recursive: true });
-          await sharp(Buffer.from(await image.arrayBuffer())).rotate().resize(1200, 630, { fit: "cover" }).jpeg({ quality: 80 }).toFile(path.join(imageDir, `${appearance.id}.jpg`));
+          await sharp(imageBuffer).rotate().resize(1200, 630, { fit: "cover" }).jpeg({ quality: 80 }).toFile(path.join(imageDir, `${appearance.id}.jpg`));
         } catch (error) {
           console.warn(`[prerender] media image ${appearance.id}: ${error.message}`);
           metadata.ogImage = undefined;
