@@ -1,3 +1,5 @@
 - [x] Add approved-only media SEO/AEO/GEO structured summaries without changing the gallery.
 - [x] Include the same summaries in crawler-readable prerendered HTML.
 - [x] Verify summary rules and the public page with real approved records.
+- [x] Diagnose missing email attempts across all immediate-access resources.
+- [x] Repair affected email triggers and verify all five resource forms open access and log emails as sent.
