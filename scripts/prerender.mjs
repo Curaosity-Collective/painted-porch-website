@@ -373,7 +373,7 @@ function buildHtml(route) {
     const scripts = jsonLd
       .map(
         (obj) =>
-          `<script type="application/ld+json">${JSON.stringify(obj)}</script>`,
+          `<script type="application/ld+json">${serializeMediaAppearanceSchema(obj)}</script>`,
       )
       .join("\n    ");
     html = replaceTag(html, /<\/head>/, `    ${scripts}\n  </head>`);
