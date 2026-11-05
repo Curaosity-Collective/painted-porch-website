@@ -5,7 +5,7 @@
 - [x] Repair affected email triggers and verify all five resource forms open access and log emails as sent.
 - [x] Add live approved appearance pages using saved search titles, descriptions, and share images, excluded from sitemap.
 - [x] Verify individual appearance metadata and pending exclusion.
-- [ ] Verify and repair resource access when confirmation email fails or is suppressed.
-- [ ] Verify and repair Kick the Habit replay sign-up failure.
-- [ ] Verify and repair anonymous blog category access without exposing draft posts.
+- [x] Verify and repair resource access when confirmation email fails or is suppressed.
+- [x] Verify and repair Kick the Habit replay sign-up failure.
+- [x] Verify and repair anonymous blog category access without exposing draft posts.
 - [ ] Replace unavailable thumbnail for appearance 157f0ec4-5780-4644-95dc-6860c5767121; external image host refuses access (403), so its static share image is omitted.
