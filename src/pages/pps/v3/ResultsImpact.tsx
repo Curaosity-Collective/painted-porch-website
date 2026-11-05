@@ -8,7 +8,7 @@ import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider"
 import { CLARITY_CALL_CONTACT_HREF } from "@/config/epicShiftAppraisal";
 import { CHARITIES } from "@/data/charities";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
-import { BY_ROLE_TESTIMONIALS, NAMED_TESTIMONIALS } from "./testimonials";
+import { CLIENT_TESTIMONIALS } from "./testimonials";
 
 /**
  * Results & Impact: the draft site's /results and /impact pages combined
@@ -36,7 +36,7 @@ const STATS = [
   { value: "5%", label: "Of every engagement donated, in the client's name" },
 ];
 
-const TESTIMONIALS = [...NAMED_TESTIMONIALS, ...BY_ROLE_TESTIMONIALS];
+const TESTIMONIALS = CLIENT_TESTIMONIALS;
 
 export default function ResultsImpact() {
   const { open: openQuiz } = usePathFinderQuiz();

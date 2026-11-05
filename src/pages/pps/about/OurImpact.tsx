@@ -12,28 +12,16 @@ import VideoFallback from "@/components/pps/VideoFallback";
 import impactCta from "@/assets/images/impact-cta-begin.jpg";
 import { Eyebrow } from "@/components/pps/Eyebrow";
 import { CHARITIES } from "@/data/charities";
+import { FEATURED_TESTIMONIALS } from "@/pages/pps/v3/testimonials";
 // Hero video URL is loaded from the site_videos registry (slot: "impact-hero").
 // Manage at /admin/videos. No fallback file is bundled, videos must live in Cloud Storage.
-const testimonials = [
-  {
-    quote: "Painted Porch helped us transform not just our processes, but our entire approach to change. The results speak for themselves.",
-    author: "VP of Operations",
-    company: "Healthcare Staffing Company",
-    color: "border-strategic",
-  },
-  {
-    quote: "The combination of practical frameworks and Stoic principles gave our leadership team a foundation for making better decisions under pressure.",
-    author: "CEO",
-    company: "Technology Services Firm",
-    color: "border-primary",
-  },
-  {
-    quote: "We've worked with many consultants, but Painted Porch truly partners with you. They care about outcomes, not just deliverables.",
-    author: "Chief People Officer",
-    company: "Manufacturing Company",
-    color: "border-lime",
-  },
-];
+// Real client quotes (Amy's LinkedIn recommendations) shared with the redesign.
+// The three role-only quotes that were here were placeholders (PPS Admin, 2026-11-05).
+const TESTIMONIAL_BORDERS = ["border-strategic", "border-primary", "border-lime"];
+const testimonials = FEATURED_TESTIMONIALS.map((t, i) => {
+  const [author, role] = t.who.split(" · ");
+  return { quote: t.quote, author, company: role, color: TESTIMONIAL_BORDERS[i % TESTIMONIAL_BORDERS.length] };
+});
 
 export default function OurImpact() {
   useDocumentSeo({

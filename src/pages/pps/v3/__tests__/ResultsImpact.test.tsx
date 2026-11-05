@@ -32,7 +32,7 @@ vi.mock("@/components/pps/quiz/PathFinderQuizProvider", () => ({
 import ResultsImpact from "../ResultsImpact";
 import { CLARITY_CALL_CONTACT_HREF } from "@/config/epicShiftAppraisal";
 import { CHARITIES } from "@/data/charities";
-import { BY_ROLE_TESTIMONIALS, NAMED_TESTIMONIALS } from "../testimonials";
+import { CLIENT_TESTIMONIALS } from "../testimonials";
 
 function renderPage() {
   return render(
@@ -61,13 +61,17 @@ describe("ResultsImpact (draft)", () => {
     expect(text).not.toMatch(/placeholder|\[TBD\]|\[Title\]/i);
   });
 
-  it("shows the shared business testimonials and none of the individual quotes", () => {
-    renderPage();
+  it("shows the six LinkedIn recommendations: no placeholder or individual quotes", () => {
+    const { container } = renderPage();
     const quotes = within(screen.getByRole("region", { name: "In Their Words" })).getAllByRole("figure");
-    expect(quotes).toHaveLength(NAMED_TESTIMONIALS.length + BY_ROLE_TESTIMONIALS.length);
-    expect(screen.getByText("Dianne R. · Project Manager")).toBeInTheDocument();
-    expect(screen.getByText("VP of Operations · Healthcare Staffing Company")).toBeInTheDocument();
-    expect(screen.queryByText(/mental massages|Wayne R\.|Bruce H\.|Cindy Y\./)).toBeNull();
+    expect(quotes).toHaveLength(CLIENT_TESTIMONIALS.length);
+    expect(quotes).toHaveLength(6);
+    for (const who of ["Dianne R.", "Brian S.", "Melanie W.", "Amy R.", "Amanda W.", "Mike W."]) {
+      expect(screen.getByText(new RegExp(`^${who.replace(".", "\\.")} ·`))).toBeInTheDocument();
+    }
+    // The role-only quotes were placeholders (PPS Admin, 2026-11-05).
+    expect(container.textContent).not.toMatch(/VP of Operations|Technology Services Firm|Manufacturing Company/);
+    expect(container.textContent).not.toMatch(/mental massages|Wayne R\.|Bruce H\.|Cindy Y\./);
   });
 
   it("lists every charity from the shared list, opening safely in a new tab", () => {

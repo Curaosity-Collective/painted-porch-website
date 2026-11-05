@@ -4,7 +4,7 @@ import { ArrowRight, Lightbulb } from "lucide-react";
 import porchColumns from "@/assets/v3/painted-porch-columns.jpg";
 import amySquare from "@/assets/v3/amy-yackowski-square.jpg";
 import { ShIFt } from "@/components/v3/ShIFt";
-import { NAMED_TESTIMONIALS } from "./testimonials";
+import { FEATURED_TESTIMONIALS } from "./testimonials";
 import { SmartLink } from "@/components/pps/SmartLink";
 import ClientLogoMarquee from "@/components/pps/ClientLogoMarquee";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
@@ -153,7 +153,7 @@ const OFFERS = [
   },
 ];
 
-const TESTIMONIALS = NAMED_TESTIMONIALS;
+const TESTIMONIALS = FEATURED_TESTIMONIALS;
 
 const PROMISE = [
   {
