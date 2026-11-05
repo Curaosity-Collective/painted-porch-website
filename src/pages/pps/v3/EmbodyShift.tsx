@@ -96,7 +96,11 @@ export default function EmbodyShift() {
               <p>
                 Embody <ShIFt /> begins when your organization is ready to design and lead the change it envisioned and
                 authored for itself. You own that change. Our ongoing advisory partnership begins at Take Off and
-                continues through Habits on the P.A.T.H.™, during your change journey and beyond.
+                continues through Habits on{" "}
+                <SmartLink to="/the-path" className={LINK}>
+                  <span>the P.A.T.H.™</span>
+                </SmartLink>
+                , during your change journey and beyond.
               </p>
               <p>
                 At the Architect <ShIFt /> retrospective, you decide whether another pillar needs fortifying through a

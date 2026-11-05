@@ -99,6 +99,7 @@ import EnvisionShift from "./pages/pps/v3/EnvisionShift";
 import HomeNext from "./pages/pps/v3/HomeNext";
 import ArchitectShift from "./pages/pps/v3/ArchitectShift";
 import EmbodyShift from "./pages/pps/v3/EmbodyShift";
+import ThePath from "./pages/pps/v3/ThePath";
 
 // Other Pages
 import Speaking from "./pages/pps/Speaking";
@@ -392,6 +393,7 @@ const App = () => (
             {/* Draft until release (PageGate in PPSLayout): Phase 2 of the reconciliation plan. */}
             <Route path="architect-shift" element={<ArchitectShift />} />
             <Route path="embody-shift" element={<EmbodyShift />} />
+            <Route path="the-path" element={<ThePath />} />
             {/* Retired Blue Door addresses (PPS-DEC-0017) */}
             <Route path="blue-door" element={<Navigate to="/envision-shift" replace />} />
             <Route path="blue-door-archive" element={<Navigate to="/envision-shift" replace />} />

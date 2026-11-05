@@ -234,8 +234,12 @@ export default function ArchitectShift() {
               A sprint is shaped entirely by what comes out of your intensive, so no two look the same. What stays
               constant is the structure: a focused 90-day partnership with your leadership team, reinforcing the
               prioritized pillars and the capability your organization needs before it designs and leads its change.
-              The sprint follows the P.A.T.H.™: Prepare grounded in Envision, Align carried through Architect, and Take
-              Off opening the invitation to Embody.
+              The sprint follows{" "}
+              <SmartLink to="/the-path" className={LINK}>
+                <span>the P.A.T.H.™</span>
+              </SmartLink>
+              : Prepare grounded in Envision, Align carried through Architect, and Take Off opening the invitation to
+              Embody.
             </p>
           </Prose>
           <ol className="mt-10 grid gap-4 sm:grid-cols-3">

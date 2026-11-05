@@ -393,6 +393,9 @@ export default function HomeNext() {
               Take Off. Ours starts at Phase Zero™, inside Prepare: the first act of becoming, before your next major
               decision hardens into execution.
             </p>
+            <SmartLink to="/the-path" className={`self-start text-[15px] ${LINK}`}>
+              <span>See the full P.A.T.H. →</span>
+            </SmartLink>
           </div>
           <ol aria-label="The four stages of change" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {STAGES.map((s) => (
