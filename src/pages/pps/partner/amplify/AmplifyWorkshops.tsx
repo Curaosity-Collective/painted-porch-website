@@ -155,10 +155,13 @@ function handleImgError(
   }
 }
 
+/** Offerings kept off this page even while their data still says include_in_workshops. */
+const RETIRED_WORKSHOPS = new Set(["architectChange"]);
+
 export default function AmplifyWorkshops() {
   useDocumentSeo({
     title: "AMPLIFY Workshops | Painted Porch Strategies",
-    description: "AMPLIFY workshops from Painted Porch Strategies: Architect Change, P.A.T.H.™ framework, leadership development, and team building — 1–3 day team engagements.",
+    description: "AMPLIFY workshops from Painted Porch Strategies: the P.A.T.H.™ to Lasting Change, organizational architecture, leadership development, and team building, in 1–3 day team engagements.",
     canonical: "/partner/amplify/workshops",
   });
 
@@ -177,7 +180,9 @@ export default function AmplifyWorkshops() {
         .order("sort_order", { ascending: true })
         .order("name", { ascending: true });
       if (cancelled) return;
-      if (!error && data) setRows(data as WorkshopCardRow[]);
+      // Architect Change is the workshop inside the Architect ShIFt engagement,
+      // not a standalone workshop (PPS Admin, 2026-11-05).
+      if (!error && data) setRows((data as WorkshopCardRow[]).filter((r) => !RETIRED_WORKSHOPS.has(r.offering_key)));
     })();
     return () => {
       cancelled = true;

@@ -1,6 +1,8 @@
 // P.A.T.H.way™ quiz data, branching, and scoring.
 // Mirrors spec: PPS-PATH-Finder-Quiz-v4-2026-06-09.
 
+import { clarityCallHrefFor } from "@/config/epicShiftAppraisal";
+
 export type Track = "b2c" | "b2b";
 
 export type B2CResultType = "RT1" | "RT2" | "RT3" | "RT4" | "RT5" | "RT6";
@@ -26,7 +28,7 @@ export interface Offering {
   key: string;
   name: string;
   facilitator?: "Amy" | "Rob" | "Sierra" | "Painted Porch Team";
-  tier: "IGNITE" | "AMPLIFY" | "Workshop" | "Blue Door" | "Free" | "Assessment" | "Speaking";
+  tier: "IGNITE" | "AMPLIFY" | "Workshop" | "Blue Door" | "Free" | "Assessment" | "Speaking" | "Engagement";
   blurb: string;
   url: string;
 }
@@ -125,6 +127,11 @@ export const OFFERINGS = {
   // Epic ShIFt Organizational Appraisal (PPS-DEC-0018). Internal key and tier keep the legacy
   // "blueDoor" / "Blue Door" names; only client-facing words changed.
   blueDoor: { key: "blueDoor", name: "The Epic ShIFt Organizational Appraisal", tier: "Blue Door", url: "/envision-shift", blurb: "Begins with a Clarity Call. Six interviews, from executives to the frontline, read out as your P.A.T.H. Compass: architecture, capacity signal, Move Now Map, Reinforce First priorities." },
+  // Architect ShIFt (PPS-DEC-0020), the engagement that follows the appraisal and,
+  // like every engagement, begins with a Clarity Call. It replaces Architect Change,
+  // which is the workshop inside it (PPS Admin, 2026-11-05). Links to the Clarity
+  // Call until /architect-shift goes live (plan Phase 5).
+  architectShift: { key: "architectShift", name: "Architect ShIFt", tier: "Engagement", url: clarityCallHrefFor("Architect ShIFt"), blurb: "Begins with a Clarity Call. A 3-day executive authorship intensive, then a focused 90-day sprint that fortifies the pillars your appraisal shows need to hold first." },
 
   // ===== Speaking Topics =====
   // Amy
@@ -561,7 +568,8 @@ const grp = (heading: string, ...keys: OfferingKey[]): RecommendationGroup => ({
 const SAFE_B2B_FALLBACK: OfferingKey[] = [
   "architectureOfOrganizationalShift",
   "pathToLastingChange",
-  "architectChange",
+  // Architect Change was retired as a standalone workshop (PPS Admin, 2026-11-05).
+  "leadershipOM",
   "blueDoor",
 ];
 
@@ -796,9 +804,9 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
   } else if (rt === "RT-D") {
     headline = "Strategic / Architectural";
     narrative = "What you're describing isn't a program gap or training need. It's an architectural question: whether your organization's current identity is built to carry what you're trying to create. The Epic ShIFt Organizational Appraisal is your best next step: it's where organizations at strategic inflection points begin, and it starts with a Clarity Call.";
-    primaryHeading = "Workshops — Activate Your Team While the Appraisal Work Is Underway";
-    primaryKeys = ["architectChange", "architectureOfOrganizationalShift", "pathToLastingChange"];
-    whyThisFits = "Your signal is architectural — which is why the Epic ShIFt Organizational Appraisal is the real next step, not a workshop. The workshops we picked are the ones that activate your team in parallel with that appraisal work, so momentum doesn't stall: Architect Change builds the design discipline, Architecture of Organizational ShIFt gives leaders the structural lens, and the P.A.T.H.™ to Lasting Change gives the org a shared method. None of them replace the appraisal — they make the most of the time it takes.";
+    primaryHeading = "What to Pair With the Appraisal";
+    primaryKeys = ["architectShift", "architectureOfOrganizationalShift", "pathToLastingChange"];
+    whyThisFits = "Your signal is architectural — which is why the Epic ShIFt Organizational Appraisal is the real next step, not a workshop. Architect ShIFt is the engagement that follows it: your senior team authors the direction and fortifies the pillars that need to hold first, and like every engagement it begins with a Clarity Call. The two workshops activate your team while the appraisal work is underway: Architecture of Organizational ShIFt gives leaders the structural lens, and the P.A.T.H.™ to Lasting Change gives the organization a shared method.";
   } else {
     // RT-E
     headline = "Exploring Your Options";
