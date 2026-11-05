@@ -45,6 +45,7 @@ import findingJoy from "@/assets/speaking/topics/finding-joy-at-work.jpg.asset.j
 import passengerToPilot from "@/assets/speaking/topics/passenger-to-pilot.jpg.asset.json";
 import moveShakeInnovate from "@/assets/speaking/topics/move-shake-innovate.png.asset.json";
 import reignitingResilience from "@/assets/speaking/topics/reigniting-resilience.jpg.asset.json";
+import kickTheHabit from "@/assets/speaking/topics/kick-the-habit.jpg.asset.json";
 import fiveMinKeynote from "@/assets/speaking/topics/five-minute-keynote.jpg.asset.json";
 
 type Row = {
@@ -141,6 +142,29 @@ const KEY_ALIASES: Record<string, string> = {
   "your 5-minute keynote": "5-minute keynote",
   "the 5-minute keynote": "5-minute keynote",
   "leadership om: a 21st-century operating model for organizational evolution": "leadership om",
+  // An old row with no topic_slug; it duplicated The Power of Story under "More".
+  "the power of story / the art of storytelling": "power-of-story",
+};
+
+/**
+ * Slug-level fixes (PPS Admin, 2026-11-05). Rows are merged by topic_slug, so
+ * an old row with its own slug showed as a second card.
+ */
+const SLUG_ALIASES: Record<string, string> = {
+  // "Working Genius" duplicated "Genius at Work" (the Working Genius session).
+  "working-genius": "genius-at-work",
+};
+
+/** Topics kept off this page, by slug. Architect Change is the workshop inside Architect ShIFt. */
+const EXCLUDE_SLUGS = new Set<string>(["architect-change"]);
+
+/** Display names by slug (PPS Admin, 2026-11-05); these win over whichever row is seen first. */
+const TITLE_BY_SLUG: Record<string, string> = {
+  "path-to-lasting-change": "The P.A.T.H. to Lasting Change",
+  "communicator-styles": "Speak with Style: The 6 Communicator Styles for Influence & Impact",
+  "lead-at-speed-of-change": "Lead at the Speed of Change",
+  "power-of-story": "The Power of Story",
+  "genius-at-work": "Genius at Work",
 };
 
 /** Preferred display name for canonical keys (overrides whichever row was seen first). */
@@ -210,6 +234,8 @@ const IMAGE_MAP: Record<string, string> = {
   "from passenger to pilot": passengerToPilot.url,
   "move, shake, innovate": moveShakeInnovate.url,
   "reigniting resilience": reignitingResilience.url,
+  // The Kick the Habit cover was in assets but never connected (PPS Admin: every topic has an image).
+  "kick the habit": kickTheHabit.url,
   "5-minute keynote": fiveMinKeynote.url,
   "your 5-minute keynote": fiveMinKeynote.url,
   "the 5-minute keynote": fiveMinKeynote.url,
@@ -306,8 +332,11 @@ export default function SpeakingWorkshopTopics() {
       if (EXCLUDE_KEYS.has(rawKey)) continue;
       // Prefer DB topic_slug (canonical, kept in sync by trigger). Fall back
       // to legacy alias-based canonical key for any row not yet backfilled.
-      const key = r.topic_slug || canonicalKey(r.name);
-      const baseName = CANONICAL_NAME[key] ?? cleanName(r.name);
+      const rawSlug = r.topic_slug || canonicalKey(r.name);
+      const key = SLUG_ALIASES[rawSlug] ?? rawSlug;
+      if (EXCLUDE_SLUGS.has(key)) continue;
+      const fixedName = TITLE_BY_SLUG[key] ?? CANONICAL_NAME[key];
+      const baseName = fixedName ?? cleanName(r.name);
 
       // Source of truth for the chips: the boolean flags on the row.
       // Fall back to legacy URL/name heuristics so older rows keep rendering.
@@ -317,8 +346,10 @@ export default function SpeakingWorkshopTopics() {
       if (existing) {
         if (isKeynote && !existing.formats.includes("Speaking")) existing.formats.push("Speaking");
         if (isWorkshop && !existing.formats.includes("Workshop")) existing.formats.push("Workshop");
-        // Prefer workshop's topic tag (more detailed)
-        if (isWorkshop && r.topic) existing.topic = topicFor(key, r.topic);
+        // Prefer the workshop's topic tag (more detailed). Otherwise take the first
+        // tag any row has: keynote rows often carry none, which used to leave the
+        // card under "More" when such a row sorted first.
+        if (r.topic && (isWorkshop || existing.topic === topicFor(key, null))) existing.topic = topicFor(key, r.topic);
         // DB is source of truth. Prefer description; fall back to blurb.
         // If both variants have content, keep the workshop row's copy
         // (richer body copy) — otherwise take whichever is non-empty.
@@ -335,8 +366,8 @@ export default function SpeakingWorkshopTopics() {
         }
         // Lock in canonical name if defined; otherwise prefer the longer
         // cleaned name (subtitles beat bare "(Keynote)" rows).
-        if (CANONICAL_NAME[key]) {
-          existing.baseName = CANONICAL_NAME[key];
+        if (fixedName) {
+          existing.baseName = fixedName;
         } else {
           const candidate = cleanName(r.name);
           if (candidate.length > existing.baseName.length) {
