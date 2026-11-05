@@ -341,9 +341,15 @@ export default function SpeakingWorkshopTopics() {
       const fixedName = TITLE_BY_SLUG[key] ?? CANONICAL_NAME[key];
       const baseName = fixedName ?? cleanName(r.name);
 
-      // Source of truth for the chips: the boolean flags on the row.
-      // Fall back to legacy URL/name heuristics so older rows keep rendering.
-      const isKeynote = r.is_keynote || r.current_url.startsWith("/speaking/") || /\(Keynote\)/i.test(r.name);
+      // Source of truth for the chips: the row's flags and its format. A
+      // workshop listed on /speaking/topics is not a keynote (PPS Admin,
+      // 2026-11-05), so the page URL counts only for a row with no format.
+      const isKeynote =
+        r.is_keynote ||
+        /\(Keynote\)/i.test(r.name) ||
+        (r.delivery_format
+          ? r.delivery_format === "keynote" || r.delivery_format === "speaking"
+          : r.current_url.startsWith("/speaking/"));
       // A topic offered as both a keynote and a workshop shows both labels
       // (PPS Admin, 2026-11-05). A workshop row counts even when it is not
       // featured on the Workshops page.

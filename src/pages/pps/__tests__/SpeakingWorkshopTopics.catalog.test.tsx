@@ -37,8 +37,8 @@ const { ROWS } = vi.hoisted(() => {
     row({ offering_key: "aiEiOh", name: "AI, EI, Oh! Guiding Change in the AI Era", topic_slug: "ai-ei-oh", topic: "Leadership & Culture", delivery_format: "workshop" }),
     row({ offering_key: "powerOfStory", name: "The Power of Story", topic_slug: "power-of-story", topic: "Comms", facilitator: "Rob", delivery_format: "workshop" }),
     row({ offering_key: "the-power-of-story-the-art-o", name: "The Power of Story / The Art of Storytelling", facilitator: null }),
-    row({ offering_key: "geniusAtWork", name: "Genius at Work", topic_slug: "genius-at-work", topic: "Team Dynamics" }),
-    row({ offering_key: "working-genius", name: "Working Genius", topic_slug: "working-genius", facilitator: null }),
+    row({ offering_key: "geniusAtWork", name: "Genius at Work", topic_slug: "genius-at-work", topic: "Team Dynamics", delivery_format: "workshop" }),
+    row({ offering_key: "working-genius", name: "Working Genius", topic_slug: "working-genius", facilitator: null, delivery_format: "workshop" }),
     row({ offering_key: "architectChange", name: "Architect Change (Strategic Design Intensive)", topic_slug: "architect-change", topic: "Change & Innovation", include_in_workshops: true }),
     row({ offering_key: "architect-change-phase-zero-", name: "Architect Change: Phase Zero Strategic Design", topic_slug: "architect-change", facilitator: null }),
     row({ offering_key: "pathToLastingChange", name: "The P.A.T.H. to Change", topic_slug: "path-to-lasting-change", topic: "Change & Innovation", include_in_workshops: true, current_url: "/partner/amplify/workshops", delivery_format: "workshop" }),
@@ -128,5 +128,7 @@ describe("Speaking & workshop topics catalogue", () => {
     expect(labelsOf("Driving Change: The 3 Shifts for Lasting Innovation")).toEqual(["Keynote", "Workshop"]);
     // Keynote rows alone stay keynote-only.
     expect(labelsOf("Kick the Habit")).toEqual(["Keynote"]);
+    // A workshop listed on the speaking topics page is not a keynote (PPS Admin).
+    expect(labelsOf("Genius at Work")).toEqual(["Workshop"]);
   });
 });
