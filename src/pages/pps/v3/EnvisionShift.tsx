@@ -127,7 +127,7 @@ export default function EnvisionShift() {
         kicker="Step One — Get Clarity"
         title={
           <>
-            Envision Epic <ShIFt onDark large />
+            Envision Epic <ShIFt onDark />
           </>
         }
         intro={
@@ -149,7 +149,7 @@ export default function EnvisionShift() {
           height={1280}
         >
           <div>
-            <Kicker tone="gold">What It Is</Kicker>
+            <Kicker>What It Is</Kicker>
             <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-prepare-deep">
               An interview-led organizational 360.
             </h2>
@@ -195,7 +195,7 @@ export default function EnvisionShift() {
       <section className="relative bg-linen">
         <GhostLayer>B</GhostLayer>
         <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-24">
-          <Kicker tone="gold">What It Produces</Kicker>
+          <Kicker>What It Produces</Kicker>
           <h2 className="mt-5 max-w-2xl font-display text-3xl font-semibold leading-tight text-prepare-deep">
             Your P.A.T.H. Compass
           </h2>
@@ -218,7 +218,7 @@ export default function EnvisionShift() {
       </section>
 
       <section className="surface-painted relative mx-auto max-w-7xl px-6 py-20 md:py-24">
-        <Kicker tone="gold">Who It's For</Kicker>
+        <Kicker>Who It's For</Kicker>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {whoItsFor.map((item) => (
             <div key={item.strong} className="border-l-4 border-prepare bg-linen p-6 md:p-8">
@@ -232,7 +232,7 @@ export default function EnvisionShift() {
       <section className="bg-linen">
         <div className="story-content-space mx-auto max-w-7xl px-6">
           <Reveal>
-            <Kicker tone="gold">How It Works</Kicker>
+            <Kicker>How It Works</Kicker>
             <h2 className="mt-5 max-w-2xl font-display text-3xl font-semibold leading-tight text-prepare-deep md:text-4xl">
               Interviews. Appraisal. Your Compass.
             </h2>

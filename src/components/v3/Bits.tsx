@@ -11,9 +11,16 @@ import { GhostLayer, Parallax } from "./Motion";
  * public pages carry no placeholder text.
  */
 
-export function Kicker({ children, tone = "gold" }: { children: ReactNode; tone?: "gold" | "teal" }) {
-  // Mid teal so the eyebrow reads distinctly from the deep-teal section headings.
-  const cls = tone === "gold" ? "text-gold" : "text-primary";
+export function Kicker({
+  children,
+  tone = "raspberry",
+}: {
+  children: ReactNode;
+  tone?: "raspberry" | "onDark" | "teal";
+}) {
+  // PPS-DEC-0022: an eyebrow never matches its heading. Raspberry on light
+  // backgrounds, light Gold on dark ones; standard Gold fails AA at this size.
+  const cls = tone === "onDark" ? "text-[#F4C05E]" : tone === "teal" ? "text-primary" : "text-raspberry";
   return <p className={`label-kicker ${cls}`}>{children}</p>;
 }
 
@@ -49,7 +56,7 @@ export function PageHero({
       <GhostLayer className="text-teal-foreground">{ghost}</GhostLayer>
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 md:py-28 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">
-          <Kicker>{kicker}</Kicker>
+          <Kicker tone="onDark">{kicker}</Kicker>
           <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
             {title}
           </h1>

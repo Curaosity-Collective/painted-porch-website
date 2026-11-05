@@ -2,8 +2,10 @@
  * The ShIFt wordmark. Its "IF" is always bold Raspberry (PPS-DEC-0022, item 6):
  *
  * - on light backgrounds: Raspberry (#DB0043)
- * - on dark backgrounds: a lighter raspberry so it stays readable, the bright
- *   one in large headings (`large`) and the light one in body-size text
+ * - on dark backgrounds: a lighter raspberry so it stays readable. The light
+ *   one (#FF9EB1) passes at every size on the site's dark teals; the bright one
+ *   (`large`, #FF1F5A) only in large headings over very dark backgrounds such as
+ *   a photo overlay
  * - on solid color fills (buttons, colored boxes): bold in the fill's own text
  *   color (`onFill`), because Raspberry on Gold or Lime can't be read
  *
