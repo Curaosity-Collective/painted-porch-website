@@ -3,3 +3,5 @@
 - [x] Verify summary rules and the public page with real approved records.
 - [x] Diagnose missing email attempts across all immediate-access resources.
 - [x] Repair affected email triggers and verify all five resource forms open access and log emails as sent.
+- [ ] Add live approved appearance pages using saved search titles, descriptions, and share images, excluded from sitemap.
+- [ ] Verify individual appearance metadata and pending exclusion.
