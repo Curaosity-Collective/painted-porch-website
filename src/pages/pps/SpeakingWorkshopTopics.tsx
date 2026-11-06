@@ -167,6 +167,10 @@ const TITLE_BY_SLUG: Record<string, string> = {
   "lead-at-speed-of-change": "Lead at the Speed of Change",
   "power-of-story": "The Power of Story",
   "genius-at-work": "Genius at Work",
+  // PPS Admin, 2026-11-06: Create Extraordinary Teams and From Conflict to Connection are one topic,
+  // and Kick the Habit carries its full title.
+  "conflict-to-connection": "From Conflict to Connection: Creating Extraordinary Teams",
+  "kick-the-habit-b2b": "Kick the Habit: Develop a Change-Ready Mindset",
 };
 
 /** Preferred display name for canonical keys (overrides whichever row was seen first). */
@@ -283,6 +287,9 @@ const ALWAYS_BOTH = new Set<string>([
   // Its second row is the Stractical Leader Lab (format "lab"), which the
   // workshop test doesn't count.
   "stractical-leader",
+  // PPS Admin (2026-11-06): Kick the Habit is a keynote and a workshop. Its rows are a keynote
+  // and the free masterclass replay, so neither row says workshop.
+  "kick-the-habit-b2b",
 ]);
 
 

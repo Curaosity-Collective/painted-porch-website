@@ -49,6 +49,10 @@ const { ROWS } = vi.hoisted(() => {
     row({ offering_key: "stracticalLeader", name: "The Stractical Leader", topic_slug: "stractical-leader", topic: "Leadership & Culture", is_keynote: true, delivery_format: "keynote" }),
     row({ offering_key: "stracticalLeaderLab", name: "Stractical Leader Lab", topic_slug: "stractical-leader", topic: "Leadership & Culture", delivery_format: "lab" }),
     row({ offering_key: "kickTheHabit", name: "Kick the Habit", topic_slug: "kick-the-habit-b2b", topic: "Change & Innovation", is_keynote: true, delivery_format: "keynote" }),
+    row({ offering_key: "keynoteOnlyExample", name: "A Keynote-Only Topic", topic_slug: "keynote-only-example", topic: "Change & Innovation", is_keynote: true, delivery_format: "keynote" }),
+    // Create Extraordinary Teams and From Conflict to Connection, merged (PPS Admin, 2026-11-06).
+    row({ offering_key: "workshopCreateExtraordinaryTeams", name: "From Conflict to Connection: Creating Extraordinary Teams", topic_slug: "conflict-to-connection", topic: "Team Dynamics", include_in_workshops: true, current_url: "/workshops", delivery_format: "workshop" }),
+    row({ offering_key: "fromConflictToConnection", name: "From Conflict to Connection: Creating Extraordinary Teams", topic_slug: "conflict-to-connection", topic: "Team Dynamics", delivery_format: "workshop" }),
   ];
   return { ROWS };
 });
@@ -111,7 +115,10 @@ describe("Speaking & workshop topics catalogue", () => {
     expect(titles.some((t) => t?.startsWith("Architect Change"))).toBe(false);
     expect(titles).toContain("The P.A.T.H. to Lasting Change");
     expect(titles).not.toContain("The P.A.T.H. to Navigating Change");
-    expect(titles).toContain("Kick the Habit");
+    expect(titles).toContain("Kick the Habit: Develop a Change-Ready Mindset");
+    expect(titles.filter((t) => /Conflict to Connection|Extraordinary Teams/.test(t ?? ""))).toEqual([
+      "From Conflict to Connection: Creating Extraordinary Teams",
+    ]);
     expect(new Set(titles).size).toBe(titles.length);
   });
 
@@ -129,8 +136,12 @@ describe("Speaking & workshop topics catalogue", () => {
     expect(labelsOf("The P.A.T.H. to Lasting Change")).toEqual(["Keynote", "Workshop"]);
     expect(labelsOf("Driving Change: The 3 Shifts for Lasting Innovation")).toEqual(["Keynote", "Workshop"]);
     expect(labelsOf("The Stractical Leader")).toEqual(["Keynote", "Workshop"]);
+    // Kick the Habit is a keynote and a workshop (PPS Admin, 2026-11-06), though its rows are keynotes.
+    expect(labelsOf("Kick the Habit: Develop a Change-Ready Mindset")).toEqual(["Keynote", "Workshop"]);
     // Keynote rows alone stay keynote-only.
-    expect(labelsOf("Kick the Habit")).toEqual(["Keynote"]);
+    expect(labelsOf("A Keynote-Only Topic")).toEqual(["Keynote"]);
+    // The merged team topic is two workshop rows: one card, Workshop only.
+    expect(labelsOf("From Conflict to Connection: Creating Extraordinary Teams")).toEqual(["Workshop"]);
     // A workshop listed on the speaking topics page is not a keynote (PPS Admin).
     expect(labelsOf("Genius at Work")).toEqual(["Workshop"]);
   });

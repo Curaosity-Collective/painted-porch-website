@@ -63,16 +63,17 @@ describe("moved pages", () => {
     }
   });
 
-  it("links to the new addresses except the requested Team Workshops legacy destination", () => {
-    for (const file of ["src/components/v3/siteNav.ts", "src/data/pathFinderQuiz.ts", "src/config/tiers.ts", "src/components/pps/SiteSearch.tsx"]) {
-      const content = file === "src/components/v3/siteNav.ts"
-        ? read(file).replace('href: "/partner/amplify/workshops"', 'href: "/workshops"')
-        : read(file);
-      expect(content, file).not.toMatch(/\/partner\/(ignite|amplify)\//);
+  it("links to the new addresses, not the old ones, in the menus, footer and guide data", () => {
+    // The homepage too: on 2026-11-06 a Lovable fix pointed Team Workshops back at the old address while
+    // /workshops had no page_status row. The old address forwards, but the new one is canonical.
+    for (const file of [
+      "src/components/v3/siteNav.ts",
+      "src/pages/pps/v3/HomeNext.tsx",
+      "src/data/pathFinderQuiz.ts",
+      "src/config/tiers.ts",
+      "src/components/pps/SiteSearch.tsx",
+    ]) {
+      expect(read(file), file).not.toMatch(/\/partner\/(ignite|amplify)\//);
     }
-  });
-  it("keeps Team Workshops pointed at the requested workshops address", () => {
-    expect(read("src/components/v3/siteNav.ts")).toContain('{ label: "Team Workshops", href: "/partner/amplify/workshops" }');
-    expect(read("src/pages/pps/v3/HomeNext.tsx")).toContain('{ title: "Team Workshops", to: "/partner/amplify/workshops"');
   });
 });
