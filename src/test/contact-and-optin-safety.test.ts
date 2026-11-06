@@ -46,10 +46,13 @@ describe("Contact form (/contact)", () => {
   });
 
   it("fires confirmation + notification emails with an idempotency key", () => {
-    expect(src).toMatch(/templateName:\s*["']contact-confirmation["']/);
-    expect(src).toMatch(/templateName:\s*["']contact-notification["']/);
-    expect(src).toMatch(/idempotencyKey:\s*`contact-confirm-/);
-    expect(src).toMatch(/idempotencyKey:\s*`contact-notify-/);
+    const server = read('supabase/functions/submit-ghl-lead/index.ts');
+    const receipt = read('supabase/functions/_shared/inquiry-email.ts');
+    expect(server).toContain('await queueInquiryReceipt');
+    expect(server).toMatch(/templateName:\s*["']contact-notification["']/);
+    expect(receipt).toMatch(/templateName:\s*["']contact-confirmation["']/);
+    expect(src).toContain('submissionId: crypto.randomUUID()');
+    expect(src).not.toContain('"send-transactional-email"');
   });
 
   it("does not fall back to mailto: or window.open (per global CTA rule)", () => {
