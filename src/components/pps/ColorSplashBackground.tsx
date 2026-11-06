@@ -41,7 +41,8 @@ export default function ColorSplashBackground() {
           height: "min(82vw, 1100px)",
           top: "-5%",
           left: "30%",
-          background: "radial-gradient(circle, hsl(var(--purple)) 0%, hsl(var(--purple) / 0.4) 45%, transparent 72%)",
+          // Brand purple is --strategic; there is no --purple variable, so this blob never rendered.
+          background: "radial-gradient(circle, hsl(var(--strategic)) 0%, hsl(var(--strategic) / 0.4) 45%, transparent 72%)",
         }}
       />
 
