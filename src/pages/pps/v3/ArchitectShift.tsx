@@ -30,12 +30,44 @@ const DESCRIPTION =
 
 const LINK = "font-semibold text-heading underline decoration-heading/40 underline-offset-4 hover:decoration-heading";
 
-const applications = [
-  { lead: "Major Technology Implementation", detail: "Architect Phase Zero before you pick the tech or plan the rollout." },
-  { lead: "Organizational Restructure", detail: "Fortify decision structures and leadership capability before your team designs the restructure." },
-  { lead: "Cultural Transformation", detail: "Reinforce the cultural foundation before your team designs and launches its change." },
-  { lead: "Strategic Planning", detail: "Build the Phase Zero foundation before your 3–5 year plan." },
-  { lead: "Leadership Transition", detail: "Prepare the organization for new leadership before they arrive." },
+/**
+ * The six trigger moments (ICP Intelligence Document v1.0, Section 3), as the common catalysts for
+ * architecting shIFt. Each card gives the leader's own words, then what Architect ShIFt does first.
+ * Approved by PPS Admin, 2026-11-06. Three of the quotes are shortened from the ICP wording:
+ * Technology / AI, Merger, and Change That Hasn't Stuck.
+ */
+const catalysts = [
+  {
+    lead: "Technology or AI Initiative",
+    question: "Who do we become when AI is part of how we think, decide, and operate?",
+    detail: "Answer that before you pick the tools or plan the rollout.",
+  },
+  {
+    lead: "Growth Inflection",
+    question: "We're growing, but are we becoming anything, or just getting bigger?",
+    detail: "Rebuild the decision-making and coordination that worked at your last size, before growth outruns them.",
+  },
+  {
+    lead: "Leadership Transition",
+    question: "The leadership changed. Did the organization?",
+    detail: "Prepare the organization to carry the new direction, before or soon after the new leaders arrive.",
+  },
+  {
+    // After the deal: the appraisal treats an active merger as a reason to hold back.
+    lead: "Merger or Restructure",
+    question: "We merged the operations. We never merged the identities.",
+    detail: "Once the deal closes, fortify a shared foundation before your team designs the integration or the new structure.",
+  },
+  {
+    lead: "Change That Hasn't Stuck",
+    question: "The programs end. The problems don't.",
+    detail: "Reinforce the cultural foundation the last programs never reached, before your team launches the next one.",
+  },
+  {
+    lead: "Board or Market Mandate",
+    question: "The mandate arrived. The architecture to fulfill it didn't.",
+    detail: "Whether it's a board directive, market shift, new regulation or 3–5 year plan, build the capacity to deliver it before the deadline arrives.",
+  },
 ];
 
 const differenceRows = [
@@ -265,18 +297,20 @@ export default function ArchitectShift() {
       {/* Where it fits */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-24">
         <Kicker>Where It Fits</Kicker>
-        <h2 className={`mt-5 max-w-2xl ${V3_H2}`}>The Common Catalysts for Architecting ShIFt</h2>
+        <h2 className={`mt-5 max-w-2xl ${V3_H2}`}>
+          The Common Catalysts for Architecting <ShIFt />
+        </h2>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-foreground">
-          Authoring and architecting shIFt fortifies your organization before your team designs and leads one of these
-          triggers of transformation. If yours isn't
-          listed, the{" "}
+          Most organizations we partner with are living one of these six moments, often two or three at once. Each asks
+          more of the organization than its current architecture can carry. Authoring and architecting <ShIFt lowercase />{" "}
+          fortifies it first, before your team designs and leads the change. Whether or not yours is listed, the{" "}
           <Link to="/envision-shift" className={LINK}>
             Epic <ShIFt /> Organizational Appraisal
           </Link>{" "}
-          will tell us whether architecting shift is the right, next step.
+          comes first. It tells us whether architecting <ShIFt lowercase /> is the right next step.
         </p>
         <ol className="mt-10 grid gap-4 sm:grid-cols-2">
-          {applications.map((app, i) => (
+          {catalysts.map((app, i) => (
             <li key={app.lead} className="flex h-full items-start gap-4 border border-align/40 bg-linen p-5">
               <span
                 aria-hidden="true"
@@ -284,9 +318,12 @@ export default function ArchitectShift() {
               >
                 {i + 1}
               </span>
-              <p className="text-sm leading-relaxed text-foreground">
-                <span className="font-semibold text-foreground">{app.lead}:</span> {app.detail}
-              </p>
+              <div className="text-sm leading-relaxed text-foreground">
+                <h3 className="font-display text-base font-semibold leading-snug text-foreground">{app.lead}</h3>
+                {/* Raspberry marks the question, the conflict, the what IF (PPS Admin, 2026-11-06): 4.76:1 on linen. */}
+                <p className="mt-2 font-display text-base italic leading-snug text-raspberry">&ldquo;{app.question}&rdquo;</p>
+                <p className="mt-2">{app.detail}</p>
+              </div>
             </li>
           ))}
         </ol>

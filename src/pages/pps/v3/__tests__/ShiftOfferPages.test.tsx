@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, within } from "@testing-library/react";
 import { MemoryRouter, Link } from "react-router-dom";
 import type { ReactNode } from "react";
 
@@ -137,4 +137,68 @@ describe("Our Partnership Promise on the three ShIFt pages (PPS Admin, 2026-11-0
       expect(container.textContent).not.toMatch(/If not yet|We Aren't Here to Tell You Yes/);
     });
   }
+});
+
+describe("The six trigger moments (ICP Intelligence §3; PPS Admin, 2026-11-06)", () => {
+  const MOMENTS = [
+    "Technology or AI Initiative",
+    "Growth Inflection",
+    "Leadership Transition",
+    "Merger or Restructure",
+    "Change That Hasn't Stuck",
+    "Board or Market Mandate",
+  ];
+
+  function catalystsSection() {
+    renderPage(ArchitectShift);
+    // The test library reads the styled IF as "Sh IF t", so compare without spaces.
+    const heading = screen.getByRole("heading", {
+      level: 2,
+      name: (n) => n.replace(/\s+/g, "") === "TheCommonCatalystsforArchitectingShIFt",
+    });
+    return heading.closest("section")!;
+  }
+
+  it("Architect ShIFt lists the six moments, in order, each with the leader's own words in Raspberry", () => {
+    const section = catalystsSection();
+    const items = within(section).getAllByRole("listitem");
+    expect(items).toHaveLength(6);
+    expect(within(section).getAllByRole("heading", { level: 3 }).map((h) => h.textContent)).toEqual(MOMENTS);
+    for (const item of items) {
+      const quote = Array.from(item.querySelectorAll("p")).find((el) => /^\u201c.+\u201d$/.test(el.textContent ?? ""));
+      expect(quote, item.textContent ?? "").toBeTruthy();
+      expect(quote!.className).toContain("text-raspberry");
+    }
+  });
+
+  it("drops the old five catalysts", () => {
+    const text = catalystsSection().textContent ?? "";
+    for (const old of ["Major Technology Implementation", "Organizational Restructure", "Cultural Transformation", "Strategic Planning"]) {
+      expect(text).not.toContain(old);
+    }
+  });
+
+  it("says the appraisal comes first whether or not a moment is listed", () => {
+    const section = catalystsSection();
+    const intro = section.querySelector("h2 + p")!;
+    expect(intro.textContent).toMatch(/Whether or not yours is listed, the Epic ShIFt Organizational Appraisal comes first\./);
+    expect(intro.textContent).not.toMatch(/If yours isn't listed/);
+    const link = intro.querySelector('a[href="/envision-shift"]');
+    expect(link?.textContent).toBe("Epic ShIFt Organizational Appraisal");
+  });
+
+  it("describes merger work as after the deal, since the appraisal holds back on an active merger", () => {
+    const section = catalystsSection();
+    const merger = within(section).getByRole("heading", { level: 3, name: "Merger or Restructure" }).closest("li")!;
+    expect(merger.textContent).toContain("Once the deal closes");
+  });
+
+  it("Envision ShIFt's Catalyst Event card names all six moments", () => {
+    renderPage(EnvisionShift);
+    const card = screen.getByRole("heading", { level: 3, name: "The Catalyst Event." }).parentElement!;
+    const text = card.textContent ?? "";
+    for (const moment of [/AI or new technology/, /rapid growth/, /new leadership/, /a merger/, /a mandate/, /change that hasn't stuck/]) {
+      expect(text).toMatch(moment);
+    }
+  });
 });
