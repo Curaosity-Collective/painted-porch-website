@@ -63,7 +63,7 @@ const STAGES = [
     subtitle: "The agreement phase",
     outcome: "A coalition that owns the work, not just approves it.",
     question: "Does the room actually agree, on the same thing?",
-    body: "Alignment isn't a survey where everyone picks “strongly agree.” It's your senior team working the same evidence in the executive authorship intensive, identifying which pillars need reinforcement first, and fortifying those structures and capabilities through a strategic sprint before you execute your change.",
+    body: "Alignment isn't a survey where everyone picks “strongly agree.” It's your senior team working the same evidence in the executive strategy & authorship intensive, identifying which pillars need reinforcement first, and fortifying those structures and capabilities through a strategic sprint before you execute your change.",
     example:
       "In the intensive, a leadership team discovers that two executives hold opposite definitions of the transformation's success. Having that argument in week one saves the eighteen months it would have cost in week forty.",
     partner: ARCHITECT,
@@ -189,7 +189,7 @@ const JOURNEY = [
         Architect <ShIFt onDark />
       </>
     ),
-    body: "A 3-day executive authorship intensive, a 90-day pillar-fortification sprint, and a 1.5-day retrospective and next-steps decision.",
+    body: "A 3-day executive strategy & authorship intensive, a 90-day pillar-fortification sprint, and a 1.5-day retrospective and next-steps decision.",
     outcome: "An aligned organization with stronger structures and capability, and a clear decision on readiness for change.",
     deliverable:
       "An architecture blueprint, ongoing advisory, and a decision: fortify another pillar through a further sprint, or begin designing and delivering your change.",

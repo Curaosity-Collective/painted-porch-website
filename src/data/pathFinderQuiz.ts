@@ -129,7 +129,7 @@ export const OFFERINGS = {
   // like every engagement, begins with a Clarity Call. It replaces Architect Change,
   // which is the workshop inside it (PPS Admin, 2026-11-05). Its page leads with
   // the Clarity Call.
-  architectShift: { key: "architectShift", name: "Architect ShIFt", tier: "Engagement", url: "/architect-shift", blurb: "Begins with a Clarity Call. A 3-day executive authorship intensive, then a focused 90-day sprint that fortifies the pillars your appraisal shows need to hold first." },
+  architectShift: { key: "architectShift", name: "Architect ShIFt", tier: "Engagement", url: "/architect-shift", blurb: "Begins with a Clarity Call. A 3-day executive strategy & authorship intensive, then a focused 90-day sprint that fortifies the pillars your appraisal shows need to hold first." },
 
   // ===== Speaking Topics =====
   // Amy

@@ -185,7 +185,7 @@ export default function EnvisionShift() {
               </p>
               <p>
                 That clarity informs your best next step on the journey to do Epic <ShIFt />. When reinforcement
-                is the right next move, it grounds the executive authorship intensive within your Architect <ShIFt />
+                is the right next move, it grounds the executive strategy & authorship intensive within your Architect <ShIFt />
                 engagement.
               </p>
             </Prose>

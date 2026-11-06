@@ -249,7 +249,7 @@ export const routes = [
     path: "/architect-shift",
     title: "Architect ShIFt | Painted Porch Strategies",
     description:
-      "An executive authorship intensive, a 90-day pillar-fortification sprint and a retrospective that decides your organization's next step. Starting at $90,000, in a weekly or a biweekly version.",
+      "An executive strategy & authorship intensive, a 90-day pillar-fortification sprint and a retrospective that decides your organization's next step. Starting at $90,000, in a weekly or a biweekly version.",
     h1: "Architect ShIFt",
     intro:
       "Author the direction together. Fortify the pillars that need to hold first. Then decide whether your organization is ready to design and lead its next epic shIFt.",
