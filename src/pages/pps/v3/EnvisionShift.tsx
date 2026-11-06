@@ -218,11 +218,11 @@ export default function EnvisionShift() {
         />
       </section>
 
-      <section className="surface-painted relative mx-auto max-w-7xl px-6 py-20 md:py-24">
+      <section className="relative mx-auto max-w-7xl px-6 py-20 md:py-24">
         <Kicker>Who It's For</Kicker>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {whoItsFor.map((item) => (
-            <div key={item.strong} className="border-l-4 border-prepare bg-linen p-6 md:p-8">
+            <div key={item.strong} className="border-l-4 border-prepare p-6 md:p-8">
               <h3 className="font-display text-lg font-semibold text-foreground">{item.strong}</h3>
               <p className="mt-2 text-sm leading-relaxed text-foreground">{item.body}</p>
             </div>
@@ -231,7 +231,7 @@ export default function EnvisionShift() {
       </section>
 
       <section className="bg-linen">
-        <div className="story-content-space mx-auto max-w-7xl px-6">
+        <div className="story-content-space mx-auto max-w-7xl px-6 !pb-0">
           <Reveal>
             <Kicker>How It Works</Kicker>
             <h2 className={`mt-5 max-w-2xl ${V3_H2}`}>
@@ -253,12 +253,17 @@ export default function EnvisionShift() {
             ))}
           </div>
 
+        </div>
+      </section>
+
+      <section className="bg-background">
+        <div className="mx-auto max-w-7xl px-6 pt-14 pb-20 md:pb-28">
           <Reveal>
-            <h3 className="mt-14 font-display text-2xl font-semibold text-foreground">Practicalities</h3>
+            <h3 className="font-display text-2xl font-semibold text-foreground">Practicalities</h3>
           </Reveal>
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
             <Reveal>
-              <div className="h-full border-l-4 border-prepare bg-linen p-6 md:p-8">
+              <div className="h-full border-l-4 border-prepare p-6 md:p-8">
                 <h3 className="font-display text-xl font-semibold text-foreground">Investment</h3>
                 <p className="mt-4 font-display text-3xl font-semibold text-foreground">
                   {EPIC_SHIFT_APPRAISAL.priceDisplay}
@@ -269,7 +274,7 @@ export default function EnvisionShift() {
               </div>
             </Reveal>
             <Reveal>
-              <div className="h-full border-l-4 border-prepare bg-linen p-6 md:p-8">
+              <div className="h-full border-l-4 border-prepare p-6 md:p-8">
                 <h3 className="font-display text-xl font-semibold text-foreground">What to expect</h3>
                 <ul className="mt-5 space-y-3">
                   {expect.map((item) => (
@@ -282,7 +287,7 @@ export default function EnvisionShift() {
               </div>
             </Reveal>
             <Reveal>
-              <div className="h-full border-l-4 border-prepare bg-linen p-6 md:p-8">
+              <div className="h-full border-l-4 border-prepare p-6 md:p-8">
                 <h3 className="font-display text-xl font-semibold text-foreground">What's included</h3>
                 <ul className="mt-5 space-y-3">
                   {included.map((item) => (
