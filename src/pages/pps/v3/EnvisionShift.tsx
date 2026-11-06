@@ -304,7 +304,7 @@ export default function EnvisionShift() {
       </section>
 
       {/* Our Partnership Promise, from Our Approach (PPS Admin, 2026-11-06) */}
-      <PartnershipPromiseNote />
+      <PartnershipPromiseNote showSeparator={false} />
 
       <CTABand
         tone="prepare"

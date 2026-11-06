@@ -6,9 +6,9 @@ import { PARTNERSHIP_PROMISE } from "@/data/partnershipPromise";
  * box with 8px corners. The title is Lime Deep, not Lime: Lime text fails AA
  * on a light tint (PPS-DEC-0022).
  */
-export function PartnershipPromiseNote() {
+export function PartnershipPromiseNote({ showSeparator = true }: { showSeparator?: boolean }) {
   return (
-    <section aria-labelledby="partnership-promise" className="border-t border-border bg-background">
+    <section aria-labelledby="partnership-promise" className={showSeparator ? "border-t border-border bg-background" : "bg-background"}>
       <div className="mx-auto max-w-3xl px-6 py-14 md:py-16">
         <div data-testid="partnership-promise" className="rounded-[8px] border border-lime-deep/30 bg-lime-deep/5 p-6 md:p-8">
           <h2 id="partnership-promise" className="font-display text-xl font-semibold text-lime-deep md:text-2xl">
