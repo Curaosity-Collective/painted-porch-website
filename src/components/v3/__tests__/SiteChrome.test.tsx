@@ -71,7 +71,8 @@ describe("SiteHeader", () => {
 
   it("puts Phase Zero under About, and nowhere else in the header (PPS Admin, 2026-11-06)", () => {
     const about = HEADER_MENU.find((g) => g.href === "/about")!;
-    expect(about.children.map((c) => c.href)).toEqual(["/about/approach", "/phase-zero", "/about/impact"]);
+    // Our Approach is part of the Phase Zero page (PPS Admin, 2026-11-06); /about/approach redirects there.
+    expect(about.children.map((c) => c.href)).toEqual(["/phase-zero", "/about/impact"]);
     expect(HEADER_MENU.flatMap((g) => g.children).filter((c) => c.href === "/phase-zero")).toHaveLength(1);
   });
 

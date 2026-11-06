@@ -104,4 +104,35 @@ describe("ThePath (draft)", () => {
     expect(text).not.toContain("P.A.T.H.way™");
     expect(container.querySelector('a[href="/ready"]')).toBeNull();
   });
+
+  it("carries Our Approach's P.A.T.H. pieces: the GPS line, stage subtitles and what you walk away with (PPS Admin, 2026-11-06)", () => {
+    const { container } = renderPage();
+    expect(container.textContent).toContain("Stoicism is the GPS for how we think. The P.A.T.H. is the roadmap for how we work.");
+    for (const [stage, subtitle] of [
+      ["Prepare", "The clarity phase"],
+      ["Align", "The agreement phase"],
+      ["Take Off", "The launch phase"],
+      ["Habits", "The staying-power phase"],
+    ]) {
+      const article = screen.getByRole("heading", { level: 2, name: stage }).closest("article")!;
+      expect(article.textContent).toContain(subtitle);
+      expect(within(article).getByText("You walk away with")).toBeInTheDocument();
+    }
+    expect(container.textContent).toContain("Launch energy that holds past the first 90 days.");
+  });
+
+  it("shows PPS Admin's road graphic with its ten steps as text, steps 1 to 6 as Phase Zero", () => {
+    renderPage();
+    const img = screen.getByRole("img", { name: /winding road in ten numbered steps/ });
+    expect(img.getAttribute("src")).toMatch(/path-to-shift-road/);
+    const steps = within(screen.getByRole("list", { name: "The ten steps of the P.A.T.H." }));
+    const numbered = steps.getAllByRole("listitem").filter((li) => /^\d+/.test(li.textContent ?? ""));
+    expect(numbered.map((li) => li.textContent?.match(/^\d+/)?.[0])).toEqual(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]);
+    expect(steps.getByText("Define Your Destination")).toBeInTheDocument();
+    expect(steps.getByText("Take Your Change on the Road")).toBeInTheDocument();
+    const links = screen.getAllByRole("link", { name: "Phase Zero™" });
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const link of links) expect(link).toHaveAttribute("href", "/phase-zero");
+  });
 });
+

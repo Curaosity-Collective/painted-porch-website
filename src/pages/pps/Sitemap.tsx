@@ -46,7 +46,7 @@ export const sitemapData: SitemapNode[] = [
     path: "/",
   },
   {
-    label: "Phase Zero",
+    label: "Phase Zero: Our Approach",
     path: "/phase-zero",
   },
   {
@@ -62,7 +62,6 @@ export const sitemapData: SitemapNode[] = [
     label: "About",
     path: "/about",
     children: [
-      { label: "Our Approach", path: "/about/approach" },
       { label: "Our Impact", path: "/about/impact" },
     ],
   },

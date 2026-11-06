@@ -103,6 +103,7 @@ import EmbodyShift from "./pages/pps/v3/EmbodyShift";
 import ThePath from "./pages/pps/v3/ThePath";
 import ResultsImpact from "./pages/pps/v3/ResultsImpact";
 import AboutNext from "./pages/pps/v3/AboutNext";
+import PhaseZeroNext from "./pages/pps/v3/PhaseZeroNext";
 
 // Other Pages
 import Speaking from "./pages/pps/Speaking";
@@ -297,7 +298,10 @@ const App = () => (
             <Route path="hero-preview/v2" element={<HeroPreviewV2 />} />
             <Route path="hero-preview/v3" element={<HeroPreviewV3 />} />
             <Route path="hero-preview/compare" element={<HeroPreviewCompare />} />
-            <Route path="phase-zero" element={<PhaseZero />} />
+            {/* Phase Zero™: Our Approach, one page combining the old Phase Zero and Our Approach
+                pages (PPS Admin, 2026-11-06). Both old pages are archived (Draft: admins only). */}
+            <Route path="phase-zero" element={<PhaseZeroNext />} />
+            <Route path="phase-zero-archive-v2" element={<PhaseZero />} />
 
             {/* Epic ShIFt draft ecosystem (v2) — not linked in nav */}
             <Route path="home-v2" element={<HomeV2 />} />
@@ -311,7 +315,8 @@ const App = () => (
             <Route path="about" element={<AboutNext />} />
             <Route path="about-next" element={<Navigate to="/about" replace />} />
             <Route path="about-archive" element={<PPSAbout />} />
-            <Route path="about/approach" element={<OurApproach />} />
+            <Route path="about/approach" element={<Navigate to="/phase-zero" replace />} />
+            <Route path="about/approach-archive" element={<OurApproach />} />
             <Route path="about/impact" element={<ResultsImpact />} />
             <Route path="about/impact-next" element={<Navigate to="/about/impact" replace />} />
             <Route path="about/impact-archive" element={<OurImpact />} />

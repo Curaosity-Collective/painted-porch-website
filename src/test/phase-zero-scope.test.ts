@@ -17,6 +17,8 @@ const SOURCES = [
   "src/pages/pps/resources/FAQPage.tsx",
   "src/pages/pps/PhaseZero.tsx",
   "src/pages/pps/about/OurApproach.tsx",
+  "src/pages/pps/v3/PhaseZeroNext.tsx",
+  "src/pages/pps/v3/ThePath.tsx",
   "supabase/functions/generate-page-seo/index.ts",
 ];
 
@@ -39,5 +41,9 @@ describe("Phase Zero is Prepare and Align, never Prepare alone (PPS-DEC-0027)", 
     const phaseZero = read("src/pages/pps/PhaseZero.tsx");
     expect(phaseZero).toMatch(/Phase Zero spans the first two stages of our P\.A\.T\.H\. methodology/);
     expect(phaseZero).not.toContain('to="/about/approach#path"');
+    // The combined Phase Zero page (PPS Admin, 2026-11-06) and The P.A.T.H. page.
+    expect(read("src/pages/pps/v3/PhaseZeroNext.tsx")).toMatch(/Phase Zero spans the first two stages of the P\.A\.T\.H\.: Prepare/);
+    expect(read("src/pages/pps/v3/ThePath.tsx")).toMatch(/Together, Prepare and Align are\{" "\}/);
+    expect(read("src/pages/pps/v3/ThePath.tsx")).toMatch(/Steps 1 to 6, Prepare and Align, are\{" "\}/);
   });
 });

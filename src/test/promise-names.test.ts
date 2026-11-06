@@ -14,6 +14,7 @@ const read = (p: string) => readFileSync(resolve(__dirname, "..", "..", p), "utf
 const ACTIVE_PAGES = [
   "src/pages/pps/about/OurApproach.tsx",
   "src/pages/pps/PhaseZero.tsx",
+  "src/pages/pps/v3/PhaseZeroNext.tsx",
   "src/pages/pps/v3/AboutNext.tsx",
   "src/pages/pps/v3/ArchitectShift.tsx",
   "src/pages/pps/v3/EmbodyShift.tsx",
@@ -26,6 +27,12 @@ describe("promise and commitment names", () => {
   it("keeps 'The Painted Porch Promise' for the homepage section only", () => {
     expect(read("src/pages/pps/v3/HomeNext.tsx")).toContain("The Painted Porch Promise");
     for (const page of ACTIVE_PAGES) expect(read(page), page).not.toContain("The Painted Porch Promise");
+  });
+
+  it("closes the Phase Zero page's 'What the work makes possible' with Our Commitment", () => {
+    const page = read("src/pages/pps/v3/PhaseZeroNext.tsx");
+    expect(page).toMatch(/>Our Commitment</);
+    expect(page).toContain("You won't need us forever.");
   });
 
   it("heads Our Approach's 'You won't need us forever' as Our Commitment", () => {

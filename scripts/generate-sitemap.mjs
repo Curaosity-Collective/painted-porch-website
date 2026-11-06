@@ -21,7 +21,6 @@ const BASE_URL = "https://onthepaintedporch.com";
 const staticPages = [
   { path: "/", priority: "1.0", changefreq: "weekly" },
   { path: "/about", priority: "0.8", changefreq: "monthly" },
-  { path: "/about/approach", priority: "0.7", changefreq: "monthly" },
   { path: "/about/impact", priority: "0.6", changefreq: "monthly" },
   { path: "/amy", priority: "0.7", changefreq: "monthly" },
   { path: "/rob", priority: "0.6", changefreq: "monthly" },

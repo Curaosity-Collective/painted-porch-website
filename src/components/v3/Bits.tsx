@@ -45,6 +45,7 @@ export function PageHero({
   imageAlt,
   tone = "teal",
   ghost = "P",
+  action,
 }: {
   kicker: string;
   title: ReactNode;
@@ -53,6 +54,8 @@ export function PageHero({
   imageAlt?: string;
   tone?: keyof typeof HERO_TONES;
   ghost?: string;
+  /** Optional button under the intro, such as the Phase Zero page's Clarity Call. */
+  action?: { label: string; to: string };
 }) {
   return (
     <section className={`story-hero relative overflow-hidden ${HERO_TONES[tone]} text-teal-foreground`}>
@@ -65,7 +68,16 @@ export function PageHero({
           </h1>
         </div>
         <div className="lg:col-span-5">
-          <p className="text-base leading-relaxed text-teal-foreground/75">{intro}</p>
+          <div className="text-base leading-relaxed text-teal-foreground/75">{intro}</div>
+          {action && (
+            <Link
+              to={action.to}
+              className="label-kicker mt-8 inline-flex items-center gap-3 bg-gold px-7 py-4 text-gold-foreground transition-colors hover:bg-linen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              {action.label}
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          )}
         </div>
       </div>
       {image && (

@@ -65,7 +65,7 @@ export const HEADER_MENU: NavGroup[] = [
     label: "About",
     href: "/about",
     children: [
-      { label: "Our Approach", href: "/about/approach" },
+      // Our Approach is part of the Phase Zero page now (PPS Admin, 2026-11-06).
       PHASE_ZERO_LINK,
       { label: "Results & Impact", href: "/about/impact" },
     ],

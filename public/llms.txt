@@ -12,9 +12,8 @@ Painted Porch Strategies partners with organizations at the moment of strategic 
 - [/architect-shift](/architect-shift): Architect ShIFt — an executive authorship intensive and a 90-day pillar-fortification sprint, after the appraisal.
 - [/embody-shift](/embody-shift): Embody ShIFt — ongoing advisory from Take Off through Habits.
 - [/about](/about): About Painted Porch Strategies and the team.
-- [/about/approach](/about/approach): The five core philosophy principles behind the work.
 - [/about/impact](/about/impact): Results & Impact — client words, the organizations we've worked alongside, and the 5% of every fee given to client-chosen charities.
-- [/phase-zero](/phase-zero): Phase Zero strategic positioning framework.
+- [/phase-zero](/phase-zero): Phase Zero™, our approach — the work before the work. It spans Prepare and Align, the first two stages of the P.A.T.H.: why it exists, what it is and isn't, the Painted Porch Pillars, and how we think.
 - [/partner/ignite/assessments](/partner/ignite/assessments): Self-led assessments: EQ, Working Genius, and change readiness.
 - [/partner/ignite/masterclasses](/partner/ignite/masterclasses): Short-form intensives and challenges.
 - [/partner/amplify/workshops](/partner/amplify/workshops): Leadership development workshops.
