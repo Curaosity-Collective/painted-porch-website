@@ -31,12 +31,13 @@ export function useNewsletterSignup(source: string) {
     setStatus("loading");
     setMessage("");
     try {
-      const { error } = await supabase.functions.invoke("submit-newsletter-optin", {
+      const { data, error } = await supabase.functions.invoke("submit-newsletter-optin", {
         body: { email: trimmed, source },
       });
       if (error) throw error;
+      if (data?.success !== true) throw new Error("Subscription was not saved");
       setStatus("success");
-      setMessage("You're on the list! Check your inbox.");
+      setMessage("You're on the list! Thanks for subscribing.");
       setEmailState("");
     } catch (err) {
       console.error("Newsletter signup error:", err);

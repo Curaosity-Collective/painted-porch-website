@@ -1,4 +1,5 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { NEWSLETTER_TAG } from "../_shared/newsletter.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -34,7 +35,7 @@ function ghlHeaders(apiKey: string): GHLHeaders {
 // only accept a fixed set plus the dynamic `course-launch-<slug>` pattern.
 const ALLOWED_TAGS = new Set<string>([
   "contact-form",
-  "newsletter-opt-in",
+  NEWSLETTER_TAG,
   "Change Roadmap",
   "ChangeComms",
   "Strategic Canvas",
@@ -187,7 +188,7 @@ async function upsertContact(
 ) {
   const contactTags = [...sanitizeTags(payload.tags)];
   if (payload.newsletter) {
-    contactTags.push("newsletter-opt-in");
+    contactTags.push(NEWSLETTER_TAG);
   }
 
   // Search for existing contact by email

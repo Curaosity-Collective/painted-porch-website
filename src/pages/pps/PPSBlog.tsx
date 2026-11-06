@@ -17,6 +17,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Checkbox } from "@/components/ui/checkbox";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
+import { useNewsletterSignup } from "@/hooks/useNewsletterSignup";
 
 interface BlogPost {
   id: string;
@@ -185,6 +186,7 @@ async function fetchBlogPosts(): Promise<BlogPost[]> {
 }
 
 export default function PPSBlog() {
+  const newsletter = useNewsletterSignup("Blog Newsletter");
   const siteUrl = getSiteUrl();
   const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
@@ -657,16 +659,21 @@ export default function PPSBlog() {
             Subscribe to receive our latest thinking on change-readiness,
             leadership development, and organizational transformation.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          {newsletter.status === "success" ? <p className="text-body text-primary" role="status">{newsletter.message}</p> : <form onSubmit={newsletter.submit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
+              required
+              value={newsletter.email}
+              onChange={(event) => newsletter.setEmail(event.target.value)}
+              disabled={newsletter.status === "loading"}
               aria-label="Email address for newsletter" placeholder="Enter your email"
               className="flex-1 px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
             />
-            <Button className="bg-primary hover:bg-primary/90 text-white py-3 px-6">
-              Subscribe
+            <Button type="submit" disabled={newsletter.status === "loading"} className="py-3 px-6">
+              {newsletter.status === "loading" ? "Subscribing…" : "Subscribe"}
             </Button>
-          </div>
+          </form>}
+          {newsletter.status === "error" && <p role="alert" className="text-body text-destructive mt-4">{newsletter.message}</p>}
           <p className="text-body text-muted-foreground mt-4">We will NOT SPAM you. Unsubscribe at any time.</p>
         </div>
       </section>

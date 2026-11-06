@@ -122,7 +122,7 @@ describe("SiteFooter", () => {
   });
 
   it("signs up for the newsletter through the existing opt-in function", async () => {
-    invoke.mockResolvedValue({ error: null });
+    invoke.mockResolvedValue({ error: null, data: { success: true } });
     renderAt(<SiteFooter />);
     fireEvent.change(screen.getByLabelText("Porch Perspectives Newsletter"), { target: { value: "lead@example.com" } });
     fireEvent.click(screen.getByRole("button", { name: "Subscribe" }));
