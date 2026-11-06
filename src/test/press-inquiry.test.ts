@@ -1,0 +1,10 @@
+import { describe, it, expect } from "vitest";
+import { PRESS_CONTACT, PRESS_PIPELINE, PRESS_FIELDS, pressContactFields, pressOpportunity, type PressInput } from "../../supabase/functions/_shared/press-inquiry";
+describe("press inquiry rules", () => {
+  const input: PressInput = { firstName: "Marcus", lastName: "Aurelius", email: "marcus@example.com", organization: "Press", inquiryType: "Interview", message: "An interview request", consent: true, source: "/press-kit", submissionId: "test-id" };
+  it("emails the speaking inbox", () => { expect(PRESS_CONTACT.email).toBe("speaking@onthepaintedporch.com"); });
+  it("creates an open opportunity in the verified speaking intake stage", () => { const o = pressOpportunity(input, "contact", "location", "2026-11-06"); expect(o.pipelineId).toBe("OlrKwxPdDW6kSoecPB4k"); expect(o.pipelineStageId).toBe("c68666eb-028d-4e13-aa3f-2f495ded7a62"); expect(o.status).toBe("open"); expect(PRESS_PIPELINE.id).toBe(o.pipelineId); });
+  it("brands every press opportunity as Painted Porch Strategies", () => { expect(pressOpportunity(input, "c", "l", "date").customFields.find(f => f.id === PRESS_FIELDS.opportunityBrand)?.field_value).toBe("Painted Porch Strategies"); });
+  it("adds the brand without replacing existing brand or first-touch values", () => { const fields = pressContactFields([{ id: PRESS_FIELDS.contactBrand, value: ["Existing brand"] }, { id: PRESS_FIELDS.firstBrand, value: "Existing brand" }]); expect(fields.find(f => f.id === PRESS_FIELDS.contactBrand)?.field_value).toEqual(["Existing brand", "Painted Porch Strategies"]); expect(fields.some(f => f.id === PRESS_FIELDS.firstBrand)).toBe(false); });
+  it("records email, source, date and exact consent with the inquiry", () => { const details = String(pressOpportunity(input, "c", "l", "2026-11-06").customFields.find(f => f.id === PRESS_FIELDS.details)?.field_value); expect(details).toContain("Email: marcus@example.com"); expect(details).toContain("Source: /press-kit"); expect(details).toContain("Received: 2026-11-06"); expect(details).toContain("Consent: I agree to be contacted about this inquiry."); });
+});

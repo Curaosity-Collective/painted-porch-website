@@ -12,6 +12,7 @@ export interface TemplateEntry {
 
 import { template as contactConfirmation } from './contact-confirmation.tsx'
 import { template as contactNotification } from './contact-notification.tsx'
+import { template as pressInquiryNotification } from './press-inquiry-notification.tsx'
 import { template as burnoutAccess } from './burnout-access.tsx'
 import { template as stracticalWaitlist } from './stractical-waitlist.tsx'
 import { template as pilotTrainingReplay } from './pilot-training-replay.tsx'
@@ -39,6 +40,7 @@ import { template as adminTestNotification } from './admin-test-notification.tsx
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'contact-confirmation': contactConfirmation,
   'contact-notification': contactNotification,
+  'press-inquiry-notification': pressInquiryNotification,
   'easter-egg-notification': easterEggNotification,
   'easter-egg-confirmation': easterEggConfirmation,
   'burnout-access': burnoutAccess,
