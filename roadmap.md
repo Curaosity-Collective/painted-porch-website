@@ -19,3 +19,4 @@
 - [x] Launch the press kit publicly with a press contact and verified downloadable PDF.
 - [ ] Add and verify the press-kit inquiry form, speaking inbox email, and approved GHL speaking-pipeline exception.
 - [ ] Launch a listed /press page with Media Relations contact details and refresh the press kit PDF.
+- [ ] Add the existing Painted Porch Strategies logo to the printed press kit and verify its layout.
