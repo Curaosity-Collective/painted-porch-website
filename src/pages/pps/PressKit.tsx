@@ -90,7 +90,7 @@ export default function PressKit() {
             <ul className="text-body text-foreground list-disc pl-5 space-y-1 mb-2 mt-4">{speaker.topics.map((topic) => <li className="text-body" key={topic}>{topic}</li>)}</ul>
             <div className="flex flex-wrap gap-3 mt-auto pt-6">
               <Button variant="outline" size="sm" asChild><Link to={speaker.href}>Full Bio & Topics <ArrowRight className="ml-2 w-4 h-4" /></Link></Button>
-              <Button variant="ghost" size="sm" asChild><a href={speaker.photo} download={`${speaker.name.toLowerCase().replaceAll(' ', '-')}-headshot.jpg`}><Download className="mr-2 w-4 h-4" />Headshot</a></Button>
+              <Button variant="ghost" size="sm" asChild><a href={speaker.photo} download={`${speaker.name.toLowerCase().replace(/ /g, '-')}-headshot.jpg`}><Download className="mr-2 w-4 h-4" />Headshot</a></Button>
             </div>
           </article>)}
         </div>
