@@ -23,3 +23,6 @@
 - [x] Publish the updated press form, /press page, and logo PDF with the requested live press-kit SEO update.
 - [x] Refill cleared search summaries and FAQs without replacing existing search settings.
 - [x] Add and verify live press-kit search title, description, and share-sized Open Graph image.
+- [ ] Connect blog Subscribe and create deduplicated newsletter lead opportunities with team email notifications.
+- [ ] Consolidate newsletter tags across website handlers, existing GHL contacts, and workflows.
+- [ ] Verify newsletter signup end-to-end and clean up only test records.
