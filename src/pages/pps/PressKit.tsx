@@ -38,7 +38,7 @@ export default function PressKit() {
   const [visible, setVisible] = useState(6);
   const { toast } = useToast();
   const { data: appearances = [], isLoading, isError, refetch } = useQuery({ queryKey: ["press-kit-appearances"], queryFn: fetchPressAppearances });
-  useDocumentSeo({ title: "Press Kit | Painted Porch Strategies", description: "Painted Porch Strategies bios, mission, speaking engagements, approved media appearances, press contact, and downloadable press kit.", ogImage: speakingHero, robots: "index, follow" });
+  useDocumentSeo({ title: "Press Kit & Speaker Bios | Painted Porch Strategies", description: "Explore Painted Porch Strategies speaker bios, mission, media appearances and speaking engagements. Download the press kit or contact Media Relations.", ogImage: "/images/press-kit-share.jpg", canonical: "/press-kit", robots: "index, follow" });
 
   async function copyBio() {
     try {

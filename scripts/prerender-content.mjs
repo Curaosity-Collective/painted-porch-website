@@ -42,8 +42,9 @@ export const routes = [
   { path: "/press", title: "Press & Media Relations | Painted Porch Strategies", description: "Contact Painted Porch Strategies Media Relations for interviews, speaking engagements, speaker photos and press materials.", h1: "Painted Porch Strategies Media Relations", intro: "Media Relations at Painted Porch Strategies: speaking@onthepaintedporch.com. Contact our team for interviews, speaking opportunities, speaker photos or additional press materials.", links: [{ href: "/press-kit", label: "View Press Kit" }, { href: "/press#inquiry", label: "Send a Press Inquiry" }, { href: "/downloads/painted-porch-strategies-press-kit.pdf", label: "Download Press Kit PDF" }] },
   {
     path: "/press-kit",
-    title: "Press Kit | Painted Porch Strategies",
-    description: "Painted Porch Strategies bios, mission, speaking engagements, approved media appearances, press contact, and downloadable press kit.",
+    title: "Press Kit & Speaker Bios | Painted Porch Strategies",
+    description: "Explore Painted Porch Strategies speaker bios, mission, media appearances and speaking engagements. Download the press kit or contact Media Relations.",
+    ogImage: `${SITE}/images/press-kit-share.jpg`,
     h1: "Painted Porch Strategies Press Kit",
     intro: "Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at the moment where leaders have the greatest leverage: before direction hardens into a plan, while there is still room to imagine, align, and architect what comes next.",
     sections: [
