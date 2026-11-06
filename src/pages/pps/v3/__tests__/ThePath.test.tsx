@@ -130,6 +130,10 @@ describe("ThePath (draft)", () => {
     expect(numbered.map((li) => li.textContent?.match(/^\d+/)?.[0])).toEqual(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]);
     expect(steps.getByText("Define Your Destination")).toBeInTheDocument();
     expect(steps.getByText("Take Your Change on the Road")).toBeInTheDocument();
+    // The graphic's wording as updated by PPS Admin (2026-11-06).
+    for (const name of ["Assemble Your Change Coalition", "Plan Your Route", "Map Your Future Journey", "Provide GPS & Roadside Assistance"]) {
+      expect(steps.getByText(name)).toBeInTheDocument();
+    }
     const links = screen.getAllByRole("link", { name: "Phase Zero™" });
     expect(links.length).toBeGreaterThanOrEqual(2);
     for (const link of links) expect(link).toHaveAttribute("href", "/phase-zero");

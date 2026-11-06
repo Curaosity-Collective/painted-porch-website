@@ -229,7 +229,7 @@ export const routes = [
       },
       {
         h2: "Ten steps on the road",
-        body: "Prepare: 1 Define Your Destination; 2 Pin Your Starting Point (Current State). Align: 3 Assemble Change Ambassadors; 4 Plan Your Route; 5 Plot Your Checkpoints, Milestones & Celebrations; 6 Identify Bumps, Roadblocks, and Detours. Take Off: 7 Take Your Change on the Road; 8 Map Your Future State; 9 Provide GPS & Roadside Support. Habits: 10 Reinforce Change & Continual ShIFt. Steps 1 to 6 are Phase Zero™.",
+        body: "Prepare: 1 Define Your Destination; 2 Pin Your Starting Point. Align: 3 Assemble Your Change Coalition; 4 Plan Your Route; 5 Plot Your Checkpoints, Milestones & Celebrations; 6 Identify Bumps, Roadblocks, and Detours. Take Off: 7 Take Your Change on the Road; 8 Map Your Future Journey; 9 Provide GPS & Roadside Assistance. Habits: 10 Reinforce Change & Continual ShIFt. Steps 1 to 6 are Phase Zero™.",
       },
       {
         h2: "Your P.A.T.H., in one page",

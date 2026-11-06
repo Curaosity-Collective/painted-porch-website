@@ -103,17 +103,18 @@ const STAGES = [
 ];
 
 /**
- * The ten steps on PPS Admin's road graphic (2026-11-06), worded as the graphic words them.
+ * The ten steps on PPS Admin's road graphic (updated 2026-11-06), worded as the graphic words them;
+ * the Brand Bible's §5.5 is to follow (PPS-DEC-0027).
  * Steps 1 to 6, Prepare and Align, are Phase Zero (PPS-DEC-0027). The list is what phones
  * and screen readers get: the graphic's text is too small to read on a phone.
  */
 const ROAD_STEPS: { stage: string; dot: string; steps: [number, string][] }[] = [
-  { stage: "Prepare", dot: "bg-prepare", steps: [[1, "Define Your Destination"], [2, "Pin Your Starting Point (Current State)"]] },
+  { stage: "Prepare", dot: "bg-prepare", steps: [[1, "Define Your Destination"], [2, "Pin Your Starting Point"]] },
   {
     stage: "Align",
     dot: "bg-align",
     steps: [
-      [3, "Assemble Change Ambassadors"],
+      [3, "Assemble Your Change Coalition"],
       [4, "Plan Your Route"],
       [5, "Plot Your Checkpoints, Milestones & Celebrations"],
       [6, "Identify Bumps, Roadblocks, and Detours"],
@@ -122,7 +123,7 @@ const ROAD_STEPS: { stage: string; dot: string; steps: [number, string][] }[] = 
   {
     stage: "Take Off",
     dot: "bg-gold",
-    steps: [[7, "Take Your Change on the Road"], [8, "Map Your Future State"], [9, "Provide GPS & Roadside Support"]],
+    steps: [[7, "Take Your Change on the Road"], [8, "Map Your Future Journey"], [9, "Provide GPS & Roadside Assistance"]],
   },
   { stage: "Habits", dot: "bg-habits", steps: [[10, "Reinforce Change & Continual ShIFt"]] },
 ];
