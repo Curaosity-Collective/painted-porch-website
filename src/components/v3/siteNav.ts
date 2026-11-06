@@ -3,8 +3,9 @@
  *
  * Header: The P.A.T.H. (with Phase Zero in its dropdown), Speaking,
  * Insights & Resources and About, then search and the "Ready for Epic
- * ShIFt?" quiz button. The P.A.T.H.way partnership pages are not in the
- * header (B2B first, plan §1); the footer keeps them.
+ * ShIFt?" button that opens the Find Your Next ShIFt guide. The offers for
+ * leaders and teams are not in the header (B2B first, plan §1); the footer
+ * keeps them under "Leaders & Teams".
  *
  * Links point at each page's go-live address. Labels containing "ShIFt"
  * render with the IF styled (NavLabel).
@@ -64,7 +65,11 @@ export const HEADER_MENU: NavGroup[] = [
   },
 ];
 
-/** The P.A.T.H.way offerings: out of the header, kept in the footer (plan §1). */
+/**
+ * The offers for leaders and teams: out of the header, kept in the footer's
+ * "Leaders & Teams" column (plan §1; PPS Admin, 2026-11-06). The name says who
+ * they serve, not where to start: an organization starts with the Clarity Call.
+ */
 export const PATHWAY_LINKS: NavLink[] = [
   { label: "Assessments", href: "/partner/ignite/assessments" },
   { label: "Masterclasses", href: "/partner/ignite/masterclasses" },

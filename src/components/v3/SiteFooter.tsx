@@ -10,8 +10,8 @@ import { COMPANY_LINKS, LEGAL_LINKS, PATH_LINKS, PATHWAY_LINKS, type NavLink } f
 
 /**
  * The redesign's footer (PPS Admin, 2026-11-05): today's working parts in the
- * new style. The P.A.T.H., the P.A.T.H.way offerings (kept here when they left
- * the header), company links, the Porch Perspectives newsletter, social links,
+ * new style. The P.A.T.H., the offers for leaders and teams (kept here when they
+ * left the header; named "Leaders & Teams", PPS Admin 2026-11-06), company links, the Porch Perspectives newsletter, social links,
  * Do Good ShIFt and the legal links. Eyebrows are light Gold on dark
  * (PPS-DEC-0022); the Subscribe button is Gold with dark text, replacing
  * today's white-on-Lime (3:1). Shown on the Draft pages until go-live.
@@ -83,7 +83,7 @@ export default function SiteFooter() {
             </div>
 
             <LinkColumn id="footer-path" title="The P.A.T.H." links={visible(PATH_LINKS)} />
-            <LinkColumn id="footer-pathways" title="P.A.T.H.ways" links={visible(PATHWAY_LINKS)} />
+            <LinkColumn id="footer-leaders-teams" title="Leaders & Teams" links={visible(PATHWAY_LINKS)} />
             <LinkColumn id="footer-company" title="Company" links={visible(COMPANY_LINKS)} />
 
             {/* Stay in touch */}

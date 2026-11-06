@@ -107,9 +107,10 @@ describe("SiteHeader", () => {
 });
 
 describe("SiteFooter", () => {
-  it("keeps the P.A.T.H., P.A.T.H.way and company columns", () => {
+  it("keeps the P.A.T.H., Leaders & Teams and company columns", () => {
     renderAt(<SiteFooter />);
-    const pathways = screen.getByRole("navigation", { name: "P.A.T.H.ways" });
+    expect(screen.queryByText(/P\.A\.T\.H\.ways/)).not.toBeInTheDocument();
+    const pathways = screen.getByRole("navigation", { name: "Leaders & Teams" });
     expect(within(pathways).getAllByRole("link").map((a) => a.getAttribute("href"))).toEqual(
       PATHWAY_LINKS.map((l) => l.href),
     );
