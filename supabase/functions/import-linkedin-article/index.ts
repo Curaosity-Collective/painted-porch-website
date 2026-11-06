@@ -1,11 +1,7 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { scrapeLinkedInArticle } from "../_shared/linkedin-article.ts";
-
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-};
+import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { isScheduledScan, NEWSLETTER_AUTHOR_ID, SCANNED_ARTICLE_STATUS } from "../_shared/scheduled-content-scan.ts";
 
 // Known author-name suffixes that LinkedIn appends to Pulse slugs.
 // Add new ones here as new authors publish.
@@ -846,12 +842,18 @@ Deno.serve(async (req) => {
   try {
     // Verify auth
     const authHeader = req.headers.get("authorization");
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseKey = Deno.env.get("SUPABASE_ANON_KEY")!;
-    const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseUrl = Deno.env.get("SUPABASE_URL");
+    const supabaseKey = Deno.env.get("SUPABASE_ANON_KEY");
+    const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+    if (!supabaseUrl || !supabaseKey || !serviceKey) {
+      return new Response(JSON.stringify({ error: "Importer configuration unavailable" }), { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+    }
+    const scheduled = isScheduledScan(authHeader, serviceKey);
+    let authorId = NEWSLETTER_AUTHOR_ID;
+    if (!scheduled) {
 
     const supabase = createClient(supabaseUrl, supabaseKey, {
-      global: { headers: { Authorization: authHeader! } },
+      global: { headers: { Authorization: authHeader ?? "" } },
     });
 
     const {
@@ -877,10 +879,13 @@ Deno.serve(async (req) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
+    authorId = user.id;
+    }
 
 
-    const { url, reimport } = await req.json();
-    if (!url || !url.includes("linkedin.com/pulse/")) {
+    const { url, reimport: requestedReimport } = await req.json();
+    const reimport = !scheduled && requestedReimport === true;
+    if (typeof url !== "string" || !/^https:\/\/(www\.)?linkedin\.com\/pulse\/[^\s]+$/i.test(url)) {
       return new Response(
         JSON.stringify({ error: "Valid LinkedIn article URL required" }),
         {
@@ -1135,12 +1140,12 @@ Deno.serve(async (req) => {
         .insert({
           title,
           slug,
-          status: "pending",
+          status: SCANNED_ARTICLE_STATUS,
           featured: false,
           excerpt,
           body_json: bodyJson,
           cover_image_url: coverUrl,
-          author_id: user.id,
+          author_id: authorId,
           publish_date: publishedAt ? new Date(publishedAt).toISOString() : new Date().toISOString(),
         })
         .select("id, slug")
@@ -1159,11 +1164,12 @@ Deno.serve(async (req) => {
       newPost = inserted;
     }
 
+    if (!newPost) throw new Error("Import did not create a post");
     return new Response(
       JSON.stringify({
         success: true,
-        postId: newPost!.id,
-        slug: newPost!.slug,
+        postId: newPost.id,
+        slug: newPost.slug,
         title,
         reimported: !!(existing && reimport),
         message: existing && reimport
