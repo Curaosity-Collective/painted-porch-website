@@ -15,4 +15,4 @@
 - [x] Update requested offering URLs and live flags.
 - [x] Refresh page SEO/AEO and verify homepage browser title and saved FAQs.
 - [x] Schedule and verify one weekly YouTube and LinkedIn newsletter sweep, with new imports pending review.
-- [ ] Build and verify a draft press kit with existing bios, mission, speaking details and approved media; list it on the sitemap.
+- [x] Build and verify a draft press kit with existing bios, mission, speaking details and approved media; list it on the sitemap.
