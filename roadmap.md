@@ -17,3 +17,6 @@
 - [x] Schedule and verify one weekly YouTube and LinkedIn newsletter sweep, with new imports pending review.
 - [x] Build and verify a draft press kit with existing bios, mission, speaking details and approved media; list it on the sitemap.
 - [x] Launch the press kit publicly with a press contact and verified downloadable PDF.
+- [x] Add and verify the press-kit inquiry form, speaking inbox email, and approved GHL speaking-pipeline exception.
+- [x] Launch a listed /press page with Media Relations contact details and refresh the press kit PDF.
+- [x] Add the existing Painted Porch Strategies logo to the printed press kit and verify its layout.

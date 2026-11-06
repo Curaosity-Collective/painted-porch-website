@@ -226,6 +226,7 @@ export const sitemapData: SitemapNode[] = [
       { label: "Speaking & Workshop Topics", path: "/speaking/topics" },
       { label: "As Seen On (Media)", path: "/speaking/media" },
       { label: "Press Kit", path: "/press-kit", note: "Bios, mission, speaking engagements, approved media, press contact and PDF" },
+      { label: "Press & Media Relations", path: "/press", note: "Press contact details and inquiry form" },
     ],
   },
   {
