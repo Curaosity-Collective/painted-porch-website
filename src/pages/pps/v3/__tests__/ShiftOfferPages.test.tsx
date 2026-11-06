@@ -106,6 +106,7 @@ describe("EmbodyShift (draft)", () => {
 });
 
 import EnvisionShift from "../EnvisionShift";
+import { PARTNERSHIP_PROMISE } from "@/data/partnershipPromise";
 
 // Envision's Reveal blocks watch the viewport; jsdom has no IntersectionObserver, so an inert one stands in.
 beforeEach(() => {
@@ -119,29 +120,21 @@ beforeEach(() => {
   } as unknown as typeof IntersectionObserver;
 });
 
-describe("The Painted Porch Promise on the three ShIFt pages (PPS Admin, 2026-11-06)", () => {
+describe("Our Partnership Promise on the three ShIFt pages (PPS Admin, 2026-11-06)", () => {
   for (const [name, Page] of [
     ["Envision ShIFt", EnvisionShift],
     ["Architect ShIFt", ArchitectShift],
     ["Embody ShIFt", EmbodyShift],
   ] as const) {
-    it(`${name} shows it once, green, yellow, red, before the closing call to action`, () => {
+    it(`${name} shows it once, before the closing Clarity Call, and not the homepage's If yes / If not yet / If not us`, () => {
       const { container } = renderPage(Page);
-      const heading = screen.getByRole("heading", { level: 2, name: "We Aren't Here to Tell You Yes" });
-      expect(screen.getAllByText("The Painted Porch Promise")).toHaveLength(1);
-      const boxes = screen.getAllByTestId("porch-promise-box");
-      expect(boxes.map((b) => b.firstElementChild?.textContent)).toEqual(["If yes", "If not yet", "If not us"]);
-      expect(boxes.map((b) => b.className.match(/\bbg-(lime-deep|gold|raspberry)\b/)?.[1])).toEqual([
-        "lime-deep",
-        "gold",
-        "raspberry",
-      ]);
-      // It comes after every other section heading: the last stop before the Clarity Call band.
-      const h2s = Array.from(container.querySelectorAll("h2"));
-      const promiseAt = h2s.indexOf(heading as HTMLHeadingElement);
+      const heading = screen.getByRole("heading", { level: 2, name: PARTNERSHIP_PROMISE.title });
+      expect(screen.getAllByTestId("partnership-promise")).toHaveLength(1);
+      expect(screen.getByTestId("partnership-promise")).toHaveTextContent(PARTNERSHIP_PROMISE.body);
       const clarity = screen.getAllByRole("link", { name: /Start with a Clarity Call/ })[0];
-      expect(promiseAt).toBeGreaterThan(0);
       expect(heading.compareDocumentPosition(clarity) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+      // The If yes / If not yet / If not us boxes stay on the homepage only.
+      expect(container.textContent).not.toMatch(/If not yet|We Aren't Here to Tell You Yes/);
     });
   }
 });

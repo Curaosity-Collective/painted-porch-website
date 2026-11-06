@@ -8,7 +8,7 @@ import { CTABand, EvidenceNote, Kicker, NumberedList, PageHero, Prose, V3_H2 } f
 import { GhostLayer, ParallaxImage, StickyMedia } from "@/components/v3/Motion";
 import { Reveal } from "@/components/v3/Reveal";
 import { ShIFt } from "@/components/v3/ShIFt";
-import { PorchPromise } from "@/components/v3/PorchPromise";
+import { PartnershipPromiseNote } from "@/components/v3/PartnershipPromiseNote";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
 import { EPIC_SHIFT_APPRAISAL, clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
@@ -298,8 +298,8 @@ export default function EnvisionShift() {
         </div>
       </section>
 
-      {/* The Painted Porch Promise (PPS Admin, 2026-11-06) */}
-      <PorchPromise />
+      {/* Our Partnership Promise, from Our Approach (PPS Admin, 2026-11-06) */}
+      <PartnershipPromiseNote />
 
       <CTABand
         tone="prepare"
