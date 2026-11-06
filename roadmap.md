@@ -30,3 +30,4 @@
 - [x] Verify newsletter signup end-to-end and clean up only test records.
 - [x] Ensure contact, speaking, press and press-kit inquiries queue requester receipts with submitted details and a 24–48 business-hour response window; all four real form tests recorded sent emails and 66 checks passed.
 - [ ] Correct Team Workshops destination and restore Leaders & Teams footer links without exposing drafts.
+- [ ] Ensure For Individuals opens its available page instead of Coming Soon.
