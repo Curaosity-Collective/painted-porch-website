@@ -335,7 +335,7 @@ export default function SecretsHandoff() {
             </h2>
             <p className="text-xs text-muted-foreground mt-1 max-w-2xl">
               Round-trips each integration with a single read-only call (Stripe balance, GHL location lookup,
-              Resend domains, YouTube videos.list, Anthropic models, Lovable AI ping, Firecrawl credits, Supabase REST self-call).
+              Resend domains, YouTube videos.list, Lovable AI availability, Firecrawl credits, Supabase REST self-call).
               Run on the NEW project to confirm migrated secrets actually work. Passing probes auto-mark
               their secret as ready below.
             </p>

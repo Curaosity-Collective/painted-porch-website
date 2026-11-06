@@ -1044,8 +1044,6 @@ const REQUIRED_SECRET_NAMES = [
   "GHL_LOCATION_ID",
   "ADMIN_NOTIFICATION_EMAIL",
   "YOUTUBE_API_KEY",
-  "ANTHROPIC_API_KEY",
-  "ANTHROPIC_MODEL",
   "FIRECRAWL_API_KEY",
   "LOVABLE_API_KEY",
 ];
@@ -1574,8 +1572,6 @@ Excluded: storage binaries (re-upload those separately when needed)
         GHL_LOCATION_ID: { category: "GoHighLevel", description: "GoHighLevel location ID.", required: true },
         ADMIN_NOTIFICATION_EMAIL: { category: "Internal", description: "Where backup/admin alerts are sent.", required: true },
         YOUTUBE_API_KEY: { category: "YouTube", description: "YouTube Data API v3 key.", required: false },
-        ANTHROPIC_API_KEY: { category: "AI", description: "Anthropic API key (assessment analysis).", required: false },
-        ANTHROPIC_MODEL: { category: "AI", description: "Anthropic model identifier.", required: false },
         FIRECRAWL_API_KEY: { category: "Connectors", description: "Firecrawl key (LinkedIn import).", required: false },
         LOVABLE_API_KEY: { category: "AI", description: "Lovable AI Gateway key (only on Lovable Cloud).", required: false },
       };
