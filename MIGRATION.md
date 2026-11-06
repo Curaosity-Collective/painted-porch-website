@@ -171,11 +171,9 @@ You re-upload from your originals:
 
 In the new Supabase Dashboard → Edge Functions → Manage secrets, add these
 (values you already have — copy them from the current Cloud project, or
-from your password manager / GHL / Stripe / Anthropic dashboards):
+from your password manager / GHL / Stripe dashboards):
 
 ```
-ANTHROPIC_API_KEY
-ANTHROPIC_MODEL
 GHL_API_KEY
 GHL_LOCATION_ID
 YOUTUBE_API_KEY
@@ -185,7 +183,7 @@ STRIPE_WEBHOOK_SECRET
 FIRECRAWL_API_KEY
 ADMIN_NOTIFICATION_EMAIL
 BACKUP_CRON_SECRET     # generate a fresh random string, update pg_cron job to match
-LOVABLE_API_KEY        # only needed if you keep the preview-email function
+LOVABLE_API_KEY        # used by Lovable AI and connected services
 ```
 
 `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`,

@@ -4,6 +4,7 @@
 // migration end-to-end.
 
 import { createClient } from "npm:@supabase/supabase-js@2.57.2";
+import { classifyLovableAiCatalog } from "../_shared/lovable-ai-health.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -99,117 +100,24 @@ async function probeYouTube(): Promise<ProbeResult> {
   }
 }
 
-async function probeAnthropic(): Promise<ProbeResult> {
-  const key = Deno.env.get("ANTHROPIC_API_KEY");
-  if (!key) return skipped("anthropic", "Anthropic", "AI", "ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY not set");
-  try {
-    // 1. Verify the API key by hitting /v1/models
-    const { value: res, ms } = await timed(() =>
-      fetch("https://api.anthropic.com/v1/models?limit=1", {
-        headers: { "x-api-key": key, "anthropic-version": "2023-06-01" },
-      }),
-    );
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}));
-      return {
-        id: "anthropic", label: "Anthropic", category: "AI", required_secret: "ANTHROPIC_API_KEY",
-        status: "fail", http_status: res.status, latency_ms: ms,
-        detail: (body as any)?.error?.message ?? "unknown error",
-        hint: "Verify ANTHROPIC_API_KEY is active.",
-      };
-    }
-    await res.json().catch(() => ({}));
-
-    // 2. Verify ANTHROPIC_MODEL is set and currently valid
-    const model = Deno.env.get("ANTHROPIC_MODEL");
-    if (!model) {
-      return {
-        id: "anthropic", label: "Anthropic", category: "AI", required_secret: "ANTHROPIC_API_KEY",
-        status: "warn", http_status: res.status, latency_ms: ms,
-        detail: "API key works, but ANTHROPIC_MODEL secret is not set.",
-        hint: "Set ANTHROPIC_MODEL (e.g. claude-sonnet-4-5-20250929). See https://docs.anthropic.com/en/docs/about-claude/models",
-      };
-    }
-
-    // Tiny 1-token request validates the model id without burning budget
-    const { value: mRes, ms: mMs } = await timed(() =>
-      fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: {
-          "x-api-key": key,
-          "anthropic-version": "2023-06-01",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model,
-          max_tokens: 1,
-          messages: [{ role: "user", content: "ping" }],
-        }),
-      }),
-    );
-
-    if (mRes.ok) {
-      await mRes.json().catch(() => ({}));
-      return {
-        id: "anthropic", label: "Anthropic", category: "AI", required_secret: "ANTHROPIC_API_KEY",
-        status: "pass", http_status: mRes.status, latency_ms: mMs,
-        detail: `API key valid. Model "${model}" is live.`,
-      };
-    }
-
-    const errBody = await mRes.json().catch(() => ({}));
-    const errMsg = String((errBody as any)?.error?.message ?? "");
-    const errType = String((errBody as any)?.error?.type ?? "");
-    const isModelIssue =
-      mRes.status === 404 ||
-      /model/i.test(errMsg) && (/not.found|deprecat|invalid|unknown|does not exist/i.test(errMsg)) ||
-      errType === "not_found_error";
-
-    if (isModelIssue) {
-      return {
-        id: "anthropic", label: "Anthropic", category: "AI", required_secret: "ANTHROPIC_MODEL",
-        status: "fail", http_status: mRes.status, latency_ms: mMs,
-        detail: `ANTHROPIC_MODEL "${model}" is not available: ${errMsg || "model not found"}`,
-        hint: "Update the ANTHROPIC_MODEL secret to a current model id (e.g. claude-sonnet-4-5-20250929). See https://docs.anthropic.com/en/docs/about-claude/models",
-      };
-    }
-
-    return {
-      id: "anthropic", label: "Anthropic", category: "AI", required_secret: "ANTHROPIC_API_KEY",
-      status: "fail", http_status: mRes.status, latency_ms: mMs,
-      detail: errMsg || "Messages endpoint error",
-      hint: "Verify ANTHROPIC_API_KEY and ANTHROPIC_MODEL are valid.",
-    };
-  } catch (e: any) {
-    return { id: "anthropic", label: "Anthropic", category: "AI", required_secret: "ANTHROPIC_API_KEY", status: "fail", detail: e?.message };
-  }
-}
-
 async function probeLovableAi(): Promise<ProbeResult> {
   const key = Deno.env.get("LOVABLE_API_KEY");
-  if (!key) return skipped("lovable_ai", "Lovable AI Gateway", "AI", "LOVABLE_API_KEY", "LOVABLE_API_KEY not set");
+  if (!key) return skipped("lovable_ai", "Lovable AI", "AI", "LOVABLE_API_KEY", "Lovable AI is not configured");
   try {
+    // Read-only credential check: no generated output, billing, or provider retries.
     const { value: res, ms } = await timed(() =>
-      fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "google/gemini-2.5-flash-lite",
-          messages: [{ role: "user", content: "ping" }],
-          max_tokens: 1,
-        }),
+      fetch("https://ai.gateway.lovable.dev/v1/models", {
+        headers: { Authorization: `Bearer ${key}` },
       }),
     );
-    const ok = res.ok || res.status === 402; // 402 still proves auth works
-    const body = await res.text();
+    const body = await res.json().catch(() => ({}));
+    const verdict = classifyLovableAiCatalog(res.status, body);
     return {
-      id: "lovable_ai", label: "Lovable AI Gateway", category: "AI", required_secret: "LOVABLE_API_KEY",
-      status: ok ? "pass" : "fail", http_status: res.status, latency_ms: ms,
-      detail: ok ? (res.status === 402 ? "Auth OK · workspace out of credits (402)" : "Chat completions reachable") : body.slice(0, 200),
-      hint: ok ? undefined : "Confirm LOVABLE_API_KEY belongs to this workspace.",
+      id: "lovable_ai", label: "Lovable AI", category: "AI", required_secret: "LOVABLE_API_KEY",
+      ...verdict, http_status: res.status, latency_ms: ms,
     };
-  } catch (e: any) {
-    return { id: "lovable_ai", label: "Lovable AI Gateway", category: "AI", required_secret: "LOVABLE_API_KEY", status: "fail", detail: e?.message };
+  } catch {
+    return { id: "lovable_ai", label: "Lovable AI", category: "AI", required_secret: "LOVABLE_API_KEY", status: "fail", detail: "Lovable AI availability could not be verified." };
   }
 }
 
@@ -262,7 +170,6 @@ const ALL_PROBES: Record<string, () => Promise<ProbeResult>> = {
   ghl: probeGhl,
   stripe: probeStripe,
   youtube: probeYouTube,
-  anthropic: probeAnthropic,
   lovable_ai: probeLovableAi,
   firecrawl: probeFirecrawl,
   sb_service: probeSupabaseServiceRole,
