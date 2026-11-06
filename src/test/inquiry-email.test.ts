@@ -13,7 +13,7 @@ describe('inquiry receipts', () => {
       headers: { Authorization: 'Bearer test-key' },
       body: { templateName: 'contact-confirmation', recipientEmail: 'reader@example.com', idempotencyKey: 'inquiry-receipt-press-event', templateData: inquiryReceiptData(input) },
     });
-    expect(inquiryReceiptData(input)).toMatchObject({ ...input, company: 'Publication', consent: 'I agree to be contacted about this inquiry.' });
+    expect(inquiryReceiptData(input)).toMatchObject({ firstName: 'Marcus', lastName: 'Aurelius', email: 'reader@example.com', phone: '5551234567', inquiryType: 'Interview', message: 'Our interview request\nWith a deadline', company: 'Publication', consent: 'I agree to be contacted about this inquiry.' });
   });
   it('keeps contact scope, interests, budget, date and newsletter choice', () => {
     const details = { company: 'Organization', inquiryFor: ['Company'], interests: ['Speaking'], budgetAuthority: 'Yes', budgetRange: '$5,000-$7,999', timeline: 'Specific Date', specificDate: '2026-12-01', newsletter: false };
