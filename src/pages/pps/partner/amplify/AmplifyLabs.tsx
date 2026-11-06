@@ -82,7 +82,7 @@ const cohorts = [
     tagline: "Balance vision with execution",
     description: "Learn to operate at both strategic and tactical levels simultaneously.",
     image: stracticalImg,
-    link: "/partner/amplify/stractical-leader",
+    link: "/leadership-labs/stractical-leader",
     showUpcomingCohort: true,
   },
   {
@@ -156,7 +156,7 @@ export default function AmplifyLabs() {
   useDocumentSeo({
     title: "Leadership Labs | Painted Porch Strategies",
     description: "Cohort-based Leadership Labs from Painted Porch Strategies: 6–12 week programs on Stractical Leadership, Leading Change, Stoicism at Work, AI+EI, and more.",
-    canonical: "/partner/amplify/labs",
+    canonical: "/leadership-labs",
   });
 
   const hasUpcomingCohort = WORKSHOP_START_DATE.getTime() > Date.now();

@@ -42,7 +42,13 @@ export const SPEAKER_PAGE_URLS = new Set<string>([
   "/speaking/sierra",
 ]);
 
-const WORKSHOPS_URL = "/partner/amplify/workshops";
+const WORKSHOPS_URL = "/workshops";
+/**
+ * The Workshops page's address before it moved (PPS-DEC-0025 amendment, PPS Admin 2026-11-06).
+ * It still forwards, so rows that use it work; they get a warning until the data migration
+ * updates them, not an error that would block a build.
+ */
+const LEGACY_WORKSHOPS_URL = "/partner/amplify/workshops";
 const SPEAKING_TOPICS_URL = "/speaking/topics";
 
 const ROUTING_FORMATS = new Set(["workshop", "keynote", "speaking"]);
@@ -59,7 +65,7 @@ export function isRoutingRelevant(row: WorkshopRoutingRow): boolean {
 
 export interface ValidateOptions {
   /**
-   * Set of anchor ids known to be rendered on /partner/amplify/workshops.
+   * Set of anchor ids known to be rendered on /workshops.
    * Passed by the build-time script (parsed from AmplifyWorkshops.tsx + the
    * live DB query). Optional in the admin UI — when omitted, rule 1's anchor
    * membership check is skipped (we still enforce presence).
@@ -90,7 +96,13 @@ export function validateWorkshopRouting(
 
   // Rule 1: featured workshops
   if (row.include_in_workshops) {
-    if (current !== WORKSHOPS_URL) {
+    if (current === LEGACY_WORKSHOPS_URL) {
+      issues.push({
+        level: "warning",
+        code: "FEATURED_LEGACY_URL",
+        message: `current_url "${LEGACY_WORKSHOPS_URL}" still works (it forwards) but should be "${WORKSHOPS_URL}".`,
+      });
+    } else if (current !== WORKSHOPS_URL) {
       issues.push({
         level: "error",
         code: "FEATURED_WRONG_URL",
@@ -107,7 +119,7 @@ export function validateWorkshopRouting(
       issues.push({
         level: "error",
         code: "FEATURED_ANCHOR_UNRENDERED",
-        message: `anchor_id "${anchor}" is not rendered on /partner/amplify/workshops.`,
+        message: `anchor_id "${anchor}" is not rendered on /workshops.`,
       });
     }
     return finalize(issues);

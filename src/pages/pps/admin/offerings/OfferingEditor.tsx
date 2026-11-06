@@ -684,7 +684,7 @@ export default function OfferingEditor({ row: initialRow, launches, onSaved }: P
               <span className="text-sm">
                 <strong>Feature on Workshops page</strong>
                 <span className="block text-[11px] text-muted-foreground">
-                  Show as a full card on <code>/partner/amplify/workshops</code>.
+                  Show as a full card on <code>/workshops</code>.
                   {" "}Blue Door required → Phase Zero section. Otherwise → Team Development section.
                 </span>
               </span>
@@ -784,7 +784,7 @@ export default function OfferingEditor({ row: initialRow, launches, onSaved }: P
                 <HelpTooltip>
                   <strong>Hub / fallback URL</strong>
                   <p className="mt-1">
-                    The page the quiz and public site link to when no dedicated page exists. Usually a tier hub like /partner/ignite/courses or /speaking/topics. The resolved link below is what visitors actually see and click.
+                    The page the quiz and public site link to when no dedicated page exists. Usually a tier hub like /masterclasses or /speaking/topics. The resolved link below is what visitors actually see and click.
                   </p>
                 </HelpTooltip>
               </div>
@@ -799,12 +799,12 @@ export default function OfferingEditor({ row: initialRow, launches, onSaved }: P
                 <HelpTooltip>
                   <strong>Dedicated page URL</strong>
                   <p className="mt-1">
-                    Overrides the hub URL when the offering is published. Use this when the offering has its own landing page (e.g., /partner/amplify/stractical-leader). The quiz, speaker cards, and catalog will all prefer this URL over the hub once the offering is live.
+                    Overrides the hub URL when the offering is published. Use this when the offering has its own landing page (e.g., /leadership-labs/stractical-leader). The quiz, speaker cards, and catalog will all prefer this URL over the hub once the offering is live.
                   </p>
                 </HelpTooltip>
               </div>
               <Input
-                placeholder="e.g. /partner/amplify/labs/goldilocks"
+                placeholder="e.g. /leadership-labs/goldilocks"
                 value={valueOf("dedicated_url") ?? ""}
                 onChange={(e) => patch({ dedicated_url: (e.target.value || null) as any })}
               />

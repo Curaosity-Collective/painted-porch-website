@@ -46,7 +46,7 @@ export const TIERS = {
     textColor: "text-gold",
     solidButtonClasses: "bg-gold border-2 border-gold text-white hover:bg-white hover:text-gold",
     outlineButtonClasses: "bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-white",
-    href: "/partner/ignite/assessments",
+    href: "/assessments",
   },
   AMPLIFY: {
     key: "AMPLIFY",
@@ -59,7 +59,7 @@ export const TIERS = {
     textColor: "text-strategic",
     solidButtonClasses: "bg-strategic border-2 border-strategic text-white hover:bg-white hover:text-strategic",
     outlineButtonClasses: "bg-transparent border-2 border-strategic text-strategic hover:bg-strategic hover:text-white",
-    href: "/partner/amplify/workshops",
+    href: "/workshops",
   },
   EMBODY: {
     key: "EMBODY",

@@ -156,7 +156,7 @@ const sitewideFaqCategories: FAQCategory[] = [
         question: "Do we need the Epic ShIFt Organizational Appraisal before a workshop?",
         answer: (
           <>
-            No. <FaqLink to="/partner/amplify/workshops">Team workshops</FaqLink> stand on their own, though some teams find
+            No. <FaqLink to="/workshops">Team workshops</FaqLink> stand on their own, though some teams find
             the appraisal's insight valuable context. The appraisal is required before Architect ShIFt.
           </>
         ),
@@ -173,7 +173,7 @@ const sitewideFaqCategories: FAQCategory[] = [
         question: "When is the next Leadership Lab cohort?",
         answer: (
           <>
-            We run <FaqLink to="/partner/amplify/labs">Leadership Labs</FaqLink> a few times a year. Join the waitlist and
+            We run <FaqLink to="/leadership-labs">Leadership Labs</FaqLink> a few times a year. Join the waitlist and
             you'll be the first to know when new dates are announced.
           </>
         ),
@@ -224,7 +224,7 @@ const sitewideFaqCategories: FAQCategory[] = [
             It depends on your development priorities. The Shift Architect Assessment is ideal if you're preparing to lead
             transformation. EQ-i 2.0 gives you emotional intelligence insights. Working Genius shows your work energy
             patterns. Performance DNA is your complete success blueprint.{" "}
-            <FaqLink to="/partner/ignite/assessments">Compare the assessments</FaqLink>
+            <FaqLink to="/assessments">Compare the assessments</FaqLink>
           </>
         ),
       },
@@ -249,7 +249,7 @@ const sitewideFaqCategories: FAQCategory[] = [
         question: "How long are masterclasses?",
         answer: (
           <>
-            <FaqLink to="/partner/ignite/masterclasses">Masterclasses</FaqLink> are focused 30–90 minute sessions that
+            <FaqLink to="/masterclasses">Masterclasses</FaqLink> are focused 30–90 minute sessions that
             illuminate specific Phase Zero concepts without weeks of commitment.
           </>
         ),

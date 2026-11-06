@@ -41,7 +41,7 @@ const { ROWS } = vi.hoisted(() => {
     row({ offering_key: "working-genius", name: "Working Genius", topic_slug: "working-genius", facilitator: null, delivery_format: "workshop" }),
     row({ offering_key: "architectChange", name: "Architect Change (Strategic Design Intensive)", topic_slug: "architect-change", topic: "Change & Innovation", include_in_workshops: true }),
     row({ offering_key: "architect-change-phase-zero-", name: "Architect Change: Phase Zero Strategic Design", topic_slug: "architect-change", facilitator: null }),
-    row({ offering_key: "pathToLastingChange", name: "The P.A.T.H. to Change", topic_slug: "path-to-lasting-change", topic: "Change & Innovation", include_in_workshops: true, current_url: "/partner/amplify/workshops", delivery_format: "workshop" }),
+    row({ offering_key: "pathToLastingChange", name: "The P.A.T.H. to Change", topic_slug: "path-to-lasting-change", topic: "Change & Innovation", include_in_workshops: true, current_url: "/workshops", delivery_format: "workshop" }),
     row({ offering_key: "drivingChange3Shifts", name: "Driving Change: The 3 Shifts for Lasting Innovation", topic_slug: "driving-change-3-shifts", topic: "Change & Innovation", is_keynote: true, delivery_format: "keynote" }),
     row({ offering_key: "the-p-a-t-h-to-navigating-ch", name: "The P.A.T.H. to Navigating Change", topic_slug: "path-to-lasting-change", facilitator: null }),
     row({ offering_key: "speakingCommStyle", name: "Speak with Style — 6 Communicator Styles (Keynote)", topic_slug: "communicator-styles", is_keynote: true, facilitator: "Rob" }),

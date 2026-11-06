@@ -73,7 +73,7 @@ const offerings: OfferingCard[] = [
     title: "Communication Masterclasses & Mini-Workshops",
     description:
       "On-demand and live sessions to sharpen how you speak, listen, and lead through every conversation.",
-    href: "https://onthepaintedporch.com/partner/ignite/masterclasses?category=Communication%20%26%20Connection",
+    href: "https://onthepaintedporch.com/masterclasses?category=Communication%20%26%20Connection",
     external: true,
     color: "teal",
   },

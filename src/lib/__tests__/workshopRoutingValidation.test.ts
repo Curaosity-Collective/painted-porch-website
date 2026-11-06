@@ -27,7 +27,7 @@ describe("validateWorkshopRouting", () => {
     expect(validateWorkshopRouting(r).level).toBe("ok");
   });
 
-  it("errors when a featured workshop is not on /partner/amplify/workshops", () => {
+  it("errors when a featured workshop is not on /workshops", () => {
     const r = makeRow({
       include_in_workshops: true,
       current_url: "/speaking/topics",
@@ -38,10 +38,21 @@ describe("validateWorkshopRouting", () => {
     expect(res.issues.some((i) => i.code === "FEATURED_WRONG_URL")).toBe(true);
   });
 
-  it("errors when a featured workshop is missing anchor_id", () => {
+  it("warns, not errors, on the Workshops page's old address while the data catches up (PPS-DEC-0025 amendment)", () => {
     const r = makeRow({
       include_in_workshops: true,
       current_url: "/partner/amplify/workshops",
+      anchor_id: "foo",
+    });
+    const res = validateWorkshopRouting(r);
+    expect(res.level).toBe("warning");
+    expect(res.issues.map((i) => i.code)).toEqual(["FEATURED_LEGACY_URL"]);
+  });
+
+  it("errors when a featured workshop is missing anchor_id", () => {
+    const r = makeRow({
+      include_in_workshops: true,
+      current_url: "/workshops",
       anchor_id: null,
     });
     expect(validateWorkshopRouting(r).issues.some((i) => i.code === "FEATURED_MISSING_ANCHOR")).toBe(true);
@@ -50,7 +61,7 @@ describe("validateWorkshopRouting", () => {
   it("errors when a featured anchor is not rendered on the page", () => {
     const r = makeRow({
       include_in_workshops: true,
-      current_url: "/partner/amplify/workshops",
+      current_url: "/workshops",
       anchor_id: "ghost",
     });
     const res = validateWorkshopRouting(r, { featuredAnchorIds: new Set(["architect-change"]) });
@@ -60,7 +71,7 @@ describe("validateWorkshopRouting", () => {
   it("errors when a speaking row is not on /speaking/topics", () => {
     const r = makeRow({
       delivery_format: "keynote",
-      current_url: "/partner/amplify/workshops",
+      current_url: "/workshops",
       topic_slug: "eight-by-eight",
       anchor_id: "eight-by-eight",
     });
@@ -140,7 +151,7 @@ describe("validateTopicSlugPairs", () => {
   it("flags rows sharing a topic_slug but diverging URLs", () => {
     const rows: WorkshopRoutingRow[] = [
       { offering_key: "ws", name: "workshop", delivery_format: "workshop", current_url: "/speaking/topics", anchor_id: "x", topic_slug: "x", include_in_workshops: false, include_on_speaker_page: false, is_keynote: false },
-      { offering_key: "kn", name: "keynote", delivery_format: "keynote", current_url: "/partner/amplify/workshops", anchor_id: "x", topic_slug: "x", include_in_workshops: false, include_on_speaker_page: false, is_keynote: true },
+      { offering_key: "kn", name: "keynote", delivery_format: "keynote", current_url: "/workshops", anchor_id: "x", topic_slug: "x", include_in_workshops: false, include_on_speaker_page: false, is_keynote: true },
     ];
     const pairs = validateTopicSlugPairs(rows);
     expect(pairs.get("ws")?.some((i) => i.code === "TOPIC_PAIR_DIVERGES")).toBe(true);

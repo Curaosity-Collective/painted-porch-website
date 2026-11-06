@@ -33,7 +33,7 @@ export const V3_SKIN_ROUTES = [
   "/speaking/amy",
   "/speaking/rob",
   "/speaking/sierra",
-  "/partner/amplify/workshops",
+  "/workshops",
   "/contact",
 ] as const;
 

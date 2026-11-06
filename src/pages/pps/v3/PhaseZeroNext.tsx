@@ -121,7 +121,7 @@ const ESSENTIAL_ELEMENTS = [
   { label: "Clarity", to: "/envision-shift" },
   { label: "Resilience", to: "/radical-mindfulness" },
   // The Working Genius page lives under assessments; "/working-genius" was never a route (PPS Admin, 2026-11-06).
-  { label: "Alignment", to: "/partner/ignite/assessments/working-genius" },
+  { label: "Alignment", to: "/assessments/working-genius" },
   { label: "Organizational Health", to: "/eq" },
 ];
 

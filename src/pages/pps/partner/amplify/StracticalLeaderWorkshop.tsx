@@ -226,7 +226,7 @@ export default function StracticalLeaderWorkshop() {
   useDocumentSeo({
     title: "Stractical Leader 6-Week Intensive | Painted Porch Strategies",
     description: "The Stractical Leader is a 6-week cohort intensive for managers ready to master strategic vision and tactical execution together.",
-    canonical: "/partner/amplify/stractical-leader",
+    canonical: "/leadership-labs/stractical-leader",
   });
 
   const [waitlistOpen, setWaitlistOpen] = useState(false);
@@ -237,7 +237,7 @@ export default function StracticalLeaderWorkshop() {
   const isExpired = countdown.expired;
 
   const goToEnroll = () => {
-    navigate("/partner/amplify/stractical-leader/enroll");
+    navigate("/leadership-labs/stractical-leader/enroll");
   };
 
   const scrollToRegister = () => scrollToId("register-section");
@@ -248,7 +248,7 @@ export default function StracticalLeaderWorkshop() {
 
       <PPSBreadcrumb
         segments={[
-          { label: "Leadership Labs", href: "/partner/amplify/labs" },
+          { label: "Leadership Labs", href: "/leadership-labs" },
           { label: "Stractical Leader" },
         ]}
       />

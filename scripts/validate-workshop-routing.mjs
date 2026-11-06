@@ -46,7 +46,9 @@ if (!PPS_URL || !PPS_SERVICE_KEY) {
 const DEDICATED_LANDING_KEYS = new Set(["stracticalLeader", "kickTheHabit"]);
 const SPEAKER_PAGE_URLS = new Set(["/speaking/amy", "/speaking/rob"]);
 const ROUTING_FORMATS = new Set(["workshop", "keynote", "speaking"]);
-const WORKSHOPS_URL = "/partner/amplify/workshops";
+const WORKSHOPS_URL = "/workshops";
+// The old address still forwards; rows using it warn until the data migration runs (PPS-DEC-0025 amendment).
+const LEGACY_WORKSHOPS_URL = "/partner/amplify/workshops";
 const SPEAKING_TOPICS_URL = "/speaking/topics";
 
 function isRoutingRelevant(r) {
@@ -68,13 +70,15 @@ function validateRow(row, featuredAnchorIds) {
   const isDedicated = DEDICATED_LANDING_KEYS.has(row.offering_key);
 
   if (row.include_in_workshops) {
-    if (current !== WORKSHOPS_URL) {
+    if (current === LEGACY_WORKSHOPS_URL) {
+      issues.push({ level: "warning", code: "FEATURED_LEGACY_URL", message: `current_url "${LEGACY_WORKSHOPS_URL}" still forwards but should be "${WORKSHOPS_URL}".` });
+    } else if (current !== WORKSHOPS_URL) {
       issues.push({ level: "error", code: "FEATURED_WRONG_URL", message: `Featured workshop must route to ${WORKSHOPS_URL} (got "${current || "∅"}").` });
     }
     if (!anchor) {
       issues.push({ level: "error", code: "FEATURED_MISSING_ANCHOR", message: "Featured workshop is missing anchor_id." });
     } else if (featuredAnchorIds && !featuredAnchorIds.has(anchor)) {
-      issues.push({ level: "error", code: "FEATURED_ANCHOR_UNRENDERED", message: `anchor_id "${anchor}" is not rendered on /partner/amplify/workshops.` });
+      issues.push({ level: "error", code: "FEATURED_ANCHOR_UNRENDERED", message: `anchor_id "${anchor}" is not rendered on /workshops.` });
     }
     return issues;
   }
@@ -134,7 +138,7 @@ function validatePairs(rows) {
 
 /**
  * Extract the set of anchor ids that would render on
- * /partner/amplify/workshops. Combines:
+ * /workshops. Combines:
  *  - the live DB set (offerings where include_in_workshops=true → their anchor_id)
  *  - the FALLBACK_THUMB keys from AmplifyWorkshops.tsx (safety net)
  */

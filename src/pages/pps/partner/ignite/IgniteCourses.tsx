@@ -86,7 +86,7 @@ export default function IgniteCourses() {
   useDocumentSeo({
     title: "IGNITE Self-Paced Courses | Painted Porch Strategies",
     description: "Self-paced leadership courses from Painted Porch Strategies: Radical Mindfulness, Master Your Message, Extraordinary Teams, and Leading Change.",
-    canonical: "/partner/ignite/courses",
+    canonical: "/masterclasses",
   });
 
   return (

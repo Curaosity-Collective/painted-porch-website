@@ -113,7 +113,7 @@ describe("Phase Zero: Our Approach", () => {
     }
     expect(within(box).getByRole("link", { name: "Alignment" })).toHaveAttribute(
       "href",
-      "/partner/ignite/assessments/working-genius",
+      "/assessments/working-genius",
     );
   });
 

@@ -44,7 +44,7 @@ const additionalPrograms = [
       "Take a test drive of our Change-Ready Leadership Program! This mini-course features a few lessons from our signature Change-Ready Leadership training and advisory program.",
     image: changeReadyMini,
     cta: "Get Started",
-    link: "/partner/ignite/courses",
+    link: "/masterclasses",
   },
   {
     title: "Become a Work From Home Pro!",
@@ -53,7 +53,7 @@ const additionalPrograms = [
     image: workFromHome,
     cta: "Get FREE Access",
     free: true,
-    link: "/partner/ignite/courses",
+    link: "/masterclasses",
   },
   {
     title: "A Beginner's Guide to Stoicism",
@@ -62,7 +62,7 @@ const additionalPrograms = [
     image: stoicismGuide,
     cta: "Get FREE Access",
     free: true,
-    link: "/partner/ignite/courses",
+    link: "/masterclasses",
   },
 ];
 
@@ -237,7 +237,7 @@ export default function PPSPrograms() {
                   up, be heard, connect, drive change, and have resilience to the challenges
                   presented in life, work, and anywhere in between.
                 </p>
-                <Link to="/partner/ignite/assessments/eq">
+                <Link to="/assessments/eq">
                   <Button className="bg-raspberry hover:bg-raspberry/90 text-white font-semibold text-lg py-5 px-8 rounded-lg transition-all hover:scale-[1.02]">
                     Get Started
                     <ArrowRight className="ml-2 w-5 h-5" />

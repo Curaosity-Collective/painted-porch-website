@@ -60,7 +60,7 @@ const offerings: OfferingCard[] = [
     title: "Mindful Masterclasses & Mini-Courses",
     description:
       "On-demand learning designed to help you build resilience, manage energy, and lead with intention. Explore mindfulness, movement, and mindset tools you can use right away.",
-    href: "/partner/ignite/masterclasses?category=Mindfulness%20%26%20Resilience",
+    href: "/masterclasses?category=Mindfulness%20%26%20Resilience",
     color: "teal",
   },
   {

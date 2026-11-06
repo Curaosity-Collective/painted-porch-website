@@ -141,7 +141,7 @@ export default function StracticalLeaderGuide() {
                   This mini guide is a great start. If you want guided practice, real scenarios, and direct feedback over six weeks, the Stractical Leader Lab is your next step.
                 </p>
                 <Link
-                  to="/partner/amplify/stractical-leader"
+                  to="/leadership-labs/stractical-leader"
                   className="inline-flex items-center gap-2 bg-gold text-navy font-poppins font-semibold px-6 py-3 rounded-lg hover:bg-gold/90 transition-colors focus-ring-on-dark"
                 >
                   Explore the Leader Lab

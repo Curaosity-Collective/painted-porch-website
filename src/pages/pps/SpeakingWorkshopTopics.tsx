@@ -24,7 +24,7 @@ import dysfunctionToDynamic from "@/assets/speaking/dysfunction-to-dynamic.png.a
 import shiftHappens from "@/assets/speaking/shift-happens.png.asset.json";
 import heroesAssemble from "@/assets/speaking/amy-heroes-assemble.png";
 import goldilocks from "@/assets/speaking/amy-goldilocks-leadership.png";
-// Workshop thumbs (already in use on /partner/amplify/workshops)
+// Workshop thumbs (already in use on /workshops)
 import architectChangeThumb from "@/assets/workshops/architect-change-thumb.jpg";
 import resilienceThumb from "@/assets/workshops/change-resilience-thumb.jpg";
 import leadershipOpThumb from "@/assets/workshops/leadership-operating-thumb.jpg";
@@ -207,7 +207,7 @@ const IMAGE_MAP: Record<string, string> = {
   "heroes assemble": heroesAssemble,
   "heroes assemble!": heroesAssemble,
   "goldilocks leadership": goldilocks,
-  // Existing workshop thumbs from /partner/amplify/workshops
+  // Existing workshop thumbs from /workshops
   "architect change (strategic design intensive)": architectChangeThumb,
   "architect change": architectChangeThumb,
   "cultivating change resilience": resilienceThumb,
@@ -320,7 +320,7 @@ export default function SpeakingWorkshopTopics() {
         .from("path_finder_offerings")
         .select("offering_key,name,blurb,description,topic,facilitator,current_url,anchor_id,image_url,is_keynote,include_in_workshops,topic_slug,delivery_format")
         .or(
-          "current_url.eq./partner/amplify/workshops,current_url.eq./speaking/topics,current_url.eq./speaking/amy,current_url.eq./speaking/rob,current_url.eq./speaking/sierra,is_keynote.eq.true,include_in_workshops.eq.true",
+          "current_url.eq./workshops,current_url.eq./speaking/topics,current_url.eq./speaking/amy,current_url.eq./speaking/rob,current_url.eq./speaking/sierra,is_keynote.eq.true,include_in_workshops.eq.true",
         )
         .order("name", { ascending: true });
 
@@ -358,7 +358,7 @@ export default function SpeakingWorkshopTopics() {
       // (PPS Admin, 2026-11-05). A workshop row counts even when it is not
       // featured on the Workshops page.
       const isWorkshop =
-        r.include_in_workshops || r.current_url === "/partner/amplify/workshops" || r.delivery_format === "workshop";
+        r.include_in_workshops || r.current_url === "/workshops" || r.delivery_format === "workshop";
       const existing = map.get(key);
       if (existing) {
         if (isKeynote && !existing.formats.includes("Speaking")) existing.formats.push("Speaking");
