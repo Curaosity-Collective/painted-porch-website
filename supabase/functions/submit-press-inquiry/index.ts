@@ -2,6 +2,7 @@ import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
 import { createClient } from 'npm:@supabase/supabase-js@2';
 import { z } from 'npm:zod@3';
 import { PRESS_CONTACT, PRESS_PIPELINE, pressContactFields, pressOpportunity } from '../_shared/press-inquiry.ts';
+import { queueInquiryReceipt } from '../_shared/inquiry-email.ts';
 const schema = z.object({ firstName: z.string().trim().min(1).max(100), lastName: z.string().trim().min(1).max(100), email: z.string().trim().email().max(255).transform(s => s.toLowerCase()), organization: z.string().trim().min(1).max(200), phone: z.string().trim().max(40).optional(), inquiryType: z.enum(['Interview', 'Speaking engagement', 'Press materials', 'Other']), message: z.string().trim().min(10).max(5000), consent: z.literal(true), source: z.enum(['/press-kit', '/press']), submissionId: z.string().uuid(), website: z.string().max(0).optional() });
 const response = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
 Deno.serve(async req => {
@@ -41,9 +42,10 @@ Deno.serve(async req => {
     }
     if (!opportunityId) throw new Error('Opportunity was not saved');
     const client = createClient(url, serviceKey);
+    const confirmationStatus = await queueInquiryReceipt(client, serviceKey, input, input.submissionId);
     const { data, error } = await client.functions.invoke('send-transactional-email', { headers: { Authorization: `Bearer ${serviceKey}` }, body: { templateName: 'press-inquiry-notification', recipientEmail: PRESS_CONTACT.email, idempotencyKey: `press-inquiry-${input.submissionId}`, templateData: input } });
     const emailQueued = !error && data?.success === true && data?.queued === true;
     if (!emailQueued) console.error('Press email not queued', { reason: data?.reason || 'handoff_failed' });
-    return response({ success: true, emailQueued, submissionId: input.submissionId });
+    return response({ success: true, emailQueued, confirmationStatus, submissionId: input.submissionId });
   } catch { return response({ error: 'Your inquiry could not be saved. Please try again.' }, 502); }
 });
