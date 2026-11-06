@@ -62,7 +62,7 @@ const included = [
   "Shared direction and identification of the pillar or pillars needing reinforcement first",
   "90-day strategic sprint fortifying the prioritized pillars before your change execution",
   "An organizational architecture blueprint, not your change implementation plan",
-  "Ongoing advisory equipping leaders, teams, and operations across the three Painted Porch Pillars",
+  "A dedicated day (weekly or bi-weekly) exclusively for you for ongoing advisory equipping leaders, teams, and operations across the three Painted Porch Pillars",
   "1.5-day sprint retrospective and next-steps decision",
 ];
 
