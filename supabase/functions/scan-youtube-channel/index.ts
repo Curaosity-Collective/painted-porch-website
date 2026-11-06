@@ -1,5 +1,6 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { isScheduledScan, SCANNED_VIDEO_STATUS } from "../_shared/scheduled-content-scan.ts";
 
 // Scans the Painted Porch YouTube channel (new uploads -> youtube_videos) and
 // YouTube search for Amy on other channels (-> media_appearances). Everything
@@ -28,17 +29,22 @@ async function yt(path: string, key: string) {
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
-  const url = Deno.env.get("SUPABASE_URL")!;
+  const url = Deno.env.get("SUPABASE_URL");
+  const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
+  const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!url || !anonKey || !serviceKey) return json({ error: "Scanner configuration unavailable" }, 500);
   const authHeader = req.headers.get("Authorization") ?? "";
-  const userClient = createClient(url, Deno.env.get("SUPABASE_ANON_KEY")!, { global: { headers: { Authorization: authHeader } } });
+  if (!isScheduledScan(authHeader, serviceKey)) {
+  const userClient = createClient(url, anonKey, { global: { headers: { Authorization: authHeader } } });
   const { data: u } = await userClient.auth.getUser();
   if (!u?.user) return json({ error: "Unauthorized" }, 401);
   const { data: ok } = await userClient.rpc("is_admin_or_editor", { _user_id: u.user.id });
   if (!ok) return json({ error: "Forbidden" }, 403);
+  }
 
   const key = Deno.env.get("YOUTUBE_API_KEY");
   if (!key) return json({ error: "YouTube key not configured" }, 500);
-  const db = createClient(url, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+  const db = createClient(url, serviceKey);
 
   try {
     // 1. Own channel uploads
@@ -64,8 +70,9 @@ Deno.serve(async (req) => {
     }
 
     // Existing records (dedupe on video id across both tables)
-    const { data: vids } = await db.from("youtube_videos").select("youtube_video_id");
-    const { data: apps } = await db.from("media_appearances").select("external_url");
+    const { data: vids, error: videosError } = await db.from("youtube_videos").select("youtube_video_id");
+    const { data: apps, error: appearancesError } = await db.from("media_appearances").select("external_url");
+    if (videosError || appearancesError) throw videosError || appearancesError;
     const known = new Set((vids || []).map((v) => v.youtube_video_id));
     for (const a of apps || []) {
       const m = (a.external_url || "").match(/(?:v=|youtu\.be\/|shorts\/|live\/|embed\/)([\w-]{11})/);
@@ -95,7 +102,7 @@ Deno.serve(async (req) => {
       published_date: v.snippet.publishedAt?.split("T")[0] ?? null,
       channel_title: v.snippet.channelTitle,
       content_type: "original",
-      review_status: "pending",
+      review_status: SCANNED_VIDEO_STATUS,
     }));
     if (videoRows.length) {
       const { error } = await db.from("youtube_videos").insert(videoRows);
@@ -114,7 +121,7 @@ Deno.serve(async (req) => {
         thumbnail_url: v.snippet.thumbnails?.maxres?.url || v.snippet.thumbnails?.high?.url || null,
         external_url: `https://www.youtube.com/watch?v=${v.id}`,
         appearance_date: v.snippet.publishedAt?.split("T")[0] ?? null,
-        review_status: "pending",
+        review_status: SCANNED_VIDEO_STATUS,
       }));
     if (appRows.length) {
       const { error } = await db.from("media_appearances").insert(appRows);

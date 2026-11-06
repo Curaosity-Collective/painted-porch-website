@@ -259,6 +259,21 @@ export type Database = {
           },
         ]
       }
+      content_sweep_credentials: {
+        Row: {
+          id: boolean
+          token: string
+        }
+        Insert: {
+          id?: boolean
+          token: string
+        }
+        Update: {
+          id?: boolean
+          token?: string
+        }
+        Relationships: []
+      }
       course_launch_status: {
         Row: {
           admin_alert_enabled: boolean
