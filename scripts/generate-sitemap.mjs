@@ -35,6 +35,7 @@ const staticPages = [
   { path: "/the-path", priority: "0.9", changefreq: "monthly" },
   { path: "/architect-shift", priority: "0.9", changefreq: "monthly" },
   { path: "/embody-shift", priority: "0.9", changefreq: "monthly" },
+  { path: "/elemental-style-assessment", priority: "0.6", changefreq: "monthly" },
   { path: "/partner/ignite/assessments", priority: "0.7", changefreq: "monthly" },
   { path: "/partner/ignite/assessments/working-genius", priority: "0.6", changefreq: "monthly" },
   { path: "/partner/ignite/masterclasses", priority: "0.7", changefreq: "monthly" },

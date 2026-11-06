@@ -52,6 +52,8 @@ export const ALWAYS_LIVE_PREFIXES = [
   "/home-next",
   "/about-next",
   "/about/impact-next",
+  // The free Elemental Style quiz, open with no sign-up (PPS Admin, 2026-11-06).
+  "/elemental-style-assessment",
 ];
 
 function stripQuery(pathname: string): string {
