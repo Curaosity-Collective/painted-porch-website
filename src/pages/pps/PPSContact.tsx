@@ -13,6 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import contactHero from "@/assets/heroes/contact-hero.jpg";
 import { loadQuizContactPrefill, clearQuizContactPrefill, formatQuizBlock, type QuizContactPrefill } from "@/components/pps/quiz/quizContactPrefill";
 import { X } from "lucide-react";
+import { CONTACT_FORM_SECTION_ID } from "@/config/epicShiftAppraisal";
 
 const allInterestOptions = [
   { value: "assessments", label: "Assessments" },
@@ -304,8 +305,8 @@ export default function PPSContact() {
         minHeightClass="min-h-[60vh]"
       />
 
-      {/* Contact Form */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* Contact Form. Clarity Call links open the page here (PPS Admin, 2026-11-06). */}
+      <section id={CONTACT_FORM_SECTION_ID} className="scroll-mt-20 py-16 md:py-24 bg-white">
         <div className="container max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-8">
@@ -614,7 +615,7 @@ export default function PPSContact() {
                           />
                           <span className="text-sm text-foreground">
                             Subscribe to stay up to date on Porch insights & happenings.
-                            <span className="block text-xs text-muted-foreground mt-1">We will NOT SPAM you. Unsubscribe at any time.</span>
+                            <span className="block text-xs text-muted-foreground mt-1">We won't spam you. Unsubscribe at any time.</span>
                           </span>
                         </label>
                       </div>

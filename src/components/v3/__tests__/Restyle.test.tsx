@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, renderHook } from "@testing-library/react";
+import { render, screen, renderHook, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import type { ReactNode } from "react";
 
@@ -83,7 +83,10 @@ describe("Speaking hub additions", () => {
     renderSpeaking(true);
     expect(screen.getByRole("heading", { level: 2, name: "What Your Audience Leaves With" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "How Booking Works" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Check Availability" }).getAttribute("href")).toMatch(/^\/contact\?interest=speaking/);
+    // "Inquire", not "Check Availability": there's no calendar to check (PPS Admin, 2026-11-06).
+    const booking = screen.getByRole("heading", { level: 2, name: "How Booking Works" }).closest("section") as HTMLElement;
+    expect(within(booking).getByRole("link", { name: "Inquire About Speaking" }).getAttribute("href")).toMatch(/^\/contact\?interest=speaking/);
+    expect(screen.queryByRole("link", { name: /Check Availability/ })).toBeNull();
     // The live sections stay.
     for (const name of ["Amy Yackowski", "Rob Hunter", "Sierra Ramm Cantrell", "Bring Our Porch to Your Next Event"]) {
       expect(screen.getByRole("heading", { level: 2, name })).toBeInTheDocument();

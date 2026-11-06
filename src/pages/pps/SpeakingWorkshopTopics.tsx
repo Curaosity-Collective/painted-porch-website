@@ -279,6 +279,10 @@ const ALWAYS_BOTH = new Set<string>([
   "driving-change-3-shifts",
   "architecture-of-organizational-shift",
   "path-to-lasting-change",
+  // PPS Admin (2026-11-06): The Stractical Leader is a keynote and a workshop.
+  // Its second row is the Stractical Leader Lab (format "lab"), which the
+  // workshop test doesn't count.
+  "stractical-leader",
 ]);
 
 

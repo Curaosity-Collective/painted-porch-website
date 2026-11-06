@@ -29,7 +29,6 @@ vi.mock("@/components/pps/quiz/PathFinderQuizProvider", () => ({
 }));
 
 import AboutNext from "../AboutNext";
-import { CLARITY_CALL_CONTACT_HREF } from "@/config/epicShiftAppraisal";
 import { CERTIFICATIONS } from "@/data/certifications";
 
 function renderPage() {
@@ -85,7 +84,7 @@ describe("AboutNext (draft)", () => {
     renderPage();
     expect(screen.getByRole("link", { name: /Start with a Clarity Call/ })).toHaveAttribute(
       "href",
-      CLARITY_CALL_CONTACT_HREF,
+      "/#clarity-call",
     );
     fireEvent.click(screen.getByRole("button", { name: /^Take the Ready for Epic/ }));
     expect(openQuiz).toHaveBeenCalledTimes(1);

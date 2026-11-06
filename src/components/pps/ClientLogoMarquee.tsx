@@ -30,22 +30,39 @@ export const allClientLogos: LogoItem[] = [
   { name: "Adaptive Workforce Solutions", src: "/logos/adaptive-wfs.png", href: "https://www.adaptivewfs.com/" },
 ];
 
-function LogoTrack({ logos, duration }: { logos: LogoItem[]; duration: number }) {
+// Each track holds at least this many logos, so a short list (Sierra's has
+// five) still runs edge to edge on a wide screen instead of leaving a gap
+// before the loop restarts.
+const MIN_LOGOS_PER_TRACK = 10;
+// Seconds per logo, so every strip moves at the same speed.
+const SECONDS_PER_LOGO = 5;
+
+function LogoTrack({ logos, duration, copy }: { logos: LogoItem[]; duration: number; copy?: boolean }) {
   return (
-    <div className="flex shrink-0 items-center gap-16 px-8 animate-marquee" style={{ animationDuration: `${duration}s` }}>
-      {logos.map((logo) => (
+    <div
+      className="flex shrink-0 items-center gap-8 px-4 md:gap-16 md:px-8 animate-marquee"
+      style={{ animationDuration: `${duration}s` }}
+      // The second track only completes the loop; screen readers and the
+      // keyboard get the logos once.
+      aria-hidden={copy || undefined}
+    >
+      {logos.map((logo, i) => (
         <a
-          key={logo.name}
+          key={`${logo.name}-${i}`}
           href={logo.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-shrink-0 w-[140px] h-[70px] flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          tabIndex={copy ? -1 : undefined}
+          className="flex-shrink-0 w-[112px] h-[56px] md:w-[140px] md:h-[70px] flex items-center justify-center grayscale opacity-85 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
         >
+          {/* Not lazy: these images come into view by sliding sideways, and
+              browsers don't load lazy images that arrive that way, which left
+              empty slots in the strip (PPS Admin, 2026-11-06). */}
           <img
             src={logo.src}
-            alt={logo.name}
+            alt={copy ? "" : logo.name}
             className="max-w-full max-h-full object-contain"
-            loading="lazy"
+            decoding="async"
           />
         </a>
       ))}
@@ -107,6 +124,9 @@ export default function ClientLogoMarquee({
   showTestimonials = false,
 }: ClientLogoMarqueeProps) {
   const displayLogos = logos || allClientLogos;
+  const repeats = displayLogos.length ? Math.ceil(MIN_LOGOS_PER_TRACK / displayLogos.length) : 0;
+  const trackLogos = Array.from({ length: repeats }, () => displayLogos).flat();
+  const duration = trackLogos.length * SECONDS_PER_LOGO;
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -131,12 +151,13 @@ export default function ClientLogoMarquee({
         </h2>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
+          {/* Narrow fades on phones: at 96px each they hid half the strip. */}
+          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
           <div className="flex overflow-hidden [&:hover>div]:animation-play-state-paused">
-            <LogoTrack logos={displayLogos} duration={displayLogos.length * 5} />
-            <LogoTrack logos={displayLogos} duration={displayLogos.length * 5} />
+            <LogoTrack logos={trackLogos} duration={duration} />
+            <LogoTrack logos={trackLogos} duration={duration} copy />
           </div>
         </div>
 

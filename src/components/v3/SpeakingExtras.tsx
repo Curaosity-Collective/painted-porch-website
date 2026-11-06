@@ -92,7 +92,7 @@ export function HowBookingWorks({ contactHref }: { contactHref: string }) {
             to={contactHref}
             className="inline-flex min-h-[44px] items-center rounded-lg bg-gold px-6 font-poppins font-semibold text-[#1E2B30] transition-colors hover:bg-gold/85"
           >
-            Check Availability
+            Inquire About Speaking
           </Link>
         </div>
       </div>

@@ -24,7 +24,7 @@ export interface NavGroup {
 
 export const PATH_LINKS: NavLink[] = [
   { label: "The P.A.T.H.", href: "/the-path", note: "The four stages of change" },
-  { label: "What is Phase Zero?", href: "/phase-zero", note: "The work before the work" },
+  { label: "What's Phase Zero?", href: "/phase-zero", note: "The work before the work" },
   { label: "Envision ShIFt", href: "/envision-shift", note: "Prepare" },
   { label: "Architect ShIFt", href: "/architect-shift", note: "Align" },
   { label: "Embody ShIFt", href: "/embody-shift", note: "Take Off and Habits" },

@@ -27,7 +27,7 @@ vi.mock("@/components/pps/quiz/PathFinderQuizProvider", () => ({
 }));
 
 import ThePath from "../ThePath";
-import { clarityCallHrefFor } from "@/config/epicShiftAppraisal";
+import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 
 // jsdom's accessible-name computation puts spaces around the styled IF span
 // ("Sh IF t"); browsers don't. Compare names with whitespace removed.
@@ -89,7 +89,7 @@ describe("ThePath (draft)", () => {
     renderPage();
     expect(screen.getByRole("link", { name: /Start with a Clarity Call/ })).toHaveAttribute(
       "href",
-      clarityCallHrefFor("where we are on the P.A.T.H."),
+      clarityCallSectionHref("path"),
     );
     fireEvent.click(screen.getByRole("button", { name: /^Take the Ready for Epic/ }));
     expect(openQuiz).toHaveBeenCalledTimes(1);

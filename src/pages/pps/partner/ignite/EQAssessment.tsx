@@ -280,8 +280,6 @@ export default function EQAssessment() {
     <div>
       <PPSBreadcrumb
         segments={[
-          { label: "Partner", href: "/partner" },
-          { label: "IGNITE", href: "/partner/ignite" },
           { label: "Assessments", href: "/partner/ignite/assessments" },
           { label: "EQ-i 2.0" },
         ]}

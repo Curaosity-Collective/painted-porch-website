@@ -31,8 +31,8 @@ const commonLinks = [
   { href: "/envision-shift", label: "Envision ShIFt: the Epic ShIFt Organizational Appraisal" },
   { href: "/architect-shift", label: "Architect ShIFt" },
   { href: "/embody-shift", label: "Embody ShIFt" },
-  { href: "/partner/ignite", label: "IGNITE — self-led programs" },
-  { href: "/partner/amplify", label: "AMPLIFY — workshops and labs" },
+  { href: "/partner/ignite/assessments", label: "Assessments and masterclasses" },
+  { href: "/partner/amplify/workshops", label: "Team workshops and Leadership Labs" },
   { href: "/resources", label: "Resources hub" },
   { href: "/contact", label: "Contact us" },
 ];
@@ -104,7 +104,7 @@ export const routes = [
     sections: [
       {
         h2: "We design your next shIFt. You make it happen.",
-        body: "Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at the moment where leaders have the greatest leverage: before direction hardens into a plan, while there is still room to imagine, align, and architect what comes next. We look at three things at once: your leadership and culture, your systems and workflows, and the human capacity underneath both.",
+        body: "Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at the moment where leaders have the greatest leverage: before direction hardens into a plan, while there's still room to imagine, align, and architect what comes next. We look at three things at once: your leadership and culture, your systems and workflows, and the human capacity underneath both.",
       },
       {
         h2: "Different disciplines. Shared conviction.",
@@ -117,7 +117,7 @@ export const routes = [
       { href: "/speaking/sierra", label: "Sierra Cantrell" },
       { href: "/about/approach", label: "Our approach" },
       { href: "/about/impact", label: "Results & Impact" },
-      { href: "/contact", label: "Start with a Clarity Call" },
+      { href: "/#clarity-call", label: "Start with a Clarity Call" },
     ],
   },
   {
@@ -218,7 +218,7 @@ export const routes = [
       },
     ],
     links: [
-      { href: "/contact", label: "Start with a Clarity Call" },
+      { href: "/#clarity-call", label: "Start with a Clarity Call" },
       { href: "/the-path", label: "The P.A.T.H." },
       { href: "/architect-shift", label: "Architect ShIFt" },
       { href: "/embody-shift", label: "Embody ShIFt" },
@@ -232,11 +232,11 @@ export const routes = [
       "Prepare, Align, Take Off, Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.",
     h1: "The P.A.T.H.™",
     intro:
-      "Prepare. Align. Take Off. Habits. The four stages of change behind every engagement we run, and the reason our work holds after the deck is archived. It is how organizations learn to do epic shIFt: from the first honest question to the habits that make it second nature.",
+      "Prepare. Align. Take Off. Habits. The four stages of change behind every engagement we run, and the reason our work holds after the deck is archived. It's how organizations learn to do epic shIFt: from the first honest question to the habits that make it second nature.",
     sections: [
       {
         h2: "It starts before Take Off",
-        body: "Most change methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H. begins two stages earlier, while there is still room to shape the possibility: understanding what your organization is built to carry, and bringing the people who will carry it into genuine alignment.",
+        body: "Most change methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H. begins two stages earlier, while there's still room to shape the possibility: understanding what your organization is built to carry, and bringing the people who will carry it into genuine alignment.",
       },
       {
         h2: "Four stages. Three ShIFts. One map.",
@@ -251,8 +251,8 @@ export const routes = [
       { href: "/envision-shift", label: "Envision ShIFt" },
       { href: "/architect-shift", label: "Architect ShIFt" },
       { href: "/embody-shift", label: "Embody ShIFt" },
-      { href: "/phase-zero", label: "What is Phase Zero?" },
-      { href: "/contact", label: "Start with a Clarity Call" },
+      { href: "/phase-zero", label: "What's Phase Zero?" },
+      { href: "/#clarity-call", label: "Start with a Clarity Call" },
     ],
   },
   {
@@ -278,7 +278,7 @@ export const routes = [
       { href: "/the-path", label: "The P.A.T.H." },
       { href: "/envision-shift", label: "Envision ShIFt" },
       { href: "/embody-shift", label: "Embody ShIFt" },
-      { href: "/contact", label: "Start with a Clarity Call" },
+      { href: "/#clarity-call", label: "Start with a Clarity Call" },
     ],
   },
   {
@@ -303,59 +303,7 @@ export const routes = [
     links: [
       { href: "/the-path", label: "The P.A.T.H." },
       { href: "/architect-shift", label: "Architect ShIFt" },
-      { href: "/contact", label: "Start with a Clarity Call" },
-    ],
-  },
-  {
-    path: "/partner/ignite",
-    title: "IGNITE | Painted Porch Strategies",
-    description:
-      "IGNITE is the self-led Painted Porch track: mini courses, assessments, and masterclasses for leaders ready to test transformation.",
-    h1: "IGNITE — Light the Fire",
-    intro:
-      "IGNITE is the entry-tier Painted Porch partnership. Self-led programs, assessments, and masterclasses designed for leaders and small teams who want to prove transformation works here before committing to a full engagement.",
-    sections: [
-      {
-        h2: "What's inside IGNITE",
-        body: "Self-paced mini courses, individual and team assessments (including Working Genius and EQ-i), and live masterclasses on change communication, leadership development, and Stoic practical wisdom. Everything is built to move quickly and produce visible wins.",
-      },
-    ],
-    links: [
-      { href: "/partner/ignite/assessments", label: "IGNITE assessments" },
-      { href: "/partner/ignite/masterclasses", label: "IGNITE masterclasses" },
-      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
-      { href: "/partner/amplify", label: "AMPLIFY partnership" },
-      { href: "/contact", label: "Contact us" },
-    ],
-  },
-  {
-    path: "/partner/amplify",
-    title: "AMPLIFY | Painted Porch Strategies",
-    description:
-      "AMPLIFY is a 3–6 month Painted Porch partnership: workshops, sprints, and labs that build compound momentum for teams ready to shape excellence.",
-    h1: "AMPLIFY — Build Compound Momentum",
-    intro:
-      "AMPLIFY is the mid-tier Painted Porch partnership. A 3–6 month engagement combining workshops, sprints, and labs to build compound momentum across leadership, communication, and operational capacity.",
-    sections: [
-      {
-        h2: "How AMPLIFY works",
-        body: "AMPLIFY engagements typically stack: a targeted workshop opens the work, a 90-day sprint drives execution, and labs deepen specific capabilities. Every AMPLIFY track starts with the Epic ShIFt Organizational Appraisal so we design for your actual position, not a template.",
-      },
-      {
-        h2: "Signature AMPLIFY programs",
-        body: "Architect Change (Phase Zero™ strategic design), the Stractical Leader 6-Week Intensive, Leadership Development workshops, Communication Architecture sprints, and targeted labs on team dynamics and change readiness.",
-      },
-    ],
-    links: [
-      { href: "/partner/amplify/workshops", label: "AMPLIFY workshops" },
-      { href: "/architect-shift", label: "Architect ShIFt" },
-      { href: "/partner/amplify/labs", label: "AMPLIFY labs" },
-      {
-        href: "/partner/amplify/stractical-leader",
-        label: "Stractical Leader Intensive",
-      },
-      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
-      { href: "/contact", label: "Contact us" },
+      { href: "/#clarity-call", label: "Start with a Clarity Call" },
     ],
   },
   {
@@ -395,10 +343,10 @@ export const routes = [
     path: "/resources/faq",
     title: "FAQ | Painted Porch Strategies",
     description:
-      "Frequently asked questions about Painted Porch Strategies: engagements, pricing, the Epic ShIFt Organizational Appraisal, partnership tiers, and how to work with Amy.",
+      "Frequently asked questions about Painted Porch Strategies: the Clarity Call, the three ShIFts, the Epic ShIFt Organizational Appraisal, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
     h1: "Frequently Asked Questions",
     intro:
-      "Answers to the questions we hear most often about Painted Porch Strategies, our engagements, the Epic ShIFt Organizational Appraisal, and how our IGNITE / AMPLIFY / EMBODY partnership tiers work.",
+      "Answers to the questions we hear most often: where to start, what happens in a Clarity Call, how Envision, Architect and Embody ShIFt work, the Epic ShIFt Organizational Appraisal and P.A.T.H. Compass, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
     links: commonLinks,
   },
   {
@@ -413,16 +361,16 @@ export const routes = [
   },
   {
     path: "/partner/amplify/workshops",
-    title: "AMPLIFY Workshops | Painted Porch Strategies",
+    title: "Team Workshops | Painted Porch Strategies",
     description:
-      "Live, cohort-based leadership and change workshops inside AMPLIFY. Architect Change, communication architecture, change readiness, and more.",
-    h1: "AMPLIFY Workshops",
+      "Team workshops on leadership and change: the P.A.T.H. to Lasting Change, communication architecture, change readiness, and more.",
+    h1: "Team Workshops",
     intro:
-      "Cohort-based workshops that open AMPLIFY engagements or run as targeted capability builds. Every workshop is anchored in Phase Zero™ and The Painted Porch Pillars™ so the work sticks after the room clears.",
+      "Team workshops that open a larger engagement or run as targeted capability builds. Every workshop is anchored in Phase Zero™ and The Painted Porch Pillars™ so the work sticks after the room clears.",
     links: [
-      { href: "/partner/amplify", label: "AMPLIFY overview" },
+      { href: "/the-path", label: "The P.A.T.H." },
       { href: "/architect-shift", label: "Architect ShIFt" },
-      { href: "/partner/amplify/labs", label: "AMPLIFY labs" },
+      { href: "/partner/amplify/labs", label: "Leadership Labs" },
       { href: "/partner/amplify/stractical-leader", label: "Stractical Leader Intensive" },
       { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
@@ -430,15 +378,15 @@ export const routes = [
   },
   {
     path: "/partner/amplify/labs",
-    title: "AMPLIFY Labs | Painted Porch Strategies",
+    title: "Leadership Labs | Painted Porch Strategies",
     description:
-      "AMPLIFY labs deepen specific capabilities — team dynamics, change readiness, communication systems — through hands-on practice.",
-    h1: "AMPLIFY Labs",
+      "Leadership Labs deepen specific capabilities — team dynamics, change readiness, communication systems — through hands-on practice.",
+    h1: "Leadership Labs",
     intro:
-      "AMPLIFY labs are hands-on, capability-specific engagements. They pair with workshops and sprints to deepen the muscles a specific transformation needs.",
+      "Leadership Labs are hands-on, capability-specific cohort programs. They pair with workshops to deepen the muscles a specific transformation needs.",
     links: [
-      { href: "/partner/amplify", label: "AMPLIFY overview" },
-      { href: "/partner/amplify/workshops", label: "AMPLIFY workshops" },
+      { href: "/the-path", label: "The P.A.T.H." },
+      { href: "/partner/amplify/workshops", label: "Team workshops" },
       { href: "/architect-shift", label: "Architect ShIFt" },
       { href: "/contact", label: "Contact us" },
     ],
@@ -450,24 +398,24 @@ export const routes = [
       "A 6-week intensive that turns tactical managers into stractical leaders combining strategic thinking with practical execution.",
     h1: "The Stractical Leader — 6-Week Intensive",
     intro:
-      "The Stractical Leader Intensive is a 6-week AMPLIFY program that builds strategic-plus-tactical (stractical) leadership capacity. Live cohort sessions, applied assignments, and direct coaching from Amy Yackowski.",
+      "The Stractical Leader Intensive is a 6-week Leadership Lab that builds strategic-plus-tactical (stractical) leadership capacity. Live cohort sessions, applied assignments, and direct coaching from Amy Yackowski.",
     links: [
       { href: "/resources/stractical-mini", label: "Stractical mini guide (free)" },
-      { href: "/partner/amplify", label: "AMPLIFY overview" },
+      { href: "/the-path", label: "The P.A.T.H." },
       { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
   {
     path: "/partner/ignite/assessments",
-    title: "IGNITE Assessments | Painted Porch Strategies",
+    title: "Assessments | Painted Porch Strategies",
     description:
-      "Individual and team assessments inside IGNITE: Working Genius, EQ-i, change readiness, and elemental style.",
-    h1: "IGNITE Assessments",
+      "Individual and team assessments: Working Genius, EQ-i, change readiness, and elemental style.",
+    h1: "Assessments",
     intro:
       "A library of individual and team assessments that surface how you and your people are wired for change: Working Genius, EQ-i 2.0, change readiness, elemental style, and team health.",
     links: [
-      { href: "/partner/ignite", label: "IGNITE overview" },
+      { href: "/the-path", label: "The P.A.T.H." },
       { href: "/eq", label: "EQ-i 2.0 assessment" },
       { href: "/partner/ignite/assessments/working-genius", label: "Working Genius" },
       { href: "/contact", label: "Contact us" },
@@ -475,14 +423,14 @@ export const routes = [
   },
   {
     path: "/partner/ignite/masterclasses",
-    title: "IGNITE Masterclasses | Painted Porch Strategies",
+    title: "Masterclasses | Painted Porch Strategies",
     description:
       "Live and on-demand masterclasses on change origination, leadership, communication, and Stoic wisdom.",
-    h1: "IGNITE Masterclasses",
+    h1: "Masterclasses",
     intro:
       "Live and on-demand masterclasses on the topics leaders wrestle with most: originating change, leading through uncertainty, designing communication that lands, and applying Stoic practical wisdom.",
     links: [
-      { href: "/partner/ignite", label: "IGNITE overview" },
+      { href: "/the-path", label: "The P.A.T.H." },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -571,10 +519,10 @@ export const routes = [
     path: "/start-here",
     title: "Start Here | Painted Porch Strategies",
     description:
-      "New to Painted Porch Strategies? Take the P.A.T.H. Compass quiz to find your best entry point across IGNITE, AMPLIFY, and EMBODY.",
+      "New to Painted Porch Strategies? Take the P.A.T.H.way quiz to find your best starting point, for you, your team or your organization.",
     h1: "Start Here — Discover Your P.A.T.H.way",
     intro:
-      "A short guided quiz that maps your situation to the right Painted Porch entry point: IGNITE, AMPLIFY, EMBODY, or the Epic ShIFt Organizational Appraisal, so you're not guessing what to do next.",
+      "A short guided quiz that maps your situation to the right starting point: self-led resources, team workshops and Leadership Labs, or the Epic ShIFt Organizational Appraisal, so you're not guessing what to do next.",
     links: commonLinks,
   },
   {

@@ -118,7 +118,6 @@ const downloads = [
     href: "/elemental-style-assessment",
     ctaIcon: ClipboardCheck,
     ctaLabel: "Take Assessment",
-    comingSoon: true,
   },
   {
     icon: ClipboardCheck,
@@ -209,7 +208,8 @@ export default function FreeDownloads() {
       <section id="downloads" className="py-16 md:py-24 bg-white">
         <div className="container max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8">
-            {downloads.map((download, index) => {
+            {/* Available resources first, anything coming soon last (PPS Admin, 2026-11-06). */}
+            {[...downloads.filter((d) => !d.comingSoon), ...downloads.filter((d) => d.comingSoon)].map((download, index) => {
               const CtaIcon = download.ctaIcon ?? Download;
               const ctaLabel = download.ctaLabel ?? "Download Free";
               return (

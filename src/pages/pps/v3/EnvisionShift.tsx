@@ -9,7 +9,7 @@ import { GhostLayer, ParallaxImage, StickyMedia } from "@/components/v3/Motion";
 import { Reveal } from "@/components/v3/Reveal";
 import { ShIFt } from "@/components/v3/ShIFt";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
-import { CLARITY_CALL_CONTACT_HREF, EPIC_SHIFT_APPRAISAL } from "@/config/epicShiftAppraisal";
+import { EPIC_SHIFT_APPRAISAL, clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -33,7 +33,7 @@ const DESCRIPTION =
 const produces = [
   {
     title: "Architecture read",
-    body: "How your leadership, systems, and capacity currently fit together — including where they are working against each other.",
+    body: "How your leadership, systems, and capacity currently fit together — including where they're working against each other.",
   },
   {
     title: "Capacity signal",
@@ -174,16 +174,16 @@ export default function EnvisionShift() {
                 begins, so you commit to a direction you can actually carry rather than one that looks right on a slide.
               </p>
               <p>
-                The Compass is not designed to funnel every organization toward the same next step. It may point toward
+                Your P.A.T.H. Compass isn't designed to funnel every organization toward the same next step. It may point toward
                 moving now, reinforcing a foundation first, resequencing the initiative, or choosing not to proceed.
                 Clarity is valuable even when it changes the plan.
               </p>
               <p>
-                Every epic <ShIFt lowercase /> starts with seeing clearly. The Compass shows whether your organization is ready to
+                Every epic <ShIFt lowercase /> starts with seeing clearly, including whether your organization is ready to
                 carry the one you're imagining.
               </p>
               <p>
-                Your P.A.T.H. Compass informs your best next step on the journey to do Epic <ShIFt />. When reinforcement
+                That clarity informs your best next step on the journey to do Epic <ShIFt />. When reinforcement
                 is the right next move, it grounds the executive authorship intensive within your Architect <ShIFt />
                 engagement.
               </p>
@@ -234,7 +234,7 @@ export default function EnvisionShift() {
           <Reveal>
             <Kicker>How It Works</Kicker>
             <h2 className={`mt-5 max-w-2xl ${V3_H2}`}>
-              Interviews. Appraisal. Your Compass.
+              Interviews. Appraisal. Clarity.
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -307,7 +307,7 @@ export default function EnvisionShift() {
             becomes your natural next step.
           </>
         }
-        to={CLARITY_CALL_CONTACT_HREF}
+        to={clarityCallSectionHref("appraisal")}
         label="Start with a Clarity Call"
         secondary={
           <>

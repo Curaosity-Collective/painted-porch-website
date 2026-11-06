@@ -248,8 +248,6 @@ export default function StracticalLeaderWorkshop() {
 
       <PPSBreadcrumb
         segments={[
-          { label: "Partner", href: "/partner" },
-          { label: "AMPLIFY", href: "/partner/amplify" },
           { label: "Leadership Labs", href: "/partner/amplify/labs" },
           { label: "Stractical Leader" },
         ]}

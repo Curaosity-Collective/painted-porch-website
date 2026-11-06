@@ -5,7 +5,7 @@ import { ShIFt } from "@/components/v3/ShIFt";
 import ClientLogoMarquee from "@/components/pps/ClientLogoMarquee";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
-import { CLARITY_CALL_CONTACT_HREF } from "@/config/epicShiftAppraisal";
+import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { CHARITIES } from "@/data/charities";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { CLIENT_TESTIMONIALS } from "./testimonials";
@@ -210,7 +210,7 @@ export default function ResultsImpact() {
       <CTABand
         title="Do Work That Goes Further"
         body="Every journey starts with a Clarity Call, and 5% of the fee goes somewhere good while you're at it."
-        to={CLARITY_CALL_CONTACT_HREF}
+        to={clarityCallSectionHref()}
         label="Start with a Clarity Call"
         image={openDoors}
         imageAlt="Open double doors onto a sunlit garden path"

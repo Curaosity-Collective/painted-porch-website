@@ -8,7 +8,7 @@ import { ShIFt } from "@/components/v3/ShIFt";
 import ClientLogoMarquee from "@/components/pps/ClientLogoMarquee";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
-import { CLARITY_CALL_CONTACT_HREF } from "@/config/epicShiftAppraisal";
+import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { CERTIFICATIONS } from "@/data/certifications";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 
@@ -105,8 +105,7 @@ export default function AboutNext() {
             <Prose>
               <p>
                 Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at
-                the moment where leaders have the greatest leverage: before direction hardens into a plan, while there
-                is still room to imagine, align, and architect what comes next.
+                the moment where leaders have the greatest leverage: before direction hardens into a plan, while there's still room to imagine, align, and architect what comes next.
               </p>
               <p>
                 We look at three things at once: your leadership and culture, your systems and workflows, and the human
@@ -233,7 +232,7 @@ export default function AboutNext() {
       <CTABand
         title="Author What Comes Next"
         body="If your organization is being called toward something greater, start with a Clarity Call: 60 minutes with Amy to see what's possible."
-        to={CLARITY_CALL_CONTACT_HREF}
+        to={clarityCallSectionHref()}
         label="Start with a Clarity Call"
         image={porchSunset}
         imageAlt="Two rocking chairs on a porch facing the sunset across an open lawn"

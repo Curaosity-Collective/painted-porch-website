@@ -9,7 +9,7 @@ import { GhostLayer, StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
-import { clarityCallHrefFor } from "@/config/epicShiftAppraisal";
+import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -40,7 +40,7 @@ const applications = [
 const differenceRows = [
   {
     traditional: "Begins with a selected tool, vendor, or solution.",
-    sprint: "Begins with the shift you are called to lead and what it could make possible.",
+    sprint: "Begins with the shift you're called to lead and what it could make possible.",
   },
   {
     traditional: "Applies a proven playbook to reach resolution.",
@@ -191,7 +191,7 @@ export default function ArchitectShift() {
               <p>
                 The 90-day strategic sprint that follows fortifies those priorities before your change execution. An
                 organizational architecture blueprint and ongoing advisory equip and fortify your leaders, your teams,
-                and your operations across the three Painted Porch Pillars. We are not designing your future or writing
+                and your operations across the three Painted Porch Pillars. We're not designing your future or writing
                 your implementation plan. Your organization gains the structures and capability to design and lead the
                 change it envisioned and authored.
               </p>
@@ -313,13 +313,14 @@ export default function ArchitectShift() {
                 ))}
               </ul>
             </div>
-            <div className="bg-align p-6 md:p-8">
-              <p className="label-kicker text-[#5A1420]">
-                Architect <ShIFt onFill /> with Painted Porch
+            {/* White, not the pink Align fill (PPS Admin, 2026-11-06). */}
+            <div className="bg-white p-6 md:p-8">
+              <p className="label-kicker text-raspberry">
+                Architect <ShIFt /> with Painted Porch
               </p>
               <ul className="mt-5 space-y-4">
                 {differenceRows.map((row) => (
-                  <li key={row.sprint} className="text-sm font-medium leading-relaxed text-[#3B0A12]">
+                  <li key={row.sprint} className="text-sm font-medium leading-relaxed text-foreground">
                     {row.sprint}
                   </li>
                 ))}
@@ -359,8 +360,8 @@ export default function ArchitectShift() {
             <p className="mt-3 text-sm leading-relaxed text-foreground">
               The Epic <ShIFt /> Organizational Appraisal shows where you really stand and what's blocking progress.
               This interview-led organizational 360 includes six interviews (three executives, and three people from
-              mid-level through the frontline) and your P.A.T.H. Compass. It's required before Architect <ShIFt />, it
-              begins with a Clarity Call, and the investment is $24,000.
+              mid-level through the frontline) and your P.A.T.H. Compass. It's required before Architect <ShIFt /> and
+              begins with a Clarity Call.
             </p>
             <Link
               to="/envision-shift"
@@ -410,7 +411,7 @@ export default function ArchitectShift() {
             begins with a Clarity Call.
           </>
         }
-        to={clarityCallHrefFor("Architect ShIFt")}
+        to={clarityCallSectionHref("architect")}
         label="Start with a Clarity Call"
         image={sunlitColumns}
         imageAlt="Sunlight streaming between the columns of an enduring stone colonnade"

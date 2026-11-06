@@ -63,7 +63,7 @@ export function StartWhereYouAreSection() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {TIER_LIST.map((tier) => {
-            const content = tierContent[tier.name as keyof typeof tierContent];
+            const content = tierContent[tier.key as keyof typeof tierContent];
 
             return (
               <div

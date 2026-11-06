@@ -261,6 +261,18 @@
 .v3-skin [data-hero] [data-eyebrow="plain"] {
   color: #f4c05e;
 }
+/* Teal call-to-action bands (PPS Admin, 2026-11-06: the Raspberry eyebrow was
+   hard to read there; it measured about 1:1 on the band). The band takes the
+   deep teal of the site's other dark bands, so its eyebrow can be light Gold
+   like every eyebrow on a dark background (PPS-DEC-0022) and its white body
+   text clears 4.5:1, which it didn't on the lighter teal. */
+.v3-skin [data-cta-band][data-overlay-tone="teal"] [data-parallax-overlay] {
+  background-image: none;
+  background-color: hsl(var(--v3-teal-deep) / 0.97);
+}
+.v3-skin [data-cta-band] [data-eyebrow="plain"]:not([data-tone="white"]) {
+  color: #f4c05e;
+}
 /* The IF in shIFt is bold Raspberry (PPS-DEC-0022); light raspberry on dark bands. */
 .v3-skin [data-if] {
   color: hsl(var(--raspberry));

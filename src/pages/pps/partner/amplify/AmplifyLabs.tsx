@@ -68,8 +68,8 @@ const labFaqCategories: FAQCategory[] = [
     name: "General",
     faqs: [
       {
-        question: "How is AMPLIFY different from IGNITE?",
-        answer: "IGNITE is self-paced individual development. AMPLIFY is team-based learning (workshops, sprints, cohorts). IGNITE builds your capacity. AMPLIFY builds team or organizational capacity.",
+        question: "How is this different from self-led learning?",
+        answer: "Self-led resources (assessments, masterclasses and mini courses) build your own capacity, at your own pace. Workshops and Leadership Labs build it together, with your team or a cohort of peers.",
       },
     ],
   },
@@ -154,7 +154,7 @@ const cohorts = [
 
 export default function AmplifyLabs() {
   useDocumentSeo({
-    title: "Leadership Labs | AMPLIFY | Painted Porch Strategies",
+    title: "Leadership Labs | Painted Porch Strategies",
     description: "Cohort-based Leadership Labs from Painted Porch Strategies: 6–12 week programs on Stractical Leadership, Leading Change, Stoicism at Work, AI+EI, and more.",
     canonical: "/partner/amplify/labs",
   });
@@ -165,8 +165,7 @@ export default function AmplifyLabs() {
     <div>
       <PPSBreadcrumb
         segments={[
-          { label: "Partner", href: "/partner" },
-          { label: "AMPLIFY", href: "/partner/amplify" },
+          { label: "The P.A.T.H.", href: "/the-path" },
           { label: "Leadership Labs" },
         ]}
       />
@@ -174,14 +173,14 @@ export default function AmplifyLabs() {
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container max-w-7xl mx-auto px-6">
           <Link
-            to="/partner/amplify"
+            to="/the-path"
             className="inline-flex items-center gap-2 text-sm text-strategic hover:underline mb-8"
           >
-            <ArrowRight className="w-4 h-4 rotate-180" /> Back to AMPLIFY Overview
+            <ArrowRight className="w-4 h-4 rotate-180" /> Back to The P.A.T.H.
           </Link>
 
           <div className="text-center mb-12">
-            <Eyebrow variant="plain" tone="primary" as="p">AMPLIFY · Leadership Labs</Eyebrow>
+            <Eyebrow variant="plain" tone="primary" as="p">Leadership Labs</Eyebrow>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-4">
               Peer-Driven Acceleration & Action
             </h1>
@@ -281,9 +280,9 @@ export default function AmplifyLabs() {
       </section>
 
       <FAQSection
-        tierName="AMPLIFY"
+        tierName="Leadership Labs"
         categories={labFaqCategories}
-        subheadline="Common questions about AMPLIFY Leadership Labs"
+        subheadline="Common questions about Leadership Labs"
       />
     </div>
   );

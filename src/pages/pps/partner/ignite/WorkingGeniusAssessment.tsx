@@ -165,8 +165,6 @@ export default function WorkingGeniusAssessment() {
     <div>
       <PPSBreadcrumb
         segments={[
-          { label: "Partner", href: "/partner" },
-          { label: "IGNITE", href: "/partner/ignite" },
           { label: "Assessments", href: "/partner/ignite/assessments" },
           { label: "Working Genius" },
         ]}

@@ -161,20 +161,6 @@ const SERVICE_LD = {
     provider: ORG_REF,
     areaServed: { "@type": "Country", name: "United States" },
   },
-  "/partner/ignite": {
-    "@type": "Service",
-    name: "IGNITE — Self-led Transformation",
-    serviceType: "Leadership Development",
-    category: "Professional Training",
-    provider: ORG_REF,
-  },
-  "/partner/amplify": {
-    "@type": "Service",
-    name: "AMPLIFY — 3–6 Month Partnership",
-    serviceType: "Organizational Transformation Partnership",
-    category: "Management Consulting",
-    provider: ORG_REF,
-  },
   // Relaunch: Embody ShIFt replaces /partner/embody, which redirects here.
   "/embody-shift": {
     "@type": "Service",
@@ -188,7 +174,7 @@ const SERVICE_LD = {
     "@type": "Course",
     name: "The Stractical Leader 6-Week Intensive",
     description:
-      "A 6-week AMPLIFY cohort that builds strategic-plus-tactical leadership capacity.",
+      "A 6-week Leadership Lab cohort that builds strategic-plus-tactical leadership capacity.",
     provider: ORG_REF,
     hasCourseInstance: {
       "@type": "CourseInstance",

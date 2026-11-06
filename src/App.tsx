@@ -321,7 +321,10 @@ const App = () => (
             <Route path="partner-archive" element={<PartnerWithUs />} />
             <Route path="partner-archive-v2" element={<PartnerWithUsAlt />} />
             
-            <Route path="partner/ignite" element={<IgnitePathAlt />} />
+            {/* PPS-DEC-0025: the IGNITE and AMPLIFY overview pages are archived (Draft, no
+                page_status row) and their addresses go to the pages visitors want. */}
+            <Route path="partner/ignite" element={<Navigate to="/partner/ignite/assessments" replace />} />
+            <Route path="partner/ignite-archive-v2" element={<IgnitePathAlt />} />
             {/* Courses retired (PPS-DEC-0021): course pages go to mini courses and masterclasses */}
             <Route path="partner/ignite/courses" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
             <Route path="partner/ignite/assessments" element={<IgniteAssessments />} />
@@ -331,7 +334,8 @@ const App = () => (
             <Route path="eq-change-leader" element={<EQChangeLeaderMini />} />
             <Route path="eq-change-leader-mini" element={<Navigate to="/eq-change-leader" replace />} />
             <Route path="partner/ignite-archive" element={<IgnitePath />} />
-            <Route path="partner/amplify" element={<AmplifyPathAlt />} />
+            <Route path="partner/amplify" element={<Navigate to="/partner/amplify/workshops" replace />} />
+            <Route path="partner/amplify-archive-v2" element={<AmplifyPathAlt />} />
             <Route path="partner/amplify/workshops" element={<AmplifyWorkshops />} />
             {/* Relaunch: Strategic Sprints are Architect ShIFt's 90-day sprint (plan §4). */}
             <Route path="partner/amplify/sprints" element={<Navigate to="/architect-shift" replace />} />
@@ -436,7 +440,7 @@ const App = () => (
             <Route path="for-teams" element={<Navigate to="/envision-shift" replace />} />
             <Route path="services" element={<Navigate to="/the-path" replace />} />
             <Route path="business-programs" element={<Navigate to="/the-path" replace />} />
-            <Route path="programs" element={<Navigate to="/partner/ignite" replace />} />
+            <Route path="programs" element={<Navigate to="/partner/ignite/assessments" replace />} />
             {/* Course sales pages retired (PPS-DEC-0021) */}
             <Route path="radical-mindfulness" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
             <Route path="communication" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
@@ -450,8 +454,8 @@ const App = () => (
             <Route path="stracticalmini" element={<Navigate to="/resources/stractical-mini" replace />} />
             <Route path="media" element={<Navigate to="/speaking/media" replace />} />
             <Route path="free" element={<Navigate to="/resources/free" replace />} />
-            <Route path="ignite" element={<Navigate to="/partner/ignite" replace />} />
-            <Route path="amplify" element={<Navigate to="/partner/amplify" replace />} />
+            <Route path="ignite" element={<Navigate to="/partner/ignite/assessments" replace />} />
+            <Route path="amplify" element={<Navigate to="/partner/amplify/workshops" replace />} />
             <Route path="embody" element={<Navigate to="/embody-shift" replace />} />
             <Route path="courses" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
             <Route path="masterclass" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
