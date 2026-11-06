@@ -228,49 +228,11 @@ export default function PPSContact() {
           newsletter,
           tags: includeQuiz && quizPrefill ? ["contact-form", "pathfinder-quiz"] : ["contact-form"],
           source: "Painted Porch Website - Contact Form",
+          submissionId: crypto.randomUUID(),
         },
       });
 
       if (error) throw error;
-
-      // Send confirmation email to submitter and notification to team
-      const emailData = {
-        firstName: firstName.trim(),
-        lastName: lastName.trim(),
-        email: email.trim(),
-        phone: phone.trim() || undefined,
-        company: company.trim() || undefined,
-        inquiryFor,
-        interests,
-        message: finalMessage,
-        budgetAuthority: showBudgetAuthority ? budgetAuthority : undefined,
-        budgetRange: showBudgetRange ? budgetRange : undefined,
-        timeline: showBudgetRange ? timeline : undefined,
-        specificDate: specificDate ? format(specificDate, "PPP") : undefined,
-        newsletter,
-      };
-
-      const submissionId = crypto.randomUUID();
-
-      // Fire both emails in parallel (non-blocking, don't fail the form if emails fail)
-      Promise.allSettled([
-        supabase.functions.invoke("send-transactional-email", {
-          body: {
-            templateName: "contact-confirmation",
-            recipientEmail: email.trim(),
-            idempotencyKey: `contact-confirm-${submissionId}`,
-            templateData: emailData,
-          },
-        }),
-        supabase.functions.invoke("send-transactional-email", {
-          body: {
-            templateName: "contact-notification",
-            recipientEmail: "team@onthepaintedporch.com",
-            idempotencyKey: `contact-notify-${submissionId}`,
-            templateData: emailData,
-          },
-        }),
-      ]).catch((err) => console.error("Email sending error:", err));
 
       setSubmitted(true);
       toast({ title: "Message sent!", description: "We'll be in touch soon." });
