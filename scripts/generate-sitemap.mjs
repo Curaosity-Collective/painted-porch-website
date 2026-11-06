@@ -30,6 +30,7 @@ const staticPages = [
   { path: "/speaking/amy", priority: "0.6", changefreq: "monthly" },
   { path: "/speaking/rob", priority: "0.5", changefreq: "monthly" },
   { path: "/speaking/media", priority: "0.5", changefreq: "monthly" },
+  { path: "/press-kit", priority: "0.6", changefreq: "monthly" },
   // Relaunch (plan Phase 5): The P.A.T.H. and the ShIFts replace /partner,
   // /partner/amplify/sprints and /partner/embody, which now redirect.
   { path: "/the-path", priority: "0.9", changefreq: "monthly" },

@@ -40,6 +40,24 @@ const commonLinks = [
 /** @type {RouteContent[]} */
 export const routes = [
   {
+    path: "/press-kit",
+    title: "Press Kit | Painted Porch Strategies",
+    description: "Painted Porch Strategies bios, mission, speaking engagements, approved media appearances, press contact, and downloadable press kit.",
+    h1: "Painted Porch Strategies Press Kit",
+    intro: "Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at the moment where leaders have the greatest leverage: before direction hardens into a plan, while there is still room to imagine, align, and architect what comes next.",
+    sections: [
+      { h2: "Our Mission", body: "Extraordinary Teams. Epic ShIFt. We build with your leaders rather than for them, expanding their capacity to author the future long after we leave." },
+      { h2: "Our Speakers", body: "Amy Yackowski, Founder and Chief Evolution Officer; Rob Hunter, Chief Storytelling Officer; and Sierra Ramm Cantrell, Chief Joy Officer. Topics include change authorship, emotional intelligence, storytelling, communication, mindfulness and resilience." },
+      { h2: "Selected Speaking Engagements", body: "ProjectWorld, Project Summit, PMBA Global, American Staffing Association, Toastmasters International and NextUp Phoenix." },
+      { h2: "Press Contact", body: "Contact the Painted Porch Strategies team for interviews, speaking opportunities, speaker photos and additional press materials." },
+    ],
+    links: [
+      { href: "/contact?interest=speaking", label: "Contact Us" },
+      { href: "/downloads/painted-porch-strategies-press-kit.pdf", label: "Download Press Kit PDF" },
+      { href: "/speaking/media", label: "Media Appearances" },
+    ],
+  },
+  {
     // Relaunch (plan Phase 5, PPS Admin 2026-11-05): the redesign's homepage.
     // No prices on the homepage (PPS-DEC-0022).
     path: "/",

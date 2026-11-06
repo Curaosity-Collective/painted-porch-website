@@ -15,6 +15,6 @@ describe("press kit approval rules", () => {
     expect(resolvePageStatus("/press-kit", {})).toBe("draft");
   });
   it("opens the press kit publicly when its saved status is live", () => {
-    expect(resolvePageStatus("/press-kit", { "/press-kit": { path: "/press-kit", status: "live", category: "public", note: null } })).toBe("live");
+    expect(resolvePageStatus("/press-kit", { "/press-kit": { id: "press-kit", path: "/press-kit", status: "live", category: "public", note: null, updated_at: "2026-11-06T11:25:00Z" } })).toBe("live");
   });
 });
