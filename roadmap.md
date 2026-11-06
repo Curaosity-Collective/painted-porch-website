@@ -24,6 +24,6 @@
 - [x] Refill cleared search summaries and FAQs without replacing existing search settings.
 - [x] Add and verify live press-kit search title, description, and share-sized Open Graph image.
 - [x] Connect blog Subscribe to newsletter contact capture.
-- [ ] Make newsletter signups contact-only, remove team email notifications, and verify both contact creation and update.
+- [x] Make newsletter signups contact-only and remove team email notifications; deployed and tested both contact creation and update with mocked CRM responses.
 - [ ] Finish newsletter tag consolidation in GHL workflows and remove legacy tags afterward; public API exposes workflow metadata only, so trigger/action edits need GHL workflow-editor access. Website handlers now use newsletter and five existing contacts received it without removing legacy tags.
 - [x] Verify newsletter signup end-to-end and clean up only test records.
