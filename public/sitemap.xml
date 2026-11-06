@@ -81,32 +81,32 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/partner/ignite/assessments</loc>
+    <loc>https://onthepaintedporch.com/assessments</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/partner/ignite/assessments/working-genius</loc>
+    <loc>https://onthepaintedporch.com/assessments/working-genius</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/partner/ignite/masterclasses</loc>
+    <loc>https://onthepaintedporch.com/masterclasses</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/partner/amplify/workshops</loc>
+    <loc>https://onthepaintedporch.com/workshops</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/partner/amplify/labs</loc>
+    <loc>https://onthepaintedporch.com/leadership-labs</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/partner/amplify/stractical-leader</loc>
+    <loc>https://onthepaintedporch.com/leadership-labs/stractical-leader</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
