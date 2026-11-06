@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowRight, Check, Copy, Download, Mic } from "lucide-react";
+import { ArrowRight, Check, Copy, Download, Mic, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/pps/Eyebrow";
 import { TierHeroSection } from "@/components/pps/TierHeroSection";
@@ -37,7 +37,7 @@ export default function PressKit() {
   const [visible, setVisible] = useState(6);
   const { toast } = useToast();
   const { data: appearances = [], isLoading, isError, refetch } = useQuery({ queryKey: ["press-kit-appearances"], queryFn: fetchPressAppearances });
-  useDocumentSeo({ title: "Press Kit | Painted Porch Strategies", description: "Painted Porch Strategies bios, mission, speaking engagements, and approved media appearances for journalists and event organizers.", ogImage: speakingHero, robots: "noindex, nofollow" });
+  useDocumentSeo({ title: "Press Kit | Painted Porch Strategies", description: "Painted Porch Strategies bios, mission, speaking engagements, approved media appearances, press contact, and downloadable press kit.", ogImage: speakingHero, robots: "index, follow" });
 
   async function copyBio() {
     try {
@@ -59,7 +59,8 @@ export default function PressKit() {
 
       <nav aria-label="Press kit sections" className="border-b border-border">
         <div className="container max-w-7xl mx-auto px-6 py-5 flex flex-wrap gap-x-8 gap-y-3 font-semibold text-primary">
-          {[['bio', 'Our Bio'], ['mission', 'Our Mission'], ['speakers', 'Our Speakers'], ['engagements', 'Speaking Engagements'], ['media', 'Media Appearances']].map(([id, label]) => <a key={id} href={`#${id}`} className="hover:underline focus-visible:ring-2 focus-visible:ring-primary">{label}</a>)}
+          {[['bio', 'Our Bio'], ['mission', 'Our Mission'], ['speakers', 'Our Speakers'], ['engagements', 'Speaking Engagements'], ['media', 'Media Appearances'], ['press-contact', 'Press Contact']].map(([id, label]) => <a key={id} href={`#${id}`} className="hover:underline focus-visible:ring-2 focus-visible:ring-primary">{label}</a>)}
+          <Button asChild variant="outline" className="gap-2"><a href="/downloads/painted-porch-strategies-press-kit.pdf" download="painted-porch-strategies-press-kit.pdf"><Download className="h-4 w-4" />Download Press Kit PDF</a></Button>
         </div>
       </nav>
 
@@ -117,6 +118,13 @@ export default function PressKit() {
           </Link>)}</div>
           <div className="mt-8 flex flex-wrap gap-4">{visible < appearances.length && <Button variant="outline" onClick={() => setVisible((count) => count + 6)}>Show More Appearances</Button>}<Button variant="ghost" asChild><Link to="/speaking/media">View As Seen On <ArrowRight className="ml-2 h-4 w-4" /></Link></Button></div>
         </>}
+      </section>
+      <section id="press-contact" aria-labelledby="press-contact-heading" className="bg-muted/50 border-y border-border">
+        <div className={SECTION}><Eyebrow tone="teal">Press Inquiries</Eyebrow><h2 id="press-contact-heading" className={H2}>Press Contact</h2>
+          <p className="text-lead mt-5">Painted Porch Strategies Team</p>
+          <p className="text-body mt-3 max-w-3xl">For interviews, speaking opportunities, speaker photos, or additional press materials, contact our team.</p>
+          <div className="flex flex-wrap gap-4 mt-6"><Button asChild className="gap-2"><Link to="/contact?interest=speaking"><MessageSquare className="h-4 w-4" />Contact Us</Link></Button><Button asChild variant="outline" className="gap-2"><a href="/downloads/painted-porch-strategies-press-kit.pdf" download="painted-porch-strategies-press-kit.pdf"><Download className="h-4 w-4" />Download Press Kit PDF</a></Button></div>
+        </div>
       </section>
       <ParallaxCTA backgroundImage={speakingHero} overlayTone="purple" eyebrow="Press & Speaking Inquiries" headline="Bring the Porch to Your Audience" description="For interviews, speaking opportunities, or additional press materials, get in touch with our team." actions={[{ label: "Contact Us", to: "/contact?interest=speaking", variant: "primary" }]} />
     </div>
