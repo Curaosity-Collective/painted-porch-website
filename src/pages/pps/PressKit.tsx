@@ -9,6 +9,7 @@ import { ParallaxCTA } from "@/components/pps/ParallaxCTA";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { useToast } from "@/hooks/use-toast";
 import { fetchPressAppearances } from "@/lib/press-kit";
+import { PressInquiryForm } from "@/components/pps/PressInquiryForm";
 import { mediaAppearancePath } from "@/lib/media-appearance-seo.mjs";
 import speakingHero from "@/assets/heroes/speaking-hero.jpg";
 import amyPhoto from "@/assets/team/amy-speaking-portrait.jpg";
@@ -121,9 +122,11 @@ export default function PressKit() {
       </section>
       <section id="press-contact" aria-labelledby="press-contact-heading" className="bg-muted/50 border-y border-border">
         <div className={SECTION}><Eyebrow tone="teal">Press Inquiries</Eyebrow><h2 id="press-contact-heading" className={H2}>Press Contact</h2>
-          <p className="text-lead mt-5">Painted Porch Strategies Team</p>
+          <p className="text-lead mt-5">Media Relations</p>
+          <p className="text-body mt-3 break-words">speaking@onthepaintedporch.com</p>
           <p className="text-body mt-3 max-w-3xl">For interviews, speaking opportunities, speaker photos, or additional press materials, contact our team.</p>
-          <div className="flex flex-wrap gap-4 mt-6"><Button asChild className="gap-2"><Link to="/contact?interest=speaking"><MessageSquare className="h-4 w-4" />Contact Us</Link></Button><Button asChild variant="outline" className="gap-2"><a href="/downloads/painted-porch-strategies-press-kit.pdf" download="painted-porch-strategies-press-kit.pdf"><Download className="h-4 w-4" />Download Press Kit PDF</a></Button></div>
+          <div className="flex flex-wrap gap-4 mt-6"><Button asChild variant="outline" className="gap-2"><Link to="/press"><MessageSquare className="h-4 w-4" />Press Contact Details</Link></Button><Button asChild variant="outline" className="gap-2"><a href="/downloads/painted-porch-strategies-press-kit.pdf" download="painted-porch-strategies-press-kit.pdf"><Download className="h-4 w-4" />Download Press Kit PDF</a></Button></div>
+          <div className="max-w-3xl mt-10"><h3 className="font-poppins text-2xl font-semibold text-navy mb-6">Send a Press Inquiry</h3><PressInquiryForm /></div>
         </div>
       </section>
       <ParallaxCTA backgroundImage={speakingHero} overlayTone="purple" eyebrow="Press & Speaking Inquiries" headline="Bring the Porch to Your Audience" description="For interviews, speaking opportunities, or additional press materials, get in touch with our team." actions={[{ label: "Contact Us", to: "/contact?interest=speaking", variant: "primary" }]} />

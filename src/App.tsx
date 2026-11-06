@@ -107,6 +107,7 @@ import AboutNext from "./pages/pps/v3/AboutNext";
 // Other Pages
 import Speaking from "./pages/pps/Speaking";
 import PressKit from "./pages/pps/PressKit";
+import Press from "./pages/pps/Press";
 import SpeakingWorkshopTopics from "./pages/pps/SpeakingWorkshopTopics";
 import AmySpeaker from "./pages/pps/speaking/AmySpeaker";
 import RobSpeaker from "./pages/pps/speaking/RobSpeaker";
@@ -371,6 +372,7 @@ const App = () => (
             
             <Route path="speaking" element={<Speaking />} />
             <Route path="press-kit" element={<PressKit />} />
+            <Route path="press" element={<Press />} />
             <Route path="speaking/topics" element={<SpeakingWorkshopTopics />} />
             <Route path="speaking/amy" element={<AmySpeaker />} />
             <Route path="speaking/rob" element={<RobSpeaker />} />
