@@ -1,12 +1,14 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
 import { createClient } from 'npm:@supabase/supabase-js@2';
 import { z } from 'npm:zod@3';
-import { PRESS_CONTACT, pressContactFields, pressOpportunity } from '../_shared/press-inquiry.ts';
+import { PRESS_CONTACT, PRESS_PIPELINE, pressContactFields, pressOpportunity } from '../_shared/press-inquiry.ts';
 const schema = z.object({ firstName: z.string().trim().min(1).max(100), lastName: z.string().trim().min(1).max(100), email: z.string().trim().email().max(255).transform(s => s.toLowerCase()), organization: z.string().trim().min(1).max(200), phone: z.string().trim().max(40).optional(), inquiryType: z.enum(['Interview', 'Speaking engagement', 'Press materials', 'Other']), message: z.string().trim().min(10).max(5000), consent: z.literal(true), source: z.enum(['/press-kit', '/press']), submissionId: z.string().uuid(), website: z.string().max(0).optional() });
 const response = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
 Deno.serve(async req => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
   if (req.method !== 'POST') return response({ error: 'Method not allowed' }, 405);
+  const origin = req.headers.get('origin');
+  if (!origin || !/^https?:\/\/(localhost(?::\d+)?|(?:www\.)?(?:onthepaintedporch|paintedporchstrategies)\.com|[a-z0-9-]+\.(?:lovable\.app|lovableproject\.com))$/i.test(origin)) return response({ error: 'This inquiry must be sent from our website.' }, 403);
   const parsed = schema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return response({ error: 'Please check the inquiry fields.', fields: parsed.error.flatten().fieldErrors }, 400);
   const input = parsed.data;
@@ -31,8 +33,8 @@ Deno.serve(async req => {
       contactId = created.contact?.id;
     }
     if (!contactId) throw new Error('Contact was not saved');
-    const existing = await ghl(`/opportunities/search?location_id=${encodeURIComponent(locationId)}&contact_id=${encodeURIComponent(contactId)}&pipeline_id=OlrKwxPdDW6kSoecPB4k&limit=100`);
-    let opportunityId: string | undefined = existing.opportunities?.find((o: { customFields?: Array<{ id?: string; fieldValue?: unknown; field_value?: unknown }> }) => o.customFields?.some(f => String(f.fieldValue ?? f.field_value ?? '').includes(`Submission: ${input.submissionId}`)))?.id;
+    const existing = await ghl(`/opportunities/search?location_id=${encodeURIComponent(locationId)}&contact_id=${encodeURIComponent(contactId)}&pipeline_id=${PRESS_PIPELINE.id}&limit=100`);
+    let opportunityId: string | undefined = existing.opportunities?.find((o: { customFields?: Array<{ id?: string; fieldValue?: unknown; field_value?: unknown; fieldValueString?: unknown }> }) => o.customFields?.some(f => String(f.fieldValueString ?? f.fieldValue ?? f.field_value ?? '').includes(`Submission: ${input.submissionId}`)))?.id;
     if (!opportunityId) {
       const created = await ghl('/opportunities/', 'POST', pressOpportunity(input, contactId, locationId, new Date().toISOString()));
       opportunityId = created.opportunity?.id;
