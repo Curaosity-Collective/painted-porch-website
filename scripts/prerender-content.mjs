@@ -324,10 +324,10 @@ export const routes = [
     path: "/resources/faq",
     title: "FAQ | Painted Porch Strategies",
     description:
-      "Frequently asked questions about Painted Porch Strategies: engagements, pricing, the Epic ShIFt Organizational Appraisal, partnership tiers, and how to work with Amy.",
+      "Frequently asked questions about Painted Porch Strategies: the Clarity Call, the three ShIFts, the Epic ShIFt Organizational Appraisal, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
     h1: "Frequently Asked Questions",
     intro:
-      "Answers to the questions we hear most often about Painted Porch Strategies, our engagements, the Epic ShIFt Organizational Appraisal, and how our self-led resources, team workshops and the three ShIFts work.",
+      "Answers to the questions we hear most often: where to start, what happens in a Clarity Call, how Envision, Architect and Embody ShIFt work, the Epic ShIFt Organizational Appraisal and P.A.T.H. Compass, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
     links: commonLinks,
   },
   {

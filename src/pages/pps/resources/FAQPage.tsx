@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
@@ -6,184 +7,256 @@ import LazyHeroVideo from "@/components/pps/LazyHeroVideo";
 import { useHeroLoaded } from "@/hooks/useHeroLoaded";
 import faqHero from "@/assets/faq-hero.jpg";
 
+/** An in-answer link, styled like the site's other inline links. */
+function FaqLink({ to, children }: { to: string; children: ReactNode }) {
+  return (
+    <Link to={to} className="font-semibold text-primary underline underline-offset-2 hover:no-underline">
+      {children}
+    </Link>
+  );
+}
+
+/**
+ * Organized around the Clarity Call, the three ShIFts, team workshops and self-led resources
+ * (PPS Admin approved the outline, 2026-11-06). IGNITE, AMPLIFY and EMBODY aren't used as names
+ * (PPS-DEC-0025). No prices here: each answer links to the page that carries its price.
+ */
 const sitewideFaqCategories: FAQCategory[] = [
   {
     name: "General",
     faqs: [
       {
         question: "What does Painted Porch Strategies do?",
-        answer: "We partner with leaders and organizations to architect transformation capacity before implementation begins. Grounded in Stoic philosophy and 20+ years of change expertise, we co-design the cultural cornerstone, operational frame, and living ecosystem required for sustainable, human-centered change.",
+        answer: "We partner with leaders and organizations to architect the capacity for change before implementation begins. Grounded in Stoic philosophy and more than 20 years of change expertise, we co-design the Cultural Cornerstone, Operational Frame and Living Ecosystem that sustainable, human-centered change needs.",
       },
       {
         question: "What does 'Phase Zero™' mean?",
-        answer: "Phase Zero is the strategic preparation that happens before any project kicks off. It's the readiness work, mindset, alignment, and architectural design, that most change initiatives skip. It's the foundation everything at Painted Porch is built on.",
+        answer: "Phase Zero is the strategic preparation that happens before any project kicks off: the readiness work, mindset, alignment and architectural design that most change initiatives skip. It sits inside Prepare, the first stage of the P.A.T.H., and it's the foundation everything at Painted Porch is built on.",
       },
       {
         question: "Why is it called 'Painted Porch'?",
-        answer: "The name comes from the ancient stoa poikile, the 'painted porch' in Athens where Zeno taught Stoicism. It was an open-air gathering place for learning, dialogue, and practical wisdom. We carry that spirit into modern organizational change.",
+        answer: "The name comes from the ancient stoa poikile, the 'painted porch' in Athens where Zeno taught Stoicism. It was an open-air gathering place for learning, dialogue and practical wisdom. We carry that spirit into modern organizational change.",
       },
       {
         question: "What industries do you work with?",
-        answer: "Our frameworks are industry-agnostic. We've partnered with leaders in healthcare staffing, technology, professional services, and more. The principles of Phase Zero and human-centered change apply wherever people drive results.",
+        answer: "Our frameworks are industry-agnostic. We've partnered with leaders in healthcare staffing, technology, professional services and more. The principles of Phase Zero and human-centered change apply wherever people drive results.",
       },
       {
         question: "How is Painted Porch different from traditional consulting?",
-        answer: "Traditional consultants deliver packaged solutions based on what worked elsewhere. We partner with you to co-design transformation architecture specific to your context. You're the expert of your organization. We're experts in transformation architecture. Together, we build permanent capacity, not dependency.",
+        answer: "Traditional consultants bring packaged solutions based on what worked somewhere else. We partner with you to co-design the architecture your organization actually needs. You're the expert on your organization; we're experts in transformation architecture. Together, we build permanent capacity, not dependency.",
       },
     ],
   },
   {
-    name: "Choosing Your P.A.T.H.way",
+    name: "Getting Started",
     faqs: [
       {
-        question: "What's the difference between IGNITE, AMPLIFY, and EMBODY?",
-        answer: "IGNITE is self-paced individual development: mini courses, assessments, and masterclasses you complete on your own schedule. AMPLIFY is cohort and team-based learning through workshops, strategic sprints, and Leadership Labs. EMBODY is an embedded executive partnership for full organizational transformation. Each P.A.T.H.way builds on the last, but you can start wherever fits your needs.",
+        question: "Where should we start?",
+        answer: (
+          <>
+            Most organizations start with a <FaqLink to="/#clarity-call">Clarity Call</FaqLink>: 60 minutes with Amy to read
+            where you are and the first decisive move to make. If you'd rather explore on your own first,{" "}
+            <FaqLink to="/start-here">take the P.A.T.H.way quiz</FaqLink>. It takes a few minutes and points you to a good
+            starting point for you, your team or your organization.
+          </>
+        ),
       },
       {
-        question: "How do I know which P.A.T.H.way is right for me?",
-        answer: "Consider where you are right now: If you're exploring change concepts individually, start with IGNITE. If you're ready to activate your team, AMPLIFY is your journey. If you're a senior leader ready for embedded, sustained transformation, EMBODY is designed for you.",
+        question: "What happens in a Clarity Call?",
+        answer: (
+          <>
+            It's 60 minutes with Amy Yackowski. Bring the vision you haven't had the words for, or the roadblock everyone
+            else has accepted as normal. Together you'll read whether your current architecture can carry the shIFt, where
+            misalignment would tax your momentum, and the first decisive move to make. Every engagement, including the Epic
+            ShIFt Organizational Appraisal, begins here. <FaqLink to="/#clarity-call">Book a Clarity Call</FaqLink>.
+          </>
+        ),
       },
       {
-        question: "Do I need to start with IGNITE before moving to AMPLIFY or EMBODY?",
-        answer: "No. Your starting point is yours to choose. Many leaders begin with IGNITE to build personal capacity, then progress to AMPLIFY or EMBODY. Others jump directly into AMPLIFY workshops or EMBODY partnerships based on their organization's readiness and goals.",
-      },
-      {
-        question: "Can I mix offerings from different P.A.T.H.ways?",
-        answer: "Absolutely. Many leaders take IGNITE masterclasses for personal development while their teams participate in AMPLIFY workshops. The P.A.T.H.ways are designed to complement each other, not restrict you.",
+        question: "What is the P.A.T.H.?",
+        answer: (
+          <>
+            The P.A.T.H.™ is our four-stage framework for lasting change: Prepare, Align, Take Off and Habits. Most change
+            methodologies start at Take Off, with a plan and a launch. The P.A.T.H. begins two stages earlier, while there's
+            still room to shape what's possible, and Envision, Architect and Embody ShIFt partner with you across the
+            stages. <FaqLink to="/the-path">See The P.A.T.H.</FaqLink>
+          </>
+        ),
       },
       {
         question: "Is there a commitment or contract required?",
-        answer: "IGNITE offerings are individual purchases with no ongoing commitment. AMPLIFY engagements are typically 3–6 month partnerships. EMBODY partnerships run 6–12+ months. Every engagement starts with a conversation to make sure it's the right fit for both sides.",
+        answer: "Self-led resources are one-time purchases, and many are free. Workshops are booked one at a time. Architect ShIFt is one integrated engagement: a 3-day executive intensive, a 90-day strategic sprint and a 1.5-day retrospective. Embody ShIFt is ongoing monthly advisory. Every engagement starts with a conversation to make sure it's the right fit for both sides.",
+      },
+      {
+        question: "Can we mix offerings?",
+        answer: "Absolutely. Many leaders take a masterclass or an assessment for their own growth while their team joins a workshop, and plenty start small and grow into deeper work as trust builds. The offerings are designed to complement each other, not restrict you.",
       },
     ],
   },
   {
-    name: "IGNITE, Assessments",
+    name: "The Three ShIFts",
     faqs: [
       {
-        question: "Do assessments expire?",
-        answer: "No. Once you purchase an assessment, you schedule any optional debrief at your convenience (within 12 months of purchase).",
+        question: "What's the difference between Envision, Architect and Embody ShIFt?",
+        answer: (
+          <>
+            They partner with you across the P.A.T.H. <FaqLink to="/envision-shift">Envision ShIFt</FaqLink> (Prepare) is
+            the Epic ShIFt Organizational Appraisal: an honest read of what your organization is ready to carry.{" "}
+            <FaqLink to="/architect-shift">Architect ShIFt</FaqLink> (Align) authors the direction with your leaders and
+            fortifies the pillars that need to hold first. <FaqLink to="/embody-shift">Embody ShIFt</FaqLink> (Take Off and
+            Habits) is ongoing advisory while your organization designs and leads the change.
+          </>
+        ),
       },
       {
-        question: "Which assessment should I take first?",
-        answer: "It depends on your development priorities. The Shift Architect Assessment is ideal if you're preparing to lead transformation. EQ-i 2.0 if you want emotional intelligence insights. Working Genius if you need to understand your work energy patterns. Performance DNA if you want your complete success blueprint.",
+        question: "What's the Epic ShIFt Organizational Appraisal, and what's the P.A.T.H. Compass?",
+        answer: (
+          <>
+            The appraisal is an interview-led organizational 360: six interviews, three with executives and three with people
+            from mid-level through the frontline, read across the three Painted Porch Pillars™. It produces your P.A.T.H.
+            Compass, which shows where you can move now, what needs reinforcement first, and your recommended next step. It
+            begins with a Clarity Call. <FaqLink to="/envision-shift">How the appraisal works</FaqLink>
+          </>
+        ),
       },
       {
-        question: "Can I take multiple assessments?",
-        answer: "Yes. Many leaders take 2-3 assessments to get a comprehensive view of their capacity, strengths, and development priorities.",
+        question: "Why does Architect ShIFt start with the appraisal?",
+        answer: "The appraisal is how we see your three Painted Porch Pillars™ clearly: Cultural Cornerstone, Operational Frame and Living Ecosystem. It shows what your organization is built to carry right now and what needs reinforcing. Without that reading, any engagement is a guess. With it, Architect ShIFt's executive intensive starts from shared evidence about your actual architecture, not a template.",
       },
       {
-        question: "Are debriefs included with all assessments?",
-        answer: "Debriefs are optional and vary by assessment. Check individual assessment details for specific offerings.",
+        question: "What if the appraisal shows we're not ready?",
+        answer: "That's one of the most valuable things the appraisal can surface. Your P.A.T.H. Compass shows what to reinforce first, and we'll be straightforward about it. The right next step might be strengthening a foundation, resequencing the initiative, a team workshop or self-led work. We'd rather point you to the right starting line than sell you an engagement your organization can't yet carry.",
       },
       {
-        question: "Can my team take assessments together?",
-        answer: "Yes. Team pricing is available for Working Genius, EQ-i 2.0, and Performance DNA. Contact us for team rates and group debrief options.",
-      },
-    ],
-  },
-  {
-    name: "IGNITE, Masterclasses",
-    faqs: [
-      {
-        question: "How long are masterclasses?",
-        answer: "Masterclasses are focused 30-90 minute sessions designed to illuminate specific Phase Zero concepts without requiring weeks of commitment.",
+        question: "How is this different from change management?",
+        answer: "Change management starts after the direction is set. It manages resistance and drives adoption of decisions already made. We work earlier, at the moment of strategic authorship. That's change origination: we partner with you to architect the shIFt you intend to lead before a single tool gets launched. It's Phase Zero™ work, the work before the work, and it's where market leadership is actually decided.",
       },
       {
-        question: "Are masterclasses live or recorded?",
-        answer: "Both. Attend live for interaction and Q&A, or access the recording if the timing doesn't work for your schedule.",
-      },
-    ],
-  },
-  {
-    name: "AMPLIFY",
-    faqs: [
-      {
-        question: "What's the difference between IGNITE and AMPLIFY?",
-        answer: "IGNITE is self-paced individual development (mini courses, assessments, masterclasses). AMPLIFY is cohort and team-based learning (workshops, strategic sprints, Leadership Labs). IGNITE builds your capacity. AMPLIFY builds your leadership, team, or organizational capacity and skills.",
+        question: "What does Embody ShIFt look like month to month?",
+        answer: "Typically biweekly or monthly strategic sessions with senior leadership, plus office-hours access in between, while your organization moves through Take Off and Habits. The cadence is co-designed with you, and the depth of advisory flexes with your needs. Embody ShIFt isn't a fixed program. It's ongoing advisory shaped around the shIFt you're leading.",
       },
       {
-        question: "Can I start with IGNITE and progress to AMPLIFY later?",
-        answer: "Absolutely. Many leaders start with IGNITE to build personal capacity, then progress to AMPLIFY Leadership Labs for deeper peer learning, or bring Phase Zero concepts to their teams through AMPLIFY workshops and strategic sprints.",
-      },
-    ],
-  },
-  {
-    name: "AMPLIFY, Leadership Labs",
-    faqs: [
-      {
-        question: "When is the next Leadership Lab cohort?",
-        answer: "We run Leadership Labs a few times per year. Join the waitlist and you'll be the first to know when new dates are announced.",
-      },
-      {
-        question: "What happens after I join the waitlist?",
-        answer: "You'll receive a confirmation that you're on the list. When we schedule the next cohort, waitlist members get first access and priority enrollment before we open spots to the public.",
-      },
-      {
-        question: "Is there any cost to join the waitlist?",
-        answer: "No. Joining the waitlist is completely free and there's no obligation. It simply ensures you're notified first when enrollment opens.",
-      },
-      {
-        question: "What's the format for Leadership Labs?",
-        answer: "Leadership Labs are 6-12 week cohort-style programs with bi-weekly or monthly sessions, peer accountability, and individual coaching touchpoints. Each lab focuses on a specific theme (Stractical Leadership, Leading Change, etc.) and is capped at 25 leaders from different organizations.",
-      },
-      {
-        question: "What if I'm not in an official leadership capacity?",
-        answer: "We believe leadership isn't based on your title or role. It's based on your ambition, attitude, and desire. We welcome all - official \"capital L\" Leaders, as well as those aspiring to lead themselves and others with courage, curiosity, clarity, and the capacity to make shIFt happen.",
-      },
-    ],
-  },
-  {
-    name: "AMPLIFY, Workshops",
-    faqs: [
-      {
-        question: "Do we need the Epic ShIFt Organizational Appraisal before a workshop?",
-        answer: "The Epic ShIFt Organizational Appraisal is required for all Phase Zero Strategic Workshops and Strategic Sprints. It's not required for our Leadership & Team Development Workshops, though many teams still find it valuable for context.",
-      },
-      {
-        question: "Can we do a workshop first, then decide on a Strategic Sprint?",
-        answer: "Absolutely. Many teams start with a workshop to test fit, then progress to a sprint if deeper partnership makes sense.",
-      },
-      {
-        question: "What if our team is geographically distributed?",
-        answer: "We facilitate virtual workshops effectively. In-person is ideal when possible, but not required.",
-      },
-    ],
-  },
-  {
-    name: "EMBODY",
-    faqs: [
-      {
-        question: "How is EMBODY different from change management?",
-        answer: "Change management starts after the direction is set. It manages resistance and pushes adoption of decisions already made. EMBODY is change origination. We partner upstream, at the strategic authorship moment, to architect the shIFt you intend to lead before a single tool gets launched. This is Phase Zero™ work, the work before the work, and it's where market leadership is actually decided.",
-      },
-      {
-        question: "Why does EMBODY start with the Epic ShIFt Organizational Appraisal?",
-        answer: "The Epic ShIFt Organizational Appraisal is how we see your three Painted Porch Pillars™ clearly: Cultural Cornerstone, Operational Frame, and Living Ecosystem. It surfaces what your organization is built to carry right now and what needs to be reinforced. Without that reading, any partnership is a guess. With it, we co-design an EMBODY engagement that fits your actual architecture, not a template.",
-      },
-      {
-        question: "What if the Epic ShIFt Organizational Appraisal shows we're not ready for EMBODY yet?",
-        answer: "That's one of the most valuable things the Epic ShIFt Organizational Appraisal can surface. Your P.A.T.H. Compass will include a Reinforcement Path that maps what needs strengthening first, often through AMPLIFY sprints or IGNITE work. We'll be straightforward. We'd rather point you to the right starting line than sell you an engagement your organization can't yet carry.",
-      },
-      {
-        question: "Can we start with AMPLIFY or IGNITE and grow into EMBODY?",
-        answer: "Yes, and many partners do exactly that. IGNITE builds individual capacity. AMPLIFY builds team and sprint-level momentum. EMBODY is the embedded, organization-wide partnership for leaders ready to architect transformation at the structural level. Starting smaller is a smart way to feel the partnership before committing to the deeper work.",
-      },
-      {
-        question: "What does an EMBODY partnership actually look like week to week?",
-        answer: "Typically bi-weekly or monthly strategic sessions with senior leadership, plus office hours access in between. We move through the full P.A.T.H.™: Prepare, Align, Take Off, and Habit. The exact cadence is co-designed with you. EMBODY is not a fixed program. It's an embedded partnership shaped around the shIFt you're authoring.",
+        question: "What outcomes can we expect?",
+        answer: "Three things: a clearly authored direction for the shIFt you intend to lead, an organizational architecture built to sustain it across the three Painted Porch Pillars™, and the internal capacity to originate the next shIFt without us. The goal isn't dependence on Painted Porch. It's a Fortified Porch: built to author change, not just absorb it.",
       },
       {
         question: "Can you partner alongside our internal change team?",
-        answer: "Absolutely. We're complementary, not competitive. Internal teams often own execution and adoption beautifully. We work upstream of that, co-designing the strategic architecture and building your team's capacity so the work continues long after our partnership ends.",
+        answer: "Absolutely. We're complementary, not competitive. Internal teams often own execution and adoption beautifully. We work upstream of that, co-designing the strategic architecture and building your team's capacity so the work continues long after our engagement ends.",
       },
       {
-        question: "What happens if our leadership changes mid-partnership?",
-        answer: "Leadership transitions are exactly when architecture matters most. We've designed EMBODY to live in your organization's structure, not in a single relationship. When leadership shifts, we re-anchor the work, bring new leaders into the architecture, and keep the transformation grounded in what your organization is built to lead.",
+        question: "What happens if our leadership changes mid-engagement?",
+        answer: "Leadership transitions are exactly when architecture matters most. We design the work to live in your organization's structure, not in a single relationship. When leadership shifts, we re-anchor the work, bring new leaders into the architecture, and keep the change grounded in what your organization is built to lead.",
+      },
+    ],
+  },
+  {
+    name: "Team Workshops & Leadership Labs",
+    faqs: [
+      {
+        question: "Do we need the Epic ShIFt Organizational Appraisal before a workshop?",
+        answer: (
+          <>
+            No. <FaqLink to="/partner/amplify/workshops">Team workshops</FaqLink> stand on their own, though some teams find
+            the appraisal's insight valuable context. The appraisal is required before Architect ShIFt.
+          </>
+        ),
       },
       {
-        question: "What outcomes can we expect from EMBODY?",
-        answer: "EMBODY partners leave with three things: a clearly authored direction for the shIFt you intend to lead, an organizational architecture built to sustain it across the three Painted Porch Pillars™, and the internal capacity to originate the next shIFt without us. The goal isn't dependence on Painted Porch. It's a fortified porch where your people can lead change instead of being changed by it.",
+        question: "Can we start with a workshop and go deeper later?",
+        answer: "Absolutely. Many teams start with a workshop to see how we work together, then go deeper with the Epic ShIFt Organizational Appraisal and Architect ShIFt when the work surfaces something more structural.",
+      },
+      {
+        question: "What if our team is spread out geographically?",
+        answer: "We lead virtual workshops well. In person is ideal when it's possible, but it isn't required.",
+      },
+      {
+        question: "When is the next Leadership Lab cohort?",
+        answer: (
+          <>
+            We run <FaqLink to="/partner/amplify/labs">Leadership Labs</FaqLink> a few times a year. Join the waitlist and
+            you'll be the first to know when new dates are announced.
+          </>
+        ),
+      },
+      {
+        question: "What happens after I join the Leadership Lab waitlist?",
+        answer: "You'll get a confirmation that you're on the list. When we schedule the next cohort, waitlist members get first access and priority enrollment before we open spots to the public.",
+      },
+      {
+        question: "Is there any cost to join the waitlist?",
+        answer: "No. Joining the waitlist is free, and there's no obligation. It just makes sure you hear first when enrollment opens.",
+      },
+      {
+        question: "What's the format for Leadership Labs?",
+        answer: "Leadership Labs are 6–12 week cohort programs with biweekly or monthly sessions, peer accountability and individual coaching touchpoints. Each lab focuses on one theme (Stractical Leadership, Leading Change and others) and is capped at 25 leaders from different organizations.",
+      },
+      {
+        question: "What if I'm not in an official leadership role?",
+        answer: "We believe leadership isn't based on your title or role. It's based on your ambition, attitude and desire. We welcome everyone: official \"capital L\" Leaders, and those aspiring to lead themselves and others with courage, curiosity, clarity and the capacity to make shIFt happen.",
+      },
+    ],
+  },
+  {
+    name: "Self-Led: Assessments & Masterclasses",
+    faqs: [
+      {
+        question: "Self-led or with my team: which fits?",
+        answer: (
+          <>
+            Self-led resources (assessments, masterclasses and mini courses) build your own capacity, at your own pace. Team
+            workshops and Leadership Labs build it together, with your team or a cohort of peers. If you're not sure,{" "}
+            <FaqLink to="/start-here">the P.A.T.H.way quiz</FaqLink> will point you to a good starting point.
+          </>
+        ),
+      },
+      {
+        question: "Can I start on my own and bring my team in later?",
+        answer: "Absolutely. Many leaders start with self-led work to build personal capacity, then join a Leadership Lab for deeper peer learning, or bring Phase Zero concepts to their teams through a team workshop.",
+      },
+      {
+        question: "Do assessments expire?",
+        answer: "No. Once you purchase an assessment, you can schedule any optional debrief whenever it suits you, within 12 months of purchase.",
+      },
+      {
+        question: "Which assessment should I take first?",
+        answer: (
+          <>
+            It depends on your development priorities. The Shift Architect Assessment is ideal if you're preparing to lead
+            transformation. EQ-i 2.0 gives you emotional intelligence insights. Working Genius shows your work energy
+            patterns. Performance DNA is your complete success blueprint.{" "}
+            <FaqLink to="/partner/ignite/assessments">Compare the assessments</FaqLink>
+          </>
+        ),
+      },
+      {
+        question: "Can I take more than one assessment?",
+        answer: "Yes. Many leaders take two or three to get a fuller view of their capacity, strengths and development priorities.",
+      },
+      {
+        question: "Are debriefs included with all assessments?",
+        answer: "Debriefs are optional and vary by assessment. Each assessment's details show what's offered.",
+      },
+      {
+        question: "Can my team take assessments together?",
+        answer: (
+          <>
+            Yes. Team pricing is available for Working Genius, EQ-i 2.0 and Performance DNA.{" "}
+            <FaqLink to="/contact">Contact us</FaqLink> for team rates and group debrief options.
+          </>
+        ),
+      },
+      {
+        question: "How long are masterclasses?",
+        answer: (
+          <>
+            <FaqLink to="/partner/ignite/masterclasses">Masterclasses</FaqLink> are focused 30–90 minute sessions that
+            illuminate specific Phase Zero concepts without weeks of commitment.
+          </>
+        ),
+      },
+      {
+        question: "Are masterclasses live or recorded?",
+        answer: "Both. Attend live for interaction and Q&A, or watch the recording if the timing doesn't work for you.",
       },
     ],
   },
@@ -192,7 +265,7 @@ const sitewideFaqCategories: FAQCategory[] = [
 export default function FAQPage() {
   useDocumentSeo({
     title: "FAQ | Painted Porch Strategies",
-    description: "Answers to the most common questions about Painted Porch Strategies, Phase Zero, the Epic ShIFt Organizational Appraisal, and our IGNITE, AMPLIFY, and EMBODY P.A.T.H.ways.",
+    description: "Answers to the most common questions about Painted Porch Strategies, Phase Zero, the Clarity Call, the three ShIFts, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
     ogImage: faqHero,
   });
   const isLoaded = useHeroLoaded();
@@ -216,7 +289,7 @@ export default function FAQPage() {
                 Frequently Asked Questions
               </h1>
               <p className={`text-lead md:text-lead text-white/90 leading-relaxed max-w-3xl transition-all duration-700 ease-out delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-                Everything you need to know about Painted Porch Strategies, our P.A.T.H.ways, and how we partner with leaders to architect extraordinary outcomes.
+                Everything you need to know about Painted Porch Strategies, the P.A.T.H., and how we partner with leaders to architect extraordinary outcomes.
               </p>
             </div>
           </div>
