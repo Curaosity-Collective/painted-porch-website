@@ -1,8 +1,7 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
-import { createClient } from 'npm:@supabase/supabase-js@2';
 import { z } from 'npm:zod@3';
 import { pressContactFields } from '../_shared/press-inquiry.ts';
-import { NEWSLETTER_TAG, NEWSLETTER_PIPELINE, NEWSLETTER_INBOX, NEWSLETTER_CONSENT, newsletterOpportunity, isNewsletterOpportunity } from '../_shared/newsletter.ts';
+import { NEWSLETTER_TAG, NEWSLETTER_PIPELINE, NEWSLETTER_CONSENT, newsletterOpportunity, isNewsletterOpportunity } from '../_shared/newsletter.ts';
 
 const schema = z.object({ email: z.string().trim().email().max(255).transform(s => s.toLowerCase()), source: z.enum(['Footer Newsletter', 'Blog Newsletter', 'Free Resources Newsletter']).default('Free Resources Newsletter') });
 const response = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
@@ -16,8 +15,7 @@ Deno.serve(async req => {
   const { email, source } = parsed.data;
   try {
     const key = Deno.env.get('GHL_API_KEY'); const locationId = Deno.env.get('GHL_LOCATION_ID');
-    const url = Deno.env.get('SUPABASE_URL'); const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
-    if (!key || !locationId || !url || !serviceKey) throw new Error('Newsletter configuration unavailable');
+    if (!key || !locationId) throw new Error('Newsletter configuration unavailable');
     const headers = { Authorization: `Bearer ${key}`, Version: '2021-07-28', 'Content-Type': 'application/json' };
     async function ghl(path: string, method = 'GET', body?: unknown) {
       const r = await fetch(`https://services.leadconnectorhq.com${path}`, { method, headers, body: body ? JSON.stringify(body) : undefined });
@@ -45,10 +43,6 @@ Deno.serve(async req => {
     }
     if (!opportunityId) throw new Error('Newsletter lead not saved');
     await ghl(`/contacts/${contactId}/notes`, 'POST', { body: `Newsletter signup\nBrand: Painted Porch Strategies\nSource: ${source}\nReceived: ${receivedAt}\nConsent: ${NEWSLETTER_CONSENT}` });
-    const client = createClient(url, serviceKey);
-    const { data, error } = await client.functions.invoke('send-transactional-email', { headers: { Authorization: `Bearer ${serviceKey}` }, body: { templateName: 'newsletter-signup-notification', recipientEmail: NEWSLETTER_INBOX, idempotencyKey: `newsletter-lead-${opportunityId}`, templateData: { email, source, receivedAt, consent: NEWSLETTER_CONSENT } } });
-    const emailQueued = !error && data?.success === true && data?.queued === true;
-    if (!emailQueued) console.error('Newsletter notification not queued', { reason: data?.reason || 'handoff_failed' });
-    return response({ success: true, emailQueued });
+    return response({ success: true });
   } catch { return response({ error: 'Your subscription could not be saved. Please try again.' }, 502); }
 });
