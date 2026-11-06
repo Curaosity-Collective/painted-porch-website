@@ -8,5 +8,6 @@
 - [x] Verify and repair resource access when confirmation email fails or is suppressed.
 - [x] Verify and repair Kick the Habit replay sign-up failure.
 - [x] Verify and repair anonymous blog category access without exposing draft posts.
-- [ ] Remove obsolete Anthropic diagnostics, dependency, and migration references; verify Lovable AI before deleting the unused key.
+- [x] Remove obsolete Anthropic diagnostics, dependency, and migration references; verify Lovable AI through the signed-in check and live metadata generation.
+- [ ] Delete the unused ANTHROPIC_API_KEY secret; deletion permission was declined, so the stored secret remains untouched.
 - [ ] Replace unavailable thumbnail for appearance 157f0ec4-5780-4644-95dc-6860c5767121; external image host refuses access (403), so its static share image is omitted.
