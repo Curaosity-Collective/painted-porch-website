@@ -38,7 +38,7 @@ describe("ClientLogoMarquee logo tracks", () => {
     const { container } = render(<ClientLogoMarquee logos={five} />);
     const [first] = tracks(container);
     expect(first.querySelectorAll("img").length).toBe(10);
-    expect(first.style.animationDuration).toBe("50s");
+    expect(first.style.animationDuration).toBe("40s");
     // A long list isn't repeated.
     const { container: full } = render(<ClientLogoMarquee />);
     expect(tracks(full)[0].querySelectorAll("img").length).toBe(allClientLogos.length);
