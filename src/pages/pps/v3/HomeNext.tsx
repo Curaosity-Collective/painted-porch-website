@@ -505,7 +505,7 @@ export default function HomeNext() {
             ))}
           </ul>
           <p className="max-w-[30em] font-display text-[22px] font-semibold leading-snug text-primary md:text-[30px]">
-            We don't slow you down. We make sure you're moving on ground that holds.
+            We don't believe in slowing you down. We make sure you're building on ground that holds.
           </p>
         </div>
       </section>
