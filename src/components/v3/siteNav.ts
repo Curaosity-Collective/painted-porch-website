@@ -81,7 +81,7 @@ export const PATHWAY_LINKS: NavLink[] = [
   { label: "Assessments", href: "/assessments" },
   { label: "Masterclasses", href: "/masterclasses" },
   { label: "Leadership Labs", href: "/leadership-labs" },
-  { label: "Team Workshops", href: "/workshops" },
+  { label: "Team Workshops", href: "/partner/amplify/workshops" },
 ];
 
 export const COMPANY_LINKS: NavLink[] = [
