@@ -43,8 +43,8 @@ const workshopFaqCategories: FAQCategory[] = [
     name: "General",
     faqs: [
       {
-        question: "How is AMPLIFY different from IGNITE?",
-        answer: "IGNITE is self-paced individual development. AMPLIFY is team-based learning (workshops, sprints, cohorts). IGNITE builds your capacity. AMPLIFY builds team or organizational capacity.",
+        question: "How is this different from self-led learning?",
+        answer: "Self-led resources (assessments, masterclasses and mini courses) build your own capacity, at your own pace. Workshops and Leadership Labs build it together, with your team or a cohort of peers.",
       },
       {
         question: "What's included in the investment?",
@@ -160,8 +160,8 @@ const RETIRED_WORKSHOPS = new Set(["architectChange"]);
 
 export default function AmplifyWorkshops() {
   useDocumentSeo({
-    title: "AMPLIFY Workshops | Painted Porch Strategies",
-    description: "AMPLIFY workshops from Painted Porch Strategies: the P.A.T.H.™ to Lasting Change, organizational architecture, leadership development, and team building, in 1–3 day team engagements.",
+    title: "Team Workshops | Painted Porch Strategies",
+    description: "Team workshops from Painted Porch Strategies: the P.A.T.H.™ to Lasting Change, organizational architecture, leadership development, and team building, in 1–3 day team engagements.",
     canonical: "/partner/amplify/workshops",
   });
 
@@ -196,8 +196,7 @@ export default function AmplifyWorkshops() {
     <div>
       <PPSBreadcrumb
         segments={[
-          { label: "Partner", href: "/partner" },
-          { label: "AMPLIFY", href: "/partner/amplify" },
+          { label: "The P.A.T.H.", href: "/the-path" },
           { label: "Team Workshops" },
         ]}
       />
@@ -205,14 +204,14 @@ export default function AmplifyWorkshops() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container max-w-7xl mx-auto px-6">
           <Link
-            to="/partner/amplify"
+            to="/the-path"
             className="inline-flex items-center gap-2 text-sm text-strategic hover:underline mb-8"
           >
-            <ArrowRight className="w-4 h-4 rotate-180" /> Back to AMPLIFY Overview
+            <ArrowRight className="w-4 h-4 rotate-180" /> Back to The P.A.T.H.
           </Link>
 
           <div className="text-center mb-12">
-            <Eyebrow variant="plain" tone="primary" as="p">AMPLIFY · Team Workshops</Eyebrow>
+            <Eyebrow variant="plain" tone="primary" as="p">Team Workshops</Eyebrow>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-4">
               Workshops That Architect Your Next Sh<span data-if="" className="text-strategic font-bold">IF</span>t
             </h1>
@@ -434,16 +433,16 @@ export default function AmplifyWorkshops() {
       </section>
 
       <FAQSection
-        tierName="AMPLIFY"
+        tierName="team workshops"
         categories={workshopFaqCategories}
-        subheadline="Common questions about AMPLIFY workshops"
+        subheadline="Common questions about team workshops"
       />
 
       {/* Final CTA */}
       <ParallaxCTA
         backgroundImage={architectChangeThumb}
         overlayTone="purple"
-        headline={<>Ready to AMPLIFY Your Team&rsquo;s Next Sh<span data-if="on-dark" className="text-white font-bold">IF</span>t?</>}
+        headline={<>Ready for Your Team&rsquo;s Next Sh<span data-if="on-dark" className="text-white font-bold">IF</span>t?</>}
         description={
           <>
             Our workshops are co-designed around your context, your challenges, and your transformation goals.
@@ -454,7 +453,7 @@ export default function AmplifyWorkshops() {
         actions={[
           {
             label: "Contact Us to Get Started",
-            to: "/contact?scope=organization&interest=workshops&message=I'm interested in AMPLIFY workshops for our team.",
+            to: "/contact?scope=organization&interest=workshops&message=I'm interested in a workshop for our team.",
             variant: "primary",
           },
           { label: "Discover Your P.A.T.H.way", to: "/start-here", variant: "secondary" },

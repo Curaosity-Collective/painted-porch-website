@@ -37,9 +37,9 @@ export function FinalInvitationSection() {
             <Link key={tier.name} to={tier.href} className="w-full max-w-[20rem] sm:w-auto sm:max-w-full">
               <Button 
                 className={`bg-transparent border-2 border-white text-white transition-colors w-full sm:w-auto max-w-full whitespace-normal h-auto
-                  ${tier.name === "IGNITE" ? "hover:bg-gold hover:border-gold hover:text-navy" : ""}
-                  ${tier.name === "AMPLIFY" ? "hover:bg-strategic hover:border-strategic hover:text-white" : ""}
-                  ${tier.name === "EMBODY" ? "hover:bg-navy hover:border-navy hover:text-white" : ""}
+                  ${tier.key === "IGNITE" ? "hover:bg-gold hover:border-gold hover:text-navy" : ""}
+                  ${tier.key === "AMPLIFY" ? "hover:bg-strategic hover:border-strategic hover:text-white" : ""}
+                  ${tier.key === "EMBODY" ? "hover:bg-navy hover:border-navy hover:text-white" : ""}
                 `}
               >
                 Explore {tier.name}

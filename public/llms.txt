@@ -15,12 +15,10 @@ Painted Porch Strategies partners with organizations at the moment of strategic 
 - [/about/approach](/about/approach): The five core philosophy principles behind the work.
 - [/about/impact](/about/impact): Results & Impact — client words, the organizations we've worked alongside, and the 5% of every fee given to client-chosen charities.
 - [/phase-zero](/phase-zero): Phase Zero strategic positioning framework.
-- [/partner/ignite](/partner/ignite): IGNITE tier — self-led mini courses, assessments, and masterclasses.
-- [/partner/ignite/assessments](/partner/ignite/assessments): EQ, Working Genius, and change-readiness assessments.
+- [/partner/ignite/assessments](/partner/ignite/assessments): Self-led assessments: EQ, Working Genius, and change readiness.
 - [/partner/ignite/masterclasses](/partner/ignite/masterclasses): Short-form intensives and challenges.
-- [/partner/amplify](/partner/amplify): AMPLIFY — team workshops and labs.
 - [/partner/amplify/workshops](/partner/amplify/workshops): Leadership development workshops.
-- [/partner/amplify/labs](/partner/amplify/labs): Deep-dive labs and intensives.
+- [/partner/amplify/labs](/partner/amplify/labs): Leadership Labs: cohort programs and intensives.
 - [/resources](/resources): Resources hub — free downloads, insights, and media.
 - [/resources/free](/resources/free): Free tools and guides (change canvas, roadmaps, field guides, assessments).
 - [/resources/insights](/resources/insights): Blog and thought leadership articles.

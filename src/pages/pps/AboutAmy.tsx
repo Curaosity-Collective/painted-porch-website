@@ -43,26 +43,26 @@ const offerings: OfferingCard[] = [
   },
   {
     emoji: "⚡",
-    title: "IGNITE: Self-Led Growth",
+    title: "Self-Led Growth",
     description:
       "Masterclasses, mini courses, and assessments designed to light the fire of transformation, on your terms.",
-    href: "/partner/ignite",
+    href: "/partner/ignite/assessments",
     color: "gold",
   },
   {
     emoji: "🚀",
-    title: "AMPLIFY: Workshops & Labs",
+    title: "Team Workshops & Leadership Labs",
     description:
-      "Focused partnership through workshops, sprints, and labs that shape excellence and build compound momentum.",
-    href: "/partner/amplify",
+      "Workshops and Leadership Labs that shape excellence and build compound momentum.",
+    href: "/partner/amplify/workshops",
     color: "lime",
   },
   {
     emoji: "🏛️",
-    title: "EMBODY: Strategic Partnership",
+    title: "Organization-Wide Partnership",
     description:
-      "Embedded executive advisory and full transformation architecture for C-suite leaders ready to build unshakeable foundations.",
-    href: "/partner/embody",
+      "Envision, Architect and Embody ShIFt: the appraisal, the architecture and the ongoing advisory for leaders ready to build unshakeable foundations.",
+    href: "/the-path",
     color: "raspberry",
   },
   {

@@ -67,61 +67,57 @@ export const sitemapData: SitemapNode[] = [
     ],
   },
   {
-    label: "Partner With Us (P.A.T.H. Hub)",
-    path: "/partner",
+    label: "The P.A.T.H.",
+    path: "/the-path",
+    children: [
+      { label: "Architect ShIFt", path: "/architect-shift" },
+      { label: "Embody ShIFt", path: "/embody-shift" },
+    ],
+  },
+  {
+    // Grouped by who it's for (PPS-DEC-0025); the old overview pages are archived.
+    label: "Self-Led",
     children: [
       {
-        label: "IGNITE",
-        path: "/partner/ignite",
+        label: "Assessments",
+        path: "/partner/ignite/assessments",
         children: [
-          {
-            label: "Assessments",
-            path: "/partner/ignite/assessments",
-            children: [
-              { label: "EQ Assessment", path: "/eq", note: "Top-level URL kept for ease of sharing" },
-              { label: "EQ Change Leader", path: "/eq-change-leader", note: "Top-level URL kept for ease of sharing" },
-              { label: "Working Genius", path: "/partner/ignite/assessments/working-genius" },
-            ],
-          },
-          {
-            label: "Masterclasses",
-            path: "/partner/ignite/masterclasses",
-            children: [
-              { label: "Talking to Strangers (5-Day MYM)", path: "/talking-to-strangers", note: "Top-level URL kept for ease of sharing" },
-              { label: "Team Superpowers Challenge", path: "/team-superpowers", note: "Top-level URL kept for ease of sharing" },
-              { label: "MYM Journal Challenge", path: "/mym-journal-challenge", note: "Top-level URL kept for ease of sharing" },
-              {
-                label: "WFH Sign Up",
-                path: "/wfh-sign-up",
-                note: "Top-level URL kept for ease of sharing",
-                children: [
-                  { label: "WFH Thank You (post opt-in)", path: "/wfh-thank-you" },
-                ],
-              },
-              { label: "Elements Mini", path: "/elements-mini", note: "Top-level URL kept for ease of sharing" },
-            ],
-          },
+          { label: "EQ Assessment", path: "/eq", note: "Top-level URL kept for ease of sharing" },
+          { label: "EQ Change Leader", path: "/eq-change-leader", note: "Top-level URL kept for ease of sharing" },
+          { label: "Working Genius", path: "/partner/ignite/assessments/working-genius" },
         ],
       },
       {
-        label: "AMPLIFY",
-        path: "/partner/amplify",
+        label: "Masterclasses",
+        path: "/partner/ignite/masterclasses",
         children: [
-          { label: "Workshops", path: "/partner/amplify/workshops" },
-          { label: "Sprints", path: "/partner/amplify/sprints" },
+          { label: "Talking to Strangers (5-Day MYM)", path: "/talking-to-strangers", note: "Top-level URL kept for ease of sharing" },
+          { label: "Team Superpowers Challenge", path: "/team-superpowers", note: "Top-level URL kept for ease of sharing" },
+          { label: "MYM Journal Challenge", path: "/mym-journal-challenge", note: "Top-level URL kept for ease of sharing" },
           {
-            label: "Labs",
-            path: "/partner/amplify/labs",
+            label: "WFH Sign Up",
+            path: "/wfh-sign-up",
+            note: "Top-level URL kept for ease of sharing",
             children: [
-              { label: "Stractical Leader Workshop", path: "/partner/amplify/stractical-leader" },
-              { label: "Stractical Leader Enrollment", path: "/partner/amplify/stractical-leader/enroll" },
+              { label: "WFH Thank You (post opt-in)", path: "/wfh-thank-you" },
             ],
           },
+          { label: "Elements Mini", path: "/elements-mini", note: "Top-level URL kept for ease of sharing" },
         ],
       },
+    ],
+  },
+  {
+    label: "Team",
+    children: [
+      { label: "Workshops", path: "/partner/amplify/workshops" },
       {
-        label: "EMBODY",
-        path: "/partner/embody",
+        label: "Labs",
+        path: "/partner/amplify/labs",
+        children: [
+          { label: "Stractical Leader Workshop", path: "/partner/amplify/stractical-leader" },
+          { label: "Stractical Leader Enrollment", path: "/partner/amplify/stractical-leader/enroll" },
+        ],
       },
     ],
   },

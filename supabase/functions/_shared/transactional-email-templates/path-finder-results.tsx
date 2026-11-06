@@ -108,16 +108,16 @@ export const template = {
   previewData: {
     firstName: 'Marcus',
     headline: 'Elevate Team Leadership',
-    subhead: 'AMPLIFY — Leadership Lab',
+    subhead: 'Leadership Lab',
     resultType: 'RT3',
     track: 'b2c',
-    strongestNextStep: { name: 'From Conflict to Connection Lab', url: '/partner/amplify', label: 'Strongest Next Step — Workshop' },
+    strongestNextStep: { name: 'From Conflict to Connection Lab', url: '/partner/amplify/labs', label: 'Strongest Next Step — Workshop' },
     recommendations: [
-      { heading: 'Your Starting Point — AMPLIFY Lab', items: [
-        { name: 'From Conflict to Connection Lab', url: '/partner/amplify', blurb: 'Peer cohort tackling team friction at the root.', tier: 'AMPLIFY' },
+      { heading: 'Your Starting Point — Leadership Lab', items: [
+        { name: 'From Conflict to Connection Lab', url: '/partner/amplify/labs', blurb: 'Peer cohort tackling team friction at the root.', tier: 'Leadership Lab' },
       ]},
       { heading: 'Also Worth Exploring', items: [
-        { name: 'Elements of a Team', url: '/partner/ignite', blurb: 'Core components of team health.', tier: 'IGNITE' },
+        { name: 'Elements of a Team', url: '/partner/ignite/masterclasses', blurb: 'Core components of team health.', tier: 'Self-Led' },
       ]},
     ],
   },

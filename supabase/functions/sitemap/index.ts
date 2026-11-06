@@ -89,8 +89,6 @@ Deno.serve(async (req) => {
     { loc: "/the-path", priority: "0.9", changefreq: "monthly" },
     { loc: "/architect-shift", priority: "0.9", changefreq: "monthly" },
     { loc: "/embody-shift", priority: "0.9", changefreq: "monthly" },
-    { loc: "/partner/ignite", priority: "0.8", changefreq: "monthly" },
-    { loc: "/partner/amplify", priority: "0.8", changefreq: "monthly" },
     { loc: "/resources", priority: "0.8", changefreq: "weekly" },
     { loc: "/resources/insights", priority: "0.9", changefreq: "daily" },
     { loc: "/resources/free", priority: "0.7", changefreq: "monthly" },

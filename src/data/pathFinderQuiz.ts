@@ -630,39 +630,39 @@ function b2cResult(rt: B2CResultType, answers: Answers): QuizResult {
     case "RT1":
       return {
         track: "b2c", resultType: rt, headline: "Start with Foundations",
-        subhead: "IGNITE — Self-Paced",
+        subhead: "Self-Paced",
         narrative: aspiring
           ? "You're building something real, and you're thinking about it the right way. The leaders who get this right build the foundation — self-awareness, reflective capacity, inner steadiness — before the complexity arrives. That's exactly where you are."
           : "The clearest thing your responses show is that the foundation needs to come first. Not because your capability is in question. Leaders who build self-awareness and reflective capacity before they try to go wider are the ones who stop exhausting themselves in the process.",
-        primaryGroup: grp("Your Starting Point — IGNITE", "radicalMindfulnessMini"),
+        primaryGroup: grp("Your Starting Point — Self-Led", "radicalMindfulnessMini"),
         whyThisFits: "Your gap is foundation, not tactics — so we're pointing at the one program built to install it. The Radical Mindfulness Mini Course is the self-paced starting point that develops the self-awareness and reflective capacity every later capability (communication, team leadership, change) is built on. The free Stoicism prompts and Burnout resources are there to keep the practice alive between sessions.",
         groups: [
           grp("Also Worth Exploring", "passengerToPilot", "eqi"),
           grp("Free Starting Points", "stoicLeaderFieldGuide", "fiftyTwoStoicism", "burnoutResources"),
         ],
-        whatComesNext: "Once this foundation is in place, two directions open: strengthening how you communicate, or building toward leading others. The AMPLIFY Leadership Labs are available whenever you're ready.",
+        whatComesNext: "Once this foundation is in place, two directions open: strengthening how you communicate, or building toward leading others. The Leadership Labs are available whenever you're ready.",
       };
     case "RT2":
       return {
         track: "b2c", resultType: rt, headline: "Build Communication Power",
-        subhead: "IGNITE — Self-Paced",
+        subhead: "Self-Paced",
         narrative: "You have the self-awareness. You can read a room. The gap is in the translation: getting what's in your head to consistently land the way you intend. Closing this gap is about mastering the instrument you already have.",
-        primaryGroup: grp("Your Starting Point — IGNITE", "masterYourMessageMini"),
+        primaryGroup: grp("Your Starting Point — Self-Led", "masterYourMessageMini"),
         whyThisFits: "Your gap is the translation layer — the space between what you mean and how it lands. The Master Your Message Mini Course is built specifically for that gap: how you frame, deliver, and adapt your message so it consistently reaches the room you're actually in. The companion picks sharpen the same instrument (style awareness, hard conversations, your natural working genius).",
         groups: [grp("Also Worth Exploring", "talkingToStrangers", "workingGenius")],
-        whatComesNext: "Communication work is the direct prerequisite for leading teams through complexity. Elements of a Team and the AMPLIFY Leadership Labs are the natural next terrain.",
+        whatComesNext: "Communication work is the direct prerequisite for leading teams through complexity. Elements of a Team and the Leadership Labs are the natural next terrain.",
       };
     case "RT3": {
       const cohort = q6 === "C" || q6 === "D";
       return {
         track: "b2c", resultType: rt, headline: "Elevate Team Leadership",
-        subhead: cohort ? "AMPLIFY — Leadership Lab" : "IGNITE — Self-Paced",
+        subhead: cohort ? "Leadership Lab" : "Self-Paced",
         narrative: aspiring
           ? "You're thinking ahead, and that's the right instinct. The leaders who build team-leadership capacity before they need it are the ones who don't get caught flat-footed when a team lands in their lap."
           : "You've built real individual capacity. What leadership is testing you on now is the team: building conditions where a group consistently does its best work together. That's a different skill set.",
         primaryGroup: cohort
-          ? grp("Your Starting Point — AMPLIFY Lab", "conflictToConnectionLab", "goldilocksLab")
-          : grp("Your Starting Point — IGNITE", "elementsOfATeam"),
+          ? grp("Your Starting Point — Leadership Lab", "conflictToConnectionLab", "goldilocksLab")
+          : grp("Your Starting Point — Self-Led", "elementsOfATeam"),
         whyThisFits: cohort
           ? "You told us you want a live, cohort-based experience — so we picked the two Labs that target the team dynamics most leaders trip on: navigating conflict productively (Conflict to Connection) and calibrating expectations and accountability (Goldilocks). Both put you in a peer cohort where the work is the team, not the theory."
           : "You told us you want a self-paced path — so we picked Elements of a Team, the masterclass on the core components of team health: the conditions that turn a group of capable people into a team that consistently performs.",
@@ -677,11 +677,11 @@ function b2cResult(rt: B2CResultType, answers: Answers): QuizResult {
       const cohort = q6 === "C" || q6 === "D";
       return {
         track: "b2c", resultType: rt, headline: "Master Change Architecture",
-        subhead: cohort ? "AMPLIFY — Leadership Lab" : "IGNITE — Self-Paced",
+        subhead: cohort ? "Leadership Lab" : "Self-Paced",
         narrative: "You've been in the middle of change, probably more than once, and navigated it with more skill than you give yourself credit for. What you're looking for is the framework that makes what you've been doing by instinct something you can do by design. Not managing change. Architecting it.",
         primaryGroup: cohort
-          ? grp("Your Starting Point — AMPLIFY Lab", "leadingChangeLab")
-          : grp("Your Starting Point — IGNITE", "leadingChangeMini"),
+          ? grp("Your Starting Point — Leadership Lab", "leadingChangeLab")
+          : grp("Your Starting Point — Self-Led", "leadingChangeMini"),
         whyThisFits: cohort
           ? "Your gap is having a repeatable framework for change — and you want it in a live cohort. The Leading Change Lab walks you through the P.A.T.H.™ method (Prepare, Align, Take Off, Habit) with peers running real initiatives, so the framework becomes muscle memory, not a slide deck."
           : "Your gap is having a repeatable framework for change — and you want it self-paced. The Leading Change mini-course gives you the P.A.T.H.™ method (Prepare, Align, Take Off, Habit) in short, finishable lessons. The free Strategic Change Canvas and Communicating Change workbook are the working tools you'll use on your next initiative.",
@@ -727,8 +727,8 @@ function b2cResult(rt: B2CResultType, answers: Answers): QuizResult {
       const secondaryLabs = ranked.slice(2);
       return {
         track: "b2c", resultType: rt, headline: "Ready for Advanced Partnership",
-        subhead: "AMPLIFY — Leadership Labs",
-        narrative: "You're not looking for a starting point. You're looking for depth: real challenge, peer-level conversation, an environment where the work pushes you rather than walks you through basics. The AMPLIFY Leadership Labs are built for exactly that — and based on your answers, two pull harder than the rest.",
+        subhead: "Leadership Labs",
+        narrative: "You're not looking for a starting point. You're looking for depth: real challenge, peer-level conversation, an environment where the work pushes you rather than walks you through basics. The Leadership Labs are built for exactly that — and based on your answers, two pull harder than the rest.",
         primaryGroup: grp("Your Starting Point — The Two Labs Your Answers Point At", ...primaryLabs),
         whyThisFits: "You have range and you're hungry for depth, so instead of handing you the full slate we narrowed to the two Labs your Q1–Q5 signals point at most directly. The remaining Labs are listed below if a different terrain pulls you. Every Lab is peer cohort, live, and built to push.",
         groups: [
@@ -775,7 +775,7 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
 
   // Crossover note for Cap
   const crossover = (val(answers, "Q1Cap") === "B" && val(answers, "Q2Cap") === "C")
-    ? "Your situation also includes an individual-leader development thread. The Stractical Leader Lab (AMPLIFY, individual track) is built for exactly that strategic-tactical integration work. Have those individual leaders take the P.A.T.H.way on their own track."
+    ? "Your situation also includes an individual-leader development thread. The Stractical Leader Lab (individual track) is built for exactly that strategic-tactical integration work. Have those individual leaders take the P.A.T.H.way on their own track."
     : undefined;
 
   let headline = "", narrative = "", primaryHeading = "", primaryKeys: OfferingKey[] = [], whyThisFits = "";
@@ -972,7 +972,7 @@ function applyScoutReroute(
     narrative:
       "You said you're exploring before bringing a recommendation to others — that's the scout move, and it changes what makes sense to start with. Workshops, the Epic ShIFt Organizational Appraisal, and team engagements all assume buy-in you don't have yet. The smarter play is to experience the work yourself, so when you do bring the conversation back you can speak to it firsthand.",
     whyThisFits:
-      "Based on your other answers, we picked the AMPLIFY Lab that maps closest to what you're seeing. Pair it with a short, finishable resource you can share with one trusted colleague. Team-facing workshops and the Epic ShIFt Organizational Appraisal are still on the menu — they're just the next move, not the first one.",
+      "Based on your other answers, we picked the Leadership Lab that maps closest to what you're seeing. Pair it with a short, finishable resource you can share with one trusted colleague. Team-facing workshops and the Epic ShIFt Organizational Appraisal are still on the menu — they're just the next move, not the first one.",
     primaryGroup: primaryOfferings.length > 0
       ? {
           heading: "Pair It With These — Micro Starter + Free Resource",

@@ -37,7 +37,7 @@ const pathwayDetails = {
 export default function StartHere() {
   useDocumentSeo({
     title: "Start Here | Discover Your P.A.T.H.way | Painted Porch",
-    description: "Not sure where to start? Discover the P.A.T.H.way that fits your team: IGNITE, AMPLIFY, or EMBODY. Find your partnership in a few minutes.",
+    description: "Not sure where to start? Take the P.A.T.H.way quiz to find the right starting point for you, your team or your organization, in a few minutes.",
     ogImage: startHereHero,
   });
   const { open: openQuiz } = usePathFinderQuiz();
@@ -61,7 +61,7 @@ export default function StartHere() {
           </span>
         }
         headline="Find Your P.A.T.H.way"
-        description="Not sure where to begin? Our P.A.T.H.way quiz will surface the right partnership style and specific programs to start with on the Painted Porch."
+        description="Not sure where to begin? Our P.A.T.H.way quiz will surface the right starting point and specific programs to start with on the Painted Porch."
         ctas={[]}
         background={{ type: "image", src: startHereHero }}
         overlayClass="bg-navy/50"
@@ -96,7 +96,7 @@ export default function StartHere() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {TIER_LIST.map((tier) => {
-              const details = pathwayDetails[tier.name as keyof typeof pathwayDetails];
+              const details = pathwayDetails[tier.key as keyof typeof pathwayDetails];
               return (
                 <div
                   key={tier.name}

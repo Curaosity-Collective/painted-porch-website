@@ -68,9 +68,18 @@ function BoldShiftName({ name }: { name: string }) {
   );
 }
 
-/** Display label for an offering tier; the legacy "Blue Door" tier now names the Epic ShIFt Organizational Appraisal (PPS-DEC-0018). */
-function displayTier(tier: string): string {
-  return tier === "Blue Door" ? "Organizational Appraisal" : tier;
+/**
+ * Display label for an offering tier. The legacy "Blue Door" tier names the Epic ShIFt
+ * Organizational Appraisal (PPS-DEC-0018). IGNITE and AMPLIFY stay as internal tier codes but
+ * aren't shown publicly (PPS-DEC-0025); every AMPLIFY offering in the quiz is a Leadership Lab.
+ */
+const TIER_LABELS: Record<string, string> = {
+  "Blue Door": "Organizational Appraisal",
+  IGNITE: "Self-Led",
+  AMPLIFY: "Leadership Lab",
+};
+export function displayTier(tier: string): string {
+  return TIER_LABELS[tier] ?? tier;
 }
 
 /** Links each mention of the appraisal in result copy to its admin-set URL. */

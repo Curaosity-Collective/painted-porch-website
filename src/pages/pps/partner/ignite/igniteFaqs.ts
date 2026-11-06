@@ -43,12 +43,12 @@ export const igniteFaqCategories: FAQCategory[] = [
     name: "General",
     faqs: [
       {
-        question: "What's the difference between IGNITE and AMPLIFY?",
-        answer: "IGNITE is self-paced individual development (mini courses, assessments, masterclasses). AMPLIFY is cohort and team-based learning (workshops, strategic sprints, Leadership Labs). IGNITE builds your capacity. AMPLIFY builds your leadership, team, or organizational capacity and skills.",
+        question: "Self-led or with my team: which fits?",
+        answer: "Self-led resources (mini courses, assessments and masterclasses) build your own capacity, at your own pace. Team workshops and Leadership Labs build leadership, team and organizational capacity together, with your team or a cohort of peers.",
       },
       {
-        question: "Can I start with IGNITE and progress to AMPLIFY later?",
-        answer: "Absolutely. Many leaders start with IGNITE to build personal capacity, then progress to AMPLIFY Leadership Labs for deeper peer learning, or bring Phase Zero concepts to their teams through AMPLIFY workshops and strategic sprints.",
+        question: "Can I start on my own and bring my team in later?",
+        answer: "Absolutely. Many leaders start with self-led work to build personal capacity, then join a Leadership Lab for deeper peer learning, or bring Phase Zero concepts to their teams through a team workshop or Architect ShIFt.",
       },
     ],
   },
