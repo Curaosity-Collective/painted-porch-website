@@ -219,7 +219,7 @@ export default function EnvisionShift() {
       </section>
 
       <section className="relative mx-auto max-w-7xl px-6 py-20 md:py-24">
-        <Kicker>WHEN IT'S TIME TO ENVISION SH</Kicker>
+        <Kicker>WHEN IT'S TIME TO ENVISION SHIFT</Kicker>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {whoItsFor.map((item) => (
             <div key={item.strong} className="border-l-4 border-prepare p-6 md:p-8">
