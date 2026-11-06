@@ -19,7 +19,7 @@ interface EasterEggNotificationProps {
 const EasterEggNotificationEmail = (props: EasterEggNotificationProps) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>🐣 Easter egg found by {props.name}</Preview>
+    <Preview>{`🐣 Easter egg found by ${props.name ?? ''}`}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Img src={LOGO_URL} width="180" height="auto" alt="Painted Porch Strategies" style={logo} />

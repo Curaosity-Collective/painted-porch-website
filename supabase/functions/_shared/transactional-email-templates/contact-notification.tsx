@@ -27,7 +27,7 @@ interface ContactNotificationProps {
 const ContactNotificationEmail = (props: ContactNotificationProps) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>New contact form submission from {props.firstName} {props.lastName}</Preview>
+    <Preview>{`New contact form submission from ${props.firstName ?? ''} ${props.lastName ?? ''}`}</Preview>
     <Body style={main}>
         <Container style={container}>
           <Img src={LOGO_URL} width="180" height="auto" alt="Painted Porch Strategies" style={logo} />
