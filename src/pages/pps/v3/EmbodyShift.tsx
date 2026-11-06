@@ -67,7 +67,7 @@ export default function EmbodyShift() {
   return (
     <div className="pps-v3">
       <PageHero
-        kicker="Take Off and Habits · Become It"
+        kicker="TAKE OFF AND CREATE HABITS · BECOME IT"
         title={
           <>
             Embody <ShIFt onDark />
