@@ -31,8 +31,8 @@ const commonLinks = [
   { href: "/envision-shift", label: "Envision ShIFt: the Epic ShIFt Organizational Appraisal" },
   { href: "/architect-shift", label: "Architect ShIFt" },
   { href: "/embody-shift", label: "Embody ShIFt" },
-  { href: "/partner/ignite/assessments", label: "Assessments and masterclasses" },
-  { href: "/partner/amplify/workshops", label: "Team workshops and Leadership Labs" },
+  { href: "/assessments", label: "Assessments and masterclasses" },
+  { href: "/workshops", label: "Team workshops and Leadership Labs" },
   { href: "/resources", label: "Resources hub" },
   { href: "/contact", label: "Contact us" },
 ];
@@ -349,7 +349,7 @@ export const routes = [
     links: commonLinks,
   },
   {
-    path: "/partner/amplify/workshops",
+    path: "/workshops",
     title: "Team Workshops | Painted Porch Strategies",
     description:
       "Team workshops on leadership and change: the P.A.T.H. to Lasting Change, communication architecture, change readiness, and more.",
@@ -359,14 +359,14 @@ export const routes = [
     links: [
       { href: "/the-path", label: "The P.A.T.H." },
       { href: "/architect-shift", label: "Architect ShIFt" },
-      { href: "/partner/amplify/labs", label: "Leadership Labs" },
-      { href: "/partner/amplify/stractical-leader", label: "Stractical Leader Intensive" },
+      { href: "/leadership-labs", label: "Leadership Labs" },
+      { href: "/leadership-labs/stractical-leader", label: "Stractical Leader Intensive" },
       { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
   {
-    path: "/partner/amplify/labs",
+    path: "/leadership-labs",
     title: "Leadership Labs | Painted Porch Strategies",
     description:
       "Leadership Labs deepen specific capabilities — team dynamics, change readiness, communication systems — through hands-on practice.",
@@ -375,13 +375,13 @@ export const routes = [
       "Leadership Labs are hands-on, capability-specific cohort programs. They pair with workshops to deepen the muscles a specific transformation needs.",
     links: [
       { href: "/the-path", label: "The P.A.T.H." },
-      { href: "/partner/amplify/workshops", label: "Team workshops" },
+      { href: "/workshops", label: "Team workshops" },
       { href: "/architect-shift", label: "Architect ShIFt" },
       { href: "/contact", label: "Contact us" },
     ],
   },
   {
-    path: "/partner/amplify/stractical-leader",
+    path: "/leadership-labs/stractical-leader",
     title: "The Stractical Leader 6-Week Intensive | Painted Porch Strategies",
     description:
       "A 6-week intensive that turns tactical managers into stractical leaders combining strategic thinking with practical execution.",
@@ -396,7 +396,7 @@ export const routes = [
     ],
   },
   {
-    path: "/partner/ignite/assessments",
+    path: "/assessments",
     title: "Assessments | Painted Porch Strategies",
     description:
       "Individual and team assessments: Working Genius, EQ-i, change readiness, and elemental style.",
@@ -406,12 +406,12 @@ export const routes = [
     links: [
       { href: "/the-path", label: "The P.A.T.H." },
       { href: "/eq", label: "EQ-i 2.0 assessment" },
-      { href: "/partner/ignite/assessments/working-genius", label: "Working Genius" },
+      { href: "/assessments/working-genius", label: "Working Genius" },
       { href: "/contact", label: "Contact us" },
     ],
   },
   {
-    path: "/partner/ignite/masterclasses",
+    path: "/masterclasses",
     title: "Masterclasses | Painted Porch Strategies",
     description:
       "Live and on-demand masterclasses on change origination, leadership, communication, and Stoic wisdom.",
@@ -558,7 +558,7 @@ export const routes = [
     intro:
       "The EQ-i 2.0 is the world's most established emotional intelligence assessment. Painted Porch offers certified administration, debrief, and coaching, individually or for teams.",
     links: [
-      { href: "/partner/ignite/assessments", label: "All assessments" },
+      { href: "/assessments", label: "All assessments" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -581,7 +581,7 @@ export const routes = [
     intro:
       "A free mini guide adapted from the Stractical Leader 6-Week Intensive. How strategic-plus-tactical leaders think about direction, decisions, and execution, without collapsing into either extreme.",
     links: [
-      { href: "/partner/amplify/stractical-leader", label: "Full 6-week Intensive" },
+      { href: "/leadership-labs/stractical-leader", label: "Full 6-week Intensive" },
       { href: "/resources", label: "All resources" },
       { href: "/contact", label: "Contact us" },
     ],
@@ -649,3 +649,15 @@ export const routes = [
 ];
 
 export { SITE };
+
+/**
+ * Pages that moved to top-level addresses (PPS-DEC-0025 amendment, PPS Admin 2026-11-06).
+ * prerender.mjs writes a forwarding page at each old address, with the new page's SEO.
+ */
+export const movedPages = [
+  { from: "/partner/ignite/assessments", to: "/assessments" },
+  { from: "/partner/ignite/masterclasses", to: "/masterclasses" },
+  { from: "/partner/amplify/workshops", to: "/workshops" },
+  { from: "/partner/amplify/labs", to: "/leadership-labs" },
+  { from: "/partner/amplify/stractical-leader", to: "/leadership-labs/stractical-leader" },
+];

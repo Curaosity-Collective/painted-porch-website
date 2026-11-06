@@ -99,7 +99,7 @@ describe("HomeNext (draft go-forward homepage)", () => {
     const other = sectionByHeading(/Other Ways In/);
     expect(other.textContent).not.toMatch(/\$\s?\d/);
     expect(other.textContent).not.toMatch(/Starting at/i);
-    expect(within(other).getByRole("link", { name: /Team Workshops/ })).toHaveAttribute("href", "/partner/amplify/workshops");
+    expect(within(other).getByRole("link", { name: /Team Workshops/ })).toHaveAttribute("href", "/workshops");
   });
 
   it("sends the Clarity Call button to the contact form and both quiz actions to the quiz", () => {

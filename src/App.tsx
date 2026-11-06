@@ -63,6 +63,7 @@ import EQChangeLeaderMini from "./pages/pps/EQChangeLeaderMini";
 
 // AMPLIFY Subpages
 import AmplifyWorkshops from "./pages/pps/partner/amplify/AmplifyWorkshops";
+import { MovedTo } from "./components/pps/MovedTo";
 import AmplifySprints from "./pages/pps/partner/amplify/AmplifySprints";
 import AmplifySprintsArchive from "./pages/pps/partner/amplify/AmplifySprintsArchive";
 import AmplifyLabs from "./pages/pps/partner/amplify/AmplifyLabs";
@@ -328,27 +329,37 @@ const App = () => (
             
             {/* PPS-DEC-0025: the IGNITE and AMPLIFY overview pages are archived (Draft, no
                 page_status row) and their addresses go to the pages visitors want. */}
-            <Route path="partner/ignite" element={<Navigate to="/partner/ignite/assessments" replace />} />
+            {/* The self-led, workshop and Leadership Lab pages live at top-level addresses
+                (PPS-DEC-0025 amendment, PPS Admin 2026-11-06). Every old /partner address
+                forwards to its new one, keeping the query and #anchor. */}
+            <Route path="assessments" element={<IgniteAssessments />} />
+            <Route path="assessments/working-genius" element={<WorkingGeniusAssessment />} />
+            <Route path="masterclasses" element={<IgniteMasterclasses />} />
+            <Route path="workshops" element={<AmplifyWorkshops />} />
+            <Route path="leadership-labs" element={<AmplifyLabs />} />
+            <Route path="leadership-labs/stractical-leader" element={<StracticalLeaderWorkshop />} />
+            <Route path="leadership-labs/stractical-leader/enroll" element={<StracticalLeaderCheckout />} />
+            <Route path="partner/ignite" element={<MovedTo to="/assessments" />} />
             <Route path="partner/ignite-archive-v2" element={<IgnitePathAlt />} />
             {/* Courses retired (PPS-DEC-0021): course pages go to mini courses and masterclasses */}
-            <Route path="partner/ignite/courses" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
-            <Route path="partner/ignite/assessments" element={<IgniteAssessments />} />
-            <Route path="partner/ignite/assessments/working-genius" element={<WorkingGeniusAssessment />} />
-            <Route path="partner/ignite/masterclasses" element={<IgniteMasterclasses />} />
+            <Route path="partner/ignite/courses" element={<MovedTo to="/masterclasses" />} />
+            <Route path="partner/ignite/assessments" element={<MovedTo to="/assessments" />} />
+            <Route path="partner/ignite/assessments/working-genius" element={<MovedTo to="/assessments/working-genius" />} />
+            <Route path="partner/ignite/masterclasses" element={<MovedTo to="/masterclasses" />} />
             <Route path="eq" element={<EQAssessment />} />
             <Route path="eq-change-leader" element={<EQChangeLeaderMini />} />
             <Route path="eq-change-leader-mini" element={<Navigate to="/eq-change-leader" replace />} />
             <Route path="partner/ignite-archive" element={<IgnitePath />} />
-            <Route path="partner/amplify" element={<Navigate to="/partner/amplify/workshops" replace />} />
+            <Route path="partner/amplify" element={<MovedTo to="/workshops" />} />
             <Route path="partner/amplify-archive-v2" element={<AmplifyPathAlt />} />
-            <Route path="partner/amplify/workshops" element={<AmplifyWorkshops />} />
+            <Route path="partner/amplify/workshops" element={<MovedTo to="/workshops" />} />
             {/* Relaunch: Strategic Sprints are Architect ShIFt's 90-day sprint (plan §4). */}
             <Route path="partner/amplify/sprints" element={<Navigate to="/architect-shift" replace />} />
             <Route path="partner/amplify/sprints-archive" element={<AmplifySprintsArchive />} />
             <Route path="partner/amplify/sprints-archive-v2" element={<AmplifySprints />} />
-            <Route path="partner/amplify/labs" element={<AmplifyLabs />} />
-            <Route path="partner/amplify/stractical-leader" element={<StracticalLeaderWorkshop />} />
-            <Route path="partner/amplify/stractical-leader/enroll" element={<StracticalLeaderCheckout />} />
+            <Route path="partner/amplify/labs" element={<MovedTo to="/leadership-labs" />} />
+            <Route path="partner/amplify/stractical-leader" element={<MovedTo to="/leadership-labs/stractical-leader" />} />
+            <Route path="partner/amplify/stractical-leader/enroll" element={<MovedTo to="/leadership-labs/stractical-leader/enroll" />} />
             <Route path="partner/amplify-archive" element={<AmplifyPath />} />
             {/* Relaunch: EMBODY's partnership page gives way to Embody ShIFt (plan §4). */}
             <Route path="partner/embody" element={<Navigate to="/embody-shift" replace />} />
@@ -445,28 +456,27 @@ const App = () => (
             <Route path="for-teams" element={<Navigate to="/envision-shift" replace />} />
             <Route path="services" element={<Navigate to="/the-path" replace />} />
             <Route path="business-programs" element={<Navigate to="/the-path" replace />} />
-            <Route path="programs" element={<Navigate to="/partner/ignite/assessments" replace />} />
+            <Route path="programs" element={<Navigate to="/assessments" replace />} />
             {/* Course sales pages retired (PPS-DEC-0021) */}
-            <Route path="radical-mindfulness" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
-            <Route path="communication" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
-            <Route path="extraordinary-teams" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
+            <Route path="radical-mindfulness" element={<Navigate to="/masterclasses" replace />} />
+            <Route path="communication" element={<Navigate to="/masterclasses" replace />} />
+            <Route path="extraordinary-teams" element={<Navigate to="/masterclasses" replace />} />
 
             {/* Quick-access redirect shortcuts */}
-            <Route path="stracticalleader" element={<Navigate to="/partner/amplify/stractical-leader" replace />} />
+            <Route path="stracticalleader" element={<Navigate to="/leadership-labs/stractical-leader" replace />} />
             <Route path="blog" element={<Navigate to="/resources/insights" replace />} />
             <Route path="blog/:slug" element={<RedirectBlogToInsights />} />
             <Route path="insights" element={<Navigate to="/resources/insights" replace />} />
             <Route path="stracticalmini" element={<Navigate to="/resources/stractical-mini" replace />} />
             <Route path="media" element={<Navigate to="/speaking/media" replace />} />
             <Route path="free" element={<Navigate to="/resources/free" replace />} />
-            <Route path="ignite" element={<Navigate to="/partner/ignite/assessments" replace />} />
-            <Route path="amplify" element={<Navigate to="/partner/amplify/workshops" replace />} />
+            <Route path="ignite" element={<Navigate to="/assessments" replace />} />
+            <Route path="amplify" element={<MovedTo to="/workshops" />} />
             <Route path="embody" element={<Navigate to="/embody-shift" replace />} />
-            <Route path="courses" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
-            <Route path="masterclass" element={<Navigate to="/partner/ignite/masterclasses" replace />} />
-            <Route path="workshops" element={<Navigate to="/partner/amplify/workshops" replace />} />
+            <Route path="courses" element={<Navigate to="/masterclasses" replace />} />
+            <Route path="masterclass" element={<Navigate to="/masterclasses" replace />} />
             <Route path="sprints" element={<Navigate to="/architect-shift" replace />} />
-            <Route path="labs" element={<Navigate to="/partner/amplify/labs" replace />} />
+            <Route path="labs" element={<Navigate to="/leadership-labs" replace />} />
           </Route>
 
           {/* Link-in-Bio Hub Pages (standalone, no nav/footer).

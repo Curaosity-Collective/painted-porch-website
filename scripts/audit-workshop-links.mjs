@@ -7,11 +7,11 @@
  * This script catches source-tree regressions:
  *
  *   1. No stray "accordion" references in the workshop/speaking pages.
- *      The old accordion layout on /partner/amplify/workshops was
+ *      The old accordion layout on /workshops was
  *      reverted in favor of the /speaking/topics page — those files
  *      must not reference it (shadcn accordion primitive elsewhere is
  *      still fine).
- *   2. Any hardcoded `/partner/amplify/workshops#<anchor>` link uses
+ *   2. Any hardcoded `/workshops#<anchor>` link uses
  *      an anchor that AmplifyWorkshops.tsx actually renders.
  *   3. Any hardcoded `/speaking/topics#<slug>` link uses a slug that
  *      matches the kebab-case pattern used by anchor_id / topic_slug.

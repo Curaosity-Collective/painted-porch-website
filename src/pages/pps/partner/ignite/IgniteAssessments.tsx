@@ -38,7 +38,7 @@ const assessments = [
     tagline: "Discover Where You Thrive in Team Work",
     description: "Some work gives you energy. Some drains it, no matter how competent or skilled you are. Working Genius identifies your natural gifts and frustrations across six essential types of work, so you understand when you're operating in genius versus outside it.",
     investment: "Starting at $25 | Team pricing available",
-    link: "/partner/ignite/assessments/working-genius",
+    link: "/assessments/working-genius",
     isInternal: true,
     color: "bg-primary/10",
     borderColor: "border-primary",
@@ -101,7 +101,7 @@ export default function IgniteAssessments() {
   useDocumentSeo({
     title: "Assessments | Painted Porch Strategies",
     description: "Individual and team assessments from Painted Porch Strategies: EQ-i 2.0, Working Genius, and the Painted Porch Pillars™ diagnostic.",
-    canonical: "/partner/ignite/assessments",
+    canonical: "/assessments",
   });
 
   return (

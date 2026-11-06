@@ -28,8 +28,8 @@ const KEY_ROUTES = [
   "/architect-shift",
   "/embody-shift",
   // The IGNITE and AMPLIFY overview pages redirect here (PPS-DEC-0025).
-  "/partner/ignite/assessments",
-  "/partner/amplify/workshops",
+  "/assessments",
+  "/workshops",
   // Conversion paths
   "/blue-door",
   "/contact",

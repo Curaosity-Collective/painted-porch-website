@@ -100,7 +100,7 @@ export default function RadicalMindfulness() {
         segments={[
           { label: "Home", href: "/" },
           { label: "IGNITE", href: "/partner/ignite" },
-          { label: "Courses", href: "/partner/ignite/courses" },
+          { label: "Courses", href: "/masterclasses" },
           { label: "Radical Mindfulness" },
         ]}
       />

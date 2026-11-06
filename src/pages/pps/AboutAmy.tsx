@@ -46,7 +46,7 @@ const offerings: OfferingCard[] = [
     title: "Self-Led Growth",
     description:
       "Masterclasses, mini courses, and assessments designed to light the fire of transformation, on your terms.",
-    href: "/partner/ignite/assessments",
+    href: "/assessments",
     color: "gold",
   },
   {
@@ -54,7 +54,7 @@ const offerings: OfferingCard[] = [
     title: "Team Workshops & Leadership Labs",
     description:
       "Workshops and Leadership Labs that shape excellence and build compound momentum.",
-    href: "/partner/amplify/workshops",
+    href: "/workshops",
     color: "lime",
   },
   {

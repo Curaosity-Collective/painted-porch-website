@@ -66,7 +66,7 @@ export default function IgniteMasterclasses() {
   useDocumentSeo({
     title: "Masterclasses | Painted Porch Strategies",
     description: "Live and on-demand masterclasses on leadership, communication, mindfulness, and team dynamics from Painted Porch Strategies.",
-    canonical: "/partner/ignite/masterclasses",
+    canonical: "/masterclasses",
   });
 
   const [activeFilter, setActiveFilter] = useState<Category | null>(null);

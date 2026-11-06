@@ -22,7 +22,7 @@
 import { mkdir, readFile, writeFile, access } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { routes, SITE } from "./prerender-content.mjs";
+import { routes, SITE, movedPages } from "./prerender-content.mjs";
 import { buildMediaAppearanceSchema, buildMediaAppearancePage, serializeMediaAppearanceSchema } from "../src/lib/media-appearance-seo.mjs";
 import sharp from "sharp";
 
@@ -170,7 +170,7 @@ const SERVICE_LD = {
     provider: ORG_REF,
     areaServed: { "@type": "Country", name: "United States" },
   },
-  "/partner/amplify/stractical-leader": {
+  "/leadership-labs/stractical-leader": {
     "@type": "Course",
     name: "The Stractical Leader 6-Week Intensive",
     description:
@@ -385,6 +385,36 @@ for (const route of routes) {
     ok++;
   } catch (err) {
     console.warn(`[prerender] ✗ ${route.path} — ${err.message}`);
+    failed++;
+  }
+}
+
+// ── Moved pages: stub pages at the old addresses ──────────────────────
+// PPS-DEC-0025 amendment (PPS Admin, 2026-11-06): the pages under /partner/ignite and
+// /partner/amplify moved to top-level addresses. The site has no server-side redirects,
+// so each old address gets the new page's title, description and H1, a canonical link
+// to the new address, and an immediate forward that keeps the ?query and #anchor (a
+// refresh tag covers visitors without JavaScript). The React route forwards too.
+for (const { from, to } of movedPages) {
+  const target = routes.find((entry) => entry.path === to);
+  if (!target) {
+    console.warn(`[prerender] ✗ moved ${from}: no route for ${to}`);
+    failed++;
+    continue;
+  }
+  try {
+    const dest = SITE + to;
+    const forward =
+      `<script>location.replace(${JSON.stringify(to)} + location.search + location.hash);</script>\n` +
+      `<noscript><meta http-equiv="refresh" content="0; url=${escapeAttr(dest)}"></noscript>\n`;
+    const html = buildHtml(target).replace("<head>", `<head>\n${forward}`);
+    const outDir = path.join(DIST, from.replace(/^\//, ""));
+    await mkdir(outDir, { recursive: true });
+    await writeFile(path.join(outDir, "index.html"), html, "utf8");
+    console.log(`[prerender] ✓ ${from} → ${to}`);
+    ok++;
+  } catch (err) {
+    console.warn(`[prerender] ✗ moved ${from} — ${err.message}`);
     failed++;
   }
 }

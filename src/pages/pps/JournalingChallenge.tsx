@@ -51,7 +51,7 @@ export default function JournalingChallenge() {
       <section className="bg-white py-16 md:py-20">
         <div className="container max-w-5xl mx-auto px-6">
           <Link
-            to="/partner/ignite/masterclasses"
+            to="/masterclasses"
             className="inline-flex items-center gap-2 text-sm text-primary hover:underline mb-8"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Masterclasses
@@ -77,7 +77,7 @@ export default function JournalingChallenge() {
                 Coming Soon
               </Button>
               <p className="text-body -sm mt-3">
-                <Link to="/partner/ignite/masterclasses" className="text-primary hover:underline font-medium">
+                <Link to="/masterclasses" className="text-primary hover:underline font-medium">
                   Join the launch list →
                 </Link>
               </p>
@@ -213,7 +213,7 @@ export default function JournalingChallenge() {
             Coming Soon
           </Button>
           <p className="text-body -sm text-white/90 mt-4">
-            <Link to="/partner/ignite/masterclasses" className="underline hover:text-white font-medium">
+            <Link to="/masterclasses" className="underline hover:text-white font-medium">
               Join the launch list →
             </Link>
           </p>

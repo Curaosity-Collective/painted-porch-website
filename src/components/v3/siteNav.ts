@@ -78,10 +78,10 @@ export const HEADER_MENU: NavGroup[] = [
  * they serve, not where to start: an organization starts with the Clarity Call.
  */
 export const PATHWAY_LINKS: NavLink[] = [
-  { label: "Assessments", href: "/partner/ignite/assessments" },
-  { label: "Masterclasses", href: "/partner/ignite/masterclasses" },
-  { label: "Leadership Labs", href: "/partner/amplify/labs" },
-  { label: "Team Workshops", href: "/partner/amplify/workshops" },
+  { label: "Assessments", href: "/assessments" },
+  { label: "Masterclasses", href: "/masterclasses" },
+  { label: "Leadership Labs", href: "/leadership-labs" },
+  { label: "Team Workshops", href: "/workshops" },
 ];
 
 export const COMPANY_LINKS: NavLink[] = [

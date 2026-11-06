@@ -61,7 +61,7 @@ export function AllWorkshopTopics({ excludeKeys = [] }: { excludeKeys?: string[]
         supabase
           .from("path_finder_offerings")
           .select("offering_key, name, blurb, description, anchor_id, facilitator, current_url, is_live, topic, include_in_workshops")
-          .or("current_url.eq./partner/amplify/workshops,include_in_workshops.eq.true")
+          .or("current_url.eq./workshops,include_in_workshops.eq.true")
           .order("name", { ascending: true }),
         supabase
           .from("page_status")

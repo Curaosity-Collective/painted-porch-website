@@ -79,16 +79,16 @@ export const sitemapData: SitemapNode[] = [
     children: [
       {
         label: "Assessments",
-        path: "/partner/ignite/assessments",
+        path: "/assessments",
         children: [
           { label: "EQ Assessment", path: "/eq", note: "Top-level URL kept for ease of sharing" },
           { label: "EQ Change Leader", path: "/eq-change-leader", note: "Top-level URL kept for ease of sharing" },
-          { label: "Working Genius", path: "/partner/ignite/assessments/working-genius" },
+          { label: "Working Genius", path: "/assessments/working-genius" },
         ],
       },
       {
         label: "Masterclasses",
-        path: "/partner/ignite/masterclasses",
+        path: "/masterclasses",
         children: [
           { label: "Talking to Strangers (5-Day MYM)", path: "/talking-to-strangers", note: "Top-level URL kept for ease of sharing" },
           { label: "Team Superpowers Challenge", path: "/team-superpowers", note: "Top-level URL kept for ease of sharing" },
@@ -109,13 +109,13 @@ export const sitemapData: SitemapNode[] = [
   {
     label: "Team",
     children: [
-      { label: "Workshops", path: "/partner/amplify/workshops" },
+      { label: "Workshops", path: "/workshops" },
       {
         label: "Labs",
-        path: "/partner/amplify/labs",
+        path: "/leadership-labs",
         children: [
-          { label: "Stractical Leader Workshop", path: "/partner/amplify/stractical-leader" },
-          { label: "Stractical Leader Enrollment", path: "/partner/amplify/stractical-leader/enroll" },
+          { label: "Stractical Leader Workshop", path: "/leadership-labs/stractical-leader" },
+          { label: "Stractical Leader Enrollment", path: "/leadership-labs/stractical-leader/enroll" },
         ],
       },
     ],

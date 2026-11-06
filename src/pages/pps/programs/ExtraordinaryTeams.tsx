@@ -89,7 +89,7 @@ export default function ExtraordinaryTeams() {
         segments={[
           { label: "Home", href: "/" },
           { label: "IGNITE", href: "/partner/ignite" },
-          { label: "Courses", href: "/partner/ignite/courses" },
+          { label: "Courses", href: "/masterclasses" },
           { label: "Create Extraordinary Teams" },
         ]}
       />

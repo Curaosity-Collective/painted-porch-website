@@ -52,7 +52,7 @@ export default function StracticalMiniThankYou() {
                   </p>
                 </div>
               </Link>
-              <Link to="/partner/amplify/stractical-leader" className="group">
+              <Link to="/leadership-labs/stractical-leader" className="group">
                 <div className="bg-white border-2 border-border hover:border-cobalt rounded-xl p-6 h-full transition-colors">
                   <Home className="w-10 h-10 text-cobalt mb-3" />
                   <h4 className="text-base md:text-lg font-poppins font-semibold text-navy mb-2">
