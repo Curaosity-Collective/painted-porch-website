@@ -10,3 +10,7 @@ verify_jwt = false
 
 [functions.send-transactional-email]
 verify_jwt = true
+
+# Validated in code for both signed-in reviewers and privileged scheduled calls.
+[functions.import-linkedin-article]
+verify_jwt = false
