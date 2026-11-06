@@ -432,16 +432,17 @@ export default function OurApproach() {
         </div>
       </section>
 
-      {/* The Painted Porch Promise */}
+      {/* Our Commitment (PPS Admin, 2026-11-06). The Promise name belongs to the homepage's
+          If yes / If not yet / If not us section. */}
       <section className="py-16 md:py-24 bg-muted">
         <div className="container max-w-3xl mx-auto px-6">
           <div className="bg-gradient-to-br from-navy to-navy/90 text-white rounded-2xl p-8 md:p-12 border-b-4 border-gold shadow-xl text-center">
-            <Eyebrow variant="plain" tone="gold" as="p">The Painted Porch Promise</Eyebrow>
+            <Eyebrow variant="plain" tone="gold" as="p">Our Commitment</Eyebrow>
             <h3 className="text-xl md:text-3xl font-poppins font-bold mb-5">
-              You will not need us forever.
+              You won't need us forever.
             </h3>
             <p className="text-body text-white/90 mb-4 max-w-xl mx-auto">
-              The point of partnership is not a long contract. It's your team
+              The point of partnership isn't a long contract. It's your team
               becoming the people who can author your next change on their own.
             </p>
             <p className="text-body text-gold font-semibold max-w-xl mx-auto">
