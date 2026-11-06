@@ -2,6 +2,7 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 import { queueResourceEmail } from "../_shared/resource-email.ts";
+import { NEWSLETTER_TAG } from "../_shared/newsletter.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -16,7 +17,7 @@ const SLOT_KEY = "pilot-training";
 const WATCH_PATH = "/pilot-training-watch";
 const TEMPLATE_NAME = "pilot-training-replay";
 const SOURCE_LABEL = "Passenger to Pilot Replay";
-const TAGS = ["Passenger to Pilot Replay", "newsletter"];
+const TAGS = ["Passenger to Pilot Replay", NEWSLETTER_TAG];
 
 function ghlHeaders(apiKey: string) {
   return {
