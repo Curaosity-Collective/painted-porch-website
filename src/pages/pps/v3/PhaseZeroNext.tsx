@@ -120,7 +120,8 @@ const ESSENTIAL_ELEMENTS = [
   { label: "Collaboration", to: "/extraordinary-teams" },
   { label: "Clarity", to: "/envision-shift" },
   { label: "Resilience", to: "/radical-mindfulness" },
-  { label: "Alignment", to: "/working-genius" },
+  // The Working Genius page lives under assessments; "/working-genius" was never a route (PPS Admin, 2026-11-06).
+  { label: "Alignment", to: "/partner/ignite/assessments/working-genius" },
   { label: "Organizational Health", to: "/eq" },
 ];
 

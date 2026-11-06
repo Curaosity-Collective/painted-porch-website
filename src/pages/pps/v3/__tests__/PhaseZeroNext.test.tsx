@@ -2,6 +2,8 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent, within } from "@testing-library/react";
 import { MemoryRouter, Link } from "react-router-dom";
 import type { ReactNode } from "react";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 /**
  * Phase Zero™: Our Approach (/phase-zero), the one page that replaces the old Phase Zero
@@ -97,6 +99,22 @@ describe("Phase Zero: Our Approach", () => {
     expect(screen.getByRole("button", { name: "Calculate the cost of skipping Phase Zero" })).toBeInTheDocument();
     expect(container.textContent).toContain("Five Foundational Abilities");
     expect(container.textContent).toContain("Four Conditions That Hold");
+  });
+
+  it("links each Essential Element to a page that exists", () => {
+    renderPage();
+    const app = readFileSync(resolve(__dirname, "../../../../App.tsx"), "utf8");
+    const box = screen.getByRole("heading", { level: 3, name: "Essential Elements" }).parentElement!;
+    const links = within(box).getAllByRole("link");
+    expect(links).toHaveLength(6);
+    for (const link of links) {
+      const href = link.getAttribute("href")!;
+      expect(app, href).toContain(`path="${href.slice(1)}"`);
+    }
+    expect(within(box).getByRole("link", { name: "Alignment" })).toHaveAttribute(
+      "href",
+      "/partner/ignite/assessments/working-genius",
+    );
   });
 
   it("closes section 8 with Our Commitment, then the Partnership Promise, then the Clarity Call", () => {
