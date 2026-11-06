@@ -223,13 +223,11 @@ export default function HomeNext() {
             <div className="flex flex-col items-start gap-2.5">
               <button type="button" onClick={openQuiz} className={`${GOLD_BUTTON} focus-visible:outline-white`}>
                 <span>
-                  Ready for Epic <ShIFt onFill />?
+                  Find Your Next <ShIFt onFill />
                 </span>
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </button>
-              <p className="text-sm text-[#E3EFF1]">
-                Find Your Next <ShIFt onDark />: a three-minute guide to where your journey begins.
-              </p>
+              <p className="text-sm text-[#E3EFF1]">A three-minute guide to where your journey begins.</p>
             </div>
             <a
               href="#clarity-call"

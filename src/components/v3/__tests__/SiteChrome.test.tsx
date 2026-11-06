@@ -82,9 +82,10 @@ describe("SiteHeader", () => {
     expect(within(link).getByText("IF")).toHaveClass("text-raspberry");
   });
 
-  it("opens the live quiz from the Ready for Epic ShIFt? button", () => {
+  it("opens the guide from the Find Your Next ShIFt button (PPS-DEC-0026)", () => {
     renderAt(<SiteHeader />);
-    const buttons = screen.getAllByRole("button").filter((b) => flat(b.textContent ?? "") === "ReadyforEpicShIFt?");
+    expect(document.body.textContent).not.toMatch(/Ready for Epic/);
+    const buttons = screen.getAllByRole("button").filter((b) => flat(b.textContent ?? "") === "FindYourNextShIFt");
     expect(buttons).toHaveLength(1);
     fireEvent.click(buttons[0]);
     expect(openQuiz).toHaveBeenCalledTimes(1);

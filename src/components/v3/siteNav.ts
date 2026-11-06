@@ -3,8 +3,8 @@
  *
  * Header: The P.A.T.H. to Epic ShIFt (the P.A.T.H. page and the three
  * ShIFts), Speaking, Insights & Resources and About (with Phase Zero; PPS
- * Admin, 2026-11-06), then search and the "Ready for Epic
- * ShIFt?" button that opens the Find Your Next ShIFt guide. The offers for
+ * Admin, 2026-11-06), then search and the "Find Your Next ShIFt" button that
+ * opens the guide (PPS-DEC-0026). The offers for
  * leaders and teams are not in the header (B2B first, plan §1); the footer
  * keeps them under "Leaders & Teams".
  *

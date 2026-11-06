@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CheckCircle, X, ArrowRight, Compass, Users, Rocket, Repeat } from "lucide-react";
+import { CheckCircle, ArrowRight, Compass, Users, Rocket, Repeat } from "lucide-react";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { TierHeroSection } from "@/components/pps/TierHeroSection";
 import ParallaxCTA from "@/components/pps/ParallaxCTA";
@@ -64,55 +64,6 @@ const pathStages = [
 ];
 
 
-
-const coreValues = [
-  {
-    number: "01",
-    title: "Purpose",
-    description:
-      "We exist to change how people design, define, and connect with their work, so they can lead with more clarity, more strength, and more meaning.",
-    detail:
-      "That shows up as mindful leaders, resilient teams, and communication that actually lands.",
-    color: "bg-strategic/10",
-    borderColor: "border-strategic",
-  },
-  {
-    number: "02",
-    title: "Partnership",
-    description:
-      "You are the expert of you (and your teams and organization). We bring frameworks, genuine curiosity, and outside perspective. You bring the context only you can see.",
-    detail:
-      "We act as a guide and advisor, not a vendor. The win is when you can carry the work without us.",
-    color: "bg-primary/10",
-    borderColor: "border-primary",
-  },
-  {
-    number: "03",
-    title: "Stewardship",
-    description:
-      "Real results come from shared commitment, trust, and clear accountability from both seats on the porch.",
-    detail:
-      "We are here to do good work that makes financial sense and carries personal meaning, where talent, purpose, and contribution align.",
-    color: "bg-lime/10",
-    borderColor: "border-lime",
-  },
-];
-
-const beliefs = [
-  "People are the most critical infrastructure of every transformation.",
-  "Clarity comes before strategy, not after it.",
-  "Curious questions are more useful than confident answers.",
-  "Frameworks are tools, not religions.",
-  "Change that does not respect culture will not hold.",
-];
-
-const rejects = [
-  "Change theater that looks busy but moves nothing.",
-  "One-size playbooks dropped on a unique organization.",
-  'Treating people like obstacles to manage or "convince".',
-  "Tech rollouts that skip the human work.",
-  "Speed for its own sake.",
-];
 
 const createConditions = [
   "Leaders who can name what they are really trying to build.",
@@ -208,83 +159,7 @@ export default function OurApproach() {
       </section>
 
 
-      {/* Manifesto: What we believe / reject */}
-      <section className="py-16 md:py-24 bg-muted/60">
-        <div className="container max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <Eyebrow variant="plain" tone="primary" as="p">Our Manifesto</Eyebrow>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              What we stand for, and what we will not do.
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl p-7 border-t-4 border-lime shadow-sm">
-              <h3 className="text-xl md:text-2xl font-poppins font-semibold text-lime mb-4">
-                What we believe:
-              </h3>
-              <ul className="space-y-3">
-                {beliefs.map((b) => (
-                  <li key={b} className="text-body text-foreground flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-lime flex-shrink-0 mt-1" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-white rounded-xl p-7 border-t-4 border-raspberry shadow-sm">
-              <h3 className="text-xl md:text-2xl font-poppins font-semibold text-raspberry mb-4">
-                What we reject:
-              </h3>
-              <ul className="space-y-3">
-                {rejects.map((r) => (
-                  <li key={r} className="text-body text-foreground flex items-start gap-3">
-                    <X className="w-5 h-5 text-raspberry flex-shrink-0 mt-1" />
-                    <span>{r}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <Eyebrow variant="plain" tone="gold" as="p">How We Show Up</Eyebrow>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              Our Core Values
-            </h2>
-            <p className="text-body text-foreground max-w-2xl mx-auto">
-              Three values that decide how we show up in every partnership.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {coreValues.map((value, index) => (
-              <div
-                key={index}
-                className={`${value.color} p-8 rounded-xl border-t-4 ${value.borderColor}`}
-              >
-                <span className="text-4xl font-bold text-navy/20 font-poppins">
-                  {value.number}
-                </span>
-                <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mt-2 mb-4">
-                  {value.title}
-                </h3>
-                <p className="text-body text-foreground mb-4">
-                  {value.description}
-                </p>
-                <p className="text-body -sm text-foreground/80">
-                  {value.detail}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* The manifesto and core values moved to /about (PPS Admin, 2026-11-06). */}
 
       {/* R.L.P.V. - How we think */}
       <section className="py-16 md:py-24 bg-muted/30">

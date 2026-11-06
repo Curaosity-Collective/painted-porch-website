@@ -43,4 +43,15 @@ describe("ClientLogoMarquee logo tracks", () => {
     const { container: full } = render(<ClientLogoMarquee />);
     expect(tracks(full)[0].querySelectorAll("img").length).toBe(allClientLogos.length);
   });
+
+  it("sets each logo on a white rounded card when asked, as on Results & Impact (PPS Admin, 2026-11-06)", () => {
+    const { container } = render(<ClientLogoMarquee variant="cards" />);
+    const links = Array.from(container.querySelectorAll<HTMLElement>(".animate-marquee a"));
+    expect(links.length).toBe(allClientLogos.length * 2);
+    for (const a of links) expect(a.className).toMatch(/rounded-\[8px\].*\bbg-white\b.*\bshadow-sm\b/);
+    expect(container.querySelector("section")!.className).toContain("bg-cream");
+    // The default strip elsewhere keeps its plain look.
+    const plain = render(<ClientLogoMarquee />).container.querySelector(".animate-marquee a")!;
+    expect(plain.className).not.toContain("rounded");
+  });
 });

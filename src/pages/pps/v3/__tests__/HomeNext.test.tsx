@@ -107,7 +107,7 @@ describe("HomeNext (draft go-forward homepage)", () => {
     expect(screen.getByRole("link", { name: /Book a Clarity Call/ })).toHaveAttribute("href", CLARITY_CALL_CONTACT_HREF);
     // The form opens at the form, not the top of the contact page (PPS Admin, 2026-11-06).
     expect(CLARITY_CALL_CONTACT_HREF).toMatch(/#contact-form$/);
-    fireEvent.click(screen.getByRole("button", { name: /^Ready for Epic/ }));
+    fireEvent.click(screen.getByRole("button", { name: /^Find Your Next Sh ?IF ?t$/ }));
     fireEvent.click(screen.getByRole("button", { name: /^Not sure yet\? Find Your Next Sh ?IF ?t$/ }));
     expect(openQuiz).toHaveBeenCalledTimes(2);
   });
@@ -138,7 +138,10 @@ describe("HomeNext (draft go-forward homepage)", () => {
 
   it("names the directional guide Find Your Next ShIFt and never a quiz (PPS-DEC-0026)", () => {
     const { container } = renderHome();
-    expect(container.textContent).toContain("Find Your Next ShIFt: a three-minute guide");
+    expect(screen.getByRole("button", { name: /^Find Your Next Sh ?IF ?t$/ })).toBeInTheDocument();
+    expect(container.textContent).toContain("A three-minute guide to where your journey begins.");
+    // "Ready for Epic ShIFt?" retired; Epic ShIFt lives in the menu heading (PPS Admin, 2026-11-06).
+    expect(container.textContent).not.toMatch(/Ready for Epic/);
     expect(container.textContent).not.toMatch(/\bquiz\b/i);
     expect(container.textContent).not.toContain("P.A.T.H.way Quiz");
   });

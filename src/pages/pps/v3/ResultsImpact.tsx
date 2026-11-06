@@ -104,7 +104,9 @@ export default function ResultsImpact() {
         </ul>
       </section>
 
+      {/* Logos on white rounded cards, like Our Approach's credentials (PPS Admin, 2026-11-06). */}
       <ClientLogoMarquee
+        variant="cards"
         className="border-y border-border"
         heading={
           <span className="block text-[13px] font-bold uppercase tracking-[0.14em] text-[#5F6B70]">

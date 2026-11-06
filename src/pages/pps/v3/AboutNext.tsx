@@ -3,6 +3,7 @@ import porchSunset from "@/assets/heroes/about-hero.jpg";
 import amyPhoto from "@/assets/team/amy-yackowski.png";
 import robPhoto from "@/assets/team/rob-hunter.jpg";
 import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
+import { Check, X } from "lucide-react";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { ShIFt } from "@/components/v3/ShIFt";
 import ClientLogoMarquee from "@/components/pps/ClientLogoMarquee";
@@ -59,6 +60,50 @@ const THRIVES = [
   "You can feel that conventional change management isn't enough for what you're being called to build, even if you haven't had the words for it.",
   "You value an honest view of your organization's capacity, because clarity expands what becomes possible.",
   "You believe rigor and play belong in the same room, and you want a partner who brings both.",
+];
+
+/**
+ * Core values and manifesto: moved here from Our Approach (PPS Admin, 2026-11-06).
+ * Wording unchanged apart from contractions (PPS Admin, 2026-11-06).
+ */
+const CORE_VALUES = [
+  {
+    number: "01",
+    title: "Purpose",
+    body: "We exist to change how people design, define, and connect with their work, so they can lead with more clarity, more strength, and more meaning.",
+    detail: "That shows up as mindful leaders, resilient teams, and communication that actually lands.",
+    bar: "border-strategic",
+  },
+  {
+    number: "02",
+    title: "Partnership",
+    body: "You're the expert of you (and your teams and organization). We bring frameworks, genuine curiosity, and outside perspective. You bring the context only you can see.",
+    detail: "We act as a guide and advisor, not a vendor. The win is when you can carry the work without us.",
+    bar: "border-primary",
+  },
+  {
+    number: "03",
+    title: "Stewardship",
+    body: "Real results come from shared commitment, trust, and clear accountability from both seats on the porch.",
+    detail: "We're here to do good work that makes financial sense and carries personal meaning, where talent, purpose, and contribution align.",
+    bar: "border-lime-deep",
+  },
+];
+
+const BELIEFS = [
+  "People are the most critical infrastructure of every transformation.",
+  "Clarity comes before strategy, not after it.",
+  "Curious questions are more useful than confident answers.",
+  "Frameworks are tools, not religions.",
+  "Change that doesn't respect culture won't hold.",
+];
+
+const REJECTS = [
+  "Change theater that looks busy but moves nothing.",
+  "One-size playbooks dropped on a unique organization.",
+  "Treating people like obstacles to manage or “convince.”",
+  "Tech rollouts that skip the human work.",
+  "Speed for its own sake.",
 ];
 
 const HOW_WE_WORK = [
@@ -127,6 +172,63 @@ export default function AboutNext() {
                 <span>See how the work unfolds on the P.A.T.H. →</span>
               </SmartLink>
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Core values (from Our Approach, PPS Admin 2026-11-06) */}
+      <section aria-labelledby="about-values" className="border-t border-border bg-cream">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+          <Kicker>What Guides Us</Kicker>
+          <h2 id="about-values" className={`mt-5 ${V3_H2}`}>
+            Our Core Values
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-foreground">
+            Three values that decide how we show up in every partnership.
+          </p>
+          <ul className="mt-10 grid gap-6 md:grid-cols-3">
+            {CORE_VALUES.map((v) => (
+              <li key={v.title} className={`flex flex-col gap-3 border-t-8 bg-white p-7 ${v.bar}`}>
+                <span aria-hidden="true" className="font-display text-4xl font-bold text-heading/20">
+                  {v.number}
+                </span>
+                <h3 className="font-display text-2xl font-semibold leading-tight text-foreground">{v.title}</h3>
+                <p className="text-base leading-relaxed text-foreground">{v.body}</p>
+                <p className="text-base leading-relaxed text-foreground/80">{v.detail}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Manifesto (from Our Approach, PPS Admin 2026-11-06) */}
+      <section aria-labelledby="about-manifesto" className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+        <Kicker>Our Manifesto</Kicker>
+        <h2 id="about-manifesto" className={`mt-5 ${V3_H2}`}>
+          What We Stand For, and What We Won't Do
+        </h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="border border-border border-t-4 border-t-lime-deep bg-white p-7">
+            <h3 className="font-display text-2xl font-semibold text-foreground">What we believe</h3>
+            <ul className="mt-5 space-y-3">
+              {BELIEFS.map((b) => (
+                <li key={b} className="flex items-start gap-3 text-base leading-relaxed text-foreground">
+                  <Check className="mt-1 h-5 w-5 shrink-0 text-lime-deep" aria-hidden="true" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="border border-border border-t-4 border-t-raspberry bg-white p-7">
+            <h3 className="font-display text-2xl font-semibold text-foreground">What we reject</h3>
+            <ul className="mt-5 space-y-3">
+              {REJECTS.map((r) => (
+                <li key={r} className="flex items-start gap-3 text-base leading-relaxed text-foreground">
+                  <X className="mt-1 h-5 w-5 shrink-0 text-raspberry" aria-hidden="true" />
+                  <span>{r}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
