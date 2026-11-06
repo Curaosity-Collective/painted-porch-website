@@ -196,7 +196,7 @@ export default function EQChangeLeaderMini() {
             Learn how you can better listen, understand, be heard, and lead through E.Q.
           </p>
           <a href="#get-started">
-            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-navy">
+            <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-navy">
               Get Started
             </Button>
           </a>
