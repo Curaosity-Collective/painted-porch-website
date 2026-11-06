@@ -359,7 +359,8 @@ export default function ArchitectShift() {
               Every Architect engagement begins with an honest read.
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-foreground">
-              The Epic <ShIFt /> Organizational Appraisal shows where you really stand and what's blocking progress.
+              The Epic <ShIFt /> Organizational Appraisal reveals where you really stand on the path to your next
+              stage of becoming — and what's blocking progress.
               This interview-led organizational 360 includes six interviews (three executives, and three people from
               mid-level through the frontline) and your P.A.T.H. Compass. It's required before Architect <ShIFt /> and
               begins with a Clarity Call.
