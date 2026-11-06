@@ -29,3 +29,4 @@
 - [ ] Finish newsletter tag consolidation in GHL workflows and remove legacy tags afterward; public API exposes workflow metadata only, so trigger/action edits need GHL workflow-editor access. Website handlers now use newsletter and five existing contacts received it without removing legacy tags.
 - [x] Verify newsletter signup end-to-end and clean up only test records.
 - [x] Ensure contact, speaking, press and press-kit inquiries queue requester receipts with submitted details and a 24–48 business-hour response window; all four real form tests recorded sent emails and 66 checks passed.
+- [ ] Correct Team Workshops destination and restore Leaders & Teams footer links without exposing drafts.
