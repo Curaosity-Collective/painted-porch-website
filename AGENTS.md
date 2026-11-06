@@ -39,6 +39,7 @@ Every Google Doc used as an Ops Hub knowledge-base view must have a substantive,
 <!-- CURAOSITY-HUB:END -->
 
 # Project rules
+- Public monetary text uses native CSS text highlights from useMoneyMentions and the shared detector; never mutate React text nodes. Why: prices from static copy and asynchronous content stay consistent without changing source data or link semantics.
 
 - AI features and integration health checks use server-held Lovable AI credentials, never direct Anthropic credentials. Why: one gateway owns the app's AI access and obsolete provider secrets must not be required.
 
