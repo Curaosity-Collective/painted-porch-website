@@ -5,13 +5,13 @@ const mentions = (text: string) => findMoneyMentions(text).map(({ start, end }) 
 
 describe("monetary mention detection", () => {
   it("recognizes the selected Architect investment", () => {
-    expect(mentions("Starting at $90,000")).toEqual(["Starting at $90,000"]);
+    expect(mentions("Starting at $90,000")).toEqual(["$90,000"]);
   });
   it("recognizes monthly fee ranges as one amount", () => {
     expect(mentions("$9,000–$18,000 per month")).toEqual(["$9,000–$18,000 per month"]);
   });
-  it("recognizes fee and money mentions without dollar signs", () => {
-    expect(mentions("Every fee includes money for good.")).toEqual(["fee", "money"]);
+  it("does not highlight money words without a dollar amount", () => {
+    expect(mentions("Investment: every fee includes money for good.")).toEqual([]);
   });
   it("recognizes monetary statistics and decimals", () => {
     expect(mentions("$1T and $31,474 and 25.50 USD")).toEqual(["$1T", "$31,474", "25.50 USD"]);
