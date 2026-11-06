@@ -547,12 +547,8 @@ Deno.serve(async (req) => {
 
     // ── 2-4. Create Opportunity (skip if flagged, e.g. waitlist-only) ──
     if (!skipOpportunity) {
-      const { pipelineId, stageId } = await findPipelineAndStage(
-        apiKey,
-        locationId,
-        "New Lead",
-        "New/Interested"
-      );
+      const pipelineId = 'wN61Lguggu7DpJjtDXzM';
+      const stageId = '246523a0-051a-4ae5-869d-3bb6fd6ce679';
 
       console.log("Pipeline found:", pipelineId, "Stage:", stageId);
 
