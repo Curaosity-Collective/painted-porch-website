@@ -442,7 +442,7 @@ export default function AmplifyWorkshops() {
       <ParallaxCTA
         backgroundImage={architectChangeThumb}
         overlayTone="purple"
-        headline={<>Ready for Your Team&rsquo;s Next Sh<span data-if="on-dark" className="text-white font-bold">IF</span>t?</>}
+        headline={<>Ready to Amplify Your Team&rsquo;s Next Sh<span data-if="on-dark" className="text-white font-bold">IF</span>t?</>}
         description={
           <>
             Our workshops are co-designed around your context, your challenges, and your transformation goals.

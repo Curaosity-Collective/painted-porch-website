@@ -19,14 +19,13 @@
 --      own SEO applies;
 --   3. elsewhere, clears the title, description, social text and summary that name
 --      IGNITE, AMPLIFY or EMBODY, and removes only the FAQ answers and keywords that do.
--- In body text the names are matched in capitals only, so ordinary words ("ignite your
--- team", "embody the change") are left alone. Titles also lose "Ignite" or "Amplify" in
--- any case: there they're puns on the old names (for example "Leadership Masterclasses:
--- Ignite Your Change Strategy"). "Embody ShIFt" is a current offer and stays.
+-- The names are matched in capitals only, the way they were written as names, so the
+-- ordinary words stay ("Ignite Your Change Strategy", "embody the change"): PPS Admin
+-- (2026-11-06) retired them as names of concepts and categories, not as words.
 --
 -- Tested 2026-11-06 on a copy of all 85 production rows, after the relaunch cleanup:
 -- 28 rows archived (6 wrong names, 22 retired names), 66 of 322 FAQ answers removed,
--- 13 titles cleared, no other column changed; a second run changes nothing.
+-- 12 titles cleared, no other column changed; a second run changes nothing.
 --
 -- Afterwards, "Bulk generate SEO + AEO" in /admin/pages can write fresh text; its brand
 -- context now names the speakers and forbids the retired names.
@@ -55,8 +54,7 @@ SELECT p.id,
 FROM public.page_seo p
 WHERE to_jsonb(p)::text ~ '(Amy (Rowlinson|Wood|Leniet)|Rob Katchur|Sierra Modro|The Sierra Workshop)'
    OR concat_ws(' ', p.title, p.description, p.og_title, p.og_description, p.aeo_summary,
-                array_to_string(p.keywords, ' '), p.aeo_faqs::text) ~ '\m(IGNITE|AMPLIFY|EMBODY)\M'
-   OR concat_ws(' ', p.title, p.og_title) ~* '\m(ignite|amplify)\M';
+                array_to_string(p.keywords, ' '), p.aeo_faqs::text) ~ '\m(IGNITE|AMPLIFY|EMBODY)\M';
 
 -- 1. Archive ------------------------------------------------------------------
 
@@ -86,9 +84,9 @@ WHERE t.id = p.id
 -- 3. Retired names elsewhere ----------------------------------------------------
 
 UPDATE public.page_seo p
-SET title          = CASE WHEN p.title          ~ '\m(IGNITE|AMPLIFY|EMBODY)\M' OR p.title ~* '\m(ignite|amplify)\M' THEN NULL ELSE p.title END,
+SET title          = CASE WHEN p.title          ~ '\m(IGNITE|AMPLIFY|EMBODY)\M' THEN NULL ELSE p.title END,
     description    = CASE WHEN p.description    ~ '\m(IGNITE|AMPLIFY|EMBODY)\M' THEN NULL ELSE p.description END,
-    og_title       = CASE WHEN p.og_title       ~ '\m(IGNITE|AMPLIFY|EMBODY)\M' OR p.og_title ~* '\m(ignite|amplify)\M' THEN NULL ELSE p.og_title END,
+    og_title       = CASE WHEN p.og_title       ~ '\m(IGNITE|AMPLIFY|EMBODY)\M' THEN NULL ELSE p.og_title END,
     og_description = CASE WHEN p.og_description ~ '\m(IGNITE|AMPLIFY|EMBODY)\M' THEN NULL ELSE p.og_description END,
     aeo_summary    = CASE WHEN p.aeo_summary    ~ '\m(IGNITE|AMPLIFY|EMBODY)\M' THEN NULL ELSE p.aeo_summary END,
     keywords = CASE
