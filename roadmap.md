@@ -1,5 +1,5 @@
 - [x] Add approved-only media SEO/AEO/GEO structured summaries without changing the gallery.
-- [ ] Apply lime green to monetary amounts and fee mentions across public pages and verify dynamic text.
+- [x] Apply lime green to monetary amounts and fee mentions across public pages and verify dynamic text.
 - [x] Include the same summaries in crawler-readable prerendered HTML.
 - [x] Verify summary rules and the public page with real approved records.
 - [x] Diagnose missing email attempts across all immediate-access resources.
