@@ -39,6 +39,7 @@ const commonLinks = [
 
 /** @type {RouteContent[]} */
 export const routes = [
+  { path: "/press", title: "Press & Media Relations | Painted Porch Strategies", description: "Contact Painted Porch Strategies Media Relations for interviews, speaking engagements, speaker photos and press materials.", h1: "Painted Porch Strategies Media Relations", intro: "Media Relations at Painted Porch Strategies: speaking@onthepaintedporch.com. Contact our team for interviews, speaking opportunities, speaker photos or additional press materials.", links: [{ href: "/press-kit", label: "View Press Kit" }, { href: "/press#inquiry", label: "Send a Press Inquiry" }, { href: "/downloads/painted-porch-strategies-press-kit.pdf", label: "Download Press Kit PDF" }] },
   {
     path: "/press-kit",
     title: "Press Kit | Painted Porch Strategies",
@@ -49,7 +50,7 @@ export const routes = [
       { h2: "Our Mission", body: "Extraordinary Teams. Epic ShIFt. We build with your leaders rather than for them, expanding their capacity to author the future long after we leave." },
       { h2: "Our Speakers", body: "Amy Yackowski, Founder and Chief Evolution Officer; Rob Hunter, Chief Storytelling Officer; and Sierra Ramm Cantrell, Chief Joy Officer. Topics include change authorship, emotional intelligence, storytelling, communication, mindfulness and resilience." },
       { h2: "Selected Speaking Engagements", body: "ProjectWorld, Project Summit, PMBA Global, American Staffing Association, Toastmasters International and NextUp Phoenix." },
-      { h2: "Press Contact", body: "Contact the Painted Porch Strategies team for interviews, speaking opportunities, speaker photos and additional press materials." },
+      { h2: "Press Contact", body: "Media Relations: speaking@onthepaintedporch.com. Contact the Painted Porch Strategies team for interviews, speaking opportunities, speaker photos and additional press materials." },
     ],
     links: [
       { href: "/contact?interest=speaking", label: "Contact Us" },
