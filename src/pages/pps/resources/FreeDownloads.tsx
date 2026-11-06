@@ -229,7 +229,9 @@ export default function FreeDownloads() {
                             measures 3.96–4.41:1 on the tinted cards, under the 4.5:1 AA minimum for 12px text. */}
                         <span className="text-xs font-medium text-[hsl(211_5%_41%)] uppercase tracking-wide">{download.format}</span>
                         {download.comingSoon && (
-                          <span className="text-xs font-semibold text-gold uppercase tracking-wide">Coming Soon</span>
+                          // The redesign's dark gold for gold text on light backgrounds (as on the v3 pages and
+                          // .v3-skin .text-gold): brand gold is about 2:1 on these cards, under the 4.5:1 AA minimum.
+                          <span className="text-xs font-semibold text-[#8A5A00] uppercase tracking-wide">Coming Soon</span>
                         )}
                       </div>
                       <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mt-1">
