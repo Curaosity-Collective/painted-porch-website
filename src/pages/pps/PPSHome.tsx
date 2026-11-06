@@ -83,7 +83,7 @@ const discover = [
 
 export default function PPSHome() {
   useDocumentSeo({
-    title: "Painted Porch Strategies | It's Time to Do Epic ShIFt",
+    title: "Painted Porch Strategies | Build an Organization That Can Do Epic ShIFt",
     description:
       "Phase Zero is the work before the work. Find clarity before momentum outruns alignment.",
   });
