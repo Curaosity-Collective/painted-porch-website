@@ -57,7 +57,7 @@ const whoItsFor = [
   },
   {
     strong: "The Catalyst Event.",
-    body: "A market shift, AI mandate, or leadership transition forces evolution — and you refuse to sacrifice your people in the process.",
+    body: "AI or new technology, rapid growth, new leadership, a merger, a mandate, or change that hasn't stuck asks more than your organization can carry — and you refuse to sacrifice your people in the process.",
   },
   {
     strong: "The Vision Validation.",
