@@ -26,7 +26,7 @@ vi.mock("@/components/pps/quiz/PathFinderQuizProvider", () => ({
 
 import ArchitectShift from "../ArchitectShift";
 import EmbodyShift from "../EmbodyShift";
-import { clarityCallHrefFor } from "@/config/epicShiftAppraisal";
+import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 
 function renderPage(Page: () => JSX.Element) {
   return render(
@@ -72,7 +72,7 @@ describe("ArchitectShift (draft)", () => {
     renderPage(ArchitectShift);
     expect(screen.getByRole("link", { name: /Start with a Clarity Call/ })).toHaveAttribute(
       "href",
-      clarityCallHrefFor("Architect ShIFt"),
+      "/?clarity=architect#clarity-call",
     );
     fireEvent.click(screen.getByRole("button", { name: /^Take the Ready for Epic/ }));
     expect(openQuiz).toHaveBeenCalledTimes(1);
@@ -100,7 +100,7 @@ describe("EmbodyShift (draft)", () => {
     renderPage(EmbodyShift);
     expect(screen.getByRole("link", { name: /Start with a Clarity Call/ })).toHaveAttribute(
       "href",
-      clarityCallHrefFor("Embody ShIFt"),
+      clarityCallSectionHref("embody"),
     );
   });
 });

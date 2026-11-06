@@ -7,7 +7,7 @@ import { StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
-import { clarityCallHrefFor } from "@/config/epicShiftAppraisal";
+import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -165,7 +165,7 @@ export default function EmbodyShift() {
             Embody opens at your retrospective.
           </>
         }
-        to={clarityCallHrefFor("Embody ShIFt")}
+        to={clarityCallSectionHref("embody")}
         label="Start with a Clarity Call"
         image={pergola}
         imageAlt="A finished pergola with teal, purple, lime, gold and raspberry beams standing on its blueprint"

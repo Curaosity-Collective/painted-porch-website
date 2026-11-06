@@ -98,7 +98,7 @@ export const routes = [
       { href: "/speaking/sierra", label: "Sierra Cantrell" },
       { href: "/about/approach", label: "Our approach" },
       { href: "/about/impact", label: "Results & Impact" },
-      { href: "/contact", label: "Start with a Clarity Call" },
+      { href: "/#clarity-call", label: "Start with a Clarity Call" },
     ],
   },
   {
@@ -199,7 +199,7 @@ export const routes = [
       },
     ],
     links: [
-      { href: "/contact", label: "Start with a Clarity Call" },
+      { href: "/#clarity-call", label: "Start with a Clarity Call" },
       { href: "/the-path", label: "The P.A.T.H." },
       { href: "/architect-shift", label: "Architect ShIFt" },
       { href: "/embody-shift", label: "Embody ShIFt" },
@@ -233,7 +233,7 @@ export const routes = [
       { href: "/architect-shift", label: "Architect ShIFt" },
       { href: "/embody-shift", label: "Embody ShIFt" },
       { href: "/phase-zero", label: "What's Phase Zero?" },
-      { href: "/contact", label: "Start with a Clarity Call" },
+      { href: "/#clarity-call", label: "Start with a Clarity Call" },
     ],
   },
   {
@@ -259,7 +259,7 @@ export const routes = [
       { href: "/the-path", label: "The P.A.T.H." },
       { href: "/envision-shift", label: "Envision ShIFt" },
       { href: "/embody-shift", label: "Embody ShIFt" },
-      { href: "/contact", label: "Start with a Clarity Call" },
+      { href: "/#clarity-call", label: "Start with a Clarity Call" },
     ],
   },
   {
@@ -284,7 +284,7 @@ export const routes = [
     links: [
       { href: "/the-path", label: "The P.A.T.H." },
       { href: "/architect-shift", label: "Architect ShIFt" },
-      { href: "/contact", label: "Start with a Clarity Call" },
+      { href: "/#clarity-call", label: "Start with a Clarity Call" },
     ],
   },
   {

@@ -9,7 +9,7 @@ import { GhostLayer, StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
-import { clarityCallHrefFor } from "@/config/epicShiftAppraisal";
+import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -411,7 +411,7 @@ export default function ArchitectShift() {
             begins with a Clarity Call.
           </>
         }
-        to={clarityCallHrefFor("Architect ShIFt")}
+        to={clarityCallSectionHref("architect")}
         label="Start with a Clarity Call"
         image={sunlitColumns}
         imageAlt="Sunlight streaming between the columns of an enduring stone colonnade"

@@ -31,11 +31,11 @@ vi.mock("@/components/pps/quiz/PathFinderQuizProvider", () => ({
 }));
 
 import HomeNext from "../HomeNext";
-import { CLARITY_CALL_CONTACT_HREF } from "@/config/epicShiftAppraisal";
+import { CLARITY_CALL_CONTACT_HREF, clarityCallHrefFor } from "@/config/epicShiftAppraisal";
 
-function renderHome() {
+function renderHome(url = "/") {
   return render(
-    <MemoryRouter>
+    <MemoryRouter initialEntries={[url]}>
       <HomeNext />
     </MemoryRouter>,
   );
@@ -103,9 +103,35 @@ describe("HomeNext (draft go-forward homepage)", () => {
   it("sends the Clarity Call button to the contact form and both quiz actions to the quiz", () => {
     renderHome();
     expect(screen.getByRole("link", { name: /Book a Clarity Call/ })).toHaveAttribute("href", CLARITY_CALL_CONTACT_HREF);
+    // The form opens at the form, not the top of the contact page (PPS Admin, 2026-11-06).
+    expect(CLARITY_CALL_CONTACT_HREF).toMatch(/#contact-form$/);
     fireEvent.click(screen.getByRole("button", { name: /^Ready for Epic/ }));
     fireEvent.click(screen.getByRole("button", { name: /Take the quiz/ }));
     expect(openQuiz).toHaveBeenCalledTimes(2);
+  });
+
+  it("passes the topic a Clarity Call link carried on to the form, and ignores unknown topics", () => {
+    // PPS Admin (2026-11-06): Clarity Call links elsewhere land on this section first.
+    const { unmount } = renderHome("/?clarity=architect#clarity-call");
+    expect(screen.getByRole("link", { name: /Book a Clarity Call/ })).toHaveAttribute(
+      "href",
+      clarityCallHrefFor("Architect ShIFt"),
+    );
+    unmount();
+    renderHome("/?clarity=anything-else");
+    expect(screen.getByRole("link", { name: /Book a Clarity Call/ })).toHaveAttribute("href", CLARITY_CALL_CONTACT_HREF);
+  });
+
+  it("colors the Promise boxes green, yellow, red", () => {
+    renderHome();
+    const boxes = screen.getAllByTestId("home-promise-box");
+    expect(boxes.map((b) => b.className.match(/\bbg-(lime-deep|gold|raspberry)\b/)?.[1])).toEqual([
+      "lime-deep",
+      "gold",
+      "raspberry",
+    ]);
+    // Gold carries dark text (PPS-DEC-0022).
+    expect(boxes[1].className).not.toContain("text-white");
   });
 
   it("keeps eyebrows a different color from their headings and drops the ™ from P.A.T.H.way", () => {

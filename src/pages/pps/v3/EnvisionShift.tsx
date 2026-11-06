@@ -9,7 +9,7 @@ import { GhostLayer, ParallaxImage, StickyMedia } from "@/components/v3/Motion";
 import { Reveal } from "@/components/v3/Reveal";
 import { ShIFt } from "@/components/v3/ShIFt";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
-import { CLARITY_CALL_CONTACT_HREF, EPIC_SHIFT_APPRAISAL } from "@/config/epicShiftAppraisal";
+import { EPIC_SHIFT_APPRAISAL, clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -307,7 +307,7 @@ export default function EnvisionShift() {
             becomes your natural next step.
           </>
         }
-        to={CLARITY_CALL_CONTACT_HREF}
+        to={clarityCallSectionHref("appraisal")}
         label="Start with a Clarity Call"
         secondary={
           <>

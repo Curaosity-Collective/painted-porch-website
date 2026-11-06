@@ -8,7 +8,7 @@ import { ShIFt } from "@/components/v3/ShIFt";
 import ClientLogoMarquee from "@/components/pps/ClientLogoMarquee";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
-import { CLARITY_CALL_CONTACT_HREF } from "@/config/epicShiftAppraisal";
+import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { CERTIFICATIONS } from "@/data/certifications";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 
@@ -232,7 +232,7 @@ export default function AboutNext() {
       <CTABand
         title="Author What Comes Next"
         body="If your organization is being called toward something greater, start with a Clarity Call: 60 minutes with Amy to see what's possible."
-        to={CLARITY_CALL_CONTACT_HREF}
+        to={clarityCallSectionHref()}
         label="Start with a Clarity Call"
         image={porchSunset}
         imageAlt="Two rocking chairs on a porch facing the sunset across an open lawn"

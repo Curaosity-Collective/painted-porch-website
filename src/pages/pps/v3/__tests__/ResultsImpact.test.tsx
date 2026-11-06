@@ -30,7 +30,6 @@ vi.mock("@/components/pps/quiz/PathFinderQuizProvider", () => ({
 }));
 
 import ResultsImpact from "../ResultsImpact";
-import { CLARITY_CALL_CONTACT_HREF } from "@/config/epicShiftAppraisal";
 import { CHARITIES } from "@/data/charities";
 import { CLIENT_TESTIMONIALS } from "../testimonials";
 
@@ -99,7 +98,7 @@ describe("ResultsImpact (draft)", () => {
     const { container } = renderPage();
     expect(screen.getByRole("link", { name: /Start with a Clarity Call/ })).toHaveAttribute(
       "href",
-      CLARITY_CALL_CONTACT_HREF,
+      "/#clarity-call",
     );
     fireEvent.click(screen.getByRole("button", { name: /^Take the Ready for Epic/ }));
     expect(openQuiz).toHaveBeenCalledTimes(1);

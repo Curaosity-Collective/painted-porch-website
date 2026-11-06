@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight, Lightbulb } from "lucide-react";
 import porchColumns from "@/assets/v3/painted-porch-columns.jpg";
 import amySquare from "@/assets/v3/amy-yackowski-square.jpg";
@@ -8,7 +8,7 @@ import { FEATURED_TESTIMONIALS } from "./testimonials";
 import { SmartLink } from "@/components/pps/SmartLink";
 import ClientLogoMarquee from "@/components/pps/ClientLogoMarquee";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
-import { CLARITY_CALL_CONTACT_HREF } from "@/config/epicShiftAppraisal";
+import { CLARITY_CALL_CONTACT_HREF, CLARITY_CALL_TOPICS, clarityCallHrefFor, clarityCallTopicFrom } from "@/config/epicShiftAppraisal";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { useFeaturedPosts } from "@/hooks/useFeaturedPosts";
 
@@ -158,7 +158,7 @@ const TESTIMONIALS = FEATURED_TESTIMONIALS;
 const PROMISE = [
   {
     label: "If yes",
-    box: "bg-lime-deep",
+    box: "bg-lime-deep text-white",
     body: (
       <>
         We co-architect what it takes to author and shape your next <ShIFt lowercase onFill />.
@@ -167,12 +167,14 @@ const PROMISE = [
   },
   {
     label: "If not yet",
-    box: "bg-primary",
+    // Green, yellow, red (PPS Admin, 2026-11-06). Gold takes dark text: white on Gold is
+    // 2.2:1, #1E2B30 is 7:1 (PPS-DEC-0022).
+    box: "bg-gold text-[#1E2B30]",
     body: "We tell you the truth, and we map a P.A.T.H.way to build the capacity you need first.",
   },
   {
     label: "If not us",
-    box: "bg-raspberry",
+    box: "bg-raspberry text-white",
     body: "We tell you that, too, and connect you with the right partner for your stage.",
   },
 ];
@@ -182,12 +184,17 @@ const OTHER_WAYS = [
   // Workshops page (PPS Admin, 2026-11-05).
   { title: "Team Workshops", to: "/partner/amplify/workshops", body: "For leadership and cross-functional teams." },
   { title: "Speaking", to: "/speaking", body: "Keynotes from Amy Yackowski, Rob Hunter and Sierra Cantrell." },
-  { title: "For individuals", to: "/partner/ignite", body: "Mini courses, masterclasses, labs and assessments on the P.A.T.H.way pages." },
+  { title: "For individuals", to: "/partner/ignite/masterclasses", body: "Mini courses, masterclasses, Leadership Labs and assessments." },
 ];
 
 export default function HomeNext() {
   const { open: openQuiz } = usePathFinderQuiz();
   const { data: posts } = useFeaturedPosts(3);
+  // Clarity Call links elsewhere land on this page's Clarity Call section and carry their
+  // topic (?clarity=architect), which the section's Book button passes on to the form.
+  const [searchParams] = useSearchParams();
+  const clarityTopic = clarityCallTopicFrom(searchParams.get("clarity"));
+  const bookClarityCallHref = clarityTopic ? clarityCallHrefFor(CLARITY_CALL_TOPICS[clarityTopic]) : CLARITY_CALL_CONTACT_HREF;
 
   useDocumentSeo({
     title: "Painted Porch Strategies | Build an Organization That Can Do Epic ShIFt",
@@ -491,7 +498,7 @@ export default function HomeNext() {
           </div>
           <ul data-testid="home-promise" className="grid gap-6 md:grid-cols-3">
             {PROMISE.map((p) => (
-              <li key={p.label} data-testid="home-promise-box" className={`flex flex-col gap-2.5 p-8 text-white ${p.box}`}>
+              <li key={p.label} data-testid="home-promise-box" className={`flex flex-col gap-2.5 p-8 ${p.box}`}>
                 <span className="font-display text-[22px] font-bold leading-tight">{p.label}</span>
                 <p className="text-[17px] leading-relaxed">{p.body}</p>
               </li>
@@ -546,7 +553,7 @@ export default function HomeNext() {
               </footer>
             </blockquote>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3.5 pt-1">
-              <Link to={CLARITY_CALL_CONTACT_HREF} className={`${GOLD_BUTTON} focus-visible:outline-white`}>
+              <Link to={bookClarityCallHref} className={`${GOLD_BUTTON} focus-visible:outline-white`}>
                 Book a Clarity Call <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <button

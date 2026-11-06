@@ -7,7 +7,7 @@ import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { ShIFt } from "@/components/v3/ShIFt";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
-import { clarityCallHrefFor } from "@/config/epicShiftAppraisal";
+import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -437,7 +437,7 @@ export default function ThePath() {
       <CTABand
         title="Find Out Where You Are on the P.A.T.H."
         body="Every journey starts with a Clarity Call: 60 minutes with Amy to read where your organization is on the P.A.T.H. and what makes sense next."
-        to={clarityCallHrefFor("where we are on the P.A.T.H.")}
+        to={clarityCallSectionHref("path")}
         label="Start with a Clarity Call"
         image={colorBurst}
         imageAlt="A burst of teal, green, orange, raspberry, purple and gold color powder against black"
