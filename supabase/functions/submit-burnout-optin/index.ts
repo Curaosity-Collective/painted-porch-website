@@ -1,6 +1,7 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { queueResourceEmail } from "../_shared/resource-email.ts";
+import { NEWSLETTER_TAG } from "../_shared/newsletter.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -94,7 +95,7 @@ Deno.serve(async (req) => {
     const firstName = nameParts[0];
     const lastName = nameParts.length > 1 ? nameParts.slice(1).join(" ") : "";
 
-    const tags = ["burnout_optin", "newsletter"];
+    const tags = ["burnout_optin", NEWSLETTER_TAG];
 
     // ── 1. Upsert GHL Contact ──
     const searchRes = await fetch(

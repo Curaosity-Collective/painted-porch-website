@@ -2,6 +2,7 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 import { queueResourceEmail } from "../_shared/resource-email.ts";
+import { NEWSLETTER_TAG } from "../_shared/newsletter.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -16,7 +17,7 @@ const SLOT_KEY = "stoic-field-guide";
 const ACCESS_PATH = "/stoic-field-guide-access";
 const TEMPLATE_NAME = "stoic-field-guide";
 const SOURCE_LABEL = "Stoic Leader Field Guide";
-const TAGS = ["StoicFieldFree", "newsletter"];
+const TAGS = ["StoicFieldFree", NEWSLETTER_TAG];
 
 function ghlHeaders(apiKey: string) {
   return {

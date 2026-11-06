@@ -2,6 +2,7 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 import { queueResourceEmail } from "../_shared/resource-email.ts";
+import { NEWSLETTER_TAG } from "../_shared/newsletter.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -16,7 +17,7 @@ const SLOT_KEY = "kick-the-habit";
 const WATCH_PATH = "/kick-the-habit-watch";
 const TEMPLATE_NAME = "kick-the-habit-replay";
 const SOURCE_LABEL = "Kick the Habit Replay";
-const TAGS = ["Kick Habit Replay", "newsletter"];
+const TAGS = ["Kick Habit Replay", NEWSLETTER_TAG];
 
 function ghlHeaders(apiKey: string) {
   return {

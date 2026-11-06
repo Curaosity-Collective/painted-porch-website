@@ -2,6 +2,7 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 import { queueResourceEmail } from "../_shared/resource-email.ts";
+import { NEWSLETTER_TAG } from "../_shared/newsletter.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -16,7 +17,7 @@ const SLOT_KEY = "communicator-styles";
 const WATCH_PATH = "/6-communicator-styles-watch";
 const TEMPLATE_NAME = "communicator-styles-replay";
 const SOURCE_LABEL = "6 Communicator Styles Replay";
-const TAGS = ["6Comm Replay", "newsletter"];
+const TAGS = ["6Comm Replay", NEWSLETTER_TAG];
 
 function ghlHeaders(apiKey: string) {
   return {
