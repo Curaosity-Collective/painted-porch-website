@@ -14,4 +14,4 @@
 - [x] Verify and apply topics and relaunch SEO cleanups if missing.
 - [x] Update requested offering URLs and live flags.
 - [x] Refresh page SEO/AEO and verify homepage browser title and saved FAQs.
-- [ ] Schedule and verify one weekly YouTube and LinkedIn newsletter sweep, with new imports pending review.
+- [x] Schedule and verify one weekly YouTube and LinkedIn newsletter sweep, with new imports pending review.
