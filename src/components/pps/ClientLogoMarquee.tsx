@@ -37,38 +37,10 @@ const MIN_LOGOS_PER_TRACK = 10;
 // Seconds per logo, so every strip moves at the same speed.
 const SECONDS_PER_LOGO = 5;
 
-// "cards" sets each logo on a white rounded card, the way Our Approach shows its
-// credentials: 8px corners, set in pixels because the redesign's theme makes
-// rounded-lg only 4px (PPS Admin, 2026-11-06, for Results & Impact).
-const ITEM = {
-  plain:
-    "flex-shrink-0 w-[112px] h-[56px] md:w-[140px] md:h-[70px] flex items-center justify-center grayscale opacity-85 hover:grayscale-0 hover:opacity-100 transition-all duration-300",
-  cards:
-    "group flex-shrink-0 w-[136px] h-20 md:w-[168px] md:h-24 flex items-center justify-center rounded-[8px] bg-white p-3 shadow-sm hover:shadow-md transition-shadow duration-300",
-} as const;
-const IMAGE = {
-  plain: "max-w-full max-h-full object-contain",
-  cards:
-    "max-w-full max-h-full object-contain grayscale opacity-85 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100",
-} as const;
-
-type Variant = keyof typeof ITEM;
-
-function LogoTrack({
-  logos,
-  duration,
-  copy,
-  variant = "plain",
-}: {
-  logos: LogoItem[];
-  duration: number;
-  copy?: boolean;
-  variant?: Variant;
-}) {
-  const spacing = variant === "cards" ? "gap-4 px-2 py-2 md:gap-6 md:px-3" : "gap-8 px-4 md:gap-16 md:px-8";
+function LogoTrack({ logos, duration, copy }: { logos: LogoItem[]; duration: number; copy?: boolean }) {
   return (
     <div
-      className={`flex shrink-0 items-center ${spacing} animate-marquee`}
+      className="flex shrink-0 items-center gap-8 px-4 md:gap-16 md:px-8 animate-marquee"
       style={{ animationDuration: `${duration}s` }}
       // The second track only completes the loop; screen readers and the
       // keyboard get the logos once.
@@ -81,7 +53,7 @@ function LogoTrack({
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={copy ? -1 : undefined}
-          className={ITEM[variant]}
+          className="flex-shrink-0 w-[112px] h-[56px] md:w-[140px] md:h-[70px] flex items-center justify-center grayscale opacity-85 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
         >
           {/* Not lazy: these images come into view by sliding sideways, and
               browsers don't load lazy images that arrive that way, which left
@@ -89,7 +61,7 @@ function LogoTrack({
           <img
             src={logo.src}
             alt={copy ? "" : logo.name}
-            className={IMAGE[variant]}
+            className="max-w-full max-h-full object-contain"
             decoding="async"
           />
         </a>
@@ -138,8 +110,6 @@ interface ClientLogoMarqueeProps {
   logos?: LogoItem[];
   testimonials?: Testimonial[];
   showTestimonials?: boolean;
-  /** "cards": logos on white rounded cards over a cream band. */
-  variant?: Variant;
 }
 
 export default function ClientLogoMarquee({
@@ -152,9 +122,7 @@ export default function ClientLogoMarquee({
   logos,
   testimonials = placeholderTestimonials,
   showTestimonials = false,
-  variant = "plain",
 }: ClientLogoMarqueeProps) {
-  const band = variant === "cards" ? { bg: "bg-cream", from: "from-cream" } : { bg: "bg-white", from: "from-white" };
   const displayLogos = logos || allClientLogos;
   const repeats = displayLogos.length ? Math.ceil(MIN_LOGOS_PER_TRACK / displayLogos.length) : 0;
   const trackLogos = Array.from({ length: repeats }, () => displayLogos).flat();
@@ -171,7 +139,7 @@ export default function ClientLogoMarquee({
   };
 
   return (
-    <section className={`py-16 md:py-20 ${band.bg} overflow-hidden ${className}`}>
+    <section className={`py-16 md:py-20 bg-white overflow-hidden ${className}`}>
       <div
         ref={ref}
         className={`text-center transition-all duration-700 ease-out ${
@@ -184,12 +152,12 @@ export default function ClientLogoMarquee({
 
         <div className="relative">
           {/* Narrow fades on phones: at 96px each they hid half the strip. */}
-          <div className={`absolute left-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-r ${band.from} to-transparent z-10`} />
-          <div className={`absolute right-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-l ${band.from} to-transparent z-10`} />
+          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
           <div className="flex overflow-hidden [&:hover>div]:animation-play-state-paused">
-            <LogoTrack logos={trackLogos} duration={duration} variant={variant} />
-            <LogoTrack logos={trackLogos} duration={duration} variant={variant} copy />
+            <LogoTrack logos={trackLogos} duration={duration} />
+            <LogoTrack logos={trackLogos} duration={duration} copy />
           </div>
         </div>
 
