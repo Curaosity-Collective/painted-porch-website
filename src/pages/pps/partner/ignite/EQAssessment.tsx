@@ -479,9 +479,9 @@ export default function EQAssessment() {
                     <div className="w-8 h-8 rounded-full bg-raspberry/10 flex items-center justify-center flex-shrink-0">
                       <span className="text-sm font-bold text-raspberry">{i + 1}</span>
                     </div>
-                    <span className="text-xs font-semibold tracking-widest text-raspberry uppercase">
+                    <Eyebrow tone="raspberry" className="mb-0">
                       {section.tag}
-                    </span>
+                    </Eyebrow>
                   </div>
                   <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mb-3">
                     {section.title}

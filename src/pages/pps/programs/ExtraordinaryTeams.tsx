@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Eyebrow } from "@/components/pps/Eyebrow";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Puzzle, Target, BookOpen, Users, Brain, Check, Bell } from "lucide-react";
@@ -103,9 +104,9 @@ export default function ExtraordinaryTeams() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <span className={`inline-block text-pps-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-4 transition-all duration-700 ease-out ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}>
+          <Eyebrow tone="gold" className={`mb-4 transition-all duration-700 ease-out ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}>
             From Conflict to Connection
-          </span>
+          </Eyebrow>
           <h1 className={`text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-white mb-6 transition-all duration-700 ease-out delay-150 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             Create Extraordinary Teams
           </h1>

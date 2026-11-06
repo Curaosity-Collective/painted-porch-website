@@ -331,9 +331,9 @@ export default function WorkingGeniusAssessment() {
                   <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <span className="text-sm font-bold text-primary">{i + 1}</span>
                   </div>
-                  <span className="text-xs font-semibold tracking-widest text-primary uppercase">
+                  <Eyebrow tone="primary" className="mb-0">
                     {section.tag}
-                  </span>
+                  </Eyebrow>
                 </div>
                 <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mb-3">
                   {section.title}
