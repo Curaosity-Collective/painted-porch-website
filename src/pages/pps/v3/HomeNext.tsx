@@ -301,7 +301,7 @@ export default function HomeNext() {
                 </li>
               ))}
             </ul>
-            <blockquote className="mt-3 font-display text-[22px] font-semibold leading-snug text-primary md:text-[28px]">
+            <blockquote className="mt-3 font-display text-[22px] font-semibold italic leading-snug text-primary md:text-[28px]">
               Your organization is becoming something. The only question is whether you're the{" "}
               <span className="text-raspberry">author</span> of it or the audience.
             </blockquote>
@@ -460,7 +460,7 @@ export default function HomeNext() {
             {TESTIMONIALS.map((t) => (
               <li key={t.who}>
                 <blockquote>
-                  <p className="font-display text-lg font-medium leading-snug text-foreground md:text-xl">
+                  <p className="font-display text-lg font-medium italic leading-snug text-foreground md:text-xl">
                     <span aria-hidden="true" className="font-bold text-raspberry">
                       “
                     </span>
@@ -544,7 +544,7 @@ export default function HomeNext() {
               </span>
             </p>
             <blockquote>
-              <p className="font-display text-lg font-medium leading-normal">
+              <p className="font-display text-lg font-medium italic leading-normal">
                 “Every time I talk to Amy, I realize I missed a step somewhere… I guarantee you'll come out thinking
                 something differently or knowing something you hadn't known before.”
               </p>
