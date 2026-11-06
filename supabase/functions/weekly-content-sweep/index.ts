@@ -1,4 +1,5 @@
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { createClient } from "npm:@supabase/supabase-js@2";
 import { isScheduledScan } from "../_shared/scheduled-content-scan.ts";
 
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
@@ -10,8 +11,24 @@ Deno.serve(async (req) => {
   if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
   const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
   const url = Deno.env.get("SUPABASE_URL");
-  if (!isScheduledScan(req.headers.get("authorization"), serviceKey)) return json({ error: "Unauthorized" }, 401);
   if (!url || !serviceKey) return json({ error: "Scanner configuration unavailable" }, 500);
+  const sweepSecret = Deno.env.get("CONTENT_SWEEP_SECRET");
+  const authorization = req.headers.get("authorization");
+  const body = await req.json().catch(() => ({}));
+  if (body.setup === true) {
+    const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
+    if (!anonKey || !sweepSecret) return json({ error: "Scheduling configuration unavailable" }, 500);
+    const userClient = createClient(url, anonKey, { global: { headers: { Authorization: authorization ?? "" } } });
+    const { data: userData } = await userClient.auth.getUser();
+    if (!userData?.user) return json({ error: "Unauthorized" }, 401);
+    const { data: allowed } = await userClient.rpc("is_admin_or_editor", { _user_id: userData.user.id });
+    if (!allowed) return json({ error: "Forbidden" }, 403);
+    const adminClient = createClient(url, serviceKey);
+    const { error } = await adminClient.from("content_sweep_credentials").upsert({ id: true, token: sweepSecret });
+    if (error) return json({ error: "Could not initialize scheduling" }, 500);
+    return json({ success: true, configured: true });
+  }
+  if (!isScheduledScan(authorization, sweepSecret)) return json({ error: "Unauthorized" }, 401);
 
   // Independent scans: a provider outage must not prevent the other sweep.
   const results = await Promise.all(["scan-youtube-channel", "scan-linkedin-articles"].map(async (name) => {
