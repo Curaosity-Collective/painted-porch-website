@@ -225,7 +225,7 @@ export const sitemapData: SitemapNode[] = [
       { label: "Sierra", path: "/speaking/sierra" },
       { label: "Speaking & Workshop Topics", path: "/speaking/topics" },
       { label: "As Seen On (Media)", path: "/speaking/media" },
-      { label: "Press Kit", path: "/press-kit", note: "Draft for review: bios, mission, speaking engagements and approved media" },
+      { label: "Press Kit", path: "/press-kit", note: "Bios, mission, speaking engagements, approved media, press contact and PDF" },
     ],
   },
   {

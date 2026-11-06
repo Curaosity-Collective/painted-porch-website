@@ -14,4 +14,7 @@ describe("press kit approval rules", () => {
   it("keeps the new press kit draft until explicitly launched", () => {
     expect(resolvePageStatus("/press-kit", {})).toBe("draft");
   });
+  it("opens the press kit publicly when its saved status is live", () => {
+    expect(resolvePageStatus("/press-kit", { "/press-kit": { path: "/press-kit", status: "live", category: "public", note: null } })).toBe("live");
+  });
 });
