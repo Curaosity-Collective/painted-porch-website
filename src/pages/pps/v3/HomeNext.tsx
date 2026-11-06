@@ -522,7 +522,7 @@ export default function HomeNext() {
           <div className="flex min-w-0 flex-col gap-5">
             <Eyebrow onDark>Start With a Clarity Call</Eyebrow>
             <h2 id="home-clarity" className={H2.replace("text-primary", "text-white")}>
-              What Is Your Organization Built to Lead Next?
+              What's Your Organization Built to Lead Next?
             </h2>
             <p className="max-w-[36em] text-[17px] leading-relaxed text-[#E3EFF1]">
               Bring the vision you haven't had the words for, or the roadblock everyone else has accepted as normal. In

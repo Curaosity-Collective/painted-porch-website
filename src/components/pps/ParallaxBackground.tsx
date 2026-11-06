@@ -39,7 +39,7 @@ export function ParallaxBackground({
           style={{ backgroundImage: `url(${image})` }}
         />
       )}
-      <div aria-hidden="true" className={cn("absolute inset-0", overlayClassName)} />
+      <div aria-hidden="true" data-parallax-overlay className={cn("absolute inset-0", overlayClassName)} />
     </>
   );
 }

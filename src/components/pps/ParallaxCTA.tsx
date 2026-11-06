@@ -163,6 +163,8 @@ export function ParallaxCTA({
   return (
     <section
       aria-labelledby={headingId}
+      data-cta-band
+      data-overlay-tone={overlayClass ? undefined : overlayTone}
       className={cn(
         "relative text-white overflow-hidden",
         paddingClass,

@@ -211,7 +211,7 @@ export default function ThePath() {
         intro={
           <>
             Prepare. Align. Take Off. Habits. The four stages of change behind every engagement we run, and the reason
-            our work holds after the deck is archived. It is how organizations learn to do epic{" "}
+            our work holds after the deck is archived. It's how organizations learn to do epic{" "}
             <ShIFt lowercase onDark />: from the first honest question to the habits that make it second nature.
           </>
         }
@@ -227,7 +227,7 @@ export default function ThePath() {
           <Prose>
             <p>
               Most change methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H.
-              begins two stages earlier, while there is still room to shape the possibility: understanding what your
+              begins two stages earlier, while there's still room to shape the possibility: understanding what your
               organization is built to carry, and bringing the people who will carry it into genuine alignment.
             </p>
           </Prose>
@@ -342,17 +342,17 @@ export default function ThePath() {
         </div>
       </section>
 
-      {/* The Compass */}
+      {/* The P.A.T.H. Compass */}
       <section aria-labelledby="path-compass" className="mx-auto max-w-7xl px-6 py-20 md:py-24">
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <Kicker>The Compass</Kicker>
+            <Kicker>The P.A.T.H. Compass</Kicker>
             <h2 id="path-compass" className={`mt-5 ${V3_H2}`}>
               Your P.A.T.H., in One Page
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-foreground">
-              The Epic <ShIFt /> Organizational Appraisal produces your P.A.T.H. Compass: which stage your organization
-              is actually on, what's blocking the next one, and the sequence that makes each hold. It's the map the
+              The Epic <ShIFt /> Organizational Appraisal produces it: which stage your organization's actually
+              on, what's blocking the next one, and the sequence that makes each hold. It's the map the
               rest of the journey is drawn from.
             </p>
             <p className="mt-6 text-base">

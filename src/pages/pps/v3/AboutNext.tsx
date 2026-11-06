@@ -105,8 +105,7 @@ export default function AboutNext() {
             <Prose>
               <p>
                 Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at
-                the moment where leaders have the greatest leverage: before direction hardens into a plan, while there
-                is still room to imagine, align, and architect what comes next.
+                the moment where leaders have the greatest leverage: before direction hardens into a plan, while there's still room to imagine, align, and architect what comes next.
               </p>
               <p>
                 We look at three things at once: your leadership and culture, your systems and workflows, and the human

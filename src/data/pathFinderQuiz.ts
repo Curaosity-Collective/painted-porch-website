@@ -894,7 +894,7 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
     topicArea: meta?.topicArea,
     contactPrefill: meta ? { scope: meta.scope, interests: meta.interests } : undefined,
     whatComesNext: rt === "RT-D"
-      ? "The Epic ShIFt Organizational Appraisal produces your P.A.T.H. Compass — the organizational roadmap that informs everything that follows. It begins with a Clarity Call, and from there the Compass recommends the engagement that fits."
+      ? "The Epic ShIFt Organizational Appraisal begins with a Clarity Call and produces your P.A.T.H. Compass: the organizational roadmap that informs everything that follows, including the engagement that fits."
       : "A workshop is a powerful starting point. Organizations that go deeper often find the work surfaces something more structural that a single workshop addresses symptomatically but not architecturally. The Epic ShIFt Organizational Appraisal is there when you're ready for that conversation, and it begins with a Clarity Call.",
   };
 

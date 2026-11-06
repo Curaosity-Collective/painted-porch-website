@@ -614,7 +614,7 @@ export default function PPSContact() {
                           />
                           <span className="text-sm text-foreground">
                             Subscribe to stay up to date on Porch insights & happenings.
-                            <span className="block text-xs text-muted-foreground mt-1">We will NOT SPAM you. Unsubscribe at any time.</span>
+                            <span className="block text-xs text-muted-foreground mt-1">We won't spam you. Unsubscribe at any time.</span>
                           </span>
                         </label>
                       </div>

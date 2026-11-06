@@ -85,7 +85,7 @@ export const routes = [
     sections: [
       {
         h2: "We design your next shIFt. You make it happen.",
-        body: "Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at the moment where leaders have the greatest leverage: before direction hardens into a plan, while there is still room to imagine, align, and architect what comes next. We look at three things at once: your leadership and culture, your systems and workflows, and the human capacity underneath both.",
+        body: "Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at the moment where leaders have the greatest leverage: before direction hardens into a plan, while there's still room to imagine, align, and architect what comes next. We look at three things at once: your leadership and culture, your systems and workflows, and the human capacity underneath both.",
       },
       {
         h2: "Different disciplines. Shared conviction.",
@@ -213,11 +213,11 @@ export const routes = [
       "Prepare, Align, Take Off, Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.",
     h1: "The P.A.T.H.™",
     intro:
-      "Prepare. Align. Take Off. Habits. The four stages of change behind every engagement we run, and the reason our work holds after the deck is archived. It is how organizations learn to do epic shIFt: from the first honest question to the habits that make it second nature.",
+      "Prepare. Align. Take Off. Habits. The four stages of change behind every engagement we run, and the reason our work holds after the deck is archived. It's how organizations learn to do epic shIFt: from the first honest question to the habits that make it second nature.",
     sections: [
       {
         h2: "It starts before Take Off",
-        body: "Most change methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H. begins two stages earlier, while there is still room to shape the possibility: understanding what your organization is built to carry, and bringing the people who will carry it into genuine alignment.",
+        body: "Most change methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H. begins two stages earlier, while there's still room to shape the possibility: understanding what your organization is built to carry, and bringing the people who will carry it into genuine alignment.",
       },
       {
         h2: "Four stages. Three ShIFts. One map.",
@@ -232,7 +232,7 @@ export const routes = [
       { href: "/envision-shift", label: "Envision ShIFt" },
       { href: "/architect-shift", label: "Architect ShIFt" },
       { href: "/embody-shift", label: "Embody ShIFt" },
-      { href: "/phase-zero", label: "What is Phase Zero?" },
+      { href: "/phase-zero", label: "What's Phase Zero?" },
       { href: "/contact", label: "Start with a Clarity Call" },
     ],
   },

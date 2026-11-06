@@ -46,6 +46,8 @@ const { ROWS } = vi.hoisted(() => {
     row({ offering_key: "the-p-a-t-h-to-navigating-ch", name: "The P.A.T.H. to Navigating Change", topic_slug: "path-to-lasting-change", facilitator: null }),
     row({ offering_key: "speakingCommStyle", name: "Speak with Style — 6 Communicator Styles (Keynote)", topic_slug: "communicator-styles", is_keynote: true, facilitator: "Rob" }),
     row({ offering_key: "communicateWithStyle", name: "Speak with Style: The 6 Communicator Styles for Influence & Impact", topic_slug: "communicator-styles", topic: "Comms", facilitator: "Rob" }),
+    row({ offering_key: "stracticalLeader", name: "The Stractical Leader", topic_slug: "stractical-leader", topic: "Leadership & Culture", is_keynote: true, delivery_format: "keynote" }),
+    row({ offering_key: "stracticalLeaderLab", name: "Stractical Leader Lab", topic_slug: "stractical-leader", topic: "Leadership & Culture", delivery_format: "lab" }),
     row({ offering_key: "kickTheHabit", name: "Kick the Habit", topic_slug: "kick-the-habit-b2b", topic: "Change & Innovation", is_keynote: true, delivery_format: "keynote" }),
   ];
   return { ROWS };
@@ -126,6 +128,7 @@ describe("Speaking & workshop topics catalogue", () => {
     // Designated "always both", keyed by slug, even with one row of one format.
     expect(labelsOf("The P.A.T.H. to Lasting Change")).toEqual(["Keynote", "Workshop"]);
     expect(labelsOf("Driving Change: The 3 Shifts for Lasting Innovation")).toEqual(["Keynote", "Workshop"]);
+    expect(labelsOf("The Stractical Leader")).toEqual(["Keynote", "Workshop"]);
     // Keynote rows alone stay keynote-only.
     expect(labelsOf("Kick the Habit")).toEqual(["Keynote"]);
     // A workshop listed on the speaking topics page is not a keynote (PPS Admin).
