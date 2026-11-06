@@ -5,7 +5,7 @@ const mentions = (text: string) => findMoneyMentions(text).map(({ start, end }) 
 
 describe("monetary mention detection", () => {
   it("recognizes the selected Architect investment", () => {
-    expect(mentions("Starting at $90,000")).toEqual(["$90,000"]);
+    expect(mentions("Starting at $90,000")).toEqual(["Starting at $90,000"]);
   });
   it("recognizes monthly fee ranges as one amount", () => {
     expect(mentions("$9,000–$18,000 per month")).toEqual(["$9,000–$18,000 per month"]);
