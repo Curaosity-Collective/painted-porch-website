@@ -11,7 +11,7 @@ import acmp from "@/assets/certifications/acmp-member.png";
 import asaMember from "@/assets/certifications/asa-member.png";
 import changeNavigator from "@/assets/certifications/change-navigator.png";
 import csi from "@/assets/certifications/csi.png";
-import discFacilitator from "@/assets/certifications/disc-facilitator.png";
+import eqi2Certified from "@/assets/certifications/eq-i-2-certified.png";
 import eqLeader from "@/assets/certifications/emotionally-effective-leader.png";
 import eq360 from "@/assets/certifications/eq360.png";
 import leanChangeAgent from "@/assets/certifications/lean-change-agent.png";
@@ -101,7 +101,7 @@ const GROUPS: Group[] = [
       { name: "lean-change-agent.png", src: leanChangeAgent, download: "lean-change-agent.png" },
       { name: "lean-change-ai.png", src: leanChangeAi, download: "lean-change-ai.png" },
       { name: "working-genius.png", src: workingGenius, download: "working-genius.png" },
-      { name: "disc-facilitator.png", src: discFacilitator, download: "disc-facilitator.png" },
+      { name: "eq-i-2-certified.png", src: eqi2Certified, download: "eq-i-2-certified.png" },
       { name: "eq360.png", src: eq360, download: "eq360.png" },
       { name: "emotionally-effective-leader.png", src: eqLeader, download: "emotionally-effective-leader.png" },
       { name: "maw-facilitator.png", src: mawFacilitator, download: "maw-facilitator.png" },
