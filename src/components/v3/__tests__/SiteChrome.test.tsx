@@ -62,9 +62,9 @@ describe("SiteHeader", () => {
     expect(top[0]).toHaveAttribute("aria-current", "page");
   });
 
-  it("names the first menu The P.A.T.H. to Epic ShIFt, with the page and the three ShIFts", () => {
+  it("names the first menu The P.A.T.H. to ShIFt, with the page and the three ShIFts", () => {
     const path = HEADER_MENU[0];
-    expect(path.label).toBe("The P.A.T.H. to Epic ShIFt");
+    expect(path.label).toBe("The P.A.T.H. to ShIFt");
     expect(path.children.map((c) => c.href)).toEqual(["/the-path", "/envision-shift", "/architect-shift", "/embody-shift"]);
     expect(HEADER_MENU.flatMap((g) => g.children).some((c) => c.href.startsWith("/partner"))).toBe(false);
   });
@@ -95,7 +95,7 @@ describe("SiteHeader", () => {
     renderAt(<SiteHeader />);
     fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
     const mobile = document.getElementById("site-mobile-menu")!;
-    fireEvent.click(within(mobile).getByRole("button", { name: "Show The P.A.T.H. to Epic ShIFt links" }));
+    fireEvent.click(within(mobile).getByRole("button", { name: "Show The P.A.T.H. to ShIFt links" }));
     const links = within(mobile)
       .getAllByRole("link")
       .map((a) => a.getAttribute("href"));
@@ -108,7 +108,7 @@ describe("SiteHeader", () => {
     renderAt(<SiteHeader />);
     fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
     const mobile = document.getElementById("site-mobile-menu")!;
-    fireEvent.click(within(mobile).getByRole("button", { name: "Show The P.A.T.H. to Epic ShIFt links" }));
+    fireEvent.click(within(mobile).getByRole("button", { name: "Show The P.A.T.H. to ShIFt links" }));
     const hrefs = within(mobile)
       .getAllByRole("link")
       .map((a) => a.getAttribute("href"));

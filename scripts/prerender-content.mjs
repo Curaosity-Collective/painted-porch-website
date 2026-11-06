@@ -80,7 +80,7 @@ export const routes = [
       },
       {
         h2: "Who is your organization becoming?",
-        body: "The P.A.T.H.™ is the four stages of change: Prepare, Align, Take Off, Habits. Most change work starts at Take Off. Ours starts at Phase Zero™, inside Prepare. Envision ShIFt partners at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits.",
+        body: "The P.A.T.H.™ is the four stages of change: Prepare, Align, Take Off, Habits. Most change work starts at Take Off. Ours starts at Phase Zero™, which spans Prepare and Align. Envision ShIFt partners at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits.",
       },
       {
         h2: "Start with a Clarity Call",

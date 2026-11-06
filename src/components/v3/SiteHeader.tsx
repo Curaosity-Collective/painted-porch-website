@@ -16,16 +16,15 @@ import { ShIFt } from "./ShIFt";
 import { HEADER_MENU, type NavGroup } from "./siteNav";
 
 /**
- * The redesign's header (PPS Admin, 2026-11-05): The P.A.T.H. to Epic ShIFt,
+ * The redesign's header (PPS Admin, 2026-11-05): The P.A.T.H. to ShIFt,
  * Speaking, Insights & Resources and About, then search and the "Find Your
  * Next ShIFt" button, which opens the directional guide (PPS-DEC-0026; it read
- * "Ready for Epic ShIFt?" until PPS Admin, 2026-11-06, moved Epic ShIFt into
- * the menu heading). Draft pages are hidden from the public,
+ * "Ready for Epic ShIFt?" until PPS Admin, 2026-11-06). Draft pages are hidden from the public,
  * as in today's header. Shown on the Draft pages until go-live
  * (src/config/siteChrome.ts).
  */
 
-// Between 1024 and 1279 px the menu runs a little tighter, so "The P.A.T.H. to Epic ShIFt"
+// Between 1024 and 1279 px the menu runs a little tighter, so "The P.A.T.H. to ShIFt"
 // (PPS Admin, 2026-11-06) fits beside the Find Your Next ShIFt button without wrapping it.
 const TOP_LINK =
   "whitespace-nowrap rounded-sm text-[14px] font-semibold xl:text-[15px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary";

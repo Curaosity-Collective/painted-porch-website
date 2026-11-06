@@ -23,7 +23,6 @@ const pathStages = [
     iconBg: "bg-primary/10",
     body: "Understand reality before commitment. Get clear about people, systems, and culture before the next shift starts.\u00a0Clarify what matters, why it matters, what realities already exist, and what may need strengthening before action begins.",
     outcome: "A shared, clear-eyed picture of where you stand and what's needed next.",
-    isPhaseZero: true,
   },
   {
     letter: "A",
@@ -374,7 +373,7 @@ export default function OurApproach() {
             ))}
           </div>
 
-          {/* Prepare = Phase Zero callout */}
+          {/* Phase Zero = Prepare and Align (PPS Admin, 2026-11-06; PPS-DEC-0027) */}
           <div className="bg-gradient-to-br from-primary/10 to-primary/5 border-l-4 border-primary rounded-xl p-6 md:p-8 max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-center gap-5">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center">
@@ -383,10 +382,10 @@ export default function OurApproach() {
               <div className="flex-1">
                 <Eyebrow variant="plain" tone="primary" as="p">Where Our Work Begins</Eyebrow>
                 <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mb-2">
-                  Prepare is Phase Zero.
+                  Prepare and Align are Phase Zero.
                 </h3>
                 <p className="text-body text-foreground">
-                  Prepare is where we begin. It's the work before the work - the point where you decide whether a direction deserves your commitment and investment, and what it will require to do it well.
+                  Prepare and Align are where we begin. They're the work before the work: the point where you decide whether a direction deserves your commitment and investment, and what it will require to do it well.
                 </p>
               </div>
               <Link

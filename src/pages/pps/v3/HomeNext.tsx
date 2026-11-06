@@ -385,8 +385,8 @@ export default function HomeNext() {
             </h2>
             <p className="max-w-[40em] text-[17px] leading-relaxed">
               The P.A.T.H. is the four stages of change: Prepare, Align, Take Off, Habits. Most change work starts at
-              Take Off. Ours starts at Phase Zero™, inside Prepare: the first act of becoming, before your next major
-              decision hardens into execution.
+              Take Off. Ours starts at Phase Zero™, which spans Prepare and Align: the first act of becoming, before
+              your next major decision hardens into execution.
             </p>
             <SmartLink to="/the-path" className={`self-start text-[15px] ${LINK}`}>
               <span>See the full P.A.T.H. →</span>

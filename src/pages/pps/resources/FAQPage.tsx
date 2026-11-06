@@ -31,7 +31,7 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "What does 'Phase Zero™' mean?",
-        answer: "Phase Zero is the strategic preparation that happens before any project kicks off: the readiness work, mindset, alignment and architectural design that most change initiatives skip. It sits inside Prepare, the first stage of the P.A.T.H., and it's the foundation everything at Painted Porch is built on.",
+        answer: "Phase Zero is the strategic preparation that happens before any project kicks off: the readiness work, mindset, alignment and architectural design that most change initiatives skip. It spans Prepare and Align, the first two stages of the P.A.T.H., and it's the foundation everything at Painted Porch is built on.",
       },
       {
         question: "Why is it called 'Painted Porch'?",

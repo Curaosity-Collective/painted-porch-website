@@ -1,7 +1,7 @@
 /**
  * Menu data for the redesign's header and footer (PPS Admin, 2026-11-05).
  *
- * Header: The P.A.T.H. to Epic ShIFt (the P.A.T.H. page and the three
+ * Header: The P.A.T.H. to ShIFt (the P.A.T.H. page and the three
  * ShIFts), Speaking, Insights & Resources and About (with Phase Zero; PPS
  * Admin, 2026-11-06), then search and the "Find Your Next ShIFt" button that
  * opens the guide (PPS-DEC-0026). The offers for
@@ -25,7 +25,7 @@ export interface NavGroup {
 }
 
 /** The P.A.T.H. menu's heading in the header and the footer (PPS Admin, 2026-11-06). */
-export const PATH_MENU_LABEL = "The P.A.T.H. to Epic ShIFt";
+export const PATH_MENU_LABEL = "The P.A.T.H. to ShIFt";
 
 /** Phase Zero sits under About in the header and Company in the footer (PPS Admin, 2026-11-06). */
 const PHASE_ZERO_LINK: NavLink = { label: "What's Phase Zero?", href: "/phase-zero" };

@@ -33,7 +33,7 @@ const SOCIALS: { label: string; href: string; icon: ComponentType<{ className?: 
   { label: "Spotify", href: "https://open.spotify.com/playlist/1F6mkBYTllBzwawCXDEmry", icon: SpotifyIcon },
 ];
 
-// Two 20px lines fit in the same 40px as one line, so "The P.A.T.H. to Epic ShIFt" can wrap
+// Two 20px lines fit in the same 40px as one line, so "The P.A.T.H. to ShIFt" can wrap
 // in the four-column layout and every column's links still start level.
 const EYEBROW = "min-h-10 text-[13px] font-bold uppercase leading-5 tracking-[0.14em] text-[#F4C05E]";
 const FOOTER_LINK =
