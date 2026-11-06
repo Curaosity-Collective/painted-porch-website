@@ -11,3 +11,6 @@
 - [x] Remove obsolete Anthropic diagnostics, dependency, and migration references; verify Lovable AI through the signed-in check and live metadata generation.
 - [ ] Delete the unused ANTHROPIC_API_KEY secret; deletion permission was declined, so the stored secret remains untouched.
 - [ ] Replace unavailable thumbnail for appearance 157f0ec4-5780-4644-95dc-6860c5767121; external image host refuses access (403), so its static share image is omitted.
+- [ ] Verify and apply topics and relaunch SEO cleanups if missing.
+- [ ] Update requested offering URLs and live flags.
+- [ ] Refresh page SEO/AEO and verify homepage browser title and saved FAQs.
