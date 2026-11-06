@@ -23,8 +23,10 @@ import { HEADER_MENU, type NavGroup } from "./siteNav";
  * (src/config/siteChrome.ts).
  */
 
+// Between 1024 and 1279 px the menu runs a little tighter, so "The P.A.T.H. to Epic ShIFt"
+// (PPS Admin, 2026-11-06) fits beside the Ready for Epic ShIFt? button without wrapping it.
 const TOP_LINK =
-  "whitespace-nowrap rounded-sm text-[15px] font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary";
+  "whitespace-nowrap rounded-sm text-[14px] font-semibold xl:text-[15px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary";
 
 function isActive(pathname: string, href: string) {
   const path = href.split("?")[0];
@@ -36,7 +38,7 @@ function QuizButton({ onClick, className = "" }: { onClick: () => void; classNam
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex min-h-[44px] items-center justify-center rounded bg-gold px-5 text-[15px] font-bold text-[#1E2B30] transition-colors hover:bg-gold/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${className}`}
+      className={`inline-flex min-h-[44px] items-center justify-center rounded bg-gold px-5 text-[15px] font-bold lg:px-4 xl:px-5 text-[#1E2B30] transition-colors hover:bg-gold/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${className}`}
     >
       <span>
         Ready for Epic <ShIFt onFill />?
@@ -69,13 +71,13 @@ export default function SiteHeader() {
 
   return (
     <header data-testid="site-header" className="pps-v3 sticky top-0 z-50 border-b border-border shadow-sm">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5 md:px-6 lg:h-20">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5 md:px-6 lg:h-20 lg:gap-4 xl:gap-6">
         <Link to="/" aria-label="Painted Porch Strategies home" className="shrink-0" onClick={closeMenu}>
           <img src={ppsLogo} alt="Painted Porch Strategies" width={640} height={276} className="h-10 w-auto lg:h-12" />
         </Link>
 
         {/* Desktop */}
-        <nav aria-label="Main" className="hidden items-center gap-6 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-3.5 lg:flex xl:gap-6">
           {menu.map((group) => {
             const active = isActive(pathname, group.href) || group.children.some((c) => isActive(pathname, c.href));
             return (
@@ -86,7 +88,7 @@ export default function SiteHeader() {
                     aria-current={pathname === group.href ? "page" : undefined}
                     className={`${TOP_LINK} ${active ? "text-heading" : "text-foreground hover:text-heading"}`}
                   >
-                    {group.label}
+                    <NavLabel label={group.label} />
                   </Link>
                   <DropdownMenuTrigger
                     aria-label={`Open ${group.label} menu`}
@@ -158,7 +160,7 @@ export default function SiteHeader() {
                       aria-current={pathname === group.href ? "page" : undefined}
                       className="flex-1 py-3 font-display text-lg font-semibold text-foreground"
                     >
-                      {group.label}
+                      <NavLabel label={group.label} />
                     </Link>
                     <button
                       type="button"

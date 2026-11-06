@@ -6,7 +6,7 @@ import { useArePagesLive } from "@/hooks/useIsPageLive";
 import { useNewsletterSignup } from "@/hooks/useNewsletterSignup";
 import { NavLabel } from "./NavLabel";
 import { ShIFt } from "./ShIFt";
-import { COMPANY_LINKS, LEGAL_LINKS, PATH_LINKS, PATHWAY_LINKS, type NavLink } from "./siteNav";
+import { COMPANY_LINKS, LEGAL_LINKS, PATH_LINKS, PATH_MENU_LABEL, PATHWAY_LINKS, type NavLink } from "./siteNav";
 
 /**
  * The redesign's footer (PPS Admin, 2026-11-05): today's working parts in the
@@ -33,7 +33,9 @@ const SOCIALS: { label: string; href: string; icon: ComponentType<{ className?: 
   { label: "Spotify", href: "https://open.spotify.com/playlist/1F6mkBYTllBzwawCXDEmry", icon: SpotifyIcon },
 ];
 
-const EYEBROW = "text-[13px] font-bold uppercase tracking-[0.14em] text-[#F4C05E]";
+// Two 20px lines fit in the same 40px as one line, so "The P.A.T.H. to Epic ShIFt" can wrap
+// in the four-column layout and every column's links still start level.
+const EYEBROW = "min-h-10 text-[13px] font-bold uppercase leading-5 tracking-[0.14em] text-[#F4C05E]";
 const FOOTER_LINK =
   "rounded-sm text-[15px] text-teal-foreground underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4C05E]";
 
@@ -41,7 +43,7 @@ function LinkColumn({ title, links, id }: { title: string; links: NavLink[]; id:
   return (
     <nav aria-labelledby={id}>
       <h2 id={id} className={EYEBROW}>
-        {title}
+        <NavLabel label={title} onDark />
       </h2>
       <ul className="mt-4 space-y-2.5">
         {links.map((link) => (
@@ -82,7 +84,7 @@ export default function SiteFooter() {
               </p>
             </div>
 
-            <LinkColumn id="footer-path" title="The P.A.T.H." links={visible(PATH_LINKS)} />
+            <LinkColumn id="footer-path" title={PATH_MENU_LABEL} links={visible(PATH_LINKS)} />
             <LinkColumn id="footer-leaders-teams" title="Leaders & Teams" links={visible(PATHWAY_LINKS)} />
             <LinkColumn id="footer-company" title="Company" links={visible(COMPANY_LINKS)} />
 

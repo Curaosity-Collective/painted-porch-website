@@ -25,10 +25,12 @@ vi.mock("@/integrations/supabase/client", () => ({
 
 import SiteHeader from "../SiteHeader";
 import SiteFooter from "../SiteFooter";
-import { HEADER_MENU, PATHWAY_LINKS } from "../siteNav";
+import { COMPANY_LINKS, HEADER_MENU, PATH_MENU_LABEL, PATHWAY_LINKS } from "../siteNav";
 import { usesV3Chrome, V3_CHROME_EVERYWHERE, V3_CHROME_PREVIEW_ROUTES } from "@/config/siteChrome";
 
 const flat = (s: string) => s.replace(/\s+/g, "");
+/** Matches an accessible name whatever the spacing; jsdom reads the styled IF as "Sh IF t". */
+const named = (label: string) => (name: string) => flat(name) === flat(label);
 
 function renderAt(ui: JSX.Element, path = "/the-path") {
   return render(<MemoryRouter initialEntries={[path]}>{ui}</MemoryRouter>);
@@ -55,21 +57,29 @@ describe("SiteHeader", () => {
   it("has the approved top-level menu, in order", () => {
     renderAt(<SiteHeader />);
     const nav = screen.getAllByRole("navigation", { name: "Main" })[0];
-    const top = HEADER_MENU.map((g) => within(nav).getByRole("link", { name: g.label }));
+    const top = HEADER_MENU.map((g) => within(nav).getByRole("link", { name: named(g.label) }));
     expect(top.map((a) => a.getAttribute("href"))).toEqual(["/the-path", "/speaking", "/resources", "/about"]);
     expect(top[0]).toHaveAttribute("aria-current", "page");
   });
 
-  it("puts Phase Zero and the three ShIFts under The P.A.T.H.", () => {
+  it("names the first menu The P.A.T.H. to Epic ShIFt, with the page and the three ShIFts", () => {
     const path = HEADER_MENU[0];
-    expect(path.children.map((c) => c.href)).toEqual([
-      "/the-path",
-      "/phase-zero",
-      "/envision-shift",
-      "/architect-shift",
-      "/embody-shift",
-    ]);
+    expect(path.label).toBe("The P.A.T.H. to Epic ShIFt");
+    expect(path.children.map((c) => c.href)).toEqual(["/the-path", "/envision-shift", "/architect-shift", "/embody-shift"]);
     expect(HEADER_MENU.flatMap((g) => g.children).some((c) => c.href.startsWith("/partner"))).toBe(false);
+  });
+
+  it("puts Phase Zero under About, and nowhere else in the header (PPS Admin, 2026-11-06)", () => {
+    const about = HEADER_MENU.find((g) => g.href === "/about")!;
+    expect(about.children.map((c) => c.href)).toEqual(["/about/approach", "/phase-zero", "/about/impact"]);
+    expect(HEADER_MENU.flatMap((g) => g.children).filter((c) => c.href === "/phase-zero")).toHaveLength(1);
+  });
+
+  it("styles the IF in the menu heading", () => {
+    renderAt(<SiteHeader />);
+    const nav = screen.getAllByRole("navigation", { name: "Main" })[0];
+    const link = within(nav).getByRole("link", { name: named(PATH_MENU_LABEL) });
+    expect(within(link).getByText("IF")).toHaveClass("text-raspberry");
   });
 
   it("opens the live quiz from the Ready for Epic ShIFt? button", () => {
@@ -84,11 +94,12 @@ describe("SiteHeader", () => {
     renderAt(<SiteHeader />);
     fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
     const mobile = document.getElementById("site-mobile-menu")!;
-    fireEvent.click(within(mobile).getByRole("button", { name: "Show The P.A.T.H. links" }));
+    fireEvent.click(within(mobile).getByRole("button", { name: "Show The P.A.T.H. to Epic ShIFt links" }));
     const links = within(mobile)
       .getAllByRole("link")
       .map((a) => a.getAttribute("href"));
-    expect(links).toEqual(expect.arrayContaining(["/phase-zero", "/envision-shift", "/architect-shift", "/embody-shift"]));
+    expect(links).toEqual(expect.arrayContaining(["/the-path", "/envision-shift", "/architect-shift", "/embody-shift"]));
+    expect(links).not.toContain("/phase-zero");
   });
 
   it("hides Draft pages from the public, as today's header does", () => {
@@ -96,7 +107,7 @@ describe("SiteHeader", () => {
     renderAt(<SiteHeader />);
     fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
     const mobile = document.getElementById("site-mobile-menu")!;
-    fireEvent.click(within(mobile).getByRole("button", { name: "Show The P.A.T.H. links" }));
+    fireEvent.click(within(mobile).getByRole("button", { name: "Show The P.A.T.H. to Epic ShIFt links" }));
     const hrefs = within(mobile)
       .getAllByRole("link")
       .map((a) => a.getAttribute("href"));
@@ -114,8 +125,18 @@ describe("SiteFooter", () => {
     expect(within(pathways).getAllByRole("link").map((a) => a.getAttribute("href"))).toEqual(
       PATHWAY_LINKS.map((l) => l.href),
     );
-    expect(within(screen.getByRole("navigation", { name: "The P.A.T.H." })).getAllByRole("link")).toHaveLength(5);
-    expect(screen.getByRole("navigation", { name: "Company" })).toBeInTheDocument();
+    const path = screen.getByRole("navigation", { name: named(PATH_MENU_LABEL) });
+    expect(within(path).getAllByRole("link").map((a) => a.getAttribute("href"))).toEqual([
+      "/the-path",
+      "/envision-shift",
+      "/architect-shift",
+      "/embody-shift",
+    ]);
+    const company = screen.getByRole("navigation", { name: "Company" });
+    expect(within(company).getAllByRole("link").map((a) => a.getAttribute("href"))).toEqual(
+      COMPANY_LINKS.map((l) => l.href),
+    );
+    expect(COMPANY_LINKS.map((l) => l.href)).toContain("/phase-zero");
     expect(screen.getByRole("link", { name: /5% of your investment is donated to charity/ })).toHaveAttribute(
       "href",
       "/about/impact#do-good-shift",

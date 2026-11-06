@@ -7,6 +7,7 @@ import sunlitColumns from "@/assets/embody-concept-pillars.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { GhostLayer, StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
+import { PorchPromise } from "@/components/v3/PorchPromise";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
 import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
@@ -401,6 +402,9 @@ export default function ArchitectShift() {
           </p>
         </div>
       </section>
+
+      {/* The Painted Porch Promise (PPS Admin, 2026-11-06) */}
+      <PorchPromise />
 
       <CTABand
         tone="align"

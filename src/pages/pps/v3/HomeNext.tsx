@@ -4,6 +4,7 @@ import { ArrowRight, Lightbulb } from "lucide-react";
 import porchColumns from "@/assets/v3/painted-porch-columns.jpg";
 import amySquare from "@/assets/v3/amy-yackowski-square.jpg";
 import { ShIFt } from "@/components/v3/ShIFt";
+import { PorchPromise } from "@/components/v3/PorchPromise";
 import { FEATURED_TESTIMONIALS } from "./testimonials";
 import { SmartLink } from "@/components/pps/SmartLink";
 import ClientLogoMarquee from "@/components/pps/ClientLogoMarquee";
@@ -154,30 +155,6 @@ const OFFERS = [
 ];
 
 const TESTIMONIALS = FEATURED_TESTIMONIALS;
-
-const PROMISE = [
-  {
-    label: "If yes",
-    box: "bg-lime-deep text-white",
-    body: (
-      <>
-        We co-architect what it takes to author and shape your next <ShIFt lowercase onFill />.
-      </>
-    ),
-  },
-  {
-    label: "If not yet",
-    // Green, yellow, red (PPS Admin, 2026-11-06). Gold takes dark text: white on Gold is
-    // 2.2:1, #1E2B30 is 7:1 (PPS-DEC-0022).
-    box: "bg-gold text-[#1E2B30]",
-    body: "We tell you the truth, and we map a P.A.T.H.way to build the capacity you need first.",
-  },
-  {
-    label: "If not us",
-    box: "bg-raspberry text-white",
-    body: "We tell you that, too, and connect you with the right partner for your stage.",
-  },
-];
 
 const OTHER_WAYS = [
   // No price here (PPS-DEC-0022). Workshops start at $7,500; each one's price is on the
@@ -485,32 +462,8 @@ export default function HomeNext() {
         }
       />
 
-      {/* 7 · The Painted Porch Promise */}
-      <section aria-labelledby="home-promise" className="bg-cream">
-        <div className={`${SECTION} flex flex-col gap-9`}>
-          <div className="flex max-w-[860px] flex-col gap-5">
-            <Eyebrow>The Painted Porch Promise</Eyebrow>
-            <h2 id="home-promise" className={H2}>
-              We Aren't Here to Tell You Yes
-            </h2>
-            <p className="max-w-[40em] text-[17px] leading-relaxed">
-              We're here to tell you what will actually work, and what it will take to make it happen. The question we
-              begin with is whether what you're considering is the right thing to do right now.
-            </p>
-          </div>
-          <ul data-testid="home-promise" className="grid gap-6 md:grid-cols-3">
-            {PROMISE.map((p) => (
-              <li key={p.label} data-testid="home-promise-box" className={`flex flex-col gap-2.5 p-8 ${p.box}`}>
-                <span className="font-display text-[22px] font-bold leading-tight">{p.label}</span>
-                <p className="text-[17px] leading-relaxed">{p.body}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="max-w-[30em] font-display text-[22px] font-semibold leading-snug text-primary md:text-[30px]">
-            We don't slow you down. We make sure you're moving on ground that holds.
-          </p>
-        </div>
-      </section>
+      {/* 7 · The Painted Porch Promise (shared with the ShIFt pages) */}
+      <PorchPromise variant="home" headingId="home-promise" testId="home-promise" />
 
       {/* 8 · Clarity Call */}
       <section id="clarity-call" aria-labelledby="home-clarity" className="scroll-mt-24 bg-[#00505C] text-white">

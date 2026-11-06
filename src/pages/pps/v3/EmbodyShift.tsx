@@ -5,6 +5,7 @@ import pergola from "@/assets/embody-hero-option10.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
+import { PorchPromise } from "@/components/v3/PorchPromise";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
 import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
@@ -151,6 +152,9 @@ export default function EmbodyShift() {
           </p>
         </div>
       </section>
+
+      {/* The Painted Porch Promise (PPS Admin, 2026-11-06) */}
+      <PorchPromise />
 
       <CTABand
         tone="habits"
