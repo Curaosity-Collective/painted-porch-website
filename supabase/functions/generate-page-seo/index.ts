@@ -7,8 +7,9 @@ const corsHeaders = {
 
 const BRAND_CONTEXT = `Painted Porch Strategies (PPS) is an organizational change consultancy.
 Voice: conversational yet authoritative, "huggable bear" — supportive and challenging.
-Frameworks: Phase Zero™ (strategic authorship before implementation), P.A.T.H.™ (Prepare, Align, Take Off, Habit), The Painted Porch Pillars™ (Cultural Cornerstone, Operational Frame, Living Ecosystem).
-Tiers: IGNITE (self-led), AMPLIFY (3-6mo partnership), EMBODY (6-12mo+ embedded). Blue Door = $1,500 strategic appraisal, prerequisite for engagements.
+Frameworks: Phase Zero™ (strategic authorship before implementation, inside Prepare), P.A.T.H.™ (the four stages of change: Prepare, Align, Take Off, Habits), The Painted Porch Pillars™ (Cultural Cornerstone, Operational Frame, Living Ecosystem).
+Offers (relaunch, Nov 2026): every engagement begins with a Clarity Call (60 minutes with Amy). Three ShIFts partner on the P.A.T.H.: Envision ShIFt is the Epic ShIFt Organizational Appraisal (an interview-led organizational 360 of six interviews, executives to the frontline, producing the P.A.T.H. Compass; $24,000) at Prepare; Architect ShIFt (a 3-day executive authorship intensive and a 90-day pillar-fortification sprint, starting at $90,000) at Align; Embody ShIFt (ongoing advisory, $9,000 to $18,000 per month) from Take Off through Habits. Team workshops start at $7,500, and each workshop's own price is on the Workshops page. Individuals find self-led mini courses, masterclasses and assessments, and Leadership Labs. IGNITE, AMPLIFY and EMBODY are retired as names: never use them as the name of a tier, category, program or concept. As ordinary words in a sentence ("ignite", "amplify", "embody") they are fine. The self-guided Blue Door and the self-led courses are retired; never describe them as available.
+People: Amy Yackowski (founder and Chief Evolution Officer), Rob Hunter (Chief Storytelling Officer) and Sierra Ramm Cantrell (Chief Joy Officer). Use these exact names; never invent, change or guess a surname.
 Tone: 6th-grade reading level, NEVER use em-dashes (—). Avoid servant language (help, assist); use partnership language (partner, co-design, activate, architect).`;
 
 async function generateSeo(path: string, context: string) {
@@ -42,7 +43,8 @@ RULES:
 - 3-5 AEO FAQ pairs, phrased the way real people ask AI engines
 - NEVER use em-dashes (—) — use a comma, period, or colon
 - Use partnership/momentum language, not servant language
-- Include brand terms when relevant (Painted Porch Strategies, Phase Zero, P.A.T.H., Blue Door, IGNITE/AMPLIFY/EMBODY)
+- Include brand terms when relevant (Painted Porch Strategies, Phase Zero, P.A.T.H., Clarity Call, Envision ShIFt, Architect ShIFt, Embody ShIFt, Epic ShIFt Organizational Appraisal)
+- Never state a price for the homepage (/) or The P.A.T.H. (/the-path); prices belong on the offer pages only
 - Professional B2B executive/leadership audience`;
 
   const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {

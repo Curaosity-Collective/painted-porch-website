@@ -4,6 +4,7 @@ import {
   Body, Container, Head, Heading, Html, Img, Preview, Text, Section, Hr, Link,
 } from 'npm:@react-email/components@0.0.22'
 import type { TemplateEntry } from './registry.ts'
+import { INQUIRY_RESPONSE_HOURS } from '../inquiry-email.ts'
 
 const SITE_NAME = "Painted Porch Strategies"
 const LOGO_URL = 'https://dkpxjivoupqpmvzwxpef.supabase.co/storage/v1/object/public/email-assets/pps-logo-white.png'
@@ -21,6 +22,9 @@ interface ContactConfirmationProps {
   budgetRange?: string
   timeline?: string
   specificDate?: string
+  inquiryType?: string
+  consent?: string
+  newsletter?: boolean
 }
 
 const ContactConfirmationEmail = (props: ContactConfirmationProps) => {
@@ -37,7 +41,7 @@ const ContactConfirmationEmail = (props: ContactConfirmationProps) => {
             </Link>
             <Heading style={h1}>Thank you, {name}!</Heading>
           <Text style={text}>
-            We appreciate you reaching out to {SITE_NAME}. Your message has been received and our team will review it promptly. We typically respond within <strong>24-48 business hours (Monday through Friday)</strong>.
+            We appreciate you reaching out to {SITE_NAME}. Your message has been received and our team will review it promptly. We'll respond within <strong>{INQUIRY_RESPONSE_HOURS.min}-{INQUIRY_RESPONSE_HOURS.max} business hours (Monday through Friday)</strong>.
           </Text>
 
           <Hr style={hr} />
@@ -48,6 +52,9 @@ const ContactConfirmationEmail = (props: ContactConfirmationProps) => {
             <Text style={detailRow}><strong>Email:</strong> {props.email}</Text>
             {props.phone && <Text style={detailRow}><strong>Phone:</strong> {props.phone}</Text>}
             {props.company && <Text style={detailRow}><strong>Organization:</strong> {props.company}</Text>}
+            {props.inquiryType && <Text style={detailRow}><strong>Inquiry Type:</strong> {props.inquiryType}</Text>}
+            {props.consent && <Text style={detailRow}><strong>Consent:</strong> {props.consent}</Text>}
+            {typeof props.newsletter === 'boolean' && <Text style={detailRow}><strong>Newsletter opt-in:</strong> {props.newsletter ? 'Yes' : 'No'}</Text>}
             {props.inquiryFor?.length ? (
               <Text style={detailRow}><strong>Who is this for:</strong> {props.inquiryFor.join(', ')}</Text>
             ) : null}
@@ -113,7 +120,7 @@ const h1 = { fontSize: '24px', fontWeight: 'bold' as const, color: '#00006B', ma
 const h2 = { fontSize: '18px', fontWeight: '600' as const, color: '#007697', margin: '0 0 12px', fontFamily: "'Poppins', Arial, sans-serif" }
 const text = { fontSize: '15px', color: '#545454', lineHeight: '1.6', margin: '0 0 16px' }
 const detailsSection = { backgroundColor: '#f8f9fa', borderRadius: '8px', padding: '16px 20px', margin: '0 0 20px' }
-const detailRow = { fontSize: '14px', color: '#545454', lineHeight: '1.5', margin: '0 0 8px' }
+const detailRow = { fontSize: '14px', color: '#545454', lineHeight: '1.5', margin: '0 0 8px', whiteSpace: 'pre-wrap' as const }
 const hr = { borderColor: '#e5e7eb', margin: '24px 0' }
 const link = { color: '#007697', textDecoration: 'underline' }
 const footer = { fontSize: '14px', color: '#888888', lineHeight: '1.5', margin: '24px 0 0' }

@@ -13,12 +13,13 @@ import { useToast } from "@/hooks/use-toast";
 import contactHero from "@/assets/heroes/contact-hero.jpg";
 import { loadQuizContactPrefill, clearQuizContactPrefill, formatQuizBlock, type QuizContactPrefill } from "@/components/pps/quiz/quizContactPrefill";
 import { X } from "lucide-react";
+import { CONTACT_FORM_SECTION_ID } from "@/config/epicShiftAppraisal";
 
 const allInterestOptions = [
   { value: "assessments", label: "Assessments" },
   { value: "self-paced", label: "Self-Paced Learning" },
   { value: "leadership-lab", label: "Leadership Lab" },
-  { value: "blue-door", label: "Blue Door Organizational Appraisal" },
+  { value: "blue-door", label: "Clarity Call / Epic ShIFt Organizational Appraisal" },
   { value: "workshops", label: "Team Workshops" },
   { value: "strategic-partnership", label: "Strategic Partnership" },
   { value: "organizational-advisory", label: "Organizational Advisory" },
@@ -227,49 +228,11 @@ export default function PPSContact() {
           newsletter,
           tags: includeQuiz && quizPrefill ? ["contact-form", "pathfinder-quiz"] : ["contact-form"],
           source: "Painted Porch Website - Contact Form",
+          submissionId: crypto.randomUUID(),
         },
       });
 
       if (error) throw error;
-
-      // Send confirmation email to submitter and notification to team
-      const emailData = {
-        firstName: firstName.trim(),
-        lastName: lastName.trim(),
-        email: email.trim(),
-        phone: phone.trim() || undefined,
-        company: company.trim() || undefined,
-        inquiryFor,
-        interests,
-        message: finalMessage,
-        budgetAuthority: showBudgetAuthority ? budgetAuthority : undefined,
-        budgetRange: showBudgetRange ? budgetRange : undefined,
-        timeline: showBudgetRange ? timeline : undefined,
-        specificDate: specificDate ? format(specificDate, "PPP") : undefined,
-        newsletter,
-      };
-
-      const submissionId = crypto.randomUUID();
-
-      // Fire both emails in parallel (non-blocking, don't fail the form if emails fail)
-      Promise.allSettled([
-        supabase.functions.invoke("send-transactional-email", {
-          body: {
-            templateName: "contact-confirmation",
-            recipientEmail: email.trim(),
-            idempotencyKey: `contact-confirm-${submissionId}`,
-            templateData: emailData,
-          },
-        }),
-        supabase.functions.invoke("send-transactional-email", {
-          body: {
-            templateName: "contact-notification",
-            recipientEmail: "team@onthepaintedporch.com",
-            idempotencyKey: `contact-notify-${submissionId}`,
-            templateData: emailData,
-          },
-        }),
-      ]).catch((err) => console.error("Email sending error:", err));
 
       setSubmitted(true);
       toast({ title: "Message sent!", description: "We'll be in touch soon." });
@@ -304,8 +267,8 @@ export default function PPSContact() {
         minHeightClass="min-h-[60vh]"
       />
 
-      {/* Contact Form */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* Contact Form. Clarity Call links open the page here (PPS Admin, 2026-11-06). */}
+      <section id={CONTACT_FORM_SECTION_ID} className="scroll-mt-20 py-16 md:py-24 bg-white">
         <div className="container max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-8">
@@ -614,7 +577,7 @@ export default function PPSContact() {
                           />
                           <span className="text-sm text-foreground">
                             Subscribe to stay up to date on Porch insights & happenings.
-                            <span className="block text-xs text-muted-foreground mt-1">We will NOT SPAM you. Unsubscribe at any time.</span>
+                            <span className="block text-xs text-muted-foreground mt-1">We won't spam you. Unsubscribe at any time.</span>
                           </span>
                         </label>
                       </div>

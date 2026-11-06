@@ -26,7 +26,7 @@ export interface Offering {
   key: string;
   name: string;
   facilitator?: "Amy" | "Rob" | "Sierra" | "Painted Porch Team";
-  tier: "IGNITE" | "AMPLIFY" | "Workshop" | "Blue Door" | "Free" | "Assessment" | "Speaking";
+  tier: "IGNITE" | "AMPLIFY" | "Workshop" | "Blue Door" | "Free" | "Assessment" | "Speaking" | "Engagement";
   blurb: string;
   url: string;
 }
@@ -71,7 +71,7 @@ export const OFFERINGS = {
   leadershipOM: { key: "leadershipOM", name: "Leadership OM: A 21st-Century Operating Model for Organizational Evolution", facilitator: "Amy", tier: "Workshop", url: "/partner/amplify/workshops#leadershipOM", blurb: "Redesigning the leadership operating model for 21st-century organizational evolution, distributing decisions and accountability." },
 
   // Rob Hunter
-  communicateWithStyle: { key: "communicateWithStyle", name: "Communicate with Style", facilitator: "Rob", tier: "Workshop", url: "/speaking/topics#communicator-styles", blurb: "Style awareness and adaptation across different team members and contexts." },
+  communicateWithStyle: { key: "communicateWithStyle", name: "Speak with Style", facilitator: "Rob", tier: "Workshop", url: "/speaking/topics#communicator-styles", blurb: "Style awareness and adaptation across different team members and contexts." },
   powerOfStory: { key: "powerOfStory", name: "The Power of Story", facilitator: "Rob", tier: "Workshop", url: "/speaking/topics#power-of-story", blurb: "Using narrative to create shared understanding and team cohesion." },
   eightByEight: { key: "eightByEight", name: "8:8", facilitator: "Rob", tier: "Workshop", url: "/speaking/topics#eight-by-eight", blurb: "The eight things leaders need to know before they communicate and the eight ways to make it land." },
   masterYourMessageB2B: { key: "masterYourMessageB2B", name: "Master Your Message (B2B)", facilitator: "Rob", tier: "Workshop", url: "/partner/amplify/workshops#masterYourMessageB2B", blurb: "Communication architecture that makes leadership messaging land across the organization." },
@@ -96,8 +96,8 @@ export const OFFERINGS = {
   stoicismB2B: { key: "stoicismB2B", name: "Stoicism in the Workplace (Workshop)", facilitator: "Amy", tier: "Workshop", url: "/partner/amplify/workshops#stoicismB2B", blurb: "Stoic philosophy translated into leadership and team practice at the organizational level." },
 
   // Pre-Blue-Door scoping
-  currentStateLight: { key: "currentStateLight", name: "Current State Analysis — Light", tier: "Assessment", url: "/blue-door", blurb: "Lightweight organizational snapshot. Quick read on where the architecture stands." },
-  currentStateDeep: { key: "currentStateDeep", name: "Current State Analysis — Deep", tier: "Assessment", url: "/blue-door", blurb: "Deeper organizational diagnostic. For leaders who already know something structural needs to shift." },
+  currentStateLight: { key: "currentStateLight", name: "Current State Analysis — Light", tier: "Assessment", url: "/envision-shift", blurb: "Lightweight organizational snapshot. Quick read on where the architecture stands." },
+  currentStateDeep: { key: "currentStateDeep", name: "Current State Analysis — Deep", tier: "Assessment", url: "/envision-shift", blurb: "Deeper organizational diagnostic. For leaders who already know something structural needs to shift." },
 
   // Assessments / Free
   eqi: { key: "eqi", name: "EQ-i 2.0 Assessment", tier: "Assessment", url: "/eq", blurb: "Emotional intelligence baseline. Data on where reflective and relational capacity sits." },
@@ -122,7 +122,14 @@ export const OFFERINGS = {
   stoicLeaderFieldGuide: { key: "stoicLeaderFieldGuide", name: "The Stoic Leader Field Guide", facilitator: "Amy", tier: "Free", url: "/stoic-field-guide", blurb: "Stoic principles translated into daily leadership practice. Free download." },
 
   // Blue Door
-  blueDoor: { key: "blueDoor", name: "The Blue Door Organizational Appraisal", tier: "Blue Door", url: "/blue-door", blurb: "About 20 minutes. Produces the P.A.T.H. Compass: architecture, capacity signal, Move Now Map, Reinforce First priorities. No prerequisites." },
+  // Epic ShIFt Organizational Appraisal (PPS-DEC-0018). Internal key and tier keep the legacy
+  // "blueDoor" / "Blue Door" names; only client-facing words changed.
+  blueDoor: { key: "blueDoor", name: "The Epic ShIFt Organizational Appraisal", tier: "Blue Door", url: "/envision-shift", blurb: "Begins with a Clarity Call. Six interviews, from executives to the frontline, read out as your P.A.T.H. Compass: architecture, capacity signal, Move Now Map, Reinforce First priorities." },
+  // Architect ShIFt (PPS-DEC-0020), the engagement that follows the appraisal and,
+  // like every engagement, begins with a Clarity Call. It replaces Architect Change,
+  // which is the workshop inside it (PPS Admin, 2026-11-05). Its page leads with
+  // the Clarity Call.
+  architectShift: { key: "architectShift", name: "Architect ShIFt", tier: "Engagement", url: "/architect-shift", blurb: "Begins with a Clarity Call. A 3-day executive authorship intensive, then a focused 90-day sprint that fortifies the pillars your appraisal shows need to hold first." },
 
   // ===== Speaking Topics =====
   // Amy
@@ -234,7 +241,7 @@ export const B2C_QUESTIONS: Question[] = [
     prompt: "Where are you right now in terms of readiness to invest in your development?",
     options: [
       { id: "A", label: "Still exploring. I want to understand what's here before I commit." },
-      { id: "B", label: "Ready to start something self-paced. A course I can work through on my own terms." },
+      { id: "B", label: "Ready to start something self-paced. A mini course or masterclass I can work through on my own terms." },
       { id: "C", label: "Ready to invest alongside other leaders. A cohort or lab environment sounds right." },
       { id: "D", label: "Fully committed and looking for the deepest level of engagement available." },
     ],
@@ -559,15 +566,18 @@ const grp = (heading: string, ...keys: OfferingKey[]): RecommendationGroup => ({
 const SAFE_B2B_FALLBACK: OfferingKey[] = [
   "architectureOfOrganizationalShift",
   "pathToLastingChange",
-  "architectChange",
+  // Architect Change was retired as a standalone workshop (PPS Admin, 2026-11-05).
+  "leadershipOM",
   "blueDoor",
 ];
 
 // Safe fallback for B2C primary picks when filtering would empty the group.
+// Courses are retired from the site (PPS-DEC-0021); mini courses and
+// masterclasses replace them, so the fallback never brings a course back.
 const SAFE_B2C_FALLBACK: OfferingKey[] = [
-  "radicalMindfulness",
-  "masterYourMessage",
-  "createExtraordinaryTeams",
+  "radicalMindfulnessMini",
+  "masterYourMessageMini",
+  "elementsOfATeam",
 ];
 
 // Speaking-topic candidates per B2B result type. Only surfaced when admin has
@@ -620,44 +630,44 @@ function b2cResult(rt: B2CResultType, answers: Answers): QuizResult {
     case "RT1":
       return {
         track: "b2c", resultType: rt, headline: "Start with Foundations",
-        subhead: "IGNITE — Self-Paced",
+        subhead: "Self-Paced",
         narrative: aspiring
           ? "You're building something real, and you're thinking about it the right way. The leaders who get this right build the foundation — self-awareness, reflective capacity, inner steadiness — before the complexity arrives. That's exactly where you are."
           : "The clearest thing your responses show is that the foundation needs to come first. Not because your capability is in question. Leaders who build self-awareness and reflective capacity before they try to go wider are the ones who stop exhausting themselves in the process.",
-        primaryGroup: grp("Your Starting Point — IGNITE", "radicalMindfulness"),
-        whyThisFits: "Your gap is foundation, not tactics — so we're pointing at the one program built to install it. Radical Mindfulness is the self-paced course that develops the self-awareness and reflective capacity every later capability (communication, team leadership, change) is built on. The free Stoicism prompts and Burnout resources are there to keep the practice alive between sessions.",
+        primaryGroup: grp("Your Starting Point — Self-Led", "radicalMindfulnessMini"),
+        whyThisFits: "Your gap is foundation, not tactics — so we're pointing at the one program built to install it. The Radical Mindfulness Mini Course is the self-paced starting point that develops the self-awareness and reflective capacity every later capability (communication, team leadership, change) is built on. The free Stoicism prompts and Burnout resources are there to keep the practice alive between sessions.",
         groups: [
-          grp("Also Worth Exploring", "radicalMindfulnessMini", "passengerToPilot", "eqi"),
+          grp("Also Worth Exploring", "passengerToPilot", "eqi"),
           grp("Free Starting Points", "stoicLeaderFieldGuide", "fiftyTwoStoicism", "burnoutResources"),
         ],
-        whatComesNext: "Once this foundation is in place, two directions open: strengthening how you communicate, or building toward leading others. The AMPLIFY Leadership Labs are available whenever you're ready.",
+        whatComesNext: "Once this foundation is in place, two directions open: strengthening how you communicate, or building toward leading others. The Leadership Labs are available whenever you're ready.",
       };
     case "RT2":
       return {
         track: "b2c", resultType: rt, headline: "Build Communication Power",
-        subhead: "IGNITE — Self-Paced",
+        subhead: "Self-Paced",
         narrative: "You have the self-awareness. You can read a room. The gap is in the translation: getting what's in your head to consistently land the way you intend. Closing this gap is about mastering the instrument you already have.",
-        primaryGroup: grp("Your Starting Point — IGNITE", "masterYourMessage"),
-        whyThisFits: "Your gap is the translation layer — the space between what you mean and how it lands. Master Your Message is built specifically for that gap: how you frame, deliver, and adapt your message so it consistently reaches the room you're actually in. The companion picks sharpen the same instrument (style awareness, hard conversations, your natural working genius).",
-        groups: [grp("Also Worth Exploring", "masterYourMessageMini", "talkingToStrangers", "workingGenius")],
-        whatComesNext: "Communication work is the direct prerequisite for leading teams through complexity. Create Extraordinary Teams and the AMPLIFY Leadership Labs are the natural next terrain.",
+        primaryGroup: grp("Your Starting Point — Self-Led", "masterYourMessageMini"),
+        whyThisFits: "Your gap is the translation layer — the space between what you mean and how it lands. The Master Your Message Mini Course is built specifically for that gap: how you frame, deliver, and adapt your message so it consistently reaches the room you're actually in. The companion picks sharpen the same instrument (style awareness, hard conversations, your natural working genius).",
+        groups: [grp("Also Worth Exploring", "talkingToStrangers", "workingGenius")],
+        whatComesNext: "Communication work is the direct prerequisite for leading teams through complexity. Elements of a Team and the Leadership Labs are the natural next terrain.",
       };
     case "RT3": {
       const cohort = q6 === "C" || q6 === "D";
       return {
         track: "b2c", resultType: rt, headline: "Elevate Team Leadership",
-        subhead: cohort ? "AMPLIFY — Leadership Lab" : "IGNITE — Self-Paced",
+        subhead: cohort ? "Leadership Lab" : "Self-Paced",
         narrative: aspiring
           ? "You're thinking ahead, and that's the right instinct. The leaders who build team-leadership capacity before they need it are the ones who don't get caught flat-footed when a team lands in their lap."
           : "You've built real individual capacity. What leadership is testing you on now is the team: building conditions where a group consistently does its best work together. That's a different skill set.",
         primaryGroup: cohort
-          ? grp("Your Starting Point — AMPLIFY Lab", "conflictToConnectionLab", "goldilocksLab")
-          : grp("Your Starting Point — IGNITE", "createExtraordinaryTeams"),
+          ? grp("Your Starting Point — Leadership Lab", "conflictToConnectionLab", "goldilocksLab")
+          : grp("Your Starting Point — Self-Led", "elementsOfATeam"),
         whyThisFits: cohort
           ? "You told us you want a live, cohort-based experience — so we picked the two Labs that target the team dynamics most leaders trip on: navigating conflict productively (Conflict to Connection) and calibrating expectations and accountability (Goldilocks). Both put you in a peer cohort where the work is the team, not the theory."
-          : "You told us you want a self-paced path — so we picked the one course designed to give you the team-leadership playbook end to end. Create Extraordinary Teams covers the conditions, rhythms, and decisions that turn a group of capable people into a team that consistently performs.",
+          : "You told us you want a self-paced path — so we picked Elements of a Team, the masterclass on the core components of team health: the conditions that turn a group of capable people into a team that consistently performs.",
         groups: [
-          grp("Also Worth Exploring", "elementsOfATeam", "workingGenius", "kickTheHabit"),
+          grp("Also Worth Exploring", "workingGenius", "kickTheHabitB2C"),
           grp("Free Starting Points", "stoicLeaderFieldGuide"),
         ],
         whatComesNext: "As you build team-leadership capacity, two signals often emerge: toward change architecture, or toward organizational scale. When what you're building for your team is something your whole organization needs, that's a different conversation. We're ready for it.",
@@ -667,11 +677,11 @@ function b2cResult(rt: B2CResultType, answers: Answers): QuizResult {
       const cohort = q6 === "C" || q6 === "D";
       return {
         track: "b2c", resultType: rt, headline: "Master Change Architecture",
-        subhead: cohort ? "AMPLIFY — Leadership Lab" : "IGNITE — Self-Paced",
+        subhead: cohort ? "Leadership Lab" : "Self-Paced",
         narrative: "You've been in the middle of change, probably more than once, and navigated it with more skill than you give yourself credit for. What you're looking for is the framework that makes what you've been doing by instinct something you can do by design. Not managing change. Architecting it.",
         primaryGroup: cohort
-          ? grp("Your Starting Point — AMPLIFY Lab", "leadingChangeLab")
-          : grp("Your Starting Point — IGNITE", "leadingChangeMini"),
+          ? grp("Your Starting Point — Leadership Lab", "leadingChangeLab")
+          : grp("Your Starting Point — Self-Led", "leadingChangeMini"),
         whyThisFits: cohort
           ? "Your gap is having a repeatable framework for change — and you want it in a live cohort. The Leading Change Lab walks you through the P.A.T.H.™ method (Prepare, Align, Take Off, Habit) with peers running real initiatives, so the framework becomes muscle memory, not a slide deck."
           : "Your gap is having a repeatable framework for change — and you want it self-paced. The Leading Change mini-course gives you the P.A.T.H.™ method (Prepare, Align, Take Off, Habit) in short, finishable lessons. The free Strategic Change Canvas and Communicating Change workbook are the working tools you'll use on your next initiative.",
@@ -717,8 +727,8 @@ function b2cResult(rt: B2CResultType, answers: Answers): QuizResult {
       const secondaryLabs = ranked.slice(2);
       return {
         track: "b2c", resultType: rt, headline: "Ready for Advanced Partnership",
-        subhead: "AMPLIFY — Leadership Labs",
-        narrative: "You're not looking for a starting point. You're looking for depth: real challenge, peer-level conversation, an environment where the work pushes you rather than walks you through basics. The AMPLIFY Leadership Labs are built for exactly that — and based on your answers, two pull harder than the rest.",
+        subhead: "Leadership Labs",
+        narrative: "You're not looking for a starting point. You're looking for depth: real challenge, peer-level conversation, an environment where the work pushes you rather than walks you through basics. The Leadership Labs are built for exactly that — and based on your answers, two pull harder than the rest.",
         primaryGroup: grp("Your Starting Point — The Two Labs Your Answers Point At", ...primaryLabs),
         whyThisFits: "You have range and you're hungry for depth, so instead of handing you the full slate we narrowed to the two Labs your Q1–Q5 signals point at most directly. The remaining Labs are listed below if a different terrain pulls you. Every Lab is peer cohort, live, and built to push.",
         groups: [
@@ -765,7 +775,7 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
 
   // Crossover note for Cap
   const crossover = (val(answers, "Q1Cap") === "B" && val(answers, "Q2Cap") === "C")
-    ? "Your situation also includes an individual-leader development thread. The Stractical Leader Lab (AMPLIFY, individual track) is built for exactly that strategic-tactical integration work. Have those individual leaders take the P.A.T.H.way on their own track."
+    ? "Your situation also includes an individual-leader development thread. The Stractical Leader Lab (individual track) is built for exactly that strategic-tactical integration work. Have those individual leaders take the P.A.T.H.way on their own track."
     : undefined;
 
   let headline = "", narrative = "", primaryHeading = "", primaryKeys: OfferingKey[] = [], whyThisFits = "";
@@ -773,35 +783,35 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
 
   if (rt === "RT-A") {
     headline = "Team & People";
-    narrative = "Your responses point clearly to the team. Not the strategy, not the systems — the people dynamics underneath the work. Whether it's conflict that keeps surfacing, collaboration that's harder than it should be, or team patterns that are costing more than you want to admit, this is addressable. A workshop is a strong starting point. The Blue Door Organizational Appraisal is the prerequisite for any deeper, multi-team engagement and gives you the architecture map before you commit.";
+    narrative = "Your responses point clearly to the team. Not the strategy, not the systems — the people dynamics underneath the work. Whether it's conflict that keeps surfacing, collaboration that's harder than it should be, or team patterns that are costing more than you want to admit, this is addressable. A workshop is a strong starting point. When you're ready to go deeper, the Epic ShIFt Organizational Appraisal is the best next step: it begins with a Clarity Call and gives you the architecture map before you commit to a multi-team engagement.";
     primaryHeading = "Team Dynamics — Conflict, Friction, and Collaboration";
     primaryKeys = ["masterYourMessageB2B", "radicalMindfulnessB2B", "stoicismB2B"];
-    whyThisFits = "Your signal is people dynamics, not strategy or systems — so we picked workshops that work directly on the team-level behaviors driving the friction. Master Your Message addresses how people talk to each other (the most common source of repeat conflict). Radical Mindfulness installs the self-awareness teams need to stop reacting and start responding. Stoicism gives a shared operating system for handling disagreement well. Blue Door is the prerequisite when you're ready to address what's underneath those dynamics structurally.";
+    whyThisFits = "Your signal is people dynamics, not strategy or systems — so we picked workshops that work directly on the team-level behaviors driving the friction. Master Your Message addresses how people talk to each other (the most common source of repeat conflict). Radical Mindfulness installs the self-awareness teams need to stop reacting and start responding. Stoicism gives a shared operating system for handling disagreement well. The Epic ShIFt Organizational Appraisal is the best next step when you're ready to address what's underneath those dynamics structurally.";
   } else if (rt === "RT-B") {
     headline = "Change & Transformation";
-    narrative = "Your organization is moving through something significant, or about to. The question isn't whether the change is necessary, but whether your leaders and your organization have the architecture to carry it. A workshop can get traction quickly. The Blue Door Organizational Appraisal is the prerequisite for any deeper engagement and surfaces the structural readiness gaps a workshop alone won't address.";
+    narrative = "Your organization is moving through something significant, or about to. The question isn't whether the change is necessary, but whether your leaders and your organization have the architecture to carry it. A workshop can get traction quickly. The Epic ShIFt Organizational Appraisal is the best next step toward any deeper engagement and surfaces the structural readiness gaps a workshop alone won't address.";
     primaryHeading = "Change Leadership — Frameworks for Leading Transformation";
     primaryKeys = ["pathToLastingChange", "architectureOfOrganizationalShift", "cultivatingChangeResilience"];
-    whyThisFits = "Your signal is active or imminent change — so we picked the three workshops that give your leaders the frameworks change actually requires. The P.A.T.H.™ to Lasting Change is the end-to-end method (Prepare, Align, Take Off, Habit). Architecture of Organizational ShIFt builds the structural lens for what holds and what breaks. Cultivating Change Resilience addresses the human cost of sustained change. Blue Door surfaces the readiness gaps a workshop alone will paper over.";
+    whyThisFits = "Your signal is active or imminent change — so we picked the three workshops that give your leaders the frameworks change actually requires. The P.A.T.H.™ to Lasting Change is the end-to-end method (Prepare, Align, Take Off, Habit). Architecture of Organizational ShIFt builds the structural lens for what holds and what breaks. Cultivating Change Resilience addresses the human cost of sustained change. The Epic ShIFt Organizational Appraisal surfaces the readiness gaps a workshop alone will paper over.";
   } else if (rt === "RT-C") {
     headline = "Leadership Capability";
-    narrative = "The challenge you're describing is a capability gap. Your leaders need to develop, and you need a way to build that capacity that actually holds rather than fades after the training day ends. A workshop is a good first move. The Blue Door Organizational Appraisal is the prerequisite for any deeper engagement and shows you which capabilities the architecture is quietly blocking.";
+    narrative = "The challenge you're describing is a capability gap. Your leaders need to develop, and you need a way to build that capacity that actually holds rather than fades after the training day ends. A workshop is a good first move. The Epic ShIFt Organizational Appraisal is the best next step toward any deeper engagement and shows you which capabilities the architecture is quietly blocking.";
     primaryHeading = "Leadership Capability — How Leaders Show Up";
     primaryKeys = ["leadershipOM", "stracticalLeader", "architectureOfOrganizationalShift"];
-    whyThisFits = "Your signal is leadership capability — how your leaders actually show up. So we picked workshops that target the three biggest gaps we see: a clear operating model for leadership (Leadership OM), the strategy-to-tactics translation most leaders struggle with (Stractical Leader), and the structural lens that separates leaders who build durability from leaders who only manage activity (Architecture of Organizational ShIFt). Blue Door shows which of those gaps your architecture is quietly creating.";
+    whyThisFits = "Your signal is leadership capability — how your leaders actually show up. So we picked workshops that target the three biggest gaps we see: a clear operating model for leadership (Leadership OM), the strategy-to-tactics translation most leaders struggle with (Stractical Leader), and the structural lens that separates leaders who build durability from leaders who only manage activity (Architecture of Organizational ShIFt). The Epic ShIFt Organizational Appraisal shows which of those gaps your architecture is quietly creating.";
   } else if (rt === "RT-D") {
     headline = "Strategic / Architectural";
-    narrative = "What you're describing isn't a program gap or training need. It's an architectural question: whether your organization's current identity is built to carry what you're trying to create. The Blue Door Organizational Appraisal is where organizations at strategic inflection points begin, and it's the prerequisite for any deeper engagement with us.";
-    primaryHeading = "Workshops — Activate Your Team While the Appraisal Work Is Underway";
-    primaryKeys = ["architectChange", "architectureOfOrganizationalShift", "pathToLastingChange"];
-    whyThisFits = "Your signal is architectural — which is why Blue Door is the real next step, not a workshop. The workshops we picked are the ones that activate your team in parallel with that appraisal work, so momentum doesn't stall: Architect Change builds the design discipline, Architecture of Organizational ShIFt gives leaders the structural lens, and the P.A.T.H.™ to Lasting Change gives the org a shared method. None of them replace the appraisal — they make the most of the time it takes.";
+    narrative = "What you're describing isn't a program gap or training need. It's an architectural question: whether your organization's current identity is built to carry what you're trying to create. The Epic ShIFt Organizational Appraisal is your best next step: it's where organizations at strategic inflection points begin, and it starts with a Clarity Call.";
+    primaryHeading = "What to Pair With the Appraisal";
+    primaryKeys = ["architectShift", "architectureOfOrganizationalShift", "pathToLastingChange"];
+    whyThisFits = "Your signal is architectural — which is why the Epic ShIFt Organizational Appraisal is the real next step, not a workshop. Architect ShIFt is the engagement that follows it: your senior team authors the direction and fortifies the pillars that need to hold first, and like every engagement it begins with a Clarity Call. The two workshops activate your team while the appraisal work is underway: Architecture of Organizational ShIFt gives leaders the structural lens, and the P.A.T.H.™ to Lasting Change gives the organization a shared method.";
   } else {
     // RT-E
     headline = "Exploring Your Options";
-    narrative = "You're in the right place even if you're not sure exactly what you need yet. Organizational development rarely announces itself with a clear brief. Start with a defined experience that gives your team traction and a shared framework. When you're ready to go deeper, the Blue Door Organizational Appraisal is the prerequisite for any larger engagement and the fastest way to see your architecture clearly.";
+    narrative = "You're in the right place even if you're not sure exactly what you need yet. Organizational development rarely announces itself with a clear brief. Start with a defined experience that gives your team traction and a shared framework. When you're ready to go deeper, the Epic ShIFt Organizational Appraisal is the best next step toward any larger engagement and the clearest way to see your architecture.";
     primaryHeading = "Workshops to Start With";
     primaryKeys = ["pathToLastingChange", "architectureOfOrganizationalShift", "leadershipOM"];
-    whyThisFits = "You don't have a sharp signal yet — so committing to a deep engagement now would be guessing. The workshops we picked are the three highest-leverage starting points across most organizations: a shared change method (P.A.T.H.™ to Lasting Change), a structural lens (Architecture of Organizational ShIFt), and a leadership operating model (Leadership OM). Any of them gives your team traction and surfaces which signal is actually loudest. Blue Door is there when that signal sharpens.";
+    whyThisFits = "You don't have a sharp signal yet — so committing to a deep engagement now would be guessing. The workshops we picked are the three highest-leverage starting points across most organizations: a shared change method (P.A.T.H.™ to Lasting Change), a structural lens (Architecture of Organizational ShIFt), and a leadership operating model (Leadership OM). Any of them gives your team traction and surfaces which signal is actually loudest. The Epic ShIFt Organizational Appraisal is there when that signal sharpens.";
   }
 
   // `extra` and secondary-signal flags are intentionally not surfaced —
@@ -842,7 +852,7 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
 
   const strongestNextStep =
     strongest === "blueDoor"
-      ? { kind: "blueDoor" as const, offering: blueDoorOff, label: "Strongest Next Step — The Blue Door" }
+      ? { kind: "blueDoor" as const, offering: blueDoorOff, label: "Best Next Step — The Epic ShIFt Organizational Appraisal" }
       : strongest === "workshop"
         ? { kind: "workshop" as const, offering: O[trimmedPrimary[0]], label: "Strongest Next Step — Workshop" }
         : undefined;
@@ -854,7 +864,7 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
   // wins the top slot). Otherwise the same card renders twice.
   const groups: RecommendationGroup[] = strongest === "blueDoor"
     ? []
-    : [grp("Deeper Option — Blue Door Organizational Appraisal", "blueDoor")];
+    : [grp("Deeper Option — Epic ShIFt Organizational Appraisal", "blueDoor")];
 
   if (eligibleSpeaking.length > 0) {
     groups.push(grp("Speaking Topics — Bookable Keynotes", ...eligibleSpeaking));
@@ -874,7 +884,7 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
     track: "b2b",
     resultType: rt,
     headline,
-    subhead: rt === "RT-D" ? "Blue Door™ Primary | Workshops Alongside" : "Workshops | Blue Door™",
+    subhead: rt === "RT-D" ? "Epic ShIFt Organizational Appraisal Primary | Workshops Alongside" : "Workshops | Epic ShIFt Organizational Appraisal",
     narrative,
     whyThisFits,
     primaryGroup: grp(primaryHeading, ...trimmedPrimary),
@@ -884,8 +894,8 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
     topicArea: meta?.topicArea,
     contactPrefill: meta ? { scope: meta.scope, interests: meta.interests } : undefined,
     whatComesNext: rt === "RT-D"
-      ? "Blue Door produces your P.A.T.H. Compass — the organizational roadmap that informs everything that follows. From there, qualified organizations move to Architect Change and then into AMPLIFY or EMBODY partnership."
-      : "A workshop is a powerful starting point. Organizations that go deeper often find the work surfaces something more structural that a single workshop addresses symptomatically but not architecturally. The Blue Door is there when you're ready for that conversation.",
+      ? "The Epic ShIFt Organizational Appraisal begins with a Clarity Call and produces your P.A.T.H. Compass: the organizational roadmap that informs everything that follows, including the engagement that fits."
+      : "A workshop is a powerful starting point. Organizations that go deeper often find the work surfaces something more structural that a single workshop addresses symptomatically but not architecturally. The Epic ShIFt Organizational Appraisal is there when you're ready for that conversation, and it begins with a Clarity Call.",
   };
 
   return applyScoutReroute(baseResult, rt, answers, filterable ?? null);
@@ -960,9 +970,9 @@ function applyScoutReroute(
     ...r,
     subhead: "Scout Mode — Start Solo, Bring the Team Later",
     narrative:
-      "You said you're exploring before bringing a recommendation to others — that's the scout move, and it changes what makes sense to start with. Workshops, Blue Door, and team engagements all assume buy-in you don't have yet. The smarter play is to experience the work yourself, so when you do bring the conversation back you can speak to it firsthand.",
+      "You said you're exploring before bringing a recommendation to others — that's the scout move, and it changes what makes sense to start with. Workshops, the Epic ShIFt Organizational Appraisal, and team engagements all assume buy-in you don't have yet. The smarter play is to experience the work yourself, so when you do bring the conversation back you can speak to it firsthand.",
     whyThisFits:
-      "Based on your other answers, we picked the AMPLIFY Lab that maps closest to what you're seeing. Pair it with a short, finishable resource you can share with one trusted colleague. Team-facing workshops and Blue Door are still on the menu — they're just the next move, not the first one.",
+      "Based on your other answers, we picked the Leadership Lab that maps closest to what you're seeing. Pair it with a short, finishable resource you can share with one trusted colleague. Team-facing workshops and the Epic ShIFt Organizational Appraisal are still on the menu — they're just the next move, not the first one.",
     primaryGroup: primaryOfferings.length > 0
       ? {
           heading: "Pair It With These — Micro Starter + Free Resource",
@@ -979,7 +989,7 @@ function applyScoutReroute(
     // the individual-track recommendation, so the note would be redundant.
     crossoverNote: undefined,
     whatComesNext:
-      "Once you've experienced the Lab and have a concrete read on what your team needs, team-facing workshops are how you scale it. The Blue Door Organizational Appraisal is how you'd diagnose what's underneath at the org level when you're ready for that conversation.",
+      "Once you've experienced the Lab and have a concrete read on what your team needs, team-facing workshops are how you scale it. The Epic ShIFt Organizational Appraisal is how you'd read what's underneath at the org level when you're ready for that conversation.",
   };
 }
 

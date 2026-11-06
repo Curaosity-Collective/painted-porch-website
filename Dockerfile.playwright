@@ -10,11 +10,11 @@
 #
 # Run the full keyboard suite across all three browsers:
 #   docker run --rm -it -v "$PWD:/work" -w /work pps-playwright \
-#     npx playwright test e2e/b2c-quiz-keyboard.spec.ts \
+#     bunx playwright test e2e/b2c-quiz-keyboard.spec.ts \
 #       --project=chromium --project=firefox --project=webkit
 #
 # Run everything (uses the webServer block in playwright.config.ts to boot Vite):
-#   docker run --rm -it -v "$PWD:/work" -w /work pps-playwright npm run test:e2e:ci
+#   docker run --rm -it -v "$PWD:/work" -w /work pps-playwright bun run test:e2e:ci
 #
 # Pinned to the same Playwright minor as package.json (@playwright/test ^1.57).
 FROM mcr.microsoft.com/playwright:v1.57.0-jammy
@@ -25,7 +25,9 @@ ENV CI=1 \
 
 WORKDIR /work
 
-# Pre-warm npm cache layer when a lockfile is mounted at build time; the actual
-# install is done at runtime against the bind mount so we don't bake stale
-# deps into the image.
-CMD ["bash", "-lc", "npm ci && npx playwright install --with-deps && npm run test:e2e:ci"]
+# Dependencies install with bun from bun.lock, the same lockfile Lovable and CI
+# use. The install runs at start-up against the bind mount, so stale deps are
+# never baked into the image.
+RUN npm install -g bun
+
+CMD ["bash", "-lc", "bun install --frozen-lockfile && bunx playwright install --with-deps && bun run test:e2e:ci"]

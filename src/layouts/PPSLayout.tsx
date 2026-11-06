@@ -2,6 +2,11 @@ import { useLayoutEffect, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import PPSNavigation from "@/components/pps/PPSNavigation";
 import PPSFooter from "@/components/pps/PPSFooter";
+import SiteHeader from "@/components/v3/SiteHeader";
+import SiteFooter from "@/components/v3/SiteFooter";
+import { usesV3Chrome, usesV3Skin } from "@/config/siteChrome";
+import { V3SkinContext } from "@/components/v3/v3SkinContext";
+import { useV3Preview } from "@/hooks/useV3Preview";
 import PageGate from "@/components/pps/PageGate";
 import GitHubSyncBanner from "@/components/pps/admin/GitHubSyncBanner";
 import { PathFinderQuizProvider } from "@/components/pps/quiz/PathFinderQuizProvider";
@@ -19,7 +24,13 @@ if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
 }
 
 export default function PPSLayout() {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, search } = useLocation();
+  // The redesign's header and footer: Draft pages now, every page at go-live.
+  // Restyled live pages (speaking, topics, workshops, contact) use them with
+  // their restyle layer in preview (?v3=1, admins and editors) and at go-live.
+  const v3Preview = useV3Preview(search);
+  const v3Chrome = usesV3Chrome(pathname, v3Preview);
+  const v3Skin = usesV3Skin(pathname, v3Preview);
 
   // Immediate scroll before paint — skip when navigating to an in-page anchor
   useLayoutEffect(() => {
@@ -46,13 +57,21 @@ export default function PPSLayout() {
     <PathFinderQuizProvider>
       <div className="min-h-screen flex flex-col overflow-x-clip">
         <GitHubSyncBanner />
-        <PPSNavigation />
+        {v3Chrome ? <SiteHeader /> : <PPSNavigation />}
         <main className="flex-1">
-          <PageGate>
-            <Outlet />
-          </PageGate>
+          <V3SkinContext.Provider value={v3Skin}>
+            <PageGate>
+              {v3Skin ? (
+                <div className="v3-skin">
+                  <Outlet />
+                </div>
+              ) : (
+                <Outlet />
+              )}
+            </PageGate>
+          </V3SkinContext.Provider>
         </main>
-        <PPSFooter />
+        {v3Chrome ? <SiteFooter /> : <PPSFooter />}
       </div>
     </PathFinderQuizProvider>
   );

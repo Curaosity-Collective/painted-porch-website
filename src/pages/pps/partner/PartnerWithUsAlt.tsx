@@ -33,7 +33,7 @@ import ClientLogoMarquee from "@/components/pps/ClientLogoMarquee";
 const partnerFaqs = [
   {
     question: "What's the difference between IGNITE, AMPLIFY, and EMBODY?",
-    answer: "IGNITE is self-paced individual development, courses, assessments, and masterclasses you complete on your own schedule. AMPLIFY is cohort and team-based learning through workshops, strategic sprints, and Leadership Labs. EMBODY is an embedded executive partnership for full organizational transformation. Each P.A.T.H.way builds on the last, but you can start wherever fits your needs.",
+    answer: "IGNITE is self-paced individual development: mini courses, assessments, and masterclasses you complete on your own schedule. AMPLIFY is cohort and team-based learning through workshops, strategic sprints, and Leadership Labs. EMBODY is an embedded executive partnership for full organizational transformation. Each P.A.T.H.way builds on the last, but you can start wherever fits your needs.",
   },
   {
     question: "Do I need to start with IGNITE before moving to AMPLIFY or EMBODY?",
@@ -45,7 +45,7 @@ const partnerFaqs = [
   },
   {
     question: "Can I mix offerings from different P.A.T.H.ways?",
-    answer: "Absolutely. Many leaders take IGNITE courses for personal development while their teams participate in AMPLIFY workshops. The P.A.T.H.ways are designed to complement each other, not restrict you.",
+    answer: "Absolutely. Many leaders take IGNITE masterclasses for personal development while their teams participate in AMPLIFY workshops. The P.A.T.H.ways are designed to complement each other, not restrict you.",
   },
   {
     question: "What does 'Phase Zero' mean?",

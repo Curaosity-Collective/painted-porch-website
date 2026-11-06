@@ -10,6 +10,10 @@ import robPhoto from "@/assets/team/rob-hunter.jpg";
 import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
 import { Eyebrow } from "@/components/pps/Eyebrow";
 import { MoreTopicsCallout } from "@/components/pps/MoreTopicsCallout";
+import { AudienceOutcomes, HowBookingWorks } from "@/components/v3/SpeakingExtras";
+import { useV3Skin } from "@/components/v3/v3SkinContext";
+
+const SPEAKING_CONTACT = "/contact?interest=speaking&message=I'm interested in booking a speaker for our event.";
 
 const speakingLogos: LogoItem[] = [
   { name: "ProjectWorld", src: "/logos/projectworld.png", href: "https://www.pmbaconferences.com/" },
@@ -75,6 +79,8 @@ const speakers = [
 ];
 
 export default function Speaking() {
+  // Restyle preview and go-live only (plan Phase 3, §8): two compact sections.
+  const v3 = useV3Skin();
   useDocumentSeo({
     title: "Speaking | Book Amy, Rob & Sierra | Painted Porch Strategies",
     description: "Three dynamic speakers. One Stoic mission. Book Amy, Rob, and Sierra for keynotes and workshops on change, leadership, and epic shIFt.",
@@ -175,8 +181,12 @@ export default function Speaking() {
           </div>
         </div>
       </section>
+      {v3 && <AudienceOutcomes />}
+
       {/* More Topics Callout */}
       <MoreTopicsCallout />
+
+      {v3 && <HowBookingWorks contactHref={SPEAKING_CONTACT} />}
 
       {/* Combined Trust Signals */}
       <ClientLogoMarquee

@@ -23,6 +23,8 @@ import { mkdir, readFile, writeFile, access } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { routes, SITE } from "./prerender-content.mjs";
+import { buildMediaAppearanceSchema, buildMediaAppearancePage, serializeMediaAppearanceSchema } from "../src/lib/media-appearance-seo.mjs";
+import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -114,84 +116,65 @@ ${
 // structured data for crawlers on our highest-intent pages.
 const ORG_REF = { "@id": `${SITE}/#organization` };
 
-// Blue Door launch state is derived from src/config/blueDoor.ts so prerendered
-// structured data can never drift from the runtime pages. Verified by
-// src/test/blue-door-offer-schema.test.ts.
-const blueDoorConfig = await readFile(
-  path.join(ROOT, "src/config/blueDoor.ts"),
-  "utf8",
-).catch(() => "");
-const blueDoorLaunchIso =
-  blueDoorConfig.match(/BLUE_DOOR_LAUNCH_DATE = new Date\("([^"]+)"\)/)?.[1] ?? "";
-// Mirrors isBlueDoorPreLaunch(): driven by the explicit BLUE_DOOR_LAUNCHED
-// switch, never by the calendar.
-const blueDoorPreLaunch =
-  (blueDoorConfig.match(/BLUE_DOOR_LAUNCHED = (true|false)/)?.[1] ?? "false") === "false";
-const blueDoorAvailability = blueDoorPreLaunch
-  ? "https://schema.org/PreOrder"
-  : "https://schema.org/InStock";
-
+// The self-guided Blue Door is retired (PPS-DEC-0017); its old /blue-door
+// address redirects to the Epic ShIFt Organizational Appraisal (PPS-DEC-0018), which is not
+// sold directly: it begins with a Clarity Call, so its Offer carries a price
+// but no purchase availability. Verified by src/test/blue-door-offer-schema.test.ts.
 const SERVICE_LD = {
-  "/blue-door": {
+  "/envision-shift": {
     "@type": "Service",
-    name: "The Blue Door — Strategic Organizational Appraisal",
-    serviceType: "Strategic Organizational Appraisal",
+    name: "The Epic ShIFt Organizational Appraisal",
+    serviceType: "Organizational Appraisal",
     category: "Management Consulting",
     provider: ORG_REF,
     areaServed: { "@type": "Country", name: "United States" },
     offers: {
       "@type": "Offer",
-      price: "1500",
+      price: "24000",
       priceCurrency: "USD",
-      availability: blueDoorAvailability,
-      url: `${SITE}/blue-door`,
-      ...(blueDoorPreLaunch
-        ? { availabilityStarts: new Date(blueDoorLaunchIso).toISOString() }
-        : {}),
+      url: `${SITE}/envision-shift`,
     },
   },
-  "/partner": {
+  // Relaunch (plan Phase 5): The P.A.T.H. replaces /partner, which redirects
+  // here. No prices on this page (PPS-DEC-0022).
+  "/the-path": {
     "@type": "Service",
-    name: "The Painted Porch Partnership",
-    serviceType: "Organizational Transformation Partnership",
+    name: "The P.A.T.H.",
+    serviceType: "Organizational Change Advisory",
     category: "Management Consulting",
     provider: ORG_REF,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Partnership Tiers",
+      name: "Three ShIFts",
       itemListElement: [
-        { "@type": "Offer", name: "IGNITE — self-led", url: `${SITE}/partner/ignite` },
-        { "@type": "Offer", name: "AMPLIFY — 3–6 month partnership", url: `${SITE}/partner/amplify` },
-        { "@type": "Offer", name: "EMBODY — embedded partnership", url: `${SITE}/partner/embody` },
+        { "@type": "Offer", name: "Envision ShIFt — the Epic ShIFt Organizational Appraisal", url: `${SITE}/envision-shift` },
+        { "@type": "Offer", name: "Architect ShIFt", url: `${SITE}/architect-shift` },
+        { "@type": "Offer", name: "Embody ShIFt", url: `${SITE}/embody-shift` },
       ],
     },
   },
-  "/partner/ignite": {
+  "/architect-shift": {
     "@type": "Service",
-    name: "IGNITE — Self-led Transformation",
-    serviceType: "Leadership Development",
-    category: "Professional Training",
-    provider: ORG_REF,
-  },
-  "/partner/amplify": {
-    "@type": "Service",
-    name: "AMPLIFY — 3–6 Month Partnership",
-    serviceType: "Organizational Transformation Partnership",
+    name: "Architect ShIFt",
+    serviceType: "Executive Authorship Intensive and Strategic Sprint",
     category: "Management Consulting",
     provider: ORG_REF,
+    areaServed: { "@type": "Country", name: "United States" },
   },
-  "/partner/embody": {
+  // Relaunch: Embody ShIFt replaces /partner/embody, which redirects here.
+  "/embody-shift": {
     "@type": "Service",
-    name: "EMBODY — Embedded Executive Partnership",
-    serviceType: "Executive Advisory",
+    name: "Embody ShIFt",
+    serviceType: "Ongoing Organizational Advisory",
     category: "Management Consulting",
     provider: ORG_REF,
+    areaServed: { "@type": "Country", name: "United States" },
   },
   "/partner/amplify/stractical-leader": {
     "@type": "Course",
     name: "The Stractical Leader 6-Week Intensive",
     description:
-      "A 6-week AMPLIFY cohort that builds strategic-plus-tactical leadership capacity.",
+      "A 6-week Leadership Lab cohort that builds strategic-plus-tactical leadership capacity.",
     provider: ORG_REF,
     hasCourseInstance: {
       "@type": "CourseInstance",
@@ -371,7 +354,7 @@ function buildHtml(route) {
     const scripts = jsonLd
       .map(
         (obj) =>
-          `<script type="application/ld+json">${JSON.stringify(obj)}</script>`,
+          `<script type="application/ld+json">${serializeMediaAppearanceSchema(obj)}</script>`,
       )
       .join("\n    ");
     html = replaceTag(html, /<\/head>/, `    ${scripts}\n  </head>`);
@@ -484,6 +467,75 @@ async function prerenderBlogPosts() {
   return { ok, failed };
 }
 
+async function prerenderMediaAppearances() {
+  if (!SUPABASE_URL || !SUPABASE_ANON) {
+    console.warn("[prerender] media: no public credentials, summaries unavailable");
+    return;
+  }
+  try {
+    const fields = "id,review_status,title,media_type,show_name,description,seo_title,seo_description,seo_keywords,aeo_tags,geo_tags,external_url,thumbnail_url,appearance_date,media_appearance_categories(blog_categories(title))";
+    const appearances = [];
+    // Fetch every approved entry, not just the first gallery page or API range.
+    for (let offset = 0; ; offset += 500) {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/media_appearances?select=${fields}&review_status=eq.published&order=featured.desc,appearance_date.desc.nullslast,created_at.desc,id.asc&limit=500&offset=${offset}`, {
+        headers: { apikey: SUPABASE_ANON, authorization: `Bearer ${SUPABASE_ANON}` },
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!response.ok) throw new Error(`fetch status ${response.status}`);
+      const batch = await response.json();
+      appearances.push(...batch);
+      if (batch.length < 500) break;
+    }
+    const route = routes.find((entry) => entry.path === "/speaking/media");
+    if (!route) throw new Error("media route missing");
+    const schema = buildMediaAppearanceSchema(appearances);
+    const script = `<script id="media-appearances-jsonld" type="application/ld+json">${serializeMediaAppearanceSchema(schema)}</script>`;
+    const html = buildHtml(route).replace("</head>", `${script}\n</head>`);
+    await writeFile(path.join(DIST, "speaking/media/index.html"), html, "utf8");
+    for (const appearance of appearances) {
+      const metadata = buildMediaAppearancePage(appearance);
+      if (!metadata) continue;
+      if (appearance.thumbnail_url) {
+        try {
+          let imageBuffer;
+          if (appearance.thumbnail_url.startsWith("/") && !appearance.thumbnail_url.startsWith("//")) {
+            const publicRoot = path.join(ROOT, "public");
+            const localImage = path.resolve(publicRoot, `.${appearance.thumbnail_url}`);
+            if (!localImage.startsWith(`${publicRoot}${path.sep}`)) throw new Error("invalid local image path");
+            imageBuffer = await readFile(localImage);
+          } else {
+            const image = await fetch(appearance.thumbnail_url, { signal: AbortSignal.timeout(15000) });
+            if (!image.ok) throw new Error(`image status ${image.status}`);
+            imageBuffer = Buffer.from(await image.arrayBuffer());
+          }
+          const imageDir = path.join(DIST, "media-share");
+          await mkdir(imageDir, { recursive: true });
+          await sharp(imageBuffer).rotate().resize(1200, 630, { fit: "cover" }).jpeg({ quality: 80 }).toFile(path.join(imageDir, `${appearance.id}.jpg`));
+        } catch (error) {
+          console.warn(`[prerender] media image ${appearance.id}: ${error.message}`);
+          metadata.ogImage = undefined;
+        }
+      }
+      const detailRoute = {
+        ...metadata, h1: appearance.title, intro: appearance.description || metadata.description,
+        ogImageAlt: appearance.title, publishedTime: appearance.appearance_date,
+        jsonLd: [metadata.jsonLd], sections: [],
+        links: [{ href: "/speaking/media", label: "As Seen On" }, ...(appearance.external_url ? [{ href: appearance.external_url, label: appearance.show_name || "Original publication" }] : [])],
+      };
+      let detailHtml = buildHtml(detailRoute).replace("</head>", `<meta name="keywords" content="${escapeAttr(metadata.keywords.join(", "))}" />\n</head>`);
+      if (!metadata.ogImage) detailHtml = detailHtml.replace(/<meta (?:property="og:image[^\"]*"|name="twitter:image")[^>]*>/g, "");
+      if (appearance.thumbnail_url) detailHtml = detailHtml.replace("</h1>", `</h1><img src="${escapeAttr(appearance.thumbnail_url)}" alt="${escapeAttr(appearance.title)}" width="1200" style="max-width:100%;height:auto" />`);
+      const outDir = path.join(DIST, metadata.path.replace(/^\//, ""));
+      await mkdir(outDir, { recursive: true });
+      await writeFile(path.join(outDir, "index.html"), detailHtml, "utf8");
+    }
+    console.log(`[prerender] media: ${appearances.length} approved summaries`);
+  } catch (error) {
+    console.warn(`[prerender] media: summaries unavailable (${error.message})`);
+  }
+}
+
+await prerenderMediaAppearances();
 const blog = await prerenderBlogPosts();
 
 console.log(

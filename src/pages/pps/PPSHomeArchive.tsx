@@ -136,7 +136,7 @@ export default function PPSHomeArchive() {
             Implementation comes last. Before you can transform your organization, you need to assess readiness, build alignment, and architect the path forward. That's Phase Zero.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/blue-door">
+            <Link to="/envision-shift">
               <Button className="bg-primary border-2 border-primary text-white hover:bg-white hover:text-primary text-lg py-5 px-8 transition-colors">
                 Take the Blue Door
               </Button>

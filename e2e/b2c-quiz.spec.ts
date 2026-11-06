@@ -65,22 +65,22 @@ interface Flow {
 
 const FLOWS: Flow[] = [
   {
-    name: "RT1 — Start with Foundations (Radical Mindfulness)",
+    name: "RT1 — Start with Foundations (Radical Mindfulness Mini Course)",
     answers: ["A", "current", "A", "A", "A", "A", "A", "B"],
     expectedHeadline: /Start with Foundations/i,
-    primaryOfferingKey: "radicalMindfulness",
+    primaryOfferingKey: "radicalMindfulnessMini",
   },
   {
-    name: "RT2 — Build Communication Power (Master Your Message)",
+    name: "RT2 — Build Communication Power (Master Your Message Mini Course)",
     answers: ["A", "current", "B", "B", "D", "B", "B", "B"],
     expectedHeadline: /Build Communication Power/i,
-    primaryOfferingKey: "masterYourMessage",
+    primaryOfferingKey: "masterYourMessageMini",
   },
   {
-    name: "RT3 — Elevate Team Leadership, self-paced (Create Extraordinary Teams)",
+    name: "RT3 — Elevate Team Leadership, self-paced (Elements of a Team masterclass)",
     answers: ["A", "current", "C", "A", "B", "A", "C", "B"],
     expectedHeadline: /Elevate Team Leadership/i,
-    primaryOfferingKey: "createExtraordinaryTeams",
+    primaryOfferingKey: "elementsOfATeam",
   },
   {
     name: "RT3 — Elevate Team Leadership, cohort (From Conflict to Connection Lab)",

@@ -20,9 +20,9 @@
     "test:e2e:ci": "playwright test --project=chromium --reporter=github,html",
     "test:e2e:b2c": "playwright test --project=chromium e2e/b2c-quiz.spec.ts e2e/b2c-quiz-keyboard.spec.ts",
     "test:e2e:b2c:ci": "playwright test --project=chromium e2e/b2c-quiz.spec.ts e2e/b2c-quiz-keyboard.spec.ts --reporter=github,html",
-    "test:visual": "playwright test --project=chromium e2e/ppshome-card-alignment.spec.ts",
-    "test:visual:update": "playwright test --project=chromium e2e/ppshome-card-alignment.spec.ts --update-snapshots",
-    "test:visual:ci": "playwright test --project=chromium e2e/ppshome-card-alignment.spec.ts --reporter=github,html",
+    "test:visual": "playwright test --project=chromium e2e/home-promise-boxes.spec.ts",
+    "test:visual:update": "playwright test --project=chromium e2e/home-promise-boxes.spec.ts --update-snapshots",
+    "test:visual:ci": "playwright test --project=chromium e2e/home-promise-boxes.spec.ts --reporter=github,html",
     "test:a11y": "playwright test e2e/site-a11y.spec.ts --project=chromium",
     "test:a11y:ci": "playwright test e2e/site-a11y.spec.ts --project=chromium --reporter=github,html",
     "test:e2e:keyboard": "playwright test e2e/b2c-quiz-keyboard.spec.ts",
@@ -42,7 +42,6 @@
     "audit:links": "node scripts/audit-workshop-links.mjs"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.107.0",
     "@ffmpeg/ffmpeg": "^0.12.15",
     "@ffmpeg/util": "^0.12.2",
     "@hookform/resolvers": "^3.10.0",
@@ -109,6 +108,7 @@
     "react-resizable-panels": "^2.1.9",
     "react-router-dom": "6.30.4",
     "recharts": "2.15.4",
+    "sharp": "^0.35.5",
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",

@@ -99,7 +99,7 @@ function AssessmentIcon({ icon }: { icon: string }) {
 
 export default function IgniteAssessments() {
   useDocumentSeo({
-    title: "IGNITE Assessments | Painted Porch Strategies",
+    title: "Assessments | Painted Porch Strategies",
     description: "Individual and team assessments from Painted Porch Strategies: EQ-i 2.0, Working Genius, and the Painted Porch Pillars™ diagnostic.",
     canonical: "/partner/ignite/assessments",
   });
@@ -108,8 +108,7 @@ export default function IgniteAssessments() {
     <div>
       <PPSBreadcrumb
         segments={[
-          { label: "Partner", href: "/partner" },
-          { label: "IGNITE", href: "/partner/ignite" },
+          { label: "The P.A.T.H.", href: "/the-path" },
           { label: "Strategic Assessments" },
         ]}
       />
@@ -117,10 +116,10 @@ export default function IgniteAssessments() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container max-w-7xl mx-auto px-6">
           <Link
-            to="/partner/ignite"
+            to="/the-path"
             className="inline-flex items-center gap-2 text-sm text-primary hover:underline mb-8"
           >
-            <ArrowLeft className="w-4 h-4" /> Back to IGNITE Overview
+            <ArrowLeft className="w-4 h-4" /> Back to The P.A.T.H.
           </Link>
 
           <div className="text-center mb-12">
@@ -193,7 +192,7 @@ export default function IgniteAssessments() {
       </section>
 
       <FAQSection
-        tierName="IGNITE"
+        tierName="assessments"
         categories={igniteFaqCategories.filter(c => c.name === "Assessments" || c.name === "General")}
       />
     </div>

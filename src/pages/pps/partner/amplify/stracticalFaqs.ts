@@ -48,8 +48,8 @@ export const stracticalFaqCategories: FAQCategory[] = [
         answer: "The Stractical Leader workshop is designed for mid-level leaders - managers, directors, team leads - who feel stuck executing directives and want to develop the skills to influence strategic decisions. If you've ever thought 'I'm just a manager,' this is for you.",
       },
       {
-        question: "Do I need the Blue Door assessment before joining?",
-        answer: "No. The Blue Door is not required. This workshop focuses on individual leadership capacity and doesn't require an organizational assessment.",
+        question: "Do I need the Epic ShIFt Organizational Appraisal before joining?",
+        answer: "No. The Epic ShIFt Organizational Appraisal is not required. This workshop focuses on individual leadership capacity and doesn't require an organizational assessment.",
       },
       {
         question: "How is this different from other leadership programs?",

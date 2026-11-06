@@ -56,19 +56,34 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/partner</loc>
+    <loc>https://onthepaintedporch.com/press-kit</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onthepaintedporch.com/press</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://onthepaintedporch.com/the-path</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/partner/ignite</loc>
+    <loc>https://onthepaintedporch.com/architect-shift</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/partner/ignite/courses</loc>
+    <loc>https://onthepaintedporch.com/embody-shift</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://onthepaintedporch.com/elemental-style-assessment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://onthepaintedporch.com/partner/ignite/assessments</loc>
@@ -86,17 +101,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/partner/amplify</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://onthepaintedporch.com/partner/amplify/workshops</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://onthepaintedporch.com/partner/amplify/sprints</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -107,11 +112,6 @@
   </url>
   <url>
     <loc>https://onthepaintedporch.com/partner/amplify/stractical-leader</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onthepaintedporch.com/partner/embody</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -166,14 +166,9 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/blue-door</loc>
+    <loc>https://onthepaintedporch.com/envision-shift</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://onthepaintedporch.com/blue-door/purchase</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://onthepaintedporch.com/contact</loc>

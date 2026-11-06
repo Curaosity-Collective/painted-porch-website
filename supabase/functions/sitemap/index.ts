@@ -19,6 +19,20 @@ const ALWAYS_LIVE_PREFIXES = [
   "/blog",
   "/insights",
   "/media",
+  // Retired Blue Door addresses and their Epic ShIFt Organizational Appraisal target (PPS-DEC-0017).
+  "/blue-door",
+  "/blue-door-archive",
+  "/for-teams",
+  "/envision-shift",
+  // Relaunch (plan Phase 5): redirect targets of /partner, /partner/amplify/sprints
+  // and /partner/embody, and the old Draft addresses that now redirect.
+  "/the-path",
+  "/architect-shift",
+  "/embody-shift",
+  "/home-next",
+  "/about-next",
+  "/about/impact-next",
+  "/elemental-style-assessment",
 ];
 
 function isAlwaysLive(path: string) {
@@ -71,10 +85,12 @@ Deno.serve(async (req) => {
     { loc: "/about", priority: "0.8", changefreq: "monthly" },
     { loc: "/about/approach", priority: "0.7", changefreq: "monthly" },
     { loc: "/about/impact", priority: "0.7", changefreq: "monthly" },
-    { loc: "/partner", priority: "0.9", changefreq: "monthly" },
-    { loc: "/partner/ignite", priority: "0.8", changefreq: "monthly" },
-    { loc: "/partner/amplify", priority: "0.8", changefreq: "monthly" },
-    { loc: "/partner/embody", priority: "0.8", changefreq: "monthly" },
+    // Relaunch (plan Phase 5): The P.A.T.H. and the three ShIFts. /partner and
+    // /partner/embody now redirect to them, so they are no longer listed.
+    { loc: "/the-path", priority: "0.9", changefreq: "monthly" },
+    { loc: "/architect-shift", priority: "0.9", changefreq: "monthly" },
+    { loc: "/embody-shift", priority: "0.9", changefreq: "monthly" },
+    { loc: "/elemental-style-assessment", priority: "0.6", changefreq: "monthly" },
     { loc: "/resources", priority: "0.8", changefreq: "weekly" },
     { loc: "/resources/insights", priority: "0.9", changefreq: "daily" },
     { loc: "/resources/free", priority: "0.7", changefreq: "monthly" },
@@ -93,7 +109,7 @@ Deno.serve(async (req) => {
     { loc: "/for-teams", priority: "0.8", changefreq: "monthly" },
     { loc: "/speaking", priority: "0.7", changefreq: "monthly" },
     { loc: "/start-here", priority: "0.9", changefreq: "monthly" },
-    { loc: "/blue-door", priority: "0.9", changefreq: "monthly" },
+    { loc: "/envision-shift", priority: "0.9", changefreq: "monthly" },
     { loc: "/terms", priority: "0.3", changefreq: "yearly" },
     { loc: "/privacy", priority: "0.3", changefreq: "yearly" },
     { loc: "/cookies", priority: "0.3", changefreq: "yearly" },

@@ -1,10 +1,18 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { NEWSLETTER_TAG } from "../_shared/newsletter.ts";
+import { createClient } from 'npm:@supabase/supabase-js@2';
+import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
+import { z } from 'npm:zod@3';
+import { queueInquiryReceipt, inquiryReceiptData } from '../_shared/inquiry-email.ts';
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-};
+const submissionSchema = z.object({
+  firstName: z.string().trim().min(1).max(100), lastName: z.string().trim().max(100).default(''),
+  email: z.string().trim().email().max(255), phone: z.string().max(40).optional(), company: z.string().max(200).optional(),
+  interests: z.array(z.string().max(100)).max(30).optional(), inquiryFor: z.array(z.string().max(100)).max(30).optional(),
+  message: z.string().max(10000).optional(), budgetAuthority: z.string().max(100).optional(), budgetRange: z.string().max(100).optional(),
+  timeline: z.string().max(100).optional(), specificDate: z.string().max(100).optional(), newsletter: z.boolean().optional(),
+  tags: z.array(z.string().max(100)).max(30).optional(), skipOpportunity: z.boolean().optional(), submissionId: z.string().uuid().optional(),
+});
 
 const GHL_BASE = "https://services.leadconnectorhq.com";
 const GHL_VERSION = "2021-07-28";
@@ -34,7 +42,7 @@ function ghlHeaders(apiKey: string): GHLHeaders {
 // only accept a fixed set plus the dynamic `course-launch-<slug>` pattern.
 const ALLOWED_TAGS = new Set<string>([
   "contact-form",
-  "newsletter-opt-in",
+  NEWSLETTER_TAG,
   "Change Roadmap",
   "ChangeComms",
   "Strategic Canvas",
@@ -187,7 +195,7 @@ async function upsertContact(
 ) {
   const contactTags = [...sanitizeTags(payload.tags)];
   if (payload.newsletter) {
-    contactTags.push("newsletter-opt-in");
+    contactTags.push(NEWSLETTER_TAG);
   }
 
   // Search for existing contact by email
@@ -486,7 +494,9 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const body = await req.json();
+    const parsed = submissionSchema.safeParse(await req.json().catch(() => null));
+    if (!parsed.success) return new Response(JSON.stringify({ error: 'Please check the inquiry fields.' }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    const body = parsed.data;
     const {
       firstName,
       lastName,
@@ -537,12 +547,8 @@ Deno.serve(async (req) => {
 
     // ── 2-4. Create Opportunity (skip if flagged, e.g. waitlist-only) ──
     if (!skipOpportunity) {
-      const { pipelineId, stageId } = await findPipelineAndStage(
-        apiKey,
-        locationId,
-        "New Lead",
-        "New/Interested"
-      );
+      const pipelineId = 'wN61Lguggu7DpJjtDXzM';
+      const stageId = '246523a0-051a-4ae5-869d-3bb6fd6ce679';
 
       console.log("Pipeline found:", pipelineId, "Stage:", stageId);
 
@@ -588,7 +594,27 @@ Deno.serve(async (req) => {
       console.log("Skipping opportunity creation (skipOpportunity=true)");
     }
 
-    return new Response(JSON.stringify({ success: true, contactId }), {
+    let confirmationStatus: string | undefined;
+    // Resource/waitlist submissions share this legacy endpoint but are not work inquiries.
+    if (!skipOpportunity && sanitizeTags(tags).includes('contact-form')) {
+      const url = Deno.env.get('SUPABASE_URL'); const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+      if (url && serviceKey) {
+        const client = createClient(url, serviceKey);
+        const eventId = body.submissionId ?? crypto.randomUUID();
+        const receiptInput = { ...body, interests: interests ? mapValues(interests, INTEREST_MAP) : undefined,
+          inquiryFor: inquiryFor ? mapValues(inquiryFor, SCOPE_MAP) : undefined,
+          budgetRange: budgetRange ? mapValue(budgetRange, BUDGET_MAP) : undefined,
+          budgetAuthority: budgetAuthority ? mapValue(budgetAuthority, BUDGET_AUTH_MAP) : undefined,
+          timeline: timeline ? mapValue(timeline, TIMELINE_MAP) : undefined };
+        confirmationStatus = await queueInquiryReceipt(client, serviceKey, receiptInput, eventId);
+        const { data, error } = await client.functions.invoke('send-transactional-email', {
+          headers: { Authorization: `Bearer ${serviceKey}` }, body: { templateName: 'contact-notification',
+            recipientEmail: 'team@onthepaintedporch.com', idempotencyKey: `contact-notify-${eventId}`, templateData: inquiryReceiptData(receiptInput) },
+        });
+        if (error || data?.queued !== true) console.error('Contact notification not queued');
+      } else { confirmationStatus = 'failed'; console.error('Inquiry email configuration unavailable'); }
+    }
+    return new Response(JSON.stringify({ success: true, contactId, confirmationStatus }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (err) {

@@ -40,5 +40,18 @@ Every Google Doc used as an Ops Hub knowledge-base view must have a substantive,
 
 # Project rules
 
+- AI features and integration health checks use server-held Lovable AI credentials, never direct Anthropic credentials. Why: one gateway owns the app's AI access and obsolete provider secrets must not be required.
+
 - LinkedIn article reading lives only in `supabase/functions/_shared/linkedin-article.ts`; the scanner imports through `import-linkedin-article` instead of parsing pages itself. Why: two copies of the cleanup rules drifted apart and broke imports.
 - `youtube_videos` and `media_appearances` use `review_status` (pending/published); RLS hides pending from the public and public queries also filter on it. Why: scanned imports must wait for admin approval.
+- Media appearance structured data uses the shared `src/lib/media-appearance-seo.mjs` builder in the public page and prerender pipeline, independent of filters and page SEO overrides. Why: crawlers and browsers must receive the same approved-only summaries.
+- Public SELECT policies separate anonymous published-only reads from authenticated reviewer checks. Why: private role-check functions must not execute for anonymous visitors.
+- Resource opt-ins queue email through `_shared/resource-email.ts` with explicit server credentials, report queued/suppressed/failed separately, and never block immediate access on email failure. Why: optional email copies must not gate resource access or silently claim delivery.
+- Individual media pages use stable record IDs and the shared media SEO builder in React and prerender, with share-sized thumbnail copies generated at publish time. Why: per-appearance metadata must agree across browsers and social crawlers without requiring new editorial fields.
+- Catalogue and relaunch SEO cleanups retain changed records in protected archive tables before retiring or clearing them. Why: editorial cleanup must remain reversible without exposing archived content publicly.
+- Weekly content discovery uses one dedicated-secret callback for both scanners and pending-only imports; its scheduler credential table is service-role-only, and LinkedIn scheduled imports use the newsletter author's stable profile ID. Why: unattended discovery must not expose credentials or rely on an expiring browser session.
+- Press kit media reads the existing media_appearances registry with both a published-only query and approval guard. Why: staff preview must not accidentally include pending imports or create a second media catalogue.
+- The downloadable press kit is a dated static PDF in public/downloads, using existing page copy and published media only; refresh it when press materials change. Why: a same-origin file downloads reliably without adding browser PDF dependencies.
+- Press forms share PressInquiryForm and submit-press-inquiry; the server fixes CRM destination IDs and email recipient, records consent on the opportunity, and only adds metadata to existing contacts. Why: unverified inquiries must not overwrite identity or let callers choose CRM destinations.
+- Newsletter forms share useNewsletterSignup and submit-newsletter-optin; the server matches contacts by email, appends metadata, and preserves DND without opportunity writes or an email handoff. Why: subscriber capture stays separate from work inquiries and cannot overwrite existing identity and consent preferences.
+- Work inquiry endpoints queue requester receipts through `_shared/inquiry-email.ts` after CRM save, using the shared contact-confirmation template and event-based idempotency; pages do not send their own copies. Why: closing a page must not interrupt receipt handoff or create duplicate emails.

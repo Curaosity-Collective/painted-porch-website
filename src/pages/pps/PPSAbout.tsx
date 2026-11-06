@@ -360,8 +360,8 @@ export default function PPSAbout() {
         actions={[
           { label: "Discover Your P.A.T.H.way", to: "/start-here", variant: "primary" },
           {
-            label: "Open the Blue Door",
-            to: "/blue-door",
+            label: "Envision Epic ShIFt",
+            to: "/envision-shift",
             variant: "bluedoor",
           },
         ]}

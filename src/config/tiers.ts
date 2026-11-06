@@ -13,6 +13,9 @@ import { Flame, Sparkles, Landmark, type LucideIcon } from "lucide-react";
  */
 
 export interface TierConfig {
+  /** Internal key. The names IGNITE, AMPLIFY and EMBODY are no longer shown publicly (PPS-DEC-0025). */
+  key: "IGNITE" | "AMPLIFY" | "EMBODY";
+  /** Public label. */
   name: string;
   tagline: string;
   icon: LucideIcon;
@@ -33,8 +36,9 @@ export interface TierConfig {
 
 export const TIERS = {
   IGNITE: {
-    name: "IGNITE",
-    tagline: "For ME: Self-Led Learning",
+    key: "IGNITE",
+    name: "Self-Led",
+    tagline: "For you: self-led learning",
     icon: Flame,
     emoji: "🔥",
     bgColor: "bg-gold/10",
@@ -42,11 +46,12 @@ export const TIERS = {
     textColor: "text-gold",
     solidButtonClasses: "bg-gold border-2 border-gold text-white hover:bg-white hover:text-gold",
     outlineButtonClasses: "bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-white",
-    href: "/partner/ignite",
+    href: "/partner/ignite/assessments",
   },
   AMPLIFY: {
-    name: "AMPLIFY",
-    tagline: "For WE: Targeted Workshops",
+    key: "AMPLIFY",
+    name: "Team",
+    tagline: "For your team: workshops and Leadership Labs",
     icon: Sparkles,
     emoji: "✨",
     bgColor: "bg-strategic/10",
@@ -54,11 +59,12 @@ export const TIERS = {
     textColor: "text-strategic",
     solidButtonClasses: "bg-strategic border-2 border-strategic text-white hover:bg-white hover:text-strategic",
     outlineButtonClasses: "bg-transparent border-2 border-strategic text-strategic hover:bg-strategic hover:text-white",
-    href: "/partner/amplify",
+    href: "/partner/amplify/workshops",
   },
   EMBODY: {
-    name: "EMBODY",
-    tagline: "For THE: Embedded Advisory",
+    key: "EMBODY",
+    name: "Organization",
+    tagline: "For your organization: the three ShIFts",
     icon: Landmark,
     emoji: "🏛️",
     bgColor: "bg-navy/10",
@@ -66,7 +72,7 @@ export const TIERS = {
     textColor: "text-navy",
     solidButtonClasses: "bg-navy border-2 border-navy text-white hover:bg-white hover:text-navy",
     outlineButtonClasses: "bg-transparent border-2 border-navy text-navy hover:bg-navy hover:text-white",
-    href: "/partner/embody",
+    href: "/the-path",
   },
 } as const satisfies Record<string, TierConfig>;
 

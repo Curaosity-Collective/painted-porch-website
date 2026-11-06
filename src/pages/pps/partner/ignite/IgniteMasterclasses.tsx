@@ -64,7 +64,7 @@ const allMasterclasses: MasterclassItem[] = [
 
 export default function IgniteMasterclasses() {
   useDocumentSeo({
-    title: "IGNITE Masterclasses | Painted Porch Strategies",
+    title: "Masterclasses | Painted Porch Strategies",
     description: "Live and on-demand masterclasses on leadership, communication, mindfulness, and team dynamics from Painted Porch Strategies.",
     canonical: "/partner/ignite/masterclasses",
   });
@@ -79,8 +79,7 @@ export default function IgniteMasterclasses() {
     <div>
       <PPSBreadcrumb
         segments={[
-          { label: "Partner", href: "/partner" },
-          { label: "IGNITE", href: "/partner/ignite" },
+          { label: "The P.A.T.H.", href: "/the-path" },
           { label: "Masterclasses" },
         ]}
       />
@@ -88,10 +87,10 @@ export default function IgniteMasterclasses() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container max-w-7xl mx-auto px-6">
           <Link
-            to="/partner/ignite"
+            to="/the-path"
             className="inline-flex items-center gap-2 text-sm text-primary hover:underline mb-8"
           >
-            <ArrowLeft className="w-4 h-4" /> Back to IGNITE Overview
+            <ArrowLeft className="w-4 h-4" /> Back to The P.A.T.H.
           </Link>
 
           <div className="text-center mb-12">
@@ -103,7 +102,7 @@ export default function IgniteMasterclasses() {
               Focused, expert-led sessions designed to deepen your transformation capacity. Each masterclass is a 30–90 minute experience you can attend live or watch on replay.
             </p>
             <p className="text-body -sm text-primary max-w-3xl mx-auto mt-3">
-              New sessions drop throughout the year. Click "Join the Launch List" on any course below to be the first to know when it goes live.
+              New sessions drop throughout the year. Click "Join the Launch List" on any session below to be the first to know when it goes live.
             </p>
           </div>
 
@@ -202,7 +201,7 @@ export default function IgniteMasterclasses() {
       </section>
 
       <FAQSection
-        tierName="IGNITE"
+        tierName="masterclasses"
         categories={igniteFaqCategories.filter(c => c.name === "Masterclasses" || c.name === "General")}
       />
     </div>

@@ -8,6 +8,8 @@ import getClear from "@/assets/speaking/topics/get-clear-be-heard.jpg.asset.json
 import borderlessComm from "@/assets/speaking/topics/borderless-communication.jpg.asset.json";
 import onAir from "@/assets/speaking/topics/on-air-sign.jpg.asset.json";
 import sixStyles from "@/assets/speaking/topics/six-communicator-styles.jpg.asset.json";
+// Same image the Topics page shows for Master Your Message (PPS Admin: every topic has an image).
+import masterYourMessage from "@/assets/workshops/communication-architecture-thumb.jpg";
 import powerOfStory from "@/assets/speaking/topics/power-of-story.jpg.asset.json";
 
 const rob: SpeakerData = {
@@ -81,7 +83,7 @@ const rob: SpeakerData = {
     {
       slug: "communicate-with-style",
       aliases: ["speaking-with-style-the-6-communicator-styles-for-influence-impact"],
-      title: "Communicate with Style: The 6 Communicator Styles for Maximum Influence & Impact",
+      title: "Speak with Style: The 6 Communicator Styles for Influence & Impact",
       image: sixStyles.url,
       description:
         "There are six distinct communicator styles, and knowing yours changes everything. Discover your natural style and learn to flex across all six to connect with any audience.",
@@ -89,6 +91,7 @@ const rob: SpeakerData = {
     {
       slug: "master-your-message",
       title: "Master Your Message",
+      image: masterYourMessage,
       description:
         "Sharpen the signature message you deliver in every keynote, pitch, and high-stakes moment so it lands with clarity and conviction.",
     },

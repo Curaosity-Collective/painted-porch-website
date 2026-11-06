@@ -45,7 +45,7 @@ const TermsAndConditions = () => {
         headline={headlines[tab].headline}
         subheadline={headlines[tab].sub}
         description={
-          <p className="text-white/60 italic text-body">Last Updated: June 3, 2026</p>
+          <p className="text-white/60 italic text-body">Last Updated: November 6, 2026</p>
         }
         ctas={[]}
         background={{ type: "image", src: termsHero }}
@@ -343,7 +343,7 @@ function PrivacyTabBody() {
             <li className="text-body"><strong>Deliver what you bought / signed up for</strong>, legal basis: contract (GDPR Art. 6(1)(b)).</li>
             <li className="text-body"><strong>Send transactional emails</strong> (receipts, account notices, course delivery, policy updates like this one), contract / legitimate interests.</li>
             <li className="text-body"><strong>Run analytics and improve the site</strong>, legitimate interests (with IP anonymization and Google Signals disabled). EEA/UK visitors: see "Your rights" below to object.</li>
-            <li className="text-body"><strong>Provide AI-assisted analysis</strong> of assessment responses, contract / legitimate interests. We send your responses to Anthropic (Claude) for analysis only; responses are not used to train Anthropic's models under our API agreement.</li>
+            <li className="text-body"><strong>AI-assisted analysis</strong>, contract / legitimate interests. Our site's AI features use Lovable AI to summarize content and create search metadata.</li>
             <li className="text-body"><strong>Manage advisory client projects</strong> in ClickUp (if you're an advisory client and a project workspace is created for you), contract.</li>
             <li className="text-body"><strong>Legal compliance, fraud prevention, security</strong>, legal obligation / legitimate interests.</li>
             <li className="text-body"><strong>Tell you about updates to this policy or our Terms</strong>, legitimate interest in keeping you informed.</li>
@@ -358,7 +358,7 @@ function PrivacyTabBody() {
             <li className="text-body"><strong>Stripe</strong>, payments (US)</li>
             <li className="text-body"><strong>GoHighLevel</strong>, CRM, lead capture, course access &amp; delivery, email/SMS automation (US)</li>
             <li className="text-body"><strong>AidaForm</strong>, assessment intake forms (EU)</li>
-            <li className="text-body"><strong>Anthropic (Claude)</strong>, AI-assisted analysis of assessment responses (US)</li>
+            <li className="text-body"><strong>Lovable AI and its model providers</strong>, AI-assisted content summaries and search metadata</li>
             <li className="text-body"><strong>ClickUp</strong>, advisory client project workspaces (US), used only when an engagement creates a project board you have access to as a user</li>
             <li className="text-body"><strong>Resend / Lovable Emails (Mailgun)</strong>, transactional email delivery (US/EU)</li>
             <li className="text-body"><strong>YouTube (Google)</strong>, video embeds (US)</li>
@@ -411,7 +411,7 @@ function PrivacyTabBody() {
         </Block>
 
         <Block title="Automated Decision-Making">
-          <p className="text-body">We use AI (Anthropic's Claude) to help summarize and surface patterns in assessment responses. A human reviews the output before any recommendation reaches you, so there's no fully automated decision with legal or similarly significant effects.</p>
+          <p className="text-body">We use Lovable AI to summarize content and create search metadata. These tools do not make fully automated decisions with legal or similarly significant effects.</p>
         </Block>
 
         <Block title="EU / UK Representative">

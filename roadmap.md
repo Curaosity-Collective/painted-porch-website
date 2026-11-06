@@ -1,0 +1,30 @@
+- [x] Add approved-only media SEO/AEO/GEO structured summaries without changing the gallery.
+- [x] Include the same summaries in crawler-readable prerendered HTML.
+- [x] Verify summary rules and the public page with real approved records.
+- [x] Diagnose missing email attempts across all immediate-access resources.
+- [x] Repair affected email triggers and verify all five resource forms open access and log emails as sent.
+- [x] Add live approved appearance pages using saved search titles, descriptions, and share images, excluded from sitemap.
+- [x] Verify individual appearance metadata and pending exclusion.
+- [x] Verify and repair resource access when confirmation email fails or is suppressed.
+- [x] Verify and repair Kick the Habit replay sign-up failure.
+- [x] Verify and repair anonymous blog category access without exposing draft posts.
+- [x] Remove obsolete Anthropic diagnostics, dependency, and migration references; verify Lovable AI through the signed-in check and live metadata generation.
+- [ ] Delete the unused ANTHROPIC_API_KEY secret; deletion permission was declined, so the stored secret remains untouched.
+- [ ] Replace unavailable thumbnail for appearance 157f0ec4-5780-4644-95dc-6860c5767121; external image host refuses access (403), so its static share image is omitted.
+- [x] Verify and apply topics and relaunch SEO cleanups if missing.
+- [x] Update requested offering URLs and live flags.
+- [x] Refresh page SEO/AEO and verify homepage browser title and saved FAQs.
+- [x] Schedule and verify one weekly YouTube and LinkedIn newsletter sweep, with new imports pending review.
+- [x] Build and verify a draft press kit with existing bios, mission, speaking details and approved media; list it on the sitemap.
+- [x] Launch the press kit publicly with a press contact and verified downloadable PDF.
+- [x] Add and verify the press-kit inquiry form, speaking inbox email, and approved GHL speaking-pipeline exception.
+- [x] Launch a listed /press page with Media Relations contact details and refresh the press kit PDF.
+- [x] Add the existing Painted Porch Strategies logo to the printed press kit and verify its layout.
+- [x] Publish the updated press form, /press page, and logo PDF with the requested live press-kit SEO update.
+- [x] Refill cleared search summaries and FAQs without replacing existing search settings.
+- [x] Add and verify live press-kit search title, description, and share-sized Open Graph image.
+- [x] Connect blog Subscribe to newsletter contact capture.
+- [x] Make newsletter signups contact-only and remove team email notifications; deployed and tested both contact creation and update with mocked CRM responses.
+- [ ] Finish newsletter tag consolidation in GHL workflows and remove legacy tags afterward; public API exposes workflow metadata only, so trigger/action edits need GHL workflow-editor access. Website handlers now use newsletter and five existing contacts received it without removing legacy tags.
+- [x] Verify newsletter signup end-to-end and clean up only test records.
+- [x] Ensure contact, speaking, press and press-kit inquiries queue requester receipts with submitted details and a 24–48 business-hour response window; all four real form tests recorded sent emails and 66 checks passed.

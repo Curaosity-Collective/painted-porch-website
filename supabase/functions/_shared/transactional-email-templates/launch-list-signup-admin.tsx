@@ -21,7 +21,7 @@ interface Props {
 const Email = (props: Props) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>New launch list signup for {props.programName}</Preview>
+    <Preview>{`New launch list signup for ${props.programName ?? ''}`}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Img src={LOGO_URL} width="180" height="auto" alt="Painted Porch Strategies" style={logo} />

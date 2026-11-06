@@ -8,7 +8,7 @@ type: feature
 
 `/admin/path-finder-offerings` is the **routing** editor only. Canonical narrative fields are sourced from the **PPS Op Platform** Offerings Master Register (the canonical offerings catalog formerly referred to internally as "Blue Door") and rendered read-only with an **Edit in PPS Op Platform** deep link per row.
 
-> Naming note: the public product **The Blue Door Organizational Appraisal** is unrelated to this register and keeps its name. "PPS Op Platform" only refers to the master offerings register / admin project.
+> Naming note: the public self-guided Blue Door is retired; its successor is the **Epic ShIFt Organizational Appraisal** (PPS-DEC-0017/0018). It is unrelated to this register. "PPS Op Platform" only refers to the master offerings register / admin project.
 
 ## Ownership boundary (canonical)
 

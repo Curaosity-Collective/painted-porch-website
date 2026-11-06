@@ -142,7 +142,7 @@ export default function Capabilities() {
         headline="The design work is where the leverage lives"
         description="Start with a structured appraisal across all three Pillars, then decide what to build."
         actions={[
-          { label: "Open the Blue Door", to: "/blue-door", variant: "bluedoor" },
+          { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
           { label: "See How We Work", to: "/how-we-work", variant: "secondary" },
         ]}
         overlayTone="charcoal"

@@ -218,7 +218,7 @@ export default function AmplifySprintsArchive() {
                 <span className="text-foreground/70">Less than 30 minutes</span>
               </div>
             </div>
-            <Link to="/blue-door">
+            <Link to="/envision-shift">
               <Button variant="outline" className="bg-transparent border-2 border-bluedoor text-bluedoor hover:bg-bluedoor hover:text-white transition-colors">
                 Learn More <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

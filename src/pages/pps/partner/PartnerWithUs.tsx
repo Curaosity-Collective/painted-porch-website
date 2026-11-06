@@ -77,9 +77,9 @@ export default function PartnerWithUs() {
         <div className="container max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             {TIER_LIST.map((tier) => {
-              const features = tierFeatures[tier.name as keyof typeof tierFeatures];
-              const description = tierDescriptions[tier.name as keyof typeof tierDescriptions];
-              const cta = tierCtas[tier.name as keyof typeof tierCtas];
+              const features = tierFeatures[tier.key as keyof typeof tierFeatures];
+              const description = tierDescriptions[tier.key as keyof typeof tierDescriptions];
+              const cta = tierCtas[tier.key as keyof typeof tierCtas];
               
               return (
                 <div
