@@ -19,7 +19,6 @@ import AxeBuilder from "@axe-core/playwright";
 const ROUTES: Array<{ name: string; path: string }> = [
   { name: "Home",                       path: "/" },
   { name: "About",                      path: "/about" },
-  { name: "Our Approach",               path: "/about/approach" },
   { name: "Results & Impact",           path: "/about/impact" },
   { name: "The P.A.T.H.",              path: "/the-path" },
   { name: "Envision ShIFt",             path: "/envision-shift" },

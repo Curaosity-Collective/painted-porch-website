@@ -63,7 +63,9 @@ describe("HomeNext (draft go-forward homepage)", () => {
     expect(ifSpans.length).toBe(ifInText.length);
     for (const span of ifSpans) {
       expect(span.className).toContain("font-bold");
-      const onFill = Boolean(span.closest("button, li.bg-lime-deep"));
+      // A solid fill (a gold button, a filled box), not a text button on a dark band.
+      const fill = span.closest("button, li");
+      const onFill = Boolean(fill && /\bbg-(gold|lime-deep|raspberry|primary)\b/.test(fill.className));
       if (onFill) {
         expect(span.className).not.toMatch(/text-(raspberry|berry)/);
       } else {
@@ -105,8 +107,8 @@ describe("HomeNext (draft go-forward homepage)", () => {
     expect(screen.getByRole("link", { name: /Book a Clarity Call/ })).toHaveAttribute("href", CLARITY_CALL_CONTACT_HREF);
     // The form opens at the form, not the top of the contact page (PPS Admin, 2026-11-06).
     expect(CLARITY_CALL_CONTACT_HREF).toMatch(/#contact-form$/);
-    fireEvent.click(screen.getByRole("button", { name: /^Ready for Epic/ }));
-    fireEvent.click(screen.getByRole("button", { name: /Take the quiz/ }));
+    fireEvent.click(screen.getByRole("button", { name: /^Find Your Next Sh ?IF ?t$/ }));
+    fireEvent.click(screen.getByRole("button", { name: /^Not sure yet\? Find Your Next Sh ?IF ?t$/ }));
     expect(openQuiz).toHaveBeenCalledTimes(2);
   });
 
@@ -132,6 +134,16 @@ describe("HomeNext (draft go-forward homepage)", () => {
     ]);
     // Gold carries dark text (PPS-DEC-0022).
     expect(boxes[1].className).not.toContain("text-white");
+  });
+
+  it("names the directional guide Find Your Next ShIFt and never a quiz (PPS-DEC-0026)", () => {
+    const { container } = renderHome();
+    expect(screen.getByRole("button", { name: /^Find Your Next Sh ?IF ?t$/ })).toBeInTheDocument();
+    expect(container.textContent).toContain("A three-minute guide to where your journey begins.");
+    // "Ready for Epic ShIFt?" retired; Epic ShIFt lives in the menu heading (PPS Admin, 2026-11-06).
+    expect(container.textContent).not.toMatch(/Ready for Epic/);
+    expect(container.textContent).not.toMatch(/\bquiz\b/i);
+    expect(container.textContent).not.toContain("P.A.T.H.way Quiz");
   });
 
   it("keeps eyebrows a different color from their headings and drops the ™ from P.A.T.H.way", () => {

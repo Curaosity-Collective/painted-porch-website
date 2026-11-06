@@ -24,12 +24,12 @@ interface SearchEntry {
 const searchIndex: SearchEntry[] = [
   // Main pages
   { title: "Home", description: "Welcome to Painted Porch Strategies", href: "/", category: "Pages", keywords: ["home", "main", "landing", "painted porch"], icon: <Building className="w-4 h-4" /> },
-  { title: "Start Here", description: "Take the P.A.T.H.way quiz to discover your pathway", href: "/start-here", category: "Pages", keywords: ["start", "quiz", "pathway", "path", "begin", "assessment", "blue door"], icon: <ArrowRight className="w-4 h-4" /> },
+  { title: "Find Your Next ShIFt", description: "A three-minute directional guide to your best starting point", href: "/start-here", category: "Pages", keywords: ["quiz", "guide", "find your next shift", "start", "quiz", "pathway", "path", "begin", "assessment", "blue door"], icon: <ArrowRight className="w-4 h-4" /> },
   { title: "Contact Us", description: "Get in touch with us", href: "/contact", category: "Pages", keywords: ["contact", "call", "schedule", "email", "phone", "reach out"], icon: <FileText className="w-4 h-4" /> },
   { title: "Speaking", description: "Book Amy for keynotes, workshops, and events", href: "/speaking", category: "Pages", keywords: ["speaking", "keynote", "event", "workshop", "conference", "presenter"], icon: <Mic className="w-4 h-4" /> },
 
   // About
-  { title: "Our Approach", description: "Phase Zero, P.A.T.H., and the Painted Porch philosophy", href: "/about/approach", category: "About", keywords: ["approach", "phase zero", "path", "philosophy", "stoic", "methodology", "framework"], icon: <BookOpen className="w-4 h-4" /> },
+  { title: "Our Approach", description: "Phase Zero: how we work, the Painted Porch Pillars, and how we think", href: "/phase-zero", category: "About", keywords: ["approach", "phase zero", "path", "philosophy", "stoic", "methodology", "framework"], icon: <BookOpen className="w-4 h-4" /> },
   
   { title: "Our Impact", description: "Client results, testimonials, and partner logos", href: "/about/impact", category: "About", keywords: ["impact", "results", "testimonials", "clients", "partners", "case study", "success"], icon: <FileText className="w-4 h-4" /> },
 
@@ -52,10 +52,10 @@ const searchIndex: SearchEntry[] = [
   { title: "As Seen On", description: "Media appearances, podcasts, and features", href: "/speaking/media", category: "Speaking", keywords: ["media", "podcast", "appearances", "features", "press", "seen on"], icon: <FileText className="w-4 h-4" /> },
 
   // Concepts (searchable topics that link to relevant pages)
-  { title: "Phase Zero", description: "The strategic authorship phase before implementation", href: "/about/approach", category: "Concepts", keywords: ["phase zero", "before implementation", "preparation", "readiness", "strategic authorship"], icon: <BookOpen className="w-4 h-4" /> },
-  { title: "P.A.T.H. Framework", description: "Prepare → Align → Take Off → Habit", href: "/about/approach", category: "Concepts", keywords: ["path", "prepare", "align", "take off", "habit", "framework", "methodology"], icon: <BookOpen className="w-4 h-4" /> },
-  { title: "The Painted Porch Pillars", description: "Cultural Cornerstone, Operational Frame, Living Ecosystem", href: "/about/approach", category: "Concepts", keywords: ["pillars", "cultural", "operational", "living ecosystem", "architecture", "adaptability"], icon: <BookOpen className="w-4 h-4" /> },
-  { title: "Change Management", description: "Organizational transformation and shift strategies", href: "/about/approach", category: "Concepts", keywords: ["change management", "transformation", "shift", "organizational change", "transition", "adoption"], icon: <BookOpen className="w-4 h-4" /> },
+  { title: "Phase Zero", description: "The work before the work: Prepare and Align", href: "/phase-zero", category: "Concepts", keywords: ["phase zero", "before implementation", "preparation", "readiness", "strategic authorship"], icon: <BookOpen className="w-4 h-4" /> },
+  { title: "P.A.T.H. Framework", description: "Prepare → Align → Take Off → Habits", href: "/the-path", category: "Concepts", keywords: ["path", "prepare", "align", "take off", "habit", "framework", "methodology"], icon: <BookOpen className="w-4 h-4" /> },
+  { title: "The Painted Porch Pillars", description: "Cultural Cornerstone, Operational Frame, Living Ecosystem", href: "/phase-zero#pillars", category: "Concepts", keywords: ["pillars", "cultural", "operational", "living ecosystem", "architecture", "adaptability"], icon: <BookOpen className="w-4 h-4" /> },
+  { title: "Change Management", description: "Organizational transformation and shift strategies", href: "/phase-zero", category: "Concepts", keywords: ["change management", "transformation", "shift", "organizational change", "transition", "adoption"], icon: <BookOpen className="w-4 h-4" /> },
 ];
 
 export function SiteSearch() {

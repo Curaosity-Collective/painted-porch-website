@@ -82,6 +82,8 @@ describe("ResultsImpact (draft)", () => {
       expect(link).toHaveAttribute("href", CHARITIES[i].href);
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
+      // White rounded cards like Our Approach's credentials (PPS Admin, 2026-11-06).
+      expect(link.className).toMatch(/rounded-\[8px\].*\bbg-white\b.*\bshadow-sm\b/);
     });
   });
 
@@ -100,7 +102,7 @@ describe("ResultsImpact (draft)", () => {
       "href",
       "/#clarity-call",
     );
-    fireEvent.click(screen.getByRole("button", { name: /^Take the Ready for Epic/ }));
+    fireEvent.click(screen.getByRole("button", { name: /^Find Your Next Sh ?IF ?t$/ }));
     expect(openQuiz).toHaveBeenCalledTimes(1);
     expect(container.querySelector('a[href="/ready"], a[href="/start-here"], a[href="/results"]')).toBeNull();
   });

@@ -1,10 +1,12 @@
 /**
  * Menu data for the redesign's header and footer (PPS Admin, 2026-11-05).
  *
- * Header: The P.A.T.H. (with Phase Zero in its dropdown), Speaking,
- * Insights & Resources and About, then search and the "Ready for Epic
- * ShIFt?" quiz button. The P.A.T.H.way partnership pages are not in the
- * header (B2B first, plan §1); the footer keeps them.
+ * Header: The P.A.T.H. to ShIFt (the P.A.T.H. page and the three
+ * ShIFts), Speaking, Insights & Resources and About (with Phase Zero; PPS
+ * Admin, 2026-11-06), then search and the "Find Your Next ShIFt" button that
+ * opens the guide (PPS-DEC-0026). The offers for
+ * leaders and teams are not in the header (B2B first, plan §1); the footer
+ * keeps them under "Leaders & Teams".
  *
  * Links point at each page's go-live address. Labels containing "ShIFt"
  * render with the IF styled (NavLabel).
@@ -22,16 +24,21 @@ export interface NavGroup {
   children: NavLink[];
 }
 
+/** The P.A.T.H. menu's heading in the header and the footer (PPS Admin, 2026-11-06). */
+export const PATH_MENU_LABEL = "The P.A.T.H. to ShIFt";
+
+/** Phase Zero sits under About in the header and Company in the footer (PPS Admin, 2026-11-06). */
+const PHASE_ZERO_LINK: NavLink = { label: "What's Phase Zero?", href: "/phase-zero" };
+
 export const PATH_LINKS: NavLink[] = [
   { label: "The P.A.T.H.", href: "/the-path", note: "The four stages of change" },
-  { label: "What's Phase Zero?", href: "/phase-zero", note: "The work before the work" },
   { label: "Envision ShIFt", href: "/envision-shift", note: "Prepare" },
   { label: "Architect ShIFt", href: "/architect-shift", note: "Align" },
   { label: "Embody ShIFt", href: "/embody-shift", note: "Take Off and Habits" },
 ];
 
 export const HEADER_MENU: NavGroup[] = [
-  { label: "The P.A.T.H.", href: "/the-path", children: PATH_LINKS },
+  { label: PATH_MENU_LABEL, href: "/the-path", children: PATH_LINKS },
   {
     label: "Speaking",
     href: "/speaking",
@@ -58,13 +65,18 @@ export const HEADER_MENU: NavGroup[] = [
     label: "About",
     href: "/about",
     children: [
-      { label: "Our Approach", href: "/about/approach" },
+      // Our Approach is part of the Phase Zero page now (PPS Admin, 2026-11-06).
+      PHASE_ZERO_LINK,
       { label: "Results & Impact", href: "/about/impact" },
     ],
   },
 ];
 
-/** The P.A.T.H.way offerings: out of the header, kept in the footer (plan §1). */
+/**
+ * The offers for leaders and teams: out of the header, kept in the footer's
+ * "Leaders & Teams" column (plan §1; PPS Admin, 2026-11-06). The name says who
+ * they serve, not where to start: an organization starts with the Clarity Call.
+ */
 export const PATHWAY_LINKS: NavLink[] = [
   { label: "Assessments", href: "/partner/ignite/assessments" },
   { label: "Masterclasses", href: "/partner/ignite/masterclasses" },
@@ -74,6 +86,7 @@ export const PATHWAY_LINKS: NavLink[] = [
 
 export const COMPANY_LINKS: NavLink[] = [
   { label: "About Us", href: "/about" },
+  PHASE_ZERO_LINK,
   { label: "Results & Impact", href: "/about/impact" },
   { label: "Speaking", href: "/speaking" },
   { label: "Insights & Resources", href: "/resources" },

@@ -564,11 +564,11 @@ export default function PPSBlogPost() {
             Want to put these ideas into action?
           </h2>
           <p className="text-body -sm text-foreground mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto text-pretty">
-            Step on the P.A.T.H.way and explore how to apply these principles in your life, work, and anywhere in between.
+            Step onto the P.A.T.H. and explore how to apply these principles in your life, work, and anywhere in between.
           </p>
-          <Link to="/partner" className="inline-block w-full sm:w-auto">
+          <Link to="/the-path" className="inline-block w-full sm:w-auto">
             <button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 sm:px-8 rounded-lg transition-colors">
-              Explore Partnership
+              Explore The P.A.T.H.
             </button>
           </Link>
         </div>

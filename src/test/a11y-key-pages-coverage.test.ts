@@ -23,7 +23,6 @@ const KEY_ROUTES = [
   // Top of funnel
   "/",
   "/about",
-  "/about/approach",
   "/the-path",
   "/envision-shift",
   "/architect-shift",

@@ -74,7 +74,7 @@ describe("ArchitectShift (draft)", () => {
       "href",
       "/?clarity=architect#clarity-call",
     );
-    fireEvent.click(screen.getByRole("button", { name: /^Take the Ready for Epic/ }));
+    fireEvent.click(screen.getByRole("button", { name: /^Find Your Next Sh ?IF ?t$/ }));
     expect(openQuiz).toHaveBeenCalledTimes(1);
   });
 });
@@ -103,4 +103,38 @@ describe("EmbodyShift (draft)", () => {
       clarityCallSectionHref("embody"),
     );
   });
+});
+
+import EnvisionShift from "../EnvisionShift";
+import { PARTNERSHIP_PROMISE } from "@/data/partnershipPromise";
+
+// Envision's Reveal blocks watch the viewport; jsdom has no IntersectionObserver, so an inert one stands in.
+beforeEach(() => {
+  globalThis.IntersectionObserver ??= class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+    takeRecords() {
+      return [];
+    }
+  } as unknown as typeof IntersectionObserver;
+});
+
+describe("Our Partnership Promise on the three ShIFt pages (PPS Admin, 2026-11-06)", () => {
+  for (const [name, Page] of [
+    ["Envision ShIFt", EnvisionShift],
+    ["Architect ShIFt", ArchitectShift],
+    ["Embody ShIFt", EmbodyShift],
+  ] as const) {
+    it(`${name} shows it once, before the closing Clarity Call, and not the homepage's If yes / If not yet / If not us`, () => {
+      const { container } = renderPage(Page);
+      const heading = screen.getByRole("heading", { level: 2, name: PARTNERSHIP_PROMISE.title });
+      expect(screen.getAllByTestId("partnership-promise")).toHaveLength(1);
+      expect(screen.getByTestId("partnership-promise")).toHaveTextContent(PARTNERSHIP_PROMISE.body);
+      const clarity = screen.getAllByRole("link", { name: /Start with a Clarity Call/ })[0];
+      expect(heading.compareDocumentPosition(clarity) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+      // The If yes / If not yet / If not us boxes stay on the homepage only.
+      expect(container.textContent).not.toMatch(/If not yet|We Aren't Here to Tell You Yes/);
+    });
+  }
 });

@@ -32,17 +32,17 @@ const Email = (p: Props) => {
   return (
     <Html lang="en" dir="ltr">
       <Head />
-      <Preview>Your P.A.T.H.way results</Preview>
+      <Preview>Your next shIFt: where to start</Preview>
       <Body style={main}>
         <Container style={container}>
           <Link href="https://onthepaintedporch.com" style={{ display: "block", textDecoration: "none" }}>
             <Img src={LOGO_URL} width="180" height="auto" alt={SITE} style={logo} />
           </Link>
-          <Text style={kicker}>Your P.A.T.H.way Results</Text>
+          <Text style={kicker}>Find Your Next ShIFt</Text>
           <Heading style={h1}>{p.headline ?? "Your starting point"}</Heading>
           {p.subhead ? <Text style={subhead}>{p.subhead}</Text> : null}
           <Text style={text}>
-            Hi {name}, here are the recommendations the quiz surfaced for you. Each link below opens that program or workshop on our site.
+            Hi {name}, here's where Find Your Next ShIFt suggests you start. Each link below opens that program or workshop on our site.
           </Text>
 
           {p.strongestNextStep && (
@@ -103,8 +103,8 @@ const Email = (p: Props) => {
 
 export const template = {
   component: Email,
-  subject: 'Your P.A.T.H.way results',
-  displayName: 'P.A.T.H.way quiz results',
+  subject: 'Your next shIFt: where to start',
+  displayName: 'Find Your Next ShIFt results',
   previewData: {
     firstName: 'Marcus',
     headline: 'Elevate Team Leadership',

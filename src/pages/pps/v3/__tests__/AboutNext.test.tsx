@@ -64,6 +64,22 @@ describe("AboutNext (draft)", () => {
     }
   });
 
+  it("carries the core values and the manifesto moved from Our Approach (PPS Admin, 2026-11-06)", () => {
+    renderPage();
+    const values = screen.getByRole("heading", { level: 2, name: "Our Core Values" }).closest("section")!;
+    expect(within(values).getAllByRole("heading", { level: 3 }).map((h) => h.textContent)).toEqual([
+      "Purpose",
+      "Partnership",
+      "Stewardship",
+    ]);
+    const manifesto = screen.getByRole("heading", { level: 2, name: "What We Stand For, and What We Won't Do" }).closest("section")!;
+    expect(within(manifesto).getByText("Clarity comes before strategy, not after it.")).toBeInTheDocument();
+    expect(within(manifesto).getByText("Speed for its own sake.")).toBeInTheDocument();
+    // Softened with contractions (PPS Admin, 2026-11-06).
+    expect(manifesto.textContent).not.toMatch(/does not|will not/);
+    expect(values.textContent).not.toMatch(/You are the expert|We are here/);
+  });
+
   it("shows every certification from the shared list", () => {
     renderPage();
     const credentials = within(screen.getByRole("region", { name: "Credentials & Certifications" }));
@@ -86,7 +102,7 @@ describe("AboutNext (draft)", () => {
       "href",
       "/#clarity-call",
     );
-    fireEvent.click(screen.getByRole("button", { name: /^Take the Ready for Epic/ }));
+    fireEvent.click(screen.getByRole("button", { name: /^Find Your Next Sh ?IF ?t$/ }));
     expect(openQuiz).toHaveBeenCalledTimes(1);
   });
 

@@ -170,7 +170,7 @@ const PROMISE = [
     // Green, yellow, red (PPS Admin, 2026-11-06). Gold takes dark text: white on Gold is
     // 2.2:1, #1E2B30 is 7:1 (PPS-DEC-0022).
     box: "bg-gold text-[#1E2B30]",
-    body: "We tell you the truth, and we map a P.A.T.H.way to build the capacity you need first.",
+    body: "We tell you the truth, and we create a map to build the capacity you need first.", // PPS Admin, 2026-11-06
   },
   {
     label: "If not us",
@@ -246,11 +246,11 @@ export default function HomeNext() {
             <div className="flex flex-col items-start gap-2.5">
               <button type="button" onClick={openQuiz} className={`${GOLD_BUTTON} focus-visible:outline-white`}>
                 <span>
-                  Ready for Epic <ShIFt onFill />?
+                  Find Your Next <ShIFt onFill />
                 </span>
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </button>
-              <p className="text-sm text-[#E3EFF1]">A short quiz that shows where your journey begins.</p>
+              <p className="text-sm text-[#E3EFF1]">A three-minute guide to where your journey begins.</p>
             </div>
             <a
               href="#clarity-call"
@@ -385,8 +385,8 @@ export default function HomeNext() {
             </h2>
             <p className="max-w-[40em] text-[17px] leading-relaxed">
               The P.A.T.H. is the four stages of change: Prepare, Align, Take Off, Habits. Most change work starts at
-              Take Off. Ours starts at Phase Zero™, inside Prepare: the first act of becoming, before your next major
-              decision hardens into execution.
+              Take Off. Ours starts at Phase Zero™, which spans Prepare and Align: the first act of becoming, before
+              your next major decision hardens into execution.
             </p>
             <SmartLink to="/the-path" className={`self-start text-[15px] ${LINK}`}>
               <span>See the full P.A.T.H. →</span>
@@ -561,7 +561,7 @@ export default function HomeNext() {
                 onClick={openQuiz}
                 className="font-semibold text-white underline underline-offset-4 hover:text-white/85"
               >
-                Not sure yet? Take the quiz
+                Not sure yet? Find Your Next <ShIFt onDark />
               </button>
             </div>
             <p className="font-display text-[22px] font-semibold italic text-[#F4C05E]">The porch is open.</p>

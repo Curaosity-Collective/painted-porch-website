@@ -161,7 +161,9 @@ export default function ResultsImpact() {
                   href={c.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-full flex-col items-center justify-center gap-3 border border-border bg-white px-4 py-5 text-center text-sm font-semibold leading-snug text-foreground transition-colors hover:border-heading hover:text-heading"
+                  // White cards with 8px corners and a light shadow, like Our Approach's credentials
+                  // (PPS Admin, 2026-11-06). Set in pixels: the redesign's theme makes rounded-lg 4px.
+                  className="flex h-full flex-col items-center justify-center gap-3 rounded-[8px] bg-white px-4 py-5 text-center text-sm font-semibold leading-snug text-foreground shadow-sm transition-shadow hover:text-heading hover:shadow-md"
                 >
                   <img
                     src={`https://www.google.com/s2/favicons?domain=${new URL(c.href).hostname}&sz=64`}
@@ -220,7 +222,7 @@ export default function ResultsImpact() {
           <>
             Not sure yet?{" "}
             <button type="button" onClick={openQuiz} className="font-semibold underline underline-offset-4">
-              Take the Ready for Epic <ShIFt onDark /> quiz
+              Find Your Next <ShIFt onDark />
             </button>
           </>
         }

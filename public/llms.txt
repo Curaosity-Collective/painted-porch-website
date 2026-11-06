@@ -2,7 +2,7 @@
 
 > Organizational shift strategy and change origination for leaders ready to architect extraordinary outcomes.
 
-Painted Porch Strategies partners with organizations at the moment of strategic authorship—before decisions are made and before initiatives are scoped. The P.A.T.H. is the four stages of change (Prepare, Align, Take Off, Habits), and three ShIFts partner on them: Envision ShIFt (the Epic ShIFt Organizational Appraisal) at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits. Every engagement begins with a Clarity Call. Each reads an organization through The Painted Porch Pillars: Cultural Cornerstone, Operational Frame, and Living Ecosystem. Individuals and teams also find workshops, masterclasses, mini courses, labs and assessments on the P.A.T.H.way pages.
+Painted Porch Strategies partners with organizations at the moment of strategic authorship—before decisions are made and before initiatives are scoped. The P.A.T.H. is the four stages of change (Prepare, Align, Take Off, Habits), and three ShIFts partner on them: Envision ShIFt (the Epic ShIFt Organizational Appraisal) at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits. Every engagement begins with a Clarity Call. Each reads an organization through The Painted Porch Pillars: Cultural Cornerstone, Operational Frame, and Living Ecosystem. Individuals and teams also find workshops, masterclasses, mini courses, labs and assessments.
 
 ## Pages
 
@@ -12,9 +12,8 @@ Painted Porch Strategies partners with organizations at the moment of strategic 
 - [/architect-shift](/architect-shift): Architect ShIFt — an executive authorship intensive and a 90-day pillar-fortification sprint, after the appraisal.
 - [/embody-shift](/embody-shift): Embody ShIFt — ongoing advisory from Take Off through Habits.
 - [/about](/about): About Painted Porch Strategies and the team.
-- [/about/approach](/about/approach): The five core philosophy principles behind the work.
 - [/about/impact](/about/impact): Results & Impact — client words, the organizations we've worked alongside, and the 5% of every fee given to client-chosen charities.
-- [/phase-zero](/phase-zero): Phase Zero strategic positioning framework.
+- [/phase-zero](/phase-zero): Phase Zero™, our approach — the work before the work. It spans Prepare and Align, the first two stages of the P.A.T.H.: why it exists, what it is and isn't, the Painted Porch Pillars, and how we think.
 - [/partner/ignite/assessments](/partner/ignite/assessments): Self-led assessments: EQ, Working Genius, and change readiness.
 - [/partner/ignite/masterclasses](/partner/ignite/masterclasses): Short-form intensives and challenges.
 - [/partner/amplify/workshops](/partner/amplify/workshops): Leadership development workshops.
@@ -29,7 +28,7 @@ Painted Porch Strategies partners with organizations at the moment of strategic 
 - [/speaking/rob](/speaking/rob): Rob Hunter speaker profile.
 - [/speaking/sierra](/speaking/sierra): Sierra Cantrell speaker profile.
 - [/speaking/media](/speaking/media): Media appearances and press coverage.
-- [/start-here](/start-here): P.A.T.H.way quiz — discover your recommended partnership tier.
+- [/start-here](/start-here): Find Your Next ShIFt — a three-minute directional guide to the right starting point.
 - [/contact](/contact): Contact the team.
 - [/terms](/terms): Terms, privacy, and cookie policies.
 - [/amy](/amy): Amy Yackowski personal hub.

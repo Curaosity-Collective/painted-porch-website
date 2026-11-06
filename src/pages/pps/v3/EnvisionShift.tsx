@@ -8,6 +8,7 @@ import { CTABand, EvidenceNote, Kicker, NumberedList, PageHero, Prose, V3_H2 } f
 import { GhostLayer, ParallaxImage, StickyMedia } from "@/components/v3/Motion";
 import { Reveal } from "@/components/v3/Reveal";
 import { ShIFt } from "@/components/v3/ShIFt";
+import { PartnershipPromiseNote } from "@/components/v3/PartnershipPromiseNote";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
 import { EPIC_SHIFT_APPRAISAL, clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
@@ -297,6 +298,9 @@ export default function EnvisionShift() {
         </div>
       </section>
 
+      {/* Our Partnership Promise, from Our Approach (PPS Admin, 2026-11-06) */}
+      <PartnershipPromiseNote />
+
       <CTABand
         tone="prepare"
         photoProfile="cta-photo-envision"
@@ -317,7 +321,7 @@ export default function EnvisionShift() {
               onClick={quiz.open}
               className="underline underline-offset-4 transition-colors hover:text-gold"
             >
-              Take the P.A.T.H.way quiz
+              Find Your Next <ShIFt onDark />
             </button>
             .
           </>

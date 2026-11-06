@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Check } from "lucide-react";
 import colorfulPath from "@/assets/colorful-path.jpg";
 import lightbulb from "@/assets/amplify-hero-lightbulb.jpg";
+import pathRoad from "@/assets/v3/path-to-shift-road.webp";
 import colorBurst from "@/assets/amplify-hero-energy.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -42,6 +43,8 @@ const STAGES = [
   {
     letter: "P",
     name: "Prepare",
+    subtitle: "The clarity phase",
+    outcome: "A shared, clear-eyed picture of where you stand and what's needed next.",
     question: "What are we actually built to carry?",
     body: "Before a single initiative is announced, get an honest read of the organization's current architecture: the leadership and culture, the systems and workflows, and the human capacity underneath them. Preparation is where momentum is either created or mortgaged.",
     example: (
@@ -57,6 +60,8 @@ const STAGES = [
   {
     letter: "A",
     name: "Align",
+    subtitle: "The agreement phase",
+    outcome: "A coalition that owns the work, not just approves it.",
     question: "Does the room actually agree, on the same thing?",
     body: "Alignment isn't a survey where everyone picks “strongly agree.” It's your senior team working the same evidence in the executive authorship intensive, identifying which pillars need reinforcement first, and fortifying those structures and capabilities through a strategic sprint before you execute your change.",
     example:
@@ -67,6 +72,8 @@ const STAGES = [
   {
     letter: "T",
     name: "Take Off",
+    subtitle: "The launch phase",
+    outcome: "Launch energy that holds past the first 90 days.",
     question: "How do we launch so the vision holds, and accelerates?",
     body: "Most methodologies start here, which is why the outcome can feel smaller than the vision that set it in motion. The industry default is to move straight into action: launch the tool, announce the initiative, reorganize the chart. We begin earlier. With Preparation and Alignment in place, Take Off becomes the confident translation of ambition into a living reality, with clear decisions, reinforcing structures, and the organizational capacity to sustain velocity.",
     example:
@@ -77,6 +84,8 @@ const STAGES = [
   {
     letter: "H",
     name: "Habits",
+    subtitle: "The staying-power phase",
+    outcome: "A team that can navigate future challenges with confidence and clarity.",
     question: "What keeps this from evaporating?",
     body: (
       <>
@@ -91,6 +100,32 @@ const STAGES = [
     partner: EMBODY,
     fill: "bg-habits text-[#1F3A0C]",
   },
+];
+
+/**
+ * The ten steps on PPS Admin's road graphic (updated 2026-11-06), worded as the graphic words them;
+ * the Brand Bible's §5.5 is to follow (PPS-DEC-0027).
+ * Steps 1 to 6, Prepare and Align, are Phase Zero (PPS-DEC-0027). The list is what phones
+ * and screen readers get: the graphic's text is too small to read on a phone.
+ */
+const ROAD_STEPS: { stage: string; dot: string; steps: [number, string][] }[] = [
+  { stage: "Prepare", dot: "bg-prepare", steps: [[1, "Define Your Destination"], [2, "Pin Your Starting Point"]] },
+  {
+    stage: "Align",
+    dot: "bg-align",
+    steps: [
+      [3, "Assemble Your Change Coalition"],
+      [4, "Plan Your Route"],
+      [5, "Plot Your Checkpoints, Milestones & Celebrations"],
+      [6, "Identify Bumps, Roadblocks, and Detours"],
+    ],
+  },
+  {
+    stage: "Take Off",
+    dot: "bg-gold",
+    steps: [[7, "Take Your Change on the Road"], [8, "Map Your Future Journey"], [9, "Provide GPS & Roadside Assistance"]],
+  },
+  { stage: "Habits", dot: "bg-habits", steps: [[10, "Reinforce Change & Continual ShIFt"]] },
 ];
 
 // Pillar colors are shared with the client report (PPS-DEC-0022, item 3).
@@ -224,14 +259,64 @@ export default function ThePath() {
       <section aria-label="The four stages of change" className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="max-w-4xl">
           <Kicker>The Thinking Behind It</Kicker>
+          <p className="mt-6 font-display text-xl font-semibold leading-snug text-heading md:text-2xl">
+            Stoicism is the GPS for how we think. The P.A.T.H. is the roadmap for how we work.
+          </p>
           <Prose>
             <p>
-              Most change methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H.
-              begins two stages earlier, while there's still room to shape the possibility: understanding what your
-              organization is built to carry, and bringing the people who will carry it into genuine alignment.
+              Four stages move a change from clarity to commitment to launch to lasting habits. Most change
+              methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H. begins two
+              stages earlier, while there's still room to shape the possibility: understanding what your organization is
+              built to carry, and bringing the people who will carry it into genuine alignment.
             </p>
           </Prose>
         </div>
+
+        {/* The road: PPS Admin's P.A.T.H. graphic (2026-11-06), with its ten steps as text. */}
+        <figure aria-labelledby="path-road-caption" className="mt-12 md:mt-16">
+          <img
+            src={pathRoad}
+            alt="The P.A.T.H. as a winding road in ten numbered steps across Prepare, Align, Take Off and Create Habits, with steps 1 to 6 outlined as Phase Zero. The steps are listed below."
+            width={1600}
+            height={917}
+            loading="lazy"
+            className="h-auto w-full rounded-[8px]"
+          />
+          <figcaption id="path-road-caption" className="mt-4 text-base leading-relaxed text-foreground">
+            Steps 1 to 6, Prepare and Align, are{" "}
+            <SmartLink to="/phase-zero" className={LINK}>
+              <span>Phase Zero™</span>
+            </SmartLink>
+            : the work before the work.
+          </figcaption>
+          <ol aria-label="The ten steps of the P.A.T.H." className="mt-6 grid gap-6 sm:grid-cols-2 md:sr-only">
+            {ROAD_STEPS.map((group) => (
+              <li key={group.stage}>
+                <p className="label-kicker flex items-center gap-2 text-foreground">
+                  <span aria-hidden="true" className={`inline-block h-2.5 w-2.5 rounded-full ${group.dot}`} />
+                  {group.stage}
+                </p>
+                <ol className="mt-3 space-y-2">
+                  {group.steps.map(([n, label]) => (
+                    <li key={n} className="flex gap-3 text-base leading-snug text-foreground">
+                      <span className="w-6 shrink-0 font-display font-bold text-heading">{n}</span>
+                      <span>
+                        {label.includes("ShIFt") ? (
+                          <>
+                            {label.split("ShIFt")[0]}
+                            <ShIFt />
+                          </>
+                        ) : (
+                          label
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </li>
+            ))}
+          </ol>
+        </figure>
 
         <ol className="mt-14 space-y-16 md:mt-20 md:space-y-24">
           {STAGES.map((stage, i) => (
@@ -247,7 +332,9 @@ export default function ThePath() {
                   >
                     {stage.letter}
                   </div>
-                  <p className="label-kicker mt-4 text-raspberry">Stage {i + 1} of 4</p>
+                  <p className="label-kicker mt-4 text-raspberry">
+                    Stage {i + 1} of 4 · {stage.subtitle}
+                  </p>
                 </div>
                 <div className="md:col-span-8">
                   <h2 id={`stage-${stage.letter}`} className={V3_H2}>
@@ -255,6 +342,10 @@ export default function ThePath() {
                   </h2>
                   <p className="mt-2 font-display text-lg italic text-foreground">{stage.question}</p>
                   <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground">{stage.body}</p>
+                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-foreground">
+                    <span className="label-kicker block text-raspberry">You walk away with</span>
+                    <span className="mt-1 block font-semibold">{stage.outcome}</span>
+                  </p>
                   <div className="mt-6 max-w-2xl border-l-4 border-gold bg-cream p-5">
                     <p className="text-sm leading-relaxed text-foreground">
                       <span className="font-semibold">For example: </span>
@@ -285,7 +376,11 @@ export default function ThePath() {
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-foreground">
             Prepare pairs with Envision. Align pairs with Architect: the intensive and sprint fortify your organization
             before execution. When you're ready, Embody is the invitation at Take Off, reinforcing your practice through
-            Habits while your team designs and delivers the change.
+            Habits while your team designs and delivers the change. Together, Prepare and Align are{" "}
+            <SmartLink to="/phase-zero" className={LINK}>
+              <span>Phase Zero™</span>
+            </SmartLink>
+            .
           </p>
 
           {/* Desktop map */}
@@ -447,7 +542,7 @@ export default function ThePath() {
           <>
             Not sure yet?{" "}
             <button type="button" onClick={openQuiz} className="font-semibold underline underline-offset-4">
-              Take the Ready for Epic <ShIFt onDark /> quiz
+              Find Your Next <ShIFt onDark />
             </button>
           </>
         }

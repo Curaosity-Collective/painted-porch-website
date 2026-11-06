@@ -83,7 +83,7 @@ Deno.serve(async (req) => {
   const staticPages = [
     { loc: "/", priority: "1.0", changefreq: "weekly" },
     { loc: "/about", priority: "0.8", changefreq: "monthly" },
-    { loc: "/about/approach", priority: "0.7", changefreq: "monthly" },
+    { loc: "/phase-zero", priority: "0.8", changefreq: "monthly" },
     { loc: "/about/impact", priority: "0.7", changefreq: "monthly" },
     // Relaunch (plan Phase 5): The P.A.T.H. and the three ShIFts. /partner and
     // /partner/embody now redirect to them, so they are no longer listed.

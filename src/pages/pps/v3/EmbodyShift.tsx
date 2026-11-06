@@ -5,6 +5,7 @@ import pergola from "@/assets/embody-hero-option10.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
+import { PartnershipPromiseNote } from "@/components/v3/PartnershipPromiseNote";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
 import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
@@ -152,6 +153,9 @@ export default function EmbodyShift() {
         </div>
       </section>
 
+      {/* Our Partnership Promise, from Our Approach (PPS Admin, 2026-11-06) */}
+      <PartnershipPromiseNote />
+
       <CTABand
         tone="habits"
         title={
@@ -175,7 +179,7 @@ export default function EmbodyShift() {
           <>
             Not sure where to begin?{" "}
             <button type="button" onClick={openQuiz} className="font-semibold underline underline-offset-4">
-              Take the Ready for Epic <ShIFt onDark /> quiz
+              Find Your Next <ShIFt onDark />
             </button>
           </>
         }

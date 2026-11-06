@@ -58,13 +58,13 @@ export function clearQuizContactPrefill(): void {
 /** Combine the answers and recommendations into a single appendable block. */
 export function formatQuizBlock(p: Pick<QuizContactPrefill, "message" | "answersText" | "resultHeadline">): string {
   const parts: string[] = [];
-  parts.push(`--- P.A.T.H.way Quiz Context ---`);
+  parts.push(`--- Find Your Next ShIFt results ---`);
   if (p.resultHeadline) parts.push(`Result: ${p.resultHeadline}`);
   if (p.answersText && p.answersText.trim()) {
-    parts.push(``, `My quiz responses:`, p.answersText.trim());
+    parts.push(``, `My answers:`, p.answersText.trim());
   }
   if (p.message && p.message.trim()) {
-    parts.push(``, `Recommended next steps from the quiz:`, p.message.trim());
+    parts.push(``, `Recommended next steps:`, p.message.trim());
   }
   return parts.join("\n");
 }

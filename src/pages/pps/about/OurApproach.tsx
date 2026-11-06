@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CheckCircle, X, ArrowRight, Compass, Users, Rocket, Repeat } from "lucide-react";
+import { CheckCircle, ArrowRight, Compass, Users, Rocket, Repeat } from "lucide-react";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { TierHeroSection } from "@/components/pps/TierHeroSection";
 import ParallaxCTA from "@/components/pps/ParallaxCTA";
@@ -23,7 +23,6 @@ const pathStages = [
     iconBg: "bg-primary/10",
     body: "Understand reality before commitment. Get clear about people, systems, and culture before the next shift starts.\u00a0Clarify what matters, why it matters, what realities already exist, and what may need strengthening before action begins.",
     outcome: "A shared, clear-eyed picture of where you stand and what's needed next.",
-    isPhaseZero: true,
   },
   {
     letter: "A",
@@ -64,55 +63,6 @@ const pathStages = [
 ];
 
 
-
-const coreValues = [
-  {
-    number: "01",
-    title: "Purpose",
-    description:
-      "We exist to change how people design, define, and connect with their work, so they can lead with more clarity, more strength, and more meaning.",
-    detail:
-      "That shows up as mindful leaders, resilient teams, and communication that actually lands.",
-    color: "bg-strategic/10",
-    borderColor: "border-strategic",
-  },
-  {
-    number: "02",
-    title: "Partnership",
-    description:
-      "You are the expert of you (and your teams and organization). We bring frameworks, genuine curiosity, and outside perspective. You bring the context only you can see.",
-    detail:
-      "We act as a guide and advisor, not a vendor. The win is when you can carry the work without us.",
-    color: "bg-primary/10",
-    borderColor: "border-primary",
-  },
-  {
-    number: "03",
-    title: "Stewardship",
-    description:
-      "Real results come from shared commitment, trust, and clear accountability from both seats on the porch.",
-    detail:
-      "We are here to do good work that makes financial sense and carries personal meaning, where talent, purpose, and contribution align.",
-    color: "bg-lime/10",
-    borderColor: "border-lime",
-  },
-];
-
-const beliefs = [
-  "People are the most critical infrastructure of every transformation.",
-  "Clarity comes before strategy, not after it.",
-  "Curious questions are more useful than confident answers.",
-  "Frameworks are tools, not religions.",
-  "Change that does not respect culture will not hold.",
-];
-
-const rejects = [
-  "Change theater that looks busy but moves nothing.",
-  "One-size playbooks dropped on a unique organization.",
-  'Treating people like obstacles to manage or "convince".',
-  "Tech rollouts that skip the human work.",
-  "Speed for its own sake.",
-];
 
 const createConditions = [
   "Leaders who can name what they are really trying to build.",
@@ -208,83 +158,7 @@ export default function OurApproach() {
       </section>
 
 
-      {/* Manifesto: What we believe / reject */}
-      <section className="py-16 md:py-24 bg-muted/60">
-        <div className="container max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <Eyebrow variant="plain" tone="primary" as="p">Our Manifesto</Eyebrow>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              What we stand for, and what we will not do.
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl p-7 border-t-4 border-lime shadow-sm">
-              <h3 className="text-xl md:text-2xl font-poppins font-semibold text-lime mb-4">
-                What we believe:
-              </h3>
-              <ul className="space-y-3">
-                {beliefs.map((b) => (
-                  <li key={b} className="text-body text-foreground flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-lime flex-shrink-0 mt-1" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-white rounded-xl p-7 border-t-4 border-raspberry shadow-sm">
-              <h3 className="text-xl md:text-2xl font-poppins font-semibold text-raspberry mb-4">
-                What we reject:
-              </h3>
-              <ul className="space-y-3">
-                {rejects.map((r) => (
-                  <li key={r} className="text-body text-foreground flex items-start gap-3">
-                    <X className="w-5 h-5 text-raspberry flex-shrink-0 mt-1" />
-                    <span>{r}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <Eyebrow variant="plain" tone="gold" as="p">How We Show Up</Eyebrow>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              Our Core Values
-            </h2>
-            <p className="text-body text-foreground max-w-2xl mx-auto">
-              Three values that decide how we show up in every partnership.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {coreValues.map((value, index) => (
-              <div
-                key={index}
-                className={`${value.color} p-8 rounded-xl border-t-4 ${value.borderColor}`}
-              >
-                <span className="text-4xl font-bold text-navy/20 font-poppins">
-                  {value.number}
-                </span>
-                <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mt-2 mb-4">
-                  {value.title}
-                </h3>
-                <p className="text-body text-foreground mb-4">
-                  {value.description}
-                </p>
-                <p className="text-body -sm text-foreground/80">
-                  {value.detail}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* The manifesto and core values moved to /about (PPS Admin, 2026-11-06). */}
 
       {/* R.L.P.V. - How we think */}
       <section className="py-16 md:py-24 bg-muted/30">
@@ -499,7 +373,7 @@ export default function OurApproach() {
             ))}
           </div>
 
-          {/* Prepare = Phase Zero callout */}
+          {/* Phase Zero = Prepare and Align (PPS Admin, 2026-11-06; PPS-DEC-0027) */}
           <div className="bg-gradient-to-br from-primary/10 to-primary/5 border-l-4 border-primary rounded-xl p-6 md:p-8 max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-center gap-5">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center">
@@ -508,10 +382,10 @@ export default function OurApproach() {
               <div className="flex-1">
                 <Eyebrow variant="plain" tone="primary" as="p">Where Our Work Begins</Eyebrow>
                 <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mb-2">
-                  Prepare is Phase Zero.
+                  Prepare and Align are Phase Zero.
                 </h3>
                 <p className="text-body text-foreground">
-                  Prepare is where we begin. It's the work before the work - the point where you decide whether a direction deserves your commitment and investment, and what it will require to do it well.
+                  Prepare and Align are where we begin. They're the work before the work: the point where you decide whether a direction deserves your commitment and investment, and what it will require to do it well.
                 </p>
               </div>
               <Link
@@ -558,16 +432,17 @@ export default function OurApproach() {
         </div>
       </section>
 
-      {/* The Painted Porch Promise */}
+      {/* Our Commitment (PPS Admin, 2026-11-06). The Promise name belongs to the homepage's
+          If yes / If not yet / If not us section. */}
       <section className="py-16 md:py-24 bg-muted">
         <div className="container max-w-3xl mx-auto px-6">
           <div className="bg-gradient-to-br from-navy to-navy/90 text-white rounded-2xl p-8 md:p-12 border-b-4 border-gold shadow-xl text-center">
-            <Eyebrow variant="plain" tone="gold" as="p">The Painted Porch Promise</Eyebrow>
+            <Eyebrow variant="plain" tone="gold" as="p">Our Commitment</Eyebrow>
             <h3 className="text-xl md:text-3xl font-poppins font-bold mb-5">
-              You will not need us forever.
+              You won't need us forever.
             </h3>
             <p className="text-body text-white/90 mb-4 max-w-xl mx-auto">
-              The point of partnership is not a long contract. It's your team
+              The point of partnership isn't a long contract. It's your team
               becoming the people who can author your next change on their own.
             </p>
             <p className="text-body text-gold font-semibold max-w-xl mx-auto">
@@ -586,7 +461,7 @@ export default function OurApproach() {
         description="It's our interview-led appraisal that creates clarity before your next major decision hardens into action. It begins with a Clarity Call."
         actions={[
           { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
-          { label: "Find Your P.A.T.H.way", to: "/start-here", variant: "secondary" },
+          { label: "Find Your Next ShIFt", to: "/start-here", variant: "secondary" },
         ]}
       />
 

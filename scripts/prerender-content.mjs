@@ -80,7 +80,7 @@ export const routes = [
       },
       {
         h2: "Who is your organization becoming?",
-        body: "The P.A.T.H.™ is the four stages of change: Prepare, Align, Take Off, Habits. Most change work starts at Take Off. Ours starts at Phase Zero™, inside Prepare. Envision ShIFt partners at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits.",
+        body: "The P.A.T.H.™ is the four stages of change: Prepare, Align, Take Off, Habits. Most change work starts at Take Off. Ours starts at Phase Zero™, which spans Prepare and Align. Envision ShIFt partners at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits.",
       },
       {
         h2: "Start with a Clarity Call",
@@ -88,7 +88,7 @@ export const routes = [
       },
       {
         h2: "Other ways in",
-        body: "Team workshops for leadership and cross-functional teams; keynotes from Amy Yackowski, Rob Hunter and Sierra Cantrell; and mini courses, masterclasses, labs and assessments for individuals on the P.A.T.H.way pages.",
+        body: "Team workshops for leadership and cross-functional teams; keynotes from Amy Yackowski, Rob Hunter and Sierra Cantrell; and mini courses, masterclasses, labs and assessments for individuals.",
       },
     ],
     links: commonLinks,
@@ -116,26 +116,10 @@ export const routes = [
       { href: "/speaking/amy", label: "Amy Yackowski" },
       { href: "/speaking/rob", label: "Rob Hunter" },
       { href: "/speaking/sierra", label: "Sierra Cantrell" },
-      { href: "/about/approach", label: "Our approach" },
+      { href: "/phase-zero", label: "Phase Zero: our approach" },
       { href: "/about/impact", label: "Results & Impact" },
       { href: "/#clarity-call", label: "Start with a Clarity Call" },
     ],
-  },
-  {
-    path: "/about/approach",
-    title: "Our Approach | Painted Porch Strategies",
-    description:
-      "The Painted Porch approach: five intentional shifts that move organizations from reactive to regenerative, adequate to extraordinary, transaction to transformation.",
-    h1: "Our Approach",
-    intro:
-      "Real transformation requires movement across five intentional shifts. Each one represents a strategic choice about market position, not just operational improvement.",
-    sections: [
-      {
-        h2: "The five shifts",
-        body: "Reactive to Regenerative (from responding to originating). Resistant to Resilient (from blocking to adapting). Adequate to Extraordinary (from good enough to market-leading). Transaction to Transformation (from surface to structural). Insulated to Integrated (from siloed to cohesive). Every engagement is a coordinated push across these five dimensions.",
-      },
-    ],
-    links: commonLinks,
   },
   {
     // Relaunch: Results & Impact (plan Phase 5). Figures kept by PPS Admin, 2026-11-05.
@@ -237,11 +221,15 @@ export const routes = [
     sections: [
       {
         h2: "It starts before Take Off",
-        body: "Most change methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H. begins two stages earlier, while there's still room to shape the possibility: understanding what your organization is built to carry, and bringing the people who will carry it into genuine alignment.",
+        body: "Stoicism is the GPS for how we think. The P.A.T.H. is the roadmap for how we work. Most change methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H. begins two stages earlier, while there's still room to shape the possibility: understanding what your organization is built to carry, and bringing the people who will carry it into genuine alignment.",
       },
       {
         h2: "Four stages. Three ShIFts. One map.",
-        body: "Prepare pairs with Envision. Align pairs with Architect: the intensive and sprint fortify your organization before execution. When you're ready, Embody is the invitation at Take Off, reinforcing your practice through Habits while your team designs and delivers the change.",
+        body: "Prepare pairs with Envision. Align pairs with Architect: the intensive and sprint fortify your organization before execution. When you're ready, Embody is the invitation at Take Off, reinforcing your practice through Habits while your team designs and delivers the change. Together, Prepare and Align are Phase Zero™.",
+      },
+      {
+        h2: "Ten steps on the road",
+        body: "Prepare: 1 Define Your Destination; 2 Pin Your Starting Point. Align: 3 Assemble Your Change Coalition; 4 Plan Your Route; 5 Plot Your Checkpoints, Milestones & Celebrations; 6 Identify Bumps, Roadblocks, and Detours. Take Off: 7 Take Your Change on the Road; 8 Map Your Future Journey; 9 Provide GPS & Roadside Assistance. Habits: 10 Reinforce Change & Continual ShIFt. Steps 1 to 6 are Phase Zero™.",
       },
       {
         h2: "Your P.A.T.H., in one page",
@@ -520,21 +508,46 @@ export const routes = [
     path: "/start-here",
     title: "Start Here | Painted Porch Strategies",
     description:
-      "New to Painted Porch Strategies? Take the P.A.T.H.way quiz to find your best starting point, for you, your team or your organization.",
-    h1: "Start Here — Discover Your P.A.T.H.way",
+      "New to Painted Porch Strategies? Find Your Next ShIFt, a three-minute directional guide, points you to your best starting point, for you, your team or your organization.",
+    h1: "Start Here — Find Your Next ShIFt",
     intro:
-      "A short guided quiz that maps your situation to the right starting point: self-led resources, team workshops and Leadership Labs, or the Epic ShIFt Organizational Appraisal, so you're not guessing what to do next.",
+      "A three-minute directional guide that maps your situation to the right starting point: self-led resources, team workshops and Leadership Labs, or the Epic ShIFt Organizational Appraisal, so you're not guessing what to do next.",
     links: commonLinks,
   },
   {
+    // Phase Zero™: Our Approach, one page combining Phase Zero and Our Approach (PPS Admin,
+    // 2026-11-06). Phase Zero spans Prepare and Align (PPS-DEC-0027).
     path: "/phase-zero",
-    title: "Phase Zero | Painted Porch Strategies",
+    title: "Phase Zero™: Our Approach | Painted Porch Strategies",
     description:
-      "Phase Zero is the strategic authorship phase before implementation, where leaders determine what change to lead and design the architecture to sustain it.",
-    h1: "Phase Zero™ — The Work Before the Work",
+      "Phase Zero is the work before the work: the Prepare and Align stages of the P.A.T.H., where leaders get clear about people, systems, and culture, and decide what to author before the next big shIFt.",
+    h1: "Phase Zero™",
     intro:
-      "Phase Zero™ is Painted Porch Strategies' signature framework. It's the strategic authorship phase where leaders determine what change to lead, assess whether they're structurally capable of leading it, and design the architecture required to sustain that leadership before a single tool gets launched.",
-    links: commonLinks,
+      "Before the kickoff. Before the rollout. Before the next big shIFt. Sustainable change is designed, not declared.",
+    sections: [
+      {
+        h2: "Not every opportunity strengthens the organization chasing it",
+        body: "Pushing harder in the wrong direction doesn't change the direction. It just compounds the cost of getting there. Every initiative is built on assumptions about leadership, communication, priorities, and culture; Phase Zero surfaces them before they become expensive realities.",
+      },
+      {
+        h2: "Where the real choices get made",
+        body: "Phase Zero is where you decide what's worth committing your time, energy, resources, and credibility to: not what to copy, catch up to, or react to, but what to author.",
+      },
+      {
+        h2: "Prepare and Align",
+        body: "Phase Zero spans the first two stages of the P.A.T.H.: Prepare, where Envision ShIFt partners, and Align, where Architect ShIFt partners. It's the groundwork that has to happen before you Take Off and build lasting Habits.",
+      },
+      {
+        h2: "The foundations beneath every shIFt",
+        body: "Phase Zero examines and fortifies the three Painted Porch Pillars™: Cultural Cornerstone (leadership and culture), Operational Frame (workflows and systems), and Living Ecosystem (capacity and judgment).",
+      },
+    ],
+    links: [
+      { href: "/the-path", label: "The P.A.T.H." },
+      { href: "/envision-shift", label: "Envision ShIFt" },
+      { href: "/architect-shift", label: "Architect ShIFt" },
+      { href: "/#clarity-call", label: "Start with a Clarity Call" },
+    ],
   },
   {
     path: "/eq",
