@@ -1,4 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useDocumentSeo } from "@/hooks/useDocumentSeo";
+import { buildMediaAppearanceSchema, serializeMediaAppearanceSchema, MEDIA_PAGE_URL, mediaAppearancePath, type MediaSeoRecord } from "@/lib/media-appearance-seo.mjs";
 import { TierHeroSection } from "@/components/pps/TierHeroSection";
 import asSeenOnHero from "@/assets/heroes/as-seen-on-hero.jpg";
 import { Link, useSearchParams } from "react-router-dom";
@@ -16,7 +18,7 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Checkbox } from "@/components/ui/checkbox";
 
-interface MediaAppearance {
+interface MediaAppearance extends MediaSeoRecord {
   id: string;
   media_type: string;
   show_name: string;
@@ -127,6 +129,26 @@ export default function AsSeenOn() {
     queryKey: ["media-appearances"],
     queryFn: fetchAppearances,
   });
+
+  useDocumentSeo({
+    title: "As Seen On | Painted Porch Strategies",
+    description: "Podcasts, interviews, and media appearances featuring the Painted Porch Strategies team discussing change, leadership, and transformation.",
+    canonical: MEDIA_PAGE_URL,
+  });
+
+  // Independent of filters/pagination and page-level SEO overrides.
+  const mediaSchema = useMemo(() => appearances ? buildMediaAppearanceSchema(appearances) : null, [appearances]);
+  useEffect(() => {
+    const existing = document.getElementById("media-appearances-jsonld");
+    existing?.remove();
+    if (!mediaSchema) return;
+    const script = document.createElement("script");
+    script.id = "media-appearances-jsonld";
+    script.type = "application/ld+json";
+    script.textContent = serializeMediaAppearanceSchema(mediaSchema);
+    document.head.appendChild(script);
+    return () => { script.remove(); };
+  }, [mediaSchema]);
 
   const { data: allCategories = [] } = useQuery({
     queryKey: ["blog-categories"],
@@ -393,15 +415,10 @@ export default function AsSeenOn() {
                     ? categoryBorderColors[primaryCategory] || "border-primary"
                     : "border-primary";
 
-                  const CardWrapper = appearance.external_url ? "a" : "div";
-                  const cardProps = appearance.external_url
-                    ? { href: appearance.external_url, target: "_blank", rel: "noopener noreferrer" }
-                    : {};
-
                   return (
-                    <CardWrapper
+                    <Link
                       key={appearance.id}
-                      {...cardProps}
+                      to={mediaAppearancePath(appearance.id)}
                       className={`block group bg-card rounded-xl border-l-4 ${borderColor} transition-all hover:shadow-lg h-full flex flex-col overflow-hidden ${appearance.external_url ? "cursor-pointer" : ""}`}
                     >
                       {/* Thumbnail */}
@@ -463,7 +480,7 @@ export default function AsSeenOn() {
                           )}
                         </div>
                       </div>
-                    </CardWrapper>
+                    </Link>
                   );
                 })}
               </div>

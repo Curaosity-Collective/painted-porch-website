@@ -74,6 +74,7 @@ import ResourcesHub from "./pages/pps/resources/ResourcesHub";
 import FreeDownloads from "./pages/pps/resources/FreeDownloads";
 import YouTubePage from "./pages/pps/resources/YouTubePage";
 import AsSeenOn from "./pages/pps/resources/AsSeenOn";
+import MediaAppearance from "./pages/pps/resources/MediaAppearance";
 import FAQPage from "./pages/pps/resources/FAQPage";
 import StracticalLeaderGuide from "./pages/pps/resources/StracticalLeaderGuide";
 import StracticalMiniThankYou from "./pages/pps/resources/StracticalMiniThankYou";
@@ -354,6 +355,7 @@ const App = () => (
             <Route path="resources/blog/:slug" element={<RedirectBlogToInsights />} />
             <Route path="resources/youtube" element={<YouTubePage />} />
             <Route path="speaking/media" element={<AsSeenOn />} />
+            <Route path="speaking/media/:id" element={<MediaAppearance />} />
             <Route path="resources/faq" element={<FAQPage />} />
             <Route path="resources/stractical-mini" element={<StracticalLeaderGuide />} />
             <Route path="stractical-mini-thank-you" element={<StracticalMiniThankYou />} />

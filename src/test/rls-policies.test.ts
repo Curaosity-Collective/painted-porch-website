@@ -33,6 +33,24 @@ describe("Supabase RLS policy snapshot", () => {
     expect(existsSync(SNAPSHOT)).toBe(true);
   });
 
+  it("anonymous category access excludes private role checks and future posts", () => {
+    const result = spawnSync("psql", ["-X", "-t", "-A", "-v", "ON_ERROR_STOP=1", "-c", `
+      SELECT json_agg(json_build_object('roles',roles,'qual',qual))
+      FROM pg_policies WHERE schemaname='public' AND tablename='blog_post_categories' AND cmd='SELECT';
+      SELECT has_function_privilege('anon', 'public.is_admin(uuid)', 'EXECUTE');
+    `], { encoding: "utf8" });
+    expect(result.status, result.stderr).toBe(0);
+    const [policyJson, adminExecutable] = result.stdout.trim().split("\n");
+    const policies = JSON.parse(policyJson) as Array<{ roles: string[]; qual: string }>;
+    const publicPolicies = policies.filter(p => p.roles.includes("anon") || p.roles.includes("public"));
+    expect(publicPolicies).toHaveLength(1);
+    expect(publicPolicies[0].roles).toEqual(["anon"]);
+    expect(publicPolicies[0].qual).not.toMatch(/is_admin|author_id/);
+    expect(publicPolicies[0].qual).toContain("'published'");
+    expect(publicPolicies[0].qual).toContain("publish_date <= now()");
+    expect(adminExecutable).toBe("f");
+  });
+
   it("current policies, buckets, and RLS-enabled tables match snapshot", () => {
     const result = spawnSync("node", ["scripts/verify-rls.mjs"], {
       encoding: "utf8",

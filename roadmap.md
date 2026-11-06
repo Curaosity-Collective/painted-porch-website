@@ -1,0 +1,12 @@
+- [x] Add approved-only media SEO/AEO/GEO structured summaries without changing the gallery.
+- [x] Include the same summaries in crawler-readable prerendered HTML.
+- [x] Verify summary rules and the public page with real approved records.
+- [x] Diagnose missing email attempts across all immediate-access resources.
+- [x] Repair affected email triggers and verify all five resource forms open access and log emails as sent.
+- [x] Add live approved appearance pages using saved search titles, descriptions, and share images, excluded from sitemap.
+- [x] Verify individual appearance metadata and pending exclusion.
+- [x] Verify and repair resource access when confirmation email fails or is suppressed.
+- [x] Verify and repair Kick the Habit replay sign-up failure.
+- [x] Verify and repair anonymous blog category access without exposing draft posts.
+- [ ] Remove obsolete Anthropic diagnostics, dependency, and migration references; verify Lovable AI before deleting the unused key.
+- [ ] Replace unavailable thumbnail for appearance 157f0ec4-5780-4644-95dc-6860c5767121; external image host refuses access (403), so its static share image is omitted.
