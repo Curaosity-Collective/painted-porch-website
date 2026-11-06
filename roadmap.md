@@ -20,6 +20,6 @@
 - [x] Add and verify the press-kit inquiry form, speaking inbox email, and approved GHL speaking-pipeline exception.
 - [x] Launch a listed /press page with Media Relations contact details and refresh the press kit PDF.
 - [x] Add the existing Painted Porch Strategies logo to the printed press kit and verify its layout.
-- [ ] Publish the updated press form, /press page, and logo PDF; publication was declined, so these website changes remain in preview.
-- [ ] Refill cleared search summaries and FAQs without replacing existing search settings.
-- [ ] Add and verify live press-kit search title, description, and share-sized Open Graph image.
+- [x] Publish the updated press form, /press page, and logo PDF with the requested live press-kit SEO update.
+- [x] Refill cleared search summaries and FAQs without replacing existing search settings.
+- [x] Add and verify live press-kit search title, description, and share-sized Open Graph image.
