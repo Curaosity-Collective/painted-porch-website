@@ -16,3 +16,4 @@
 - [x] Refresh page SEO/AEO and verify homepage browser title and saved FAQs.
 - [x] Schedule and verify one weekly YouTube and LinkedIn newsletter sweep, with new imports pending review.
 - [x] Build and verify a draft press kit with existing bios, mission, speaking details and approved media; list it on the sitemap.
+- [ ] Launch the press kit publicly with a press contact and verified downloadable PDF.
