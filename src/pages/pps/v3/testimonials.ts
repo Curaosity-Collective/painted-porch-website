@@ -26,19 +26,19 @@ export interface Testimonial {
 export const CLIENT_TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Her attention to detail is unique … and stems from her ability to ask the right questions, at the right time, to follow the lead to the source, and then to listen for real comprehension. And she is unafraid to challenge the status quo … without any of the condescension that permeates our field.",
+      "[Amy's] attention to detail is unique … and stems from her ability to ask the right questions, at the right time, to follow the lead to the source, and then to listen for real comprehension. And she is unafraid to challenge the status quo … without any of the condescension that permeates our field.",
     who: "Dianne R. · Project Manager",
     featured: true,
   },
   {
     quote:
-      "She was stellar at being the bridge between the technology team and our clients. … She was also an effective negotiator when it came to making trade offs between business leaders, the product team, and technologists — this was no small feat!",
+      "[Amy] was stellar at being the bridge between the technology team and our clients. … She was also an effective negotiator when it came to making trade offs between business leaders, the product team, and technologists — this was no small feat!",
     who: "Brian S. · Chief Technology Officer",
     featured: true,
   },
   {
     quote:
-      "She was instrumental in ensuring a strong alliance between technical change readiness and organizational change readiness, delivering an all-inclusive view into managing change throughout our transformation.",
+      "[Amy] was instrumental in ensuring a strong alliance between technical change readiness and organizational change readiness, delivering an all-inclusive view into managing change throughout our transformation.",
     who: "Melanie W. · Senior IT Manager of Business & Technology Enablement",
     featured: true,
   },
