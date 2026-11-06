@@ -7,6 +7,7 @@ import SiteFooter from "@/components/v3/SiteFooter";
 import { usesV3Chrome, usesV3Skin } from "@/config/siteChrome";
 import { V3SkinContext } from "@/components/v3/v3SkinContext";
 import { useV3Preview } from "@/hooks/useV3Preview";
+import { useMoneyMentions } from "@/hooks/useMoneyMentions";
 import PageGate from "@/components/pps/PageGate";
 import GitHubSyncBanner from "@/components/pps/admin/GitHubSyncBanner";
 import { PathFinderQuizProvider } from "@/components/pps/quiz/PathFinderQuizProvider";
@@ -25,6 +26,7 @@ if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
 
 export default function PPSLayout() {
   const { pathname, hash, search } = useLocation();
+  useMoneyMentions(pathname);
   // The redesign's header and footer: Draft pages now, every page at go-live.
   // Restyled live pages (speaking, topics, workshops, contact) use them with
   // their restyle layer in preview (?v3=1, admins and editors) and at go-live.

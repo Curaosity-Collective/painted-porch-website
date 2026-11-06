@@ -69,6 +69,9 @@
     /* Lime - Highlight #70A300 */
     --lime: 77 100% 32%;
     --lime-foreground: 0 0% 100%;
+    /* Monetary text: readable lime variants on light and dark surfaces. */
+    --money: 77 100% 26%;
+    --money-on-dark: 77 80% 65%;
 
     /* Raspberry - Bold emphasis #DB0043 */
     --raspberry: 342 100% 43%;
@@ -394,6 +397,14 @@
 }
 
 /* Marquee hover pause */
+::highlight(pps-money) {
+  color: hsl(var(--money));
+}
+
+::highlight(pps-money-on-dark) {
+  color: hsl(var(--money-on-dark));
+}
+
 .flex:hover > .animate-marquee {
   animation-play-state: paused;
 }
