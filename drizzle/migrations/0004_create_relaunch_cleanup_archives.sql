@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS public.path_finder_offerings_archive (LIKE public.path_finder_offerings INCLUDING DEFAULTS, archived_at timestamptz NOT NULL DEFAULT now(), archived_reason text NOT NULL, superseded_by text, PRIMARY KEY (id));
+GRANT SELECT ON public.path_finder_offerings_archive TO authenticated;
+GRANT ALL ON public.path_finder_offerings_archive TO service_role;
+ALTER TABLE public.path_finder_offerings_archive ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Admins and editors can read archived offerings" ON public.path_finder_offerings_archive FOR SELECT TO authenticated USING (public.is_admin_or_editor(auth.uid()));
+COMMENT ON TABLE public.path_finder_offerings_archive IS 'Superseded topic rows retained for restoration after the 2026-11-05 topics cleanup.';
+CREATE TABLE IF NOT EXISTS public.page_seo_archive (LIKE public.page_seo INCLUDING DEFAULTS, archived_at timestamptz NOT NULL DEFAULT now(), archived_reason text NOT NULL);
+GRANT SELECT ON public.page_seo_archive TO authenticated;
+GRANT ALL ON public.page_seo_archive TO service_role;
+ALTER TABLE public.page_seo_archive ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Admins and editors can read archived page SEO" ON public.page_seo_archive FOR SELECT TO authenticated USING (public.is_admin_or_editor(auth.uid()));
+COMMENT ON TABLE public.page_seo_archive IS 'SEO records retained before relaunch cleanup for restoration.';

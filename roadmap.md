@@ -11,3 +11,12 @@
 - [x] Remove obsolete Anthropic diagnostics, dependency, and migration references; verify Lovable AI through the signed-in check and live metadata generation.
 - [ ] Delete the unused ANTHROPIC_API_KEY secret; deletion permission was declined, so the stored secret remains untouched.
 - [ ] Replace unavailable thumbnail for appearance 157f0ec4-5780-4644-95dc-6860c5767121; external image host refuses access (403), so its static share image is omitted.
+- [x] Verify and apply topics and relaunch SEO cleanups if missing.
+- [x] Update requested offering URLs and live flags.
+- [x] Refresh page SEO/AEO and verify homepage browser title and saved FAQs.
+- [x] Schedule and verify one weekly YouTube and LinkedIn newsletter sweep, with new imports pending review.
+- [x] Build and verify a draft press kit with existing bios, mission, speaking details and approved media; list it on the sitemap.
+- [x] Launch the press kit publicly with a press contact and verified downloadable PDF.
+- [x] Add and verify the press-kit inquiry form, speaking inbox email, and approved GHL speaking-pipeline exception.
+- [x] Launch a listed /press page with Media Relations contact details and refresh the press kit PDF.
+- [x] Add the existing Painted Porch Strategies logo to the printed press kit and verify its layout.

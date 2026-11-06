@@ -259,6 +259,21 @@ export type Database = {
           },
         ]
       }
+      content_sweep_credentials: {
+        Row: {
+          id: boolean
+          token: string
+        }
+        Insert: {
+          id?: boolean
+          token: string
+        }
+        Update: {
+          id?: boolean
+          token?: string
+        }
+        Relationships: []
+      }
       course_launch_status: {
         Row: {
           admin_alert_enabled: boolean
@@ -619,6 +634,69 @@ export type Database = {
         }
         Relationships: []
       }
+      page_seo_archive: {
+        Row: {
+          aeo_faqs: Json | null
+          aeo_summary: string | null
+          archived_at: string
+          archived_reason: string
+          canonical: string | null
+          created_at: string
+          description: string | null
+          id: string
+          jsonld: Json | null
+          keywords: string[] | null
+          og_description: string | null
+          og_image: string | null
+          og_title: string | null
+          path: string
+          robots: string | null
+          title: string | null
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          aeo_faqs?: Json | null
+          aeo_summary?: string | null
+          archived_at?: string
+          archived_reason: string
+          canonical?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          jsonld?: Json | null
+          keywords?: string[] | null
+          og_description?: string | null
+          og_image?: string | null
+          og_title?: string | null
+          path: string
+          robots?: string | null
+          title?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          aeo_faqs?: Json | null
+          aeo_summary?: string | null
+          archived_at?: string
+          archived_reason?: string
+          canonical?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          jsonld?: Json | null
+          keywords?: string[] | null
+          og_description?: string | null
+          og_image?: string | null
+          og_title?: string | null
+          path?: string
+          robots?: string | null
+          title?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       page_status: {
         Row: {
           category: string
@@ -754,6 +832,129 @@ export type Database = {
           notes?: string | null
           offering_key?: string
           sort_order?: number
+          tier?: string
+          topic?: string | null
+          topic_slug?: string | null
+          updated_at?: string
+          workshop_card_bullets?: string[] | null
+          workshop_card_challenge?: string | null
+          workshop_card_description?: string | null
+          workshop_card_format?: string | null
+          workshop_card_investment?: string | null
+        }
+        Relationships: []
+      }
+      path_finder_offerings_archive: {
+        Row: {
+          anchor_id: string | null
+          archived_at: string
+          archived_reason: string
+          b2b_rt_pools: Json
+          b2c_rt_pools: Json
+          blue_door_required: boolean
+          blurb: string
+          created_at: string
+          current_url: string
+          dedicated_url: string | null
+          delivery_format: Database["public"]["Enums"]["delivery_format_t"]
+          description: string | null
+          engagement_tier: Database["public"]["Enums"]["engagement_tier_t"]
+          facilitator: string | null
+          id: string
+          image_url: string | null
+          include_in_quiz: boolean
+          include_in_workshops: boolean
+          include_on_speaker_page: boolean
+          is_featured_in_quiz: boolean
+          is_keynote: boolean
+          is_live: boolean
+          is_published: boolean
+          launch_slug: string | null
+          name: string
+          notes: string | null
+          offering_key: string
+          sort_order: number
+          superseded_by: string | null
+          tier: string
+          topic: string | null
+          topic_slug: string | null
+          updated_at: string
+          workshop_card_bullets: string[] | null
+          workshop_card_challenge: string | null
+          workshop_card_description: string | null
+          workshop_card_format: string | null
+          workshop_card_investment: string | null
+        }
+        Insert: {
+          anchor_id?: string | null
+          archived_at?: string
+          archived_reason: string
+          b2b_rt_pools?: Json
+          b2c_rt_pools?: Json
+          blue_door_required?: boolean
+          blurb: string
+          created_at?: string
+          current_url: string
+          dedicated_url?: string | null
+          delivery_format?: Database["public"]["Enums"]["delivery_format_t"]
+          description?: string | null
+          engagement_tier?: Database["public"]["Enums"]["engagement_tier_t"]
+          facilitator?: string | null
+          id?: string
+          image_url?: string | null
+          include_in_quiz?: boolean
+          include_in_workshops?: boolean
+          include_on_speaker_page?: boolean
+          is_featured_in_quiz?: boolean
+          is_keynote?: boolean
+          is_live?: boolean
+          is_published?: boolean
+          launch_slug?: string | null
+          name: string
+          notes?: string | null
+          offering_key: string
+          sort_order?: number
+          superseded_by?: string | null
+          tier: string
+          topic?: string | null
+          topic_slug?: string | null
+          updated_at?: string
+          workshop_card_bullets?: string[] | null
+          workshop_card_challenge?: string | null
+          workshop_card_description?: string | null
+          workshop_card_format?: string | null
+          workshop_card_investment?: string | null
+        }
+        Update: {
+          anchor_id?: string | null
+          archived_at?: string
+          archived_reason?: string
+          b2b_rt_pools?: Json
+          b2c_rt_pools?: Json
+          blue_door_required?: boolean
+          blurb?: string
+          created_at?: string
+          current_url?: string
+          dedicated_url?: string | null
+          delivery_format?: Database["public"]["Enums"]["delivery_format_t"]
+          description?: string | null
+          engagement_tier?: Database["public"]["Enums"]["engagement_tier_t"]
+          facilitator?: string | null
+          id?: string
+          image_url?: string | null
+          include_in_quiz?: boolean
+          include_in_workshops?: boolean
+          include_on_speaker_page?: boolean
+          is_featured_in_quiz?: boolean
+          is_keynote?: boolean
+          is_live?: boolean
+          is_published?: boolean
+          launch_slug?: string | null
+          name?: string
+          notes?: string | null
+          offering_key?: string
+          sort_order?: number
+          superseded_by?: string | null
           tier?: string
           topic?: string | null
           topic_slug?: string | null
