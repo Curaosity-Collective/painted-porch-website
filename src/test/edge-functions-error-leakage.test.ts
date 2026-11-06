@@ -16,7 +16,6 @@ const FUNCTIONS = [
   "submit-communicator-styles-optin",
   "submit-ghl-lead",
   "submit-kick-habit-optin",
-  "submit-newsletter-optin",
   "submit-pilot-training-optin",
   "submit-stoic-field-guide-optin",
 ];
@@ -57,6 +56,11 @@ function extractCatchBlocks(source: string): string[] {
 }
 
 describe("opt-in / lead edge functions: 500 response hygiene", () => {
+  it('keeps newsletter failure responses generic without exposing provider errors', () => {
+    const source = loadSource('submit-newsletter-optin');
+    expect(source).toContain("catch { return response({ error: 'Your subscription could not be saved. Please try again.' }, 502); }");
+    expect(source).not.toMatch(/return response\(\{ error: (?:err|error)\./);
+  });
   for (const fn of FUNCTIONS) {
     describe(fn, () => {
       const source = loadSource(fn);
