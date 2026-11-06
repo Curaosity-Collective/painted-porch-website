@@ -111,7 +111,7 @@ describe("CredentialBadges", () => {
           "Lean Change Agent",
           "Working Genius Certified",
           "EQ-360 Certified",
-          "DiSC Facilitator",
+          "EQ-i 2.0 Certified",
           "Not a real credential",
         ]}
       />,

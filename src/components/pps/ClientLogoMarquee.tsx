@@ -34,8 +34,8 @@ export const allClientLogos: LogoItem[] = [
 // five) still runs edge to edge on a wide screen instead of leaving a gap
 // before the loop restarts.
 const MIN_LOGOS_PER_TRACK = 10;
-// Seconds per logo, so every strip moves at the same speed.
-const SECONDS_PER_LOGO = 5;
+// Seconds per logo, so every strip moves at the same speed. 4, not 5: a touch faster (PPS Admin, 2026-11-06).
+const SECONDS_PER_LOGO = 4;
 
 function LogoTrack({ logos, duration, copy }: { logos: LogoItem[]; duration: number; copy?: boolean }) {
   return (

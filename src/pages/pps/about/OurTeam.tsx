@@ -20,7 +20,7 @@ import changeNavigatorBadge from "@/assets/certifications/change-navigator.png";
 import leanChangeAgentBadge from "@/assets/certifications/lean-change-agent.png";
 import leanChangeAiBadge from "@/assets/certifications/lean-change-ai.png";
 import mawFacilitatorBadge from "@/assets/certifications/maw-facilitator.png";
-import discFacilitatorBadge from "@/assets/certifications/disc-facilitator.png";
+import discFacilitatorBadge from "@/assets/certifications/eq-i-2-certified.png";
 import eq360Badge from "@/assets/certifications/eq360.png";
 import emotionallyEffectiveBadge from "@/assets/certifications/emotionally-effective-leader.png";
 import wpcRecommendedBadge from "@/assets/certifications/wpc-recommended.png";
@@ -68,8 +68,8 @@ const certifications = [
   { name: "Change Navigator", badge: changeNavigatorBadge },
   { name: "Lean Change Agent", badge: leanChangeAgentBadge },
   { name: "Lean Change AI", badge: leanChangeAiBadge },
-  { name: "MAW Facilitator", badge: mawFacilitatorBadge },
-  { name: "DiSC Facilitator", badge: discFacilitatorBadge },
+  { name: "Immunity to Change Facilitator", badge: mawFacilitatorBadge },
+  { name: "EQ-i 2.0 Certified", badge: discFacilitatorBadge },
   { name: "EQ-360 Certified", badge: eq360Badge },
   { name: "Emotionally Effective Leader", badge: emotionallyEffectiveBadge },
   { name: "WPC Recommended", badge: wpcRecommendedBadge },
