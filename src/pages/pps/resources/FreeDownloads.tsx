@@ -225,7 +225,9 @@ export default function FreeDownloads() {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{download.format}</span>
+                        {/* The redesign's small-text gray (src/styles/v3.css, .v3-skin): text-muted-foreground
+                            measures 3.96–4.41:1 on the tinted cards, under the 4.5:1 AA minimum for 12px text. */}
+                        <span className="text-xs font-medium text-[hsl(211_5%_41%)] uppercase tracking-wide">{download.format}</span>
                         {download.comingSoon && (
                           <span className="text-xs font-semibold text-gold uppercase tracking-wide">Coming Soon</span>
                         )}

@@ -122,6 +122,12 @@ export default {
         "pps-orange": "hsl(var(--gold))",
         "pps-purple": "hsl(var(--strategic))",
         "pps-bluedoor": "hsl(var(--bluedoor))",
+        // Bare `purple` (bg-purple/15, text-purple, to-purple…) is the brand
+        // purple. Only DEFAULT is set so Tailwind's numbered purple-50…950
+        // shades (used by e.g. admin/EmailHealth) keep working.
+        purple: {
+          DEFAULT: "hsl(var(--strategic))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
