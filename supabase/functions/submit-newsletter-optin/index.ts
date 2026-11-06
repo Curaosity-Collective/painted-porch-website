@@ -1,7 +1,7 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
 import { z } from 'npm:zod@3';
 import { pressContactFields } from '../_shared/press-inquiry.ts';
-import { NEWSLETTER_TAG, NEWSLETTER_PIPELINE, NEWSLETTER_CONSENT, newsletterOpportunity, isNewsletterOpportunity } from '../_shared/newsletter.ts';
+import { NEWSLETTER_TAG, NEWSLETTER_CONSENT } from '../_shared/newsletter.ts';
 
 const schema = z.object({ email: z.string().trim().email().max(255).transform(s => s.toLowerCase()), source: z.enum(['Footer Newsletter', 'Blog Newsletter', 'Free Resources Newsletter']).default('Free Resources Newsletter') });
 const response = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
@@ -35,13 +35,6 @@ Deno.serve(async req => {
       contactId = created.contact?.id;
     }
     if (!contactId) throw new Error('Contact not saved');
-    const existing = await ghl(`/opportunities/search?location_id=${encodeURIComponent(locationId)}&contact_id=${encodeURIComponent(contactId)}&pipeline_id=${NEWSLETTER_PIPELINE.id}&limit=100`);
-    let opportunityId: string | undefined = existing.opportunities?.find(isNewsletterOpportunity)?.id;
-    if (!opportunityId) {
-      const created = await ghl('/opportunities/', 'POST', newsletterOpportunity(contactId, locationId, email, source, receivedAt));
-      opportunityId = created.opportunity?.id;
-    }
-    if (!opportunityId) throw new Error('Newsletter lead not saved');
     await ghl(`/contacts/${contactId}/notes`, 'POST', { body: `Newsletter signup\nBrand: Painted Porch Strategies\nSource: ${source}\nReceived: ${receivedAt}\nConsent: ${NEWSLETTER_CONSENT}` });
     return response({ success: true });
   } catch { return response({ error: 'Your subscription could not be saved. Please try again.' }, 502); }
