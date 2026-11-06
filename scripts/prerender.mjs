@@ -156,7 +156,7 @@ const SERVICE_LD = {
   "/architect-shift": {
     "@type": "Service",
     name: "Architect ShIFt",
-    serviceType: "Executive Authorship Intensive and Strategic Sprint",
+    serviceType: "Executive Strategy & Authorship Intensive and Strategic Sprint",
     category: "Management Consulting",
     provider: ORG_REF,
     areaServed: { "@type": "Country", name: "United States" },

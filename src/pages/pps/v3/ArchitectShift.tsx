@@ -26,7 +26,7 @@ import { getSiteUrl } from "@/lib/site-url";
 
 const TITLE = "Architect ShIFt | Painted Porch Strategies";
 const DESCRIPTION =
-  "An executive authorship intensive, a 90-day pillar-fortification sprint and a retrospective that decides your organization's next step. Starting at $90,000, in a weekly or a biweekly version.";
+  "An executive strategy & authorship intensive, a 90-day pillar-fortification sprint and a retrospective that decides your organization's next step. Starting at $90,000, in a weekly or a biweekly version.";
 
 const LINK = "font-semibold text-heading underline decoration-heading/40 underline-offset-4 hover:decoration-heading";
 
@@ -58,7 +58,7 @@ const differenceRows = [
 ];
 
 const included = [
-  "3-day executive authorship intensive with your senior team",
+  "3-day executive strategy & authorship intensive with your senior team",
   "Shared direction and identification of the pillar or pillars needing reinforcement first",
   "90-day strategic sprint fortifying the prioritized pillars before your change execution",
   "An organizational architecture blueprint, not your change implementation plan",
@@ -67,7 +67,7 @@ const included = [
 ];
 
 const steps = [
-  { n: "01", t: "Author", d: "3-day executive authorship intensive: shared direction and the pillars to reinforce first." },
+  { n: "01", t: "Author", d: "3-day executive strategy & authorship intensive: shared direction and the pillars to reinforce first." },
   { n: "02", t: "Fortify", d: "90-day strategic sprint: strengthen the prioritized pillars, structures, and capability before your change execution." },
   { n: "03", t: "Decide", d: "1.5-day retrospective: another fortification sprint, or readiness to design and lead your envisioned change." },
 ];
@@ -94,7 +94,7 @@ const faqs: { q: ReactNode; a: ReactNode; key: string }[] = [
         What does Architect <ShIFt /> include?
       </>
     ),
-    a: "One engagement, starting at $90,000 and offered in a weekly and a biweekly version: a 3-day executive authorship intensive, a 90-day strategic sprint, and a 1.5-day sprint retrospective and next-steps decision. The intensive identifies which pillar or pillars need reinforcement first; the sprint fortifies them before you execute your change.",
+    a: "One engagement, starting at $90,000 and offered in a weekly and a biweekly version: a 3-day executive strategy & authorship intensive, a 90-day strategic sprint, and a 1.5-day sprint retrospective and next-steps decision. The intensive identifies which pillar or pillars need reinforcement first; the sprint fortifies them before you execute your change.",
   },
   {
     key: "implementation-plan",
@@ -104,7 +104,7 @@ const faqs: { q: ReactNode; a: ReactNode; key: string }[] = [
   {
     key: "distributed",
     q: "What if our team is geographically distributed?",
-    a: "The executive authorship intensive is in person. The sprint runs primarily virtually, with in-person checkpoint sessions when they add real value.",
+    a: "The executive strategy & authorship intensive is in person. The sprint runs primarily virtually, with in-person checkpoint sessions when they add real value.",
   },
   {
     key: "retrospective",
@@ -185,7 +185,7 @@ export default function ArchitectShift() {
                 forward.
               </p>
               <p>
-                Architect <ShIFt /> combines the executive authorship intensive and strategic sprint in one engagement.
+                Architect <ShIFt /> combines the executive strategy & authorship intensive and strategic sprint in one engagement.
                 Grounded in your Epic <ShIFt /> Organizational Appraisal, your senior team spends three days authoring
                 shared direction and identifying which pillar or pillars need reinforcement first.
               </p>
@@ -201,7 +201,7 @@ export default function ArchitectShift() {
               <p className="label-kicker text-muted-foreground">Format</p>
               <ul className="mt-3 space-y-2 text-sm leading-relaxed text-foreground">
                 <li>Run primarily virtually, with in-person checkpoint sessions when they add real value</li>
-                <li>3-day in-person executive authorship intensive</li>
+                <li>3-day in-person executive strategy & authorship intensive</li>
                 <li>90-day strategic sprint focused on the pillars identified in the intensive</li>
                 <li>1.5-day sprint retrospective and next-steps decision</li>
                 <li>
@@ -227,7 +227,7 @@ export default function ArchitectShift() {
           <h2 className={`mt-5 ${V3_H2}`}>Author. Fortify. Decide.</h2>
           <Prose>
             <p>
-              The executive authorship intensive brings the appraisal findings into the room with the leaders who will
+              The executive strategy & authorship intensive brings the appraisal findings into the room with the leaders who will
               carry the change. Together, you author the direction, name the trade-offs, and identify which pillars or
               organizational areas need fortifying before execution.
             </p>
