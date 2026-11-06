@@ -23,6 +23,8 @@ import { mkdir, readFile, writeFile, access } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { routes, SITE } from "./prerender-content.mjs";
+import { buildMediaAppearanceSchema, buildMediaAppearancePage, serializeMediaAppearanceSchema } from "../src/lib/media-appearance-seo.mjs";
+import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -366,7 +368,7 @@ function buildHtml(route) {
     const scripts = jsonLd
       .map(
         (obj) =>
-          `<script type="application/ld+json">${JSON.stringify(obj)}</script>`,
+          `<script type="application/ld+json">${serializeMediaAppearanceSchema(obj)}</script>`,
       )
       .join("\n    ");
     html = replaceTag(html, /<\/head>/, `    ${scripts}\n  </head>`);
@@ -479,6 +481,75 @@ async function prerenderBlogPosts() {
   return { ok, failed };
 }
 
+async function prerenderMediaAppearances() {
+  if (!SUPABASE_URL || !SUPABASE_ANON) {
+    console.warn("[prerender] media: no public credentials, summaries unavailable");
+    return;
+  }
+  try {
+    const fields = "id,review_status,title,media_type,show_name,description,seo_title,seo_description,seo_keywords,aeo_tags,geo_tags,external_url,thumbnail_url,appearance_date,media_appearance_categories(blog_categories(title))";
+    const appearances = [];
+    // Fetch every approved entry, not just the first gallery page or API range.
+    for (let offset = 0; ; offset += 500) {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/media_appearances?select=${fields}&review_status=eq.published&order=featured.desc,appearance_date.desc.nullslast,created_at.desc,id.asc&limit=500&offset=${offset}`, {
+        headers: { apikey: SUPABASE_ANON, authorization: `Bearer ${SUPABASE_ANON}` },
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!response.ok) throw new Error(`fetch status ${response.status}`);
+      const batch = await response.json();
+      appearances.push(...batch);
+      if (batch.length < 500) break;
+    }
+    const route = routes.find((entry) => entry.path === "/speaking/media");
+    if (!route) throw new Error("media route missing");
+    const schema = buildMediaAppearanceSchema(appearances);
+    const script = `<script id="media-appearances-jsonld" type="application/ld+json">${serializeMediaAppearanceSchema(schema)}</script>`;
+    const html = buildHtml(route).replace("</head>", `${script}\n</head>`);
+    await writeFile(path.join(DIST, "speaking/media/index.html"), html, "utf8");
+    for (const appearance of appearances) {
+      const metadata = buildMediaAppearancePage(appearance);
+      if (!metadata) continue;
+      if (appearance.thumbnail_url) {
+        try {
+          let imageBuffer;
+          if (appearance.thumbnail_url.startsWith("/") && !appearance.thumbnail_url.startsWith("//")) {
+            const publicRoot = path.join(ROOT, "public");
+            const localImage = path.resolve(publicRoot, `.${appearance.thumbnail_url}`);
+            if (!localImage.startsWith(`${publicRoot}${path.sep}`)) throw new Error("invalid local image path");
+            imageBuffer = await readFile(localImage);
+          } else {
+            const image = await fetch(appearance.thumbnail_url, { signal: AbortSignal.timeout(15000) });
+            if (!image.ok) throw new Error(`image status ${image.status}`);
+            imageBuffer = Buffer.from(await image.arrayBuffer());
+          }
+          const imageDir = path.join(DIST, "media-share");
+          await mkdir(imageDir, { recursive: true });
+          await sharp(imageBuffer).rotate().resize(1200, 630, { fit: "cover" }).jpeg({ quality: 80 }).toFile(path.join(imageDir, `${appearance.id}.jpg`));
+        } catch (error) {
+          console.warn(`[prerender] media image ${appearance.id}: ${error.message}`);
+          metadata.ogImage = undefined;
+        }
+      }
+      const detailRoute = {
+        ...metadata, h1: appearance.title, intro: appearance.description || metadata.description,
+        ogImageAlt: appearance.title, publishedTime: appearance.appearance_date,
+        jsonLd: [metadata.jsonLd], sections: [],
+        links: [{ href: "/speaking/media", label: "As Seen On" }, ...(appearance.external_url ? [{ href: appearance.external_url, label: appearance.show_name || "Original publication" }] : [])],
+      };
+      let detailHtml = buildHtml(detailRoute).replace("</head>", `<meta name="keywords" content="${escapeAttr(metadata.keywords.join(", "))}" />\n</head>`);
+      if (!metadata.ogImage) detailHtml = detailHtml.replace(/<meta (?:property="og:image[^\"]*"|name="twitter:image")[^>]*>/g, "");
+      if (appearance.thumbnail_url) detailHtml = detailHtml.replace("</h1>", `</h1><img src="${escapeAttr(appearance.thumbnail_url)}" alt="${escapeAttr(appearance.title)}" width="1200" style="max-width:100%;height:auto" />`);
+      const outDir = path.join(DIST, metadata.path.replace(/^\//, ""));
+      await mkdir(outDir, { recursive: true });
+      await writeFile(path.join(outDir, "index.html"), detailHtml, "utf8");
+    }
+    console.log(`[prerender] media: ${appearances.length} approved summaries`);
+  } catch (error) {
+    console.warn(`[prerender] media: summaries unavailable (${error.message})`);
+  }
+}
+
+await prerenderMediaAppearances();
 const blog = await prerenderBlogPosts();
 
 console.log(

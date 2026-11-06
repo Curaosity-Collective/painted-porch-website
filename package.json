@@ -42,7 +42,6 @@
     "audit:links": "node scripts/audit-workshop-links.mjs"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.107.0",
     "@ffmpeg/ffmpeg": "^0.12.15",
     "@ffmpeg/util": "^0.12.2",
     "@hookform/resolvers": "^3.10.0",
@@ -109,6 +108,7 @@
     "react-resizable-panels": "^2.1.9",
     "react-router-dom": "6.30.4",
     "recharts": "2.15.4",
+    "sharp": "^0.35.5",
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",

@@ -1,6 +1,8 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
+import { queueResourceEmail } from "../_shared/resource-email.ts";
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -73,9 +75,11 @@ Deno.serve(async (req) => {
 
     if (tokenErr) {
       console.error("Token insert failed:", tokenErr);
+      throw new Error("Failed to prepare resource access");
     }
 
     const magicToken = tokenRow?.token as string | undefined;
+    if (!magicToken) throw new Error("Missing resource access token");
     const magicLink = magicToken
       ? `${SITE_BASE}${WATCH_PATH}?token=${magicToken}`
       : `${SITE_BASE}${WATCH_PATH}`;
@@ -121,26 +125,14 @@ Deno.serve(async (req) => {
       contactId = createData.contact.id;
     }
 
-    // ── Send magic-link replay email ──
-    if (magicToken) {
-      try {
-        const emailRes = await supabase.functions.invoke("send-transactional-email", {
-          body: {
+    const delivery = await queueResourceEmail(supabase, {
             templateName: TEMPLATE_NAME,
             recipientEmail: cleanEmail,
             idempotencyKey: `kick-habit-replay-${magicToken}`,
             templateData: { firstName, watchUrl: magicLink },
-          },
-        });
-        if (emailRes.error) {
-          console.error("Kick Habit replay email send failed:", emailRes.error);
-        }
-      } catch (sendErr) {
-        console.error("Kick Habit replay email exception:", sendErr);
-      }
-    }
+          });
 
-    return new Response(JSON.stringify({ success: true, contactId, magicLink }), {
+    return new Response(JSON.stringify({ success: true, contactId, magicLink, ...delivery }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (err) {

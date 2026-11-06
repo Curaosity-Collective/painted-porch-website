@@ -15,6 +15,20 @@
       "when": 1791666756418,
       "tag": "0001_review_status_for_videos_and_media",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793854570021,
+      "tag": "0002_separate_public_media_reads_from_reviewer_checks",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793921600464,
+      "tag": "0003_separate_public_blog_category_reads",
+      "breakpoints": true
     }
   ]
 }
