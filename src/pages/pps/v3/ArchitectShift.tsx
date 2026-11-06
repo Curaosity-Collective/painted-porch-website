@@ -265,14 +265,15 @@ export default function ArchitectShift() {
       {/* Where it fits */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-24">
         <Kicker>Where It Fits</Kicker>
-        <h2 className={`mt-5 max-w-2xl ${V3_H2}`}>Where Sprints Typically Land</h2>
+        <h2 className={`mt-5 max-w-2xl ${V3_H2}`}>The Common Catalysts for Architecting ShIFt</h2>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-foreground">
-          Sprints fortify your organization before your team designs and leads one of these shifts. If yours isn't
+          Authoring and architecting shIFt fortifies your organization before your team designs and leads one of these
+          triggers of transformation. If yours isn't
           listed, the{" "}
           <Link to="/envision-shift" className={LINK}>
             Epic <ShIFt /> Organizational Appraisal
           </Link>{" "}
-          will tell us whether a sprint is the right fit.
+          will tell us whether architecting shift is the right, next step.
         </p>
         <ol className="mt-10 grid gap-4 sm:grid-cols-2">
           {applications.map((app, i) => (
