@@ -36,8 +36,8 @@ const pathwayDetails = {
 
 export default function StartHere() {
   useDocumentSeo({
-    title: "Start Here | Discover Your P.A.T.H.way | Painted Porch",
-    description: "Not sure where to start? Take the P.A.T.H.way quiz to find the right starting point for you, your team or your organization, in a few minutes.",
+    title: "Start Here | Find Your Next ShIFt | Painted Porch",
+    description: "Not sure where to start? Find Your Next ShIFt, a three-minute directional guide, points you to the right starting point for you, your team or your organization.",
     ogImage: startHereHero,
   });
   const { open: openQuiz } = usePathFinderQuiz();
@@ -60,22 +60,22 @@ export default function StartHere() {
             Start Here
           </span>
         }
-        headline="Find Your P.A.T.H.way"
-        description="Not sure where to begin? Our P.A.T.H.way quiz will surface the right starting point and specific programs to start with on the Painted Porch."
+        headline="Find Your Next ShIFt"
+        description="Not sure where to begin? This three-minute directional guide surfaces the right starting point and specific programs to start with on the Painted Porch."
         ctas={[]}
         background={{ type: "image", src: startHereHero }}
         overlayClass="bg-navy/50"
         minHeightClass="min-h-[60vh]"
       />
 
-      {/* Reopen quiz button — sits just under hero so the user always has it */}
+      {/* Reopen the guide — sits just under the hero so it is always in reach */}
       <section className="bg-white py-8">
         <div className="container max-w-3xl mx-auto px-6 text-center">
           <Button
             onClick={openQuiz}
             className="bg-primary border-2 border-primary text-white hover:bg-transparent hover:text-primary px-6 sm:px-10 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-lg transition-colors max-w-full whitespace-normal h-auto"
           >
-            Take the P.A.T.H.way Quiz <ArrowRight className="ml-2 w-5 h-5 shrink-0" />
+            Find Your Next ShIFt <ArrowRight className="ml-2 w-5 h-5 shrink-0" />
           </Button>
           <p className="text-body -sm text-foreground/70 mt-3">About 3 minutes. Email yourself the results when you're done.</p>
         </div>
@@ -87,7 +87,7 @@ export default function StartHere() {
         <div className="container max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              Which P.A.T.H.way is Right for You?
+              Which Starting Point Is Right for You?
             </h2>
             <p className="text-body text-foreground max-w-2xl mx-auto">
               Each partnership style is designed for different stages, budgets, and depth of engagement.
@@ -134,7 +134,7 @@ export default function StartHere() {
           <p className="text-body text-foreground mb-8 max-w-2xl mx-auto">
             The best way to determine the right pathway is a conversation. Contact us and we'll help you find the perfect fit.
           </p>
-          <Link to="/contact?interest=general&message=I took the P.A.T.H. quiz and would like to discuss my results.">
+          <Link to="/contact?interest=general&message=I used Find Your Next ShIFt and would like to discuss my results.">
             <Button className="bg-primary border-2 border-primary text-white hover:bg-transparent hover:text-primary text-lg py-5 px-8 transition-colors">
               Contact Us
             </Button>

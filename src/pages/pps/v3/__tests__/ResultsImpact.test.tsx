@@ -100,7 +100,7 @@ describe("ResultsImpact (draft)", () => {
       "href",
       "/#clarity-call",
     );
-    fireEvent.click(screen.getByRole("button", { name: /^Take the Ready for Epic/ }));
+    fireEvent.click(screen.getByRole("button", { name: /^Find Your Next Sh ?IF ?t$/ }));
     expect(openQuiz).toHaveBeenCalledTimes(1);
     expect(container.querySelector('a[href="/ready"], a[href="/start-here"], a[href="/results"]')).toBeNull();
   });

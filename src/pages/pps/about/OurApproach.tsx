@@ -586,7 +586,7 @@ export default function OurApproach() {
         description="It's our interview-led appraisal that creates clarity before your next major decision hardens into action. It begins with a Clarity Call."
         actions={[
           { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
-          { label: "Find Your P.A.T.H.way", to: "/start-here", variant: "secondary" },
+          { label: "Find Your Next ShIFt", to: "/start-here", variant: "secondary" },
         ]}
       />
 

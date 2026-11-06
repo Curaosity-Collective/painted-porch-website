@@ -408,14 +408,14 @@ export default function AmplifyWorkshops() {
             </p>
 
             <p className="text-body text-white/90 max-w-2xl mx-auto mb-6">
-              Take the P.A.T.H.way quiz so we can recommend the workshop or speaking session that best fits where you&rsquo;re headed, or contact us to talk through your topic.
+              Try Find Your Next ShIFt, a three-minute directional guide, so we can recommend the workshop or speaking session that best fits where you&rsquo;re headed, or contact us to talk through your topic.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 onClick={openQuiz}
                 className="bg-gold text-navy hover:bg-gold/90 h-auto min-h-12 px-4 sm:px-8 py-3 text-base font-semibold whitespace-normal"
               >
-                Take the P.A.T.H.way Quiz <ArrowRight className="ml-2 h-4 w-4" />
+                Find Your Next ShIFt <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button
                 asChild
@@ -456,7 +456,7 @@ export default function AmplifyWorkshops() {
             to: "/contact?scope=organization&interest=workshops&message=I'm interested in a workshop for our team.",
             variant: "primary",
           },
-          { label: "Discover Your P.A.T.H.way", to: "/start-here", variant: "secondary" },
+          { label: "Find Your Next ShIFt", to: "/start-here", variant: "secondary" },
         ]}
         footnote={
           <Link to="/partner" className="text-white/80 hover:text-white underline">

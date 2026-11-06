@@ -334,7 +334,7 @@ export default function PPSContact() {
                 {quizPrefill && (
                   <div className="mb-6 flex items-start gap-3 rounded-lg border border-teal/30 bg-teal/5 p-4">
                     <div className="flex-1 text-sm text-navy">
-                      <p className="text-body font-semibold">We saved your P.A.T.H.way quiz context</p>
+                      <p className="text-body font-semibold">We saved your Find Your Next ShIFt results</p>
                       <p className="text-body text-foreground/80 mt-1">
                         Result: <span className="font-medium">{quizPrefill.resultHeadline}</span>. We won't include it unless you check the box below the message field.
                       </p>
@@ -343,7 +343,7 @@ export default function PPSContact() {
                       type="button"
                       onClick={removeQuizPrefill}
                       className="flex-shrink-0 rounded-md p-2 text-foreground/60 hover:bg-teal/10 hover:text-navy focus:outline-none focus:ring-2 focus:ring-teal"
-                      aria-label="Discard quiz context"
+                      aria-label="Discard your saved results"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -589,9 +589,9 @@ export default function PPSContact() {
                                 className="w-4 h-4 rounded border-border text-primary focus:ring-primary mt-0.5"
                               />
                               <span className="text-sm text-foreground">
-                                <span className="font-medium text-navy">Include my P.A.T.H.way quiz responses and recommendations</span>
+                                <span className="font-medium text-navy">Include my Find Your Next ShIFt answers and recommendations</span>
                                 <span className="block text-xs text-muted-foreground mt-1">
-                                  Adds your quiz answers and the recommended next steps to your message so we have full context.
+                                  Adds your Find Your Next ShIFt answers and recommended next steps to your message so we have full context.
                                 </span>
                               </span>
                             </label>

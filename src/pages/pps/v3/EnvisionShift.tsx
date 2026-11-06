@@ -317,7 +317,7 @@ export default function EnvisionShift() {
               onClick={quiz.open}
               className="underline underline-offset-4 transition-colors hover:text-gold"
             >
-              Take the P.A.T.H.way quiz
+              Find Your Next <ShIFt onDark />
             </button>
             .
           </>

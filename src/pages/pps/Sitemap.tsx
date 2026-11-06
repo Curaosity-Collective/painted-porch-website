@@ -233,7 +233,7 @@ export const sitemapData: SitemapNode[] = [
     ],
   },
   {
-    label: "Start Here (P.A.T.H. Quiz)",
+    label: "Start Here (Find Your Next ShIFt)",
     path: "/start-here",
   },
   {

@@ -250,7 +250,9 @@ export default function HomeNext() {
                 </span>
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </button>
-              <p className="text-sm text-[#E3EFF1]">A short quiz that shows where your journey begins.</p>
+              <p className="text-sm text-[#E3EFF1]">
+                Find Your Next <ShIFt onDark />: a three-minute guide to where your journey begins.
+              </p>
             </div>
             <a
               href="#clarity-call"
@@ -561,7 +563,7 @@ export default function HomeNext() {
                 onClick={openQuiz}
                 className="font-semibold text-white underline underline-offset-4 hover:text-white/85"
               >
-                Not sure yet? Take the quiz
+                Not sure yet? Find Your Next <ShIFt onDark />
               </button>
             </div>
             <p className="font-display text-[22px] font-semibold italic text-[#F4C05E]">The porch is open.</p>

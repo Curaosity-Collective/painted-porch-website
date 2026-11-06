@@ -36,7 +36,7 @@ const resourceCategories = [
   {
     icon: HelpCircle,
     title: "FAQ",
-    description: "Answers to common questions about our P.A.T.H.ways, partnerships, and approach.",
+    description: "Answers to common questions about the Clarity Call, the three ShIFts, workshops and self-led resources.",
     href: "/resources/faq",
     color: "bg-gold/10",
     iconColor: "text-gold",

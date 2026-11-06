@@ -56,7 +56,7 @@ const sitewideFaqCategories: FAQCategory[] = [
           <>
             Most organizations start with a <FaqLink to="/#clarity-call">Clarity Call</FaqLink>: 60 minutes with Amy to read
             where you are and the first decisive move to make. If you'd rather explore on your own first,{" "}
-            <FaqLink to="/start-here">take the P.A.T.H.way quiz</FaqLink>. It takes a few minutes and points you to a good
+            try <FaqLink to="/start-here">Find Your Next ShIFt</FaqLink>, a three-minute directional guide that points you to a good
             starting point for you, your team or your organization.
           </>
         ),
@@ -205,7 +205,7 @@ const sitewideFaqCategories: FAQCategory[] = [
           <>
             Self-led resources (assessments, masterclasses and mini courses) build your own capacity, at your own pace. Team
             workshops and Leadership Labs build it together, with your team or a cohort of peers. If you're not sure,{" "}
-            <FaqLink to="/start-here">the P.A.T.H.way quiz</FaqLink> will point you to a good starting point.
+            <FaqLink to="/start-here">Find Your Next ShIFt</FaqLink> will point you to a good starting point.
           </>
         ),
       },

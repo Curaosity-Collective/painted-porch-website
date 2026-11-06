@@ -131,10 +131,10 @@ const wherePhaseZeroLeads = [
   },
   {
     icon: Route,
-    title: "Your P.A.T.H.way",
-    body: "A short quiz that points you to the right starting place on your P.A.T.H.way to authoring, leading, and creating lasting shifts in life, at work, and anywhere in between.",
+    title: "Find Your Next ShIFt",
+    body: "A three-minute directional guide that points you to the right starting place for authoring, leading, and creating lasting shifts in life, at work, and anywhere in between.",
     to: "/start-here",
-    cta: "Find Your P.A.T.H.way",
+    cta: "Find Your Next ShIFt",
     accent: "text-primary",
     border: "border-primary",
   },
@@ -460,7 +460,7 @@ export default function PhaseZero() {
               Phase Zero isn't something you purchase on its own - it's the stage of work that happens before execution begins. These are the three ways we facilitate it.
             </p>
             <p className="text-body text-foreground/80 mt-6">
-              If you're leading an organization and you know change is coming, the Epic ShIFt Organizational Appraisal, which begins with a Clarity Call, is the recommended starting point. If you're still orienting yourself or your team, the P.A.T.H.way Quiz will show you where to begin.
+              If you're leading an organization and you know change is coming, the Epic ShIFt Organizational Appraisal, which begins with a Clarity Call, is the recommended starting point. If you're still orienting yourself or your team, Find Your Next ShIFt will show you where to begin.
             </p>
           </FadeIn>
           <div className="grid md:grid-cols-3 gap-6">
@@ -497,7 +497,7 @@ export default function PhaseZero() {
         description="Start with a structured organizational appraisal that shows where you stand across the three Pillars - before you spend another dollar on a shIFt you're not (yet) built to carry."
         actions={[
           { label: "Envision Epic ShIFt", to: "/envision-shift", variant: "bluedoor" },
-          { label: "Find Your P.A.T.H.way", to: "/start-here", variant: "secondary" },
+          { label: "Find Your Next ShIFt", to: "/start-here", variant: "secondary" },
         ]}
       />
       <PartnershipPromise />

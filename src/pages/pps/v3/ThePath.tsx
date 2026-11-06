@@ -447,7 +447,7 @@ export default function ThePath() {
           <>
             Not sure yet?{" "}
             <button type="button" onClick={openQuiz} className="font-semibold underline underline-offset-4">
-              Take the Ready for Epic <ShIFt onDark /> quiz
+              Find Your Next <ShIFt onDark />
             </button>
           </>
         }

@@ -88,7 +88,7 @@ export const routes = [
       },
       {
         h2: "Other ways in",
-        body: "Team workshops for leadership and cross-functional teams; keynotes from Amy Yackowski, Rob Hunter and Sierra Cantrell; and mini courses, masterclasses, labs and assessments for individuals on the P.A.T.H.way pages.",
+        body: "Team workshops for leadership and cross-functional teams; keynotes from Amy Yackowski, Rob Hunter and Sierra Cantrell; and mini courses, masterclasses, labs and assessments for individuals.",
       },
     ],
     links: commonLinks,
@@ -520,10 +520,10 @@ export const routes = [
     path: "/start-here",
     title: "Start Here | Painted Porch Strategies",
     description:
-      "New to Painted Porch Strategies? Take the P.A.T.H.way quiz to find your best starting point, for you, your team or your organization.",
-    h1: "Start Here — Discover Your P.A.T.H.way",
+      "New to Painted Porch Strategies? Find Your Next ShIFt, a three-minute directional guide, points you to your best starting point, for you, your team or your organization.",
+    h1: "Start Here — Find Your Next ShIFt",
     intro:
-      "A short guided quiz that maps your situation to the right starting point: self-led resources, team workshops and Leadership Labs, or the Epic ShIFt Organizational Appraisal, so you're not guessing what to do next.",
+      "A three-minute directional guide that maps your situation to the right starting point: self-led resources, team workshops and Leadership Labs, or the Epic ShIFt Organizational Appraisal, so you're not guessing what to do next.",
     links: commonLinks,
   },
   {

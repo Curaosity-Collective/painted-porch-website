@@ -148,7 +148,7 @@ function buildQuizPrefillPayload(
   const lines = [
     `Result: ${result.headline}${result.topicArea ? ` (${result.topicArea})` : ""}${strongest}`,
     ``,
-    `Featured picks the quiz surfaced:`,
+    `Featured picks from Find Your Next ShIFt:`,
     picks || "• (none)",
   ];
   return {
@@ -503,7 +503,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
         <DialogHeader className="px-6 pt-6 pb-2">
           <DialogTitle className="font-poppins text-2xl text-navy flex items-center gap-2">
             <Compass className="w-6 h-6 text-primary" aria-hidden="true" />
-            P.A.T.H.way {showResult ? "Quiz Results" : "Quiz"}
+            {showResult ? "Your Next ShIFt: Where to Start" : "Find Your Next ShIFt"}
           </DialogTitle>
           <DialogDescription className="text-foreground">
             {showResult ? "Your starting point and what's available when you're ready for more." : "About 3 minutes. You'll know exactly where to step onto the Porch."}
@@ -512,7 +512,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
             <div
               className="mt-3 h-1.5 bg-muted rounded-full overflow-hidden"
               role="progressbar"
-              aria-label="Quiz progress"
+              aria-label="Guide progress"
               aria-valuenow={progressPct}
               aria-valuemin={0}
               aria-valuemax={100}

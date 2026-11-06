@@ -86,7 +86,7 @@ describe("AboutNext (draft)", () => {
       "href",
       "/#clarity-call",
     );
-    fireEvent.click(screen.getByRole("button", { name: /^Take the Ready for Epic/ }));
+    fireEvent.click(screen.getByRole("button", { name: /^Find Your Next Sh ?IF ?t$/ }));
     expect(openQuiz).toHaveBeenCalledTimes(1);
   });
 
