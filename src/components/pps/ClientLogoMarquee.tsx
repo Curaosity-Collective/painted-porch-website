@@ -53,7 +53,7 @@ function LogoTrack({ logos, duration, copy }: { logos: LogoItem[]; duration: num
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={copy ? -1 : undefined}
-          className="flex-shrink-0 w-[112px] h-[56px] md:w-[140px] md:h-[70px] flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          className="flex-shrink-0 w-[112px] h-[56px] md:w-[140px] md:h-[70px] flex items-center justify-center grayscale opacity-85 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
         >
           {/* Not lazy: these images come into view by sliding sideways, and
               browsers don't load lazy images that arrive that way, which left
