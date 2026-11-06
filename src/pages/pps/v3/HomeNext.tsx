@@ -170,7 +170,7 @@ const PROMISE = [
     // Green, yellow, red (PPS Admin, 2026-11-06). Gold takes dark text: white on Gold is
     // 2.2:1, #1E2B30 is 7:1 (PPS-DEC-0022).
     box: "bg-gold text-[#1E2B30]",
-    body: "We tell you the truth, and we create a map to build the capacity you need first.", // PPS Admin, 2026-11-06
+    body: "We tell you the truth, and create a map to build the capacity you need first.", // PPS Admin, 2026-11-06
   },
   {
     label: "If not us",
