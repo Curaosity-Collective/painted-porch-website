@@ -1,8 +1,7 @@
-// @vitest-environment node
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
-import { transformSync } from 'esbuild';
+import ts from 'typescript';
 import { NEWSLETTER_TAG, newsletterTags } from '../../supabase/functions/_shared/newsletter';
 
 describe('newsletter contacts', () => {
@@ -12,7 +11,7 @@ describe('newsletter contacts', () => {
     const source = readFileSync('supabase/functions/submit-newsletter-optin/index.ts', 'utf8')
       .replace(/^import .*;\n/gm, '')
       .replace(/^const schema = .*;$/m, "const schema = { safeParse: () => ({ success: true, data: { email: 'reader@example.com', source: 'Blog Newsletter' } }) };");
-    runInNewContext(transformSync(source, { loader: 'ts', format: 'cjs' }).code, {
+    runInNewContext(ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022 } }).outputText, {
       Deno: { env: { get: (name: string) => ['GHL_API_KEY', 'GHL_LOCATION_ID'].includes(name) ? 'test-config' : undefined }, serve: (fn: typeof handler) => { handler = fn; } },
       Response, corsHeaders: {}, console, NEWSLETTER_TAG,
       NEWSLETTER_CONSENT: 'Newsletter consent',
