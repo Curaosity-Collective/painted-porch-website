@@ -167,10 +167,44 @@ const CTA_TONES = {
   habits: { bg: "bg-habits-ink", overlay: "bg-habits-ink/70" },
 } as const;
 
+/** The CTA band's main button: a link, or a button that runs an action. The label sits in one span so a
+ *  styled IF inside it isn't split apart by the flex gap. */
+function CTAAction({
+  to,
+  onClick,
+  className,
+  children,
+}: {
+  to?: string;
+  onClick?: () => void;
+  className: string;
+  children: ReactNode;
+}) {
+  const inner = (
+    <>
+      <span>{children}</span>
+      <ArrowRight className="h-4 w-4" aria-hidden />
+    </>
+  );
+  if (onClick) {
+    return (
+      <button type="button" onClick={onClick} className={className}>
+        {inner}
+      </button>
+    );
+  }
+  return (
+    <Link to={to ?? "/"} className={className}>
+      {inner}
+    </Link>
+  );
+}
+
 export function CTABand({
   title,
   body,
   to,
+  onClick,
   label,
   image,
   imageAlt,
@@ -184,8 +218,10 @@ export function CTABand({
   title: ReactNode;
   body: ReactNode;
   /** Internal destination for the main button. */
-  to: string;
-  label: string;
+  to?: string;
+  /** Instead of `to`: an action for the main button, such as opening the Find Your Next ShIFt guide. */
+  onClick?: () => void;
+  label: ReactNode;
   /** When set, renders the full-bleed photo panel instead of the linen band. */
   image?: string;
   imageAlt?: string;
@@ -195,7 +231,7 @@ export function CTABand({
   imageHeight?: number;
   /** Colour identity of the page this CTA sits on. */
   tone?: keyof typeof CTA_TONES;
-  /** Per-photo contrast profile class from src/styles/v3.css (e.g. "cta-photo-envision"). */
+  /** Per-photo contrast profile class from src/styles/v3.css (e.g. "cta-photo-charcoal"). */
   photoProfile?: string;
   /** Optional quiet secondary action under the main button. */
   secondary?: ReactNode;
@@ -220,13 +256,13 @@ export function CTABand({
         <div className="relative mx-auto max-w-4xl px-6 py-24 text-center md:py-36">
           <h2 className="font-display text-4xl font-semibold leading-tight text-shadow-cta md:text-5xl">{title}</h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-teal-foreground text-shadow-cta">{body}</p>
-          <Link
+          <CTAAction
             to={to}
-            className="label-kicker mt-10 inline-flex items-center gap-3 bg-gold px-8 py-4 text-gold-foreground transition-colors hover:bg-linen"
+            onClick={onClick}
+            className="label-kicker mt-10 inline-flex items-center gap-3 bg-gold px-8 py-4 text-gold-foreground transition-colors hover:bg-linen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             {label}
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </Link>
+          </CTAAction>
           {secondary && <div className="mt-6 text-sm text-teal-foreground text-shadow-cta">{secondary}</div>}
         </div>
       </section>
@@ -238,13 +274,13 @@ export function CTABand({
       <div className="mx-auto max-w-4xl px-6 py-20 text-center md:py-28">
         <h2 className="font-display text-3xl font-semibold leading-tight text-teal-deep md:text-4xl">{title}</h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-foreground">{body}</p>
-        <Link
+        <CTAAction
           to={to}
+          onClick={onClick}
           className="label-kicker mt-10 inline-flex items-center gap-3 bg-teal-deep px-8 py-4 text-teal-foreground transition-colors hover:bg-bluedoor"
         >
           {label}
-          <ArrowRight className="h-4 w-4" aria-hidden />
-        </Link>
+        </CTAAction>
         {secondary && <div className="mt-6 text-sm text-muted-foreground">{secondary}</div>}
       </div>
     </section>

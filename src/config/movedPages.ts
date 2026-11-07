@@ -49,4 +49,7 @@ export const FORWARDS_TO: Readonly<Record<string, string>> = {
   "/amplify": "/workshops",
   "/labs": "/leadership-labs",
   "/stracticalleader": "/leadership-labs/stractical-leader",
+  // Opens the Find Your Next ShIFt guide, as /start-here does (PPS Admin, 2026-11-07). Without this it has no
+  // status of its own and showed the Draft placeholder.
+  "/for-leaders": "/start-here",
 };

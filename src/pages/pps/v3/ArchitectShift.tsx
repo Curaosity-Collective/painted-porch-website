@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
-import pillarsOnBlueprint from "@/assets/embody-hero-option2.jpg";
+import lanternPath from "@/assets/heroes/approach-hero.jpg";
 import architecturalModel from "@/assets/embody-concept-model.jpg";
 import sunlitColumns from "@/assets/embody-concept-pillars.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
@@ -161,7 +161,7 @@ export default function ArchitectShift() {
   useDocumentSeo({
     title: TITLE,
     description: DESCRIPTION,
-    ogImage: pillarsOnBlueprint,
+    ogImage: lanternPath,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -193,8 +193,7 @@ export default function ArchitectShift() {
             organization is ready to design and lead its next epic <ShIFt lowercase onDark />.
           </>
         }
-        image={pillarsOnBlueprint}
-        imageAlt="Painted pillars in teal, purple, gold and lime rising from an architectural blueprint"
+        video={{ slotKey: "approach-hero", poster: lanternPath, alt: "Glowing lanterns along a winding road of golden light drawn across a dark blueprint" }}
         tone="align"
         ghost="A"
       />
@@ -457,6 +456,7 @@ export default function ArchitectShift() {
         to={clarityCallSectionHref("architect")}
         label="Start with a Clarity Call"
         image={sunlitColumns}
+        photoProfile="cta-photo-charcoal cta-photo-bright"
         imageAlt="Sunlight streaming between the columns of an enduring stone colonnade"
         imageWidth={1920}
         imageHeight={1080}

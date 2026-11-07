@@ -65,6 +65,11 @@ describe("ResultsImpact (draft)", () => {
     const quotes = within(screen.getByRole("region", { name: "In Their Words" })).getAllByRole("figure");
     expect(quotes).toHaveLength(CLIENT_TESTIMONIALS.length);
     expect(quotes).toHaveLength(6);
+    // Quotes are italic, as on the homepage; the names are not (PPS Admin, 2026-11-07).
+    for (const q of quotes) {
+      expect(q.querySelector("blockquote p")).toHaveClass("italic");
+      expect(q.querySelector("figcaption")).not.toHaveClass("italic");
+    }
     for (const who of ["Dianne R.", "Brian S.", "Melanie W.", "Amy R.", "Amanda W.", "Mike W."]) {
       expect(screen.getByText(new RegExp(`^${who.replace(".", "\\.")} ·`))).toBeInTheDocument();
     }

@@ -64,6 +64,7 @@ import EQChangeLeaderMini from "./pages/pps/EQChangeLeaderMini";
 // AMPLIFY Subpages
 import AmplifyWorkshops from "./pages/pps/partner/amplify/AmplifyWorkshops";
 import { MovedTo } from "./components/pps/MovedTo";
+import StartHere from "./pages/pps/StartHere";
 import AmplifySprints from "./pages/pps/partner/amplify/AmplifySprints";
 import AmplifySprintsArchive from "./pages/pps/partner/amplify/AmplifySprintsArchive";
 import AmplifyLabs from "./pages/pps/partner/amplify/AmplifyLabs";
@@ -115,7 +116,6 @@ import SpeakingWorkshopTopics from "./pages/pps/SpeakingWorkshopTopics";
 import AmySpeaker from "./pages/pps/speaking/AmySpeaker";
 import RobSpeaker from "./pages/pps/speaking/RobSpeaker";
 import SierraSpeaker from "./pages/pps/speaking/SierraSpeaker";
-import StartHere from "./pages/pps/StartHere";
 import KickTheHabit from "./pages/pps/KickTheHabit";
 import StoicFieldGuide from "./pages/pps/StoicFieldGuide";
 import StoicFieldGuideAccess from "./pages/pps/StoicFieldGuideAccess";

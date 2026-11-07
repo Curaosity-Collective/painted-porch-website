@@ -147,12 +147,24 @@
   --cta-wash-start: hsl(var(--v3-bluedoor-deep));
   --cta-wash-end: hsl(var(--v3-teal-deep));
 }
-.cta-photo-envision {
-  --cta-wash-start: hsl(var(--v3-prepare-ink));
-  --cta-wash-end: hsl(var(--v3-prepare-ink));
-  --cta-wash-top: 66%;
-  --cta-wash-text: 76%;
-  --cta-wash-bottom: 73%;
+/* Charcoal wash: keeps a photo's colour visible and sets the closing band apart from the teal footer under
+   it (PPS Admin, 2026-11-07). Used on the closing bands of For Individuals, the three ShIFt pages, The
+   P.A.T.H., Phase Zero and Results & Impact. Architect's burgundy and Embody's green washes were
+   replaced too: on their bright photos the light-raspberry IF measured 2.2–2.6:1, and even solid
+   burgundy or green gives it only about 4.4:1. */
+.cta-photo-charcoal {
+  --cta-wash-start: hsl(210 25% 9%);
+  --cta-wash-end: hsl(210 25% 9%);
+  --cta-wash-top: 52%;
+  --cta-wash-text: 70%;
+  --cta-wash-bottom: 58%;
+}
+/* Bright photos (Architect's sunlit columns, Embody's pergola on a pale ground) need a deeper wash
+   behind the text for the light-raspberry IF to clear 4.5:1. */
+.cta-photo-charcoal.cta-photo-bright {
+  --cta-wash-top: 62%;
+  --cta-wash-text: 80%;
+  --cta-wash-bottom: 66%;
 }
 .cta-photo-wash {
   background: linear-gradient(

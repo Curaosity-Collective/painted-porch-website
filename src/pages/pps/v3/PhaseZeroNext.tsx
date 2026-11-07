@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Check, X } from "lucide-react";
 import phaseZeroHero from "@/assets/heroes/phase-zero-hero.jpg";
-import approachHero from "@/assets/heroes/approach-hero.jpg";
+import paintedFloor from "@/assets/heroes/home-hero.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { PartnershipPromiseNote } from "@/components/v3/PartnershipPromiseNote";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -185,8 +185,7 @@ export default function PhaseZeroNext() {
             <p className="mt-4 font-semibold text-teal-foreground">Sustainable change is designed, not declared.</p>
           </>
         }
-        image={phaseZeroHero}
-        imageAlt="Weathered stone columns in warm evening light beside new scaffolding, a structure still being built"
+        video={{ slotKey: "home-hero", poster: paintedFloor, alt: "Porch floorboards painted in bands of color, glowing in the sun between white columns" }}
         ghost="0"
         action={{ label: "Start with a Clarity Call", to: clarityCallSectionHref() }}
       />
@@ -495,8 +494,9 @@ export default function PhaseZeroNext() {
         body="Phase Zero starts with a Clarity Call: 60 minutes with Amy to see where your organization stands and what makes sense next."
         to={clarityCallSectionHref()}
         label="Start with a Clarity Call"
-        image={approachHero}
-        imageAlt="A winding road of golden light linking glowing pillars across a dark blueprint"
+        image={phaseZeroHero}
+        imageAlt="Weathered stone columns in warm evening light beside new scaffolding, a structure still being built"
+        photoProfile="cta-photo-charcoal"
         imageWidth={1920}
         imageHeight={1080}
         secondary={

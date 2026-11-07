@@ -131,4 +131,23 @@ describe("moved pages", () => {
       expect(read(file), file).not.toMatch(/\/partner\/(ignite|amplify)\//);
     }
   });
+
+  it("opens the guide from /start-here and the search result; the Start Here page is retired (PPS Admin, 2026-11-07)", () => {
+    const app = read("src/App.tsx");
+    expect(app).toContain('<Route path="start-here" element={<StartHere />} />');
+    expect(app).toContain('<Route path="for-leaders" element={<Navigate to="/start-here" replace />} />');
+    // /for-leaders takes /start-here's status, so the Draft gate doesn't stop it.
+    expect(FORWARDS_TO["/for-leaders"]).toBe("/start-here");
+    expect(resolvePageStatus("/for-leaders", { "/start-here": { path: "/start-here", status: "live" } } as unknown as PageStatusMap)).toBe("live");
+    // The address opens the guide over the homepage; no Start Here page is built or listed.
+    const startHere = read("src/pages/pps/StartHere.tsx");
+    expect(startHere).toMatch(/openGuide\(\)/);
+    expect(startHere).toMatch(/<Navigate to=\{`\/\$\{search\}\$\{hash\}`\} replace \/>/);
+    expect(routes.some((r: { path: string }) => r.path === "/start-here")).toBe(false);
+    expect(read("scripts/generate-sitemap.mjs")).not.toContain('"/start-here"');
+    // The search result opens the guide where the visitor is.
+    const search = read("src/components/pps/SiteSearch.tsx");
+    expect(search).toMatch(/title: "Find Your Next ShIFt",[^\n]*opensGuide: true/);
+    expect(search).toMatch(/if \(entry\.opensGuide\) setTimeout\(openGuide, 0\);/);
+  });
 });

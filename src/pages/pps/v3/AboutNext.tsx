@@ -1,7 +1,8 @@
 import porchTemple from "@/assets/about/painted-porch-temple.jpg";
 import porchSunset from "@/assets/heroes/about-hero.jpg";
+import blueDoor from "@/assets/v3/blue-door.jpg";
 import amyPhoto from "@/assets/team/amy-yackowski.png";
-import robPhoto from "@/assets/team/rob-hunter.jpg";
+import robPhoto from "@/assets/team/rob-hunter-desk.jpg";
 import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
 import { Check, X } from "lucide-react";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
@@ -44,8 +45,11 @@ const TEAM = [
     name: "Rob Hunter",
     title: "Chief Storytelling Officer | M.C., Master of Communication",
     to: "/speaking/rob",
+    // Rob at his desk (a second photo PPS Admin supplied, 2026-11-07), cropped square and centred on
+    // him at the same scale as Amy's and Sierra's. His speaker photo is portrait with him right of
+    // centre, so a circle couldn't centre him without zooming in.
     photo: robPhoto,
-    position: "object-top",
+    position: "object-center",
   },
   {
     name: "Sierra Ramm Cantrell",
@@ -336,10 +340,13 @@ export default function AboutNext() {
         body="If your organization is being called toward something greater, start with a Clarity Call: 60 minutes with Amy to see what's possible."
         to={clarityCallSectionHref()}
         label="Start with a Clarity Call"
-        image={porchSunset}
-        imageAlt="Two rocking chairs on a porch facing the sunset across an open lawn"
-        imageWidth={1920}
-        imageHeight={1088}
+        // The blue door: what comes next, and where the Clarity Call leads (PPS Admin, 2026-11-07). The
+        // charcoal wash sets the band apart from the teal footer, as on the other main pages.
+        image={blueDoor}
+        imageAlt="A cobalt-blue door set into a pale stone wall"
+        imageWidth={1408}
+        imageHeight={1008}
+        photoProfile="cta-photo-charcoal"
         secondary={
           <>
             Not sure yet?{" "}

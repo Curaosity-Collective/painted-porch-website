@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Search, FileText, Users, Mic, BookOpen, Flame, Rocket, Building, Download, Video, ArrowRight, PenLine } from "lucide-react";
@@ -19,12 +20,15 @@ interface SearchEntry {
   category: string;
   keywords: string[];
   icon: React.ReactNode;
+  /** Opens the Find Your Next ShIFt guide instead of going to a page. */
+  opensGuide?: boolean;
 }
 
 const searchIndex: SearchEntry[] = [
   // Main pages
   { title: "Home", description: "Welcome to Painted Porch Strategies", href: "/", category: "Pages", keywords: ["home", "main", "landing", "painted porch"], icon: <Building className="w-4 h-4" /> },
-  { title: "Find Your Next ShIFt", description: "A three-minute directional guide to your best starting point", href: "/start-here", category: "Pages", keywords: ["quiz", "guide", "find your next shift", "start", "quiz", "pathway", "path", "begin", "assessment", "blue door"], icon: <ArrowRight className="w-4 h-4" /> },
+  // Opens the guide where the visitor is, instead of going to /start-here (PPS Admin, 2026-11-07).
+  { title: "Find Your Next ShIFt", description: "A three-minute directional guide to your best starting point", href: "/start-here", opensGuide: true, category: "Pages", keywords: ["quiz", "guide", "find your next shift", "start", "quiz", "pathway", "path", "begin", "assessment", "blue door"], icon: <ArrowRight className="w-4 h-4" /> },
   { title: "Contact Us", description: "Get in touch with us", href: "/contact", category: "Pages", keywords: ["contact", "call", "schedule", "email", "phone", "reach out"], icon: <FileText className="w-4 h-4" /> },
   { title: "Speaking", description: "Book Amy for keynotes, workshops, and events", href: "/speaking", category: "Pages", keywords: ["speaking", "keynote", "event", "workshop", "conference", "presenter"], icon: <Mic className="w-4 h-4" /> },
 
@@ -62,6 +66,7 @@ const searchIndex: SearchEntry[] = [
 export function SiteSearch() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { open: openGuide } = usePathFinderQuiz();
 
   // Published blog posts, loaded once the dialog is opened
   const { data: blogEntries = [] } = useQuery<SearchEntry[]>({
@@ -103,11 +108,13 @@ export function SiteSearch() {
   }, []);
 
   const handleSelect = useCallback(
-    (href: string) => {
+    (entry: SearchEntry) => {
       setOpen(false);
-      navigate(href);
+      // Let the search dialog close before the guide's dialog opens, so focus moves cleanly to it.
+      if (entry.opensGuide) setTimeout(openGuide, 0);
+      else navigate(entry.href);
     },
-    [navigate]
+    [navigate, openGuide]
   );
 
   // Routes excluded from search indexing and autocomplete.
@@ -146,7 +153,7 @@ export function SiteSearch() {
                 <CommandItem
                   key={entry.href + entry.title}
                   value={`${entry.title} ${entry.description} ${entry.keywords.join(" ")}`}
-                  onSelect={() => handleSelect(entry.href)}
+                  onSelect={() => handleSelect(entry)}
                   className="flex items-center gap-3 cursor-pointer"
                 >
                   <span className="text-primary">{entry.icon}</span>

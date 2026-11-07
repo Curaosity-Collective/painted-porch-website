@@ -38,12 +38,20 @@ export const PATH_LINKS: NavLink[] = [
   { label: "Embody ShIFt", href: "/embody-shift", note: "Take Off and Habits" },
 ];
 
+/**
+ * Each header heading is itself a link to its page, so its menu lists only the pages under it. The
+ * P.A.T.H. menu once also listed "The P.A.T.H." (/the-path), the same page as its heading (reported
+ * by PPS Admin, 2026-11-07). The footer keeps "The P.A.T.H.": its column heading is not a link.
+ */
 export const HEADER_MENU: NavGroup[] = [
   // For Individuals is the one offer page in the header (PPS Admin, 2026-11-07); the footer keeps the rest.
   {
     label: PATH_MENU_LABEL,
     href: "/the-path",
-    children: [...PATH_LINKS, { label: "For Individuals", href: "/for-individuals", note: "Assessments, masterclasses and Labs" }],
+    children: [
+      ...PATH_LINKS.filter((l) => l.href !== "/the-path"),
+      { label: "For Individuals", href: "/for-individuals", note: "Assessments, masterclasses and Labs" },
+    ],
   },
   {
     label: "Speaking",

@@ -55,7 +55,6 @@ const staticPages = [
   // /resources/insights so crawlers can still discover it.
   { path: "/blog", priority: "0.5", changefreq: "weekly" },
   { path: "/speaking", priority: "0.7", changefreq: "monthly" },
-  { path: "/start-here", priority: "0.9", changefreq: "monthly" },
   { path: "/envision-shift", priority: "0.9", changefreq: "monthly" },
   { path: "/contact", priority: "0.8", changefreq: "monthly" },
   { path: "/phase-zero", priority: "0.8", changefreq: "monthly" },

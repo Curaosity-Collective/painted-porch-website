@@ -62,18 +62,31 @@ describe("SiteHeader", () => {
     expect(top[0]).toHaveAttribute("aria-current", "page");
   });
 
-  it("names the first menu The P.A.T.H. to ShIFt, with the page, the three ShIFts and For Individuals", () => {
+  it("names the first menu The P.A.T.H. to ShIFt, linked to the page, with the three ShIFts and For Individuals under it", () => {
     const path = HEADER_MENU[0];
     expect(path.label).toBe("The P.A.T.H. to ShIFt");
+    expect(path.href).toBe("/the-path");
     // For Individuals is the one offer page in the header (PPS Admin, 2026-11-07).
     expect(path.children.map((c) => c.href)).toEqual([
-      "/the-path",
       "/envision-shift",
       "/architect-shift",
       "/embody-shift",
       "/for-individuals",
     ]);
     expect(HEADER_MENU.flatMap((g) => g.children).some((c) => c.href.startsWith("/partner"))).toBe(false);
+  });
+
+  it("never lists a heading's own page under it: the heading already links there (PPS Admin, 2026-11-07)", () => {
+    for (const group of HEADER_MENU) {
+      expect(group.children.map((c) => c.href), group.label).not.toContain(group.href);
+    }
+    // Both menus render from HEADER_MENU. Rendered on a phone, the opened menu has one link to The
+    // P.A.T.H. page: its heading. The footer keeps "The P.A.T.H.", because its column heading is not a link.
+    renderAt(<SiteHeader />);
+    fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
+    fireEvent.click(screen.getByRole("button", { name: `Show ${PATH_MENU_LABEL} links` }));
+    const phone = document.getElementById("site-mobile-menu")!;
+    expect(Array.from(phone.querySelectorAll('a[href="/the-path"]'))).toHaveLength(1);
   });
 
   it("puts Phase Zero under About, and nowhere else in the header (PPS Admin, 2026-11-06)", () => {
@@ -88,6 +101,17 @@ describe("SiteHeader", () => {
     const nav = screen.getAllByRole("navigation", { name: "Main" })[0];
     const link = within(nav).getByRole("link", { name: named(PATH_MENU_LABEL) });
     expect(within(link).getByText("IF")).toHaveClass("text-raspberry");
+  });
+
+  it("opens a desktop menu without locking page scroll, so the sticky header stays in view (PPS Admin, 2026-11-07)", async () => {
+    // A modal menu set overflow:hidden on <body>; with the site's overflow-x: clip there, <body> became
+    // a scroll box that never scrolls and the sticky header scrolled away with the page.
+    renderAt(<SiteHeader />);
+    fireEvent.keyDown(screen.getByRole("button", { name: `Open ${PATH_MENU_LABEL} menu` }), { key: "Enter" });
+    expect(await screen.findByRole("menu")).toBeInTheDocument();
+    expect(document.body.hasAttribute("data-scroll-locked")).toBe(false);
+    expect(document.body.style.overflow).not.toBe("hidden");
+    expect(document.body.style.pointerEvents).not.toBe("none");
   });
 
   it("opens the guide from the Find Your Next ShIFt button (PPS-DEC-0026)", () => {

@@ -54,8 +54,7 @@ export default function ResultsImpact() {
         kicker="Results & Impact"
         title="Proof, Not Promises"
         intro="We'd rather show you a running tally than tell you we care. Here's what clarity before commitment looks like in practice: in our clients' words, in the organizations we've worked alongside, and in where 5% of every fee has gone."
-        image={paintSplash}
-        imageAlt="Teal, lime, gold, raspberry and purple paint splashing outward against a dark background"
+        video={{ slotKey: "impact-hero", poster: paintSplash, alt: "Teal, lime, gold, raspberry and purple paint bursting outward against a dark background" }}
         ghost="5%"
       />
 
@@ -88,7 +87,8 @@ export default function ResultsImpact() {
             <li key={t.who}>
               <figure className="flex h-full flex-col border-l-4 border-gold bg-cream p-7">
                 <blockquote className="flex-1">
-                  <p className="font-display text-lg font-medium leading-snug text-foreground">
+                  {/* Italic, as on the homepage (PPS Admin, 2026-11-07). */}
+                  <p className="font-display text-lg font-medium italic leading-snug text-foreground">
                     <span aria-hidden="true" className="font-bold text-raspberry">
                       “
                     </span>
@@ -215,6 +215,7 @@ export default function ResultsImpact() {
         to={clarityCallSectionHref()}
         label="Start with a Clarity Call"
         image={openDoors}
+        photoProfile="cta-photo-charcoal"
         imageAlt="Open double doors onto a sunlit garden path"
         imageWidth={1920}
         imageHeight={1080}

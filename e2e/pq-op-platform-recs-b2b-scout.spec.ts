@@ -6,6 +6,7 @@ import {
   type Question,
 } from "../src/data/pathFinderQuiz";
 import { assertRecommendationLinksValid } from "./helpers/recommendationLinks";
+import { openGuide } from "./helpers/openGuide";
 
 /**
  * Second real-browser smoke for PPS Op Platform supplemental recommendations
@@ -90,10 +91,7 @@ test.describe("PPS Op Platform recommendation links — B2B Scout Mode (real bro
   test("every Scout-Mode B2B recommendation link navigates to a working page", async ({
     page,
   }) => {
-    await page.goto("/start-here");
-    await expect(
-      page.getByText(/I'm here because I'm thinking about/i),
-    ).toBeVisible({ timeout: 5000 });
+    await openGuide(page);
 
     await walkB2BScout(page);
 
