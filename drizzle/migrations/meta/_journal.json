@@ -43,6 +43,13 @@
       "when": 1793962356192,
       "tag": "0005_content_sweep_credentials",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1794014325245,
+      "tag": "0006_partner_pages_move_to_top_level",
+      "breakpoints": true
     }
   ]
 }
