@@ -148,8 +148,8 @@ export default function SiteHeader() {
                         // item's defaults (items-center, lime focus) need overriding.
                         className="flex cursor-pointer flex-col gap-0.5 rounded-md !items-start !px-3 !py-2 hover:bg-cream focus:!bg-cream focus:!text-foreground"
                       >
-                        <span className="text-[15px] font-semibold text-foreground">
-                          <NavLabel label={child.label} />
+                        <span className={`text-[15px] font-semibold ${isActive(pathname, child.href) ? ACTIVE_LINK : IDLE_LINK}`}>
+                          <NavLabel label={child.label} plain />
                         </span>
                         {child.note && <span className="text-xs text-muted-foreground">{child.note}</span>}
                       </Link>
@@ -191,6 +191,7 @@ export default function SiteHeader() {
           <ul>
             {menu.map((group) => {
               const isOpen = expanded === group.href;
+              const active = isActive(pathname, group.href) || group.children.some((c) => isActive(pathname, c.href));
               const panelId = `site-mobile-${group.href.replace(/\W+/g, "-")}`;
               return (
                 <li key={group.href} className="border-b border-border/60">
@@ -199,9 +200,9 @@ export default function SiteHeader() {
                       to={group.href}
                       onClick={closeMenu}
                       aria-current={pathname === group.href ? "page" : undefined}
-                      className="flex-1 py-3 font-display text-lg font-semibold text-teal-deep"
+                      className={`flex-1 py-3 font-display text-lg font-semibold ${active ? ACTIVE_LINK : IDLE_LINK}`}
                     >
-                      <NavLabel label={group.label} />
+                      <NavLabel label={group.label} plain />
                     </Link>
                     <button
                       type="button"
@@ -224,7 +225,9 @@ export default function SiteHeader() {
                             aria-current={pathname === child.href.split("?")[0] ? "page" : undefined}
                             className="block py-2 text-base text-foreground"
                           >
-                            <NavLabel label={child.label} />
+                            <span className={isActive(pathname, child.href) ? ACTIVE_LINK : IDLE_LINK}>
+                              <NavLabel label={child.label} plain />
+                            </span>
                             {child.note && <span className="block text-sm text-muted-foreground">{child.note}</span>}
                           </Link>
                         </li>
