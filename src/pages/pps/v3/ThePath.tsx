@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import colorfulPath from "@/assets/colorful-path.jpg";
 import pillarsOnBlueprint from "@/assets/embody-hero-option2.jpg";
 import pathRoad from "@/assets/v3/path-to-shift-road.webp";
-import colorBurst from "@/assets/amplify-hero-energy.jpg";
+import paintedLanes from "@/assets/heroes/start-here-hero.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { ShIFt } from "@/components/v3/ShIFt";
 import { SmartLink } from "@/components/pps/SmartLink";
@@ -533,9 +533,11 @@ export default function ThePath() {
         body="Every journey starts with a Clarity Call: 60 minutes with Amy to read where your organization is on the P.A.T.H. and what makes sense next."
         to={clarityCallSectionHref("path")}
         label="Start with a Clarity Call"
-        image={colorBurst}
+        // Painted lanes, each a different route, for "where you are on the P.A.T.H." (PPS Admin, 2026-11-07).
+        // It was the Start Here page's hero; PPS Admin no longer uses that page.
+        image={paintedLanes}
         photoProfile="cta-photo-charcoal"
-        imageAlt="A burst of teal, green, orange, raspberry, purple and gold color powder against black"
+        imageAlt="Boardwalk paths painted teal, gold, purple, raspberry and lime, winding apart through a garden"
         imageWidth={1920}
         imageHeight={1080}
         secondary={

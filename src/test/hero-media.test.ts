@@ -75,6 +75,10 @@ describe("hero videos and closing photos", () => {
     expect(assetOf(about, "robPhoto")).toBe("@/assets/team/rob-hunter-desk.jpg");
   });
 
+  it("closes The P.A.T.H. with the painted lanes: \"Find Out Where You Are on the P.A.T.H.\" (PPS Admin, 2026-11-07)", () => {
+    expect(closingPhoto(source("ThePath"))).toBe("@/assets/heroes/start-here-hero.jpg");
+  });
+
   it("doesn't show the lantern scene twice: Architect's video poster isn't another page's photo", () => {
     const lantern = assetOf(source("ArchitectShift"), "lanternPath");
     for (const page of PAGES.filter((p) => p !== "ArchitectShift")) {
