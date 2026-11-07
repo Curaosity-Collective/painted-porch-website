@@ -27,7 +27,7 @@ const H2 =
 const H3 = "font-display text-xl font-semibold leading-tight text-foreground md:text-2xl";
 const LINK = "font-bold text-primary underline underline-offset-4 hover:text-primary/80";
 const GOLD_BUTTON =
-  "inline-flex min-h-[52px] items-center gap-2.5 rounded bg-gold px-7 text-[17px] font-bold text-[#1E2B30] transition-colors hover:bg-gold/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+  "inline-flex min-h-[52px] items-center gap-2.5 bg-gold px-7 text-[17px] font-bold text-[#1E2B30] transition-colors hover:bg-gold/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
 function Eyebrow({ children, onDark = false }: { children: ReactNode; onDark?: boolean }) {
   return (
@@ -213,15 +213,9 @@ export default function HomeNext() {
           height={848}
           className="absolute inset-0 h-full w-full object-cover object-[78%_50%] md:object-[50%_42%]"
         />
-        {/* Light overlay across the photo, deepening behind the text (bottom on phones, left on desktop). */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 md:hidden"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(4,40,50,0) 0%, rgba(4,40,50,0.1) 30%, rgba(4,40,50,0.82) 50%, rgba(4,40,50,0.94) 100%), linear-gradient(rgba(4,40,50,0.2), rgba(4,40,50,0.2))",
-          }}
-        />
+        {/* Light overlay across the photo, deepening behind the text (left on desktop; on phones the shade
+            travels with the text block, below). */}
+        <div aria-hidden="true" className="absolute inset-0 bg-[rgba(4,40,50,0.2)] md:hidden" />
         <div
           aria-hidden="true"
           className="absolute inset-0 hidden md:block"
@@ -230,16 +224,29 @@ export default function HomeNext() {
               "linear-gradient(90deg, rgba(4,40,50,0.86) 0%, rgba(4,40,50,0.7) 32%, rgba(4,40,50,0.2) 52%, rgba(4,40,50,0) 66%), linear-gradient(rgba(4,40,50,0.2), rgba(4,40,50,0.2))",
           }}
         />
-        <div className="relative mx-auto flex min-h-[780px] max-w-[1200px] flex-col justify-end px-5 pb-11 pt-[330px] md:min-h-[660px] md:justify-center md:px-6 md:py-24">
-          <div className="flex max-w-[560px] flex-col gap-[22px]">
+        {/* The whole text block fits the first screen on phones and tablets (PPS Admin, 2026-11-07): on phones
+            the hero is one screen tall with the text at the bottom and the photo filling whatever is left above;
+            short phones and landscape tablets tighten the type and spacing. */}
+        <div className="relative mx-auto flex min-h-[calc(100svh-var(--site-header-h))] max-w-[1200px] flex-col justify-end px-5 pb-7 pt-10 md:min-h-[min(660px,calc(100svh-var(--site-header-h)))] md:justify-center md:px-6 md:py-24 [@media(min-width:768px)_and_(max-height:800px)_and_(pointer:coarse)]:py-10">
+          <div className="relative isolate flex max-w-[560px] flex-col gap-4 md:gap-[22px] [@media(max-width:767px)_and_(max-height:600px)]:gap-3 [@media(min-width:768px)_and_(max-height:800px)_and_(pointer:coarse)]:gap-4">
+            {/* Phones: the shade starts above the eyebrow and runs to the bottom of the hero, however tall the
+                screen and however the text wraps. */}
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-7 -left-5 -top-24 -z-10 w-[100vw] md:hidden"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(4,40,50,0) 0, rgba(4,40,50,0.82) 96px, rgba(4,40,50,0.94) 100%)",
+              }}
+            />
             <Eyebrow onDark>Are You Built for What's Next?</Eyebrow>
             <h1
               id="home-hero-heading"
-              className="font-display text-[40px] font-bold leading-[1.04] tracking-[-0.01em] text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.3)] [text-wrap:balance] md:text-[56px] lg:text-[72px]"
+              className="font-display text-[36px] font-bold leading-[1.04] tracking-[-0.01em] text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.3)] [text-wrap:balance] md:text-[56px] lg:text-[72px] [@media(max-width:767px)_and_(max-height:600px)]:text-[32px] [@media(min-width:768px)_and_(max-height:800px)_and_(pointer:coarse)]:text-[52px]"
             >
               Build an Organization That Can Do Epic <ShIFt onDark large />
             </h1>
-            <p className="max-w-[30em] text-lg leading-relaxed text-[#F1F6F7] [text-shadow:0_1px_12px_rgba(0,0,0,0.35)] md:text-xl">
+            <p className="max-w-[30em] text-[17px] leading-normal text-[#F1F6F7] [text-shadow:0_1px_12px_rgba(0,0,0,0.35)] md:text-xl [@media(max-width:767px)_and_(max-height:600px)]:text-base [@media(min-width:768px)_and_(max-height:800px)_and_(pointer:coarse)]:text-lg">
               You have a vision for who your organization can become next. Is that future being authored with
               intention, or inherited through assumption?
             </p>
@@ -427,7 +434,7 @@ export default function HomeNext() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3.5">
             <a
               href="#clarity-call"
-              className="inline-flex min-h-[48px] items-center rounded border-2 border-primary px-6 font-bold text-primary transition-colors hover:bg-primary hover:text-white"
+              className="inline-flex min-h-[48px] items-center border-2 border-primary px-6 font-bold text-primary transition-colors hover:bg-primary hover:text-white"
             >
               Start with a Clarity Call
             </a>

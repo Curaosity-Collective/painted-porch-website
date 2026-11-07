@@ -47,7 +47,7 @@ export default function StrategicCanvasThankYou() {
               />
             </a>
             <a href={CANVAS_PDF_URL} target="_blank" rel="noopener noreferrer" download>
-              <Button className="bg-teal hover:bg-teal/90 text-white text-lg py-6 px-8 rounded-full">
+              <Button className="bg-teal hover:bg-teal/90 text-white text-lg py-6 px-8">
                 <Download className="mr-2 w-5 h-5" />
                 Download the Strategic Change Canvas
               </Button>

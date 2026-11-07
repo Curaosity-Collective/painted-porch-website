@@ -304,7 +304,7 @@ export default function StracticalLeaderWorkshop() {
                 <div>
                   <Button
                     onClick={() => setWaitlistOpen(true)}
-                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-10 rounded-lg hover:bg-white hover:text-gold transition-colors"
+                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-10 hover:bg-white hover:text-gold transition-colors"
                   >
                     JOIN THE WAITLIST <Bell className="ml-2 w-5 h-5" />
                   </Button>
@@ -314,7 +314,7 @@ export default function StracticalLeaderWorkshop() {
             ) : (
               <Button
                 onClick={scrollToRegister}
-                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-10 rounded-lg hover:bg-white hover:text-gold transition-colors"
+                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-10 hover:bg-white hover:text-gold transition-colors"
               >
                 CLAIM YOUR SPOT <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -511,7 +511,7 @@ export default function StracticalLeaderWorkshop() {
                 </p>
                 <Link
                   to="/resources/stractical-mini"
-                  className="inline-flex items-center gap-2 bg-gold text-navy font-poppins font-semibold px-6 py-3 rounded-lg hover:bg-gold/90 transition-colors focus-ring-on-dark"
+                  className="inline-flex items-center gap-2 bg-gold text-navy font-poppins font-semibold px-6 py-3 hover:bg-gold/90 transition-colors focus-ring-on-dark"
                 >
                   Download the Mini Guide
                   <ArrowRight className="w-4 h-4" />
@@ -547,7 +547,7 @@ export default function StracticalLeaderWorkshop() {
                   </p>
                   <Button
                     onClick={() => setWaitlistOpen(true)}
-                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded-lg hover:bg-transparent hover:text-gold transition-colors w-full md:w-auto"
+                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 hover:bg-transparent hover:text-gold transition-colors w-full md:w-auto"
                   >
                     JOIN THE WAITLIST <Bell className="ml-2 w-5 h-5" />
                   </Button>
@@ -579,7 +579,7 @@ export default function StracticalLeaderWorkshop() {
                   </div>
                   <Button
                     onClick={goToEnroll}
-                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded-lg hover:bg-transparent hover:text-gold transition-colors w-full md:w-auto"
+                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 hover:bg-transparent hover:text-gold transition-colors w-full md:w-auto"
                   >
                     CLAIM YOUR SPOT <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
@@ -655,7 +655,7 @@ export default function StracticalLeaderWorkshop() {
               </p>
               <Button
                 onClick={() => setWaitlistOpen(true)}
-                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded-lg hover:bg-white hover:text-gold transition-colors"
+                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 hover:bg-white hover:text-gold transition-colors"
               >
                 JOIN THE WAITLIST <Bell className="ml-2 w-5 h-5" />
               </Button>
@@ -677,7 +677,7 @@ export default function StracticalLeaderWorkshop() {
               </p>
               <Button
                 onClick={goToEnroll}
-                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded-lg hover:bg-white hover:text-gold transition-colors"
+                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 hover:bg-white hover:text-gold transition-colors"
               >
                 CLAIM YOUR SPOT <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

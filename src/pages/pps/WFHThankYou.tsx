@@ -44,7 +44,7 @@ export default function WFHThankYou() {
                 Already have a login? Jump straight in:
               </p>
               <a href={COURSE_ACCESS_URL} target="_blank" rel="noopener noreferrer">
-                <Button className="bg-raspberry hover:bg-raspberry/90 text-white text-lg py-6 px-8 rounded-full">
+                <Button className="bg-raspberry hover:bg-raspberry/90 text-white text-lg py-6 px-8">
                   Access Course
                 </Button>
               </a>
@@ -57,13 +57,13 @@ export default function WFHThankYou() {
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link to="/resources/free">
-                <Button variant="outline" className="rounded-full">Free Downloads</Button>
+                <Button variant="outline">Free Downloads</Button>
               </Link>
               <Link to="/resources/insights">
-                <Button variant="outline" className="rounded-full">Read Insights</Button>
+                <Button variant="outline">Read Insights</Button>
               </Link>
               <Link to="/">
-                <Button variant="outline" className="rounded-full">Back to Home</Button>
+                <Button variant="outline">Back to Home</Button>
               </Link>
             </div>
           </div>

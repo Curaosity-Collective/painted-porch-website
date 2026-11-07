@@ -194,14 +194,14 @@ export default function AboutAmy() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               to="/contact?interest=general&message=I'd like to connect with Amy."
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
+              className="inline-flex items-center gap-2 bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
             >
               <Coffee className="h-4 w-4" />
               Let's Connect
             </Link>
             <Link
               to="/speaking/amy"
-              className="inline-flex items-center gap-2 rounded-lg bg-secondary px-6 py-3 font-poppins font-semibold text-secondary-foreground transition hover:opacity-90"
+              className="inline-flex items-center gap-2 bg-secondary px-6 py-3 font-poppins font-semibold text-secondary-foreground transition hover:opacity-90"
             >
               <Mic className="h-4 w-4" />
               Book Amy to Speak
@@ -303,7 +303,7 @@ export default function AboutAmy() {
               href="https://www.youtube.com/@onthepaintedporch"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-destructive px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="inline-flex items-center gap-2 bg-destructive px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               <Youtube className="h-5 w-5" />
               Subscribe on YouTube
@@ -312,7 +312,7 @@ export default function AboutAmy() {
               href="https://youtube.com/playlist?list=PLhdPibIQvwhEhvaMycdAgzOM4dMMaFTVI"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-navy px-6 py-3 font-poppins font-semibold text-navy transition hover:bg-navy hover:text-white"
+              className="inline-flex items-center gap-2 border-2 border-navy px-6 py-3 font-poppins font-semibold text-navy transition hover:bg-navy hover:text-white"
             >
               View Playlist
               <ArrowRight className="h-4 w-4" />
@@ -400,7 +400,7 @@ export default function AboutAmy() {
             </p>
             <Link
               to="/contact?interest=general&message=I'd like to connect with Amy."
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="mt-8 inline-flex items-center gap-2 bg-primary px-8 py-4 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               <Coffee className="h-5 w-5" />
               Let's Connect
