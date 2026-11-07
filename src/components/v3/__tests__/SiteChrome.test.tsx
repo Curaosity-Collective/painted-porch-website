@@ -62,18 +62,31 @@ describe("SiteHeader", () => {
     expect(top[0]).toHaveAttribute("aria-current", "page");
   });
 
-  it("names the first menu The P.A.T.H. to ShIFt, with the page, the three ShIFts and For Individuals", () => {
+  it("names the first menu The P.A.T.H. to ShIFt, linked to the page, with the three ShIFts and For Individuals under it", () => {
     const path = HEADER_MENU[0];
     expect(path.label).toBe("The P.A.T.H. to ShIFt");
+    expect(path.href).toBe("/the-path");
     // For Individuals is the one offer page in the header (PPS Admin, 2026-11-07).
     expect(path.children.map((c) => c.href)).toEqual([
-      "/the-path",
       "/envision-shift",
       "/architect-shift",
       "/embody-shift",
       "/for-individuals",
     ]);
     expect(HEADER_MENU.flatMap((g) => g.children).some((c) => c.href.startsWith("/partner"))).toBe(false);
+  });
+
+  it("never lists a heading's own page under it: the heading already links there (PPS Admin, 2026-11-07)", () => {
+    for (const group of HEADER_MENU) {
+      expect(group.children.map((c) => c.href), group.label).not.toContain(group.href);
+    }
+    // Both menus render from HEADER_MENU. Rendered on a phone, the opened menu has one link to The
+    // P.A.T.H. page: its heading. The footer keeps "The P.A.T.H.", because its column heading is not a link.
+    renderAt(<SiteHeader />);
+    fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
+    fireEvent.click(screen.getByRole("button", { name: `Show ${PATH_MENU_LABEL} links` }));
+    const phone = document.getElementById("site-mobile-menu")!;
+    expect(Array.from(phone.querySelectorAll('a[href="/the-path"]'))).toHaveLength(1);
   });
 
   it("puts Phase Zero under About, and nowhere else in the header (PPS Admin, 2026-11-06)", () => {
