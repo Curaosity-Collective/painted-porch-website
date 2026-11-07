@@ -57,6 +57,13 @@
       "when": 1794014343107,
       "tag": "0007_offering_url_moves_access_grants",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1794014425700,
+      "tag": "0008_topic_card_descriptions_standard_audit",
+      "breakpoints": true
     }
   ]
 }
