@@ -87,7 +87,8 @@ export default function ResultsImpact() {
             <li key={t.who}>
               <figure className="flex h-full flex-col border-l-4 border-gold bg-cream p-7">
                 <blockquote className="flex-1">
-                  <p className="font-display text-lg font-medium leading-snug text-foreground">
+                  {/* Italic, as on the homepage (PPS Admin, 2026-11-07). */}
+                  <p className="font-display text-lg font-medium italic leading-snug text-foreground">
                     <span aria-hidden="true" className="font-bold text-raspberry">
                       “
                     </span>
