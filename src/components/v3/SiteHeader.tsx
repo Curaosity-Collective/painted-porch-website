@@ -27,8 +27,9 @@ import { HEADER_MENU, type NavGroup } from "./siteNav";
  * same sections that expand when tapped, now in a floating card.
  *
  * Kept from the website rather than pps-simplified: labels in normal case, since uppercase turns the
- * ShIFt wordmark into SHIFT; and a more opaque pill at rest (95% rather than 55%), so the menu's teal
- * and raspberry text keeps AA contrast over the dark heroes. Heroes that run under the pill use
+ * ShIFt wordmark into SHIFT; and a more opaque pill at rest than pps-simplified's 55% (88%). The top-level labels are dark, with a plain
+ * bold IF and an underline for the current section, so they stay readable on the see-through pill over any hero
+ * (PPS Admin, 2026-11-07; PPS-DEC-0022 exception). Heroes that run under the pill use
  * `.v3-under-header` (src/styles/v3.css).
  */
 
@@ -36,6 +37,12 @@ import { HEADER_MENU, type NavGroup } from "./siteNav";
 // Find Your Next ShIFt button without wrapping it.
 const TOP_LINK =
   "whitespace-nowrap rounded-full text-[14px] font-semibold xl:text-[15px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary";
+
+// The current section is marked with a deep-teal underline, and hovering shows a lighter one (PPS Admin chose this
+// on 2026-11-07 over a tinted chip or a dot). The label itself stays in the dark text colour, which keeps it
+// readable on the see-through pill over any hero; the underline measures well over 3:1 against the pill.
+const ACTIVE_LINK = "text-foreground underline decoration-teal-deep decoration-2 underline-offset-[7px]";
+const IDLE_LINK = "text-foreground decoration-teal-deep/40 decoration-2 underline-offset-[7px] hover:underline";
 
 /** The pill firms up once the page has scrolled this far. */
 const SCROLLED_AT = 40;
@@ -116,9 +123,9 @@ export default function SiteHeader() {
                   <Link
                     to={group.href}
                     aria-current={pathname === group.href ? "page" : undefined}
-                    className={`${TOP_LINK} ${active ? "text-teal-deep" : "text-foreground hover:text-teal-deep"}`}
+                    className={`${TOP_LINK} ${active ? ACTIVE_LINK : IDLE_LINK}`}
                   >
-                    <NavLabel label={group.label} />
+                    <NavLabel label={group.label} plain />
                   </Link>
                   <DropdownMenuTrigger
                     aria-label={`Open ${group.label} menu`}

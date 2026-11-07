@@ -96,11 +96,28 @@ describe("SiteHeader", () => {
     expect(HEADER_MENU.flatMap((g) => g.children).filter((c) => c.href === "/phase-zero")).toHaveLength(1);
   });
 
-  it("styles the IF in the menu heading", () => {
+  it("keeps the IF bold but plain in the header's top labels; the phone menu keeps it raspberry (PPS Admin, 2026-11-07)", () => {
     renderAt(<SiteHeader />);
     const nav = screen.getAllByRole("navigation", { name: "Main" })[0];
     const link = within(nav).getByRole("link", { name: named(PATH_MENU_LABEL) });
-    expect(within(link).getByText("IF")).toHaveClass("text-raspberry");
+    const topIf = within(link).getByText("IF");
+    expect(topIf).toHaveClass("font-bold");
+    expect(topIf).not.toHaveClass("text-raspberry");
+    fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
+    const phone = document.getElementById("site-mobile-menu")!;
+    const phoneLink = within(phone).getByRole("link", { name: named(PATH_MENU_LABEL) });
+    expect(within(phoneLink).getByText("IF")).toHaveClass("text-raspberry");
+  });
+
+  it("marks the current section with an underline, not a colour (PPS Admin, 2026-11-07)", () => {
+    renderAt(<SiteHeader />, "/envision-shift");
+    const nav = screen.getAllByRole("navigation", { name: "Main" })[0];
+    const current = within(nav).getByRole("link", { name: named(PATH_MENU_LABEL) });
+    const other = within(nav).getByRole("link", { name: "Speaking" });
+    expect(current).toHaveClass("underline", "decoration-teal-deep", "text-foreground");
+    expect(current).not.toHaveClass("text-teal-deep");
+    expect(other).not.toHaveClass("underline");
+    expect(other).toHaveClass("hover:underline", "text-foreground");
   });
 
   it("opens a desktop menu without locking page scroll, so the sticky header stays in view (PPS Admin, 2026-11-07)", async () => {
