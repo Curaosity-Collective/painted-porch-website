@@ -224,11 +224,13 @@ export default function HomeNext() {
               "linear-gradient(90deg, rgba(4,40,50,0.86) 0%, rgba(4,40,50,0.7) 32%, rgba(4,40,50,0.2) 52%, rgba(4,40,50,0) 66%), linear-gradient(rgba(4,40,50,0.2), rgba(4,40,50,0.2))",
           }}
         />
-        {/* The whole text block fits the first screen on phones and tablets (PPS Admin, 2026-11-07): on phones
-            the hero is one screen tall with the text at the bottom and the photo filling whatever is left above;
-            short phones and landscape tablets tighten the type and spacing. */}
-        <div className="relative mx-auto flex min-h-[calc(100svh-var(--site-header-h))] max-w-[1200px] flex-col justify-end px-5 pb-7 pt-10 md:min-h-[min(660px,calc(100svh-var(--site-header-h)))] md:justify-center md:px-6 md:py-24 [@media(min-width:768px)_and_(max-height:800px)_and_(pointer:coarse)]:py-10">
-          <div className="relative isolate flex max-w-[560px] flex-col gap-4 md:gap-[22px] [@media(max-width:767px)_and_(max-height:600px)]:gap-3 [@media(min-width:768px)_and_(max-height:800px)_and_(pointer:coarse)]:gap-4">
+        {/* The whole text block fits the first screen on phones, tablets and laptops (PPS Admin, 2026-11-07):
+            on phones the hero is one screen tall with the text at the bottom and the photo filling whatever is
+            left above, and short phones tighten the type and spacing. From tablet width up, the padding, gaps,
+            headline and paragraph scale down with the screen's height on screens under about 820px tall (a
+            landscape tablet, a 1366x768 laptop); taller screens keep the approved sizes. */}
+        <div className="relative mx-auto flex min-h-[calc(100svh-var(--site-header-h))] max-w-[1200px] flex-col justify-end px-5 pb-7 pt-10 md:min-h-[min(660px,calc(100svh-var(--site-header-h)))] md:justify-center md:px-6 md:py-[clamp(24px,calc(100svh-744px),96px)]">
+          <div className="relative isolate flex max-w-[560px] flex-col gap-4 md:gap-[clamp(12px,calc(5svh-18px),22px)] [@media(max-width:767px)_and_(max-height:600px)]:gap-3">
             {/* Phones: the shade starts above the eyebrow and runs to the bottom of the hero, however tall the
                 screen and however the text wraps. */}
             <div
@@ -242,11 +244,11 @@ export default function HomeNext() {
             <Eyebrow onDark>Are You Built for What's Next?</Eyebrow>
             <h1
               id="home-hero-heading"
-              className="font-display text-[36px] font-bold leading-[1.04] tracking-[-0.01em] text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.3)] [text-wrap:balance] md:text-[56px] lg:text-[72px] [@media(max-width:767px)_and_(max-height:600px)]:text-[32px] [@media(min-width:768px)_and_(max-height:800px)_and_(pointer:coarse)]:text-[52px]"
+              className="font-display text-[36px] font-bold leading-[1.04] tracking-[-0.01em] text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.3)] [text-wrap:balance] md:text-[length:clamp(40px,calc(14svh-38px),56px)] lg:text-[length:clamp(40px,calc(14svh-38px),72px)] [@media(max-width:767px)_and_(max-height:600px)]:text-[32px]"
             >
               Build an Organization That Can Do Epic <ShIFt onDark large />
             </h1>
-            <p className="max-w-[30em] text-[17px] leading-normal text-[#F1F6F7] [text-shadow:0_1px_12px_rgba(0,0,0,0.35)] md:text-xl [@media(max-width:767px)_and_(max-height:600px)]:text-base [@media(min-width:768px)_and_(max-height:800px)_and_(pointer:coarse)]:text-lg">
+            <p className="max-w-[30em] text-[17px] leading-normal text-[#F1F6F7] [text-shadow:0_1px_12px_rgba(0,0,0,0.35)] md:text-[length:clamp(17px,calc(2.5svh+1px),20px)] md:leading-[1.4] [@media(max-width:767px)_and_(max-height:600px)]:text-base">
               You have a vision for who your organization can become next. Is that future being authored with
               intention, or inherited through assumption?
             </p>

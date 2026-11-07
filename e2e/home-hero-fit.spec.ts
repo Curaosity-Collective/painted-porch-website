@@ -1,12 +1,12 @@
 import { test, expect, type Page } from "../playwright-fixture";
 
 /**
- * The homepage hero's whole text block is visible on the first screen on phones and tablets (PPS Admin,
- * 2026-11-07: "On mobile and tablet the hero text should fully load and be visible on page").
+ * The homepage hero's whole text block is visible on the first screen on phones, tablets and laptops (PPS Admin,
+ * 2026-11-07: "On mobile and tablet the hero text should fully load and be visible on page", then "Yes" to
+ * extending it to short laptop screens).
  *
  * Viewports are the visible area a browser leaves on load, toolbars subtracted: an iPhone SE in Safari is
- * 375x553, the shortest common case. Landscape tablets are emulated as touch screens, because the tighter
- * landscape spacing applies only to touch screens (desktops keep the approved design).
+ * 375x553, the shortest common phone; a 1366x768 laptop shows about 1366x657 in a browser.
  */
 
 async function expectHeroTextOnFirstScreen(page: Page) {
@@ -38,11 +38,25 @@ const TABLETS = [
   { name: "iPad landscape, Safari", width: 1024, height: 700 },
   { name: "iPad Pro 11 landscape, Safari", width: 1194, height: 770 },
 ];
+const LAPTOPS = [
+  { name: "1280x720 laptop", width: 1280, height: 609 },
+  { name: "1366x768 laptop", width: 1366, height: 657 },
+  { name: "1280x800 Mac", width: 1280, height: 689 },
+  { name: "1440x900 Mac", width: 1440, height: 789 },
+];
 
 test.describe("Homepage hero fits the first screen", () => {
   for (const vp of [...PHONES, ...TABLETS]) {
     test.describe(vp.name, () => {
       test.use({ viewport: { width: vp.width, height: vp.height }, hasTouch: true, isMobile: true });
+      test(`whole text block visible on load (${vp.width}x${vp.height})`, async ({ page }) => {
+        await expectHeroTextOnFirstScreen(page);
+      });
+    });
+  }
+  for (const vp of LAPTOPS) {
+    test.describe(vp.name, () => {
+      test.use({ viewport: { width: vp.width, height: vp.height } });
       test(`whole text block visible on load (${vp.width}x${vp.height})`, async ({ page }) => {
         await expectHeroTextOnFirstScreen(page);
       });
