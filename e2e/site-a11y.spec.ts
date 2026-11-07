@@ -44,7 +44,7 @@ const ROUTES: Array<{ name: string; path: string }> = [
   { name: "Speaker — Amy",              path: "/speaking/amy" },
   { name: "Speaker — Rob",              path: "/speaking/rob" },
   { name: "Speaker — Sierra",           path: "/speaking/sierra" },
-  // /start-here auto-opens the quiz dialog and is covered by b2c-quiz.spec.ts.
+  // /start-here is retired and forwards to /the-path; the guide is covered by b2c-quiz.spec.ts.
   { name: "Contact",                    path: "/contact" },
   { name: "Terms",                      path: "/terms" },
   { name: "Sitemap",                    path: "/sitemap" },

@@ -1,6 +1,7 @@
 import { test, expect, type Page } from "../playwright-fixture";
 import { PQ1, PQ2_B2C, B2C_QUESTIONS } from "../src/data/pathFinderQuiz";
 import { assertRecommendationLinksValid } from "./helpers/recommendationLinks";
+import { openGuide } from "./helpers/openGuide";
 
 /**
  * Real-browser smoke for PPS Op Platform supplemental recommendations.
@@ -64,10 +65,7 @@ test.describe("PPS Op Platform recommendation links (real browser)", () => {
   test("every rendered recommendation link navigates to a working page", async ({
     page,
   }) => {
-    await page.goto("/start-here");
-    await expect(
-      page.getByText(/I'm here because I'm thinking about/i),
-    ).toBeVisible({ timeout: 5000 });
+    await openGuide(page);
 
     await walkB2C(page);
 
