@@ -50,6 +50,13 @@
       "when": 1794014325245,
       "tag": "0006_partner_pages_move_to_top_level",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1794014343107,
+      "tag": "0007_offering_url_moves_access_grants",
+      "breakpoints": true
     }
   ]
 }
