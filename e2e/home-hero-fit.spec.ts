@@ -29,8 +29,9 @@ async function expectHeroTextOnFirstScreen(page: Page) {
 /**
  * WCAG contrast of each line of hero text against the photo behind it: the text is hidden, and its color is
  * compared with the brightest 2% of the pixels where it sits. The IF stays its bright raspberry over the photo
- * (PPS-DEC-0022 item 6, 3:1 for a large heading); a soft shade behind the text block, not a darker photo, keeps it
- * readable (PPS Admin, 2026-11-07: "JUST darken the area behind the text as a gradient").
+ * (PPS-DEC-0022 item 6, 3:1 for a large heading); a soft shade behind the text block, on top of the light side
+ * shade, keeps it readable without darkening the rest of the photo (PPS Admin, 2026-11-07: "JUST darken the
+ * area behind the text as a gradient", then "I like the option that includes the side shade").
  */
 const MINIMUM = { eyebrow: 4.5, headline: 3, IF: 3, paragraph: 4.5, caption: 4.5, link: 4.5 } as const;
 type Item = keyof typeof MINIMUM;

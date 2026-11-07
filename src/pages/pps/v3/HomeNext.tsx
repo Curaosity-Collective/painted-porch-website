@@ -213,9 +213,17 @@ export default function HomeNext() {
           height={848}
           className="absolute inset-0 h-full w-full object-cover object-[78%_50%] md:object-[50%_42%]"
         />
-        {/* Light overlay across the photo. The shade that keeps the text readable travels with the text block
-            (below), so the rest of the photo stays bright. */}
-        <div aria-hidden="true" className="absolute inset-0 bg-[rgba(4,40,50,0.2)]" />
+        {/* Light overlay across the photo, deepening toward the text side on tablets and desktops; on phones the
+            shade travels with the text block, below. */}
+        <div aria-hidden="true" className="absolute inset-0 bg-[rgba(4,40,50,0.2)] md:hidden" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 hidden md:block"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(4,40,50,0.86) 0%, rgba(4,40,50,0.7) 32%, rgba(4,40,50,0.2) 52%, rgba(4,40,50,0) 66%), linear-gradient(rgba(4,40,50,0.2), rgba(4,40,50,0.2))",
+          }}
+        />
         {/* The whole text block fits the first screen on phones, tablets and laptops (PPS Admin, 2026-11-07):
             on phones the hero is one screen tall with the text at the bottom and the photo filling whatever is
             left above, and short phones tighten the type and spacing. From tablet width up, the padding, gaps,
@@ -233,13 +241,15 @@ export default function HomeNext() {
                   "linear-gradient(180deg, rgba(4,40,50,0) 0, rgba(4,40,50,0.82) 96px, rgba(4,40,50,0.94) 100%)",
               }}
             />
-            {/* Tablets and up: a soft shade behind the text block only, fading out at its edges, so the pillars
-                around the text stay bright (PPS Admin, 2026-11-07: "JUST darken the area behind the text as a
-                gradient"; "Too much of the pillars get hidden if its too dark"). It keeps the bright IF at 3:1 or
-                better over the photo, as PPS-DEC-0022 item 6 requires, without changing the IF's color. */}
+            {/* Tablets and up: on top of the side shade above, a soft shade behind the text block only, fading
+                out at its edges, so the pillars around the text stay bright (PPS Admin, 2026-11-07: "JUST darken
+                the area behind the text as a gradient"; "Too much of the pillars get hidden if its too dark"; then,
+                choosing between the mock-ups, "I like the option that includes the side shade"). It keeps the
+                bright IF at 3:1 or better over the photo, as PPS-DEC-0022 item 6 requires, without changing the
+                IF's color. */}
             <div
               aria-hidden="true"
-              className="absolute -inset-x-14 -inset-y-9 -z-10 hidden rounded-[48px] bg-[rgba(4,40,50,0.9)] blur-[40px] md:block"
+              className="absolute -inset-x-14 -inset-y-9 -z-10 hidden rounded-[48px] bg-[rgba(4,40,50,0.8)] blur-[40px] md:block"
             />
             <Eyebrow onDark>Are You Built for What's Next?</Eyebrow>
             <h1
