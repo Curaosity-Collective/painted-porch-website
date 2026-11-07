@@ -299,7 +299,7 @@ export default function ForIndividuals() {
         imageAlt="A brick wall painted in bold blocks of red, blue, green, yellow and pink"
         imageWidth={1368}
         imageHeight={1824}
-        photoProfile="cta-photo-individuals"
+        photoProfile="cta-photo-charcoal"
       />
     </div>
   );

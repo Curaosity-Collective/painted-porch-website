@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Check } from "lucide-react";
 import colorfulPath from "@/assets/colorful-path.jpg";
-import lightbulb from "@/assets/amplify-hero-lightbulb.jpg";
+import pillarsOnBlueprint from "@/assets/embody-hero-option2.jpg";
 import pathRoad from "@/assets/v3/path-to-shift-road.webp";
 import colorBurst from "@/assets/amplify-hero-energy.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
@@ -250,8 +250,7 @@ export default function ThePath() {
             <ShIFt lowercase onDark />: from the first honest question to the habits that make it second nature.
           </>
         }
-        image={colorfulPath}
-        imageAlt="A winding wooden path painted in bands of pink, raspberry, gold, green, teal and navy"
+        video={{ slotKey: "partner-hub-hero", poster: colorfulPath, alt: "A winding wooden road painted in bands of pink, raspberry, gold, green, teal and navy, running toward the horizon" }}
         ghost="P"
       />
 
@@ -458,8 +457,8 @@ export default function ThePath() {
           </div>
           <div className="lg:col-span-5">
             <img
-              src={lightbulb}
-              alt="A glowing lightbulb filled with swirls of color, standing in scattered paint and gold light"
+              src={pillarsOnBlueprint}
+              alt="Painted pillars in teal, purple, gold and lime rising from an architectural blueprint"
               width={1920}
               height={1080}
               loading="lazy"
@@ -535,6 +534,7 @@ export default function ThePath() {
         to={clarityCallSectionHref("path")}
         label="Start with a Clarity Call"
         image={colorBurst}
+        photoProfile="cta-photo-charcoal"
         imageAlt="A burst of teal, green, orange, raspberry, purple and gold color powder against black"
         imageWidth={1920}
         imageHeight={1080}

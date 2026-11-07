@@ -231,7 +231,7 @@ export function CTABand({
   imageHeight?: number;
   /** Colour identity of the page this CTA sits on. */
   tone?: keyof typeof CTA_TONES;
-  /** Per-photo contrast profile class from src/styles/v3.css (e.g. "cta-photo-envision"). */
+  /** Per-photo contrast profile class from src/styles/v3.css (e.g. "cta-photo-charcoal"). */
   photoProfile?: string;
   /** Optional quiet secondary action under the main button. */
   secondary?: ReactNode;

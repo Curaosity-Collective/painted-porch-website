@@ -1,6 +1,6 @@
 import { Check, MessageSquare } from "lucide-react";
 
-import blueDoorImg from "@/assets/v3/blue-door.jpg";
+import amplifyPoster from "@/assets/v3/amplify-hero-poster.jpg";
 import blueDoorDusk from "@/assets/v3/blue-door-dusk.jpg";
 import porchEvening from "@/assets/v3/porch-evening.jpg";
 import thresholdDusk from "@/assets/v3/threshold-dusk.jpg";
@@ -105,7 +105,7 @@ export default function EnvisionShift() {
   useDocumentSeo({
     title: TITLE,
     description: DESCRIPTION,
-    ogImage: blueDoorImg,
+    ogImage: amplifyPoster,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -136,8 +136,7 @@ export default function EnvisionShift() {
             Every epic <ShIFt lowercase onDark /> begins at a threshold: an honest appraisal of what your organization is realistically able to carry. An interview-led organizational 360 determines which change and direction make sense to pursue next.
           </>
         }
-        image={blueDoorImg}
-        imageAlt="A cobalt blue door set in a pale stone wall"
+        video={{ slotKey: "amplify-hero", poster: amplifyPoster, alt: "A glowing light bulb throwing sparks and flecks of color" }}
         tone="prepare"
         ghost="B"
       />
@@ -308,7 +307,7 @@ export default function EnvisionShift() {
 
       <CTABand
         tone="prepare"
-        photoProfile="cta-photo-envision"
+        photoProfile="cta-photo-charcoal"
         title="Ready to Begin?"
         body={
           <>

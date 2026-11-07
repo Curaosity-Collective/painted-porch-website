@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import porchInColor from "@/assets/embody-hero-option1.jpg";
+import embodyPoster from "@/assets/v3/embody-hero-poster.jpg";
 import stoa from "@/assets/embody-concept-stoa.jpg";
 import pergola from "@/assets/embody-hero-option10.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
@@ -41,7 +41,7 @@ export default function EmbodyShift() {
   useDocumentSeo({
     title: TITLE,
     description: DESCRIPTION,
-    ogImage: porchInColor,
+    ogImage: embodyPoster,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -74,8 +74,7 @@ export default function EmbodyShift() {
           </>
         }
         intro="Your organization is ready to design and lead the change it envisioned and authored. Ongoing advisory reinforces the habits, judgment, decision authority, and structures that make change, innovation, and transformation a continuous practice."
-        image={porchInColor}
-        imageAlt="A wooden porch filled with bursts of teal, purple, lime, gold and raspberry color"
+        video={{ slotKey: "embody-hero", poster: embodyPoster, alt: "A classical temple whose pillars light up one by one in teal, gold, lime, raspberry and purple" }}
         tone="habits"
         ghost="E"
       />
@@ -172,6 +171,7 @@ export default function EmbodyShift() {
         to={clarityCallSectionHref("embody")}
         label="Start with a Clarity Call"
         image={pergola}
+        photoProfile="cta-photo-charcoal cta-photo-bright"
         imageAlt="A finished pergola with teal, purple, lime, gold and raspberry beams standing on its blueprint"
         imageWidth={1344}
         imageHeight={768}
