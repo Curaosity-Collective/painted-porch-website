@@ -5,6 +5,10 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Route, Routes, useLocation } from "react-router-dom";
 import { MovedTo } from "@/components/pps/MovedTo";
 import { movedPages, routes } from "../../scripts/prerender-content.mjs";
+import { FORWARDS_TO, MOVED_FROM } from "@/config/movedPages";
+import { resolvePageStatus } from "@/config/pageStatus";
+import type { PageStatusMap, PageStatusRecord } from "@/hooks/usePageStatuses";
+import { PATHWAY_LINKS } from "@/components/v3/siteNav";
 
 /**
  * The pages under /partner/ignite and /partner/amplify moved to top-level addresses
@@ -61,6 +65,56 @@ describe("moved pages", () => {
       expect(paths.has(from), from).toBe(false);
       expect(MOVES.some(([f, t]) => `/${f}` === from && t === to), from).toBe(true);
     }
+  });
+
+  it("lists every forwarding route in movedPages.ts, and nothing else", () => {
+    const app = read("src/App.tsx");
+    const forwards = new Map<string, string>();
+    const route = /<Route path="([^"]+)" element=\{<(?:MovedTo to="([^"]+)" \/>|Navigate to="([^"]+)" replace \/>)\} \/>/g;
+    const destinations = new Set(Object.values(FORWARDS_TO));
+    for (const m of app.matchAll(route)) {
+      const to = m[2] ?? m[3];
+      if (m[2] || destinations.has(to)) forwards.set(`/${m[1]}`, to);
+    }
+    expect(Object.fromEntries(forwards)).toEqual(FORWARDS_TO);
+    // No forward leads to another forward, so status resolution never chains or loops.
+    for (const to of destinations) expect(FORWARDS_TO[to], to).toBeUndefined();
+    // Each moved page's old address forwards to it, and the prerendered forwarding pages agree.
+    for (const [to, from] of Object.entries(MOVED_FROM)) expect(FORWARDS_TO[from], from).toBe(to);
+    for (const { from, to } of movedPages as { from: string; to: string }[]) expect(MOVED_FROM[to], to).toBe(from);
+  });
+
+  describe("page status through a move", () => {
+    const rec = (path: string, status: "live" | "draft") =>
+      ({ id: path, path, status, category: "other", note: null, updated_at: "" }) as unknown as PageStatusRecord;
+    const mapOf = (...records: PageStatusRecord[]) => Object.fromEntries(records.map((r) => [r.path, r])) as PageStatusMap;
+
+    it("keeps the footer's Leaders & Teams links when only the old addresses have rows (the 2026-11-06 incident)", () => {
+      const map = mapOf(
+        rec("/partner/ignite/assessments", "live"),
+        rec("/partner/ignite/masterclasses", "live"),
+        rec("/partner/amplify/labs", "live"),
+        rec("/partner/amplify/workshops", "live"),
+      );
+      for (const link of PATHWAY_LINKS) expect(resolvePageStatus(link.href, map), link.href).toBe("live");
+    });
+
+    it("carries the old address's status, Draft included, until the new address has its own row", () => {
+      expect(resolvePageStatus("/workshops", mapOf(rec("/partner/amplify/workshops", "draft")))).toBe("draft");
+      const both = mapOf(rec("/partner/amplify/workshops", "live"), rec("/workshops", "draft"));
+      expect(resolvePageStatus("/workshops", both)).toBe("draft");
+    });
+
+    it("gives a forward-only address its destination's status, unless it has a row of its own", () => {
+      const map = mapOf(rec("/partner/amplify/workshops", "live"), rec("/partner/amplify/labs", "draft"));
+      expect(resolvePageStatus("/amplify", map)).toBe("live");
+      expect(resolvePageStatus("/labs", map)).toBe("draft");
+      expect(resolvePageStatus("/amplify", mapOf(rec("/workshops", "live"), rec("/amplify", "draft")))).toBe("draft");
+    });
+
+    it("still treats an address that never moved, with no row, as Draft", () => {
+      expect(resolvePageStatus("/not-a-moved-page", mapOf(rec("/partner/amplify/workshops", "live")))).toBe("draft");
+    });
   });
 
   it("links to the new addresses, not the old ones, in the menus, footer and guide data", () => {

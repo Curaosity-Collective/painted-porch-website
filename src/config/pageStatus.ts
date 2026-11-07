@@ -13,6 +13,7 @@
  */
 
 import type { PageStatus, PageStatusMap, PageStatusRecord } from "@/hooks/usePageStatuses";
+import { FORWARDS_TO, MOVED_FROM } from "@/config/movedPages";
 
 export type { PageStatus, PageStatusRecord, PageStatusMap };
 
@@ -86,18 +87,36 @@ function matchesPath(pattern: string, pathname: string): boolean {
  * Default (no override): "draft" — every new URL is hidden until an admin
  * explicitly marks it Live in /admin/pages or /sitemap. Always-live prefixes
  * (admin, auth, sitemap, 404, contact) bypass this and stay Live.
+ *
+ * Moves (src/config/movedPages.ts): a page that moved address and has no row
+ * yet keeps its old address's status, and an address that only forwards takes
+ * its destination's status. A row of the path's own always wins.
  */
 export function resolvePageStatus(pathname: string, map: PageStatusMap): PageStatus {
   const clean = stripQuery(pathname);
   if (isAlwaysLive(clean)) return "live";
-  // Exact match first (fast path).
+  const own = ownStatus(clean, map);
+  if (own) return own;
+  // No row of its own. A page that moved keeps the status of the address it moved from, and an
+  // address that only forwards takes the status of its destination (see movedPages.ts).
+  const movedFrom = MOVED_FROM[clean];
+  if (movedFrom) {
+    const previous = ownStatus(movedFrom, map);
+    if (previous) return previous;
+  }
+  const destination = FORWARDS_TO[clean];
+  if (destination) return resolvePageStatus(destination, map);
+  return "draft";
+}
+
+/** The status recorded for this path itself: an exact row, else a :param pattern row. */
+function ownStatus(clean: string, map: PageStatusMap): PageStatus | undefined {
   const exact = map[clean];
   if (exact) return exact.status;
-  // Pattern match (for routes registered with :param patterns in the DB).
   for (const record of Object.values(map)) {
     if (matchesPath(record.path, clean)) return record.status;
   }
-  return "draft";
+  return undefined;
 }
 
 export function resolvePageStatusEntry(
