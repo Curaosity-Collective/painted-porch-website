@@ -62,10 +62,17 @@ describe("hero videos and closing photos", () => {
 
   it("darkens the closing bands that would otherwise run into the teal footer with the charcoal wash", () => {
     // Architect and Embody too: their burgundy and green washes left the light-raspberry IF under AA.
-    for (const page of ["EnvisionShift", "ArchitectShift", "EmbodyShift", "ThePath", "PhaseZeroNext", "ResultsImpact", "ForIndividuals"]) {
+    // About joined on 2026-11-07 with the blue door; the homepage's band is not a photo band.
+    for (const page of ["AboutNext", "EnvisionShift", "ArchitectShift", "EmbodyShift", "ThePath", "PhaseZeroNext", "ResultsImpact", "ForIndividuals"]) {
       const band = source(page).slice(source(page).lastIndexOf("<CTABand"));
       expect(band, page).toMatch(/photoProfile="cta-photo-charcoal\b/);
     }
+  });
+
+  it("closes About with the blue door, and shows Rob centred at his desk on its team card (PPS Admin, 2026-11-07)", () => {
+    const about = source("AboutNext");
+    expect(closingPhoto(about)).toBe("@/assets/v3/blue-door.jpg");
+    expect(assetOf(about, "robPhoto")).toBe("@/assets/team/rob-hunter-desk.jpg");
   });
 
   it("doesn't show the lantern scene twice: Architect's video poster isn't another page's photo", () => {
