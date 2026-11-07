@@ -246,7 +246,7 @@ export default function HomeNext() {
             >
               Build an Organization That Can Do Epic <ShIFt onDark large />
             </h1>
-            <p className="max-w-[30em] text-[17px] leading-normal text-[#F1F6F7] [text-shadow:0_1px_12px_rgba(0,0,0,0.35)] md:text-xl md:leading-relaxed [@media(max-width:767px)_and_(max-height:600px)]:text-base [@media(min-width:768px)_and_(max-height:800px)_and_(pointer:coarse)]:text-lg">
+            <p className="max-w-[30em] text-[17px] leading-normal text-[#F1F6F7] [text-shadow:0_1px_12px_rgba(0,0,0,0.35)] md:text-xl [@media(max-width:767px)_and_(max-height:600px)]:text-base [@media(min-width:768px)_and_(max-height:800px)_and_(pointer:coarse)]:text-lg">
               You have a vision for who your organization can become next. Is that future being authored with
               intention, or inherited through assumption?
             </p>
