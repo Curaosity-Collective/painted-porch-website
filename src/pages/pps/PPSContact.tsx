@@ -257,8 +257,9 @@ export default function PPSContact() {
         title="Let's Start a Conversation"
         intro="Whether you're exploring possibilities or ready to move forward, we'd love to hear from you to determine next steps for partnering together on the Painted Porch."
         action={{ label: "Contact Us", to: "#contact-options" }}
-        // Two rocking chairs on a porch at sunset: the conversation (site_videos slot "about-hero").
-        video={{ slotKey: "about-hero", poster: contactPoster, alt: "Two rocking chairs on a porch at sunset, curtains moving in the breeze" }}
+        // Two rocking chairs on a porch at sunset: the conversation (site_videos slot "contact-hero", where PPS
+        // Admin uploaded the compressed porch video on 2026-11-07).
+        video={{ slotKey: "contact-hero", poster: contactPoster, alt: "Two rocking chairs on a porch at sunset, curtains moving in the breeze" }}
         ghost="C"
       />
 
