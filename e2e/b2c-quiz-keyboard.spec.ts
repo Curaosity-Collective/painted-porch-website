@@ -1,5 +1,6 @@
 import { test, expect, type Page } from "../playwright-fixture";
 import { PQ1, PQ2_B2C, B2C_QUESTIONS } from "../src/data/pathFinderQuiz";
+import { openGuide } from "./helpers/openGuide";
 
 /**
  * Keyboard-only navigation guardrails for the B2C P.A.T.H.way quiz.
@@ -124,10 +125,7 @@ test.describe("B2C quiz — keyboard-only navigation", () => {
   });
 
   test("walks the full RT3-cohort flow using only Tab/Shift+Tab/Enter/Space", async ({ page }) => {
-    await page.goto("/start-here");
-    await expect(
-      page.getByText(/I'm here because I'm thinking about/i),
-    ).toBeVisible({ timeout: 5000 });
+    await openGuide(page, { keyboard: true });
 
     // PQ1 — verify Shift+Tab also works (reverse traversal, no trap).
     const firstOption = page

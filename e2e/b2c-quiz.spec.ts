@@ -1,5 +1,6 @@
 import { test, expect, type Page } from "../playwright-fixture";
 import AxeBuilder from "@axe-core/playwright";
+import { openGuide } from "./helpers/openGuide";
 import {
   PQ1,
   PQ2_B2C,
@@ -149,12 +150,7 @@ test.describe("B2C P.A.T.H.way quiz (real browser)", () => {
 
   for (const flow of FLOWS) {
     test(flow.name, async ({ page }) => {
-      await page.goto("/start-here");
-
-      // Quiz auto-opens 350ms after landing. Wait for the first prompt.
-      await expect(
-        page.getByText(/I'm here because I'm thinking about/i),
-      ).toBeVisible({ timeout: 5000 });
+      await openGuide(page);
 
       await walkB2C(page, flow.answers);
 
@@ -172,8 +168,9 @@ test.describe("B2C P.A.T.H.way quiz (real browser)", () => {
       await expect(dialogLinks.first()).toBeVisible();
       expect(await dialogLinks.count()).toBeGreaterThan(0);
 
-      // "What Comes Next" panel renders on every non-RT6 result.
-      await expect(page.getByText(/What Comes Next/i)).toBeVisible();
+      // "What Comes Next" panel renders on every non-RT6 result. Scoped to the guide's dialog: the page
+      // behind it (the homepage, since Start Here was retired) has its own "What comes next" copy.
+      await expect(page.getByRole("dialog").getByText(/What Comes Next/i)).toBeVisible();
 
       // Accessibility: result dialog must have no critical/serious violations.
       await assertNoCriticalA11yViolations(page, `result page for "${flow.name}"`);
@@ -181,10 +178,7 @@ test.describe("B2C P.A.T.H.way quiz (real browser)", () => {
   }
 
   test("RT6 — Explore Before Committing (Q6=A bypass) shows exploration groups, no primary", async ({ page }) => {
-    await page.goto("/start-here");
-    await expect(
-      page.getByText(/I'm here because I'm thinking about/i),
-    ).toBeVisible({ timeout: 5000 });
+    await openGuide(page);
 
     await walkB2C(page, ["A", "current", "A", "A", "A", "A", "A", "A"]);
 
