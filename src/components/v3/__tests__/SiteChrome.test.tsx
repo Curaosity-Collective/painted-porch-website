@@ -241,11 +241,12 @@ describe("SiteFooter", () => {
 const ROUNDED = /(?:^|\s)(?:[a-z0-9]+:)*rounded(?:-(?!none\b)[\w[\]-]+)?(?=\s|$)/;
 
 describe("call-to-action buttons have square corners", () => {
-  it("the header's Find Your Next ShIFt button", () => {
+  it("except the header's Find Your Next ShIFt, which matches the pill-shaped bar it sits in", () => {
+    // PPS Admin, 2026-11-07, on the header: "That one can match the shape of the header".
     renderAt(<SiteHeader />);
     const buttons = screen.getAllByRole("button").filter((b) => flat(b.textContent ?? "") === "FindYourNextShIFt");
     expect(buttons).toHaveLength(1);
-    expect(buttons[0].className).not.toMatch(ROUNDED);
+    expect(buttons[0]).toHaveClass("rounded-full");
   });
 
   it("the footer's Contact Us and Subscribe buttons", () => {
