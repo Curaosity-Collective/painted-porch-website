@@ -28,8 +28,6 @@ const MOVES: [string, string][] = [
   ["partner/amplify/labs", "/leadership-labs"],
   ["partner/amplify/stractical-leader", "/leadership-labs/stractical-leader"],
   ["partner/amplify/stractical-leader/enroll", "/leadership-labs/stractical-leader/enroll"],
-  // Retired rather than moved (PPS Admin, 2026-11-07).
-  ["start-here", "/the-path"],
 ];
 
 function Where() {
@@ -83,11 +81,7 @@ describe("moved pages", () => {
     for (const to of destinations) expect(FORWARDS_TO[to], to).toBeUndefined();
     // Each moved page's old address forwards to it, and the prerendered forwarding pages agree.
     for (const [to, from] of Object.entries(MOVED_FROM)) expect(FORWARDS_TO[from], from).toBe(to);
-    // A retired address forwards without its destination having moved from it (Start Here → The P.A.T.H.).
-    for (const { from, to, retired } of movedPages as { from: string; to: string; retired?: boolean }[]) {
-      if (retired) expect(FORWARDS_TO[from], from).toBe(to);
-      else expect(MOVED_FROM[to], to).toBe(from);
-    }
+    for (const { from, to } of movedPages as { from: string; to: string }[]) expect(MOVED_FROM[to], to).toBe(from);
   });
 
   describe("page status through a move", () => {
@@ -138,17 +132,22 @@ describe("moved pages", () => {
     }
   });
 
-  it("retires Start Here: it forwards to The P.A.T.H., and the search result opens the guide (PPS Admin, 2026-11-07)", () => {
+  it("opens the guide from /start-here and the search result; the Start Here page is retired (PPS Admin, 2026-11-07)", () => {
     const app = read("src/App.tsx");
-    expect(app).toContain('<Route path="start-here" element={<MovedTo to="/the-path" />} />');
-    expect(app).toContain('<Route path="for-leaders" element={<Navigate to="/the-path" replace />} />');
+    expect(app).toContain('<Route path="start-here" element={<StartHere />} />');
+    expect(app).toContain('<Route path="for-leaders" element={<Navigate to="/start-here" replace />} />');
+    // /for-leaders takes /start-here's status, so the Draft gate doesn't stop it.
+    expect(FORWARDS_TO["/for-leaders"]).toBe("/start-here");
+    expect(resolvePageStatus("/for-leaders", { "/start-here": { path: "/start-here", status: "live" } } as unknown as PageStatusMap)).toBe("live");
+    // The address opens the guide over the homepage; no Start Here page is built or listed.
+    const startHere = read("src/pages/pps/StartHere.tsx");
+    expect(startHere).toMatch(/openGuide\(\)/);
+    expect(startHere).toMatch(/<Navigate to=\{`\/\$\{search\}\$\{hash\}`\} replace \/>/);
     expect(routes.some((r: { path: string }) => r.path === "/start-here")).toBe(false);
+    expect(read("scripts/generate-sitemap.mjs")).not.toContain('"/start-here"');
+    // The search result opens the guide where the visitor is.
     const search = read("src/components/pps/SiteSearch.tsx");
-    expect(search).not.toContain('"/start-here"');
     expect(search).toMatch(/title: "Find Your Next ShIFt",[^\n]*opensGuide: true/);
     expect(search).toMatch(/if \(entry\.opensGuide\) setTimeout\(openGuide, 0\);/);
-    for (const file of ["src/components/v3/siteNav.ts", "src/pages/pps/v3/HomeNext.tsx", "src/components/v3/SiteFooter.tsx"]) {
-      expect(read(file), file).not.toContain("/start-here");
-    }
   });
 });
