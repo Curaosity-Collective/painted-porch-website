@@ -309,21 +309,14 @@
 .pps-v3.site-header {
   background-color: transparent;
 }
-/* At rest the pill lets the hero show through (PPS Admin, 2026-11-07: "soften ... from being solid white").
-   Phones: 88%, the look PPS Admin chose; the pill there holds only the logo and icons, which need 3:1
-   (the teal menu icon measures 4.27:1). Desktop: 94%, the most see-through that keeps the menu text at
-   AA over the darkest heroes (raspberry IF 4.60:1, heading-teal current-page link 4.75:1; at 88% they
-   measured 4.10 and 4.27). */
+/* At rest the pill lets the hero show through at 88% (PPS Admin, 2026-11-07: "soften ... from being solid white").
+   The top-level menu labels are dark, with a plain bold IF and an underline for the current section, so they keep
+   AA over any hero; the teal menu icon on phones measures 4.08:1 (needs 3:1). */
 .nav-pill-rest {
   border: 1px solid hsl(var(--v3-teal-deep) / 0.1);
   background-color: hsl(0 0% 100% / 0.88);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-}
-@media (min-width: 1024px) {
-  .nav-pill-rest {
-    background-color: hsl(0 0% 100% / 0.94);
-  }
 }
 .nav-pill-active {
   border: 1px solid hsl(var(--v3-teal-deep) / 0.18);
