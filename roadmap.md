@@ -31,3 +31,4 @@
 - [x] Ensure contact, speaking, press and press-kit inquiries queue requester receipts with submitted details and a 24–48 business-hour response window; all four real form tests recorded sent emails and 66 checks passed.
 - [x] Correct Team Workshops destination and restore Leaders & Teams footer links without exposing drafts; verified all four links and workshop navigation.
 - [x] Ensure For Individuals opens its available page instead of Coming Soon; verified masterclasses navigation.
+- [ ] Upload the compressed gold pathway video to Approach and the porch video to Contact in Site Videos; leave About unchanged and verify both saved entries.
