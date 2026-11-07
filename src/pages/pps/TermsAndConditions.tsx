@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import termsHero from "@/assets/terms-hero.jpg";
-import { TierHeroSection } from "@/components/pps/TierHeroSection";
+import { PageHero } from "@/components/v3/Bits";
 
 const VALID_TABS = new Set(["terms", "privacy", "cookies"]);
 const POLICY_EMAIL = "policies@onthepaintedporch.com";
@@ -36,20 +36,18 @@ const TermsAndConditions = () => {
 
   return (
     <div>
-      <TierHeroSection underHeader
-        customBadge={
-          <span className="inline-block bg-gold/90 text-navy font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
-            Legal
-          </span>
+      <PageHero
+        kicker="Legal"
+        title={headlines[tab].headline}
+        intro={
+          <>
+            <p>{headlines[tab].sub}</p>
+            <p className="mt-3 italic">Last Updated: November 6, 2026</p>
+          </>
         }
-        headline={headlines[tab].headline}
-        subheadline={headlines[tab].sub}
-        description={
-          <p className="text-white/60 italic text-body">Last Updated: November 6, 2026</p>
-        }
-        ctas={[]}
-        background={{ type: "image", src: termsHero }}
-        overlayClass="bg-navy/20"
+        image={termsHero}
+        imageAlt="A contract splashed with teal, orange and raspberry paint"
+        ghost="L"
       />
 
       <section className="py-8 md:py-10 bg-white border-b border-border">

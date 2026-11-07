@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { Button } from "@/components/ui/button";
 import { Download, BookOpen, Youtube, Mic, HelpCircle, ArrowRight } from "lucide-react";
-import { TierHeroSection } from "@/components/pps/TierHeroSection";
+import { PageHero } from "@/components/v3/Bits";
 import resourcesHero from "@/assets/heroes/resources-hero.jpg";
 
 const resourceCategories = [
@@ -54,20 +54,14 @@ export default function ResourcesHub() {
   return (
     <div>
       {/* Hero */}
-      <TierHeroSection underHeader
-        customBadge={
-          <span className="inline-block bg-gold/90 text-navy font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
-            Resources
-          </span>
-        }
-        headline="Tools & Insights for Your Journey"
-        description="Free resources, thought leadership, and media to support your transformation journey."
-        ctas={[
-          { label: "Browse Free Resources", href: "/resources/free", isPrimary: true },
-        ]}
-        background={{ type: "image", src: resourcesHero }}
-        overlayClass="bg-navy/50"
-        minHeightClass="min-h-[60vh]"
+      <PageHero
+        kicker="Resources"
+        title="Tools & Insights for Your Journey"
+        intro="Free resources, thought leadership, and media to support your transformation journey."
+        action={{ label: "Browse Free Resources", to: "/resources/free" }}
+        image={resourcesHero}
+        imageAlt="Books on shelves painted teal, lime and raspberry in warm light"
+        ghost="R"
       />
 
       {/* Resource Categories */}

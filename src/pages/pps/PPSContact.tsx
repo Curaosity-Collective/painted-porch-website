@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
-import { TierHeroSection } from "@/components/pps/TierHeroSection";
+import { PageHero } from "@/components/v3/Bits";
+import contactPoster from "@/assets/v3/contact-hero-poster.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import contactHero from "@/assets/heroes/contact-hero.jpg";
@@ -251,20 +252,14 @@ export default function PPSContact() {
   return (
     <div>
       {/* Hero */}
-      <TierHeroSection underHeader
-        customBadge={
-          <span className="inline-block bg-gold/90 text-navy font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
-            Get In Touch
-          </span>
-        }
-        headline="Let's Start a Conversation"
-        description="Whether you're exploring possibilities or ready to move forward, we'd love to hear from you to determine next steps for partnering together on the Painted Porch."
-        ctas={[
-          { label: "Contact Us", href: "#contact-options", isAnchor: true, isPrimary: true },
-        ]}
-        background={{ type: "image", src: contactHero }}
-        overlayClass="bg-navy/50"
-        minHeightClass="min-h-[60vh]"
+      <PageHero
+        kicker="Get In Touch"
+        title="Let's Start a Conversation"
+        intro="Whether you're exploring possibilities or ready to move forward, we'd love to hear from you to determine next steps for partnering together on the Painted Porch."
+        action={{ label: "Contact Us", to: "#contact-options" }}
+        // Two rocking chairs on a porch at sunset: the conversation (site_videos slot "about-hero").
+        video={{ slotKey: "about-hero", poster: contactPoster, alt: "Two rocking chairs on a porch at sunset, curtains moving in the breeze" }}
+        ghost="C"
       />
 
       {/* Contact Form. Clarity Call links open the page here (PPS Admin, 2026-11-06). */}

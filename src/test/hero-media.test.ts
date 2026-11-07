@@ -79,16 +79,31 @@ describe("hero videos and closing photos", () => {
     expect(closingPhoto(source("ThePath"))).toBe("@/assets/heroes/start-here-hero.jpg");
   });
 
-  it("runs a hero under the floating header only where it is the first thing on the page (PPS Admin, 2026-11-07)", () => {
+  it("runs the v3 heroes up under the floating header (PPS Admin, 2026-11-07)", () => {
     const read = (p: string) => readFileSync(resolve(__dirname, "..", p), "utf8");
-    // The shared v3 hero and the homepage hero always lead their pages.
+    // The shared v3 hero and the homepage hero lead their pages, so they run up under the pill.
     expect(read("components/v3/Bits.tsx")).toMatch(/story-hero v3-under-header/);
     expect(source("HomeNext")).toMatch(/aria-labelledby="home-hero-heading" className="v3-under-header/);
-    // TierHeroSection opts in per page: a speaker page's breadcrumb and an archive banner sit above it.
-    expect(read("components/pps/TierHeroSection.tsx")).toMatch(/underHeader = false/);
-    expect(read("pages/pps/speaking/SpeakerDetailPage.tsx")).not.toMatch(/underHeader/);
-    expect(read("pages/pps/partner/EmbodyPathAltArchiveV2.tsx")).not.toMatch(/underHeader/);
-    expect(read("pages/pps/Speaking.tsx")).toMatch(/<TierHeroSection underHeader/);
+    // The old full-bleed hero stays where it is: a speaker page's breadcrumb sits above it.
+    expect(read("components/pps/TierHeroSection.tsx")).not.toMatch(/v3-under-header/);
+  });
+
+  it("moves the older pages to the v3 layout: a text block, then the image or video (PPS Admin, 2026-11-07)", () => {
+    const read = (p: string) => readFileSync(resolve(__dirname, "..", p), "utf8");
+    const older = [
+      "Speaking", "SpeakingWorkshopTopics", "resources/AsSeenOn", "PPSContact", "resources/ResourcesHub",
+      "resources/FreeDownloads", "resources/YouTubePage", "TermsAndConditions", "Press", "PressKit", "PPSBlog",
+    ];
+    for (const page of older) {
+      const src = read(`pages/pps/${page}.tsx`);
+      expect(src, page).toMatch(/<PageHero\b/);
+      expect(src, page).not.toMatch(/<TierHeroSection\b/);
+    }
+    // Contact: the porch rocking-chairs video. The stage photo is shared, for now, by the four speaking pages.
+    expect(read("pages/pps/PPSContact.tsx")).toMatch(/slotKey: "about-hero"/);
+    for (const page of ["Speaking", "SpeakingWorkshopTopics", "Press", "PressKit"]) {
+      expect(read(`pages/pps/${page}.tsx`), page).toMatch(/image=\{speakingHero\}/);
+    }
   });
 
   it("doesn't show the lantern scene twice: Architect's video poster isn't another page's photo", () => {

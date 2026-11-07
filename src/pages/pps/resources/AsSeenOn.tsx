@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { buildMediaAppearanceSchema, serializeMediaAppearanceSchema, MEDIA_PAGE_URL, mediaAppearancePath, type MediaSeoRecord } from "@/lib/media-appearance-seo.mjs";
-import { TierHeroSection } from "@/components/pps/TierHeroSection";
+import { PageHero } from "@/components/v3/Bits";
 import asSeenOnHero from "@/assets/heroes/as-seen-on-hero.jpg";
 import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -211,20 +211,14 @@ export default function AsSeenOn() {
   return (
     <div>
       {/* Hero */}
-      <TierHeroSection underHeader
-        customBadge={
-          <span className="inline-block bg-strategic/90 text-white font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
-            Media
-          </span>
-        }
-        headline="As Seen On"
-        description="Podcasts, interviews, and media appearances featuring our team sharing insights on change, leadership, and transformation."
-        ctas={[
-          { label: "Contact for Media", href: "/contact?interest=speaking&message=I'm reaching out about a media or speaking opportunity.", isPrimary: true },
-        ]}
-        background={{ type: "image", src: asSeenOnHero }}
-        overlayClass="bg-navy/50"
-        minHeightClass="min-h-[60vh]"
+      <PageHero
+        kicker="Media"
+        title="As Seen On"
+        intro="Podcasts, interviews, and media appearances featuring our team sharing insights on change, leadership, and transformation."
+        action={{ label: "Contact for Media", to: "/contact?interest=speaking&message=I'm reaching out about a media or speaking opportunity." }}
+        image={asSeenOnHero}
+        imageAlt="A studio microphone and headphones on a round table painted purple, gold and raspberry"
+        ghost="M"
       />
 
       {/* Filters & Search */}

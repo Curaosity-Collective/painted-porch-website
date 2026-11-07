@@ -324,8 +324,8 @@
   box-shadow: 0 10px 30px -12px hsl(var(--v3-teal-deep) / 0.3);
 }
 /* A hero that runs up under the floating header: it starts at the top of the page, and its content keeps
-   its place below the header. content-box keeps a hero's min-height for its content, so the extra top
-   padding doesn't shrink it (TierHeroSection, the blog hero). */
+   its place below the header. Used by the v3 PageHero and the homepage hero. content-box keeps any
+   min-height for the content, so the extra top padding never shrinks a hero. */
 .v3-under-header {
   box-sizing: content-box;
   margin-top: calc(-1 * var(--site-header-h));

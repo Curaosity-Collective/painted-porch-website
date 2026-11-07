@@ -47,6 +47,7 @@ export function PageHero({
   tone = "teal",
   ghost = "P",
   action,
+  secondary,
   video,
 }: {
   kicker: string;
@@ -58,7 +59,9 @@ export function PageHero({
   ghost?: string;
   /** Optional button under the intro: a link (the Phase Zero page's Clarity Call), or an action such as
    *  opening the Find Your Next ShIFt guide. */
-  action?: { label: ReactNode; to: string } | { label: ReactNode; onClick: () => void };
+  action?: { label: ReactNode; to: string } | { label: ReactNode; onClick: () => void } | { label: ReactNode; href: string };
+  /** Optional quieter link under the action (Speaking Topics: "Inquire About a Topic"). */
+  secondary?: { label: ReactNode; to: string };
   /** An admin-managed video (site_videos slot) in the band under the title, in place of `image`. */
   video?: { slotKey: string; poster: string; alt: string };
 }) {
@@ -89,6 +92,23 @@ export function PageHero({
               <span>{action.label}</span>
               <ArrowRight className="h-4 w-4" aria-hidden />
             </button>
+          )}
+          {action && "href" in action && (
+            // Another site (YouTube): opens in a new tab.
+            <a href={action.href} target="_blank" rel="noopener noreferrer" className={actionClass}>
+              <span>{action.label}</span>
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </a>
+          )}
+          {secondary && (
+            <p className="mt-5">
+              <Link
+                to={secondary.to}
+                className="font-semibold text-teal-foreground underline decoration-teal-foreground/50 underline-offset-4 hover:decoration-teal-foreground"
+              >
+                {secondary.label}
+              </Link>
+            </p>
           )}
         </div>
       </div>

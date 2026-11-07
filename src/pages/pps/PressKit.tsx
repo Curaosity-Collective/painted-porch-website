@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Check, Copy, Download, Mic, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/pps/Eyebrow";
-import { TierHeroSection } from "@/components/pps/TierHeroSection";
+import { PageHero } from "@/components/v3/Bits";
 import { ParallaxCTA } from "@/components/pps/ParallaxCTA";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { useToast } from "@/hooks/use-toast";
@@ -52,11 +52,15 @@ export default function PressKit() {
 
   return (
     <div className="bg-background text-foreground">
-      <TierHeroSection underHeader customBadge={<Eyebrow tone="gold">Press & Speaking</Eyebrow>}
-        headline={<>Painted Porch Strategies<span className="block text-2xl md:text-3xl font-medium mt-4">Press Kit</span></>}
-        description="The people, purpose, and voices behind extraordinary teams and Epic ShIFt."
-        background={{ type: "image", src: speakingHero }} overlayClass="bg-navy/70" textBoxClass="!p-0" minHeightClass="min-h-[60vh]"
-        ctas={[]} />
+      <PageHero
+        kicker="Press & Speaking"
+        title={<>Painted Porch Strategies<span className="mt-4 block text-2xl font-medium md:text-3xl">Press Kit</span></>}
+        intro="The people, purpose, and voices behind extraordinary teams and Epic ShIFt."
+        // Shared for now with Speaking, Speaking Topics and Press; a speaker reel collage will replace it.
+        image={speakingHero}
+        imageAlt="A speaker at a podium on a stage of painted panels under teal, purple and gold spotlights, facing an audience"
+        ghost="K"
+      />
 
       <nav aria-label="Press kit sections" className="border-b border-border">
         <div className="container max-w-7xl mx-auto px-6 py-5 flex flex-wrap gap-x-8 gap-y-3 font-semibold text-primary">

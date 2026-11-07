@@ -52,12 +52,6 @@ interface TierHeroSectionProps {
   minHeightClass?: string;
   /** Extra classes (e.g. object-position) applied to the background media element */
   mediaClassName?: string;
-  /**
-   * Run the hero up under the floating site header (PPS Admin, 2026-11-07; `.v3-under-header` in
-   * src/styles/v3.css). Only for a hero that is the first thing on its page: anything above it, such
-   * as a breadcrumb or an archive banner, would be covered. Off by default.
-   */
-  underHeader?: boolean;
 }
 
 /**
@@ -85,7 +79,6 @@ export function TierHeroSection({
   textBoxClass = "bg-black/50 backdrop-blur-sm",
   minHeightClass = "min-h-[70vh]",
   mediaClassName = "",
-  underHeader = false,
 }: TierHeroSectionProps) {
   // Staggered text fade-in (matches Blue Door HeroSectionAlt)
   const [isLoaded, setIsLoaded] = useState(false);
@@ -110,7 +103,7 @@ export function TierHeroSection({
   const bgTransform = `translateY(${parallaxOffset}px) scale(1.08)`;
 
   return (
-    <section ref={sectionRef} data-hero="" className={`${underHeader ? "v3-under-header " : ""}relative isolate ${minHeightClass} flex items-center overflow-hidden`}>
+    <section ref={sectionRef} data-hero="" className={`relative isolate ${minHeightClass} flex items-center overflow-hidden`}>
       {/* Background (parallax wrapper) */}
       <div
         className="absolute inset-0 will-change-transform"
