@@ -967,6 +967,39 @@ export type Database = {
         }
         Relationships: []
       }
+      path_finder_offerings_text_changes: {
+        Row: {
+          changed_at: string
+          column_name: string
+          id: string
+          new_value: string | null
+          offering_id: string
+          offering_key: string | null
+          old_value: string | null
+          reason: string
+        }
+        Insert: {
+          changed_at?: string
+          column_name: string
+          id?: string
+          new_value?: string | null
+          offering_id: string
+          offering_key?: string | null
+          old_value?: string | null
+          reason: string
+        }
+        Update: {
+          changed_at?: string
+          column_name?: string
+          id?: string
+          new_value?: string | null
+          offering_id?: string
+          offering_key?: string | null
+          old_value?: string | null
+          reason?: string
+        }
+        Relationships: []
+      }
       path_finder_offerings_url_moves: {
         Row: {
           column_name: string
