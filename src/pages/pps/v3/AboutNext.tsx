@@ -1,7 +1,7 @@
 import porchTemple from "@/assets/about/painted-porch-temple.jpg";
 import porchSunset from "@/assets/heroes/about-hero.jpg";
 import amyPhoto from "@/assets/team/amy-yackowski.png";
-import robPhoto from "@/assets/team/rob-hunter-square.jpg";
+import robPhoto from "@/assets/team/rob-hunter.jpg";
 import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
 import { Check, X } from "lucide-react";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
@@ -44,10 +44,11 @@ const TEAM = [
     name: "Rob Hunter",
     title: "Chief Storytelling Officer | M.C., Master of Communication",
     to: "/speaking/rob",
-    // A square crop centred on Rob: his speaker photo is portrait with him right of centre, and a
-    // circle can't shift it sideways (PPS Admin, 2026-11-07).
+    // The full photo, at the same scale as Amy's and Sierra's, framed on his head rather than the wall
+    // above it (PPS Admin, 2026-11-07). He sits a little right of centre: the photo's right edge
+    // stops close to him, so the circle can't move further right without zooming in.
     photo: robPhoto,
-    position: "object-center",
+    position: "object-[50%_11%]",
   },
   {
     name: "Sierra Ramm Cantrell",
