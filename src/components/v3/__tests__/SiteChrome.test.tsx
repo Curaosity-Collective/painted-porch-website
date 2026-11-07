@@ -103,6 +103,17 @@ describe("SiteHeader", () => {
     expect(within(link).getByText("IF")).toHaveClass("text-raspberry");
   });
 
+  it("opens a desktop menu without locking page scroll, so the sticky header stays in view (PPS Admin, 2026-11-07)", async () => {
+    // A modal menu set overflow:hidden on <body>; with the site's overflow-x: clip there, <body> became
+    // a scroll box that never scrolls and the sticky header scrolled away with the page.
+    renderAt(<SiteHeader />);
+    fireEvent.keyDown(screen.getByRole("button", { name: `Open ${PATH_MENU_LABEL} menu` }), { key: "Enter" });
+    expect(await screen.findByRole("menu")).toBeInTheDocument();
+    expect(document.body.hasAttribute("data-scroll-locked")).toBe(false);
+    expect(document.body.style.overflow).not.toBe("hidden");
+    expect(document.body.style.pointerEvents).not.toBe("none");
+  });
+
   it("opens the guide from the Find Your Next ShIFt button (PPS-DEC-0026)", () => {
     renderAt(<SiteHeader />);
     expect(document.body.textContent).not.toMatch(/Ready for Epic/);

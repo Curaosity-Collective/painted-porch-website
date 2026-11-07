@@ -82,7 +82,11 @@ export default function SiteHeader() {
           {menu.map((group) => {
             const active = isActive(pathname, group.href) || group.children.some((c) => isActive(pathname, c.href));
             return (
-              <DropdownMenu key={group.href}>
+              // Not modal: a modal menu locks page scroll with overflow:hidden on <body>. With the
+              // site's overflow-x: clip there, <body> becomes a scroll box that never scrolls, the
+              // sticky header sticks to it instead of the window, and it vanished whenever a menu
+              // was opened lower down a page (reported by PPS Admin, 2026-11-07).
+              <DropdownMenu key={group.href} modal={false}>
                 <div className="flex items-center">
                   <Link
                     to={group.href}
