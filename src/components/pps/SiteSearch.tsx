@@ -27,8 +27,8 @@ interface SearchEntry {
 const searchIndex: SearchEntry[] = [
   // Main pages
   { title: "Home", description: "Welcome to Painted Porch Strategies", href: "/", category: "Pages", keywords: ["home", "main", "landing", "painted porch"], icon: <Building className="w-4 h-4" /> },
-  // Opens the guide where the visitor is: the Start Here page that hosted it is retired (PPS Admin, 2026-11-07).
-  { title: "Find Your Next ShIFt", description: "A three-minute directional guide to your best starting point", href: "/the-path", opensGuide: true, category: "Pages", keywords: ["quiz", "guide", "find your next shift", "start", "quiz", "pathway", "path", "begin", "assessment", "blue door"], icon: <ArrowRight className="w-4 h-4" /> },
+  // Opens the guide where the visitor is, instead of going to /start-here (PPS Admin, 2026-11-07).
+  { title: "Find Your Next ShIFt", description: "A three-minute directional guide to your best starting point", href: "/start-here", opensGuide: true, category: "Pages", keywords: ["quiz", "guide", "find your next shift", "start", "quiz", "pathway", "path", "begin", "assessment", "blue door"], icon: <ArrowRight className="w-4 h-4" /> },
   { title: "Contact Us", description: "Get in touch with us", href: "/contact", category: "Pages", keywords: ["contact", "call", "schedule", "email", "phone", "reach out"], icon: <FileText className="w-4 h-4" /> },
   { title: "Speaking", description: "Book Amy for keynotes, workshops, and events", href: "/speaking", category: "Pages", keywords: ["speaking", "keynote", "event", "workshop", "conference", "presenter"], icon: <Mic className="w-4 h-4" /> },
 

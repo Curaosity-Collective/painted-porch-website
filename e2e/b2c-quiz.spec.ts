@@ -177,6 +177,12 @@ test.describe("B2C P.A.T.H.way quiz (real browser)", () => {
     });
   }
 
+  test("the /start-here address opens the guide over the homepage (PPS Admin, 2026-11-07)", async ({ page }) => {
+    await page.goto("/start-here?utm_source=e2e");
+    await expect(page.getByText(/I'm here because I'm thinking about/i)).toBeVisible({ timeout: 5000 });
+    await expect(page).toHaveURL(/\/\?utm_source=e2e$/);
+  });
+
   test("RT6 — Explore Before Committing (Q6=A bypass) shows exploration groups, no primary", async ({ page }) => {
     await openGuide(page);
 

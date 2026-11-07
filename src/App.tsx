@@ -64,6 +64,7 @@ import EQChangeLeaderMini from "./pages/pps/EQChangeLeaderMini";
 // AMPLIFY Subpages
 import AmplifyWorkshops from "./pages/pps/partner/amplify/AmplifyWorkshops";
 import { MovedTo } from "./components/pps/MovedTo";
+import StartHere from "./pages/pps/StartHere";
 import AmplifySprints from "./pages/pps/partner/amplify/AmplifySprints";
 import AmplifySprintsArchive from "./pages/pps/partner/amplify/AmplifySprintsArchive";
 import AmplifyLabs from "./pages/pps/partner/amplify/AmplifyLabs";
@@ -397,7 +398,7 @@ const App = () => (
             <Route path="speaking/amy" element={<AmySpeaker />} />
             <Route path="speaking/rob" element={<RobSpeaker />} />
             <Route path="speaking/sierra" element={<SierraSpeaker />} />
-            <Route path="start-here" element={<MovedTo to="/the-path" />} />
+            <Route path="start-here" element={<StartHere />} />
             <Route path="kick-the-habit" element={<KickTheHabit />} />
             <Route path="kick-the-habit-watch" element={<KickTheHabitWatch />} />
             <Route path="stoic-field-guide" element={<StoicFieldGuide />} />
@@ -453,7 +454,7 @@ const App = () => (
             <Route path="refund-request" element={<RefundRequest />} />
             
             {/* Legacy routes — now 301-equivalent redirects to nearest new page */}
-            <Route path="for-leaders" element={<Navigate to="/the-path" replace />} />
+            <Route path="for-leaders" element={<Navigate to="/start-here" replace />} />
             <Route path="for-teams" element={<Navigate to="/envision-shift" replace />} />
             <Route path="services" element={<Navigate to="/the-path" replace />} />
             <Route path="business-programs" element={<Navigate to="/the-path" replace />} />

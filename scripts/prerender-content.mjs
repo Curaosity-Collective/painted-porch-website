@@ -684,7 +684,4 @@ export const movedPages = [
   { from: "/partner/amplify/workshops", to: "/workshops" },
   { from: "/partner/amplify/labs", to: "/leadership-labs" },
   { from: "/partner/amplify/stractical-leader", to: "/leadership-labs/stractical-leader" },
-  // Retired, not moved: Start Here forwards to The P.A.T.H. (PPS Admin, 2026-11-07). The guide it opened
-  // is in the header and the site search; its hero closes The P.A.T.H. page.
-  { from: "/start-here", to: "/the-path", retired: true },
 ];
