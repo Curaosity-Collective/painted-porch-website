@@ -63,7 +63,9 @@ export default function BurnoutOptIn() {
         <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Headline & description */}
           <div>
-            <Eyebrow tone="raspberry">Access Resources To</Eyebrow>
+            {/* Darker raspberry ink (as src/styles/v3.css uses on raspberry tints): brand raspberry is
+                4.3:1 on this tinted gradient, under the 4.5:1 AA minimum for 16px text. */}
+            <Eyebrow tone="raspberry" className="text-[hsl(342_100%_34%)]">Access Resources To</Eyebrow>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-navy mb-6 leading-tight">
               <Flame className="inline-block w-10 h-10 md:w-12 md:h-12 text-raspberry mb-2 mr-2" />
               Bust Burnout
