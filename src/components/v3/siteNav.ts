@@ -6,7 +6,8 @@
  * Admin, 2026-11-06), then search and the "Find Your Next ShIFt" button that
  * opens the guide (PPS-DEC-0026). The offers for
  * leaders and teams are not in the header (B2B first, plan §1); the footer
- * keeps them under "Leaders & Teams".
+ * keeps them under "Leaders & Teams". The one exception is For Individuals,
+ * last under The P.A.T.H. to ShIFt (PPS Admin, 2026-11-07).
  *
  * Links point at each page's go-live address. Labels containing "ShIFt"
  * render with the IF styled (NavLabel).
@@ -38,7 +39,12 @@ export const PATH_LINKS: NavLink[] = [
 ];
 
 export const HEADER_MENU: NavGroup[] = [
-  { label: PATH_MENU_LABEL, href: "/the-path", children: PATH_LINKS },
+  // For Individuals is the one offer page in the header (PPS Admin, 2026-11-07); the footer keeps the rest.
+  {
+    label: PATH_MENU_LABEL,
+    href: "/the-path",
+    children: [...PATH_LINKS, { label: "For Individuals", href: "/for-individuals", note: "Assessments, masterclasses and Labs" }],
+  },
   {
     label: "Speaking",
     href: "/speaking",
@@ -78,10 +84,12 @@ export const HEADER_MENU: NavGroup[] = [
  * they serve, not where to start: an organization starts with the Clarity Call.
  */
 export const PATHWAY_LINKS: NavLink[] = [
+  // For Individuals gathers the three offers for individual leaders (PPS Admin, 2026-11-07).
+  { label: "For Individuals", href: "/for-individuals" },
   { label: "Assessments", href: "/assessments" },
   { label: "Masterclasses", href: "/masterclasses" },
   { label: "Leadership Labs", href: "/leadership-labs" },
-  { label: "Team Workshops", href: "/partner/amplify/workshops" },
+  { label: "Team Workshops", href: "/workshops" },
 ];
 
 export const COMPANY_LINKS: NavLink[] = [

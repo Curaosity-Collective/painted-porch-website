@@ -62,10 +62,17 @@ describe("SiteHeader", () => {
     expect(top[0]).toHaveAttribute("aria-current", "page");
   });
 
-  it("names the first menu The P.A.T.H. to ShIFt, with the page and the three ShIFts", () => {
+  it("names the first menu The P.A.T.H. to ShIFt, with the page, the three ShIFts and For Individuals", () => {
     const path = HEADER_MENU[0];
     expect(path.label).toBe("The P.A.T.H. to ShIFt");
-    expect(path.children.map((c) => c.href)).toEqual(["/the-path", "/envision-shift", "/architect-shift", "/embody-shift"]);
+    // For Individuals is the one offer page in the header (PPS Admin, 2026-11-07).
+    expect(path.children.map((c) => c.href)).toEqual([
+      "/the-path",
+      "/envision-shift",
+      "/architect-shift",
+      "/embody-shift",
+      "/for-individuals",
+    ]);
     expect(HEADER_MENU.flatMap((g) => g.children).some((c) => c.href.startsWith("/partner"))).toBe(false);
   });
 

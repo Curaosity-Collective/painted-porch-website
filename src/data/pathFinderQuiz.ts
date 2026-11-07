@@ -54,7 +54,7 @@ export const OFFERINGS = {
   // ===== B2B Workshop tier =====
   // URLs below match canonical routing in path_finder_offerings (see workshopRoutingValidation.ts).
   // Featured workshops → /workshops#<anchor>. Others → /speaking/topics#<anchor>.
-  fromConflictToConnection: { key: "fromConflictToConnection", name: "From Conflict to Connection", facilitator: "Amy", tier: "Workshop", url: "/speaking/topics#conflict-to-connection", blurb: "Addresses team friction at the relational and structural root, not the symptom." },
+  fromConflictToConnection: { key: "fromConflictToConnection", name: "From Conflict to Connection: Creating Extraordinary Teams", facilitator: "Amy", tier: "Workshop", url: "/speaking/topics#conflict-to-connection", blurb: "Addresses team friction at the relational and structural root, not the symptom." },
   fromDysfunctionToDynamic: { key: "fromDysfunctionToDynamic", name: "From Dysfunction to Dynamic", facilitator: "Amy", tier: "Workshop", url: "/speaking/topics#dysfunction-to-dynamic", blurb: "Structural redesign of team patterns: decision rights, accountability, interaction design." },
   geniusAtWork: { key: "geniusAtWork", name: "Genius at Work", facilitator: "Amy", tier: "Workshop", url: "/speaking/topics#genius-at-work", blurb: "Working Genius assessment-based session surfacing how your team contributes." },
   heroesAssemble: { key: "heroesAssemble", name: "Heroes Assemble", facilitator: "Amy", tier: "Workshop", url: "/speaking/topics#heroes-assemble", blurb: "Activating individual strengths in service of collective performance." },

@@ -29,6 +29,7 @@ const ROUTES: Array<{ name: string; path: string }> = [
   { name: "Masterclasses",              path: "/masterclasses" },
   { name: "Team workshops",             path: "/workshops" },
   { name: "Leadership Labs",            path: "/leadership-labs" },
+  { name: "For Individuals",            path: "/for-individuals" },
   { name: "Stractical Leader workshop", path: "/leadership-labs/stractical-leader" },
   { name: "Blue Door landing",          path: "/blue-door" },
   { name: "Phase Zero",                 path: "/phase-zero" },

@@ -77,6 +77,7 @@ export const sitemapData: SitemapNode[] = [
     // Grouped by who it's for (PPS-DEC-0025); the old overview pages are archived.
     label: "Self-Led",
     children: [
+      { label: "For Individuals", path: "/for-individuals", note: "Assessments, masterclasses and Leadership Labs" },
       {
         label: "Assessments",
         path: "/assessments",

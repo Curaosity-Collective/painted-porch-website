@@ -1,7 +1,8 @@
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, Pause, Play } from "lucide-react";
 
+import LazyHeroVideo from "@/components/pps/LazyHeroVideo";
 import { GhostLayer, Parallax } from "./Motion";
 
 /*
@@ -46,6 +47,7 @@ export function PageHero({
   tone = "teal",
   ghost = "P",
   action,
+  video,
 }: {
   kicker: string;
   title: ReactNode;
@@ -54,9 +56,14 @@ export function PageHero({
   imageAlt?: string;
   tone?: keyof typeof HERO_TONES;
   ghost?: string;
-  /** Optional button under the intro, such as the Phase Zero page's Clarity Call. */
-  action?: { label: string; to: string };
+  /** Optional button under the intro: a link (the Phase Zero page's Clarity Call), or an action such as
+   *  opening the Find Your Next ShIFt guide. */
+  action?: { label: ReactNode; to: string } | { label: ReactNode; onClick: () => void };
+  /** An admin-managed video (site_videos slot) in the band under the title, in place of `image`. */
+  video?: { slotKey: string; poster: string; alt: string };
 }) {
+  const actionClass =
+    "label-kicker mt-8 inline-flex items-center gap-3 bg-gold px-7 py-4 text-gold-foreground transition-colors hover:bg-linen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
   return (
     <section className={`story-hero relative overflow-hidden ${HERO_TONES[tone]} text-teal-foreground`}>
       <GhostLayer className="text-teal-foreground">{ghost}</GhostLayer>
@@ -69,14 +76,19 @@ export function PageHero({
         </div>
         <div className="lg:col-span-5">
           <div className="text-base leading-relaxed text-teal-foreground/75">{intro}</div>
-          {action && (
-            <Link
-              to={action.to}
-              className="label-kicker mt-8 inline-flex items-center gap-3 bg-gold px-7 py-4 text-gold-foreground transition-colors hover:bg-linen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              {action.label}
+          {action && "to" in action && (
+            <Link to={action.to} className={actionClass}>
+              {/* One span, so a styled IF inside the label isn't split apart by the flex gap. */}
+              <span>{action.label}</span>
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
+          )}
+          {action && "onClick" in action && (
+            <button type="button" onClick={action.onClick} className={actionClass}>
+              {/* One span, so a styled IF inside the label isn't split apart by the flex gap. */}
+              <span>{action.label}</span>
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </button>
           )}
         </div>
       </div>
@@ -93,8 +105,55 @@ export function PageHero({
           </Parallax>
         </div>
       )}
-      {!image && <div className="h-10" aria-hidden />}
+      {video && !image && (
+        <div className="story-hero-image relative h-[38vh] overflow-hidden md:h-[52vh]">
+          <HeroVideo {...video} />
+        </div>
+      )}
+      {!image && !video && <div className="h-10" aria-hidden />}
     </section>
+  );
+}
+
+/**
+ * A looping hero video with a pause button (WCAG 2.2.2: moving content that starts by itself can be
+ * paused). Visitors who ask for reduced motion see the still poster instead.
+ */
+function HeroVideo({ slotKey, poster, alt }: { slotKey: string; poster: string; alt: string }) {
+  const wrapper = useRef<HTMLDivElement>(null);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const [paused, setPaused] = useState(false);
+  useEffect(() => {
+    setReduceMotion(window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false);
+  }, []);
+  if (reduceMotion) {
+    return <img src={poster} alt={alt} className="h-full w-full object-cover" />;
+  }
+  const toggle = () => {
+    const el = wrapper.current?.querySelector("video");
+    if (!el) return;
+    if (el.paused) {
+      void el.play();
+      setPaused(false);
+    } else {
+      el.pause();
+      setPaused(true);
+    }
+  };
+  return (
+    <div ref={wrapper} className="absolute inset-0">
+      <span className="sr-only">{alt}</span>
+      <LazyHeroVideo slotKey={slotKey} posterUrl={poster} className="absolute inset-0 h-full w-full" />
+      <button
+        type="button"
+        onClick={toggle}
+        aria-pressed={paused}
+        aria-label={paused ? "Play the background video" : "Pause the background video"}
+        className="absolute bottom-4 right-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/55 text-white transition-colors hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      >
+        {paused ? <Play className="h-4 w-4" aria-hidden /> : <Pause className="h-4 w-4" aria-hidden />}
+      </button>
+    </div>
   );
 }
 

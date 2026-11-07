@@ -20,7 +20,7 @@ export default function PPSFooter() {
     { label: "Assessments", href: "/assessments" },
     { label: "Masterclasses", href: "/masterclasses" },
     { label: "Leadership Labs", href: "/leadership-labs" },
-    { label: "Team Workshops", href: "/partner/amplify/workshops" },
+    { label: "Team Workshops", href: "/workshops" },
     { label: "Strategic Sprints", href: "/partner/amplify/sprints" },
     { label: "Organizational Advisory", href: "/partner/embody" },
   ];

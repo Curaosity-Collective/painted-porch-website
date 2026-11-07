@@ -14,6 +14,7 @@ Painted Porch Strategies partners with organizations at the moment of strategic 
 - [/about](/about): About Painted Porch Strategies and the team.
 - [/about/impact](/about/impact): Results & Impact — client words, the organizations we've worked alongside, and the 5% of every fee given to client-chosen charities.
 - [/phase-zero](/phase-zero): Phase Zero™, our approach — the work before the work. It spans Prepare and Align, the first two stages of the P.A.T.H.: why it exists, what it is and isn't, the Painted Porch Pillars, and how we think.
+- [/for-individuals](/for-individuals): For individual leaders: assessments, masterclasses and mini courses, and Leadership Labs, and who each one is for.
 - [/assessments](/assessments): Self-led assessments: EQ, Working Genius, and change readiness.
 - [/masterclasses](/masterclasses): Short-form intensives and challenges.
 - [/workshops](/workshops): Leadership development workshops.
