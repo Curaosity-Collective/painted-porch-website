@@ -154,6 +154,15 @@
   --cta-wash-text: 76%;
   --cta-wash-bottom: 73%;
 }
+/* For Individuals: the painted brick wall. A charcoal wash keeps the colour visible and sets the band
+   apart from the teal footer under it (PPS Admin, 2026-11-07). */
+.cta-photo-individuals {
+  --cta-wash-start: hsl(210 25% 9%);
+  --cta-wash-end: hsl(210 25% 9%);
+  --cta-wash-top: 52%;
+  --cta-wash-text: 70%;
+  --cta-wash-bottom: 58%;
+}
 .cta-photo-wash {
   background: linear-gradient(
     180deg,

@@ -1,7 +1,8 @@
 import type { ComponentType, ReactNode } from "react";
 import { ArrowRight, CheckCircle, Compass, Layers, Lightbulb, Target } from "lucide-react";
 import igniteHeroFlame from "@/assets/ignite-hero-flame.jpg";
-import { Kicker, PageHero, V3_H2 } from "@/components/v3/Bits";
+import paintedWall from "@/assets/ignite-final-cta-bg.jpg";
+import { CTABand, Kicker, PageHero, V3_H2 } from "@/components/v3/Bits";
 import { ShIFt } from "@/components/v3/ShIFt";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
@@ -274,28 +275,32 @@ export default function ForIndividuals() {
         </ul>
       </section>
 
-      {/* Closing */}
-      <section aria-labelledby="spark" className="story-dark bg-[#00505C] text-teal-foreground">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center md:py-24">
-          <h2 id="spark" className="font-display text-3xl font-bold leading-tight text-white md:text-4xl">
+      {/* Closing: the retired IGNITE page's own closing photo, a painted brick wall, under a charcoal wash so
+          the band stands apart from the teal footer (PPS Admin, 2026-11-07). */}
+      <CTABand
+        title={
+          <>
             What <ShIFt onDark /> Will You Spark First?
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-teal-foreground">
+          </>
+        }
+        body={
+          <>
             One assessment, one masterclass or one Lab. Not sure where to start? Find Your Next <ShIFt onDark />{" "}
             points you to the right one.
-          </p>
-          <button
-            type="button"
-            onClick={openGuide}
-            className="label-kicker mt-8 inline-flex items-center gap-3 bg-gold px-8 py-4 text-gold-foreground transition-colors hover:bg-linen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            <span>
-              Find Your Next <ShIFt onFill />
-            </span>
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </button>
-        </div>
-      </section>
+          </>
+        }
+        onClick={openGuide}
+        label={
+          <>
+            Find Your Next <ShIFt onFill />
+          </>
+        }
+        image={paintedWall}
+        imageAlt="A brick wall painted in bold blocks of red, blue, green, yellow and pink"
+        imageWidth={1368}
+        imageHeight={1824}
+        photoProfile="cta-photo-individuals"
+      />
     </div>
   );
 }
