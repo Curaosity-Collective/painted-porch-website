@@ -3,12 +3,11 @@ import { Button } from "@/components/ui/button";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { Flame, Mic, Heart } from "lucide-react";
 import ClientLogoMarquee, { type LogoItem } from "@/components/pps/ClientLogoMarquee";
-import { TierHeroSection } from "@/components/pps/TierHeroSection";
+import { PageHero } from "@/components/v3/Bits";
 import speakingHero from "@/assets/heroes/speaking-hero.jpg";
 import amyPhoto from "@/assets/team/amy-speaking-portrait.jpg";
 import robPhoto from "@/assets/team/rob-hunter.jpg";
 import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
-import { Eyebrow } from "@/components/pps/Eyebrow";
 import { MoreTopicsCallout } from "@/components/pps/MoreTopicsCallout";
 import { AudienceOutcomes, HowBookingWorks } from "@/components/v3/SpeakingExtras";
 import { useV3Skin } from "@/components/v3/v3SkinContext";
@@ -89,18 +88,15 @@ export default function Speaking() {
   return (
     <div>
       {/* Hero */}
-      <TierHeroSection
-        customBadge={
-          <Eyebrow tone="gold">Three Dynamic Speakers. One Stoic Mission.</Eyebrow>
-        }
-        headline="Meet the Voices of Change"
-        description="We don't show up to motivate. We show up to create movement. By partnering with leaders and teams who have decided to architect change, communicate with clarity, and build the capability and mindset to carry what comes next."
-        ctas={[
-          { label: "Contact Us", href: "/contact?interest=speaking&message=I'm interested in booking a speaker for our event.", isPrimary: true },
-        ]}
-        background={{ type: "image", src: speakingHero }}
-        overlayClass="bg-navy/50"
-        minHeightClass="min-h-[60vh]"
+      <PageHero
+        kicker="Three Dynamic Speakers. One Stoic Mission."
+        title="Meet the Voices of Change"
+        intro="We don't show up to motivate. We show up to create movement. By partnering with leaders and teams who have decided to architect change, communicate with clarity, and build the capability and mindset to carry what comes next."
+        action={{ label: "Contact Us", to: "/contact?interest=speaking&message=I'm interested in booking a speaker for our event." }}
+        // Shared for now with Speaking Topics, Press and Press Kit; a speaker reel collage will replace it.
+        image={speakingHero}
+        imageAlt="A speaker at a podium on a stage of painted panels under teal, purple and gold spotlights, facing an audience"
+        ghost="S"
       />
 
       {/* Philosophy Strip */}

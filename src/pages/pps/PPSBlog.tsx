@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, ArrowRight, Search, X, ChevronLeft, ChevronRight, ChevronDown, Star, ExternalLink } from "lucide-react";
-import { TierHeroSection } from "@/components/pps/TierHeroSection";
+import { PageHero } from "@/components/v3/Bits";
 import blogHero from "@/assets/blog-hero.jpg";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
@@ -316,30 +316,15 @@ export default function PPSBlog() {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center overflow-hidden">
-        {/* Animated background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center animate-slow-float"
-          style={{ backgroundImage: `url(${blogHero})` }}
-        />
-        <div className="absolute inset-0 bg-navy/40" />
-        <div className="container max-w-7xl mx-auto px-6 relative z-10 py-16 md:py-24">
-          <div className="md:w-4/5">
-            <div className="bg-black/50 backdrop-blur-sm p-8 md:p-12 rounded-xl">
-              <span className="inline-block bg-gold/90 text-navy font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
-                Thoughts from the Porch
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Insights on Change, Leadership & Transformation
-              </h1>
-              <div className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl">
-                <p className="text-body">Practical wisdom on building change-ready organizations. Stoic principles applied to modern business challenges.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero: text first, then the image (the v3 layout; PPS Admin, 2026-11-07). */}
+      <PageHero
+        kicker="Thoughts from the Porch"
+        title="Insights on Change, Leadership & Transformation"
+        intro="Practical wisdom on building change-ready organizations. Stoic principles applied to modern business challenges."
+        image={blogHero}
+        imageAlt="Speech bubbles in teal, gold, lime and purple floating against deep blue"
+        ghost="P"
+      />
 
       {/* Filters & Search Bar */}
       <section className="bg-white border-b border-border sticky top-0 z-20">

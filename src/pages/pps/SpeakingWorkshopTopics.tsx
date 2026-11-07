@@ -8,7 +8,7 @@ import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { useV3Skin } from "@/components/v3/v3SkinContext";
 import { getSiteUrl } from "@/lib/site-url";
 import { useUserRole } from "@/hooks/useUserRole";
-import { TierHeroSection } from "@/components/pps/TierHeroSection";
+import { PageHero } from "@/components/v3/Bits";
 import { Eyebrow } from "@/components/pps/Eyebrow";
 import { ParallaxCTA } from "@/components/pps/ParallaxCTA";
 import speakingHero from "@/assets/heroes/speaking-hero.jpg";
@@ -502,17 +502,16 @@ export default function SpeakingWorkshopTopics() {
 
   return (
     <div>
-      <TierHeroSection
-        customBadge={<Eyebrow tone="gold">Speaking & Workshop Topics</Eyebrow>}
-        headline="What We Speak About. What We Build Together."
-        description="Every topic below can show up as a 60-minute keynote, an interactive workshop, or both. Speaking ignites the spark. The workshop turns it into action and lasting change."
-        ctas={[
-          { label: "Meet Our Speakers", href: "/speaking", isPrimary: true },
-          { label: "Inquire About a Topic", href: "/contact?interest=speaking&message=I'm interested in one of your speaking or workshop topics.", isPrimary: false },
-        ]}
-        background={{ type: "image", src: speakingHero }}
-        overlayClass="bg-navy/55"
-        minHeightClass="min-h-[55vh]"
+      <PageHero
+        kicker="Speaking & Workshop Topics"
+        title="What We Speak About. What We Build Together."
+        intro="Every topic below can show up as a 60-minute keynote, an interactive workshop, or both. Speaking ignites the spark. The workshop turns it into action and lasting change."
+        action={{ label: "Meet Our Speakers", to: "/speaking" }}
+        secondary={{ label: "Inquire About a Topic", to: "/contact?interest=speaking&message=I'm interested in one of your speaking or workshop topics." }}
+        // Shared for now with Speaking, Press and Press Kit; a speaker reel collage will replace it.
+        image={speakingHero}
+        imageAlt="A speaker at a podium on a stage of painted panels under teal, purple and gold spotlights, facing an audience"
+        ghost="T"
       />
 
       {/* Intro / philosophy */}

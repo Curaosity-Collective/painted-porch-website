@@ -3,7 +3,7 @@ import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Youtube, Play, Search, X, ChevronLeft, ChevronRight, Star, ArrowUpDown } from "lucide-react";
-import { TierHeroSection } from "@/components/pps/TierHeroSection";
+import { PageHero } from "@/components/v3/Bits";
 import youtubeHero from "@/assets/heroes/youtube-hero.jpg";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
@@ -139,20 +139,14 @@ export default function YouTubePage() {
   return (
     <div>
       {/* Hero */}
-      <TierHeroSection
-        customBadge={
-          <span className="inline-block bg-raspberry/90 text-white font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
-            Video Content
-          </span>
-        }
-        headline="YouTube Channel"
-        description="Video content, tutorials, and conversations on leadership, change management, and organizational transformation."
-        ctas={[
-          { label: "Subscribe on YouTube", href: "https://youtube.com/@onthepaintedporch", isPrimary: true },
-        ]}
-        background={{ type: "image", src: youtubeHero }}
-        overlayClass="bg-navy/50"
-        minHeightClass="min-h-[60vh]"
+      <PageHero
+        kicker="Video Content"
+        title="YouTube Channel"
+        intro="Video content, tutorials, and conversations on leadership, change management, and organizational transformation."
+        action={{ label: "Subscribe on YouTube", href: "https://youtube.com/@onthepaintedporch" }}
+        image={youtubeHero}
+        imageAlt="A video camera filming a backdrop of painted panels between two studio lights"
+        ghost="Y"
       />
 
       {/* Filters */}

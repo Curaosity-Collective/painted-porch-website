@@ -293,3 +293,41 @@
 .v3-skin [data-if="on-dark"] {
   color: hsl(var(--v3-berry-on-dark));
 }
+
+/* Floating header pill (ported from pps-simplified, PPS Admin 2026-11-07; src/components/v3/SiteHeader.tsx).
+   --site-header-h is the header's height in the page flow. The pill is more opaque at rest than
+   pps-simplified's 55%: at 88% the heading-teal current-page link and the raspberry IF measured 3.98:1
+   and 3.97:1 over the darkest heroes, so it rests at 95%, which keeps them above 4.5:1. */
+:root {
+  --site-header-h: 4rem;
+}
+@media (min-width: 1024px) {
+  :root {
+    --site-header-h: 5rem;
+  }
+}
+/* The header carries .pps-v3 for its colour tokens; only the pill is painted, so the page shows around it. */
+.pps-v3.site-header {
+  background-color: transparent;
+}
+.nav-pill-rest {
+  border: 1px solid hsl(var(--v3-teal-deep) / 0.1);
+  background-color: hsl(0 0% 100% / 0.95);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.nav-pill-active {
+  border: 1px solid hsl(var(--v3-teal-deep) / 0.18);
+  background-color: hsl(0 0% 100% / 0.97);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px -12px hsl(var(--v3-teal-deep) / 0.3);
+}
+/* A hero that runs up under the floating header: it starts at the top of the page, and its content keeps
+   its place below the header. Used by the v3 PageHero and the homepage hero. content-box keeps any
+   min-height for the content, so the extra top padding never shrinks a hero. */
+.v3-under-header {
+  box-sizing: content-box;
+  margin-top: calc(-1 * var(--site-header-h));
+  padding-top: var(--site-header-h);
+}

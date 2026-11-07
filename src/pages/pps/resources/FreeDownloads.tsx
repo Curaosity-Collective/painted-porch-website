@@ -2,7 +2,7 @@ import React from "react";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { Link } from "react-router-dom";
 import { Download, FileText, BarChart, Flame, BookOpen, Compass, Play, MessageCircle, Plane, Map, Megaphone, ClipboardCheck, Calendar, Repeat } from "lucide-react";
-import { TierHeroSection } from "@/components/pps/TierHeroSection";
+import { PageHero } from "@/components/v3/Bits";
 import { Button } from "@/components/ui/button";
 import downloadsHero from "@/assets/heroes/downloads-hero.jpg";
 
@@ -188,20 +188,14 @@ export default function FreeDownloads() {
   return (
     <div>
       {/* Hero */}
-      <TierHeroSection
-        customBadge={
-          <span className="inline-block bg-lime/90 text-navy font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
-            Free Resources
-          </span>
-        }
-        headline="Free Resources & Guides"
-        description="Practical tools, templates, and frameworks to support your transformation journey."
-        ctas={[
-          { label: "Browse All", href: "#downloads", isAnchor: true, isPrimary: true },
-        ]}
-        background={{ type: "image", src: downloadsHero }}
-        overlayClass="bg-navy/50"
-        minHeightClass="min-h-[60vh]"
+      <PageHero
+        kicker="Free Resources"
+        title="Free Resources & Guides"
+        intro="Practical tools, templates, and frameworks to support your transformation journey."
+        action={{ label: "Browse All", to: "#downloads" }}
+        image={downloadsHero}
+        imageAlt="Workbooks, templates and coloured pencils spread on a table painted teal and gold"
+        ghost="F"
       />
 
       {/* Downloads Grid */}
