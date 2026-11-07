@@ -219,7 +219,7 @@ export default function ForIndividuals() {
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
           <Kicker>Three Ways to Grow</Kicker>
           <h2 id="options-title" className={`mt-5 ${V3_H2}`}>
-            Start Where You Are
+            Start Where You're Pulled
           </h2>
           <ul className="mt-10 grid gap-6 md:grid-cols-3">
             {OPTIONS.map((o) => (
