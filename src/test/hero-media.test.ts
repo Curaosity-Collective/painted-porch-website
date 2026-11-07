@@ -99,8 +99,9 @@ describe("hero videos and closing photos", () => {
       expect(src, page).toMatch(/<PageHero\b/);
       expect(src, page).not.toMatch(/<TierHeroSection\b/);
     }
-    // Contact: the porch rocking-chairs video. The stage photo is shared, for now, by the four speaking pages.
-    expect(read("pages/pps/PPSContact.tsx")).toMatch(/slotKey: "contact-hero"/);
+    // Contact: its own photo of porch chairs (PPS Admin, 2026-11-07). The stage photo is shared, for now, by the
+    // four speaking pages.
+    expect(read("pages/pps/PPSContact.tsx")).toMatch(/image=\{contactHero\}/);
     for (const page of ["Speaking", "SpeakingWorkshopTopics", "Press", "PressKit"]) {
       expect(read(`pages/pps/${page}.tsx`), page).toMatch(/image=\{speakingHero\}/);
     }

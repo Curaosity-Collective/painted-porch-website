@@ -8,7 +8,6 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/v3/Bits";
-import contactPoster from "@/assets/v3/contact-hero-poster.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import contactHero from "@/assets/heroes/contact-hero.jpg";
@@ -257,9 +256,9 @@ export default function PPSContact() {
         title="Let's Start a Conversation"
         intro="Whether you're exploring possibilities or ready to move forward, we'd love to hear from you to determine next steps for partnering together on the Painted Porch."
         action={{ label: "Contact Us", to: "#contact-options" }}
-        // Two rocking chairs on a porch at sunset: the conversation (site_videos slot "contact-hero", where PPS
-        // Admin uploaded the compressed porch video on 2026-11-07).
-        video={{ slotKey: "contact-hero", poster: contactPoster, alt: "Two rocking chairs on a porch at sunset, curtains moving in the breeze" }}
+        // Contact's own photo, colourful porch chairs waiting for a conversation (PPS Admin, 2026-11-07).
+        image={contactHero}
+        imageAlt="Adirondack chairs painted teal, raspberry and lime on a porch in warm evening light"
         ghost="C"
       />
 
