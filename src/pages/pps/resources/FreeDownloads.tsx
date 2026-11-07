@@ -188,7 +188,7 @@ export default function FreeDownloads() {
   return (
     <div>
       {/* Hero */}
-      <TierHeroSection
+      <TierHeroSection underHeader
         customBadge={
           <span className="inline-block bg-lime/90 text-navy font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
             Free Resources

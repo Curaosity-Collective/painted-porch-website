@@ -205,7 +205,7 @@ export default function HomeNext() {
   return (
     <div className="bg-white text-foreground">
       {/* 1 · Hero: headline and photo as one piece */}
-      <section aria-labelledby="home-hero-heading" className="relative overflow-hidden bg-[#0B3A44]">
+      <section aria-labelledby="home-hero-heading" className="v3-under-header relative overflow-hidden bg-[#0B3A44]">
         <img
           src={porchColumns}
           alt="A columned porch painted blue, purple, lime and gold, looking out over a city at sunrise"

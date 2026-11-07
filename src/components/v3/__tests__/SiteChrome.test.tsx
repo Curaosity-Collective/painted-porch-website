@@ -114,6 +114,21 @@ describe("SiteHeader", () => {
     expect(document.body.style.pointerEvents).not.toBe("none");
   });
 
+  it("floats as a pill that firms up once the page scrolls (pps-simplified style, PPS Admin 2026-11-07)", () => {
+    renderAt(<SiteHeader />);
+    const pill = screen.getByTestId("site-header").querySelector("[data-pill]")!;
+    expect(pill).toHaveAttribute("data-pill", "rest");
+    expect(pill).toHaveClass("rounded-full", "nav-pill-rest");
+    Object.defineProperty(window, "scrollY", { value: 200, configurable: true });
+    fireEvent.scroll(window);
+    expect(pill).toHaveAttribute("data-pill", "active");
+    expect(pill).toHaveClass("nav-pill-active");
+    Object.defineProperty(window, "scrollY", { value: 0, configurable: true });
+    fireEvent.scroll(window);
+    // Labels keep their case: uppercase would turn the ShIFt wordmark into SHIFT.
+    expect(pill.className).not.toMatch(/\buppercase\b/);
+  });
+
   it("opens the guide from the Find Your Next ShIFt button (PPS-DEC-0026)", () => {
     renderAt(<SiteHeader />);
     expect(document.body.textContent).not.toMatch(/Ready for Epic/);

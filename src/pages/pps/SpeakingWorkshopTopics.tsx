@@ -502,7 +502,7 @@ export default function SpeakingWorkshopTopics() {
 
   return (
     <div>
-      <TierHeroSection
+      <TierHeroSection underHeader
         customBadge={<Eyebrow tone="gold">Speaking & Workshop Topics</Eyebrow>}
         headline="What We Speak About. What We Build Together."
         description="Every topic below can show up as a 60-minute keynote, an interactive workshop, or both. Speaking ignites the spark. The workshop turns it into action and lasting change."

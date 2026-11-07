@@ -211,7 +211,7 @@ export default function AsSeenOn() {
   return (
     <div>
       {/* Hero */}
-      <TierHeroSection
+      <TierHeroSection underHeader
         customBadge={
           <span className="inline-block bg-strategic/90 text-white font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
             Media

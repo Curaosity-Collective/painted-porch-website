@@ -65,7 +65,7 @@ export function PageHero({
   const actionClass =
     "label-kicker mt-8 inline-flex items-center gap-3 bg-gold px-7 py-4 text-gold-foreground transition-colors hover:bg-linen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
   return (
-    <section className={`story-hero relative overflow-hidden ${HERO_TONES[tone]} text-teal-foreground`}>
+    <section className={`story-hero v3-under-header relative overflow-hidden ${HERO_TONES[tone]} text-teal-foreground`}>
       <GhostLayer className="text-teal-foreground">{ghost}</GhostLayer>
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 md:py-28 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">

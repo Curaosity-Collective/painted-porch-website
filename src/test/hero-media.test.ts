@@ -79,6 +79,18 @@ describe("hero videos and closing photos", () => {
     expect(closingPhoto(source("ThePath"))).toBe("@/assets/heroes/start-here-hero.jpg");
   });
 
+  it("runs a hero under the floating header only where it is the first thing on the page (PPS Admin, 2026-11-07)", () => {
+    const read = (p: string) => readFileSync(resolve(__dirname, "..", p), "utf8");
+    // The shared v3 hero and the homepage hero always lead their pages.
+    expect(read("components/v3/Bits.tsx")).toMatch(/story-hero v3-under-header/);
+    expect(source("HomeNext")).toMatch(/aria-labelledby="home-hero-heading" className="v3-under-header/);
+    // TierHeroSection opts in per page: a speaker page's breadcrumb and an archive banner sit above it.
+    expect(read("components/pps/TierHeroSection.tsx")).toMatch(/underHeader = false/);
+    expect(read("pages/pps/speaking/SpeakerDetailPage.tsx")).not.toMatch(/underHeader/);
+    expect(read("pages/pps/partner/EmbodyPathAltArchiveV2.tsx")).not.toMatch(/underHeader/);
+    expect(read("pages/pps/Speaking.tsx")).toMatch(/<TierHeroSection underHeader/);
+  });
+
   it("doesn't show the lantern scene twice: Architect's video poster isn't another page's photo", () => {
     const lantern = assetOf(source("ArchitectShift"), "lanternPath");
     for (const page of PAGES.filter((p) => p !== "ArchitectShift")) {

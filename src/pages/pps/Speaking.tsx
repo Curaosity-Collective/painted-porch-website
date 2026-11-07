@@ -89,7 +89,7 @@ export default function Speaking() {
   return (
     <div>
       {/* Hero */}
-      <TierHeroSection
+      <TierHeroSection underHeader
         customBadge={
           <Eyebrow tone="gold">Three Dynamic Speakers. One Stoic Mission.</Eyebrow>
         }

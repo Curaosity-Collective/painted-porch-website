@@ -139,7 +139,7 @@ export default function YouTubePage() {
   return (
     <div>
       {/* Hero */}
-      <TierHeroSection
+      <TierHeroSection underHeader
         customBadge={
           <span className="inline-block bg-raspberry/90 text-white font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
             Video Content

@@ -52,7 +52,7 @@ export default function PressKit() {
 
   return (
     <div className="bg-background text-foreground">
-      <TierHeroSection customBadge={<Eyebrow tone="gold">Press & Speaking</Eyebrow>}
+      <TierHeroSection underHeader customBadge={<Eyebrow tone="gold">Press & Speaking</Eyebrow>}
         headline={<>Painted Porch Strategies<span className="block text-2xl md:text-3xl font-medium mt-4">Press Kit</span></>}
         description="The people, purpose, and voices behind extraordinary teams and Epic ShIFt."
         background={{ type: "image", src: speakingHero }} overlayClass="bg-navy/70" textBoxClass="!p-0" minHeightClass="min-h-[60vh]"

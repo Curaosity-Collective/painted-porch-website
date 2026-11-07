@@ -54,7 +54,7 @@ export default function ResourcesHub() {
   return (
     <div>
       {/* Hero */}
-      <TierHeroSection
+      <TierHeroSection underHeader
         customBadge={
           <span className="inline-block bg-gold/90 text-navy font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-6">
             Resources

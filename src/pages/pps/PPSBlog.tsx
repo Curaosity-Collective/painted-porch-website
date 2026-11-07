@@ -317,7 +317,7 @@ export default function PPSBlog() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center overflow-hidden">
+      <section className="v3-under-header relative min-h-[50vh] flex items-center overflow-hidden">
         {/* Animated background image */}
         <div
           className="absolute inset-0 bg-cover bg-center animate-slow-float"
