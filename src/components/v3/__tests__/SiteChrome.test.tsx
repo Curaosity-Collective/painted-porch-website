@@ -96,7 +96,7 @@ describe("SiteHeader", () => {
     expect(HEADER_MENU.flatMap((g) => g.children).filter((c) => c.href === "/phase-zero")).toHaveLength(1);
   });
 
-  it("keeps the IF bold but plain in the header's top labels; the phone menu keeps it raspberry (PPS Admin, 2026-11-07)", () => {
+  it("keeps the IF bold but plain in the header's top labels and phone menu (PPS Admin, 2026-11-07)", () => {
     renderAt(<SiteHeader />);
     const nav = screen.getAllByRole("navigation", { name: "Main" })[0];
     const link = within(nav).getByRole("link", { name: named(PATH_MENU_LABEL) });
@@ -106,7 +106,7 @@ describe("SiteHeader", () => {
     fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
     const phone = document.getElementById("site-mobile-menu")!;
     const phoneLink = within(phone).getByRole("link", { name: named(PATH_MENU_LABEL) });
-    expect(within(phoneLink).getByText("IF")).toHaveClass("text-raspberry");
+    expect(within(phoneLink).getByText("IF")).not.toHaveClass("text-raspberry");
   });
 
   it("marks the current section with an underline, not a colour (PPS Admin, 2026-11-07)", () => {
