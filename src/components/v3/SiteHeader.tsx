@@ -148,7 +148,7 @@ export default function SiteHeader() {
                         // item's defaults (items-center, lime focus) need overriding.
                         className="flex cursor-pointer flex-col gap-0.5 rounded-md !items-start !px-3 !py-2 hover:bg-cream focus:!bg-cream focus:!text-foreground"
                       >
-                        <span className="text-[15px] font-semibold text-foreground">
+                        <span className={`text-[15px] font-semibold ${isActive(pathname, child.href) ? ACTIVE_LINK : IDLE_LINK}`}>
                           <NavLabel label={child.label} plain />
                         </span>
                         {child.note && <span className="text-xs text-muted-foreground">{child.note}</span>}
