@@ -115,7 +115,6 @@ import SpeakingWorkshopTopics from "./pages/pps/SpeakingWorkshopTopics";
 import AmySpeaker from "./pages/pps/speaking/AmySpeaker";
 import RobSpeaker from "./pages/pps/speaking/RobSpeaker";
 import SierraSpeaker from "./pages/pps/speaking/SierraSpeaker";
-import StartHere from "./pages/pps/StartHere";
 import KickTheHabit from "./pages/pps/KickTheHabit";
 import StoicFieldGuide from "./pages/pps/StoicFieldGuide";
 import StoicFieldGuideAccess from "./pages/pps/StoicFieldGuideAccess";
@@ -398,7 +397,7 @@ const App = () => (
             <Route path="speaking/amy" element={<AmySpeaker />} />
             <Route path="speaking/rob" element={<RobSpeaker />} />
             <Route path="speaking/sierra" element={<SierraSpeaker />} />
-            <Route path="start-here" element={<StartHere />} />
+            <Route path="start-here" element={<MovedTo to="/the-path" />} />
             <Route path="kick-the-habit" element={<KickTheHabit />} />
             <Route path="kick-the-habit-watch" element={<KickTheHabitWatch />} />
             <Route path="stoic-field-guide" element={<StoicFieldGuide />} />
@@ -454,7 +453,7 @@ const App = () => (
             <Route path="refund-request" element={<RefundRequest />} />
             
             {/* Legacy routes — now 301-equivalent redirects to nearest new page */}
-            <Route path="for-leaders" element={<Navigate to="/start-here" replace />} />
+            <Route path="for-leaders" element={<Navigate to="/the-path" replace />} />
             <Route path="for-teams" element={<Navigate to="/envision-shift" replace />} />
             <Route path="services" element={<Navigate to="/the-path" replace />} />
             <Route path="business-programs" element={<Navigate to="/the-path" replace />} />

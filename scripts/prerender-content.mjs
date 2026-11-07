@@ -538,16 +538,6 @@ export const routes = [
     ],
   },
   {
-    path: "/start-here",
-    title: "Start Here | Painted Porch Strategies",
-    description:
-      "New to Painted Porch Strategies? Find Your Next ShIFt, a three-minute directional guide, points you to your best starting point, for you, your team or your organization.",
-    h1: "Start Here — Find Your Next ShIFt",
-    intro:
-      "A three-minute directional guide that maps your situation to the right starting point: self-led resources, team workshops and Leadership Labs, or the Epic ShIFt Organizational Appraisal, so you're not guessing what to do next.",
-    links: commonLinks,
-  },
-  {
     // Phase Zero™: Our Approach, one page combining Phase Zero and Our Approach (PPS Admin,
     // 2026-11-06). Phase Zero spans Prepare and Align (PPS-DEC-0027).
     path: "/phase-zero",
@@ -694,4 +684,7 @@ export const movedPages = [
   { from: "/partner/amplify/workshops", to: "/workshops" },
   { from: "/partner/amplify/labs", to: "/leadership-labs" },
   { from: "/partner/amplify/stractical-leader", to: "/leadership-labs/stractical-leader" },
+  // Retired, not moved: Start Here forwards to The P.A.T.H. (PPS Admin, 2026-11-07). The guide it opened
+  // is in the header and the site search; its hero closes The P.A.T.H. page.
+  { from: "/start-here", to: "/the-path", retired: true },
 ];
