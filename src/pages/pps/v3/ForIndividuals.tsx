@@ -191,7 +191,7 @@ export default function ForIndividuals() {
         </h2>
         <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {TYPES.map((t) => (
-            <li key={t.title} className={`rounded-xl border p-6 ${t.tint.card}`}>
+            <li key={t.title} className={`border p-6 ${t.tint.card}`}>
               <div className="flex items-center gap-3">
                 <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${t.tint.iconBg}`}>
                   <t.icon className={`h-5 w-5 ${t.tint.ink}`} aria-hidden />
