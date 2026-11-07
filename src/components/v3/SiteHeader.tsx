@@ -27,8 +27,8 @@ import { HEADER_MENU, type NavGroup } from "./siteNav";
  * same sections that expand when tapped, now in a floating card.
  *
  * Kept from the website rather than pps-simplified: labels in normal case, since uppercase turns the
- * ShIFt wordmark into SHIFT; and a more opaque pill at rest (95% rather than 55%), so the menu's teal
- * and raspberry text keeps AA contrast over the dark heroes. Heroes that run under the pill use
+ * ShIFt wordmark into SHIFT; and a more opaque pill at rest than pps-simplified's 55% (88% on phones, 94% on desktop,
+ * where the menu's teal and raspberry text must keep AA contrast over the dark heroes). Heroes that run under the pill use
  * `.v3-under-header` (src/styles/v3.css).
  */
 

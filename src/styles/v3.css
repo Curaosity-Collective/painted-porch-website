@@ -296,8 +296,7 @@
 
 /* Floating header pill (ported from pps-simplified, PPS Admin 2026-11-07; src/components/v3/SiteHeader.tsx).
    --site-header-h is the header's height in the page flow. The pill is more opaque at rest than
-   pps-simplified's 55%: at 88% the heading-teal current-page link and the raspberry IF measured 3.98:1
-   and 3.97:1 over the darkest heroes, so it rests at 95%, which keeps them above 4.5:1. */
+   pps-simplified's 55%, so the menu text stays readable over the heroes; see .nav-pill-rest. */
 :root {
   --site-header-h: 4rem;
 }
@@ -310,11 +309,21 @@
 .pps-v3.site-header {
   background-color: transparent;
 }
+/* At rest the pill lets the hero show through (PPS Admin, 2026-11-07: "soften ... from being solid white").
+   Phones: 88%, the look PPS Admin chose; the pill there holds only the logo and icons, which need 3:1
+   (the teal menu icon measures 4.27:1). Desktop: 94%, the most see-through that keeps the menu text at
+   AA over the darkest heroes (raspberry IF 4.60:1, heading-teal current-page link 4.75:1; at 88% they
+   measured 4.10 and 4.27). */
 .nav-pill-rest {
   border: 1px solid hsl(var(--v3-teal-deep) / 0.1);
-  background-color: hsl(0 0% 100% / 0.95);
+  background-color: hsl(0 0% 100% / 0.88);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+}
+@media (min-width: 1024px) {
+  .nav-pill-rest {
+    background-color: hsl(0 0% 100% / 0.94);
+  }
 }
 .nav-pill-active {
   border: 1px solid hsl(var(--v3-teal-deep) / 0.18);
