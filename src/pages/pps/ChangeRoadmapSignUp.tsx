@@ -209,7 +209,7 @@ export default function ChangeRoadmapSignUp() {
               <Button
                 type="submit"
                 disabled={submitting}
-                className="w-full bg-teal hover:bg-teal/90 text-white text-lg py-6 rounded-full"
+                className="w-full bg-teal hover:bg-teal/90 text-white text-lg py-6"
               >
                 {submitting ? "Sending..." : "Send Me My Free Worksheet"}
               </Button>

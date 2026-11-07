@@ -281,7 +281,7 @@ const EasterEggForm = () => {
                   <Button
                     type="submit"
                     disabled={submitting}
-                    className="w-full md:w-auto md:min-w-[200px] h-12 bg-gold hover:bg-primary text-white font-poppins font-bold text-base rounded-lg transition-colors"
+                    className="w-full md:w-auto md:min-w-[200px] h-12 bg-gold hover:bg-primary text-white font-poppins font-bold text-base transition-colors"
                   >
                     {submitting ? "Sending..." : "Send It"}
                   </Button>

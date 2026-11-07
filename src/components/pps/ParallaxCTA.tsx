@@ -87,7 +87,7 @@ const focusRingDark =
 
 // Sized to match the rest of the site's "size=lg" buttons (h-12, text-base).
 const baseAction =
-  "inline-flex items-center justify-center font-poppins font-semibold text-sm sm:text-base px-4 sm:px-8 min-h-12 py-3 rounded-md transition-colors shadow-lg w-full max-w-[20rem] sm:w-auto sm:max-w-full sm:min-w-[200px] whitespace-normal leading-tight text-center " +
+  "inline-flex items-center justify-center font-poppins font-semibold text-sm sm:text-base px-4 sm:px-8 min-h-12 py-3 transition-colors shadow-lg w-full max-w-[20rem] sm:w-auto sm:max-w-full sm:min-w-[200px] whitespace-normal leading-tight text-center " +
   focusRingDark;
 
 const variantClasses: Record<NonNullable<CTAAction["variant"]>, string> = {

@@ -79,7 +79,7 @@ export default function StracticalLeaderGuide() {
               </p>
             </div>
             <a href="#get-guide">
-              <Button className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-base sm:text-lg py-4 sm:py-6 px-6 sm:px-10 rounded-lg hover:bg-transparent hover:text-gold transition-colors max-w-full whitespace-normal h-auto">
+              <Button className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-base sm:text-lg py-4 sm:py-6 px-6 sm:px-10 hover:bg-transparent hover:text-gold transition-colors max-w-full whitespace-normal h-auto">
                 <Download className="mr-2 w-5 h-5" /> GET THE FREE GUIDE
               </Button>
             </a>
@@ -116,7 +116,7 @@ export default function StracticalLeaderGuide() {
           </div>
           <div className="text-center mt-12">
             <a href="#get-guide">
-              <Button className="bg-navy border-2 border-navy text-white font-poppins font-bold text-base sm:text-lg py-4 sm:py-6 px-6 sm:px-10 rounded-lg hover:bg-transparent hover:text-navy transition-colors max-w-full whitespace-normal h-auto">
+              <Button className="bg-navy border-2 border-navy text-white font-poppins font-bold text-base sm:text-lg py-4 sm:py-6 px-6 sm:px-10 hover:bg-transparent hover:text-navy transition-colors max-w-full whitespace-normal h-auto">
                 <Download className="mr-2 w-5 h-5" /> DOWNLOAD NOW
               </Button>
             </a>
@@ -142,7 +142,7 @@ export default function StracticalLeaderGuide() {
                 </p>
                 <Link
                   to="/leadership-labs/stractical-leader"
-                  className="inline-flex items-center gap-2 bg-gold text-navy font-poppins font-semibold px-6 py-3 rounded-lg hover:bg-gold/90 transition-colors focus-ring-on-dark"
+                  className="inline-flex items-center gap-2 bg-gold text-navy font-poppins font-semibold px-6 py-3 hover:bg-gold/90 transition-colors focus-ring-on-dark"
                 >
                   Explore the Leader Lab
                   <ArrowRight className="w-4 h-4" />

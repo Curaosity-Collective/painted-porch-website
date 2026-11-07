@@ -236,3 +236,35 @@ describe("SiteFooter", () => {
     }
   });
 });
+
+// PPS Admin, 2026-11-07: "all cta buttons including the find your next shift straight with no rounded corners".
+const ROUNDED = /(?:^|\s)(?:[a-z0-9]+:)*rounded(?:-(?!none\b)[\w[\]-]+)?(?=\s|$)/;
+
+describe("call-to-action buttons have square corners", () => {
+  it("the header's Find Your Next ShIFt button", () => {
+    renderAt(<SiteHeader />);
+    const buttons = screen.getAllByRole("button").filter((b) => flat(b.textContent ?? "") === "FindYourNextShIFt");
+    expect(buttons).toHaveLength(1);
+    expect(buttons[0].className).not.toMatch(ROUNDED);
+  });
+
+  it("the footer's Contact Us and Subscribe buttons", () => {
+    renderAt(<SiteFooter />);
+    expect(screen.getByRole("link", { name: "Contact Us" }).className).not.toMatch(ROUNDED);
+    expect(screen.getByRole("button", { name: "Subscribe" }).className).not.toMatch(ROUNDED);
+  });
+
+  it("every Button, whatever its size", async () => {
+    const { Button } = await import("@/components/ui/button");
+    render(
+      <>
+        <Button>Default</Button>
+        <Button size="sm">Small</Button>
+        <Button size="lg" variant="outline">Large</Button>
+      </>,
+    );
+    for (const name of ["Default", "Small", "Large"]) {
+      expect(screen.getByRole("button", { name }).className).not.toMatch(ROUNDED);
+    }
+  });
+});

@@ -48,7 +48,7 @@ export default function ChangeCommsThankYou() {
               <img src={guidePreview} alt="Cover of the 4 Critical Steps for Effective Change Communication guide" className="w-full h-auto block" />
             </a>
             <a href={PDF_URL} target="_blank" rel="noopener noreferrer" download>
-              <Button className="bg-teal hover:bg-teal/90 text-white text-lg py-6 px-8 rounded-full">
+              <Button className="bg-teal hover:bg-teal/90 text-white text-lg py-6 px-8">
                 <Download className="mr-2 w-5 h-5" />
                 Download Now
               </Button>

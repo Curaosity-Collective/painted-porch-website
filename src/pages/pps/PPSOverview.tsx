@@ -133,14 +133,14 @@ export default function PPSOverview() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               to="/start-here"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
+              className="inline-flex items-center gap-2 bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
             >
               <BookOpen className="h-4 w-4" />
               Start Here
             </Link>
             <Link
               to="/contact?interest=general"
-              className="inline-flex items-center gap-2 rounded-lg bg-muted-foreground px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="inline-flex items-center gap-2 bg-muted-foreground px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               <Users className="h-4 w-4" />
               Connect With Us
@@ -310,7 +310,7 @@ export default function PPSOverview() {
                 href="https://podcasts.apple.com/us/podcast/equal-matters/id1693631305"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 font-semibold text-white transition hover:opacity-90"
+                className="mt-4 inline-flex items-center gap-2 bg-primary px-5 py-2.5 font-semibold text-white transition hover:opacity-90"
               >
                 <Podcast className="h-4 w-4" />
                 Listen Now
@@ -337,7 +337,7 @@ export default function PPSOverview() {
                 href="https://pod.co/life-logos-on-the-painted-porch"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 font-semibold text-white transition hover:opacity-90"
+                className="mt-4 inline-flex items-center gap-2 bg-primary px-5 py-2.5 font-semibold text-white transition hover:opacity-90"
               >
                 <Podcast className="h-4 w-4" />
                 Listen Now
@@ -360,7 +360,7 @@ export default function PPSOverview() {
             </p>
             <Link
               to="/contact?interest=general"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="mt-8 inline-flex items-center gap-2 bg-primary px-8 py-4 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               Let's Connect
               <ArrowRight className="h-4 w-4" />

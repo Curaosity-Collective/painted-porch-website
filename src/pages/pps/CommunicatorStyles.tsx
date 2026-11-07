@@ -53,7 +53,7 @@ export default function CommunicatorStyles() {
             A training session led by Painted Porch Strategies' "M.C." (Master of Communication), Rob Hunter, on how to create stronger connections and communicate with impact by understanding the 6 styles of Communicators in your life and work.
           </p>
           <a href="#get-access">
-            <Button className="bg-raspberry hover:bg-raspberry/90 text-white font-semibold text-base px-8 py-5 rounded-full">
+            <Button className="bg-raspberry hover:bg-raspberry/90 text-white font-semibold text-base px-8 py-5">
               Access Free Training Replay
             </Button>
           </a>
@@ -151,7 +151,7 @@ export default function CommunicatorStyles() {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-auto bg-raspberry hover:bg-raspberry/90 text-white font-semibold px-8 py-5 rounded-full disabled:opacity-50"
+                  className="w-auto bg-raspberry hover:bg-raspberry/90 text-white font-semibold px-8 py-5 disabled:opacity-50"
                 >
                   {submitting ? "Submitting..." : "Access Training"}
                 </Button>

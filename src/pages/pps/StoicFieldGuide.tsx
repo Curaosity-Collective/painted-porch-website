@@ -60,7 +60,7 @@ export default function StoicFieldGuide() {
                 An introduction to applying timeless Stoic principles in modern leadership. Daily practices, reflection prompts, and practical tools to lead with clarity, courage, and calm.
               </p>
               <a href="#get-access">
-                <Button className="bg-gold hover:bg-gold/90 text-navy font-semibold text-base px-8 py-5 rounded-full">
+                <Button className="bg-gold hover:bg-gold/90 text-navy font-semibold text-base px-8 py-5">
                   Get the Field Guide
                 </Button>
               </a>
@@ -142,7 +142,7 @@ export default function StoicFieldGuide() {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-auto bg-gold hover:bg-gold/90 text-navy font-semibold px-8 py-5 rounded-full disabled:opacity-50"
+                  className="w-auto bg-gold hover:bg-gold/90 text-navy font-semibold px-8 py-5 disabled:opacity-50"
                 >
                   {submitting ? (
                     "Submitting..."
