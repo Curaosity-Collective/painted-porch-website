@@ -78,7 +78,7 @@ export default function PilotTraining() {
             Access a replay of our recent training session led by Painted Porch Strategies Chief Joy Officer &amp; Mindfulness Coach, Sierra Ramm Cantrell, where she shares simple tools you can use to shift from being on auto-pilot to seizing the controls and steering the direction of your life and work.
           </p>
           <a href="#get-access">
-            <Button className="bg-primary hover:bg-primary/90 text-white font-semibold text-base px-8 py-5">
+            <Button className="bg-primary hover:bg-primary/90 text-white font-semibold text-base px-8 py-5 rounded">
               Access Free Training Replay
             </Button>
           </a>
@@ -181,7 +181,7 @@ export default function PilotTraining() {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-auto bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-5 disabled:opacity-50"
+                  className="w-auto bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-5 rounded disabled:opacity-50"
                 >
                   {submitting ? "Submitting..." : "Access Training"}
                 </Button>

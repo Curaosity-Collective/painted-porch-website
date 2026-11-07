@@ -166,7 +166,7 @@ export default function WFHSignUp() {
               <Button
                 type="submit"
                 disabled={submitting}
-                className="w-full bg-raspberry hover:bg-raspberry/90 text-white text-lg py-6"
+                className="w-full bg-raspberry hover:bg-raspberry/90 text-white text-lg py-6 rounded"
               >
                 {submitting ? "Sending..." : "Get My Cape Ready!"}
               </Button>

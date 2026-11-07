@@ -44,7 +44,7 @@ export default function WFHThankYou() {
                 Already have a login? Jump straight in:
               </p>
               <a href={COURSE_ACCESS_URL} target="_blank" rel="noopener noreferrer">
-                <Button className="bg-raspberry hover:bg-raspberry/90 text-white text-lg py-6 px-8">
+                <Button className="bg-raspberry hover:bg-raspberry/90 text-white text-lg py-6 px-8 rounded">
                   Access Course
                 </Button>
               </a>

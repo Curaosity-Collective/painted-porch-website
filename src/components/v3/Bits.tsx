@@ -66,7 +66,7 @@ export function PageHero({
   video?: { slotKey: string; poster: string; alt: string };
 }) {
   const actionClass =
-    "label-kicker mt-8 inline-flex items-center gap-3 bg-gold px-7 py-4 text-gold-foreground transition-colors hover:bg-linen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+    "label-kicker mt-8 inline-flex items-center gap-3 rounded bg-gold px-7 py-4 text-gold-foreground transition-colors hover:bg-linen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
   return (
     <section className={`story-hero v3-under-header relative overflow-hidden ${HERO_TONES[tone]} text-teal-foreground`}>
       <GhostLayer className="text-teal-foreground">{ghost}</GhostLayer>
@@ -279,7 +279,7 @@ export function CTABand({
           <CTAAction
             to={to}
             onClick={onClick}
-            className="label-kicker mt-10 inline-flex items-center gap-3 bg-gold px-8 py-4 text-gold-foreground transition-colors hover:bg-linen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="label-kicker mt-10 inline-flex items-center gap-3 rounded bg-gold px-8 py-4 text-gold-foreground transition-colors hover:bg-linen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             {label}
           </CTAAction>
@@ -297,7 +297,7 @@ export function CTABand({
         <CTAAction
           to={to}
           onClick={onClick}
-          className="label-kicker mt-10 inline-flex items-center gap-3 bg-teal-deep px-8 py-4 text-teal-foreground transition-colors hover:bg-bluedoor"
+          className="label-kicker mt-10 inline-flex items-center gap-3 rounded bg-teal-deep px-8 py-4 text-teal-foreground transition-colors hover:bg-bluedoor"
         >
           {label}
         </CTAAction>

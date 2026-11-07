@@ -404,7 +404,7 @@ export default function ArchitectShift() {
             </p>
             <Link
               to="/envision-shift"
-              className="mt-6 inline-flex items-center gap-2 border-2 border-prepare-deep px-5 py-3 font-display text-sm font-semibold text-prepare-deep transition-colors hover:bg-prepare-deep hover:text-white"
+              className="mt-6 inline-flex items-center gap-2 rounded border-2 border-prepare-deep px-5 py-3 font-display text-sm font-semibold text-prepare-deep transition-colors hover:bg-prepare-deep hover:text-white"
             >
               Explore Envision <span aria-hidden="true">→</span>
             </Link>

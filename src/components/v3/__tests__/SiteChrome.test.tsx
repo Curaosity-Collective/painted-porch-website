@@ -237,10 +237,13 @@ describe("SiteFooter", () => {
   });
 });
 
-// PPS Admin, 2026-11-07: "all cta buttons including the find your next shift straight with no rounded corners".
-const ROUNDED = /(?:^|\s)(?:[a-z0-9]+:)*rounded(?:-(?!none\b)[\w[\]-]+)?(?=\s|$)/;
+// PPS Admin, 2026-11-07, choosing a compromise between square and pill: "4px on all buttons and form fields, with the
+// header button staying a pill? yes". `rounded` is 4px at every size and inside or outside the new design's theme,
+// unlike rounded-md/-lg, which follow the theme's --radius.
+const cornerClasses = (el: HTMLElement) =>
+  el.className.split(/\s+/).filter((t) => /^(?:[a-z0-9]+:)*rounded(?:-|$)/.test(t));
 
-describe("call-to-action buttons have square corners", () => {
+describe("buttons and form fields have 4px corners", () => {
   it("except the header's Find Your Next ShIFt, which matches the pill-shaped bar it sits in", () => {
     // PPS Admin, 2026-11-07, on the header: "That one can match the shape of the header".
     renderAt(<SiteHeader />);
@@ -249,10 +252,11 @@ describe("call-to-action buttons have square corners", () => {
     expect(buttons[0]).toHaveClass("rounded-full");
   });
 
-  it("the footer's Contact Us and Subscribe buttons", () => {
+  it("the footer's Contact Us, email field and Subscribe", () => {
     renderAt(<SiteFooter />);
-    expect(screen.getByRole("link", { name: "Contact Us" }).className).not.toMatch(ROUNDED);
-    expect(screen.getByRole("button", { name: "Subscribe" }).className).not.toMatch(ROUNDED);
+    expect(cornerClasses(screen.getByRole("link", { name: "Contact Us" }))).toEqual(["rounded"]);
+    expect(cornerClasses(screen.getByRole("button", { name: "Subscribe" }))).toEqual(["rounded"]);
+    expect(cornerClasses(screen.getByRole("textbox"))).toEqual(["rounded"]);
   });
 
   it("every Button, whatever its size", async () => {
@@ -265,7 +269,33 @@ describe("call-to-action buttons have square corners", () => {
       </>,
     );
     for (const name of ["Default", "Small", "Large"]) {
-      expect(screen.getByRole("button", { name }).className).not.toMatch(ROUNDED);
+      expect(cornerClasses(screen.getByRole("button", { name }))).toEqual(["rounded"]);
     }
+  });
+
+  it("the shared text field, text area and select", async () => {
+    const { Input } = await import("@/components/ui/input");
+    const { Textarea } = await import("@/components/ui/textarea");
+    const { Select, SelectTrigger, SelectValue } = await import("@/components/ui/select");
+    render(
+      <>
+        <Input aria-label="Name" />
+        <Textarea aria-label="Message" />
+        <Select>
+          <SelectTrigger aria-label="Topic">
+            <SelectValue placeholder="Pick one" />
+          </SelectTrigger>
+        </Select>
+      </>,
+    );
+    expect(cornerClasses(screen.getByRole("textbox", { name: "Name" }))).toEqual(["rounded"]);
+    expect(cornerClasses(screen.getByRole("textbox", { name: "Message" }))).toEqual(["rounded"]);
+    expect(cornerClasses(screen.getByRole("combobox", { name: "Topic" }))).toEqual(["rounded"]);
+  });
+
+  it("the closing band's button", async () => {
+    const { CTABand } = await import("@/components/v3/Bits");
+    renderAt(<CTABand title="Ready?" body="Let's talk." to="/contact" label="Start with a Clarity Call" />);
+    expect(cornerClasses(screen.getByRole("link", { name: /Start with a Clarity Call/ }))).toEqual(["rounded"]);
   });
 });

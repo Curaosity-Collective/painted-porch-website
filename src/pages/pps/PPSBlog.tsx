@@ -338,7 +338,7 @@ export default function PPSBlog() {
                 placeholder="Search articles..."
                 value={searchQuery}
                 onChange={(e) => handleSearchChange(e.target.value)}
-                className="w-full pl-10 pr-9 py-2.5 rounded-lg border border-border bg-muted text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow"
+                className="w-full pl-10 pr-9 py-2.5 rounded border border-border bg-muted text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow"
               />
               {searchQuery && (
                 <button
@@ -652,7 +652,7 @@ export default function PPSBlog() {
               onChange={(event) => newsletter.setEmail(event.target.value)}
               disabled={newsletter.status === "loading"}
               aria-label="Email address for newsletter" placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+              className="flex-1 px-4 py-3 rounded border border-border focus:outline-none focus:ring-2 focus:ring-primary"
             />
             <Button type="submit" disabled={newsletter.status === "loading"} className="py-3 px-6">
               {newsletter.status === "loading" ? "Subscribing…" : "Subscribe"}

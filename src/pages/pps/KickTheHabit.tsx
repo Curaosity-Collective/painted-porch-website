@@ -50,7 +50,7 @@ export default function KickTheHabit() {
             Access a replay of our free training session led by Painted Porch Strategies Founder &amp; Organizational Shift Strategist, Amy Yackowski.
           </p>
           <a href="#get-access">
-            <Button className="bg-raspberry hover:bg-raspberry/90 text-white font-semibold text-base px-8 py-5">
+            <Button className="bg-raspberry hover:bg-raspberry/90 text-white font-semibold text-base px-8 py-5 rounded">
               Access Free Training Replay
             </Button>
           </a>
@@ -143,7 +143,7 @@ export default function KickTheHabit() {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-auto bg-raspberry hover:bg-raspberry/90 text-white font-semibold px-8 py-5 disabled:opacity-50"
+                  className="w-auto bg-raspberry hover:bg-raspberry/90 text-white font-semibold px-8 py-5 rounded disabled:opacity-50"
                 >
                   {submitting ? "Submitting..." : "Access Training"}
                 </Button>

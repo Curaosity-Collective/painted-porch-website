@@ -177,14 +177,14 @@ export default function AboutSierra() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               to="/contact?interest=general&message=I'd like to connect with Sierra."
-              className="inline-flex items-center gap-2 bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
             >
               <Coffee className="h-4 w-4" />
               Let's Connect
             </Link>
             <Link
               to="/speaking/sierra"
-              className="inline-flex items-center gap-2 bg-gold px-6 py-3 font-poppins font-semibold text-navy transition hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded bg-gold px-6 py-3 font-poppins font-semibold text-navy transition hover:opacity-90"
             >
               <Heart className="h-4 w-4" />
               Book Sierra to Speak
@@ -293,7 +293,7 @@ export default function AboutSierra() {
               href="https://www.youtube.com/@onthepaintedporch"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-destructive px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded bg-destructive px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               <Youtube className="h-5 w-5" />
               Subscribe on YouTube
@@ -302,7 +302,7 @@ export default function AboutSierra() {
               href="https://youtube.com/playlist?list=PLhdPibIQvwhH4j94ohc0BsOJqUud4xzoL"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-navy px-6 py-3 font-poppins font-semibold text-navy transition hover:bg-navy hover:text-white"
+              className="inline-flex items-center gap-2 rounded border-2 border-navy px-6 py-3 font-poppins font-semibold text-navy transition hover:bg-navy hover:text-white"
             >
               View Playlist
               <ArrowRight className="h-4 w-4" />
@@ -334,7 +334,7 @@ export default function AboutSierra() {
                 <Component
                   key={link.label}
                   {...(props as any)}
-                  className="group flex items-center gap-3 rounded-lg border border-border bg-background px-5 py-4 font-medium text-navy shadow-sm transition-all hover:border-primary hover:shadow-md"
+                  className="group flex items-center gap-3 rounded border border-border bg-background px-5 py-4 font-medium text-navy shadow-sm transition-all hover:border-primary hover:shadow-md"
                 >
                   <span className="text-lg">{link.emoji}</span>
                   <span className="flex-1">{link.label}</span>
@@ -364,7 +364,7 @@ export default function AboutSierra() {
             </p>
             <Link
               to="/contact?interest=general&message=I'd like to connect with Sierra."
-              className="mt-8 inline-flex items-center gap-2 bg-gold px-8 py-4 font-poppins font-semibold text-navy transition hover:opacity-90"
+              className="mt-8 inline-flex items-center gap-2 rounded bg-gold px-8 py-4 font-poppins font-semibold text-navy transition hover:opacity-90"
             >
               <Coffee className="h-5 w-5" />
               Let's Connect

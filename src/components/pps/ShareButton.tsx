@@ -118,7 +118,7 @@ export default function ShareButton({ title, url }: ShareButtonProps) {
         onClick={() => setOpen(!open)}
         aria-haspopup="dialog"
         aria-expanded={open}
-        className="inline-flex items-center gap-2 font-poppins font-semibold text-sm px-6 py-2.5 border-2 border-muted-foreground/30 text-muted-foreground hover:border-primary hover:text-primary transition-colors"
+        className="inline-flex items-center gap-2 font-poppins font-semibold text-sm px-6 py-2.5 rounded border-2 border-muted-foreground/30 text-muted-foreground hover:border-primary hover:text-primary transition-colors"
       >
         <Share2 className="w-4 h-4" aria-hidden="true" />
         Share

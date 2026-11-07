@@ -150,7 +150,7 @@ export default function ResourcesHub() {
             <input
               type="email"
               aria-label="Email address for newsletter" placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg text-navy focus:outline-none focus:ring-2 focus:ring-primary"
+              className="flex-1 px-4 py-3 rounded text-navy focus:outline-none focus:ring-2 focus:ring-primary"
             />
             <Button className="bg-primary border-2 border-primary text-white hover:bg-white hover:text-primary py-3 px-6 transition-colors">
               Subscribe

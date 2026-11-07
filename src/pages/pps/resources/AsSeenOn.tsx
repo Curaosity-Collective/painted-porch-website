@@ -233,7 +233,7 @@ export default function AsSeenOn() {
                 placeholder="Search appearances..."
                 value={searchQuery}
                 onChange={(e) => handleSearchChange(e.target.value)}
-                className="w-full pl-10 pr-9 py-2.5 rounded-lg border border-border bg-muted text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow"
+                className="w-full pl-10 pr-9 py-2.5 rounded border border-border bg-muted text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow"
               />
               {searchQuery && (
                 <button

@@ -567,7 +567,7 @@ export default function PPSBlogPost() {
             Step onto the P.A.T.H. and explore how to apply these principles in your life, work, and anywhere in between.
           </p>
           <Link to="/the-path" className="inline-block w-full sm:w-auto">
-            <button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 sm:px-8 transition-colors">
+            <button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 sm:px-8 rounded transition-colors">
               Explore The P.A.T.H.
             </button>
           </Link>

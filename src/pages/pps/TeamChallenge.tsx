@@ -120,7 +120,7 @@ export default function TeamChallenge() {
               </p>
               <Button
                 disabled
-                className="bg-primary text-white font-semibold text-base px-8 py-5 opacity-60 cursor-not-allowed"
+                className="bg-primary text-white font-semibold text-base px-8 py-5 rounded opacity-60 cursor-not-allowed"
               >
                 Coming Soon
               </Button>
@@ -289,7 +289,7 @@ export default function TeamChallenge() {
           </p>
           <Button
             disabled
-            className="bg-gold text-navy font-semibold text-base px-8 py-5 shadow-xl opacity-70 cursor-not-allowed"
+            className="bg-gold text-navy font-semibold text-base px-8 py-5 rounded shadow-xl opacity-70 cursor-not-allowed"
           >
             Coming Soon
           </Button>

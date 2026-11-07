@@ -186,7 +186,7 @@ export default function ChangeCommsSignUp() {
               <Button
                 type="submit"
                 disabled={submitting}
-                className="w-full bg-teal hover:bg-teal/90 text-white text-lg py-6"
+                className="w-full bg-teal hover:bg-teal/90 text-white text-lg py-6 rounded"
               >
                 {submitting ? "Sending..." : "Send My Free Guide Now"}
               </Button>
