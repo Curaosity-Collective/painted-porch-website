@@ -184,7 +184,7 @@ const OTHER_WAYS = [
   // Workshops page (PPS Admin, 2026-11-05).
   { title: "Team Workshops", to: "/workshops", body: "For leadership and cross-functional teams." },
   { title: "Speaking", to: "/speaking", body: "Keynotes from Amy Yackowski, Rob Hunter and Sierra Cantrell." },
-  { title: "For individuals", to: "/masterclasses", body: "Mini courses, masterclasses, Leadership Labs and assessments." },
+  { title: "For individuals", to: "/for-individuals", body: "Assessments, masterclasses and mini courses, and Leadership Labs, in one place." },
 ];
 
 export default function HomeNext() {

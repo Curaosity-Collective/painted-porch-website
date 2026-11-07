@@ -100,6 +100,7 @@ import BlueDoorSuccess from "./pages/pps/BlueDoorSuccess";
 import EnvisionShift from "./pages/pps/v3/EnvisionShift";
 import HomeNext from "./pages/pps/v3/HomeNext";
 import ArchitectShift from "./pages/pps/v3/ArchitectShift";
+import ForIndividuals from "./pages/pps/v3/ForIndividuals";
 import EmbodyShift from "./pages/pps/v3/EmbodyShift";
 import ThePath from "./pages/pps/v3/ThePath";
 import ResultsImpact from "./pages/pps/v3/ResultsImpact";
@@ -339,7 +340,7 @@ const App = () => (
             <Route path="leadership-labs" element={<AmplifyLabs />} />
             <Route path="leadership-labs/stractical-leader" element={<StracticalLeaderWorkshop />} />
             <Route path="leadership-labs/stractical-leader/enroll" element={<StracticalLeaderCheckout />} />
-            <Route path="partner/ignite" element={<MovedTo to="/assessments" />} />
+            <Route path="partner/ignite" element={<MovedTo to="/for-individuals" />} />
             <Route path="partner/ignite-archive-v2" element={<IgnitePathAlt />} />
             {/* Courses retired (PPS-DEC-0021): course pages go to mini courses and masterclasses */}
             <Route path="partner/ignite/courses" element={<MovedTo to="/masterclasses" />} />
@@ -434,6 +435,7 @@ const App = () => (
             {/* Relaunch (plan Phase 5): the redesign's offer pages. Always live, because
                 /partner, /partner/amplify/sprints and /partner/embody redirect to them. */}
             <Route path="architect-shift" element={<ArchitectShift />} />
+            <Route path="for-individuals" element={<ForIndividuals />} />
             <Route path="embody-shift" element={<EmbodyShift />} />
             <Route path="the-path" element={<ThePath />} />
             {/* Retired Blue Door addresses (PPS-DEC-0017) */}
@@ -470,7 +472,7 @@ const App = () => (
             <Route path="stracticalmini" element={<Navigate to="/resources/stractical-mini" replace />} />
             <Route path="media" element={<Navigate to="/speaking/media" replace />} />
             <Route path="free" element={<Navigate to="/resources/free" replace />} />
-            <Route path="ignite" element={<Navigate to="/assessments" replace />} />
+            <Route path="ignite" element={<Navigate to="/for-individuals" replace />} />
             <Route path="amplify" element={<MovedTo to="/workshops" />} />
             <Route path="embody" element={<Navigate to="/embody-shift" replace />} />
             <Route path="courses" element={<Navigate to="/masterclasses" replace />} />

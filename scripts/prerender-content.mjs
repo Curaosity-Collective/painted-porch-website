@@ -31,7 +31,9 @@ const commonLinks = [
   { href: "/envision-shift", label: "Envision ShIFt: the Epic ShIFt Organizational Appraisal" },
   { href: "/architect-shift", label: "Architect ShIFt" },
   { href: "/embody-shift", label: "Embody ShIFt" },
-  { href: "/assessments", label: "Assessments and masterclasses" },
+  { href: "/for-individuals", label: "For individual leaders" },
+  { href: "/assessments", label: "Assessments" },
+  { href: "/masterclasses", label: "Masterclasses" },
   { href: "/workshops", label: "Team workshops and Leadership Labs" },
   { href: "/resources", label: "Resources hub" },
   { href: "/contact", label: "Contact us" },
@@ -242,6 +244,37 @@ export const routes = [
       { href: "/embody-shift", label: "Embody ShIFt" },
       { href: "/phase-zero", label: "What's Phase Zero?" },
       { href: "/#clarity-call", label: "Start with a Clarity Call" },
+    ],
+  },
+  {
+    // For Individuals: the IGNITE page, repurposed (PPS Admin, 2026-11-07). No prices here.
+    path: "/for-individuals",
+    title: "For Individual Leaders | Painted Porch Strategies",
+    description:
+      "Assessments, masterclasses and mini courses, and Leadership Labs for leaders investing in their own growth: on your own schedule, or alongside peers.",
+    h1: "Spark Your Next ShIFt, at Your Own Pace",
+    intro:
+      "Assessments, masterclasses and mini courses, and Leadership Labs for leaders investing in their own growth: on your own schedule, or alongside peers.",
+    sections: [
+      {
+        h2: "Designed for…",
+        body: "The Curious Explorer, testing the frameworks at their own pace. The Individual Innovator, investing in their own leadership development. The Strategic Seeker, testing the ideas with a small group first. The Foundation Fortifier, who has tried tactical fixes that didn't stick.",
+      },
+      {
+        h2: "Start Where You Are",
+        body: "Assessments reveal your emotional intelligence, your strengths and the talents that make you extraordinary. Masterclasses and mini courses give strategic insight in under 90 minutes. Leadership Labs are 6–12 week cohorts of up to 25 leaders from different organizations, with peer accountability and individual coaching touchpoints.",
+      },
+      {
+        h2: "From Spark to Momentum",
+        body: "When you're ready, bring it to your team through Team Workshops, or lead change across your organization starting with the Epic ShIFt Organizational Appraisal.",
+      },
+    ],
+    links: [
+      { href: "/assessments", label: "Assessments" },
+      { href: "/masterclasses", label: "Masterclasses and mini courses" },
+      { href: "/leadership-labs", label: "Leadership Labs" },
+      { href: "/workshops", label: "Team Workshops" },
+      { href: "/envision-shift", label: "Envision ShIFt" },
     ],
   },
   {
@@ -655,6 +688,7 @@ export { SITE };
  * prerender.mjs writes a forwarding page at each old address, with the new page's SEO.
  */
 export const movedPages = [
+  { from: "/partner/ignite", to: "/for-individuals" },
   { from: "/partner/ignite/assessments", to: "/assessments" },
   { from: "/partner/ignite/masterclasses", to: "/masterclasses" },
   { from: "/partner/amplify/workshops", to: "/workshops" },

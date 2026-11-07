@@ -43,6 +43,7 @@ const searchIndex: SearchEntry[] = [
   { title: "Masterclasses", description: "Focused skill-building masterclasses and mini courses", href: "/masterclasses", category: "Partnership", keywords: ["masterclass", "mini course", "skill", "session", "mindfulness", "habit", "journaling", "meditation", "self-led", "ignite"], icon: <Flame className="w-4 h-4" /> },
   { title: "Team Workshops", description: "Facilitated team workshops for alignment and growth", href: "/workshops", category: "Partnership", keywords: ["workshops", "facilitated", "team", "alignment", "amplify"], icon: <Rocket className="w-4 h-4" /> },
   { title: "Leadership Labs", description: "Cohort-based labs for leaders who want depth", href: "/leadership-labs", category: "Partnership", keywords: ["labs", "cohort", "leadership", "peer", "stractical", "amplify"], icon: <Rocket className="w-4 h-4" /> },
+  { title: "For Individuals", description: "Assessments, masterclasses and Leadership Labs for individual leaders", href: "/for-individuals", category: "Partnership", keywords: ["individual", "individuals", "self-led", "ignite", "own pace", "personal development"], icon: <Rocket className="w-4 h-4" /> },
 
   // Resources
   { title: "Resources Hub", description: "All resources, tools, and content in one place", href: "/resources", category: "Resources", keywords: ["resources", "tools", "content", "library"], icon: <BookOpen className="w-4 h-4" /> },

@@ -42,6 +42,7 @@ const staticPages = [
   { path: "/masterclasses", priority: "0.7", changefreq: "monthly" },
   { path: "/workshops", priority: "0.7", changefreq: "monthly" },
   { path: "/leadership-labs", priority: "0.7", changefreq: "monthly" },
+  { path: "/for-individuals", priority: "0.8", changefreq: "monthly" },
   { path: "/leadership-labs/stractical-leader", priority: "0.8", changefreq: "monthly" },
   { path: "/resources", priority: "0.8", changefreq: "weekly" },
   { path: "/resources/insights", priority: "0.9", changefreq: "daily" },

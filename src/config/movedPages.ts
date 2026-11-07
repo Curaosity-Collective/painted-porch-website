@@ -14,6 +14,8 @@
 
 /** New address → the address the page had before it moved. */
 export const MOVED_FROM: Readonly<Record<string, string>> = {
+  // The IGNITE page, repurposed as For Individuals (PPS Admin, 2026-11-07).
+  "/for-individuals": "/partner/ignite",
   "/assessments": "/partner/ignite/assessments",
   "/assessments/working-genius": "/partner/ignite/assessments/working-genius",
   "/masterclasses": "/partner/ignite/masterclasses",
@@ -26,7 +28,7 @@ export const MOVED_FROM: Readonly<Record<string, string>> = {
 /** Address that only forwards → where it forwards to. */
 export const FORWARDS_TO: Readonly<Record<string, string>> = {
   // The old addresses.
-  "/partner/ignite": "/assessments",
+  "/partner/ignite": "/for-individuals",
   "/partner/ignite/courses": "/masterclasses",
   "/partner/ignite/assessments": "/assessments",
   "/partner/ignite/assessments/working-genius": "/assessments/working-genius",
@@ -38,7 +40,7 @@ export const FORWARDS_TO: Readonly<Record<string, string>> = {
   "/partner/amplify/stractical-leader/enroll": "/leadership-labs/stractical-leader/enroll",
   // Shortcuts.
   "/programs": "/assessments",
-  "/ignite": "/assessments",
+  "/ignite": "/for-individuals",
   "/radical-mindfulness": "/masterclasses",
   "/communication": "/masterclasses",
   "/extraordinary-teams": "/masterclasses",

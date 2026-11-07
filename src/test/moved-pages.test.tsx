@@ -18,7 +18,7 @@ import { PATHWAY_LINKS } from "@/components/v3/siteNav";
 const read = (p: string) => readFileSync(resolve(__dirname, "..", "..", p), "utf8");
 
 const MOVES: [string, string][] = [
-  ["partner/ignite", "/assessments"],
+  ["partner/ignite", "/for-individuals"],
   ["partner/ignite/assessments", "/assessments"],
   ["partner/ignite/assessments/working-genius", "/assessments/working-genius"],
   ["partner/ignite/masterclasses", "/masterclasses"],
@@ -91,6 +91,7 @@ describe("moved pages", () => {
 
     it("keeps the footer's Leaders & Teams links when only the old addresses have rows (the 2026-11-06 incident)", () => {
       const map = mapOf(
+        rec("/partner/ignite", "live"),
         rec("/partner/ignite/assessments", "live"),
         rec("/partner/ignite/masterclasses", "live"),
         rec("/partner/amplify/labs", "live"),
