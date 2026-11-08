@@ -34,13 +34,13 @@ const Email = (p: CalcResultsProps) => {
   return (
     <Html lang="en" dir="ltr">
       <Head />
-      <Preview>Your Cost of Skipping Phase Zero results</Preview>
+      <Preview>What clarity could save: your results</Preview>
       <Body style={main}>
         <Container style={container}>
           <Link href="https://onthepaintedporch.com" style={{ display: "block", textDecoration: "none" }}>
             <Img src={LOGO_URL} width="180" height="auto" alt={SITE_NAME} style={logo} />
           </Link>
-          <Heading style={h1}>Your Cost-of-Skipping Estimate</Heading>
+          <Heading style={h1}>Your Estimate: What Clarity Is Worth</Heading>
           <Text style={text}>
             Hi {name}, here's the breakdown from the calculator. Share it with your
             team or use it to champion the case for doing the work before the work.
@@ -72,10 +72,10 @@ const Email = (p: CalcResultsProps) => {
           </Section>
 
           <Section style={heroBox}>
-            <Text style={heroLabel}>The Epic ShIFt Organizational Appraisal impact</Text>
+            <Text style={heroLabel}>What clarity could save</Text>
             <Text style={heroValue}>
-              The Epic ShIFt Organizational Appraisal, which begins with a Clarity Call, can provide the clarity needed to reduce the risked{' '}
-              <strong>{fmt(p.exposureLow)}–{fmt(p.exposureHigh)}</strong> of this exposure.
+              Clarity from the Epic ShIFt Organizational Appraisal, which begins with a Clarity Call, could reduce that exposure by{' '}
+              <strong>{fmt(p.exposureLow)}–{fmt(p.exposureHigh)}</strong>.
             </Text>
             <Button href="https://onthepaintedporch.com/envision-shift" style={ctaButton}>
               Envision Epic ShIFt
@@ -104,7 +104,7 @@ const Email = (p: CalcResultsProps) => {
 
 export const template = {
   component: Email,
-  subject: 'Your Cost of Skipping Phase Zero results',
+  subject: 'What clarity could save: your results',
   displayName: 'Cost-of-skipping calculator results',
   previewData: {
     firstName: 'Marcus',

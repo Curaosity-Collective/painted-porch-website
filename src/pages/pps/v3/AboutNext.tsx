@@ -145,7 +145,7 @@ export default function AboutNext() {
       <section aria-labelledby="about-approach" className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Kicker>Our Approach</Kicker>
+            <Kicker>Upstream of the Rollout</Kicker>
             <h2 id="about-approach" className={`mt-5 ${V3_H2}`}>
               We Design Your Next <ShIFt />. You Make It Happen.
             </h2>
@@ -153,8 +153,21 @@ export default function AboutNext() {
           <div className="lg:col-span-7">
             <Prose>
               <p>
-                Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at
-                the moment where leaders have the greatest leverage: before direction hardens into a plan, while there's still room to imagine, align, and architect what comes next.
+                Every change has a moment when it can still become exactly what you intend. Once it starts moving, it
+                gathers momentum in whatever direction it's pointed.
+              </p>
+              <p>
+                We work in that window: before the rollout, before the roadmap, before resources, credibility, and
+                momentum are committed to a direction. We call it{" "}
+                <SmartLink to="/phase-zero" className={LINK}>
+                  Phase Zero™
+                </SmartLink>
+                .
+              </p>
+              <p>
+                Painted Porch Strategies is a change-origination practice, and for more than twenty years we've partnered
+                with leaders to use that time well, while there's still room to imagine, align, and architect what comes
+                next.
               </p>
               <p>
                 We look at three things at once: your leadership and culture, your systems and workflows, and the human

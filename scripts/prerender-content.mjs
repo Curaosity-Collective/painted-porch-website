@@ -107,7 +107,7 @@ export const routes = [
     sections: [
       {
         h2: "We design your next shIFt. You make it happen.",
-        body: "Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at the moment where leaders have the greatest leverage: before direction hardens into a plan, while there's still room to imagine, align, and architect what comes next. We look at three things at once: your leadership and culture, your systems and workflows, and the human capacity underneath both.",
+        body: "Every change has a moment when it can still become exactly what you intend. Once it starts moving, it gathers momentum in whatever direction it's pointed. We work in that window: before the rollout, before the roadmap, before resources, credibility, and momentum are committed to a direction. We call it Phase Zero™. Painted Porch Strategies is a change-origination practice, and for more than twenty years we've partnered with leaders to use that time well, while there's still room to imagine, align, and architect what comes next. We look at three things at once: your leadership and culture, your systems and workflows, and the human capacity underneath both.",
       },
       {
         h2: "Different disciplines. Shared conviction.",
