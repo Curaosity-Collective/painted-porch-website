@@ -384,7 +384,7 @@ export default function ArchitectShift() {
           </div>
           <div className="rounded border border-prepare/40 bg-prepare/5 p-6 md:p-8">
             <p className="label-kicker text-prepare-deep">
-              First step: the Epic <ShIFt /> Organizational Appraisal
+              Prerequisite: the Epic <ShIFt /> Organizational Appraisal
             </p>
             <h3 className="mt-3 font-display text-2xl font-semibold text-foreground">
               Every Architect engagement begins with an honest read.

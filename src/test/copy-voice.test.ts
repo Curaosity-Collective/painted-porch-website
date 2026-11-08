@@ -59,9 +59,9 @@ const MOST_OTHERS =
   /\bmost (?:change work|change methodologies|methodologies|team-building)\b|\bmost (?:organizations|programs) (?:skip|teach|miss|ignore)\b|\bindustry default\b/i;
 
 // The Epic ShIFt Organizational Appraisal is the first step, or the basis, for the work that builds on it.
-// It is never "required", "required beforehand" or a "prerequisite".
+// It is never "required" or "required beforehand"; "prerequisite" and "following the appraisal" are fine now and then.
 const APPRAISAL_REQUIRED =
-  /\b(?:is|it's|are) required (?:before|for)\b|\brequired beforehand\b|\bprerequisite\b|appraisal required\b|\bnot required for leadership labs\b|require the epic shift/i;
+  /\b(?:is|it's|are) required (?:before|for)\b|\brequired beforehand\b|appraisal required\b|\bnot required for leadership labs\b|require the epic shift/i;
 const APPRAISAL_PAGES = [...PAGES, "resources/FAQPage.tsx", "BrandLibrary.tsx", "../../components/pps/quiz/PathFinderQuizDialog.tsx"];
 
 describe("public copy invites rather than pushes", () => {
@@ -90,7 +90,8 @@ describe("public copy invites rather than pushes", () => {
     expect("Every topic can be delivered as a keynote").toMatch(SERVICE_PASSIVE);
     expect("The appraisal is required before Architect ShIFt.").toMatch(APPRAISAL_REQUIRED);
     expect("Epic ShIFt Organizational Appraisal required beforehand").toMatch(APPRAISAL_REQUIRED);
-    expect("Prerequisite: the Epic ShIFt Organizational Appraisal").toMatch(APPRAISAL_REQUIRED);
+    expect("Prerequisite: the Epic ShIFt Organizational Appraisal").not.toMatch(APPRAISAL_REQUIRED);
+    expect("Following the appraisal, your senior team spends three days authoring").not.toMatch(APPRAISAL_REQUIRED);
     expect("Epic ShIFt Organizational Appraisal Required").toMatch(APPRAISAL_REQUIRED);
     expect("These require the Epic ShIFt Organizational Appraisal first").toMatch(APPRAISAL_REQUIRED);
     expect("In-person is ideal when possible, but not required.").not.toMatch(APPRAISAL_REQUIRED);
