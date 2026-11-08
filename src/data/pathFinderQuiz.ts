@@ -120,6 +120,8 @@ export const OFFERINGS = {
   resolutionRemix: { key: "resolutionRemix", name: "Resolution Remix", facilitator: "Sierra", tier: "IGNITE", url: "/masterclasses", blurb: "Reframe annual resolutions into sustainable leadership practices." },
   workFromHomePro: { key: "workFromHomePro", name: "Become a Work-From-Home Pro", tier: "Free", url: "/wfh-sign-up", blurb: "Practical guide to remote-work rhythm, focus, and energy. Free." },
   stoicLeaderFieldGuide: { key: "stoicLeaderFieldGuide", name: "The Stoic Leader Field Guide", facilitator: "Amy", tier: "Free", url: "/stoic-field-guide", blurb: "Stoic principles translated into daily leadership practice. Free download." },
+  communicatorStylesReplay: { key: "communicatorStylesReplay", name: "The 6 Communicator Styles (Training Replay)", facilitator: "Rob", tier: "Free", url: "/6-communicator-styles", blurb: "Recognize the six communicator styles, starting with your own, and adapt how your message lands. Free replay." },
+  changeRoadmap: { key: "changeRoadmap", name: "Change Readiness Roadmap Planner", tier: "Free", url: "/change-roadmap", blurb: "Map your change from readiness to rollout, one stage at a time. Free planner." },
 
   // Blue Door
   // Epic ShIFt Organizational Appraisal (PPS-DEC-0018). Internal key and tier keep the legacy
@@ -1016,6 +1018,50 @@ function applyFeaturedPin(r: QuizResult, opts?: BuildResultOptions): QuizResult 
   if (pinIdx <= 0) return r;
   const reordered = [offerings[pinIdx], ...offerings.slice(0, pinIdx), ...offerings.slice(pinIdx + 1)];
   return { ...r, primaryGroup: { ...r.primaryGroup, offerings: reordered } };
+}
+
+/**
+ * Live B2C starting points, by result, for when the program a result points to hasn't launched yet
+ * (PPS Admin, 2026-11-08: "I want to offer something for B2C while these are waiting to go live").
+ * Ordered by preference; the first two that are viewable and not coming soon are used.
+ */
+export const START_TODAY_BY_RT: Record<B2CResultType, OfferingKey[]> = {
+  RT1: ["stoicLeaderFieldGuide", "passengerToPilot", "eqi"],
+  RT2: ["communicatorStylesReplay", "workingGenius"],
+  RT3: ["kickTheHabitB2C", "workingGenius"],
+  RT4: ["strategicChangeCanvas", "stracticalLeaderLab", "changeRoadmap"],
+  RT5: ["stracticalLeaderLab", "stracticalMini"],
+  RT6: ["kickTheHabitB2C", "stoicLeaderFieldGuide"],
+};
+
+export const START_TODAY_HEADING = "Start Here Today";
+
+/**
+ * When every offering in a B2C result's starting point is still coming soon, lead with up to two live
+ * picks for that result ("Start Here Today") and keep the program right after it, marked as launching
+ * soon so its launch list stays one click away. As soon as the program launches (or any primary pick is
+ * live), the result is returned unchanged. B2B results are never changed.
+ */
+export function leadWithLiveStart(
+  r: QuizResult,
+  comingSoon: ReadonlySet<string>,
+  viewable?: ReadonlySet<string>,
+): QuizResult {
+  if (r.track !== "b2c" || !r.primaryGroup) return r;
+  const primary = r.primaryGroup.offerings;
+  if (primary.length === 0 || primary.some((o) => !comingSoon.has(o.key))) return r;
+  const picks = (START_TODAY_BY_RT[r.resultType as B2CResultType] ?? [])
+    .filter((k) => !comingSoon.has(k) && (!viewable || viewable.has(k)))
+    .slice(0, 2);
+  if (picks.length === 0) return r;
+  return {
+    ...r,
+    primaryGroup: grp(START_TODAY_HEADING, ...picks),
+    groups: [{ ...r.primaryGroup, heading: `${r.primaryGroup.heading} (Launching Soon)` }, ...r.groups],
+    whyThisFits: r.whyThisFits
+      ? `${r.whyThisFits} It opens soon; until then, begin with ${START_TODAY_HEADING} below.`
+      : r.whyThisFits,
+  };
 }
 
 export function buildResult(track: Track, answers: Answers, opts?: BuildResultOptions): QuizResult {

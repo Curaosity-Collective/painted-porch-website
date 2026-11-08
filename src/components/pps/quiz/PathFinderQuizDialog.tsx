@@ -11,10 +11,7 @@ import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, Compass, Loader2, Mail, 
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { usePathFinderOverrides, usePathFinderRtPools } from "@/hooks/usePathFinderOverrides";
-import {
-  PQ1, PQ2_B2C, B2C_QUESTIONS, ORG_PQ2, TEAM_BRANCH, CHANGE_BRANCH, CAP_BRANCH, STRATEGIC_BRANCH,
-  buildResult, type Answers, type Question, type QuizResult, type Track, type Offering,
-} from "@/data/pathFinderQuiz";
+import { PQ1, PQ2_B2C, B2C_QUESTIONS, ORG_PQ2, TEAM_BRANCH, CHANGE_BRANCH, CAP_BRANCH, STRATEGIC_BRANCH, buildResult, type Answers, type Question, type QuizResult, type Track, type Offering, leadWithLiveStart, START_TODAY_HEADING } from "@/data/pathFinderQuiz";
 import { saveQuizContactPrefill, clearQuizContactPrefill } from "./quizContactPrefill";
 import { useQuizRelatedContent } from "./useQuizRelatedContent";
 import { useOpPlatformRecommendations } from "./useOpPlatformRecommendations";
@@ -364,7 +361,12 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
 
   const result: QuizResult | null = useMemo(() => {
     if (!showResult || !track) return null;
-    const r = buildResult(track, answers, { viewableKeys: viewableKeys ?? undefined, rtPools, featuredKeys });
+    // B2C: while the program a result points to is still coming soon, lead with live picks (PPS Admin, 2026-11-08).
+    const r = leadWithLiveStart(
+      buildResult(track, answers, { viewableKeys: viewableKeys ?? undefined, rtPools, featuredKeys }),
+      comingSoonKeys,
+      viewableKeys ?? undefined,
+    );
     // If the Strongest Next Step is coming-soon but a live primary pick exists,
     // promote the first live primary pick into the strongest slot so users get
     // something they can begin right now.
@@ -779,9 +781,13 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
               const headlineLower = (result.headline || "this area").toLowerCase();
               const primaryReason = scoutMode
                 ? "You told us you're exploring for yourself before bringing this to your team — so start with what you can experience firsthand."
-                : `Workshops that work directly on ${headlineLower} — the strongest signal in your answers.`;
+                : result.primaryGroup?.heading === START_TODAY_HEADING
+                  ? "Available now, while your program gets ready to open."
+                  : `Workshops that work directly on ${headlineLower} — the strongest signal in your answers.`;
               const reasonForGroupHeading = (heading: string) => {
                 const h = heading.toLowerCase();
+                if (/\(launching soon\)/.test(h))
+                  return "The program your answers point to. Join its launch list to hear first when it opens.";
                 if (/once the epic shift (organizational )?appraisal|once the blue door|after the blue door|after blue door/.test(h))
                   return "These require the Epic ShIFt Organizational Appraisal first so they can be sequenced to what it surfaces about your organization.";
                 if (/epic shift (organizational )?appraisal|blue.?door|deeper/.test(h))
