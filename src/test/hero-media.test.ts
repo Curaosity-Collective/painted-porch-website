@@ -92,7 +92,7 @@ describe("hero videos and closing photos", () => {
     const read = (p: string) => readFileSync(resolve(__dirname, "..", p), "utf8");
     const older = [
       "Speaking", "SpeakingWorkshopTopics", "resources/AsSeenOn", "PPSContact", "resources/ResourcesHub",
-      "resources/FreeDownloads", "resources/YouTubePage", "TermsAndConditions", "Press", "PressKit", "PPSBlog",
+      "resources/FreeDownloads", "resources/YouTubePage", "TermsAndConditions", "PressKit", "PPSBlog",
     ];
     for (const page of older) {
       const src = read(`pages/pps/${page}.tsx`);
@@ -100,9 +100,9 @@ describe("hero videos and closing photos", () => {
       expect(src, page).not.toMatch(/<TierHeroSection\b/);
     }
     // Contact: its own photo of porch chairs (PPS Admin, 2026-11-07). The stage photo is shared, for now, by the
-    // four speaking pages.
+    // speaking pages and the Press Kit. (The Press page was retired on 2026-11-08: /press now redirects to the Press Kit.)
     expect(read("pages/pps/PPSContact.tsx")).toMatch(/image=\{contactHero\}/);
-    for (const page of ["Speaking", "SpeakingWorkshopTopics", "Press", "PressKit"]) {
+    for (const page of ["Speaking", "SpeakingWorkshopTopics", "PressKit"]) {
       expect(read(`pages/pps/${page}.tsx`), page).toMatch(/image=\{speakingHero\}/);
     }
   });
