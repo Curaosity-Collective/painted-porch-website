@@ -105,7 +105,7 @@ export const COMPANY_LINKS: NavLink[] = [
   PHASE_ZERO_LINK,
   { label: "Results & Impact", href: "/about/impact" },
   { label: "Speaking", href: "/speaking" },
-  { label: "Press", href: "/press" },
+  { label: "Press", href: "/press-kit" },
   { label: "Insights & Resources", href: "/resources" },
   { label: "FAQ", href: "/resources/faq" },
 ];
