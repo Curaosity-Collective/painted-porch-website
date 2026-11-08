@@ -7,7 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Map, Compass, CheckCircle2, Sparkles } from "lucide-react";
-import roadmapPreview from "@/assets/change-readiness-roadmap-preview.png";
+import roadmapPreview from "@/assets/path-roadmap-planner-preview.png";
 import heroBg from "@/assets/change-roadmap-hero-bg.png";
 
 export default function ChangeRoadmapSignUp() {
@@ -109,7 +109,7 @@ export default function ChangeRoadmapSignUp() {
 
             {/* Worksheet preview */}
             <a
-              href="/downloads/Change_Readiness_Roadmap_Painted_Porch_Strategies.pdf"
+              href="/downloads/The_PATH_Roadmap_Planner_Painted_Porch_Strategies.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="block mb-8 rounded overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow bg-white"

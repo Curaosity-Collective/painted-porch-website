@@ -7,7 +7,7 @@ import type { TemplateEntry } from './registry.ts'
 
 const SITE_NAME = "Painted Porch Strategies"
 const LOGO_URL = 'https://dkpxjivoupqpmvzwxpef.supabase.co/storage/v1/object/public/email-assets/pps-logo-white.png'
-const PDF_URL = 'https://onthepaintedporch.com/downloads/Change_Readiness_Roadmap_Painted_Porch_Strategies.pdf'
+const PDF_URL = 'https://onthepaintedporch.com/downloads/The_PATH_Roadmap_Planner_Painted_Porch_Strategies.pdf'
 const THANK_YOU_URL = 'https://onthepaintedporch.com/thank-you-change-roadmap'
 
 interface ChangeRoadmapProps {

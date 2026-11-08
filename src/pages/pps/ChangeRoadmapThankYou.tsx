@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Download, BookOpen, Home } from "lucide-react";
-import roadmapPreview from "@/assets/change-readiness-roadmap-preview.png";
+import roadmapPreview from "@/assets/path-roadmap-planner-preview.png";
 import heroBg from "@/assets/change-roadmap-hero-bg.png";
 
-const PDF_URL = "/downloads/Change_Readiness_Roadmap_Painted_Porch_Strategies.pdf";
+const PDF_URL = "/downloads/The_PATH_Roadmap_Planner_Painted_Porch_Strategies.pdf";
 
 export default function ChangeRoadmapThankYou() {
   return (
