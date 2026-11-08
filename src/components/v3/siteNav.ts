@@ -62,7 +62,6 @@ export const HEADER_MENU: NavGroup[] = [
       { label: "Sierra Cantrell", href: "/speaking/sierra" },
       { label: "Speaking Topics", href: "/speaking/topics" },
       { label: "As Seen On", href: "/speaking/media" },
-      { label: "Press Kit", href: "/press-kit" },
     ],
   },
   {
