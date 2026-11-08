@@ -86,7 +86,7 @@ export default function CommunicatorStyles() {
             Even if you're an introvert, your ideas, your perspectives, and your voice matter. While not all of us want to be on a stage sharing our ideas or giving a presentation, we should each have the tools to be heard, to have a seat at the table, even if it's simply in conversation or collaboration with a friend, family member, or colleague.
           </p>
           <p className="text-body text-foreground">
-            Join Painted Porch's Master of Communication ("M.C."), Rob Hunter, for an insightful and empowering training session focused on showing you ways to understand your "audience" and create better connections and clarity in your communication.
+            Join Painted Porch's Master of Communication ("M.C."), Rob Hunter, for a training on understanding your "audience" and building better connection and clarity every time you communicate.
           </p>
         </div>
       </section>

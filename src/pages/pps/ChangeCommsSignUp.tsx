@@ -88,7 +88,7 @@ export default function ChangeCommsSignUp() {
             4 Critical Steps for <span className="text-gold">Effective Change Communication</span>
           </h1>
           <p className="text-body text-white/90 max-w-3xl mx-auto">
-            A must-use tool to plan messaging that drives change awareness, understanding, and adoption.
+            Plan messaging that builds awareness, understanding, and adoption of your next change.
           </p>
         </div>
       </section>
@@ -102,10 +102,10 @@ export default function ChangeCommsSignUp() {
               Get a free copy of our guide.
             </h2>
             <p className="text-body text-charcoal mb-6">
-              This is a <strong className="text-navy">must-use tool</strong> before you craft and send ANY communication to change-impacted audiences, both internal and external, to ensure change <strong className="text-navy">understanding, clarity, confidence, and adoption</strong>.
+              Use it before you craft and send any communication about a change, to internal and external audiences alike, so people understand it, feel confident in it, and act on it.
             </p>
             <p className="text-body text-charcoal mb-6">
-              This practical guide will help you get change-ready and prepared by intentionally and concisely planning your messaging for your organization's upcoming change project.
+              In four steps, you'll plan clear, concise messaging for your organization's next change project.
             </p>
 
             <a

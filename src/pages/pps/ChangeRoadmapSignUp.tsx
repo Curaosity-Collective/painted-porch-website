@@ -84,7 +84,7 @@ export default function ChangeRoadmapSignUp() {
         <div className="relative max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <Sparkles className="w-4 h-4" />
-            FREE PLANNING WORKSHEET
+            FREE ROADMAP PLANNER
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 break-words">
             Your <span className="text-gold">P.A.T.H. Roadmap</span> Planner
@@ -146,7 +146,7 @@ export default function ChangeRoadmapSignUp() {
               <li className="text-body flex gap-3">
                 <Sparkles className="w-6 h-6 text-raspberry flex-shrink-0 mt-1" />
                 <span className="text-charcoal">
-                  Built on the <strong className="text-navy">P.A.T.H.™ methodology</strong>, Prepare, Align, Take Off, Create Habits
+                  Built on the <strong className="text-navy">P.A.T.H.™</strong>: Prepare, Align, Take Off, Create Habits
                 </span>
               </li>
             </ul>
@@ -154,7 +154,7 @@ export default function ChangeRoadmapSignUp() {
 
           {/* Right: Form */}
           <div className="bg-white border-2 border-border rounded shadow-lg p-8 md:sticky md:top-8">
-            <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mb-2">Send Me My Free Worksheet</h3>
+            <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mb-2">Send Me My Free Planner</h3>
             <p className="text-body -sm text-muted-foreground mb-6">
               Drop your info below and we'll email it over right away.
             </p>
@@ -211,7 +211,7 @@ export default function ChangeRoadmapSignUp() {
                 disabled={submitting}
                 className="w-full bg-teal hover:bg-teal/90 text-white text-lg py-6 rounded"
               >
-                {submitting ? "Sending..." : "Send Me My Free Worksheet"}
+                {submitting ? "Sending..." : "Send Me My Free Planner"}
               </Button>
 
               <p className="text-body text-muted-foreground text-center">

@@ -100,7 +100,7 @@ export default function StrategicCanvasSignUp() {
               Plan smarter. ShIFt with intention.
             </h2>
             <p className="text-body text-charcoal mb-6">
-              Most change plans skip the most important step: the thinking <em>before</em> the doing. The
+              The most important step in any change plan is the thinking <em>before</em> the doing. The
               <strong className="text-navy"> Strategic Change Canvas</strong> walks you through the questions
               that turn good ideas into grounded action.
             </p>
@@ -126,13 +126,13 @@ export default function StrategicCanvasSignUp() {
               <li className="text-body flex gap-3">
                 <Compass className="w-6 h-6 text-teal flex-shrink-0 mt-1" />
                 <span className="text-charcoal">
-                  <strong className="text-navy">A clear north star</strong>, name the shift you're trying to lead
+                  <strong className="text-navy">A clear north star</strong>: name the shIFt you want to lead
                 </span>
               </li>
               <li className="text-body flex gap-3">
                 <Map className="w-6 h-6 text-lime-green flex-shrink-0 mt-1" />
                 <span className="text-charcoal">
-                  <strong className="text-navy">Phase Zero prompts</strong> to surface what's missing before kickoff
+                  <strong className="text-navy">Phase Zero prompts</strong> to find what's missing before kickoff
                 </span>
               </li>
               <li className="text-body flex gap-3">

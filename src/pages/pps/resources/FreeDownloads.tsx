@@ -144,7 +144,7 @@ const downloads = [
   },
   {
     icon: BookOpen,
-    title: "The Stoic Leader Field Guide",
+    title: "The Stoic Leader's Field Guide",
     description: "An introduction to applying timeless Stoic principles in modern leadership. Daily practices, reflection prompts, and practical tools to lead with clarity, courage, and calm.",
     format: "PDF",
     color: "bg-gold/10",

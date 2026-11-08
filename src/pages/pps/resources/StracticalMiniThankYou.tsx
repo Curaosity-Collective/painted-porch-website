@@ -48,7 +48,7 @@ export default function StracticalMiniThankYou() {
                     Explore More Free Resources
                   </h4>
                   <p className="text-body -sm text-charcoal">
-                    Guides, templates, and tools to help you architect your next shIFt.
+                    Guides, templates, and tools for architecting your next shIFt.
                   </p>
                 </div>
               </Link>

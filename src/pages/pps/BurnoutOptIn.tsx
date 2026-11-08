@@ -71,9 +71,7 @@ export default function BurnoutOptIn() {
               Bust Burnout
             </h1>
             <p className="text-body text-foreground leading-relaxed">
-              You've started to spot the signs of burnout. We've put together resources to help you
-              bust burnout in yourself, plus tools to support and empower your team to take the
-              reins of resilience.
+              You've started to spot the signs of burnout. These resources are for busting burnout in yourself, with tools your team can use to take the reins of resilience.
             </p>
           </div>
 

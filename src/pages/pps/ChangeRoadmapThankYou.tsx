@@ -33,7 +33,7 @@ export default function ChangeRoadmapThankYou() {
         <div className="max-w-3xl mx-auto">
           <div className="bg-white border-2 border-border rounded shadow-lg p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy mb-4">
-              Download Your Worksheet
+              Download Your Planner
             </h2>
             <p className="text-body text-charcoal mb-6 max-w-xl mx-auto">
               Download your planner below 👇 and start mapping your route, one stop at a time. We've also sent a copy to your inbox.
@@ -75,7 +75,7 @@ export default function ChangeRoadmapThankYou() {
                     Explore More Free Resources
                   </h4>
                   <p className="text-body -sm text-charcoal">
-                    Guides, templates, and tools to help you architect your next shIFt.
+                    Guides, templates, and tools for architecting your next shIFt.
                   </p>
                 </div>
               </Link>

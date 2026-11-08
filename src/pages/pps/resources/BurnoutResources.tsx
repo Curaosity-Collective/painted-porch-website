@@ -108,7 +108,7 @@ const BurnoutResources = () => {
             Burnout-Busting Resources
           </h1>
           <p className="text-body mt-5 text-white/90 leading-relaxed max-w-2xl mx-auto font-montserrat">
-            Scroll down to access materials & resources to help you bust burnout in yourself, as well as how to empower your team to take the reins of resilience.
+            Scroll down for resources to bust burnout in yourself, and ways your team can take the reins of resilience.
           </p>
           <a href="#resources-start">
             <Button className="mt-8 bg-white text-primary hover:bg-white/90 font-poppins font-semibold px-8 h-12">
@@ -148,7 +148,7 @@ const BurnoutResources = () => {
             What's a Painted Porch?
           </h2>
           <p className="text-body text-muted-foreground leading-relaxed max-w-3xl mx-auto font-montserrat">
-            Painted Porch Strategies was founded in 2020 to address one of the most impactful but often overlooked drivers of successful innovation, transformation, and change, YOUR PEOPLE. Our training, coaching, and advisory programs prepare your people to step in, stand strong, speak up, and share and challenge ideas that can lead to lasting change that sticks.
+            Painted Porch Strategies was founded in 2020 around the most overlooked driver of innovation and change: YOUR PEOPLE. Our workshops, programs, and advisory partnerships build extraordinary teams who step in, stand strong, speak up, and share and challenge ideas, so the change they author sticks.
           </p>
           <Link to="/about" className="inline-flex items-center gap-2 mt-6 text-primary font-poppins font-semibold hover:underline">
             Learn more <ArrowRight className="h-4 w-4" />
@@ -186,7 +186,7 @@ const BurnoutResources = () => {
             Our Team of Experts
           </h2>
           <p className="text-body text-muted-foreground leading-relaxed max-w-3xl mx-auto font-montserrat">
-            While partnering with organizations embarking on change is our focus, our team comes from a diverse background of industries and experience. They bring with them the expertise of what is truly needed to empower your people to navigate this ever-evolving world and its demands.
+            Partnering with organizations on change is our focus, and our team brings experience from a wide range of industries: know-how your people can draw on to navigate a world that keeps moving.
           </p>
           <Link to="/about" className="inline-flex items-center gap-2 mt-6 text-primary font-poppins font-semibold hover:underline">
             Meet the team <ArrowRight className="h-4 w-4" />
@@ -224,9 +224,9 @@ const BurnoutResources = () => {
             Learn Radical Mindfulness
           </h2>
           <p className="text-body text-muted-foreground leading-relaxed max-w-2xl mx-auto font-montserrat mb-8">
-            Want to learn more ways to help you and your team tackle burnout and overwhelm, show up strong, and have resilience to obstacles and challenges? Let Sierra show you how through her Radical Mindfulness training program.
+            Want more ways for you and your team to tackle burnout and overwhelm, show up strong, and bounce back from setbacks? Explore Sierra's Radical Mindfulness masterclass.
           </p>
-          <Link to="/radical-mindfulness">
+          <Link to="/masterclasses#mc-radical-mindfulness-mini">
             <Button className="bg-primary hover:bg-primary/90 font-poppins font-semibold px-8 h-12">
               LEARN MORE
               <ArrowRight className="ml-2 h-4 w-4" />

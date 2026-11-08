@@ -76,10 +76,10 @@ export default function KickTheHabitWatch() {
             <span className="text-raspberry italic">Kick the Habit</span> Training Replay
           </h1>
           <p className="text-body text-foreground max-w-2xl mx-auto mb-3">
-            Here's the replay of our webinar from June 28th, 2022.
+            Here's the replay of our Kick the Habit training.
           </p>
           <p className="text-body text-foreground max-w-2xl mx-auto mb-8">
-            Make sure to download the Action Guide to use as you watch and then begin to implement the strategies shared during the training.
+            Download the Action Guide to use as you watch, then put the strategies into practice.
           </p>
           <a href={ACTION_GUIDE_URL} target="_blank" rel="noopener noreferrer">
             <Button className="bg-raspberry border-2 border-raspberry text-white hover:bg-transparent hover:text-raspberry transition-colors px-8 py-6 text-base">
@@ -119,7 +119,7 @@ export default function KickTheHabitWatch() {
                   "Spot negative thinking patterns",
                   "Challenge habitual ways of doing",
                   "Use curiosity and play to spot innovative ideas",
-                  "Develop a Change-ready mindset",
+                  "Build a mindset that's ready for change",
                   "And more!",
                 ].map((item) => (
                   <li key={item} className="text-body flex items-start gap-3">
@@ -136,7 +136,7 @@ export default function KickTheHabitWatch() {
                 Don't Forget Your Action Guide
               </h2>
               <p className="text-body text-foreground mb-6">
-                Download the Kick the Habit Action Guide to help you plot a path toward developing a change-ready mindset and innovative solutions that will propel your growth and create lasting change.
+                Use the Kick the Habit Action Guide to plot your path to a mindset that's ready for change, and to ideas that fuel your growth and make change last.
               </p>
               <a href={ACTION_GUIDE_URL} target="_blank" rel="noopener noreferrer">
                 <Button className="bg-raspberry border-2 border-raspberry text-white hover:bg-transparent hover:text-raspberry transition-colors px-8 py-6 text-base">
