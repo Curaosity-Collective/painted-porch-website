@@ -7,6 +7,7 @@ import { ShIFt } from "@/components/v3/ShIFt";
 import { SmartLink } from "@/components/pps/SmartLink";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
+import { anyMasterclassLive, useMasterclassLaunchStatuses } from "@/hooks/useMasterclassLaunch";
 import { getSiteUrl } from "@/lib/site-url";
 
 /**
@@ -82,7 +83,7 @@ const TYPES: { title: string; icon: ComponentType<{ className?: string }>; tint:
   },
 ];
 
-const OPTIONS: { title: string; body: ReactNode; inside: string[]; bestWhen: string; to: string; cta: string }[] = [
+const OPTIONS: { title: string; body: ReactNode; inside: string[]; bestWhen: string; to: string; cta: string; launchNote?: boolean }[] = [
   {
     title: "Assessments",
     body: "Decode what drives your success. Reveal your emotional intelligence, your strengths and the talents that make you extraordinary.",
@@ -102,6 +103,7 @@ const OPTIONS: { title: string; body: ReactNode; inside: string[]; bestWhen: str
     bestWhen: "you want a focused insight on one topic, on your own schedule.",
     to: "/masterclasses",
     cta: "Explore Masterclasses",
+    launchNote: true,
   },
   {
     title: "Leadership Labs",
@@ -146,6 +148,7 @@ const LINK = "inline-flex items-center gap-1.5 font-semibold text-heading underl
 
 export default function ForIndividuals() {
   const { open: openGuide } = usePathFinderQuiz();
+  const masterclassesLaunched = anyMasterclassLive(useMasterclassLaunchStatuses()) === true;
 
   useDocumentSeo({
     title: TITLE,
@@ -226,6 +229,12 @@ export default function ForIndividuals() {
               <li key={o.title} className="rounded flex flex-col border border-border bg-white p-6">
                 <h3 className="font-display text-xl font-bold text-heading">{o.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-foreground">{o.body}</p>
+                {o.launchNote && !masterclassesLaunched && (
+                  <p className="mt-3 text-sm leading-relaxed text-foreground">
+                    <span className="font-semibold text-heading">Launching soon.</span> Join the launch list to hear first
+                    when they open.
+                  </p>
+                )}
                 <p className="mt-5 text-xs font-bold uppercase tracking-[0.12em] text-foreground">What's inside</p>
                 <ul className="mt-2 space-y-1.5">
                   {o.inside.map((item) => (

@@ -6,6 +6,7 @@ import { Video, ArrowLeft, X } from "lucide-react";
 import { PPSBreadcrumb } from "@/components/pps/PPSBreadcrumb";
 import { FAQSection } from "@/components/pps/FAQSection";
 import { LaunchListCTA } from "@/components/pps/LaunchListCTA";
+import { anyMasterclassLive, useMasterclassLaunchStatuses } from "@/hooks/useMasterclassLaunch";
 import { igniteFaqCategories } from "./igniteFaqs";
 import { TierBadge } from "@/components/pps/TierBadge";
 import { TIERS } from "@/config/tiers";
@@ -63,6 +64,8 @@ const allMasterclasses: MasterclassItem[] = [
 ];
 
 export default function IgniteMasterclasses() {
+  const statuses = useMasterclassLaunchStatuses();
+  const launched = anyMasterclassLive(statuses) === true;
   useDocumentSeo({
     title: "Masterclasses | Painted Porch Strategies",
     description: "Live and on-demand masterclasses on leadership, communication, mindfulness, and team dynamics from Painted Porch Strategies.",
@@ -101,8 +104,16 @@ export default function IgniteMasterclasses() {
             <p className="text-body text-foreground max-w-3xl mx-auto">
               Focused, expert-led sessions designed to deepen your transformation capacity. Each masterclass is a 30–90 minute experience you can attend live or watch on replay.
             </p>
+            {/* Until the first one launches, say so plainly (PPS Admin, 2026-11-08). */}
             <p className="text-body -sm text-primary max-w-3xl mx-auto mt-3">
-              New sessions drop throughout the year. Click "Join the Launch List" on any session below to be the first to know when it goes live.
+              {launched ? (
+                <>New sessions drop throughout the year. Click "Join the Launch List" on any session below to be the first to know when it goes live.</>
+              ) : (
+                <>
+                  <strong>Launching soon.</strong> Our masterclasses and mini courses open soon. Join the launch list on
+                  any session below to hear first when it does.
+                </>
+              )}
             </p>
           </div>
 
@@ -132,11 +143,13 @@ export default function IgniteMasterclasses() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {filtered.map((item) => {
               const colors = categoryColors[item.category];
+              // A session's own landing page is linked only once it has launched.
+              const href = item.href && statuses?.get(item.launchSlug ?? "") === "live" ? item.href : undefined;
               return (
                 <div key={item.title} id={item.launchSlug} className={`bg-muted rounded border-t-4 border-${item.themeColor} transition-all hover:shadow-lg flex flex-col overflow-hidden scroll-mt-24`}>
                   <div className="relative">
-                    {item.href ? (
-                      <Link to={item.href}>
+                    {href ? (
+                      <Link to={href}>
                         <img src={item.image} alt={item.title} className="w-full h-40 object-cover hover:opacity-90 transition-opacity" />
                       </Link>
                     ) : (
@@ -151,8 +164,8 @@ export default function IgniteMasterclasses() {
                       <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${colors.bg} ${colors.text} mb-2`}>
                         {item.category}
                       </span>
-                      {item.href ? (
-                        <Link to={item.href}>
+                      {href ? (
+                        <Link to={href}>
                           <h3 className={`text-xl md:text-2xl font-poppins font-bold text-${item.themeColor} leading-tight hover:underline`}>
                             {item.title}
                           </h3>
@@ -186,8 +199,8 @@ export default function IgniteMasterclasses() {
                           Coming Soon
                         </Button>
                       )}
-                      {item.href && (
-                        <Link to={item.href} className={`block text-center text-xs mt-2 text-${item.themeColor} hover:underline`}>
+                      {href && (
+                        <Link to={href} className={`block text-center text-xs mt-2 text-${item.themeColor} hover:underline`}>
                           Learn more →
                         </Link>
                       )}

@@ -52,4 +52,6 @@ export const FORWARDS_TO: Readonly<Record<string, string>> = {
   // Opens the Find Your Next ShIFt guide, as /start-here does (PPS Admin, 2026-11-07). Without this it has no
   // status of its own and showed the Draft placeholder.
   "/for-leaders": "/start-here",
+  // The Find Your Next ShIFt guide and its admin offerings table linked this address (PPS Admin, 2026-11-08).
+  "/resources/kick-the-habit": "/kick-the-habit",
 };

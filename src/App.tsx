@@ -17,17 +17,7 @@ import NotFound from "./pages/NotFound";
 import PPSLayout from "./layouts/PPSLayout";
 import PageGate from "./components/pps/PageGate";
 import PPSHome from "./pages/pps/PPSHome";
-import PPSHomeArchive from "./pages/pps/PPSHomeArchive";
-import PPSHomeVerbatim from "./pages/pps/PPSHomeVerbatim";
-import HeroPreviewV1 from "./pages/pps/HeroPreviewV1";
-import HeroPreviewV2 from "./pages/pps/HeroPreviewV2";
-import HeroPreviewV3 from "./pages/pps/HeroPreviewV3";
-import HeroPreviewCompare from "./pages/pps/HeroPreviewCompare";
 import PhaseZero from "./pages/pps/PhaseZero";
-import HomeV2 from "./pages/pps/v2/HomeV2";
-import HowWeWork from "./pages/pps/v2/HowWeWork";
-import EpicShift from "./pages/pps/v2/EpicShift";
-import CapabilitiesV2 from "./pages/pps/v2/Capabilities";
 import PPSAbout from "./pages/pps/PPSAbout";
 import PPSPricing from "./pages/pps/PPSPricing";
 import PPSBlog from "./pages/pps/PPSBlog";
@@ -42,7 +32,6 @@ import OurImpact from "./pages/pps/about/OurImpact";
 // New Partner Section
 import PartnerWithUs from "./pages/pps/partner/PartnerWithUs";
 import PartnerWithUsAlt from "./pages/pps/partner/PartnerWithUsAlt";
-import PPSHomeAlt from "./pages/pps/PPSHomeAlt";
 import IgnitePath from "./pages/pps/partner/IgnitePath";
 import IgnitePathAlt from "./pages/pps/partner/IgnitePathAlt";
 import AmplifyPath from "./pages/pps/partner/AmplifyPath";
@@ -293,23 +282,12 @@ const App = () => (
             <Route path="home-next" element={<Navigate to="/" replace />} />
             {/* The homepage before the relaunch, kept as an archive (Draft: admins only). */}
             <Route path="home-archive-v2" element={<PPSHome />} />
-            <Route path="home-alt" element={<PPSHomeAlt />} />
-            <Route path="home-archive" element={<PPSHomeArchive />} />
-            <Route path="home-verbatim" element={<PPSHomeVerbatim />} />
-            <Route path="hero-preview/v1" element={<HeroPreviewV1 />} />
-            <Route path="hero-preview/v2" element={<HeroPreviewV2 />} />
-            <Route path="hero-preview/v3" element={<HeroPreviewV3 />} />
-            <Route path="hero-preview/compare" element={<HeroPreviewCompare />} />
             {/* Phase Zero™: Our Approach, one page combining the old Phase Zero and Our Approach
                 pages (PPS Admin, 2026-11-06). Both old pages are archived (Draft: admins only). */}
             <Route path="phase-zero" element={<PhaseZeroNext />} />
             <Route path="phase-zero-archive-v2" element={<PhaseZero />} />
 
             {/* Epic ShIFt draft ecosystem (v2) — not linked in nav */}
-            <Route path="home-v2" element={<HomeV2 />} />
-            <Route path="how-we-work" element={<HowWeWork />} />
-            <Route path="epic-shift" element={<EpicShift />} />
-            <Route path="capabilities" element={<CapabilitiesV2 />} />
 
             {/* About Section */}
             {/* Relaunch: the redesign's About and Results & Impact pages. The pages
@@ -400,6 +378,8 @@ const App = () => (
             <Route path="speaking/sierra" element={<SierraSpeaker />} />
             <Route path="start-here" element={<StartHere />} />
             <Route path="kick-the-habit" element={<KickTheHabit />} />
+            {/* The guide and the admin offerings table link here; the page lives at /kick-the-habit. */}
+            <Route path="resources/kick-the-habit" element={<Navigate to="/kick-the-habit" replace />} />
             <Route path="kick-the-habit-watch" element={<KickTheHabitWatch />} />
             <Route path="stoic-field-guide" element={<StoicFieldGuide />} />
             <Route path="stoic-field-guide-access" element={<StoicFieldGuideAccess />} />

@@ -35,10 +35,6 @@ const ROOT = path.resolve(__dirname, "..");
 const EXCLUDED = [
   /\/_archive(-v[\d.]+)?\//,
   /\/BlueDoorLandingArchive\.tsx$/,
-  /\/PPSHomeArchive\.tsx$/,
-  /\/PPSHomeVerbatim\.tsx$/,
-  /\/PPSHomeAlt\.tsx$/,
-  /\/HeroPreviewV[123]\.tsx$/,
   /\/Sitemap\.tsx$/,
   /\/App\.tsx$/,
   // Self-referential blue-door surfaces
