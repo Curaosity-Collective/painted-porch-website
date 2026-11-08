@@ -75,7 +75,7 @@ export default function PilotTraining() {
             Training Replay
           </h1>
           <p className="text-body text-foreground max-w-2xl mx-auto mb-8">
-            Access a replay of our recent training session led by Painted Porch Strategies Chief Joy Officer &amp; Mindfulness Coach, Sierra Ramm Cantrell, where she shares simple tools you can use to shift from being on auto-pilot to seizing the controls and steering the direction of your life and work.
+            Access a replay of our recent training session led by Painted Porch Strategies Chief Joy Officer &amp; Mind-Body Architect, Sierra Ramm Cantrell, where she shares simple tools you can use to shift from being on auto-pilot to seizing the controls and steering the direction of your life and work.
           </p>
           <a href="#get-access">
             <Button className="bg-primary hover:bg-primary/90 text-white font-semibold text-base px-8 py-5 rounded">
@@ -112,7 +112,7 @@ export default function PilotTraining() {
             <p className="text-body">Being fully present, active, and in control of what's happening in your life may feel difficult.</p>
           </div>
           <p className="text-body italic text-foreground max-w-2xl mx-auto mt-8">
-            Get instant access to a replay of Chief Joy Officer Sierra Ramm Cantrell's interactive, insightful, and empowering training session focused on guiding you on a path toward presence and purpose, where you are at the controls.
+            Get instant access to the replay of Sierra Ramm Cantrell's interactive training on finding presence and purpose, with you at the controls.
           </p>
         </div>
       </section>

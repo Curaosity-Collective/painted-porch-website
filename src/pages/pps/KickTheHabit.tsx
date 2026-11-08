@@ -103,7 +103,7 @@ export default function KickTheHabit() {
                 </li>
                 <li className="text-body flex items-start gap-2">
                   <span className="text-raspberry mt-1">•</span>
-                  <span>Develop a Change-ready mindset</span>
+                  <span>Build a mindset that's ready for change</span>
                 </li>
                 <li className="text-body flex items-start gap-2">
                   <span className="text-raspberry mt-1">•</span>

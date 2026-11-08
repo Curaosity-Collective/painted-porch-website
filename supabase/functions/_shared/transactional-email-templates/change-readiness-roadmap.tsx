@@ -38,7 +38,7 @@ const ChangeRoadmapEmail = ({ firstName }: ChangeRoadmapProps) => {
 
           <Section style={ctaSection}>
             <Button href={PDF_URL} style={ctaButton}>
-              Download Worksheet
+              Download Your Planner
             </Button>
           </Section>
 

@@ -117,7 +117,7 @@ export default function StoicFieldGuide() {
                 Get Immediate Access
               </h2>
               <p className="text-body text-foreground -sm mb-2">
-                Please provide your information below to get instant access to download The Stoic Leader Field Guide.
+                Please provide your information below to get instant access to download The Stoic Leader's Field Guide.
               </p>
               <p className="text-body text-foreground -sm mb-6">
                 You will also receive an email with a link to download the field guide so you can come back to it any time.

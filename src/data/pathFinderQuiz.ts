@@ -119,7 +119,7 @@ export const OFFERINGS = {
   stracticalMini: { key: "stracticalMini", name: "Stractical Leader Mini Workbook", tier: "Free", url: "/resources/stractical-mini", blurb: "Learn how to operate in the integration zone between strategy and execution where your unique position creates the most impact. Free Download." },
   resolutionRemix: { key: "resolutionRemix", name: "Resolution Remix", facilitator: "Sierra", tier: "IGNITE", url: "/masterclasses", blurb: "Reframe annual resolutions into sustainable leadership practices." },
   workFromHomePro: { key: "workFromHomePro", name: "Become a Work-From-Home Pro", tier: "Free", url: "/wfh-sign-up", blurb: "Practical guide to remote-work rhythm, focus, and energy. Free." },
-  stoicLeaderFieldGuide: { key: "stoicLeaderFieldGuide", name: "The Stoic Leader Field Guide", facilitator: "Amy", tier: "Free", url: "/stoic-field-guide", blurb: "Stoic principles translated into daily leadership practice. Free download." },
+  stoicLeaderFieldGuide: { key: "stoicLeaderFieldGuide", name: "The Stoic Leader's Field Guide", facilitator: "Amy", tier: "Free", url: "/stoic-field-guide", blurb: "Stoic principles translated into daily leadership practice. Free download." },
   communicatorStylesReplay: { key: "communicatorStylesReplay", name: "The 6 Communicator Styles (Training Replay)", facilitator: "Rob", tier: "Free", url: "/6-communicator-styles", blurb: "Recognize the six communicator styles, starting with your own, and adapt how your message lands. Free replay." },
   changeRoadmap: { key: "changeRoadmap", name: "The P.A.T.H. Roadmap Planner", tier: "Free", url: "/change-roadmap", blurb: "Map your change from readiness to rollout, one stage at a time. Free planner." },
 

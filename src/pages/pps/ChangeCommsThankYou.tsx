@@ -36,7 +36,7 @@ export default function ChangeCommsThankYou() {
               Download Your Guide
             </h2>
             <p className="text-body text-charcoal mb-6 max-w-xl mx-auto">
-              Click the button below 👇 to download the guide and start planning messaging that drives understanding, clarity, confidence, and adoption. We've also sent a copy to your inbox.
+              Download your guide below 👇 and start planning messaging that builds understanding, clarity, confidence, and adoption. We've also sent a copy to your inbox.
             </p>
             <a
               href={PDF_URL}
@@ -70,7 +70,7 @@ export default function ChangeCommsThankYou() {
                     Explore More Free Resources
                   </h4>
                   <p className="text-body -sm text-charcoal">
-                    Guides, templates, and tools to help you architect your next shIFt.
+                    Guides, templates, and tools for architecting your next shIFt.
                   </p>
                 </div>
               </Link>

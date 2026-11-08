@@ -46,7 +46,27 @@ const BATCH_2 = [
   "partner/ignite/EQAssessment.tsx",
 ];
 
-const PAGES = [...NEW_DESIGN, ...BATCH_1, ...BATCH_2];
+// The sign-up pages reviewed in batch 3, and the pages that follow them, under src/pages/pps:
+const BATCH_3 = [
+  "BurnoutOptIn.tsx",
+  "resources/BurnoutResources.tsx",
+  "StrategicCanvasSignUp.tsx",
+  "StrategicCanvasThankYou.tsx",
+  "ChangeCommsSignUp.tsx",
+  "ChangeCommsThankYou.tsx",
+  "ChangeRoadmapSignUp.tsx",
+  "ChangeRoadmapThankYou.tsx",
+  "KickTheHabit.tsx",
+  "KickTheHabitWatch.tsx",
+  "PilotTraining.tsx",
+  "PilotTrainingWatch.tsx",
+  "CommunicatorStyles.tsx",
+  "CommunicatorStylesWatch.tsx",
+  "StoicFieldGuide.tsx",
+  "StoicFieldGuideAccess.tsx",
+];
+
+const PAGES = [...NEW_DESIGN, ...BATCH_1, ...BATCH_2, ...BATCH_3];
 
 // The page's text without its code comments, whitespace collapsed.
 const read = (path: string) =>
