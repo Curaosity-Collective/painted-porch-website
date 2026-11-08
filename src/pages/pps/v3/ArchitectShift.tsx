@@ -85,7 +85,7 @@ const differenceRows = [
   },
   {
     traditional: "Hands the plan to your team.",
-    sprint: "Co-designs the conditions with your leaders so they own what comes next.",
+    sprint: "Co-designs and fortifies the conditions with your leaders so they shape what comes next.",
   },
 ];
 
