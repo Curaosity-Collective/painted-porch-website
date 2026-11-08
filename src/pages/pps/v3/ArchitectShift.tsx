@@ -219,7 +219,7 @@ export default function ArchitectShift() {
               <p>
                 The 90-day strategic sprint that follows fortifies those priorities before your change execution. An
                 organizational architecture blueprint and ongoing advisory equip and fortify your leaders, your teams,
-                and your operations across the three Painted Porch Pillars. Together, we build the decisions,
+                and your operations across the three Painted Porch Pillars. Together, we shape the decisions,
                 structures, and capacity your leaders need to lead your next <ShIFt lowercase />.
               </p>
             </Prose>
