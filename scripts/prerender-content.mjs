@@ -258,7 +258,7 @@ export const routes = [
     sections: [
       {
         h2: "Designed for…",
-        body: "The Curious Explorer, testing the frameworks at their own pace. The Individual Innovator, investing in their own leadership development. The Strategic Seeker, testing the ideas with a small group first. The Foundation Fortifier, who has seen quick tactics fade and wants something that lasts.",
+        body: "The Curious Explorer, testing the frameworks at their own pace. The Individual Innovator, investing in their own leadership development. The Strategic Seeker, testing the ideas with a small group first. The Foundation Fortifier, who has seen quick fixes or wins fade and wants something that lasts.",
       },
       {
         h2: "Start Where You Are",
