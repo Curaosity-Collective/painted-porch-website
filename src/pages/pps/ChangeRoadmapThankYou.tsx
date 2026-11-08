@@ -23,7 +23,7 @@ export default function ChangeRoadmapThankYou() {
             📑 Here's Your Worksheet
           </h1>
           <p className="text-body text-white/90">
-            Thank you for downloading our <strong className="text-gold">Change Readiness Roadmap</strong> planner.
+            Thank you for downloading <strong className="text-gold">The P.A.T.H. Roadmap Planner</strong>.
           </p>
         </div>
       </section>
@@ -43,11 +43,11 @@ export default function ChangeRoadmapThankYou() {
               target="_blank"
               rel="noopener noreferrer"
               className="block max-w-md mx-auto mb-8 rounded overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow"
-              aria-label="Preview the Change Readiness Roadmap worksheet"
+              aria-label="Preview The P.A.T.H. Roadmap Planner"
             >
               <img
                 src={roadmapPreview}
-                alt="Preview of the Change Readiness Roadmap planning worksheet"
+                alt="Preview of The P.A.T.H. Roadmap Planner worksheet"
                 className="w-full h-auto block"
               />
             </a>

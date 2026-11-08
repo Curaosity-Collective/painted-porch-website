@@ -20,20 +20,20 @@ const ChangeRoadmapEmail = ({ firstName }: ChangeRoadmapProps) => {
   return (
     <Html lang="en" dir="ltr">
       <Head />
-      <Preview>Here's Your Change Readiness Roadmap Worksheet</Preview>
+      <Preview>Here's Your P.A.T.H. Roadmap Planner</Preview>
       <Body style={main}>
         <Container style={container}>
           <Link href="https://onthepaintedporch.com" style={{ display: "block", textDecoration: "none" }}>
             <Img src={LOGO_URL} width="180" height="auto" alt={SITE_NAME} style={logo} />
           </Link>
-          <Heading style={h1}>📜 Your Change Readiness Roadmap</Heading>
+          <Heading style={h1}>📜 Your P.A.T.H. Roadmap Planner</Heading>
           <Text style={subhead}>Your planning worksheet</Text>
 
           <Text style={text}>
             {name},
           </Text>
           <Text style={text}>
-            Thank you for choosing to download our "Change Readiness Roadmap" planning worksheet. You have taken the first steps to prepare, assemble, take off, and create a habit for successful change in your staffing firm.
+            Thank you for downloading The P.A.T.H. Roadmap Planner. You've taken the first steps to prepare, align, take off, and create habits for successful change in your organization.
           </Text>
 
           <Section style={ctaSection}>
@@ -43,7 +43,7 @@ const ChangeRoadmapEmail = ({ firstName }: ChangeRoadmapProps) => {
           </Section>
 
           <Text style={text}>
-            As you begin to dive into the worksheet and start planning your Change Readiness roadmap strategy and action items, remember that the SOONER you begin your preparation around change, the better opportunities you create to address change questions, resistance, misdirection, and confusion. Don't wait until your change is already underway &mdash; begin BEFORE your project kicks off. If you're already in the midst of your project, the sooner you can get these core elements addressed, the greater your chance of change understanding, engagement, adoption, and resilience.
+            As you begin to dive into the worksheet and start planning your P.A.T.H. roadmap and action items, remember that the SOONER you begin your preparation around change, the better opportunities you create to address change questions, resistance, misdirection, and confusion. Don't wait until your change is already underway &mdash; begin BEFORE your project kicks off. If you're already in the midst of your project, the sooner you can get these core elements addressed, the greater your chance of change understanding, engagement, adoption, and resilience.
           </Text>
 
           <Text style={text}>
@@ -71,8 +71,8 @@ const ChangeRoadmapEmail = ({ firstName }: ChangeRoadmapProps) => {
 
 export const template = {
   component: ChangeRoadmapEmail,
-  subject: "📜 Here's Your Change Readiness Roadmap Worksheet!",
-  displayName: 'Change Readiness Roadmap',
+  subject: "📜 Here's Your P.A.T.H. Roadmap Planner!",
+  displayName: 'The P.A.T.H. Roadmap Planner',
   previewData: {
     firstName: 'Marcus',
   },

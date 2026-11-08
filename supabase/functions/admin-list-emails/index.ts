@@ -93,7 +93,7 @@ const TX_TRIGGERS: Record<string, string> = {
   'kick-the-habit-replay': 'Sent after opt-in for the Kick the Habit replay',
   'communicator-styles-replay': 'Sent after opt-in for the Communicator Styles replay',
   'strategic-canvas': 'Sent when someone downloads the Strategic Canvas resource',
-  'change-readiness-roadmap': 'Sent when someone downloads the Change Readiness Roadmap',
+  'change-readiness-roadmap': 'Sent when someone downloads The P.A.T.H. Roadmap Planner',
   'change-comms-guide': 'Sent when someone downloads the Change Comms Guide',
   'blue-door-purchase-confirmation': 'Sent after a successful Blue Door ($1,500) Stripe purchase',
   'stoic-field-guide': 'Sent when someone downloads the Stoic Field Guide',

@@ -64,8 +64,8 @@ const downloads = [
   },
   {
     icon: Map,
-    title: "Change Readiness Roadmap",
-    description: "A planning worksheet to map your P.A.T.H.™ (Prepare, Align, Take Off and Create Habits) before your next change initiative kicks off.",
+    title: "The P.A.T.H. Roadmap Planner",
+    description: "A planning checklist for the ten steps of the P.A.T.H.™ (Prepare, Align, Take Off and Create Habits), so you can map your next change before it kicks off.",
     format: "Worksheet",
     color: "bg-teal/10",
     iconColor: "text-teal",

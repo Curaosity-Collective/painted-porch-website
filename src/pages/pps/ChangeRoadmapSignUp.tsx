@@ -87,7 +87,7 @@ export default function ChangeRoadmapSignUp() {
             FREE PLANNING WORKSHEET
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6 break-words">
-            Your <span className="text-gold">Change Readiness Roadmap</span> Planner
+            Your <span className="text-gold">P.A.T.H. Roadmap</span> Planner
           </h1>
           <p className="text-body text-white/90 max-w-3xl mx-auto">
             A simple worksheet to map out your P.A.T.H. before your next big change initiative kicks off.
@@ -113,11 +113,11 @@ export default function ChangeRoadmapSignUp() {
               target="_blank"
               rel="noopener noreferrer"
               className="block mb-8 rounded overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow bg-white"
-              aria-label="Preview the Change Readiness Roadmap worksheet"
+              aria-label="Preview The P.A.T.H. Roadmap Planner"
             >
               <img
                 src={roadmapPreview}
-                alt="Preview of the Change Readiness Roadmap planning worksheet"
+                alt="Preview of The P.A.T.H. Roadmap Planner worksheet"
                 className="w-full h-auto block"
                 loading="lazy"
               />
