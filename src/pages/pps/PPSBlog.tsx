@@ -641,8 +641,7 @@ export default function PPSBlog() {
             Get Insights Delivered
           </h2>
           <p className="text-body text-foreground mb-8 max-w-2xl mx-auto">
-            Subscribe to receive our latest thinking on change-readiness,
-            leadership development, and organizational transformation.
+            Our latest thinking on change origination, strategic authorship, Stoic leadership, and the extraordinary teams who make epic shIFt happen, delivered to your inbox.
           </p>
           {newsletter.status === "success" ? <p className="text-body text-primary" role="status">{newsletter.message}</p> : <form onSubmit={newsletter.submit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input

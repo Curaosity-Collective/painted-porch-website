@@ -31,7 +31,7 @@ export interface SpeakerData {
   name: string;
   firstName: string;
   title: string;
-  seriesName: string;
+  seriesName: ReactNode;
   heroBadgeLabel?: string;
   seriesIntro: string;
   bio: string[];

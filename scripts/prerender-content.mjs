@@ -82,7 +82,7 @@ export const routes = [
       },
       {
         h2: "Who is your organization becoming?",
-        body: "The P.A.T.H.™ is the four stages of change: Prepare, Align, Take Off, Habits. It begins at Phase Zero™, which spans Prepare and Align. Envision ShIFt partners at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits.",
+        body: "The P.A.T.H.™ is the four stages of change: Prepare, Align, Take Off, Create Habits. It begins at Phase Zero™, which spans Prepare and Align. Envision ShIFt partners at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits.",
       },
       {
         h2: "Start with a Clarity Call",
@@ -193,7 +193,7 @@ export const routes = [
       "An interview-led organizational 360 built on six interviews, from executives to the frontline. Your P.A.T.H. Compass clarifies which change and direction make sense to pursue NOW and what in your organization needs reinforcement first, so you can lead with clarity and build with confidence. Investment: $24,000.",
     h1: "Envision ShIFt — The Epic ShIFt Organizational Appraisal",
     intro:
-      "Every epic shIFt begins at a threshold: an honest appraisal of what your organization is realistically able to carry. The Epic ShIFt Organizational Appraisal is an interview-led organizational 360 that determines which change and direction make sense to pursue next. It begins with a Clarity Call.",
+      "Every epic shIFt begins at a threshold: an honest appraisal of what your organization can realistically carry. The Epic ShIFt Organizational Appraisal is an interview-led organizational 360 that determines which change and direction make sense to pursue next. It begins with a Clarity Call.",
     sections: [
       {
         h2: "What it is",
@@ -216,14 +216,14 @@ export const routes = [
     path: "/the-path",
     title: "The P.A.T.H.™ | Painted Porch Strategies",
     description:
-      "Prepare, Align, Take Off, Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.",
+      "Prepare, Align, Take Off, Create Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.",
     h1: "The P.A.T.H.™",
     intro:
-      "Prepare. Align. Take Off. Habits. The four stages of change behind every engagement we run, and the reason our work holds after the deck is archived. It's how organizations learn to do epic shIFt: from the first honest question to the habits that make it second nature.",
+      "Prepare. Align. Take Off. Create Habits. The four stages of change behind every engagement we run, and the reason our work holds after the deck is archived. It's how organizations learn to do epic shIFt: from the first honest question to the habits that make it second nature.",
     sections: [
       {
         h2: "It starts before Take Off",
-        body: "Stoicism is the GPS for how we think. The P.A.T.H. is the roadmap for how we work. The P.A.T.H. begins two stages before Take Off, while there's still room to shape the possibility: understanding what your organization is built to carry, and bringing the people who will carry it into genuine alignment.",
+        body: "Stoicism is the GPS for how we think. The P.A.T.H. is the roadmap for how we work. The P.A.T.H. begins two stages before Take Off, while there's still room to shape what's possible. First, understand what your organization is built to carry. Then bring the people who will carry it into real alignment.",
       },
       {
         h2: "Four stages. Three ShIFts. One map.",
@@ -231,7 +231,7 @@ export const routes = [
       },
       {
         h2: "Ten steps on the road",
-        body: "Prepare: 1 Define Your Destination; 2 Pin Your Starting Point. Align: 3 Assemble Your Change Coalition; 4 Plan Your Route; 5 Plot Your Checkpoints, Milestones & Celebrations; 6 Identify Bumps, Roadblocks, and Detours. Take Off: 7 Take Your Change on the Road; 8 Map Your Future Journey; 9 Provide GPS & Roadside Assistance. Habits: 10 Reinforce Change & Continual ShIFt. Steps 1 to 6 are Phase Zero™.",
+        body: "Prepare: 1 Define Your Destination; 2 Pin Your Starting Point. Align: 3 Assemble Your Change Coalition; 4 Plan Your Route; 5 Plot Your Checkpoints, Milestones & Celebrations; 6 Identify Bumps, Roadblocks, and Detours. Take Off: 7 Take Your Change on the Road; 8 Map Your Future Journey; 9 Provide GPS & Roadside Assistance. Create Habits: 10 Reinforce Change & Continual ShIFt. Steps 1 to 6 are Phase Zero™.",
       },
       {
         h2: "Your P.A.T.H., in one page",
@@ -289,7 +289,7 @@ export const routes = [
     sections: [
       {
         h2: "Author. Fortify. Decide.",
-        body: "Grounded in your Epic ShIFt Organizational Appraisal, your senior team spends three days authoring shared direction and identifying which pillar or pillars need reinforcement first. A focused 90-day sprint with your leadership team then reinforces the prioritized pillars and the capability your organization needs before it designs and leads its change. A retrospective decides the next step.",
+        body: "Starting from your Epic ShIFt Organizational Appraisal, your senior team spends three days authoring a shared direction and choosing which pillar or pillars to reinforce first. A focused 90-day sprint with your leadership team then strengthens the priority pillars and capabilities before your organization designs and leads its change. A retrospective decides the next step.",
       },
       {
         h2: "One integrated engagement",
@@ -311,7 +311,7 @@ export const routes = [
       "Ongoing advisory while your organization designs and leads the change it envisioned and authored, reinforcing it as a continuous practice. $9,000–$18,000 per month, depending on advisory depth and need.",
     h1: "Embody ShIFt",
     intro:
-      "Your organization is ready to design and lead the change it envisioned and authored. Ongoing advisory reinforces the habits, judgment, decision authority, and structures that make change, innovation, and transformation a continuous practice.",
+      "Your organization is ready to design and lead the change it envisioned and authored. Ongoing advisory reinforces the habits, judgment, decision authority, and structures that make epic shIFt a continuous practice.",
     sections: [
       {
         h2: "Where the shIFt becomes who you are",
@@ -558,7 +558,7 @@ export const routes = [
       },
       {
         h2: "Prepare and Align",
-        body: "Phase Zero spans the first two stages of the P.A.T.H.: Prepare, where Envision ShIFt partners, and Align, where Architect ShIFt partners. It's the groundwork that has to happen before you Take Off and build lasting Habits.",
+        body: "Phase Zero spans the first two stages of the P.A.T.H.: Prepare, where Envision ShIFt partners, and Align, where Architect ShIFt partners. It's the groundwork that has to happen before you Take Off and Create Habits that last.",
       },
       {
         h2: "The foundations beneath every shIFt",

@@ -121,7 +121,7 @@ export const OFFERINGS = {
   workFromHomePro: { key: "workFromHomePro", name: "Become a Work-From-Home Pro", tier: "Free", url: "/wfh-sign-up", blurb: "Practical guide to remote-work rhythm, focus, and energy. Free." },
   stoicLeaderFieldGuide: { key: "stoicLeaderFieldGuide", name: "The Stoic Leader Field Guide", facilitator: "Amy", tier: "Free", url: "/stoic-field-guide", blurb: "Stoic principles translated into daily leadership practice. Free download." },
   communicatorStylesReplay: { key: "communicatorStylesReplay", name: "The 6 Communicator Styles (Training Replay)", facilitator: "Rob", tier: "Free", url: "/6-communicator-styles", blurb: "Recognize the six communicator styles, starting with your own, and adapt how your message lands. Free replay." },
-  changeRoadmap: { key: "changeRoadmap", name: "Change Readiness Roadmap Planner", tier: "Free", url: "/change-roadmap", blurb: "Map your change from readiness to rollout, one stage at a time. Free planner." },
+  changeRoadmap: { key: "changeRoadmap", name: "The P.A.T.H. Roadmap Planner", tier: "Free", url: "/change-roadmap", blurb: "Map your change from readiness to rollout, one stage at a time. Free planner." },
 
   // Blue Door
   // Epic ShIFt Organizational Appraisal (PPS-DEC-0018). Internal key and tier keep the legacy
@@ -685,8 +685,8 @@ function b2cResult(rt: B2CResultType, answers: Answers): QuizResult {
           ? grp("Your Starting Point — Leadership Lab", "leadingChangeLab")
           : grp("Your Starting Point — Self-Led", "leadingChangeMini"),
         whyThisFits: cohort
-          ? "Your gap is having a repeatable framework for change — and you want it in a live cohort. The Leading Change Lab walks you through the P.A.T.H.™ method (Prepare, Align, Take Off, Habit) with peers running real initiatives, so the framework becomes muscle memory, not a slide deck."
-          : "Your gap is having a repeatable framework for change — and you want it self-paced. The Leading Change mini-course gives you the P.A.T.H.™ method (Prepare, Align, Take Off, Habit) in short, finishable lessons. The free Strategic Change Canvas and Communicating Change workbook are the working tools you'll use on your next initiative.",
+          ? "Your gap is having a repeatable framework for change — and you want it in a live cohort. The Leading Change Lab walks you through the P.A.T.H.™ method (Prepare, Align, Take Off, Create Habits) with peers running real initiatives, so the framework becomes muscle memory, not a slide deck."
+          : "Your gap is having a repeatable framework for change — and you want it self-paced. The Leading Change mini-course gives you the P.A.T.H.™ method (Prepare, Align, Take Off, Create Habits) in short, finishable lessons. The free Strategic Change Canvas and Communicating Change workbook are the working tools you'll use on your next initiative.",
         groups: [
           grp("Also Worth Exploring", "aiEiOhLab"),
           grp("Free Tools", "strategicChangeCanvas", "communicatingChangeWorkbook", "stoicLeaderFieldGuide"),
@@ -794,7 +794,7 @@ function b2bResult(rt: B2BResultType, answers: Answers, strongest: "workshop" | 
     narrative = "Your organization is moving through something significant, or about to. The question isn't whether the change is necessary, but whether your leaders and your organization have the architecture to carry it. A workshop can get traction quickly. The Epic ShIFt Organizational Appraisal is the best next step toward any deeper engagement and surfaces the structural readiness gaps a workshop alone won't address.";
     primaryHeading = "Change Leadership — Frameworks for Leading Transformation";
     primaryKeys = ["pathToLastingChange", "architectureOfOrganizationalShift", "cultivatingChangeResilience"];
-    whyThisFits = "Your signal is active or imminent change — so we picked the three workshops that give your leaders the frameworks change actually requires. The P.A.T.H.™ to Lasting Change is the end-to-end method (Prepare, Align, Take Off, Habit). Architecture of Organizational ShIFt builds the structural lens for what holds and what breaks. Cultivating Change Resilience addresses the human cost of sustained change. The Epic ShIFt Organizational Appraisal surfaces the readiness gaps a workshop alone will paper over.";
+    whyThisFits = "Your signal is active or imminent change — so we picked the three workshops that give your leaders the frameworks change actually requires. The P.A.T.H.™ to Lasting Change is the end-to-end method (Prepare, Align, Take Off, Create Habits). Architecture of Organizational ShIFt builds the structural lens for what holds and what breaks. Cultivating Change Resilience addresses the human cost of sustained change. The Epic ShIFt Organizational Appraisal surfaces the readiness gaps a workshop alone will paper over.";
   } else if (rt === "RT-C") {
     headline = "Leadership Capability";
     narrative = "The challenge you're describing is a capability gap. Your leaders need to develop, and you need a way to build that capacity that actually holds rather than fades after the training day ends. A workshop is a good first move. The Epic ShIFt Organizational Appraisal is the best next step toward any deeper engagement and shows you which capabilities the architecture is quietly blocking.";

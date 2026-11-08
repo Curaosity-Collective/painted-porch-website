@@ -58,7 +58,7 @@ const searchIndex: SearchEntry[] = [
 
   // Concepts (searchable topics that link to relevant pages)
   { title: "Phase Zero", description: "The work before the work: Prepare and Align", href: "/phase-zero", category: "Concepts", keywords: ["phase zero", "before implementation", "preparation", "readiness", "strategic authorship"], icon: <BookOpen className="w-4 h-4" /> },
-  { title: "P.A.T.H. Framework", description: "Prepare → Align → Take Off → Habits", href: "/the-path", category: "Concepts", keywords: ["path", "prepare", "align", "take off", "habit", "framework", "methodology"], icon: <BookOpen className="w-4 h-4" /> },
+  { title: "P.A.T.H. Framework", description: "Prepare → Align → Take Off → Create Habits", href: "/the-path", category: "Concepts", keywords: ["path", "prepare", "align", "take off", "habit", "framework", "methodology"], icon: <BookOpen className="w-4 h-4" /> },
   { title: "The Painted Porch Pillars", description: "Cultural Cornerstone, Operational Frame, Living Ecosystem", href: "/phase-zero#pillars", category: "Concepts", keywords: ["pillars", "cultural", "operational", "living ecosystem", "architecture", "adaptability"], icon: <BookOpen className="w-4 h-4" /> },
   { title: "Change Management", description: "Organizational transformation and shift strategies", href: "/phase-zero", category: "Concepts", keywords: ["change management", "transformation", "shift", "organizational change", "transition", "adoption"], icon: <BookOpen className="w-4 h-4" /> },
 ];

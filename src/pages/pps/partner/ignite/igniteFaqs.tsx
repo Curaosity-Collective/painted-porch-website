@@ -10,7 +10,13 @@ export const igniteFaqCategories: FAQCategory[] = [
       },
       {
         question: "Which assessment should I take first?",
-        answer: "It depends on your development priorities. The Shift Architect Assessment is ideal if you're preparing to lead transformation. EQ-i 2.0 if you want emotional intelligence insights. Working Genius if you need to understand your work energy patterns. Performance DNA if you want your complete success blueprint.",
+        answer: (
+          <>
+            It depends on what you want to work on. EQ-i 2.0 gives you emotional intelligence insights, and Working Genius
+            shows the work that energizes or drains you. Shift Architect <em>(coming soon)</em> is for leading change, and
+            Performance DNA <em>(coming soon)</em> is your complete success blueprint.
+          </>
+        ),
       },
       {
         question: "Can I take multiple assessments?",

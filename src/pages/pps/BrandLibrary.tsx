@@ -151,7 +151,7 @@ const VOICE_DONT = [
 const TERMINOLOGY = [
   { term: "shIFt", rule: "Capital IF, always. Raspberry when framing a problem or cost; otherwise it inherits the page's brand color (Cobalt on Blue Door, Gold on IGNITE, Purple on AMPLIFY, Navy on EMBODY)." },
   { term: "Phase Zero™", rule: "The strategic authorship stage before execution begins. Trademark on first use." },
-  { term: "P.A.T.H.™", rule: "Prepare, Align, Take Off, Habit. The execution methodology." },
+  { term: "P.A.T.H.™", rule: "Prepare, Align, Take Off, Create Habits (Habits for short). The execution methodology." },
   { term: "The Painted Porch Pillars™", rule: "Cultural Cornerstone, Operational Frame, Living Ecosystem. Never the deprecated names." },
   { term: "The Blue Door", rule: "$1,500 organizational appraisal. Bold and cobalt. The first step into organizational engagements." },
   { term: "Trademarks", rule: "One ™ per page total, on the primary mention of that page's main concept. Never in shared components." },

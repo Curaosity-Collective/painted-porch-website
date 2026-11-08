@@ -18,7 +18,7 @@ const resourceCategories = [
   {
     icon: BookOpen,
     title: "Insights",
-    description: "Insights on change, leadership, and organizational transformation.",
+    description: "Ideas on change origination, leadership, teams, communication, resilience, Stoicism, and more.",
     href: "/resources/insights",
     color: "bg-primary/10",
     iconColor: "text-primary",
@@ -57,7 +57,7 @@ export default function ResourcesHub() {
       <PageHero
         kicker="Resources"
         title="Tools & Insights for Your Journey"
-        intro="Free resources, thought leadership, and media to support your transformation journey."
+        intro="Free tools, articles, and videos for your next shIFt."
         action={{ label: "Browse Free Resources", to: "/resources/free" }}
         image={resourcesHero}
         imageAlt="Books on shelves painted teal, lime and raspberry in warm light"
@@ -112,25 +112,25 @@ export default function ResourcesHub() {
             <div className="bg-white p-6 rounded shadow-sm">
               <span className="text-sm font-medium text-lime">Download</span>
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mt-2 mb-3">
-                Shift Readiness Playbook
+                The Strategic Change Canvas
               </h3>
               <p className="text-body -sm text-foreground mb-4">
-                Our comprehensive guide to assessing and building organizational change-readiness.
+                A one-page planning tool to architect your next shIFt and find the questions to answer before kickoff.
               </p>
-              <Link to="/resources/free" className="text-primary font-semibold text-sm hover:underline">
+              <Link to="/change-canvas" className="text-primary font-semibold text-sm hover:underline">
                 Download Free →
               </Link>
             </div>
             <div className="bg-white p-6 rounded shadow-sm">
-              <span className="text-sm font-medium text-raspberry">Video</span>
+              <span className="text-sm font-medium text-raspberry">Download</span>
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mt-2 mb-3">
-                Stoic Leadership Principles
+                The Stoic Leader's Field Guide
               </h3>
               <p className="text-body -sm text-foreground mb-4">
-                Introduction to applying Stoic philosophy in modern business leadership.
+                Daily Stoic practices and reflection prompts for leading with clarity, courage, and calm.
               </p>
-              <Link to="/resources/youtube" className="text-primary font-semibold text-sm hover:underline">
-                Watch Now →
+              <Link to="/stoic-field-guide" className="text-primary font-semibold text-sm hover:underline">
+                Download Free →
               </Link>
             </div>
           </div>
@@ -144,7 +144,7 @@ export default function ResourcesHub() {
             Get Insights Delivered
           </h2>
           <p className="text-body text-white/90 mb-8 max-w-2xl mx-auto">
-            Subscribe to receive our latest thinking on change-readiness, leadership development, and organizational transformation.
+            Our latest thinking on change origination, strategic authorship, Stoic leadership, and the extraordinary teams who make epic shIFt happen, delivered to your inbox.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input

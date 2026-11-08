@@ -54,7 +54,7 @@ const downloads = [
   {
     icon: Compass,
     title: "The Strategic Change Canvas",
-    description: "A one-page planning tool to architect your next shIFt, surface the questions that matter before kickoff.",
+    description: "A one-page planning tool to architect your next shIFt and find the questions to answer before kickoff.",
     format: "PDF",
     color: "bg-lime/10",
     iconColor: "text-lime",
@@ -64,8 +64,8 @@ const downloads = [
   },
   {
     icon: Map,
-    title: "Change Readiness Roadmap",
-    description: "A must-use planning worksheet to map your P.A.T.H.™, Prepare, Align, Take Off, and Habit, before your next change initiative kicks off.",
+    title: "The P.A.T.H. Roadmap Planner",
+    description: "A planning checklist for the ten steps of the P.A.T.H.™ (Prepare, Align, Take Off and Create Habits), so you can map your next change before it kicks off.",
     format: "Worksheet",
     color: "bg-teal/10",
     iconColor: "text-teal",
@@ -76,7 +76,7 @@ const downloads = [
   {
     icon: Megaphone,
     title: "4 Critical Steps for Effective Change Communication",
-    description: "A must-use planning and action guide for crafting messaging that drives change understanding, clarity, confidence, and adoption.",
+    description: "A planning and action guide for crafting messaging that drives change understanding, clarity, confidence, and adoption.",
     format: "Guide",
     color: "bg-purple/10",
     iconColor: "text-purple",
@@ -168,8 +168,8 @@ const downloads = [
   {
     icon: Repeat,
     title: "Resolution Remix",
-    description: "Reframe annual resolutions into sustainable leadership practices that actually stick. A short masterclass with Amy.",
-    format: "Masterclass",
+    description: "Reframe annual resolutions into leadership practices that actually stick. A free 5-day challenge with Amy.",
+    format: "5-Day Challenge",
     color: "bg-purple/10",
     iconColor: "text-purple",
     ctaIcon: Play,
@@ -191,7 +191,7 @@ export default function FreeDownloads() {
       <PageHero
         kicker="Free Resources"
         title="Free Resources & Guides"
-        intro="Practical tools, templates, and frameworks to support your transformation journey."
+        intro="Practical tools, templates, and frameworks for your next shIFt."
         action={{ label: "Browse All", to: "#downloads" }}
         image={downloadsHero}
         imageAlt="Workbooks, templates and coloured pencils spread on a table painted teal and gold"

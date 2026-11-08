@@ -90,7 +90,7 @@ const included = [
   "Shared direction and identification of the pillar or pillars needing reinforcement first",
   "90-day strategic sprint fortifying the prioritized pillars before your change execution",
   "An organizational architecture blueprint, not your change implementation plan",
-  "A dedicated day (weekly or bi-weekly) exclusively for you for ongoing advisory equipping leaders, teams, and operations across the three Painted Porch Pillars",
+  "A dedicated day (weekly or biweekly), just for you, of ongoing advisory for your leaders, teams, and operations across the three Painted Porch Pillars",
   "1.5-day sprint retrospective and next-steps decision",
 ];
 
@@ -139,12 +139,9 @@ const faqs: { q: ReactNode; a: ReactNode; key: string }[] = [
     q: "What happens at the retrospective?",
     a: (
       <>
-        Over 1.5 days, your team reflects on the sprint and makes the next-steps decision together. There are three
-        routes forward: deepen the same pillar or pillars with another 90-day sprint; fortify a different pillar or
-        area of the organization before your change begins; or declare your organization ready to design and lead what
-        it envisioned and authored, the moment the invitation to Embody <ShIFt /> opens. The first two routes both
+        Over 1.5 days, your team reflects on the sprint and makes the next-steps decision together. There are three routes forward. You can deepen the same pillar or pillars with another 90-day sprint. You can fortify a different pillar or area of the organization before your change begins. Or you can declare your organization ready to design and lead what it envisioned and authored, the moment the invitation to Embody <ShIFt /> opens. The first two routes both
         lead into another 90-day sprint, agreed separately. The third ends Architect <ShIFt /> with your organization,
-        not us, holding the design of the change, and Embody <ShIFt /> advisory reinforces capability, habits, and
+        not us, holding the design of the change. Embody <ShIFt /> advisory then reinforces capability, habits, and
         rhythms while you lead it.
       </>
     ),
@@ -213,8 +210,7 @@ export default function ArchitectShift() {
               </p>
               <p>
                 Architect <ShIFt /> combines the executive strategy & authorship intensive and strategic sprint in one engagement.
-                Grounded in your Epic <ShIFt /> Organizational Appraisal, your senior team spends three days authoring
-                shared direction and identifying which pillar or pillars need reinforcement first.
+                Starting from your Epic <ShIFt /> Organizational Appraisal, your senior team spends three days authoring a shared direction and choosing which pillar or pillars to reinforce first.
               </p>
               <p>
                 The 90-day strategic sprint that follows fortifies those priorities before your change execution. An
@@ -254,13 +250,11 @@ export default function ArchitectShift() {
           <Prose>
             <p>
               The executive strategy & authorship intensive brings the appraisal findings into the room with the leaders who will
-              carry the change. Together, you author the direction, name the trade-offs, and identify which pillars or
-              organizational areas need fortifying before execution.
+              carry the change. Together, you author the direction, name the trade-offs, and choose which pillars or areas to fortify before execution.
             </p>
             <p>
               A sprint is shaped entirely by what comes out of your intensive, so no two look the same. What stays
-              constant is the structure: a focused 90-day partnership with your leadership team, reinforcing the
-              prioritized pillars and the capability your organization needs before it designs and leads its change.
+              constant is the structure: a focused 90-day partnership with your leadership team that strengthens the priority pillars and capabilities before your organization designs and leads its change.
               The sprint follows{" "}
               <SmartLink to="/the-path" className={LINK}>
                 <span>the P.A.T.H.™</span>

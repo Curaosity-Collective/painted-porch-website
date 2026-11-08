@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Download, BookOpen, Home } from "lucide-react";
-import roadmapPreview from "@/assets/change-readiness-roadmap-preview.png";
+import roadmapPreview from "@/assets/path-roadmap-planner-preview.png";
 import heroBg from "@/assets/change-roadmap-hero-bg.png";
 
-const PDF_URL = "/downloads/Change_Readiness_Roadmap_Painted_Porch_Strategies.pdf";
+const PDF_URL = "/downloads/The_PATH_Roadmap_Planner_Painted_Porch_Strategies.pdf";
 
 export default function ChangeRoadmapThankYou() {
   return (
@@ -20,10 +20,10 @@ export default function ChangeRoadmapThankYou() {
             <CheckCircle2 className="w-12 h-12 text-lime-green" />
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-4">
-            📑 Here's Your Worksheet
+            📑 Here's Your Roadmap Planner
           </h1>
           <p className="text-body text-white/90">
-            Thank you for downloading our <strong className="text-gold">Change Readiness Roadmap</strong> planner.
+            Thank you for downloading <strong className="text-gold">The P.A.T.H. Roadmap Planner</strong>.
           </p>
         </div>
       </section>
@@ -36,18 +36,18 @@ export default function ChangeRoadmapThankYou() {
               Download Your Worksheet
             </h2>
             <p className="text-body text-charcoal mb-6 max-w-xl mx-auto">
-              Click the button below 👇 to download the worksheet and start mapping out your P.A.T.H. toward achieving change success. We've also sent a copy to your inbox.
+              Download your planner below 👇 and start mapping your route, one stop at a time. We've also sent a copy to your inbox.
             </p>
             <a
               href={PDF_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="block max-w-md mx-auto mb-8 rounded overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow"
-              aria-label="Preview the Change Readiness Roadmap worksheet"
+              aria-label="Preview The P.A.T.H. Roadmap Planner"
             >
               <img
                 src={roadmapPreview}
-                alt="Preview of the Change Readiness Roadmap planning worksheet"
+                alt="Preview of The P.A.T.H. Roadmap Planner worksheet"
                 className="w-full h-auto block"
               />
             </a>

@@ -42,7 +42,7 @@ const wgFaqCategories: FAQCategory[] = [
       {
         question: "What's the difference between the $25 option and the $297 option?",
         answer:
-          "The $25 option is the basic Working Genius assessment purchased directly from The Table Group. You complete the assessment and receive your personalized PDF report on your own. The $297 option adds a 45-minute one-on-one debrief call with our team, where we help you understand your results, see how your genius shows up in your real-world work, and design an action plan to lean into your strengths and protect your energy.",
+          "The $25 option is the basic Working Genius assessment purchased directly from The Table Group. You complete the assessment and receive your personalized PDF report on your own. The $297 option adds a 45-minute one-on-one debrief call with our team, where together we read your results, see how your genius shows up in your real-world work, and design an action plan to lean into your strengths and protect your energy.",
       },
       {
         question: "What should I expect after I purchase?",
@@ -53,7 +53,7 @@ const wgFaqCategories: FAQCategory[] = [
         question: "Can my whole team take this together?",
         answer: (
           <>
-            Yes. Working Genius is built for teams. We can run it as a team or organizational package with an optional 2 to 4 hour facilitated workshop where we map your team's collective genius, identify gaps, and redesign how work flows so people spend more time in their genius. Reach out through our{" "}
+            Yes. Working Genius is built for teams. We can run it as a team or organizational package with an optional 2 to 4 hour workshop where we map your team's collective genius, identify gaps, and redesign how work flows so people spend more time in their genius. Reach out through our{" "}
             <Link to="/contact" className="text-primary underline hover:text-primary/80">contact form</Link> to design the right package for your team.
           </>
         ),
@@ -132,7 +132,7 @@ const reportIncludes = [
     note: "People don't resist work. They resist being asked to live outside their genius.",
   },
   {
-    tag: "APPLY WITH A GUIDE",
+    tag: "APPLY IT WITH OUR TEAM",
     title: "Your 45-Minute Debrief Call (Optional Package)",
     description:
       "With our $297 package, you sit down with our team to make the report real for your life and work. We'll work with you to:",
@@ -156,7 +156,7 @@ const stats = [
   },
   {
     stat: "6 Types",
-    text: "make up every kind of work: Wonder, Invention, Discernment, Galvanizing, Enablement, and Tenacity. You have two of each kind.",
+    text: "make up every kind of work: Wonder, Invention, Discernment, Galvanizing, Enablement, and Tenacity. You have two geniuses, two competencies and two frustrations.",
   },
 ];
 
@@ -391,7 +391,7 @@ export default function WorkingGeniusAssessment() {
               Discover Your Working Genius
             </h2>
             <p className="text-body text-foreground mt-3 max-w-2xl mx-auto">
-              Two ways to take the assessment. One is just the report. The other adds a guide.
+              Two ways to take the assessment. One is just the report. The other adds a debrief with our team.
             </p>
           </div>
 
@@ -428,7 +428,7 @@ export default function WorkingGeniusAssessment() {
                 </Button>
               </a>
               <p className="text-body text-muted-foreground mt-3 text-center">
-                Cheaper than what we'd charge (due to additional administrative set-up). No reason to mark it up.
+                Buying directly on WorkingGenius.com costs less than we'd have to charge for the extra admin setup.
               </p>
             </div>
 
@@ -442,7 +442,7 @@ export default function WorkingGeniusAssessment() {
               </h3>
               <p className="text-body text-4xl font-bold text-primary mb-4">$297</p>
               <p className="text-body -sm font-medium text-foreground mb-4">
-                Make the report real with a guide.
+                Make the report real with our team.
               </p>
               <ul className="space-y-2 mb-8 flex-grow">
                 {[
@@ -481,7 +481,7 @@ export default function WorkingGeniusAssessment() {
               <ul className="space-y-2 mb-8 flex-grow">
                 {[
                   "Group pricing for the assessment",
-                  "Optional 2 to 4 hour facilitated workshop",
+                  "Optional 2 to 4 hour workshop, led by our team",
                   "Team genius map and gap analysis",
                   "Practical shifts to how work flows",
                 ].map((item, i) => (

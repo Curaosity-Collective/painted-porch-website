@@ -4,6 +4,7 @@ import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { Flame, Mic, Heart } from "lucide-react";
 import ClientLogoMarquee, { type LogoItem } from "@/components/pps/ClientLogoMarquee";
 import { PageHero } from "@/components/v3/Bits";
+import { ShIFt } from "@/components/v3/ShIFt";
 import speakingHero from "@/assets/heroes/speaking-hero.jpg";
 import amyPhoto from "@/assets/team/amy-speaking-portrait.jpg";
 import robPhoto from "@/assets/team/rob-hunter.jpg";
@@ -90,8 +91,12 @@ export default function Speaking() {
       {/* Hero */}
       <PageHero
         kicker="Three Dynamic Speakers. One Stoic Mission."
-        title="Meet the Voices of Change"
-        intro="We don't show up to motivate. We show up to create movement. By partnering with leaders and teams who have decided to architect change, communicate with clarity, and build the capability and mindset to carry what comes next."
+        title={
+          <>
+            Meet the Voices of Epic <ShIFt onDark large />
+          </>
+        }
+        intro="Our talks blend motivation with grounded, practical activation. We partner with leaders and teams who have decided to architect change, communicate with clarity, and build the capability and mindset to carry what comes next."
         action={{ label: "Contact Us", to: "/contact?interest=speaking&message=I'm interested in booking a speaker for our event." }}
         // Shared for now with Speaking Topics, Press and Press Kit; a speaker reel collage will replace it.
         image={speakingHero}
@@ -107,7 +112,7 @@ export default function Speaking() {
             Grounded in Stoicism. Built for Change.
           </h2>
           <p className="text-body text-white/90 leading-relaxed">
-            At Painted Porch Strategies, we partner with leaders to build permanent organizational capability, not just on paper, but in practice. Grounded in Stoic wisdom and driven by emotional intelligence, our speakers bring clarity, perspective, and actionable architecture to every audience. Whether you're addressing burnout, designing organizational transformation, or aligning your team, every talk is built to keep working long after the applause.
+            At Painted Porch Strategies, we partner with leaders to build permanent organizational capability, not just on paper, but in practice. Grounded in Stoic wisdom and driven by emotional intelligence, our speakers bring clarity, perspective, and actionable architecture to every audience. Whether you're addressing burnout, designing your next shIFt, or aligning your team, every talk is built to keep working long after the applause.
           </p>
         </div>
       </section>
@@ -203,7 +208,7 @@ export default function Speaking() {
             Bring Our Porch to Your Next Event
           </h2>
           <p className="text-body text-white/90 mb-8 max-w-2xl mx-auto">
-            Let's discuss how we can bring transformative perspective to your audience. Every keynote can be expanded into a hands-on workshop for lasting team capability.
+            Let's talk about the perspective we could bring to your audience. Every keynote can be expanded into a hands-on workshop for lasting team capability.
           </p>
           <Link to="/contact?interest=speaking&message=I'm interested in booking a speaker for our event.">
             <Button className="bg-primary border-2 border-primary text-white hover:bg-white hover:text-primary text-lg py-5 px-8 transition-colors">

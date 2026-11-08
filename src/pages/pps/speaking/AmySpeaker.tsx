@@ -9,6 +9,7 @@ import keynoteAiEiOh from "@/assets/speaking/keynote-ai-ei-oh.png.asset.json";
 import keynoteLeadSpeedOfChange from "@/assets/speaking/keynote-cover-speed-of-change.png.asset.json";
 import shiftHappens from "@/assets/speaking/shift-happens.png.asset.json";
 import goldilocksLeadership from "@/assets/speaking/amy-goldilocks-leadership.png";
+import { ShIFt } from "@/components/v3/ShIFt";
 import SpeakerDetailPage, { type SpeakerData } from "./SpeakerDetailPage";
 
 const amy: SpeakerData = {
@@ -16,12 +17,16 @@ const amy: SpeakerData = {
   name: "Amy Yackowski",
   firstName: "Amy",
   title: "Founder | Chief Evolution Officer | Organizational Shift Strategist",
-  seriesName: "The Evolution of Change Leadership Series",
+  seriesName: (
+    <>
+      The Epic <ShIFt onDark large /> Leadership Series
+    </>
+  ),
   heroBadgeLabel: "It's Time to Do Epic ShIFt",
   seriesIntro:
-    "Change doesn't have to suck. In this speaker series, Amy Yackowski equips modern leaders with Stoic tools, real-world frameworks, and emotional intelligence practices that keep teams grounded and united through transformation.",
+    "Leading well starts with staying steady when everything around you is moving. In this speaker series, Amy Yackowski equips modern leaders with Stoic tools, real-world frameworks, and emotional intelligence practices that keep teams grounded and united through every shIFt.",
   bio: [
-    "Most people know me as a shift strategist, operational advisor, and founder of Painted Porch Strategies. But really? I'm just someone who believes that change doesn't have to suck.",
+    "Most people know me as a shift strategist, operational advisor, and founder of Painted Porch Strategies. But really? I'm just someone who believes change is better when you're the one writing it.",
     "For over 20 years, I've partnered with teams and leaders in fast-paced industries like staffing, energy, and healthcare, turning burnout into boldness and uncertainty into aligned action.",
     "I blend Stoic philosophy with practical tools to navigate chaos with clarity, lead with emotional intelligence, and build identity-shifting, innovative cultures that don't fall apart when things get hard.",
     "If you're ready to stop managing change and start authoring and leading it, I'm your person.",
@@ -93,7 +98,7 @@ const amy: SpeakerData = {
       title: "Don't Panic! Navigating a Changing World",
       image: dontPanic.url,
       description:
-        "Grab your towel and don't panic, because change, much like the galaxy, is vast, unpredictable, and mostly harmless. Using Douglas Adams' Hitchhiker's Guide as a lens, discover how humor, perspective, and a good guide can turn overwhelming transformation into an adventure worth taking.",
+        "Grab your towel and don't panic, because change, much like the galaxy, is vast, unpredictable, and mostly harmless. Using Douglas Adams' Hitchhiker's Guide as a lens, discover how humor, perspective, and a good guide can turn overwhelming change into an adventure worth taking.",
     },
   ],
   outcomesHeading: "Lead Through Uncertainty With Clarity & Courage",

@@ -25,7 +25,7 @@ const eqFaqCategories = [
       {
         question: "Is the EQ-i 2.0 assessment for me?",
         answer:
-          "The EQ-i 2.0 Assessment is for anyone 18 years of age or over who is seeking clarity and awareness of how you perceive and express yourself, develop and maintain social relationships, cope with challenges, and use emotional information in an effective and meaningful way. While you may not be in an official Leader role, each of us leads and influences ourselves and others in how we show up, share our thoughts and ideas, collaborate, solve problems, and manage stress.",
+          "The EQ-i 2.0 Assessment is for anyone 18 or older who wants a clearer view of how they perceive and express themselves, build and keep relationships, cope with challenges, and use emotional information well. While you may not be in an official Leader role, each of us leads and influences ourselves and others in how we show up, share our thoughts and ideas, collaborate, solve problems, and manage stress.",
       },
       {
         question: "How long is the assessment?",
@@ -35,7 +35,7 @@ const eqFaqCategories = [
       {
         question: "How long will I have access to take the assessment?",
         answer:
-          "Shortly after purchase (within 24–48 hours), you will receive an email with a link to access and complete your EQ-i 2.0 assessment. This link will remain active for 30 days. If you are unable to complete the assessment within that time, simply email support@paintedporchstrategies.com to request a new link.",
+          "Shortly after purchase (within 24–48 hours), you will receive an email with a link to access and complete your EQ-i 2.0 assessment. This link will remain active for 30 days. If you are unable to complete the assessment within that time, simply email eq@onthepaintedporch.com to request a new link.",
       },
       {
         question: "What happens after I complete the assessment?",
@@ -45,7 +45,7 @@ const eqFaqCategories = [
       {
         question: "How does the EQ-i 2.0 compare to other EQ assessments?",
         answer:
-          "For almost 20 years, consultants and organizations have trusted the science that underpins the EQ-i 2.0 to improve human performance. The EQ-i was the first scientifically validated measure of emotional intelligence and was developed through an extensive process ensuring its content reflects the model and scope of EI, truly measures the concept, and has a structure that is dependable and applicable across a wide variety of contexts.",
+          "For almost 20 years, consultants and organizations have trusted the science that underpins the EQ-i 2.0 to improve human performance. The EQ-i was the first scientifically validated measure of emotional intelligence. It was built through an extensive research process, so it measures what it claims to and holds up across a wide variety of settings.",
       },
       {
         question: "Do you offer other EQ-i Assessments or Training?",
@@ -77,7 +77,7 @@ const reportIncludes = [
     description:
       "The EQ-i 2.0 model measures and provides insight in four common leadership impact areas:",
     items: ["Authenticity", "Coaching", "Insight", "Innovation"],
-    note: "Whether in an official leadership role or to level up your influence, those who embody these leadership-impacted competencies are more likely to increase work satisfaction, create trust, and foster organizational commitment and loyalty.",
+    note: "Whether or not you hold a leadership title, people strong in these competencies are more likely to raise work satisfaction, build trust, and earn commitment and loyalty.",
   },
   {
     tag: "FIND BALANCE",
@@ -173,8 +173,10 @@ function AnimatedStatCard({ stat: s, index: i }: { stat: Stat; index: number }) 
   const c = colorMap[s.color];
   const primary = s.type === "range" ? s.high : s.value!;
   const { value: count, ref } = useCountUp({ end: primary, duration: 1600 });
-  const { value: lowCount } = useCountUp({ end: s.type === "range" ? s.low : 0, duration: 1600 });
   const progress = primary > 0 ? count / primary : 0;
+  // The low end of a range follows the main counter. A second useCountUp would have no element to
+  // watch, so it never started and the card read "0–20%".
+  const lowCount = s.type === "range" ? Math.round(progress * s.low) : 0;
   const starsFilled = Math.round(progress * 5);
 
   return (
@@ -438,7 +440,7 @@ export default function EQAssessment() {
             </h2>
             <p className="text-body text-foreground font-medium">Skills for both Work and Life</p>
             <p className="text-body text-foreground max-w-3xl mx-auto mt-4 leading-relaxed">
-              While there are several models of emotional intelligence in use today, the EQ-i 2.0 model is one of the most popular and one of the only validated and reliable measures of self-perceived EQ that ties directly to the skills and competencies needed to lead in all areas of your life, whether you're in an official leadership role or not.
+              There are several models of emotional intelligence in use today. The EQ-i 2.0 is one of the most popular, and one of the few validated, reliable measures of self-perceived EQ. It ties directly to the skills it takes to lead in every part of your life, with or without a leadership title.
             </p>
           </div>
           <div className="max-w-3xl mx-auto">

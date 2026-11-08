@@ -79,7 +79,7 @@ export default function ChangeReadyTeamAssessment() {
               <Target className="w-8 h-8 text-primary mx-auto mb-3" />
               <h3 className="text-xl md:text-2xl font-bold text-navy mb-2">A Clear Snapshot</h3>
               <p className="text-body -sm text-foreground">
-                See where your team stands across the key dimensions of change-readiness.
+                See where your team stands across the key change capabilities.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 text-center shadow-sm">

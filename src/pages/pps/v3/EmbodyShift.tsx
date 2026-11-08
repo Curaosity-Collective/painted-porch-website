@@ -32,7 +32,7 @@ const practices = [
   "Habits, rhythms, and rituals that reinforce your new way of working",
   "Judgment and decision authority that keep your organization leading its own change",
   "Reinforcement of the three Painted Porch Pillars: leaders, teams, and operations",
-  "Change, innovation, and transformation as an ongoing, continuous practice",
+  "Change, innovation, and becoming as an ongoing practice",
 ];
 
 export default function EmbodyShift() {
@@ -73,7 +73,12 @@ export default function EmbodyShift() {
             Embody <ShIFt onDark />
           </>
         }
-        intro="Your organization is ready to design and lead the change it envisioned and authored. Ongoing advisory reinforces the habits, judgment, decision authority, and structures that make change, innovation, and transformation a continuous practice."
+        intro={
+          <>
+            Your organization is ready to design and lead the change it envisioned and authored. Ongoing advisory reinforces
+            the habits, judgment, decision authority, and structures that make epic <ShIFt lowercase onDark /> a continuous practice.
+          </>
+        }
         video={{ slotKey: "embody-hero", poster: embodyPoster, alt: "A classical temple whose pillars light up one by one in teal, gold, lime, raspberry and purple" }}
         tone="habits"
         ghost="E"
@@ -105,8 +110,7 @@ export default function EmbodyShift() {
               <p>
                 At the Architect <ShIFt /> retrospective, you decide whether another pillar needs fortifying through a
                 further sprint or your organization is ready to take off. Embody reinforces your habits, judgment,
-                decision authority, and the three Painted Porch Pillars, so change becomes more than a project, and
-                change, innovation, and transformation become an ongoing, continuous practice.
+                decision authority, and the three Painted Porch Pillars, so change becomes more than a project, and epic <ShIFt lowercase /> becomes an ongoing practice.
               </p>
             </Prose>
             <p className="mt-6 text-base leading-relaxed text-foreground">
@@ -146,7 +150,7 @@ export default function EmbodyShift() {
           </h2>
           <p className="mt-5 text-base leading-relaxed text-foreground">Depending on advisory depth and need.</p>
           <p className="mt-8 border-l-4 border-habits pl-5 text-base leading-relaxed text-foreground">
-            After Embody: change, innovation, and transformation stay an ongoing practice, held by your people, not
+            After Embody: epic <ShIFt lowercase /> stays an ongoing practice, held by your people, not
             managed as a project.
           </p>
         </div>

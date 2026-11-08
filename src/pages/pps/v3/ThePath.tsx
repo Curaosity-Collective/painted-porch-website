@@ -13,7 +13,7 @@ import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
 
 /**
- * The P.A.T.H.™: the four stages of change (Prepare, Align, Take Off, Habits)
+ * The P.A.T.H.™: the four stages of change (Prepare, Align, Take Off, Create Habits)
  * and the three ShIFts that partner on them. Envision partners at Prepare,
  * Architect at Align, Embody from Take Off through Habits. Ported from
  * pps-simplified src/routes/the-path.tsx. Draft at /the-path (PageGate in
@@ -27,7 +27,7 @@ import { getSiteUrl } from "@/lib/site-url";
 
 const TITLE = "The P.A.T.H.™ | Painted Porch Strategies";
 const DESCRIPTION =
-  "Prepare, Align, Take Off, Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.";
+  "Prepare, Align, Take Off, Create Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.";
 
 const LINK = "font-semibold text-heading underline decoration-heading/40 underline-offset-4 hover:decoration-heading";
 const LINK_ON_DARK = "font-semibold text-white underline decoration-white/50 underline-offset-4 hover:decoration-white";
@@ -63,9 +63,9 @@ const STAGES = [
     subtitle: "The agreement phase",
     outcome: "A coalition that owns the work, not just approves it.",
     question: "Does the room actually agree, on the same thing?",
-    body: "Alignment isn't a survey where everyone picks “strongly agree.” It's your senior team working the same evidence in the executive strategy & authorship intensive, identifying which pillars need reinforcement first, and fortifying those structures and capabilities through a strategic sprint before you execute your change.",
+    body: "Alignment isn't a survey where everyone picks “strongly agree.” It's your senior team working from the same evidence in the executive strategy & authorship intensive to decide which pillars need reinforcement first. A strategic sprint then fortifies them before you execute your change.",
     example:
-      "In the intensive, a leadership team discovers that two executives hold opposite definitions of the transformation's success. Having that argument in week one saves the eighteen months it would have cost in week forty.",
+      "In the intensive, a leadership team discovers that two executives hold opposite definitions of success. Having that argument in week one saves the eighteen months it would have cost in week forty.",
     partner: ARCHITECT,
     fill: "bg-align text-[#5A1420]",
   },
@@ -75,24 +75,22 @@ const STAGES = [
     subtitle: "The launch phase",
     outcome: "Launch energy that holds past the first 90 days.",
     question: "How do we launch so the vision holds, and accelerates?",
-    body: "Take Off is where the vision meets the whole organization. With Preparation and Alignment in place, it becomes the confident translation of ambition into a living reality, with clear decisions, reinforcing structures, and the organizational capacity to sustain velocity.",
+    body: "Take Off is where the vision meets the whole organization. With Prepare and Align in place, ambition becomes reality, with clear decisions, structures that reinforce the change, and the capacity to keep up the pace.",
     example:
-      "A mid-market company begins designing and delivering its AI initiative only after fortifying its governance, communication architecture, and manager capability, with ongoing advisory reinforcing the new way of working.",
+      "A mid-market company starts designing and delivering its AI initiative only after it fortifies its governance, communication architecture, and manager capability. Ongoing advisory then reinforces the new way of working.",
     partner: EMBODY,
     fill: "bg-gold text-[#1E2B30]",
   },
   {
     letter: "H",
-    name: "Habits",
+    name: "Create Habits",
     subtitle: "The staying-power phase",
     outcome: "A team that can navigate future challenges with confidence and clarity.",
     question: "What keeps this from evaporating?",
     body: (
       <>
         Change holds when it becomes the way things are done: the rituals, the meeting rhythms, the accountability
-        structures, the stories the organization tells about itself. Habits is the stage that turns an initiative into
-        an identity: an extraordinary organization with the confidence, shared vocabulary, and cultural stamina to
-        author the next chapter without hesitation, and to make <ShIFt lowercase /> happen again.
+        structures, the stories the organization tells about itself. This is the stage that turns an initiative into an identity. Your organization gains the confidence, shared language, and cultural stamina to author the next chapter without hesitation, and to make <ShIFt lowercase /> happen again.
       </>
     ),
     example:
@@ -125,7 +123,7 @@ const ROAD_STEPS: { stage: string; dot: string; steps: [number, string][] }[] = 
     dot: "bg-gold",
     steps: [[7, "Take Your Change on the Road"], [8, "Map Your Future Journey"], [9, "Provide GPS & Roadside Assistance"]],
   },
-  { stage: "Habits", dot: "bg-habits", steps: [[10, "Reinforce Change & Continual ShIFt"]] },
+  { stage: "Create Habits", dot: "bg-habits", steps: [[10, "Reinforce Change & Continual ShIFt"]] },
 ];
 
 // Pillar colors are shared with the client report (PPS-DEC-0022, item 3).
@@ -206,8 +204,8 @@ const JOURNEY = [
         Embody <ShIFt onDark />
       </>
     ),
-    body: "Ongoing advisory as your organization designs and delivers the change it envisioned and authored, through Take Off and Habits.",
-    outcome: "Your own change, innovation, and transformation become an ongoing, continuous practice.",
+    body: "Ongoing advisory as your organization designs and delivers the change it envisioned and authored, through Take Off and Create Habits.",
+    outcome: "Change, innovation, and becoming are an ongoing practice your own people lead.",
     deliverable:
       "Ongoing advisory during your change journey and beyond, reinforcing habits, judgment, decision authority, and the three Painted Porch Pillars.",
     to: "/embody-shift",
@@ -233,7 +231,7 @@ export default function ThePath() {
         { "@type": "HowToStep", position: 1, name: "Prepare", text: "Get a shared, honest read of the organization's capacity and architecture before committing." },
         { "@type": "HowToStep", position: 2, name: "Align", text: "Bring the senior team to one understanding: direction, trade-offs, and sequence genuinely shared." },
         { "@type": "HowToStep", position: 3, name: "Take Off", text: "Design and deliver the change, with the structures and capability to sustain it." },
-        { "@type": "HowToStep", position: 4, name: "Habits", text: "Embed the rituals, rhythms, and accountability structures that keep the change in place." },
+        { "@type": "HowToStep", position: 4, name: "Create Habits", text: "Embed the rituals, rhythms, and accountability structures that keep the change in place." },
       ],
     },
   });
@@ -245,7 +243,7 @@ export default function ThePath() {
         title="The P.A.T.H.™"
         intro={
           <>
-            Prepare. Align. Take Off. Habits. The four stages of change behind every engagement we run, and the reason
+            Prepare. Align. Take Off. Create Habits. The four stages of change behind every engagement we run, and the reason
             our work holds after the deck is archived. It's how organizations learn to do epic{" "}
             <ShIFt lowercase onDark />: from the first honest question to the habits that make it second nature.
           </>
@@ -264,8 +262,7 @@ export default function ThePath() {
           <Prose>
             <p>
               Four stages move a change from clarity to commitment to launch to lasting habits. The P.A.T.H. begins
-              two stages before Take Off, while there's still room to shape the possibility: understanding what your organization is
-              built to carry, and bringing the people who will carry it into genuine alignment.
+              two stages before Take Off, while there's still room to shape what's possible. First, understand what your organization is built to carry. Then bring the people who will carry it into real alignment.
             </p>
           </Prose>
         </div>
@@ -405,7 +402,7 @@ export default function ThePath() {
               </li>
               <li className="col-span-2 col-start-3 border border-habits bg-white">
                 <SmartLink to={EMBODY.to} className={`block px-4 py-3 ${LINK}`}>
-                  <span>Embody <ShIFt /> · Take Off and Habits</span>
+                  <span>Embody <ShIFt /> · Take Off and Create Habits</span>
                 </SmartLink>
               </li>
               </ul>
