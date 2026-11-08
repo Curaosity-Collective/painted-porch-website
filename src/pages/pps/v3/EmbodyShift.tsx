@@ -76,7 +76,7 @@ export default function EmbodyShift() {
         intro={
           <>
             Your organization is ready to design and lead the change it envisioned and authored. Ongoing advisory reinforces
-            the habits, judgment, decision authority, and structures that make epic <ShIFt lowercase /> a continuous practice.
+            the habits, judgment, decision authority, and structures that make epic <ShIFt lowercase onDark /> a continuous practice.
           </>
         }
         video={{ slotKey: "embody-hero", poster: embodyPoster, alt: "A classical temple whose pillars light up one by one in teal, gold, lime, raspberry and purple" }}
