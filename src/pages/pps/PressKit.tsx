@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowRight, Check, Copy, Download, Mic, MessageSquare } from "lucide-react";
+import { ArrowRight, Check, Copy, Download, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/pps/Eyebrow";
 import { PageHero } from "@/components/v3/Bits";
@@ -129,7 +129,7 @@ export default function PressKit() {
           <p className="text-lead mt-5">Media Relations</p>
           <p className="text-body mt-3 break-words">speaking@onthepaintedporch.com</p>
           <p className="text-body mt-3 max-w-3xl">For interviews, speaking opportunities, speaker photos, or additional press materials, contact our team.</p>
-          <div className="flex flex-wrap gap-4 mt-6"><Button asChild variant="outline" className="gap-2"><Link to="/press"><MessageSquare className="h-4 w-4" />Press Contact Details</Link></Button><Button asChild variant="outline" className="gap-2"><a href="/downloads/painted-porch-strategies-press-kit.pdf" download="painted-porch-strategies-press-kit.pdf"><Download className="h-4 w-4" />Download Press Kit PDF</a></Button></div>
+          <div className="flex flex-wrap gap-4 mt-6"><Button asChild variant="outline" className="gap-2"><a href="/downloads/painted-porch-strategies-press-kit.pdf" download="painted-porch-strategies-press-kit.pdf"><Download className="h-4 w-4" />Download Press Kit PDF</a></Button></div>
           <div className="max-w-3xl mt-10"><h3 className="font-poppins text-2xl font-semibold text-navy mb-6">Send a Press Inquiry</h3><PressInquiryForm /></div>
         </div>
       </section>
