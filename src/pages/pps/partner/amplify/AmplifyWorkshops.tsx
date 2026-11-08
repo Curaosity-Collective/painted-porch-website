@@ -459,7 +459,7 @@ export default function AmplifyWorkshops() {
           { label: "Find Your Next ShIFt", to: "/start-here", variant: "secondary" },
         ]}
         footnote={
-          <Link to="/partner" className="text-white/80 hover:text-white underline">
+          <Link to="/the-path" className="text-white/80 hover:text-white underline">
             Explore All Partnership Options
           </Link>
         }

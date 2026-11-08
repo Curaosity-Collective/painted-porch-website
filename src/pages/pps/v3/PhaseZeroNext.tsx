@@ -116,10 +116,10 @@ const PILLARS = [
 ];
 
 const ESSENTIAL_ELEMENTS = [
-  { label: "Communication", to: "/communication" },
-  { label: "Collaboration", to: "/extraordinary-teams" },
+  { label: "Communication", to: "/masterclasses" },
+  { label: "Collaboration", to: "/masterclasses" },
   { label: "Clarity", to: "/envision-shift" },
-  { label: "Resilience", to: "/radical-mindfulness" },
+  { label: "Resilience", to: "/masterclasses" },
   // The Working Genius page lives under assessments; "/working-genius" was never a route (PPS Admin, 2026-11-06).
   { label: "Alignment", to: "/assessments/working-genius" },
   { label: "Organizational Health", to: "/eq" },
