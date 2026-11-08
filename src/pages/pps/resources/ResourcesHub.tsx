@@ -18,7 +18,7 @@ const resourceCategories = [
   {
     icon: BookOpen,
     title: "Insights",
-    description: "Insights on change and leadership.",
+    description: "Ideas on change origination, leadership, teams, communication, resilience, Stoicism, and more.",
     href: "/resources/insights",
     color: "bg-primary/10",
     iconColor: "text-primary",
@@ -115,7 +115,7 @@ export default function ResourcesHub() {
                 The Strategic Change Canvas
               </h3>
               <p className="text-body -sm text-foreground mb-4">
-                A one-page planning tool to map your next shIFt and find the questions to answer before kickoff.
+                A one-page planning tool to architect your next shIFt and find the questions to answer before kickoff.
               </p>
               <Link to="/change-canvas" className="text-primary font-semibold text-sm hover:underline">
                 Download Free →
@@ -144,7 +144,7 @@ export default function ResourcesHub() {
             Get Insights Delivered
           </h2>
           <p className="text-body text-white/90 mb-8 max-w-2xl mx-auto">
-            Subscribe for our latest thinking on change, leadership, and organizational growth.
+            Our latest thinking on change origination, strategic authorship, Stoic leadership, and the extraordinary teams who make epic shIFt happen, delivered to your inbox.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input

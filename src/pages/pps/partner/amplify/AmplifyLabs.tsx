@@ -27,7 +27,7 @@ const labFaqCategories: FAQCategory[] = [
       },
       {
         question: "How do I know if a Leadership Lab is right for me?",
-        answer: "Leadership Labs are for individual leaders who want to grow how they lead change, alongside peers. Some come to develop themselves before bringing ideas to their team. Others invest in their own leadership, apart from any organizational initiative.",
+        answer: "Leadership Labs are for individual leaders who want to grow into the leader their next shIFt calls for, alongside peers. Some come to develop themselves before bringing ideas to their team. Others invest in their own leadership, apart from any organizational initiative.",
       },
       {
         question: "Can I join a Leadership Lab if I'm also bringing my team to a workshop?",

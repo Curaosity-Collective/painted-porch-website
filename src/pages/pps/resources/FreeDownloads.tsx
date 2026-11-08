@@ -54,7 +54,7 @@ const downloads = [
   {
     icon: Compass,
     title: "The Strategic Change Canvas",
-    description: "A one-page planning tool to map your next shIFt and find the questions to answer before kickoff.",
+    description: "A one-page planning tool to architect your next shIFt and find the questions to answer before kickoff.",
     format: "PDF",
     color: "bg-lime/10",
     iconColor: "text-lime",

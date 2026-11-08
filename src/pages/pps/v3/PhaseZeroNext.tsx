@@ -92,7 +92,7 @@ const PILLARS = [
     outcomes: [
       "Operations that move strategy forward instead of slowing it down.",
       "Workflows designed for value, not just activity.",
-      "Systems that can carry real change.",
+      "Systems that can carry who you're becoming.",
     ],
   },
   {

@@ -41,7 +41,7 @@ const speakers = [
     badge: "Change Leadership",
     tagline: "When change feels chaotic, Amy brings calm, clarity, and courage.",
     description:
-      "With her Stoic-infused leadership strategies, she partners with teams to align around purpose, lead through uncertainty, and author change that actually sticks.",
+      "With her Stoic-infused leadership strategies, she partners with teams to align around purpose, lead through uncertainty, and architect change that actually sticks.",
     photo: amyPhoto,
     specialties: ["Change Authorship", "Team Alignment", "Emotional Intelligence", "Organizational Transformation", "Operational Excellence", "Stoicism at Work"],
     href: "/speaking/amy",
@@ -91,7 +91,7 @@ export default function Speaking() {
       <PageHero
         kicker="Three Dynamic Speakers. One Stoic Mission."
         title="Meet the Voices of Change"
-        intro="We don't show up to motivate. We show up to create movement. We partner with leaders and teams who have decided to author change, communicate with clarity, and build the capability and mindset to carry what comes next."
+        intro="We don't show up to motivate. We show up to create movement. We partner with leaders and teams who have decided to architect change, communicate with clarity, and build the capability and mindset to carry what comes next."
         action={{ label: "Contact Us", to: "/contact?interest=speaking&message=I'm interested in booking a speaker for our event." }}
         // Shared for now with Speaking Topics, Press and Press Kit; a speaker reel collage will replace it.
         image={speakingHero}
@@ -107,7 +107,7 @@ export default function Speaking() {
             Grounded in Stoicism. Built for Change.
           </h2>
           <p className="text-body text-white/90 leading-relaxed">
-            At Painted Porch Strategies, we partner with leaders to build permanent organizational capability, not just on paper, but in practice. Grounded in Stoic wisdom and driven by emotional intelligence, our speakers bring clarity, perspective, and tools every audience can use right away. Whether you're addressing burnout, designing your next shIFt, or aligning your team, every talk is built to keep working long after the applause.
+            At Painted Porch Strategies, we partner with leaders to build permanent organizational capability, not just on paper, but in practice. Grounded in Stoic wisdom and driven by emotional intelligence, our speakers bring clarity, perspective, and actionable architecture to every audience. Whether you're addressing burnout, designing your next shIFt, or aligning your team, every talk is built to keep working long after the applause.
           </p>
         </div>
       </section>

@@ -69,11 +69,11 @@ function writeSeoDefaultsSnapshot(pathname: string, snap: SeoDefaultsSnapshot) {
 const DEFAULT_SEO = {
   title: "Painted Porch Strategies | Architect Extraordinary Outcomes",
   description:
-    "Painted Porch Strategies partners with leaders to author their next shIFt and fortify their organizational architecture through Phase Zero™.",
+    "Painted Porch Strategies partners with leaders to architect extraordinary outcomes through Phase Zero™, change origination and strategic authorship.",
   robots: "index, follow",
   ogTitle: "Painted Porch Strategies | Architect Extraordinary Outcomes",
   ogDescription:
-    "Painted Porch Strategies partners with leaders to author their next shIFt and fortify their organizational architecture through Phase Zero.",
+    "Painted Porch Strategies partners with leaders to architect extraordinary outcomes through Phase Zero, change origination and strategic authorship.",
   ogType: "website",
 };
 

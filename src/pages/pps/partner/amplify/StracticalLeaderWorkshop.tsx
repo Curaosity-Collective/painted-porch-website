@@ -209,7 +209,7 @@ const weeks = [
   { week: 3, title: "Stractical Pillar #2: CURIOSITY", description: "Master the strategic questions that open conversations and uncover hidden opportunities. Move from accepting directives to exploring alternatives." },
   { week: 4, title: "Stractical Pillar #3: CLARITY", description: "Become the bridge between vision and execution. Learn to translate complex strategic goals into clear team action while conveying ground-level realities upward." },
   { week: 5, title: "Draft Your Stractical Blueprint™", description: "Pull everything together into your personal framework. Create your action plan for working in the strategic integration zone, consistently." },
-  { week: 6, title: "One-Month Check-In (Bonus)", description: "Review, reflect, and refine. Share wins, troubleshoot challenges, and make sure your change sticks.", bonus: true },
+  { week: 6, title: "One-Month Check-In (Bonus)", description: "Review, reflect, and refine. Share wins, troubleshoot challenges, and make sure your shIFt sticks.", bonus: true },
 ];
 
 const forYouItems = [
@@ -217,7 +217,7 @@ const forYouItems = [
   "You feel your team's expertise is overlooked in strategic planning",
   "You want to influence business decisions, not just execute them",
   "You're tired of being seen primarily as a directive executor",
-  "You're ready to claim your seat at the table for the big decisions about change",
+  "You're ready to claim your seat at the table for the decisions that shape what's next",
   "You want to position yourself as a trusted collaborator, not just a strategy executor",
 ];
 
@@ -618,7 +618,7 @@ export default function StracticalLeaderWorkshop() {
               </p>
               <div className="space-y-3 text-foreground/80 leading-relaxed">
                 <p className="text-body">
-                  Amy specializes in Phase Zero, the critical preparation that comes before change activation and implementation. She partners with leaders and teams to develop the change-readiness, emotional intelligence, and strategic communication it takes to make change stick.
+                  Amy specializes in Phase Zero, the critical preparation that comes before change activation and implementation. She partners with leaders and teams to develop the change-readiness, emotional intelligence, and strategic communication it takes to make epic shIFt stick.
                 </p>
                 <p className="text-body">
                   Her approach blends ancient Stoic wisdom with modern organizational development, so her frameworks are grounded in philosophy and ready to use right away.

@@ -205,7 +205,7 @@ const JOURNEY = [
       </>
     ),
     body: "Ongoing advisory as your organization designs and delivers the change it envisioned and authored, through Take Off and Create Habits.",
-    outcome: "Change and innovation become an ongoing practice your own people lead.",
+    outcome: "Change, innovation, and becoming are an ongoing practice your own people lead.",
     deliverable:
       "Ongoing advisory during your change journey and beyond, reinforcing habits, judgment, decision authority, and the three Painted Porch Pillars.",
     to: "/embody-shift",

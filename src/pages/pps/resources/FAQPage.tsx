@@ -27,7 +27,7 @@ const sitewideFaqCategories: FAQCategory[] = [
     faqs: [
       {
         question: "What does Painted Porch Strategies do?",
-        answer: "We partner with leaders and organizations to fortify their organizational architecture before the change begins. Grounded in Stoic philosophy and more than 20 years of change expertise, we co-design the three Painted Porch Pillars that human-centered change stands on: the Cultural Cornerstone, Operational Frame and Living Ecosystem.",
+        answer: "We partner with leaders and organizations to architect the capacity for change before implementation begins. Grounded in Stoic philosophy and more than 20 years of change expertise, we co-design the three Painted Porch Pillars that human-centered change stands on: the Cultural Cornerstone, Operational Frame and Living Ecosystem.",
       },
       {
         question: "What does 'Phase Zero™' mean?",
@@ -135,7 +135,7 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "How is this different from change management?",
-        answer: "Change management starts after the direction is set. It manages resistance and drives adoption of decisions already made. We work earlier, at the moment of strategic authorship. That's change origination: we partner with you to author the shIFt you intend to lead before a single tool gets launched. It's Phase Zero™ work, the work before the work, and it's where market leadership is actually decided.",
+        answer: "Change management starts after the direction is set. It manages resistance and drives adoption of decisions already made. We work earlier, at the moment of strategic authorship. That's change origination: we partner with you to architect the shIFt you intend to lead before a single tool gets launched. It's Phase Zero™ work, the work before the work, and it's where market leadership is actually decided.",
       },
       {
         question: "What does Embody ShIFt look like month to month?",
@@ -295,7 +295,7 @@ export default function FAQPage() {
                 Frequently Asked Questions
               </h1>
               <p className={`text-lead md:text-lead text-white/90 leading-relaxed max-w-3xl transition-all duration-700 ease-out delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-                Everything you need to know about Painted Porch Strategies, the P.A.T.H., and how we partner with leaders on the change they want to lead.
+                Everything you need to know about Painted Porch Strategies, the P.A.T.H., and how we partner with leaders to architect extraordinary outcomes.
               </p>
             </div>
           </div>

@@ -213,7 +213,7 @@ export default function AmplifyWorkshops() {
           <div className="text-center mb-12">
             <Eyebrow variant="plain" tone="primary" as="p">Team Workshops</Eyebrow>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-4">
-              Workshops That Shape Your Next Sh<span data-if="" className="text-strategic font-bold">IF</span>t
+              Workshops That Architect Your Next Sh<span data-if="" className="text-strategic font-bold">IF</span>t
             </h1>
             <p className="text-body text-foreground max-w-2xl mx-auto">
               From Phase Zero strategy sessions to leadership and team development, our workshops align teams and build the capacity to lead change well.
@@ -231,7 +231,7 @@ export default function AmplifyWorkshops() {
                   Phase Zero&trade; Strategic Workshops
                 </h2>
                 <p className="text-body text-foreground max-w-2xl mx-auto">
-                  Design your next shIFt before you build it. These workshops align your leadership team around what you're authoring and why.
+                  Design the architecture of your next shIFt before you build it. These workshops align your leadership team around what you're authoring and why.
                 </p>
               </div>
 
@@ -294,7 +294,7 @@ export default function AmplifyWorkshops() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <Info className="w-5 h-5 text-bluedoor" />
-                    <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy">Authoring Your Next Sh<span data-if="" className="text-strategic font-bold">IF</span>t Begins With the <span className="text-bluedoor">Epic ShIFt Organizational Appraisal</span></h3>
+                    <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy">Authoring Your Next Sh<span data-if="" className="text-strategic font-bold">IF</span>t Begins With Clarity</h3>
                   </div>
                   <p className="text-body -sm text-foreground mb-2 mt-4">
                     The <span className="font-bold text-bluedoor">Epic ShIFt Organizational Appraisal</span> is our interview-led appraisal. It shows where your business and leaders stand before your next shIFt, so you can lead with clarity and build with confidence.
@@ -328,7 +328,7 @@ export default function AmplifyWorkshops() {
                   Leadership & Team Development Workshops
                 </h2>
                 <p className="text-body text-foreground max-w-2xl mx-auto">
-                  Build your organization's capacity to lead and adapt to change. These workshops strengthen the foundational skills that make change possible and the extraordinary achievable.
+                  Build your organization's capacity to lead and adapt to change. These workshops strengthen the foundational skills that make epic shIFt possible and the extraordinary achievable.
                 </p>
               </div>
 
@@ -445,7 +445,7 @@ export default function AmplifyWorkshops() {
         headline={<>Ready to Amplify Your Team&rsquo;s Next Sh<span data-if="on-dark" className="text-white font-bold">IF</span>t?</>}
         description={
           <>
-            Our workshops are co-designed around your context, your challenges, and your goals for change.
+            Our workshops are co-designed around your context, your challenges, and the shIFt you're authoring.
             <br />
             <span className="font-semibold">Let&rsquo;s design the right experience for your team.</span>
           </>

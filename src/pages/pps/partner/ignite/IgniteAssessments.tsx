@@ -66,7 +66,7 @@ const assessments = [
     title: "Shift Architect",
     subtitle: "Change Leadership Capacity",
     tagline: "Reveal Your Capacity to Architect Change",
-    description: "Most leaders learn change the hard way, mid-crisis, mid-implementation. Shift Architect shows how you currently think about, prepare for, and lead through change, so you can shape the next change instead of reacting to it.",
+    description: "Most leaders learn change the hard way, mid-crisis, mid-implementation. Shift Architect shows how you currently think about, prepare for, and lead through change, so you can architect your next shIFt instead of reacting to it.",
     investment: "Coming Soon | Pricing TBD",
     link: "#",
     launchSlug: "shift-architect",
