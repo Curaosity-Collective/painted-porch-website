@@ -209,7 +209,7 @@ export default function FreeDownloads() {
               return (
                 <div
                   key={index}
-                  className={`${download.color} p-8 rounded-xl border-l-4 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 ${
+                  className={`${download.color} p-8 rounded border-l-4 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 ${
                     download.iconColor.replace('text-', 'border-')
                   }`}
                 >

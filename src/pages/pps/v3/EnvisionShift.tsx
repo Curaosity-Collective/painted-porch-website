@@ -240,7 +240,7 @@ export default function EnvisionShift() {
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {steps.map((step) => (
               <Reveal key={step.n}>
-                <article className="flex h-full flex-col border border-prepare/10 bg-background p-6 md:p-8">
+                <article className="rounded flex h-full flex-col border border-prepare/10 bg-background p-6 md:p-8">
                   <span aria-hidden className="font-display text-4xl font-semibold text-prepare-deep/15">
                     {step.n}
                   </span>

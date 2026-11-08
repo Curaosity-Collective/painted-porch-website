@@ -48,7 +48,7 @@ export function AudienceOutcomes() {
         </h2>
         <ul className="grid gap-6 md:grid-cols-3">
           {OUTCOMES.map((o) => (
-            <li key={o.title} className="rounded-xl border-t-4 border-primary bg-white p-6 shadow-sm">
+            <li key={o.title} className="rounded border-t-4 border-primary bg-white p-6 shadow-sm">
               <h3 className="font-poppins text-lg font-semibold text-foreground">{o.title}</h3>
               <p className="mt-2 text-body text-foreground">{o.body}</p>
             </li>
@@ -90,7 +90,7 @@ export function HowBookingWorks({ contactHref }: { contactHref: string }) {
         <div className="mt-10 text-center">
           <Link
             to={contactHref}
-            className="inline-flex min-h-[44px] items-center rounded-lg bg-gold px-6 font-poppins font-semibold text-[#1E2B30] transition-colors hover:bg-gold/85"
+            className="cta-label inline-flex min-h-[44px] items-center rounded bg-gold px-6 font-poppins font-semibold text-[#1E2B30] transition-colors hover:bg-gold/85"
           >
             Inquire About Speaking
           </Link>

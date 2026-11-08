@@ -287,7 +287,7 @@ export default function PPSContact() {
                 </p>
               </div>
             ) : (
-              <div className="bg-muted p-8 rounded-xl">
+              <div className="bg-muted p-8 rounded">
                 {quizPrefill && (
                   <div className="mb-6 flex items-start gap-3 rounded-lg border border-teal/30 bg-teal/5 p-4">
                     <div className="flex-1 text-sm text-navy">
@@ -315,7 +315,7 @@ export default function PPSContact() {
                       </label>
                       <input
                         type="text"
-                        className={cn("w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.firstName ? "border-destructive" : "border-border")}
+                        className={cn("w-full px-4 py-3 rounded border focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.firstName ? "border-destructive" : "border-border")}
                         placeholder="Marcus"
                         value={firstName}
                         onChange={(e) => { setFirstName(e.target.value); setFieldErrors(prev => ({ ...prev, firstName: false })); }}
@@ -327,7 +327,7 @@ export default function PPSContact() {
                       </label>
                       <input
                         type="text"
-                        className={cn("w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.lastName ? "border-destructive" : "border-border")}
+                        className={cn("w-full px-4 py-3 rounded border focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.lastName ? "border-destructive" : "border-border")}
                         placeholder="Aurelius"
                         value={lastName}
                         onChange={(e) => { setLastName(e.target.value); setFieldErrors(prev => ({ ...prev, lastName: false })); }}
@@ -342,7 +342,7 @@ export default function PPSContact() {
                     </label>
                     <input
                       type="email"
-                        className={cn("w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.email ? "border-destructive" : "border-border")}
+                        className={cn("w-full px-4 py-3 rounded border focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.email ? "border-destructive" : "border-border")}
                         placeholder="marcus@romanempire.gov"
                         value={email}
                         onChange={(e) => { setEmail(e.target.value); setFieldErrors(prev => ({ ...prev, email: false })); }}
@@ -356,7 +356,7 @@ export default function PPSContact() {
                     </label>
                     <input
                       type="tel"
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 rounded border border-border focus:outline-none focus:ring-2 focus:ring-primary"
                       placeholder="(555) 867-5309"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
@@ -393,7 +393,7 @@ export default function PPSContact() {
                       </label>
                       <input
                         type="text"
-                        className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary ${fieldErrors.company ? "border-destructive" : "border-border"}`}
+                        className={`w-full px-4 py-3 rounded border focus:outline-none focus:ring-2 focus:ring-primary ${fieldErrors.company ? "border-destructive" : "border-border"}`}
                         placeholder="Initech"
                         value={company}
                         onChange={(e) => { setCompany(e.target.value); setFieldErrors((prev) => ({ ...prev, company: false })); }}
@@ -433,7 +433,7 @@ export default function PPSContact() {
                       </label>
                       <select
                         name="budget-authority"
-                        className={cn("w-full px-4 py-3 rounded-lg border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.budgetAuthority ? "border-destructive" : "border-border")}
+                        className={cn("w-full px-4 py-3 rounded border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.budgetAuthority ? "border-destructive" : "border-border")}
                         value={budgetAuthority}
                         onChange={(e) => { setBudgetAuthority(e.target.value); setFieldErrors(prev => ({ ...prev, budgetAuthority: false })); }}
                       >
@@ -456,7 +456,7 @@ export default function PPSContact() {
                         </p>
                         <select
                           name="budget-range"
-                          className={cn("w-full px-4 py-3 rounded-lg border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.budgetRange ? "border-destructive" : "border-border")}
+                          className={cn("w-full px-4 py-3 rounded border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.budgetRange ? "border-destructive" : "border-border")}
                           value={budgetRange}
                           onChange={(e) => { setBudgetRange(e.target.value); setFieldErrors(prev => ({ ...prev, budgetRange: false })); }}
                         >
@@ -473,7 +473,7 @@ export default function PPSContact() {
                         </label>
                         <select
                           name="timeline"
-                          className={cn("w-full px-4 py-3 rounded-lg border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.timeline ? "border-destructive" : "border-border")}
+                          className={cn("w-full px-4 py-3 rounded border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.timeline ? "border-destructive" : "border-border")}
                           value={timeline}
                           onChange={(e) => {
                             setTimeline(e.target.value);
@@ -497,7 +497,7 @@ export default function PPSContact() {
                                 <button
                                   type="button"
                                   className={cn(
-                                    "w-full flex items-center gap-2 px-4 py-3 rounded-lg border border-border bg-background text-left focus:outline-none focus:ring-2 focus:ring-primary",
+                                    "w-full flex items-center gap-2 px-4 py-3 rounded border border-border bg-background text-left focus:outline-none focus:ring-2 focus:ring-primary",
                                     !specificDate && "text-muted-foreground"
                                   )}
                                 >
@@ -531,7 +531,7 @@ export default function PPSContact() {
                         </label>
                         <textarea
                           rows={5}
-                          className={cn("w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.message ? "border-destructive" : "border-border")}
+                          className={cn("w-full px-4 py-3 rounded border focus:outline-none focus:ring-2 focus:ring-primary", fieldErrors.message ? "border-destructive" : "border-border")}
                           placeholder="Tell us what's on your mind, the questions you have, or whatever else will help color in the conversation..."
                           value={message}
                           onChange={(e) => { setMessage(e.target.value); setFieldErrors(prev => ({ ...prev, message: false })); }}
@@ -593,7 +593,7 @@ export default function PPSContact() {
           </div>
 
           <div className="max-w-3xl mx-auto mt-6">
-            <div className="p-6 bg-lime/10 border border-lime/30 rounded-lg">
+            <div className="p-6 bg-lime/10 border border-lime/30 rounded">
               <p className="text-body text-lime font-semibold mb-2">Our Partnership Promise</p>
               <p className="text-body -sm text-foreground">
                 We only enter partnerships where we believe meaningful progress is possible - together. If we're not the right fit, we'll tell you and try to point you in the right direction.

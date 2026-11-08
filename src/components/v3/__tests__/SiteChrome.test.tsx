@@ -236,3 +236,124 @@ describe("SiteFooter", () => {
     }
   });
 });
+
+// PPS Admin, 2026-11-07, choosing a compromise between square and pill: "4px on all buttons and form fields, with the
+// header button staying a pill? yes". `rounded` is 4px at every size and inside or outside the new design's theme,
+// unlike rounded-md/-lg, which follow the theme's --radius.
+const cornerClasses = (el: HTMLElement) =>
+  el.className.split(/\s+/).filter((t) => /^(?:[a-z0-9]+:)*rounded(?:-|$)/.test(t));
+
+describe("buttons and form fields have 4px corners", () => {
+  it("except the header's Find Your Next ShIFt, which matches the pill-shaped bar it sits in", () => {
+    // PPS Admin, 2026-11-07, on the header: "That one can match the shape of the header".
+    renderAt(<SiteHeader />);
+    const buttons = screen.getAllByRole("button").filter((b) => flat(b.textContent ?? "") === "FindYourNextShIFt");
+    expect(buttons).toHaveLength(1);
+    expect(buttons[0]).toHaveClass("rounded-full");
+  });
+
+  it("the footer's Contact Us, email field and Subscribe", () => {
+    renderAt(<SiteFooter />);
+    expect(cornerClasses(screen.getByRole("link", { name: "Contact Us" }))).toEqual(["rounded"]);
+    expect(cornerClasses(screen.getByRole("button", { name: "Subscribe" }))).toEqual(["rounded"]);
+    expect(cornerClasses(screen.getByRole("textbox"))).toEqual(["rounded"]);
+  });
+
+  it("every Button, whatever its size", async () => {
+    const { Button } = await import("@/components/ui/button");
+    render(
+      <>
+        <Button>Default</Button>
+        <Button size="sm">Small</Button>
+        <Button size="lg" variant="outline">Large</Button>
+      </>,
+    );
+    for (const name of ["Default", "Small", "Large"]) {
+      expect(cornerClasses(screen.getByRole("button", { name }))).toEqual(["rounded"]);
+    }
+  });
+
+  it("the shared text field, text area and select", async () => {
+    const { Input } = await import("@/components/ui/input");
+    const { Textarea } = await import("@/components/ui/textarea");
+    const { Select, SelectTrigger, SelectValue } = await import("@/components/ui/select");
+    render(
+      <>
+        <Input aria-label="Name" />
+        <Textarea aria-label="Message" />
+        <Select>
+          <SelectTrigger aria-label="Topic">
+            <SelectValue placeholder="Pick one" />
+          </SelectTrigger>
+        </Select>
+      </>,
+    );
+    expect(cornerClasses(screen.getByRole("textbox", { name: "Name" }))).toEqual(["rounded"]);
+    expect(cornerClasses(screen.getByRole("textbox", { name: "Message" }))).toEqual(["rounded"]);
+    expect(cornerClasses(screen.getByRole("combobox", { name: "Topic" }))).toEqual(["rounded"]);
+  });
+
+  it("the closing band's button", async () => {
+    const { CTABand } = await import("@/components/v3/Bits");
+    renderAt(<CTABand title="Ready?" body="Let's talk." to="/contact" label="Start with a Clarity Call" />);
+    expect(cornerClasses(screen.getByRole("link", { name: /Start with a Clarity Call/ }))).toEqual(["rounded"]);
+  });
+});
+
+// PPS-DEC-0028: button text on the public site is set in spaced capitals (`cta-label`). PPS Admin, 2026-11-07: "I
+// liked the spaced all caps cta buttons", then, of buttons that say ShIFt, choosing "ShIFt becomes SHIFT".
+describe("public-site buttons are set in spaced capitals", () => {
+  it("the header's Find Your Next ShIFt", () => {
+    renderAt(<SiteHeader />);
+    const button = screen.getAllByRole("button").find((b) => flat(b.textContent ?? "") === "FindYourNextShIFt")!;
+    expect(button).toHaveClass("cta-label");
+  });
+
+  it("the footer's Contact Us and Subscribe", () => {
+    renderAt(<SiteFooter />);
+    expect(screen.getByRole("link", { name: "Contact Us" })).toHaveClass("cta-label");
+    expect(screen.getByRole("button", { name: "Subscribe" })).toHaveClass("cta-label");
+  });
+
+  it("the closing band's button", async () => {
+    const { CTABand } = await import("@/components/v3/Bits");
+    renderAt(<CTABand title="Ready?" body="Let's talk." to="/contact" label="Start with a Clarity Call" />);
+    expect(screen.getByRole("link", { name: /Start with a Clarity Call/ })).toHaveClass("cta-label");
+  });
+
+  it("every shared Button drawn as a button, inside the public site only", async () => {
+    const { Button } = await import("@/components/ui/button");
+    const { PublicSiteContext } = await import("@/components/v3/publicSiteContext");
+    const set = (
+      <>
+        <Button>Solid</Button>
+        <Button variant="outline">Outline</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="destructive">Destructive</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="link">Text link</Button>
+        <Button size="icon" aria-label="Icon only" />
+      </>
+    );
+    const { unmount } = render(<PublicSiteContext.Provider value={true}>{set}</PublicSiteContext.Provider>);
+    for (const name of ["Solid", "Outline", "Secondary", "Destructive"]) {
+      expect(screen.getByRole("button", { name })).toHaveClass("cta-label");
+    }
+    for (const name of ["Ghost", "Text link", "Icon only"]) {
+      expect(screen.getByRole("button", { name })).not.toHaveClass("cta-label");
+    }
+    unmount();
+    // Staff screens render outside the public layout and keep their own button text.
+    render(set);
+    expect(screen.getByRole("button", { name: "Solid" })).not.toHaveClass("cta-label");
+  });
+});
+
+// PPS Admin, 2026-11-08, revising "square for now": "4px on all cards and boxes" (PPS-DEC-0028).
+describe("cards and callout boxes have 4px corners", () => {
+  it("the Partnership Promise note", async () => {
+    const { PartnershipPromiseNote } = await import("@/components/v3/PartnershipPromiseNote");
+    renderAt(<PartnershipPromiseNote />);
+    expect(cornerClasses(screen.getByTestId("partnership-promise"))).toEqual(["rounded"]);
+  });
+});

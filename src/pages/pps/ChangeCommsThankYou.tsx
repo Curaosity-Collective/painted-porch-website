@@ -31,7 +31,7 @@ export default function ChangeCommsThankYou() {
       {/* Download */}
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white border-2 border-border rounded-2xl shadow-lg p-8 md:p-12 text-center">
+          <div className="bg-white border-2 border-border rounded shadow-lg p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy mb-4">
               Download Your Guide
             </h2>
@@ -42,13 +42,13 @@ export default function ChangeCommsThankYou() {
               href={PDF_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="block max-w-md mx-auto mb-8 rounded-xl overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow"
+              className="block max-w-md mx-auto mb-8 rounded overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow"
               aria-label="Preview the 4 Critical Steps guide"
             >
               <img src={guidePreview} alt="Cover of the 4 Critical Steps for Effective Change Communication guide" className="w-full h-auto block" />
             </a>
             <a href={PDF_URL} target="_blank" rel="noopener noreferrer" download>
-              <Button className="bg-teal hover:bg-teal/90 text-white text-lg py-6 px-8 rounded-full">
+              <Button className="bg-teal hover:bg-teal/90 text-white text-lg py-6 px-8 rounded">
                 <Download className="mr-2 w-5 h-5" />
                 Download Now
               </Button>

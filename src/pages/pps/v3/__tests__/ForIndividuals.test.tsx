@@ -58,7 +58,7 @@ describe("For Individuals", () => {
   it("keeps the approved section order", () => {
     renderPage();
     expect(screen.getAllByRole("heading", { level: 2 }).map((h) => flat(h.textContent ?? ""))).toEqual(
-      ["Designed for…", "Start Where You Are", "From Spark to Momentum", "What ShIFt Will You Spark First?"].map(flat),
+      ["Designed for…", "Start Where You're Pulled", "From Spark to Momentum", "What ShIFt Will You Spark First?"].map(flat),
     );
   });
 
@@ -75,7 +75,7 @@ describe("For Individuals", () => {
 
   it("offers three ways to grow, each with a Best when line and its page", () => {
     renderPage();
-    const section = screen.getByRole("heading", { level: 2, name: "Start Where You Are" }).closest("section")!;
+    const section = screen.getByRole("heading", { level: 2, name: "Start Where You're Pulled" }).closest("section")!;
     const expected: [string, string][] = [
       ["Assessments", "/assessments"],
       ["Masterclasses & Mini Courses", "/masterclasses"],

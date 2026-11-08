@@ -556,7 +556,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
                         ? onMultiToggle(current.id, opt.id)
                         : setAnswer(current.id, opt.id)
                     }
-                    className={`w-full text-left p-4 rounded-lg border-2 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+                    className={`w-full text-left p-4 rounded border-2 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                       isSelected
                         ? "border-primary bg-primary/5"
                         : "border-border hover:border-primary/40 bg-white"

@@ -78,7 +78,7 @@ export default function BurnoutOptIn() {
           </div>
 
           {/* Right: Sign-up form */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-border">
+          <div className="bg-white rounded shadow-xl p-8 md:p-10 border border-border">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <Input

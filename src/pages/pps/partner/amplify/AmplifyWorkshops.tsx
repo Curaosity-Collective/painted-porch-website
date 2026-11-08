@@ -239,7 +239,7 @@ export default function AmplifyWorkshops() {
                 {phaseZero.map((workshop) => {
                   const anchor = cardAnchor(workshop);
                   return (
-                    <div key={workshop.offering_key} id={anchor} className="rounded-xl flex flex-col overflow-hidden border border-border scroll-mt-24">
+                    <div key={workshop.offering_key} id={anchor} className="rounded flex flex-col overflow-hidden border border-border scroll-mt-24">
                       <div className="p-6 flex flex-col flex-grow">
                         <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-3">
                           <img
@@ -247,7 +247,7 @@ export default function AmplifyWorkshops() {
                             alt={workshop.name}
                             loading="lazy"
                             onError={(e) => handleImgError(e, workshop)}
-                            className="w-full h-40 sm:w-28 sm:h-20 rounded-lg object-cover flex-shrink-0"
+                            className="w-full h-40 sm:w-28 sm:h-20 rounded object-cover flex-shrink-0"
                           />
                           <div>
                             <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy leading-tight mb-1">{workshop.name}</h3>
@@ -265,7 +265,7 @@ export default function AmplifyWorkshops() {
                           </div>
                         </div>
                         {workshop.workshop_card_challenge && (
-                          <div className="mb-4 bg-raspberry/5 border border-raspberry/20 rounded-lg p-4">
+                          <div className="mb-4 bg-raspberry/5 border border-raspberry/20 rounded p-4">
                             <p className="text-base font-semibold text-raspberry mb-1">The Challenge:</p>
                             <p className="text-base text-foreground">{workshop.workshop_card_challenge}</p>
                           </div>
@@ -290,7 +290,7 @@ export default function AmplifyWorkshops() {
               </div>
 
               {/* Blue Door Callout */}
-              <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 md:pr-12 flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
+              <div className="bg-primary/5 border border-primary/20 rounded p-6 md:pr-12 flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <Info className="w-5 h-5 text-bluedoor" />
@@ -339,7 +339,7 @@ export default function AmplifyWorkshops() {
                     <div
                       key={workshop.offering_key}
                       id={anchor}
-                      className="rounded-xl border border-border p-6 flex flex-col scroll-mt-24"
+                      className="rounded border border-border p-6 flex flex-col scroll-mt-24"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-3">
                         <img
@@ -347,7 +347,7 @@ export default function AmplifyWorkshops() {
                           alt={workshop.name}
                           loading="lazy"
                           onError={(e) => handleImgError(e, workshop)}
-                          className="w-full h-40 sm:w-28 sm:h-20 rounded-lg object-cover flex-shrink-0"
+                          className="w-full h-40 sm:w-28 sm:h-20 rounded object-cover flex-shrink-0"
                         />
                         <div>
                           <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy leading-tight mb-1">{workshop.name}</h3>
@@ -388,7 +388,7 @@ export default function AmplifyWorkshops() {
             </div>
           )}
 
-          <div className="text-center mt-12 bg-navy text-white rounded-2xl p-6 md:p-8">
+          <div className="text-center mt-12 bg-navy text-white rounded p-6 md:p-8">
             <h3 className="text-xl md:text-2xl font-poppins font-bold text-white mb-3">
               Don&rsquo;t see exactly what you&rsquo;re looking for?
             </h3>

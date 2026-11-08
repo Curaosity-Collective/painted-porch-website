@@ -181,14 +181,14 @@ export default function AboutRob() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               to="/contact?interest=general&message=I'd like to connect with Rob."
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
+              className="cta-label inline-flex items-center gap-2 rounded bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
             >
               <Coffee className="h-4 w-4" />
               Let's Connect
             </Link>
             <Link
               to="/speaking/rob"
-              className="inline-flex items-center gap-2 rounded-lg bg-muted-foreground px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="cta-label inline-flex items-center gap-2 rounded bg-muted-foreground px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               <Mic className="h-4 w-4" />
               Book Rob to Speak
@@ -222,7 +222,7 @@ export default function AboutRob() {
                 <Wrapper
                   key={card.title}
                   {...(wrapperProps as any)}
-                  className={`group relative rounded-xl border-2 p-6 transition-all duration-300 ${colorMap[card.color]}`}
+                  className={`group relative rounded border-2 p-6 transition-all duration-300 ${colorMap[card.color]}`}
                 >
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">{card.emoji}</span>
@@ -273,7 +273,7 @@ export default function AboutRob() {
               href="https://www.youtube.com/@EqualMatters"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-destructive px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="cta-label inline-flex items-center gap-2 rounded bg-destructive px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               <Youtube className="h-5 w-5" />
               Subscribe on YouTube
@@ -282,7 +282,7 @@ export default function AboutRob() {
               href="https://www.youtube.com/@EqualMatters"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-navy px-6 py-3 font-poppins font-semibold text-navy transition hover:bg-navy hover:text-white"
+              className="cta-label inline-flex items-center gap-2 rounded border-2 border-navy px-6 py-3 font-poppins font-semibold text-navy transition hover:bg-navy hover:text-white"
             >
               View Channel
               <ArrowRight className="h-4 w-4" />
@@ -313,7 +313,7 @@ export default function AboutRob() {
                 <Component
                   key={link.label}
                   {...(props as any)}
-                  className="group flex items-center gap-3 rounded-lg border border-border bg-background px-5 py-4 font-medium text-navy shadow-sm transition-all hover:border-primary hover:shadow-md"
+                  className="cta-label group flex items-center gap-3 rounded border border-border bg-background px-5 py-4 font-medium text-navy shadow-sm transition-all hover:border-primary hover:shadow-md"
                 >
                   <span className="text-lg">{link.emoji}</span>
                   <span className="flex-1">{link.label}</span>
@@ -340,8 +340,8 @@ export default function AboutRob() {
           </p>
 
           <div className="mt-10 flex justify-center">
-            <div className="flex flex-col items-center justify-center rounded-xl bg-white/10 p-8 text-center w-full max-w-md">
-              <div className="mb-4 w-full overflow-hidden rounded-xl shadow-lg">
+            <div className="flex flex-col items-center justify-center rounded bg-white/10 p-8 text-center w-full max-w-md">
+              <div className="mb-4 w-full overflow-hidden rounded shadow-lg">
                 <iframe
                   src="https://open.spotify.com/embed/show/5lYP2GwhZU71rVNEufvm3U"
                   width="100%"
@@ -350,7 +350,7 @@ export default function AboutRob() {
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   loading="lazy"
                   title="Equal Matters Spotify Podcast"
-                  className="rounded-xl"
+                  className="rounded"
                 />
               </div>
               <h3 className="text-xl md:text-2xl font-poppins font-bold text-white">
@@ -363,7 +363,7 @@ export default function AboutRob() {
                 href="https://open.spotify.com/show/5lYP2GwhZU71rVNEufvm3U"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 font-semibold text-white transition hover:opacity-90"
+                className="cta-label mt-4 inline-flex items-center gap-2 rounded bg-primary px-5 py-2.5 font-semibold text-white transition hover:opacity-90"
               >
                 <Podcast className="h-4 w-4" />
                 Listen Now
@@ -376,7 +376,7 @@ export default function AboutRob() {
       {/* ── COFFEE CTA ───────────────────────────────────────────────── */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-2xl px-6 text-center">
-          <div className="rounded-2xl border-2 border-primary/20 bg-primary/5 px-8 py-12 md:px-12">
+          <div className="rounded border-2 border-primary/20 bg-primary/5 px-8 py-12 md:px-12">
             <span className="text-5xl">🎙</span>
             <h2 className="text-3xl md:text-4xl mt-4 font-poppins font-bold text-navy">
               Ready to Get C.L.E.A.R.?
@@ -386,7 +386,7 @@ export default function AboutRob() {
             </p>
             <Link
               to="/contact?interest=general&message=I'd like to connect with Rob."
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="cta-label mt-8 inline-flex items-center gap-2 rounded bg-primary px-8 py-4 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               <Coffee className="h-5 w-5" />
               Let's Connect

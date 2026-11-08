@@ -78,7 +78,7 @@ export default function PilotTraining() {
             Access a replay of our recent training session led by Painted Porch Strategies Chief Joy Officer &amp; Mindfulness Coach, Sierra Ramm Cantrell, where she shares simple tools you can use to shift from being on auto-pilot to seizing the controls and steering the direction of your life and work.
           </p>
           <a href="#get-access">
-            <Button className="bg-primary hover:bg-primary/90 text-white font-semibold text-base px-8 py-5 rounded-full">
+            <Button className="bg-primary hover:bg-primary/90 text-white font-semibold text-base px-8 py-5 rounded">
               Access Free Training Replay
             </Button>
           </a>
@@ -122,7 +122,7 @@ export default function PilotTraining() {
         <div className="container max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((f) => (
-              <div key={f.title} className="text-center bg-muted/20 rounded-xl p-8 border-t-4 border-gold">
+              <div key={f.title} className="text-center bg-muted/20 rounded p-8 border-t-4 border-gold">
                 <h3 className="text-xl md:text-2xl font-bold text-navy mb-3">{f.title}</h3>
                 <p className="text-body text-foreground -sm">{f.description}</p>
               </div>
@@ -181,7 +181,7 @@ export default function PilotTraining() {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-auto bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-5 rounded-full disabled:opacity-50"
+                  className="w-auto bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-5 rounded disabled:opacity-50"
                 >
                   {submitting ? "Submitting..." : "Access Training"}
                 </Button>

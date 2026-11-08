@@ -173,7 +173,7 @@ export default function EQChangeLeaderMini() {
       {/* Video Embed */}
       <section className="py-12 bg-muted/30">
         <div className="container max-w-4xl mx-auto px-6">
-          <div className="aspect-video rounded-xl overflow-hidden shadow-xl">
+          <div className="aspect-video rounded overflow-hidden shadow-xl">
             <iframe
               src="https://www.youtube.com/embed/uvlLR-K-V_c"
               title="What Can E.Q. Do For You...and Why It Matters"
@@ -253,7 +253,7 @@ export default function EQChangeLeaderMini() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {stats.map((s, i) => (
-              <div key={i} className="bg-white rounded-xl p-8 shadow-md text-center border-t-4 border-raspberry">
+              <div key={i} className="bg-white rounded p-8 shadow-md text-center border-t-4 border-raspberry">
                 <p className="text-body text-4xl font-bold text-raspberry mb-3">{s.stat}</p>
                 <p className="text-body text-foreground -sm leading-relaxed">{s.text}</p>
               </div>
@@ -311,7 +311,7 @@ export default function EQChangeLeaderMini() {
                     />
                   </div>
                 </div>
-                <div className="md:w-3/5 bg-white rounded-xl p-8 shadow-md">
+                <div className="md:w-3/5 bg-white rounded p-8 shadow-md">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-8 h-8 rounded-full bg-raspberry/10 flex items-center justify-center flex-shrink-0">
                       <span className="text-sm font-bold text-raspberry">{i + 1}</span>
@@ -354,7 +354,7 @@ export default function EQChangeLeaderMini() {
               "You wish to develop the skills most desired to lead the 21st-century workforce",
               "You want to gain greater awareness and control over your emotions",
             ].map((item, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <div key={i} className="bg-white/10 backdrop-blur-sm rounded p-6">
                 <CheckCircle className="w-8 h-8 mx-auto mb-3 text-white/90" />
                 <p className="text-body text-white/90 -sm leading-relaxed">{item}</p>
               </div>
@@ -391,7 +391,7 @@ export default function EQChangeLeaderMini() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Workplace Report */}
-            <div className="bg-white rounded-xl border border-border shadow-md p-8 flex flex-col">
+            <div className="bg-white rounded border border-border shadow-md p-8 flex flex-col">
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mb-1">
                 EQ-i Workplace Report
               </h3>
@@ -428,7 +428,7 @@ export default function EQChangeLeaderMini() {
             </div>
 
             {/* Leadership Report */}
-            <div className="bg-white rounded-xl border-2 border-raspberry shadow-xl p-8 flex flex-col relative">
+            <div className="bg-white rounded border-2 border-raspberry shadow-xl p-8 flex flex-col relative">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-raspberry text-white text-xs font-semibold px-4 py-1 rounded-full">
                 Most Popular
               </div>
@@ -468,7 +468,7 @@ export default function EQChangeLeaderMini() {
             </div>
 
             {/* Let's Talk */}
-            <div className="bg-muted/40 rounded-xl border border-border shadow-md p-8 flex flex-col">
+            <div className="bg-muted/40 rounded border border-border shadow-md p-8 flex flex-col">
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mb-1">
                 Unsure or want to learn more?
               </h3>

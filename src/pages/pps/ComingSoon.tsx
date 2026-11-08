@@ -132,14 +132,14 @@ export default function ComingSoon() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to="/"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-pps-teal text-white font-poppins font-semibold hover:bg-pps-teal/90 transition-colors"
+            className="cta-label inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-pps-teal text-white font-poppins font-semibold hover:bg-pps-teal/90 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border-2 border-pps-navy text-pps-navy font-poppins font-semibold hover:bg-pps-navy hover:text-white transition-colors"
+            className="cta-label inline-flex items-center justify-center gap-2 px-6 py-3 rounded border-2 border-pps-navy text-pps-navy font-poppins font-semibold hover:bg-pps-navy hover:text-white transition-colors"
           >
             <Mail className="w-4 h-4" />
             Contact Us

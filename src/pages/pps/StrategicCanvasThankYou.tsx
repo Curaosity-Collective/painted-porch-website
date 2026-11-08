@@ -26,7 +26,7 @@ export default function StrategicCanvasThankYou() {
       {/* Download */}
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white border-2 border-border rounded-2xl shadow-lg p-8 md:p-12 text-center">
+          <div className="bg-white border-2 border-border rounded shadow-lg p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy mb-4">
               Grab Your Canvas
             </h2>
@@ -37,7 +37,7 @@ export default function StrategicCanvasThankYou() {
               href={CANVAS_PDF_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="block max-w-xl mx-auto mb-8 rounded-xl overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow"
+              className="block max-w-xl mx-auto mb-8 rounded overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow"
               aria-label="Preview the Strategic Change Canvas"
             >
               <img
@@ -47,7 +47,7 @@ export default function StrategicCanvasThankYou() {
               />
             </a>
             <a href={CANVAS_PDF_URL} target="_blank" rel="noopener noreferrer" download>
-              <Button className="bg-teal hover:bg-teal/90 text-white text-lg py-6 px-8 rounded-full">
+              <Button className="bg-teal hover:bg-teal/90 text-white text-lg py-6 px-8 rounded">
                 <Download className="mr-2 w-5 h-5" />
                 Download the Strategic Change Canvas
               </Button>

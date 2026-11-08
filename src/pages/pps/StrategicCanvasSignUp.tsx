@@ -110,7 +110,7 @@ export default function StrategicCanvasSignUp() {
               href="/downloads/Strategic_Change_Canvas_Painted_Porch_Strategies.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="block mb-8 rounded-xl overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow"
+              className="block mb-8 rounded overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow"
               aria-label="Preview the Strategic Change Canvas"
             >
               <img
@@ -151,7 +151,7 @@ export default function StrategicCanvasSignUp() {
           </div>
 
           {/* Right: Form */}
-          <div className="bg-white border-2 border-border rounded-2xl shadow-lg p-8 md:sticky md:top-8">
+          <div className="bg-white border-2 border-border rounded shadow-lg p-8 md:sticky md:top-8">
             <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mb-2">Send Me the Canvas</h3>
             <p className="text-body -sm text-muted-foreground mb-6">
               Drop your info below and we'll email it over right away.
@@ -207,7 +207,7 @@ export default function StrategicCanvasSignUp() {
               <Button
                 type="submit"
                 disabled={submitting}
-                className="w-full bg-teal hover:bg-teal/90 text-white text-lg py-6 rounded-full"
+                className="w-full bg-teal hover:bg-teal/90 text-white text-lg py-6 rounded"
               >
                 {submitting ? "Sending..." : "Send Me the Canvas"}
               </Button>

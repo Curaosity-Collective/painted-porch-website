@@ -60,7 +60,7 @@ export default function StoicFieldGuide() {
                 An introduction to applying timeless Stoic principles in modern leadership. Daily practices, reflection prompts, and practical tools to lead with clarity, courage, and calm.
               </p>
               <a href="#get-access">
-                <Button className="bg-gold hover:bg-gold/90 text-navy font-semibold text-base px-8 py-5 rounded-full">
+                <Button className="bg-gold hover:bg-gold/90 text-navy font-semibold text-base px-8 py-5 rounded">
                   Get the Field Guide
                 </Button>
               </a>
@@ -73,7 +73,7 @@ export default function StoicFieldGuide() {
                 <img
                   src={stoicFieldGuideCover}
                   alt="The Stoic Leader's Field Guide cover, a vibrantly painted porch in teal, lime, raspberry, and gold"
-                  className="relative w-full max-w-sm md:max-w-md rounded-lg shadow-2xl ring-1 ring-white/10 rotate-[-2deg] hover:rotate-0 transition-transform duration-500"
+                  className="relative w-full max-w-sm md:max-w-md rounded shadow-2xl ring-1 ring-white/10 rotate-[-2deg] hover:rotate-0 transition-transform duration-500"
                   loading="eager"
                 />
               </div>
@@ -142,7 +142,7 @@ export default function StoicFieldGuide() {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-auto bg-gold hover:bg-gold/90 text-navy font-semibold px-8 py-5 rounded-full disabled:opacity-50"
+                  className="w-auto bg-gold hover:bg-gold/90 text-navy font-semibold px-8 py-5 rounded disabled:opacity-50"
                 >
                   {submitting ? (
                     "Submitting..."

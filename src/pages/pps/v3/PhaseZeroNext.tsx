@@ -163,7 +163,7 @@ function CheckList({ items, icon, tone }: { items: string[]; icon: "check" | "x"
 }
 
 function Card({ bar, children }: { bar: string; children: ReactNode }) {
-  return <div className={`border border-border border-t-4 bg-white p-7 ${bar}`}>{children}</div>;
+  return <div className={`rounded border border-border border-t-4 bg-white p-7 ${bar}`}>{children}</div>;
 }
 
 export default function PhaseZeroNext() {
@@ -216,7 +216,7 @@ export default function PhaseZeroNext() {
               </p>
             </Prose>
           </div>
-          <aside aria-labelledby="pz-questions" className="self-start border-l-4 border-gold bg-cream p-7 lg:col-span-5">
+          <aside aria-labelledby="pz-questions" className="rounded self-start border-l-4 border-gold bg-cream p-7 lg:col-span-5">
             <h3 id="pz-questions" className="label-kicker text-raspberry">
               The Better Questions
             </h3>
@@ -279,7 +279,7 @@ export default function PhaseZeroNext() {
             <CheckList items={IS_NOT} icon="x" tone="text-raspberry" />
           </Card>
         </div>
-        <div className="mt-10 max-w-3xl border-l-4 border-raspberry bg-cream p-7 md:p-8">
+        <div className="rounded mt-10 max-w-3xl border-l-4 border-raspberry bg-cream p-7 md:p-8">
           <p className="label-kicker text-raspberry">See the Cost in Your Own Numbers</p>
           <h3 className="mt-3 font-display text-2xl font-semibold leading-tight text-foreground">
             The Hidden Cost of Misalignment and Building Before Clarity
@@ -321,8 +321,8 @@ export default function PhaseZeroNext() {
             <div className="lg:col-span-7">
               <ol aria-label="The four stages of the P.A.T.H., with Phase Zero spanning Prepare and Align" className="grid grid-cols-4 items-end gap-1.5">
                 <li className="col-span-2">
-                  <div className="relative rounded-[8px] border-2 border-dashed border-gold px-1.5 pb-1.5 pt-7">
-                    <span className="label-kicker absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-[8px] bg-gold px-3 py-1 text-[#1E2B30]">
+                  <div className="relative rounded border-2 border-dashed border-gold px-1.5 pb-1.5 pt-7">
+                    <span className="label-kicker absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gold px-3 py-1 text-[#1E2B30]">
                       Phase Zero™
                     </span>
                     <ol className="grid grid-cols-2 gap-1.5">
@@ -355,7 +355,7 @@ export default function PhaseZeroNext() {
         </p>
         <ul className="mt-12 grid gap-6 lg:grid-cols-3">
           {PILLARS.map((p) => (
-            <li key={p.name} className={`flex flex-col gap-4 border border-border border-t-8 bg-white p-7 ${p.bar}`}>
+            <li key={p.name} className={`rounded flex flex-col gap-4 border border-border border-t-8 bg-white p-7 ${p.bar}`}>
               <span className={`text-xs font-bold uppercase tracking-[0.14em] ${p.label}`}>{p.focus}</span>
               <h3 className="font-display text-2xl font-semibold leading-tight text-foreground">{p.name}</h3>
               <p className="text-base leading-relaxed text-foreground">{p.definition}</p>
@@ -384,7 +384,7 @@ export default function PhaseZeroNext() {
           ))}
         </ul>
 
-        <div className="mt-10 bg-cream p-7 md:p-10">
+        <div className="rounded mt-10 bg-cream p-7 md:p-10">
           <Kicker>The Behavioral Bedrock</Kicker>
           <h3 className="mt-3 font-display text-2xl font-semibold text-foreground">Essential Elements</h3>
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-foreground">
@@ -405,7 +405,7 @@ export default function PhaseZeroNext() {
           </ul>
         </div>
 
-        <div className="mt-10 bg-teal-deep p-8 text-center text-teal-foreground md:p-12">
+        <div className="rounded mt-10 bg-teal-deep p-8 text-center text-teal-foreground md:p-12">
           <Kicker tone="onDark">The Result</Kicker>
           <h3 className="mt-3 font-display text-2xl font-semibold md:text-3xl">The Fortified Porch</h3>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-teal-foreground">
@@ -428,7 +428,7 @@ export default function PhaseZeroNext() {
           </p>
           <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {DECISION_FILTER.map((v) => (
-              <li key={v.letter} className="bg-white p-6">
+              <li key={v.letter} className="rounded bg-white p-6">
                 <span
                   aria-hidden="true"
                   className={`flex h-12 w-12 items-center justify-center rounded-full font-display text-xl font-bold ${v.fill}`}
@@ -473,7 +473,7 @@ export default function PhaseZeroNext() {
             <CheckList items={CONDITIONS} icon="check" tone="text-heading" />
           </Card>
         </div>
-        <div className="mt-12 border-l-4 border-gold bg-teal-deep p-8 text-teal-foreground md:p-10">
+        <div className="rounded mt-12 border-l-4 border-gold bg-teal-deep p-8 text-teal-foreground md:p-10">
           <Kicker tone="onDark">Our Commitment</Kicker>
           <p className="mt-3 font-display text-2xl font-semibold text-white md:text-3xl">You won't need us forever.</p>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-teal-foreground">
@@ -514,7 +514,7 @@ export default function PhaseZeroNext() {
 
 function StageChipBody({ name, offer, fill }: { name: string; offer: string; fill: string }) {
   return (
-    <div className={`flex min-h-[76px] flex-col items-center justify-center rounded-[8px] px-1.5 py-3 text-center ${fill}`}>
+    <div className={`flex min-h-[76px] flex-col items-center justify-center rounded px-1.5 py-3 text-center ${fill}`}>
       <span className="label-kicker">{name}</span>
       <span className="mt-1 text-xs font-semibold leading-tight">
         {offer} <ShIFt onFill />

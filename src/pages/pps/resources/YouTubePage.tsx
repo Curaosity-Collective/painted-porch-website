@@ -268,7 +268,7 @@ export default function YouTubePage() {
                     href={video.youtube_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-muted rounded-xl overflow-hidden group cursor-pointer hover:shadow-lg transition-all block"
+                    className="bg-muted rounded overflow-hidden group cursor-pointer hover:shadow-lg transition-all block"
                   >
                     <div className="aspect-video relative flex items-center justify-center overflow-hidden">
                       {video.thumbnail_url ? (

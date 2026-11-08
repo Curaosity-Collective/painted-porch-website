@@ -239,7 +239,7 @@ export default function StracticalLeaderCheckout() {
         <div className="container max-w-4xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8 items-start">
             {/* Investment Card */}
-            <div className="bg-white rounded-2xl shadow-lg border border-border/40 overflow-hidden">
+            <div className="bg-white rounded shadow-lg border border-border/40 overflow-hidden">
               <div className="bg-navy p-6 text-center">
                 <p className="text-body text-gold font-poppins font-semibold uppercase tracking-wider mb-1">
                   {isExpired ? "Workshop Investment" : "Your Investment"}
@@ -256,7 +256,7 @@ export default function StracticalLeaderCheckout() {
                 {isExpired ? (
                   <Button
                     onClick={() => setWaitlistOpen(true)}
-                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-base py-5 px-10 rounded-lg hover:bg-transparent hover:text-gold transition-colors w-full"
+                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-base py-5 px-10 rounded hover:bg-transparent hover:text-gold transition-colors w-full"
                   >
                     JOIN THE WAITLIST <Bell className="ml-2 w-5 h-5" />
                   </Button>
@@ -266,7 +266,7 @@ export default function StracticalLeaderCheckout() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-base py-5 px-10 rounded-lg hover:bg-transparent hover:text-gold transition-colors w-full">
+                    <Button className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-base py-5 px-10 rounded hover:bg-transparent hover:text-gold transition-colors w-full">
                       COMPLETE ENROLLMENT <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
                   </a>
@@ -363,7 +363,7 @@ export default function StracticalLeaderCheckout() {
               </p>
               <Button
                 onClick={() => setWaitlistOpen(true)}
-                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded-lg hover:bg-white hover:text-gold transition-colors"
+                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded hover:bg-white hover:text-gold transition-colors"
               >
                 JOIN THE WAITLIST <Bell className="ml-2 w-5 h-5" />
               </Button>
@@ -381,7 +381,7 @@ export default function StracticalLeaderCheckout() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded-lg hover:bg-white hover:text-gold transition-colors">
+                <Button className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded hover:bg-white hover:text-gold transition-colors">
                   COMPLETE ENROLLMENT <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </a>

@@ -98,6 +98,19 @@
   text-transform: uppercase;
 }
 
+/* Button text on the public site (PPS-DEC-0028): the same spaced capitals as the kicker, on every link or button
+   drawn as a button. The shared Button adds it on public pages (PublicSiteContext); custom buttons carry the class.
+   Defined here, after Tailwind's utilities, so it wins over a button's own text-size, weight, case and tracking
+   classes. ShIFt reads "SHIFT" on a button; its IF stays bold (PPS-DEC-0022 item 6). */
+.cta-label {
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
 .rule-hair {
   border-top: 1px solid hsl(var(--border));
 }

@@ -258,7 +258,7 @@ export default function CostCalculatorDialog({
               id="industry"
               value={industry}
               onChange={(e) => setIndustry(e.target.value as IndustryKey)}
-              className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
+              className="w-full h-10 rounded border border-input bg-background px-3 text-sm"
             >
               {Object.values(INDUSTRY_BENCHMARKS).map((b) => (
                 <option key={b.key} value={b.key}>
@@ -571,7 +571,7 @@ export default function CostCalculatorDialog({
             <button
               type="button"
               onClick={() => setShowLeadForm(true)}
-              className="w-full text-center py-2 px-4 rounded-lg border-2 border-dashed border-strategic/40 text-strategic font-semibold hover:bg-strategic/5 transition-colors text-sm"
+              className="cta-label w-full text-center py-2 px-4 rounded border-2 border-dashed border-strategic/40 text-strategic font-semibold hover:bg-strategic/5 transition-colors text-sm"
             >
               📧 Email me these results
             </button>

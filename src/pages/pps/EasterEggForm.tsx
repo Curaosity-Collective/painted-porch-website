@@ -168,7 +168,7 @@ const EasterEggForm = () => {
                         <FormControl>
                           <Input
                             aria-label="Full name" placeholder="First and last name"
-                            className="h-12 rounded-lg border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
+                            className="h-12 rounded border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
                             {...field}
                           />
                         </FormControl>
@@ -187,7 +187,7 @@ const EasterEggForm = () => {
                           <Input
                             type="email"
                             placeholder="we'll send you a confirmation"
-                            className="h-12 rounded-lg border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
+                            className="h-12 rounded border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
                             {...field}
                           />
                         </FormControl>
@@ -205,7 +205,7 @@ const EasterEggForm = () => {
                         <FormControl>
                           <Textarea
                             placeholder="What did you find, and why does it matter?"
-                            className="min-h-[100px] rounded-lg border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
+                            className="min-h-[100px] rounded border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
                             {...field}
                           />
                         </FormControl>
@@ -226,7 +226,7 @@ const EasterEggForm = () => {
                         <FormControl>
                           <Input
                             aria-label="Charity name" placeholder="Name of the organization you'd like us to donate to"
-                            className="h-12 rounded-lg border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
+                            className="h-12 rounded border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
                             {...field}
                           />
                         </FormControl>
@@ -249,7 +249,7 @@ const EasterEggForm = () => {
                             type="url"
                             inputMode="url"
                             placeholder="https://example.org"
-                            className="h-12 rounded-lg border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
+                            className="h-12 rounded border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
                             {...field}
                           />
                         </FormControl>
@@ -270,7 +270,7 @@ const EasterEggForm = () => {
                         <FormControl>
                           <Textarea
                             placeholder="Optional, but we do read every single one"
-                            className="min-h-[100px] rounded-lg border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
+                            className="min-h-[100px] rounded border-[#CCCCCC] focus:border-primary focus-visible:ring-primary text-base"
                             {...field}
                           />
                         </FormControl>
@@ -281,7 +281,7 @@ const EasterEggForm = () => {
                   <Button
                     type="submit"
                     disabled={submitting}
-                    className="w-full md:w-auto md:min-w-[200px] h-12 bg-gold hover:bg-primary text-white font-poppins font-bold text-base rounded-lg transition-colors"
+                    className="w-full md:w-auto md:min-w-[200px] h-12 bg-gold hover:bg-primary text-white font-poppins font-bold text-base rounded transition-colors"
                   >
                     {submitting ? "Sending..." : "Send It"}
                   </Button>

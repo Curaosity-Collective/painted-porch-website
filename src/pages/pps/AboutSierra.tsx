@@ -177,14 +177,14 @@ export default function AboutSierra() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               to="/contact?interest=general&message=I'd like to connect with Sierra."
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
+              className="cta-label inline-flex items-center gap-2 rounded bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
             >
               <Coffee className="h-4 w-4" />
               Let's Connect
             </Link>
             <Link
               to="/speaking/sierra"
-              className="inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3 font-poppins font-semibold text-navy transition hover:opacity-90"
+              className="cta-label inline-flex items-center gap-2 rounded bg-gold px-6 py-3 font-poppins font-semibold text-navy transition hover:opacity-90"
             >
               <Heart className="h-4 w-4" />
               Book Sierra to Speak
@@ -218,7 +218,7 @@ export default function AboutSierra() {
                 <Wrapper
                   key={card.title}
                   {...(wrapperProps as any)}
-                  className={`group relative rounded-xl border-2 p-6 transition-all duration-300 ${colorMap[card.color]}`}
+                  className={`group relative rounded border-2 p-6 transition-all duration-300 ${colorMap[card.color]}`}
                 >
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">{card.emoji}</span>
@@ -253,7 +253,7 @@ export default function AboutSierra() {
           <p className="text-body mt-3 text-foreground/60">
             A moment of mindfulness with Sierra
           </p>
-          <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded-xl shadow-lg">
+          <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded shadow-lg">
             <div className="relative aspect-video">
               <iframe
                 src="https://www.youtube.com/embed/QC_6yGQAPz0"
@@ -293,7 +293,7 @@ export default function AboutSierra() {
               href="https://www.youtube.com/@onthepaintedporch"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-destructive px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="cta-label inline-flex items-center gap-2 rounded bg-destructive px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               <Youtube className="h-5 w-5" />
               Subscribe on YouTube
@@ -302,7 +302,7 @@ export default function AboutSierra() {
               href="https://youtube.com/playlist?list=PLhdPibIQvwhH4j94ohc0BsOJqUud4xzoL"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-navy px-6 py-3 font-poppins font-semibold text-navy transition hover:bg-navy hover:text-white"
+              className="cta-label inline-flex items-center gap-2 rounded border-2 border-navy px-6 py-3 font-poppins font-semibold text-navy transition hover:bg-navy hover:text-white"
             >
               View Playlist
               <ArrowRight className="h-4 w-4" />
@@ -334,7 +334,7 @@ export default function AboutSierra() {
                 <Component
                   key={link.label}
                   {...(props as any)}
-                  className="group flex items-center gap-3 rounded-lg border border-border bg-background px-5 py-4 font-medium text-navy shadow-sm transition-all hover:border-primary hover:shadow-md"
+                  className="cta-label group flex items-center gap-3 rounded border border-border bg-background px-5 py-4 font-medium text-navy shadow-sm transition-all hover:border-primary hover:shadow-md"
                 >
                   <span className="text-lg">{link.emoji}</span>
                   <span className="flex-1">{link.label}</span>
@@ -354,7 +354,7 @@ export default function AboutSierra() {
       {/* ── COFFEE CTA ───────────────────────────────────────────────── */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-2xl px-6 text-center">
-          <div className="rounded-2xl border-2 border-gold/20 bg-gold/5 px-8 py-12 md:px-12">
+          <div className="rounded border-2 border-gold/20 bg-gold/5 px-8 py-12 md:px-12">
             <span className="text-5xl">🧘</span>
             <h2 className="text-3xl md:text-4xl mt-4 font-poppins font-bold text-navy">
               Ready to Lead with More Joy?
@@ -364,7 +364,7 @@ export default function AboutSierra() {
             </p>
             <Link
               to="/contact?interest=general&message=I'd like to connect with Sierra."
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-gold px-8 py-4 font-poppins font-semibold text-navy transition hover:opacity-90"
+              className="cta-label mt-8 inline-flex items-center gap-2 rounded bg-gold px-8 py-4 font-poppins font-semibold text-navy transition hover:opacity-90"
             >
               <Coffee className="h-5 w-5" />
               Let's Connect

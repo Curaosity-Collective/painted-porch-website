@@ -79,7 +79,7 @@ export default function StracticalLeaderGuide() {
               </p>
             </div>
             <a href="#get-guide">
-              <Button className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-base sm:text-lg py-4 sm:py-6 px-6 sm:px-10 rounded-lg hover:bg-transparent hover:text-gold transition-colors max-w-full whitespace-normal h-auto">
+              <Button className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-base sm:text-lg py-4 sm:py-6 px-6 sm:px-10 rounded hover:bg-transparent hover:text-gold transition-colors max-w-full whitespace-normal h-auto">
                 <Download className="mr-2 w-5 h-5" /> GET THE FREE GUIDE
               </Button>
             </a>
@@ -102,7 +102,7 @@ export default function StracticalLeaderGuide() {
             {insideBullets.map((item, i) => (
               <div
                 key={i}
-                className={`${item.bg} p-8 rounded-xl border border-border/30`}
+                className={`${item.bg} p-8 rounded border border-border/30`}
               >
                 <item.icon className={`w-10 h-10 ${item.color} mb-4`} />
                 <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mb-2">
@@ -116,7 +116,7 @@ export default function StracticalLeaderGuide() {
           </div>
           <div className="text-center mt-12">
             <a href="#get-guide">
-              <Button className="bg-navy border-2 border-navy text-white font-poppins font-bold text-base sm:text-lg py-4 sm:py-6 px-6 sm:px-10 rounded-lg hover:bg-transparent hover:text-navy transition-colors max-w-full whitespace-normal h-auto">
+              <Button className="bg-navy border-2 border-navy text-white font-poppins font-bold text-base sm:text-lg py-4 sm:py-6 px-6 sm:px-10 rounded hover:bg-transparent hover:text-navy transition-colors max-w-full whitespace-normal h-auto">
                 <Download className="mr-2 w-5 h-5" /> DOWNLOAD NOW
               </Button>
             </a>
@@ -127,7 +127,7 @@ export default function StracticalLeaderGuide() {
       {/* CALL OUT: DEEPER DIVE */}
       <section className="py-12 md:py-16 bg-white">
         <div className="container max-w-4xl mx-auto px-6">
-          <div className="relative rounded-2xl bg-gradient-to-br from-navy to-navy/90 text-white p-8 md:p-10 shadow-xl overflow-hidden">
+          <div className="relative rounded bg-gradient-to-br from-navy to-navy/90 text-white p-8 md:p-10 shadow-xl overflow-hidden">
             <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-gold/15 blur-2xl pointer-events-none" />
             <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
@@ -142,7 +142,7 @@ export default function StracticalLeaderGuide() {
                 </p>
                 <Link
                   to="/leadership-labs/stractical-leader"
-                  className="inline-flex items-center gap-2 bg-gold text-navy font-poppins font-semibold px-6 py-3 rounded-lg hover:bg-gold/90 transition-colors focus-ring-on-dark"
+                  className="cta-label inline-flex items-center gap-2 bg-gold text-navy font-poppins font-semibold px-6 py-3 rounded hover:bg-gold/90 transition-colors focus-ring-on-dark"
                 >
                   Explore the Leader Lab
                   <ArrowRight className="w-4 h-4" />
@@ -156,7 +156,7 @@ export default function StracticalLeaderGuide() {
       {/* GHL FORM EMBED */}
       <section id="get-guide" className="py-16 md:py-24 bg-muted scroll-mt-24">
         <div className="container max-w-xl mx-auto px-6">
-          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 border border-border/40">
+          <div className="bg-white rounded shadow-lg p-8 md:p-12 border border-border/40">
             <div className="text-center mb-8">
               <Download className="w-12 h-12 text-gold mx-auto mb-4" />
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy mb-2">

@@ -124,7 +124,7 @@ export default function SpeakerDetailPage({ speaker }: { speaker: SpeakerData })
           <div className="flex flex-col md:flex-row gap-12 items-center">
             {/* Photo */}
             <div className="md:w-2/5 flex-shrink-0">
-              <div className={`rounded-2xl overflow-hidden border-4 ${speaker.themeColor} shadow-xl`}>
+              <div className={`rounded overflow-hidden border-4 ${speaker.themeColor} shadow-xl`}>
                 <img
                   src={speaker.photo}
                   alt={speaker.name}
@@ -181,7 +181,7 @@ export default function SpeakerDetailPage({ speaker }: { speaker: SpeakerData })
               <div
                 key={i}
                 id={topic.slug || undefined}
-                className={`bg-white rounded-xl border-l-4 ${speaker.themeColor} hover:shadow-lg transition-shadow overflow-hidden flex flex-col scroll-mt-24`}
+                className={`bg-white rounded border-l-4 ${speaker.themeColor} hover:shadow-lg transition-shadow overflow-hidden flex flex-col scroll-mt-24`}
               >
                 {/* Legacy aliases — keep `#topic-<slug>` and prior slug URLs resolving. */}
                 {topic.slug && <span id={`topic-${topic.slug}`} aria-hidden="true" />}
@@ -235,7 +235,7 @@ export default function SpeakerDetailPage({ speaker }: { speaker: SpeakerData })
           <p className="text-body text-foreground leading-relaxed text-center mb-8 max-w-3xl mx-auto">
             {speaker.workshopIntro}
           </p>
-          <div className="bg-white rounded-xl p-8 shadow-sm mb-8">
+          <div className="bg-white rounded p-8 shadow-sm mb-8">
             <p className="text-body font-semibold text-navy mb-4">Each session includes:</p>
             <div className="space-y-3">
               {speaker.workshopDetails.map((detail, i) => (

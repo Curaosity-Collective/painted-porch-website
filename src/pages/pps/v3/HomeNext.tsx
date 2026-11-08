@@ -27,7 +27,7 @@ const H2 =
 const H3 = "font-display text-xl font-semibold leading-tight text-foreground md:text-2xl";
 const LINK = "font-bold text-primary underline underline-offset-4 hover:text-primary/80";
 const GOLD_BUTTON =
-  "inline-flex min-h-[52px] items-center gap-2.5 rounded bg-gold px-7 text-[17px] font-bold text-[#1E2B30] transition-colors hover:bg-gold/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+  "cta-label inline-flex min-h-[52px] items-center gap-2.5 rounded bg-gold px-7 text-[17px] font-bold text-[#1E2B30] transition-colors hover:bg-gold/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
 function Eyebrow({ children, onDark = false }: { children: ReactNode; onDark?: boolean }) {
   return (
@@ -213,15 +213,9 @@ export default function HomeNext() {
           height={848}
           className="absolute inset-0 h-full w-full object-cover object-[78%_50%] md:object-[50%_42%]"
         />
-        {/* Light overlay across the photo, deepening behind the text (bottom on phones, left on desktop). */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 md:hidden"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(4,40,50,0) 0%, rgba(4,40,50,0.1) 30%, rgba(4,40,50,0.82) 50%, rgba(4,40,50,0.94) 100%), linear-gradient(rgba(4,40,50,0.2), rgba(4,40,50,0.2))",
-          }}
-        />
+        {/* Light overlay across the photo, deepening toward the text side on tablets and desktops; on phones the
+            shade travels with the text block, below. */}
+        <div aria-hidden="true" className="absolute inset-0 bg-[rgba(4,40,50,0.2)] md:hidden" />
         <div
           aria-hidden="true"
           className="absolute inset-0 hidden md:block"
@@ -230,16 +224,41 @@ export default function HomeNext() {
               "linear-gradient(90deg, rgba(4,40,50,0.86) 0%, rgba(4,40,50,0.7) 32%, rgba(4,40,50,0.2) 52%, rgba(4,40,50,0) 66%), linear-gradient(rgba(4,40,50,0.2), rgba(4,40,50,0.2))",
           }}
         />
-        <div className="relative mx-auto flex min-h-[780px] max-w-[1200px] flex-col justify-end px-5 pb-11 pt-[330px] md:min-h-[660px] md:justify-center md:px-6 md:py-24">
-          <div className="flex max-w-[560px] flex-col gap-[22px]">
+        {/* The whole text block fits the first screen on phones, tablets and laptops (PPS Admin, 2026-11-07):
+            on phones the hero is one screen tall with the text at the bottom and the photo filling whatever is
+            left above, and short phones tighten the type and spacing. From tablet width up, the padding, gaps,
+            headline and paragraph scale down with the screen's height on screens under about 820px tall (a
+            landscape tablet, a 1366x768 laptop); taller screens keep the approved sizes. */}
+        <div className="relative mx-auto flex min-h-[calc(100svh-var(--site-header-h))] max-w-[1200px] flex-col justify-end px-5 pb-7 pt-10 md:min-h-[min(660px,calc(100svh-var(--site-header-h)))] md:justify-center md:px-6 md:py-[clamp(24px,calc(100svh-744px),96px)]">
+          <div className="relative isolate flex max-w-[560px] flex-col gap-4 md:gap-[clamp(12px,calc(5svh-18px),22px)] [@media(max-width:767px)_and_(max-height:600px)]:gap-3">
+            {/* Phones: the shade starts above the eyebrow and runs to the bottom of the hero, however tall the
+                screen and however the text wraps. */}
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-7 -left-5 -top-24 -z-10 w-[100vw] md:hidden"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(4,40,50,0) 0, rgba(4,40,50,0.82) 96px, rgba(4,40,50,0.94) 100%)",
+              }}
+            />
+            {/* Tablets and up: on top of the side shade above, a soft shade behind the text block only, fading
+                out at its edges, so the pillars around the text stay bright (PPS Admin, 2026-11-07: "JUST darken
+                the area behind the text as a gradient"; "Too much of the pillars get hidden if its too dark"; then,
+                choosing between the mock-ups, "I like the option that includes the side shade"). It keeps the
+                bright IF at 3:1 or better over the photo, as PPS-DEC-0022 item 6 requires, without changing the
+                IF's color. */}
+            <div
+              aria-hidden="true"
+              className="absolute -inset-x-14 -inset-y-9 -z-10 hidden rounded-[48px] bg-[rgba(4,40,50,0.8)] blur-[40px] md:block"
+            />
             <Eyebrow onDark>Are You Built for What's Next?</Eyebrow>
             <h1
               id="home-hero-heading"
-              className="font-display text-[40px] font-bold leading-[1.04] tracking-[-0.01em] text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.3)] [text-wrap:balance] md:text-[56px] lg:text-[72px]"
+              className="font-display text-[36px] font-bold leading-[1.04] tracking-[-0.01em] text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.3)] [text-wrap:balance] md:text-[length:clamp(40px,calc(14svh-38px),56px)] lg:text-[length:clamp(40px,calc(14svh-38px),72px)] [@media(max-width:767px)_and_(max-height:600px)]:text-[32px]"
             >
               Build an Organization That Can Do Epic <ShIFt onDark large />
             </h1>
-            <p className="max-w-[30em] text-lg leading-relaxed text-[#F1F6F7] [text-shadow:0_1px_12px_rgba(0,0,0,0.35)] md:text-xl">
+            <p className="max-w-[30em] text-[17px] leading-normal text-[#F1F6F7] [text-shadow:0_1px_12px_rgba(0,0,0,0.35)] md:text-[length:clamp(17px,calc(2.5svh+1px),20px)] md:leading-[1.4] [@media(max-width:767px)_and_(max-height:600px)]:text-base">
               You have a vision for who your organization can become next. Is that future being authored with
               intention, or inherited through assumption?
             </p>
@@ -296,7 +315,7 @@ export default function HomeNext() {
             </h3>
             <ul className="flex flex-col gap-3">
               {THREE_AM.map((q) => (
-                <li key={q} className="bg-white px-5 py-4 italic leading-normal">
+                <li key={q} className="rounded bg-white px-5 py-4 italic leading-normal">
                   “{q}”
                 </li>
               ))}
@@ -354,7 +373,7 @@ export default function HomeNext() {
           </div>
           <ul className="grid gap-6 md:grid-cols-3">
             {PILLARS.map((p) => (
-              <li key={p.name} className={`flex flex-col gap-3 border-t-8 bg-white p-7 ${p.bar}`}>
+              <li key={p.name} className={`rounded flex flex-col gap-3 border-t-8 bg-white p-7 ${p.bar}`}>
                 <span className={`text-xs font-bold uppercase tracking-[0.14em] ${p.label}`}>{p.name}</span>
                 <h3 className={H3}>{p.question}</h3>
                 <p className="text-base leading-relaxed">{p.body}</p>
@@ -407,7 +426,7 @@ export default function HomeNext() {
           </h3>
           <ul aria-label="How we partner on each stage" className="-mt-4 grid gap-6 lg:grid-cols-3">
             {OFFERS.map((o) => (
-              <li key={o.name} className="flex flex-col border border-[#E6E1D6] bg-white">
+              <li key={o.name} className="rounded flex flex-col border border-[#E6E1D6] bg-white">
                 <div className={`px-6 py-4 ${o.band}`}>
                   <span className={`text-[13px] font-bold uppercase tracking-[0.14em] ${o.tagInk}`}>{o.tag}</span>
                 </div>
@@ -427,7 +446,7 @@ export default function HomeNext() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3.5">
             <a
               href="#clarity-call"
-              className="inline-flex min-h-[48px] items-center rounded border-2 border-primary px-6 font-bold text-primary transition-colors hover:bg-primary hover:text-white"
+              className="cta-label inline-flex min-h-[48px] items-center rounded border-2 border-primary px-6 font-bold text-primary transition-colors hover:bg-primary hover:text-white"
             >
               Start with a Clarity Call
             </a>
@@ -498,7 +517,7 @@ export default function HomeNext() {
           </div>
           <ul data-testid="home-promise" className="grid gap-6 md:grid-cols-3">
             {PROMISE.map((p) => (
-              <li key={p.label} data-testid="home-promise-box" className={`flex flex-col gap-2.5 p-8 ${p.box}`}>
+              <li key={p.label} data-testid="home-promise-box" className={`rounded flex flex-col gap-2.5 p-8 ${p.box}`}>
                 <span className="font-display text-[22px] font-bold leading-tight">{p.label}</span>
                 <p className="text-[17px] leading-relaxed">{p.body}</p>
               </li>

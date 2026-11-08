@@ -87,8 +87,9 @@ describe("ResultsImpact (draft)", () => {
       expect(link).toHaveAttribute("href", CHARITIES[i].href);
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
-      // White rounded cards like Our Approach's credentials (PPS Admin, 2026-11-06).
-      expect(link.className).toMatch(/rounded-\[8px\].*\bbg-white\b.*\bshadow-sm\b/);
+      // White cards like Our Approach's credentials (PPS Admin, 2026-11-06), at the site's 4px card corner
+      // (PPS-DEC-0028; PPS Admin, 2026-11-08: "4px on all cards and boxes").
+      expect(link.className).toMatch(/(?:^|\s)rounded\s.*\bbg-white\b.*\bshadow-sm\b/);
     });
   });
 

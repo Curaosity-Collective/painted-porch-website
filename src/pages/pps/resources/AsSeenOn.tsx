@@ -233,7 +233,7 @@ export default function AsSeenOn() {
                 placeholder="Search appearances..."
                 value={searchQuery}
                 onChange={(e) => handleSearchChange(e.target.value)}
-                className="w-full pl-10 pr-9 py-2.5 rounded-lg border border-border bg-muted text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow"
+                className="w-full pl-10 pr-9 py-2.5 rounded border border-border bg-muted text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow"
               />
               {searchQuery && (
                 <button
@@ -386,7 +386,7 @@ export default function AsSeenOn() {
           {isLoading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {Array.from({ length: perPage }).map((_, i) => (
-                <div key={i} className="bg-muted rounded-xl animate-pulse h-80" />
+                <div key={i} className="bg-muted rounded animate-pulse h-80" />
               ))}
             </div>
           ) : paginatedAppearances.length === 0 ? (
@@ -413,7 +413,7 @@ export default function AsSeenOn() {
                     <Link
                       key={appearance.id}
                       to={mediaAppearancePath(appearance.id)}
-                      className={`block group bg-card rounded-xl border-l-4 ${borderColor} transition-all hover:shadow-lg h-full flex flex-col overflow-hidden ${appearance.external_url ? "cursor-pointer" : ""}`}
+                      className={`block group bg-card rounded border-l-4 ${borderColor} transition-all hover:shadow-lg h-full flex flex-col overflow-hidden ${appearance.external_url ?"cursor-pointer" :""}`}
                     >
                       {/* Thumbnail */}
                       {appearance.thumbnail_url ? (

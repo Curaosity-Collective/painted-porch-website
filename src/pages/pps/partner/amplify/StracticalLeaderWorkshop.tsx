@@ -304,7 +304,7 @@ export default function StracticalLeaderWorkshop() {
                 <div>
                   <Button
                     onClick={() => setWaitlistOpen(true)}
-                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-10 rounded-lg hover:bg-white hover:text-gold transition-colors"
+                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-10 rounded hover:bg-white hover:text-gold transition-colors"
                   >
                     JOIN THE WAITLIST <Bell className="ml-2 w-5 h-5" />
                   </Button>
@@ -314,7 +314,7 @@ export default function StracticalLeaderWorkshop() {
             ) : (
               <Button
                 onClick={scrollToRegister}
-                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-10 rounded-lg hover:bg-white hover:text-gold transition-colors"
+                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-10 rounded hover:bg-white hover:text-gold transition-colors"
               >
                 CLAIM YOUR SPOT <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -332,7 +332,7 @@ export default function StracticalLeaderWorkshop() {
           <p className="text-body text-foreground/80 mb-8 max-w-3xl mx-auto">
             The Stractical Leader Lab teaches you to operate in the <span className="font-semibold text-gold">integration zone</span> between strategic vision and tactical execution, the space where high-impact leadership happens.
           </p>
-          <div className="bg-muted rounded-2xl p-8 md:p-12 max-w-2xl mx-auto border border-border/40">
+          <div className="bg-muted rounded p-8 md:p-12 max-w-2xl mx-auto border border-border/40">
             <div className="text-2xl md:text-3xl font-poppins font-bold text-navy mb-3">
               Stractical = <span className="text-primary">Strategic</span> + <span className="text-gold">Tactical</span>
             </div>
@@ -367,7 +367,7 @@ export default function StracticalLeaderWorkshop() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {pillars.map((pillar) => (
-              <div key={pillar.title} className={`${pillar.bg} rounded-2xl p-8 border ${pillar.border} flex flex-col`}>
+              <div key={pillar.title} className={`${pillar.bg} rounded p-8 border ${pillar.border} flex flex-col`}>
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-3xl">{pillar.emoji}</span>
                   <div>
@@ -402,7 +402,7 @@ export default function StracticalLeaderWorkshop() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {outcomes.map((item, i) => (
-              <div key={i} className="bg-muted rounded-xl p-6 border border-border/30">
+              <div key={i} className="bg-muted rounded p-6 border border-border/30">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                     <item.icon className="w-5 h-5 text-primary" />
@@ -456,7 +456,7 @@ export default function StracticalLeaderWorkshop() {
           </div>
           <div className="mt-12 space-y-4">
             {weeks.map((w) => (
-              <div key={w.week} className={`rounded-xl p-6 border ${w.bonus ? "bg-gold/10 border-gold/30" : "bg-white/5 border-white/10"}`}>
+              <div key={w.week} className={`rounded p-6 border ${w.bonus ?"bg-gold/10 border-gold/30" :"bg-white/5 border-white/10"}`}>
                 <div className="flex items-start gap-4">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 font-poppins font-bold text-sm ${w.bonus ? "bg-gold text-navy" : "bg-white/10 text-white"}`}>
                     {w.bonus ? "★" : `W${w.week}`}
@@ -496,7 +496,7 @@ export default function StracticalLeaderWorkshop() {
       {/* ═══ CALL OUT: MINI GUIDE DOWNLOAD ═══ */}
       <section className="py-12 md:py-16 bg-muted">
         <div className="container max-w-4xl mx-auto px-6">
-          <div className="relative rounded-2xl bg-gradient-to-br from-navy to-navy/90 text-white p-8 md:p-10 shadow-xl overflow-hidden">
+          <div className="relative rounded bg-gradient-to-br from-navy to-navy/90 text-white p-8 md:p-10 shadow-xl overflow-hidden">
             <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-gold/15 blur-2xl pointer-events-none" />
             <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
@@ -511,7 +511,7 @@ export default function StracticalLeaderWorkshop() {
                 </p>
                 <Link
                   to="/resources/stractical-mini"
-                  className="inline-flex items-center gap-2 bg-gold text-navy font-poppins font-semibold px-6 py-3 rounded-lg hover:bg-gold/90 transition-colors focus-ring-on-dark"
+                  className="cta-label inline-flex items-center gap-2 bg-gold text-navy font-poppins font-semibold px-6 py-3 rounded hover:bg-gold/90 transition-colors focus-ring-on-dark"
                 >
                   Download the Mini Guide
                   <ArrowRight className="w-4 h-4" />
@@ -525,7 +525,7 @@ export default function StracticalLeaderWorkshop() {
       {/* ═══ REGISTER / PRICING ═══ */}
       <section id="register-section" className="py-16 md:py-24 bg-muted">
         <div className="container max-w-3xl mx-auto px-6">
-          <div className="bg-white rounded-2xl shadow-lg border border-border/40 overflow-hidden">
+          <div className="bg-white rounded shadow-lg border border-border/40 overflow-hidden">
             {isExpired ? (
               /* ── WAITLIST MODE ── */
               <>
@@ -547,7 +547,7 @@ export default function StracticalLeaderWorkshop() {
                   </p>
                   <Button
                     onClick={() => setWaitlistOpen(true)}
-                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded-lg hover:bg-transparent hover:text-gold transition-colors w-full md:w-auto"
+                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded hover:bg-transparent hover:text-gold transition-colors w-full md:w-auto"
                   >
                     JOIN THE WAITLIST <Bell className="ml-2 w-5 h-5" />
                   </Button>
@@ -579,7 +579,7 @@ export default function StracticalLeaderWorkshop() {
                   </div>
                   <Button
                     onClick={goToEnroll}
-                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded-lg hover:bg-transparent hover:text-gold transition-colors w-full md:w-auto"
+                    className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded hover:bg-transparent hover:text-gold transition-colors w-full md:w-auto"
                   >
                     CLAIM YOUR SPOT <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
@@ -655,7 +655,7 @@ export default function StracticalLeaderWorkshop() {
               </p>
               <Button
                 onClick={() => setWaitlistOpen(true)}
-                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded-lg hover:bg-white hover:text-gold transition-colors"
+                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded hover:bg-white hover:text-gold transition-colors"
               >
                 JOIN THE WAITLIST <Bell className="ml-2 w-5 h-5" />
               </Button>
@@ -677,7 +677,7 @@ export default function StracticalLeaderWorkshop() {
               </p>
               <Button
                 onClick={goToEnroll}
-                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded-lg hover:bg-white hover:text-gold transition-colors"
+                className="bg-gold border-2 border-gold text-navy font-poppins font-bold text-lg py-6 px-12 rounded hover:bg-white hover:text-gold transition-colors"
               >
                 CLAIM YOUR SPOT <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
