@@ -518,35 +518,37 @@ export default function CostCalculatorDialog({
               How we calculated this
             </summary>
             <div className="mt-2 space-y-2 leading-relaxed">
-              <p className="text-body">
+              <p className="text-caption">
                 <span className="font-semibold">Planned investment</span> = team size
                 × (loaded salary ÷ 12) × {Math.round(PROJECT_TIME_ALLOCATION * 100)}%
                 allocation + tech/license + (optional) outside consultants, over the
                 selected duration.
               </p>
-              <p className="text-body">
+              <p className="text-caption">
                 <span className="font-semibold">Likely overrun</span> = planned ×
                 effective overrun rate ({Math.round((calc.effOverrun - 0.1) * 100)}–
                 {Math.round((calc.effOverrun + 0.1) * 100)}%), the worst-case across{" "}
-                {calc.ind.label} and the selected change types (
-                {activeTypes.map((k) => CHANGE_TYPES[k].shortLabel).join(", ")}).
+                {calc.ind.label}
+                {activeTypes.length > 0 &&
+                  ` and the selected change types (${activeTypes.map((k) => CHANGE_TYPES[k].shortLabel).join(", ")})`}
+                .
               </p>
-              <p className="text-body">
+              <p className="text-caption">
                 <span className="font-semibold">Failure write-off</span> = planned ×
                 effective failure rate ({Math.round(calc.effFailure * 100)}%), same
                 worst-case logic.
               </p>
-              <p className="text-body">
+              <p className="text-caption">
                 <span className="font-semibold">What clarity could save</span> = (overrun +
                 failure write-off) × {Math.round(PHASE_ZERO_IMPACT.min * 100)}–
                 {Math.round(PHASE_ZERO_IMPACT.max * 100)}% (McKinsey + BCG research
                 on Phase Zero exposure reduction).
               </p>
               <div className="pt-2">
-                <p className="text-body font-semibold mb-1">Industry sources:</p>
+                <p className="text-caption font-semibold mb-1">Industry sources:</p>
                 <ul className="space-y-1 pl-3">
                   {calc.ind.sources.map((s, i) => (
-                    <li key={i} className="text-body flex items-start gap-1.5">
+                    <li key={i} className="text-caption flex items-start gap-1.5">
                       <span>•</span>
                       <span>
                         {s.label}{" "}
