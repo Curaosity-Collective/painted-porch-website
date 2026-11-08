@@ -75,7 +75,7 @@ const STAGES = [
     subtitle: "The launch phase",
     outcome: "Launch energy that holds past the first 90 days.",
     question: "How do we launch so the vision holds, and accelerates?",
-    body: "Most methodologies start here, which is why the outcome can feel smaller than the vision that set it in motion. The industry default is to move straight into action: launch the tool, announce the initiative, reorganize the chart. We begin earlier. With Preparation and Alignment in place, Take Off becomes the confident translation of ambition into a living reality, with clear decisions, reinforcing structures, and the organizational capacity to sustain velocity.",
+    body: "Take Off is where the vision meets the whole organization. With Preparation and Alignment in place, it becomes the confident translation of ambition into a living reality, with clear decisions, reinforcing structures, and the organizational capacity to sustain velocity.",
     example:
       "A mid-market company begins designing and delivering its AI initiative only after fortifying its governance, communication architecture, and manager capability, with ongoing advisory reinforcing the new way of working.",
     partner: EMBODY,
@@ -263,9 +263,8 @@ export default function ThePath() {
           </p>
           <Prose>
             <p>
-              Four stages move a change from clarity to commitment to launch to lasting habits. Most change
-              methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H. begins two
-              stages earlier, while there's still room to shape the possibility: understanding what your organization is
+              Four stages move a change from clarity to commitment to launch to lasting habits. The P.A.T.H. begins
+              two stages before Take Off, while there's still room to shape the possibility: understanding what your organization is
               built to carry, and bringing the people who will carry it into genuine alignment.
             </p>
           </Prose>

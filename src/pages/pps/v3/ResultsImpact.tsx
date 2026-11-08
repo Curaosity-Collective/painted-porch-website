@@ -32,7 +32,7 @@ const DESCRIPTION =
 const LINK = "font-semibold text-heading underline decoration-heading/40 underline-offset-4 hover:decoration-heading";
 
 const STATS = [
-  { value: "28", label: "Organizations guided through change" },
+  { value: "28", label: "Organizations we've partnered with" },
   { value: "$31,474", label: "Given to client-chosen charities to date" },
   { value: "5%", label: "Of every engagement donated, in the client's name" },
 ];

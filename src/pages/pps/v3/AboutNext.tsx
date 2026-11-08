@@ -82,7 +82,7 @@ const CORE_VALUES = [
     number: "02",
     title: "Partnership",
     body: "You're the expert of you (and your teams and organization). We bring frameworks, genuine curiosity, and outside perspective. You bring the context only you can see.",
-    detail: "We act as a guide and advisor, not a vendor. The win is when you can carry the work without us.",
+    detail: "We partner as co-architects and advisors, not vendors. The win is when you can carry the work without us.",
     bar: "border-primary",
   },
   {
