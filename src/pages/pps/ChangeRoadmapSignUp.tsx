@@ -90,7 +90,7 @@ export default function ChangeRoadmapSignUp() {
             Your <span className="text-gold">P.A.T.H. Roadmap</span> Planner
           </h1>
           <p className="text-body text-white/90 max-w-3xl mx-auto">
-            A simple worksheet to map out your P.A.T.H. before your next big change initiative kicks off.
+            Ten stops, ten honest questions, and a checklist to keep your route in view, before your next big change kicks off.
           </p>
         </div>
       </section>
@@ -101,10 +101,10 @@ export default function ChangeRoadmapSignUp() {
           {/* Left: What you get */}
           <div>
             <h2 className="text-xl sm:text-3xl md:text-4xl font-poppins font-bold text-navy mb-4" style={{ overflowWrap: "anywhere", wordBreak: "break-word" }}>
-              A must-use tool before your next change initiative.
+              Most change doesn't fail at the finish line. It fails on the road.
             </h2>
             <p className="text-body text-charcoal mb-6">
-              This is a <strong className="text-navy">must-use tool</strong> before you kick off any new change initiative to ensure your sponsors, leaders, team members, and clients have the information, tools, training, and communication they need to not just understand, but embrace, adopt, and successfully implement change that sticks.
+              The P.A.T.H. Roadmap Planner treats change as a journey you prepare for, travel together, and keep traveling. Use it before your next initiative kicks off, so your sponsors, leaders, teams, and clients know where you're going, how you'll get there, and who keeps it alive once the project team moves on.
             </p>
 
             {/* Worksheet preview */}
@@ -128,19 +128,19 @@ export default function ChangeRoadmapSignUp() {
               <li className="text-body flex gap-3">
                 <Compass className="w-6 h-6 text-teal flex-shrink-0 mt-1" />
                 <span className="text-charcoal">
-                  <strong className="text-navy">Name your change initiative</strong> and the gain on the other side
+                  <strong className="text-navy">Ten honest questions</strong> to capture first thoughts, one for each stop on the P.A.T.H.
                 </span>
               </li>
               <li className="text-body flex gap-3">
                 <Map className="w-6 h-6 text-lime-green flex-shrink-0 mt-1" />
                 <span className="text-charcoal">
-                  <strong className="text-navy">Map key milestones</strong> and checkpoints across the journey
+                  <strong className="text-navy">A planning checklist</strong> for the ten steps, from Define Your Destination to Reinforce Change &amp; Continual ShIFt
                 </span>
               </li>
               <li className="text-body flex gap-3">
                 <CheckCircle2 className="w-6 h-6 text-purple flex-shrink-0 mt-1" />
                 <span className="text-charcoal">
-                  <strong className="text-navy">A change journey checklist</strong> covering teams, navigators, roadblocks, and the future state
+                  <strong className="text-navy">A gut check</strong> to see where your change stands at each stage
                 </span>
               </li>
               <li className="text-body flex gap-3">

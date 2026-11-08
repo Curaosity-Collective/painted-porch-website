@@ -20,7 +20,7 @@ export default function ChangeRoadmapThankYou() {
             <CheckCircle2 className="w-12 h-12 text-lime-green" />
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-4">
-            📑 Here's Your Worksheet
+            📑 Here's Your Roadmap Planner
           </h1>
           <p className="text-body text-white/90">
             Thank you for downloading <strong className="text-gold">The P.A.T.H. Roadmap Planner</strong>.
@@ -36,7 +36,7 @@ export default function ChangeRoadmapThankYou() {
               Download Your Worksheet
             </h2>
             <p className="text-body text-charcoal mb-6 max-w-xl mx-auto">
-              Click the button below 👇 to download the worksheet and start mapping out your P.A.T.H. toward achieving change success. We've also sent a copy to your inbox.
+              Download your planner below 👇 and start mapping your route, one stop at a time. We've also sent a copy to your inbox.
             </p>
             <a
               href={PDF_URL}
