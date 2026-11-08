@@ -77,8 +77,8 @@ const APPRAISAL_REQUIRED =
 // and a guide that is a document or tool ("the Field Guide", "a three-minute directional guide"), are fine.
 const GUIDE_ROLE = /\b(?:meet|with|as) (?:a|your) guide\b|\bguided partnership\b/i;
 
-// "What your organization needs" tells the reader what they need. Share ideas, insights and perspective,
-// and let them decide what they want.
+// "What your organization needs" tells the reader what they need. Lead with expertise, insight and a clear
+// point of view, as advisors, so the reader is pulled to want it.
 const TELLS_NEEDS =
   /\bwhat (?:your|the) (?:organization|team|company)(?:'s)? (?:actually |really )?needs\b|\bwhat you (?:actually |really )?need\b/i;
 

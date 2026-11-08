@@ -13,7 +13,7 @@ import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
 
 /**
- * The P.A.T.H.™: the four stages of change (Prepare, Align, Take Off, Habits)
+ * The P.A.T.H.™: the four stages of change (Prepare, Align, Take Off, Create Habits)
  * and the three ShIFts that partner on them. Envision partners at Prepare,
  * Architect at Align, Embody from Take Off through Habits. Ported from
  * pps-simplified src/routes/the-path.tsx. Draft at /the-path (PageGate in
@@ -27,7 +27,7 @@ import { getSiteUrl } from "@/lib/site-url";
 
 const TITLE = "The P.A.T.H.™ | Painted Porch Strategies";
 const DESCRIPTION =
-  "Prepare, Align, Take Off, Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.";
+  "Prepare, Align, Take Off, Create Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.";
 
 const LINK = "font-semibold text-heading underline decoration-heading/40 underline-offset-4 hover:decoration-heading";
 const LINK_ON_DARK = "font-semibold text-white underline decoration-white/50 underline-offset-4 hover:decoration-white";
@@ -83,14 +83,14 @@ const STAGES = [
   },
   {
     letter: "H",
-    name: "Habits",
+    name: "Create Habits",
     subtitle: "The staying-power phase",
     outcome: "A team that can navigate future challenges with confidence and clarity.",
     question: "What keeps this from evaporating?",
     body: (
       <>
         Change holds when it becomes the way things are done: the rituals, the meeting rhythms, the accountability
-        structures, the stories the organization tells about itself. Habits is the stage that turns an initiative into
+        structures, the stories the organization tells about itself. This is the stage that turns an initiative into
         an identity: an extraordinary organization with the confidence, shared vocabulary, and cultural stamina to
         author the next chapter without hesitation, and to make <ShIFt lowercase /> happen again.
       </>
@@ -125,7 +125,7 @@ const ROAD_STEPS: { stage: string; dot: string; steps: [number, string][] }[] = 
     dot: "bg-gold",
     steps: [[7, "Take Your Change on the Road"], [8, "Map Your Future Journey"], [9, "Provide GPS & Roadside Assistance"]],
   },
-  { stage: "Habits", dot: "bg-habits", steps: [[10, "Reinforce Change & Continual ShIFt"]] },
+  { stage: "Create Habits", dot: "bg-habits", steps: [[10, "Reinforce Change & Continual ShIFt"]] },
 ];
 
 // Pillar colors are shared with the client report (PPS-DEC-0022, item 3).
@@ -206,7 +206,7 @@ const JOURNEY = [
         Embody <ShIFt onDark />
       </>
     ),
-    body: "Ongoing advisory as your organization designs and delivers the change it envisioned and authored, through Take Off and Habits.",
+    body: "Ongoing advisory as your organization designs and delivers the change it envisioned and authored, through Take Off and Create Habits.",
     outcome: "Your own change, innovation, and transformation become an ongoing, continuous practice.",
     deliverable:
       "Ongoing advisory during your change journey and beyond, reinforcing habits, judgment, decision authority, and the three Painted Porch Pillars.",
@@ -233,7 +233,7 @@ export default function ThePath() {
         { "@type": "HowToStep", position: 1, name: "Prepare", text: "Get a shared, honest read of the organization's capacity and architecture before committing." },
         { "@type": "HowToStep", position: 2, name: "Align", text: "Bring the senior team to one understanding: direction, trade-offs, and sequence genuinely shared." },
         { "@type": "HowToStep", position: 3, name: "Take Off", text: "Design and deliver the change, with the structures and capability to sustain it." },
-        { "@type": "HowToStep", position: 4, name: "Habits", text: "Embed the rituals, rhythms, and accountability structures that keep the change in place." },
+        { "@type": "HowToStep", position: 4, name: "Create Habits", text: "Embed the rituals, rhythms, and accountability structures that keep the change in place." },
       ],
     },
   });
@@ -245,7 +245,7 @@ export default function ThePath() {
         title="The P.A.T.H.™"
         intro={
           <>
-            Prepare. Align. Take Off. Habits. The four stages of change behind every engagement we run, and the reason
+            Prepare. Align. Take Off. Create Habits. The four stages of change behind every engagement we run, and the reason
             our work holds after the deck is archived. It's how organizations learn to do epic{" "}
             <ShIFt lowercase onDark />: from the first honest question to the habits that make it second nature.
           </>
@@ -405,7 +405,7 @@ export default function ThePath() {
               </li>
               <li className="col-span-2 col-start-3 border border-habits bg-white">
                 <SmartLink to={EMBODY.to} className={`block px-4 py-3 ${LINK}`}>
-                  <span>Embody <ShIFt /> · Take Off and Habits</span>
+                  <span>Embody <ShIFt /> · Take Off and Create Habits</span>
                 </SmartLink>
               </li>
               </ul>

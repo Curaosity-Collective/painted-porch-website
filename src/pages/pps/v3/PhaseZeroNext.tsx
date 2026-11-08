@@ -54,7 +54,7 @@ const STAGES = [
   { name: "Prepare", offer: "Envision", fill: "bg-prepare text-[#073B4C]" },
   { name: "Align", offer: "Architect", fill: "bg-align text-[#5A1420]" },
   { name: "Take Off", offer: "Embody", fill: "bg-gold text-[#1E2B30]" },
-  { name: "Habits", offer: "Embody", fill: "bg-habits text-[#1F3A0C]" },
+  { name: "Create Habits", offer: "Embody", fill: "bg-habits text-[#1F3A0C]" },
 ];
 
 // Pillar colors are shared with the client report (PPS-DEC-0022, item 3).
@@ -309,7 +309,7 @@ export default function PhaseZeroNext() {
               <p className="mt-5 text-base leading-relaxed text-foreground">
                 Phase Zero spans the first two stages of the P.A.T.H.: Prepare, where Envision <ShIFt /> partners, and
                 Align, where Architect <ShIFt /> partners. It's the groundwork that has to happen before you Take Off and
-                build lasting Habits.
+                Create Habits that last.
               </p>
               <p className="mt-6 text-base">
                 <SmartLink to="/the-path" className={LINK}>

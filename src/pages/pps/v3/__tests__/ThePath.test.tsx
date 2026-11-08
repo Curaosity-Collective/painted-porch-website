@@ -55,7 +55,7 @@ describe("ThePath (draft)", () => {
       ["Prepare", "Envision ShIFt", "/envision-shift"],
       ["Align", "Architect ShIFt", "/architect-shift"],
       ["Take Off", "Embody ShIFt", "/embody-shift"],
-      ["Habits", "Embody ShIFt", "/embody-shift"],
+      ["Create Habits", "Embody ShIFt", "/embody-shift"],
     ];
     const stages = within(screen.getByRole("region", { name: "The four stages of change" })).getAllByRole("article");
     expect(stages).toHaveLength(4);
@@ -112,7 +112,7 @@ describe("ThePath (draft)", () => {
       ["Prepare", "The clarity phase"],
       ["Align", "The agreement phase"],
       ["Take Off", "The launch phase"],
-      ["Habits", "The staying-power phase"],
+      ["Create Habits", "The staying-power phase"],
     ]) {
       const article = screen.getByRole("heading", { level: 2, name: stage }).closest("article")!;
       expect(article.textContent).toContain(subtitle);

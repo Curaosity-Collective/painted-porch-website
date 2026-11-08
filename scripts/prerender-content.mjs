@@ -82,7 +82,7 @@ export const routes = [
       },
       {
         h2: "Who is your organization becoming?",
-        body: "The P.A.T.H.™ is the four stages of change: Prepare, Align, Take Off, Habits. It begins at Phase Zero™, which spans Prepare and Align. Envision ShIFt partners at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits.",
+        body: "The P.A.T.H.™ is the four stages of change: Prepare, Align, Take Off, Create Habits. It begins at Phase Zero™, which spans Prepare and Align. Envision ShIFt partners at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits.",
       },
       {
         h2: "Start with a Clarity Call",
@@ -216,10 +216,10 @@ export const routes = [
     path: "/the-path",
     title: "The P.A.T.H.™ | Painted Porch Strategies",
     description:
-      "Prepare, Align, Take Off, Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.",
+      "Prepare, Align, Take Off, Create Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.",
     h1: "The P.A.T.H.™",
     intro:
-      "Prepare. Align. Take Off. Habits. The four stages of change behind every engagement we run, and the reason our work holds after the deck is archived. It's how organizations learn to do epic shIFt: from the first honest question to the habits that make it second nature.",
+      "Prepare. Align. Take Off. Create Habits. The four stages of change behind every engagement we run, and the reason our work holds after the deck is archived. It's how organizations learn to do epic shIFt: from the first honest question to the habits that make it second nature.",
     sections: [
       {
         h2: "It starts before Take Off",
@@ -231,7 +231,7 @@ export const routes = [
       },
       {
         h2: "Ten steps on the road",
-        body: "Prepare: 1 Define Your Destination; 2 Pin Your Starting Point. Align: 3 Assemble Your Change Coalition; 4 Plan Your Route; 5 Plot Your Checkpoints, Milestones & Celebrations; 6 Identify Bumps, Roadblocks, and Detours. Take Off: 7 Take Your Change on the Road; 8 Map Your Future Journey; 9 Provide GPS & Roadside Assistance. Habits: 10 Reinforce Change & Continual ShIFt. Steps 1 to 6 are Phase Zero™.",
+        body: "Prepare: 1 Define Your Destination; 2 Pin Your Starting Point. Align: 3 Assemble Your Change Coalition; 4 Plan Your Route; 5 Plot Your Checkpoints, Milestones & Celebrations; 6 Identify Bumps, Roadblocks, and Detours. Take Off: 7 Take Your Change on the Road; 8 Map Your Future Journey; 9 Provide GPS & Roadside Assistance. Create Habits: 10 Reinforce Change & Continual ShIFt. Steps 1 to 6 are Phase Zero™.",
       },
       {
         h2: "Your P.A.T.H., in one page",
@@ -558,7 +558,7 @@ export const routes = [
       },
       {
         h2: "Prepare and Align",
-        body: "Phase Zero spans the first two stages of the P.A.T.H.: Prepare, where Envision ShIFt partners, and Align, where Architect ShIFt partners. It's the groundwork that has to happen before you Take Off and build lasting Habits.",
+        body: "Phase Zero spans the first two stages of the P.A.T.H.: Prepare, where Envision ShIFt partners, and Align, where Architect ShIFt partners. It's the groundwork that has to happen before you Take Off and Create Habits that last.",
       },
       {
         h2: "The foundations beneath every shIFt",

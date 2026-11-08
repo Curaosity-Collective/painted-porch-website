@@ -50,7 +50,7 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "How is Painted Porch different from traditional consulting?",
-        answer: "We don't arrive with a packaged solution from somewhere else. We share ideas, insights and perspective, and you decide what you want to build: the culture, structure and systems for your next shIFt. You know your organization best, and we know how lasting change works. Together, we build strength that stays with you, not dependence on us.",
+        answer: "We don't arrive with a packaged solution from somewhere else. We bring deep change expertise, insight from inside your organization and a clear point of view on what will hold. Then we advise you as you shape the culture, structure and systems your next shIFt will stand on. You know your organization best, and we know how lasting change works. Together, we build strength that stays with you, not dependence on us.",
       },
     ],
   },
@@ -110,7 +110,7 @@ const sitewideFaqCategories: FAQCategory[] = [
             the Epic ShIFt Organizational Appraisal: an honest read of what your organization is ready to carry.{" "}
             <FaqLink to="/architect-shift">Architect ShIFt</FaqLink> (Align) authors the direction with your leaders and
             fortifies the pillars that need to hold first. <FaqLink to="/embody-shift">Embody ShIFt</FaqLink> (Take Off and
-            Habits) is ongoing advisory while your organization designs and leads the change.
+            Create Habits) is ongoing advisory while your organization designs and leads the change.
           </>
         ),
       },

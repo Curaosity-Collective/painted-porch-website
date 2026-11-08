@@ -107,7 +107,7 @@ const STAGES = [
   { letter: "P", name: "Prepare", question: "What are we actually built to carry?", bar: "border-prepare", ink: "text-prepare-deep" },
   { letter: "A", name: "Align", question: "Does the room actually agree, on the same thing?", bar: "border-align", ink: "text-align-deep" },
   { letter: "T", name: "Take Off", question: "How do we launch so the vision holds?", bar: "border-gold", ink: "text-[#8A5A00]" },
-  { letter: "H", name: "Habits", question: "What keeps this from evaporating?", bar: "border-habits", ink: "text-habits-deep" },
+  { letter: "H", name: "Create Habits", question: "What keeps this from evaporating?", bar: "border-habits", ink: "text-habits-deep" },
 ];
 
 const OFFERS = [
@@ -403,7 +403,7 @@ export default function HomeNext() {
               Who Is Your Organization Becoming?
             </h2>
             <p className="max-w-[40em] text-[17px] leading-relaxed">
-              The P.A.T.H. is the four stages of change: Prepare, Align, Take Off, Habits. It begins at
+              The P.A.T.H. is the four stages of change: Prepare, Align, Take Off, Create Habits. It begins at
               Phase Zero™, which spans Prepare and Align: the first act of becoming, while your next major decision
               is still taking shape.
             </p>
