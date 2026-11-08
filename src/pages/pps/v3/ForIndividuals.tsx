@@ -74,8 +74,8 @@ const TYPES: { title: string; icon: ComponentType<{ className?: string }>; tint:
     icon: Layers,
     tint: TINTS.purple,
     traits: [
-      "You've tried tactical fixes that didn't stick",
-      "You know you need strategic capacity first",
+      "You've seen quick fixes or wins fade and want something that lasts",
+      "You see strategic capacity as the starting point",
       "You want frameworks, not just tips",
       "You're ready to build the foundation before the next change",
     ],

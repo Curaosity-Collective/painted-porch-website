@@ -83,10 +83,6 @@ const differenceRows = [
     traditional: "Optimizes for a successful go-live.",
     sprint: "Fortifies the organization so your team can design and carry its next change.",
   },
-  {
-    traditional: "Hands the plan to your team.",
-    sprint: "Builds the architecture with your leaders so they own what comes next.",
-  },
 ];
 
 const included = [
@@ -223,9 +219,8 @@ export default function ArchitectShift() {
               <p>
                 The 90-day strategic sprint that follows fortifies those priorities before your change execution. An
                 organizational architecture blueprint and ongoing advisory equip and fortify your leaders, your teams,
-                and your operations across the three Painted Porch Pillars. We're not designing your future or writing
-                your implementation plan. Your organization gains the structures and capability to design and lead the
-                change it envisioned and authored.
+                and your operations across the three Painted Porch Pillars. Together, we build the decisions,
+                structures, and capacity your leaders need to lead your next <ShIFt lowercase />.
               </p>
             </Prose>
             <div className="rounded mt-8 border-l-4 border-align bg-linen p-6">
@@ -333,16 +328,15 @@ export default function ArchitectShift() {
         <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
           <Kicker tone="onDark">Different by Design</Kicker>
           <h2 className="mt-5 max-w-3xl font-display text-3xl font-bold leading-tight text-white [text-wrap:balance] md:text-4xl">
-            Built for Evolution, Not Only Implementation
+            Built for What Comes Next
           </h2>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-teal-foreground/85">
-            Traditional implementation work often begins with a chosen solution and optimizes for go-live. Architect{" "}
-            <ShIFt onDark /> begins with your aligned ambition and builds the architecture your organization needs to
-            carry it, while strengthening how your leaders author every <ShIFt lowercase onDark /> that follows.
+            Implementation work begins with a chosen solution and gets it live. Architect <ShIFt onDark /> begins
+            earlier, with your aligned ambition, so whatever you implement lands in an organization built to carry it.
           </p>
           <div className="rounded mt-12 grid gap-px overflow-hidden border border-teal-foreground/15 bg-teal-foreground/15 md:grid-cols-2">
             <div className="bg-align-ink p-6 md:p-8">
-              <p className="label-kicker text-teal-foreground/75">Traditional implementation consulting</p>
+              <p className="label-kicker text-teal-foreground/75">Implementation work</p>
               <ul className="mt-5 space-y-4">
                 {differenceRows.map((row) => (
                   <li key={row.traditional} className="text-sm leading-relaxed text-teal-foreground/85">

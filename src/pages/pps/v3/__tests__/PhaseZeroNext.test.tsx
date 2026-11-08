@@ -62,7 +62,7 @@ describe("Phase Zero: Our Approach", () => {
     renderPage();
     const h2s = screen.getAllByRole("heading", { level: 2 }).map((h) => flat(h.textContent ?? ""));
     const expected = [
-      "Not Every Opportunity Strengthens the Organization Chasing It",
+      "Every Opportunity Asks Something of the Organization Pursuing It",
       "Where the Real Choices Get Made",
       "What Phase Zero Is, and What It Isn't",
       "Prepare and Align",
@@ -96,7 +96,7 @@ describe("Phase Zero: Our Approach", () => {
     for (const word of ["Reason", "Logic", "Purpose", "Virtue"]) {
       expect(screen.getByRole("heading", { level: 3, name: word })).toBeInTheDocument();
     }
-    expect(screen.getByRole("button", { name: "Calculate the cost of skipping Phase Zero" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "See what clarity could save" })).toBeInTheDocument();
     expect(container.textContent).toContain("Five Foundational Abilities");
     expect(container.textContent).toContain("Four Conditions That Hold");
   });

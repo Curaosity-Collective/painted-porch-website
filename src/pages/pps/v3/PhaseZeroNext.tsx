@@ -196,18 +196,18 @@ export default function PhaseZeroNext() {
           <div className="lg:col-span-7">
             <Kicker>Why Phase Zero Exists</Kicker>
             <h2 id="pz-why" className={`mt-5 ${V3_H2}`}>
-              Not Every Opportunity Strengthens the Organization Chasing It
+              Every Opportunity Asks Something of the Organization Pursuing It
             </h2>
             <Prose>
               <p>
-                And not every change fortifies the future it's intended to create. Your organization isn't getting worn
-                down from a lack of effort. It's carrying the accumulated weight of the continual drive to innovate,
+                The right opportunity strengthens everything around it when the organization is built to carry it. Your
+                organization isn't getting worn down from a lack of effort. It's carrying the accumulated weight of the continual drive to innovate,
                 accelerate, adapt, and grow: unfinished work, competing priorities, disconnected initiatives, and
                 directions that never fully aligned in the first place.
               </p>
               <p>
-                Pushing harder in the wrong direction doesn't change the direction. It just{" "}
-                <strong className="text-raspberry">compounds the cost of getting there</strong>.
+                More effort moves you further in whatever direction you're already pointed. Phase Zero is where you{" "}
+                <strong className="text-raspberry">choose that direction on purpose</strong>.
               </p>
               <p>
                 Every initiative is also built on assumptions: about leadership, communication, priorities, and culture,
@@ -251,9 +251,8 @@ export default function PhaseZeroNext() {
               Not what to copy, catch up to, or react to, but what to <strong>author</strong>.
             </p>
             <p>
-              That sounds simple; it's not. Teams often skip it because the pressure to move feels heavier than the cost
-              of moving in the wrong direction. But when you skip Phase Zero, you stop designing your next move and
-              start reacting to someone else's.
+              It sounds simple. In practice, the pressure to move can feel heavier than the cost of moving in the wrong
+              direction. Phase Zero gives the decision the room it deserves, before momentum makes it for you.
             </p>
             <p>
               It's the work that comes before the rollout: the thinking beneath the plan, and the examination that
@@ -282,7 +281,7 @@ export default function PhaseZeroNext() {
         <div className="rounded mt-10 max-w-3xl border-l-4 border-raspberry bg-cream p-7 md:p-8">
           <p className="label-kicker text-raspberry">See the Cost in Your Own Numbers</p>
           <h3 className="mt-3 font-display text-2xl font-semibold leading-tight text-foreground">
-            The Hidden Cost of Misalignment and Building Before Clarity
+            What Clarity Is Worth
           </h3>
           <p className="mt-3 text-base leading-relaxed text-foreground">
             Plug in your team size, focus, and timeline to see the industry-benchmarked cost of misaligned change, and
@@ -290,7 +289,7 @@ export default function PhaseZeroNext() {
           </p>
           <div className="mt-6">
             <CostCalculatorDialog
-              triggerLabel="Calculate the cost of skipping Phase Zero"
+              triggerLabel="See what clarity could save"
               triggerVariant="default"
               triggerClassName="bg-raspberry text-white hover:bg-raspberry/90"
             />

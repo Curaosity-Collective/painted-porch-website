@@ -82,7 +82,7 @@ export const routes = [
       },
       {
         h2: "Who is your organization becoming?",
-        body: "The P.A.T.H.™ is the four stages of change: Prepare, Align, Take Off, Habits. Most change work starts at Take Off. Ours starts at Phase Zero™, which spans Prepare and Align. Envision ShIFt partners at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits.",
+        body: "The P.A.T.H.™ is the four stages of change: Prepare, Align, Take Off, Habits. It begins at Phase Zero™, which spans Prepare and Align. Envision ShIFt partners at Prepare, Architect ShIFt at Align, and Embody ShIFt from Take Off through Habits.",
       },
       {
         h2: "Start with a Clarity Call",
@@ -223,7 +223,7 @@ export const routes = [
     sections: [
       {
         h2: "It starts before Take Off",
-        body: "Stoicism is the GPS for how we think. The P.A.T.H. is the roadmap for how we work. Most change methodologies start at Take Off: a plan, a launch, a communications cascade. The P.A.T.H. begins two stages earlier, while there's still room to shape the possibility: understanding what your organization is built to carry, and bringing the people who will carry it into genuine alignment.",
+        body: "Stoicism is the GPS for how we think. The P.A.T.H. is the roadmap for how we work. The P.A.T.H. begins two stages before Take Off, while there's still room to shape the possibility: understanding what your organization is built to carry, and bringing the people who will carry it into genuine alignment.",
       },
       {
         h2: "Four stages. Three ShIFts. One map.",
@@ -258,7 +258,7 @@ export const routes = [
     sections: [
       {
         h2: "Designed for…",
-        body: "The Curious Explorer, testing the frameworks at their own pace. The Individual Innovator, investing in their own leadership development. The Strategic Seeker, testing the ideas with a small group first. The Foundation Fortifier, who has tried tactical fixes that didn't stick.",
+        body: "The Curious Explorer, testing the frameworks at their own pace. The Individual Innovator, investing in their own leadership development. The Strategic Seeker, testing the ideas with a small group first. The Foundation Fortifier, who has seen quick fixes or wins fade and wants something that lasts.",
       },
       {
         h2: "Start Where You Are",
@@ -549,8 +549,8 @@ export const routes = [
       "Before the kickoff. Before the rollout. Before the next big shIFt. Sustainable change is designed, not declared.",
     sections: [
       {
-        h2: "Not every opportunity strengthens the organization chasing it",
-        body: "Pushing harder in the wrong direction doesn't change the direction. It just compounds the cost of getting there. Every initiative is built on assumptions about leadership, communication, priorities, and culture; Phase Zero surfaces them before they become expensive realities.",
+        h2: "Every opportunity asks something of the organization pursuing it",
+        body: "More effort moves you further in whatever direction you're already pointed. Phase Zero is where you choose that direction on purpose. Every initiative is built on assumptions about leadership, communication, priorities, and culture; Phase Zero surfaces them before they become expensive realities.",
       },
       {
         h2: "Where the real choices get made",

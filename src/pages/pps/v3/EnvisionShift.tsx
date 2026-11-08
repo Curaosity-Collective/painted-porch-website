@@ -52,8 +52,8 @@ const produces = [
 
 const whoItsFor = [
   {
-    strong: "The Breaking Point.",
-    body: "There's extraordinary potential in your team, but your current structures keep holding it back.",
+    strong: "The Breaking Point Breakthrough.",
+    body: "There's extraordinary potential in your team, and good enough has stopped feeling good enough. You're ready for structures that let it lead.",
   },
   {
     strong: "The Catalyst Event.",
