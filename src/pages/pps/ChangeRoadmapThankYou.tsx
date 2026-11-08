@@ -31,7 +31,7 @@ export default function ChangeRoadmapThankYou() {
       {/* Download */}
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white border-2 border-border rounded-2xl shadow-lg p-8 md:p-12 text-center">
+          <div className="bg-white border-2 border-border rounded shadow-lg p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy mb-4">
               Download Your Worksheet
             </h2>
@@ -42,7 +42,7 @@ export default function ChangeRoadmapThankYou() {
               href={PDF_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="block max-w-md mx-auto mb-8 rounded-xl overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow"
+              className="block max-w-md mx-auto mb-8 rounded overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow"
               aria-label="Preview the Change Readiness Roadmap worksheet"
             >
               <img

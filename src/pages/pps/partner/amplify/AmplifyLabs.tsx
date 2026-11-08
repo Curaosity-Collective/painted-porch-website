@@ -194,7 +194,7 @@ export default function AmplifyLabs() {
             {cohorts.map((cohort, index) => {
               const showCohortBanner = cohort.showUpcomingCohort && hasUpcomingCohort;
               return (
-                <div key={index} id={cohort.slug} className="bg-white rounded-xl overflow-hidden flex flex-col shadow-sm scroll-mt-24">
+                <div key={index} id={cohort.slug} className="bg-white rounded overflow-hidden flex flex-col shadow-sm scroll-mt-24">
                   <div className="aspect-[16/9] bg-strategic/10 flex items-center justify-center">
                     <img src={cohort.image} alt={cohort.title} className="w-full h-full object-cover" />
                   </div>
@@ -239,7 +239,7 @@ export default function AmplifyLabs() {
           </div>
 
           {/* Investment Info */}
-          <div className="bg-strategic/10 p-8 rounded-xl border-t-4 border-strategic text-center">
+          <div className="bg-strategic/10 p-8 rounded border-t-4 border-strategic text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy mb-2">Leadership Lab Investment</h2>
             <div className="text-2xl font-bold text-strategic mb-2">Starting at $997</div>
             <p className="text-body -sm text-foreground mb-6">6-12 week cohort</p>

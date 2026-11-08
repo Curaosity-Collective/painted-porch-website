@@ -141,7 +141,7 @@ export default function IgniteAssessments() {
               <div
                 key={index}
                 id={anchorSlug}
-                className={`bg-white p-8 rounded-xl border-t-4 ${assessment.borderColor} transition-all hover:shadow-xl flex flex-col shadow-md scroll-mt-24`}
+                className={`bg-white p-8 rounded border-t-4 ${assessment.borderColor} transition-all hover:shadow-xl flex flex-col shadow-md scroll-mt-24`}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>

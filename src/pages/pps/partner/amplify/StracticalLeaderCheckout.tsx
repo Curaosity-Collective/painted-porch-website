@@ -239,7 +239,7 @@ export default function StracticalLeaderCheckout() {
         <div className="container max-w-4xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8 items-start">
             {/* Investment Card */}
-            <div className="bg-white rounded-2xl shadow-lg border border-border/40 overflow-hidden">
+            <div className="bg-white rounded shadow-lg border border-border/40 overflow-hidden">
               <div className="bg-navy p-6 text-center">
                 <p className="text-body text-gold font-poppins font-semibold uppercase tracking-wider mb-1">
                   {isExpired ? "Workshop Investment" : "Your Investment"}

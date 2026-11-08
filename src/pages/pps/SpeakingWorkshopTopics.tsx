@@ -527,20 +527,20 @@ export default function SpeakingWorkshopTopics() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="rounded-xl border border-border bg-muted/30 p-6">
+            <div className="rounded border border-border bg-muted/30 p-6">
               <div className="text-sm font-poppins font-semibold text-teal uppercase tracking-wide mb-2">Foundational</div>
               <p className="text-body-sm text-foreground">Leadership, culture, and the Stoic mindset required to lead change instead of survive it.</p>
             </div>
-            <div className="rounded-xl border border-border bg-muted/30 p-6">
+            <div className="rounded border border-border bg-muted/30 p-6">
               <div className="text-sm font-poppins font-semibold text-lime-green uppercase tracking-wide mb-2">Operational</div>
               <p className="text-body-sm text-foreground">Communication, team dynamics, and workflow shifts that make new direction stick.</p>
             </div>
-            <div className="rounded-xl border border-border bg-muted/30 p-6">
+            <div className="rounded border border-border bg-muted/30 p-6">
               <div className="text-sm font-poppins font-semibold text-raspberry uppercase tracking-wide mb-2">Human</div>
               <p className="text-body-sm text-foreground">Resilience, mindfulness, and emotional intelligence so your people thrive through the shIFt, not just survive it.</p>
             </div>
           </div>
-          <div className="mt-10 rounded-2xl bg-navy text-white p-6 md:p-8 text-center">
+          <div className="mt-10 rounded bg-navy text-white p-6 md:p-8 text-center">
             <p className="text-body text-white/90">
               <strong className="text-gold">Speaking ignites. Workshops activate.</strong> Every topic below can be delivered as a keynote, expanded into a 2+ hour workshop, or sequenced as both: a keynote to spark the room, then a workshop to turn insight into shared practice.
             </p>
@@ -552,7 +552,7 @@ export default function SpeakingWorkshopTopics() {
       <section className="py-12 md:py-16 bg-muted/20">
         <div className="container max-w-7xl mx-auto px-6">
           {/* Filters */}
-          <div className="bg-white border border-border rounded-xl p-4 md:p-5 mb-8 shadow-sm space-y-4">
+          <div className="bg-white border border-border rounded p-4 md:p-5 mb-8 shadow-sm space-y-4">
             <div>
               <div className="text-xs font-poppins font-semibold text-navy uppercase tracking-wide mb-2">Filter by Topic</div>
               <Tabs value={topicFilter} onValueChange={setTopicFilter}>
@@ -621,7 +621,7 @@ export default function SpeakingWorkshopTopics() {
                 </div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                   {items.map((m) => (
-                    <article key={m.key} id={m.key} className="relative bg-white border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col scroll-mt-24">
+                    <article key={m.key} id={m.key} className="relative bg-white border border-border rounded overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col scroll-mt-24">
                       {/* Legacy alias — keeps `#topic-<slug>` inbound links resolving. */}
                       <span id={`topic-${m.key}`} aria-hidden="true" />
                       {isAdmin && (

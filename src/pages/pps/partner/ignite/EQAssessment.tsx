@@ -180,7 +180,7 @@ function AnimatedStatCard({ stat: s, index: i }: { stat: Stat; index: number }) 
   return (
     <div
       ref={ref}
-      className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-foreground/5 overflow-hidden animate-fade-in"
+      className="group relative bg-white rounded p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-foreground/5 overflow-hidden animate-fade-in"
       style={{ animationDelay: `${i * 120}ms` }}
     >
       {/* Top color bar */}
@@ -297,7 +297,7 @@ export default function EQAssessment() {
         {/* Readability overlay — gradient navy wash matching other hero sections */}
         <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy/70 to-navy/40" />
         <div className="container max-w-7xl mx-auto px-6 relative z-10 text-center w-full">
-          <div className="bg-black/50 backdrop-blur-sm p-8 md:p-12 rounded-xl">
+          <div className="bg-black/50 backdrop-blur-sm p-8 md:p-12 rounded">
             <div className={`inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 mb-6 ring-1 ring-white/25 transition-all duration-700 ease-out ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}>
               <img src={brainEqIcon} alt="EQ" className="w-6 h-6" style={{ filter: "brightness(0) invert(1)" }} />
               <span className="text-sm font-semibold">EQ-i 2.0 Assessment</span>
@@ -324,7 +324,7 @@ export default function EQAssessment() {
       {/* Video Embed */}
       <section className="py-12 bg-muted/30">
         <div className="container max-w-4xl mx-auto px-6">
-          <div className="aspect-video rounded-xl overflow-hidden shadow-xl">
+          <div className="aspect-video rounded overflow-hidden shadow-xl">
             <iframe
               src="https://www.youtube.com/embed/uvlLR-K-V_c"
               title="What Can E.Q. Do For You...and Why It Matters"
@@ -474,7 +474,7 @@ export default function EQAssessment() {
                     />
                   </div>
                 </div>
-                <div className="md:w-3/5 bg-white rounded-xl p-8 shadow-md">
+                <div className="md:w-3/5 bg-white rounded p-8 shadow-md">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-8 h-8 rounded-full bg-raspberry/10 flex items-center justify-center flex-shrink-0">
                       <span className="text-sm font-bold text-raspberry">{i + 1}</span>
@@ -517,7 +517,7 @@ export default function EQAssessment() {
               "You wish to develop the skills most desired to lead the 21st-century workforce",
               "You want to gain greater awareness and control over your emotions",
             ].map((item, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <div key={i} className="bg-white/10 backdrop-blur-sm rounded p-6">
                 <CheckCircle className="w-8 h-8 mx-auto mb-3 text-white/90" />
                 <p className="text-body -sm text-white/90">{item}</p>
               </div>
@@ -546,7 +546,7 @@ export default function EQAssessment() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Workplace Report */}
-            <div className="bg-white rounded-xl border border-border shadow-md p-8 flex flex-col">
+            <div className="bg-white rounded border border-border shadow-md p-8 flex flex-col">
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mb-1">
                 EQ-i Workplace Report
               </h3>
@@ -579,7 +579,7 @@ export default function EQAssessment() {
             </div>
 
             {/* Leadership Report */}
-            <div className="bg-white rounded-xl border-2 border-raspberry shadow-xl p-8 flex flex-col relative">
+            <div className="bg-white rounded border-2 border-raspberry shadow-xl p-8 flex flex-col relative">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-raspberry text-white text-xs font-semibold px-4 py-1 rounded-full">
                 Most Popular
               </div>
@@ -615,7 +615,7 @@ export default function EQAssessment() {
             </div>
 
             {/* Let's Talk */}
-            <div className="bg-muted/40 rounded-xl border border-border shadow-md p-8 flex flex-col">
+            <div className="bg-muted/40 rounded border border-border shadow-md p-8 flex flex-col">
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mb-1">
                 Unsure or want to learn more?
               </h3>

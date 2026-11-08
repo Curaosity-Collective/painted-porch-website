@@ -191,7 +191,7 @@ export default function ForIndividuals() {
         </h2>
         <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {TYPES.map((t) => (
-            <li key={t.title} className={`border p-6 ${t.tint.card}`}>
+            <li key={t.title} className={`rounded border p-6 ${t.tint.card}`}>
               <div className="flex items-center gap-3">
                 <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${t.tint.iconBg}`}>
                   <t.icon className={`h-5 w-5 ${t.tint.ink}`} aria-hidden />
@@ -223,7 +223,7 @@ export default function ForIndividuals() {
           </h2>
           <ul className="mt-10 grid gap-6 md:grid-cols-3">
             {OPTIONS.map((o) => (
-              <li key={o.title} className="flex flex-col border border-border bg-white p-6">
+              <li key={o.title} className="rounded flex flex-col border border-border bg-white p-6">
                 <h3 className="font-display text-xl font-bold text-heading">{o.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-foreground">{o.body}</p>
                 <p className="mt-5 text-xs font-bold uppercase tracking-[0.12em] text-foreground">What's inside</p>
@@ -261,7 +261,7 @@ export default function ForIndividuals() {
         </p>
         <ul className="mt-8 grid gap-6 md:grid-cols-2">
           {NEXT.map((n) => (
-            <li key={n.title} className="flex flex-col border border-border bg-linen p-6">
+            <li key={n.title} className="rounded flex flex-col border border-border bg-linen p-6">
               <h3 className="font-display text-xl font-bold text-heading">{n.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-foreground">{n.body}</p>
               <div className="mt-auto pt-5">

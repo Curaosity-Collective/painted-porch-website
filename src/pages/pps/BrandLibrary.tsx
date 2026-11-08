@@ -292,7 +292,7 @@ export default function BrandLibrary() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-xl border-2 border-raspberry bg-raspberry/5 p-7">
+            <div className="rounded border-2 border-raspberry bg-raspberry/5 p-7">
               <p className="font-poppins font-semibold text-navy mb-4">Never this</p>
               <ul className="list-disc pl-5 space-y-1 mb-2">
                 {VOICE_DONT.map((item) => (

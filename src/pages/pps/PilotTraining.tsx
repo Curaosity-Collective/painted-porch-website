@@ -122,7 +122,7 @@ export default function PilotTraining() {
         <div className="container max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((f) => (
-              <div key={f.title} className="text-center bg-muted/20 rounded-xl p-8 border-t-4 border-gold">
+              <div key={f.title} className="text-center bg-muted/20 rounded p-8 border-t-4 border-gold">
                 <h3 className="text-xl md:text-2xl font-bold text-navy mb-3">{f.title}</h3>
                 <p className="text-body text-foreground -sm">{f.description}</p>
               </div>

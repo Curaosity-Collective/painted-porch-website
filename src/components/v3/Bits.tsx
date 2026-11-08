@@ -331,7 +331,7 @@ export function EvidenceNote({
   const frame =
     layout === "float" ? "my-6 w-full md:float-right md:my-2 md:ml-8 md:w-80 lg:w-[22rem]" : "my-6 w-full";
   return (
-    <aside className={`${frame} border-l-2 border-primary/70 bg-muted/45 px-5 py-5`} aria-label="Research evidence">
+    <aside className={`${frame} rounded border-l-2 border-primary/70 bg-muted/45 px-5 py-5`} aria-label="Research evidence">
       <p className="font-display text-3xl font-semibold leading-none text-teal-deep">{emphasis}</p>
       <p className="mt-3 text-sm leading-relaxed text-foreground">{children}</p>
       <a

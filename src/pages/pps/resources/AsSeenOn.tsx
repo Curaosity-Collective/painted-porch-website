@@ -386,7 +386,7 @@ export default function AsSeenOn() {
           {isLoading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {Array.from({ length: perPage }).map((_, i) => (
-                <div key={i} className="bg-muted rounded-xl animate-pulse h-80" />
+                <div key={i} className="bg-muted rounded animate-pulse h-80" />
               ))}
             </div>
           ) : paginatedAppearances.length === 0 ? (
@@ -413,7 +413,7 @@ export default function AsSeenOn() {
                     <Link
                       key={appearance.id}
                       to={mediaAppearancePath(appearance.id)}
-                      className={`block group bg-card rounded-xl border-l-4 ${borderColor} transition-all hover:shadow-lg h-full flex flex-col overflow-hidden ${appearance.external_url ? "cursor-pointer" : ""}`}
+                      className={`block group bg-card rounded border-l-4 ${borderColor} transition-all hover:shadow-lg h-full flex flex-col overflow-hidden ${appearance.external_url ?"cursor-pointer" :""}`}
                     >
                       {/* Thumbnail */}
                       {appearance.thumbnail_url ? (

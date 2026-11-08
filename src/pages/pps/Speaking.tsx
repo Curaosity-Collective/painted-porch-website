@@ -125,7 +125,7 @@ export default function Speaking() {
                 >
                   {/* Photo */}
                   <div className="md:w-2/5 flex-shrink-0">
-                    <div className={`relative rounded-2xl overflow-hidden border-4 ${speaker.borderColor} shadow-xl`}>
+                    <div className={`relative rounded overflow-hidden border-4 ${speaker.borderColor} shadow-xl`}>
                       <img
                         src={speaker.photo}
                         alt={speaker.name}

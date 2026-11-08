@@ -229,7 +229,7 @@ export default function AboutAmy() {
               <Link
                 key={card.title}
                 to={card.href}
-                className={`group relative rounded-xl border-2 p-6 transition-all duration-300 ${colorMap[card.color]}`}
+                className={`group relative rounded border-2 p-6 transition-all duration-300 ${colorMap[card.color]}`}
               >
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">{card.emoji}</span>
@@ -263,7 +263,7 @@ export default function AboutAmy() {
           <p className="text-body mt-3 text-foreground/60">
             How to take a Stoic perspective to conflict
           </p>
-          <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded-xl shadow-lg">
+          <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded shadow-lg">
             <div className="relative aspect-video">
               <iframe
                 src="https://www.youtube.com/embed/9aumBiSDyOg"
@@ -370,14 +370,14 @@ export default function AboutAmy() {
           </p>
 
           <div className="mt-10 max-w-md mx-auto">
-            <div className="overflow-hidden rounded-xl shadow-lg">
+            <div className="overflow-hidden rounded shadow-lg">
               <iframe
                 src="https://open.spotify.com/embed/playlist/1F6mkBYTllBzwawCXDEmry?utm_source=generator&theme=0"
                 width="100%"
                 height="352"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
-                className="rounded-xl border-0"
+                className="rounded border-0"
                 title="Painted Porch Playlist on Spotify"
               />
             </div>
@@ -388,7 +388,7 @@ export default function AboutAmy() {
       {/* ── COFFEE CTA ───────────────────────────────────────────────── */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-2xl px-6 text-center">
-          <div className="rounded-2xl border-2 border-primary/20 bg-primary/5 px-8 py-12 md:px-12">
+          <div className="rounded border-2 border-primary/20 bg-primary/5 px-8 py-12 md:px-12">
             <span className="text-5xl">☕</span>
             <h2 className="text-3xl md:text-4xl mt-4 font-poppins font-bold text-navy">
               Meet for a Virtual Coffee or Cocktail

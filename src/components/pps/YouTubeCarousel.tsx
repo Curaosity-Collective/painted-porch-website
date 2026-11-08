@@ -120,7 +120,7 @@ export function YouTubeCarousel({ videos, getHref }: YouTubeCarouselProps) {
             rel="noopener noreferrer"
             className="group snap-start flex-shrink-0 w-[300px] block select-none"
           >
-            <div className="relative aspect-video rounded-xl overflow-hidden bg-navy/10 shadow-md">
+            <div className="relative aspect-video rounded overflow-hidden bg-navy/10 shadow-md">
               <img
                 src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
                 alt={video.title}

@@ -97,7 +97,7 @@ export default function LazyPreviewVideo({
     <div
       ref={sectionRef}
       data-testid="lazy-preview-video"
-      className={`relative isolate rounded-xl overflow-hidden shadow-lg bg-black aspect-video ${className}`}
+      className={`relative isolate rounded overflow-hidden shadow-lg bg-black aspect-video ${className}`}
     >
       {errored ? (
         <VideoFallback variant="card" state="error" onRetry={handleRetry} />

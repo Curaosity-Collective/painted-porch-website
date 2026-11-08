@@ -265,7 +265,7 @@ export default function WorkingGeniusAssessment() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {stats.map((s, i) => (
-              <div key={i} className="bg-white rounded-xl p-8 shadow-md text-center border-t-4 border-primary">
+              <div key={i} className="bg-white rounded p-8 shadow-md text-center border-t-4 border-primary">
                 <p className="text-body text-4xl font-bold text-primary mb-3">{s.stat}</p>
                 <p className="text-body -sm text-foreground">{s.text}</p>
               </div>
@@ -295,7 +295,7 @@ export default function WorkingGeniusAssessment() {
               src={widgetImage.url}
               alt="The 6 Types of Working Genius shown as gears spelling W I D G E T: Wonder, Invention, Discernment, Galvanizing, Enablement, Tenacity"
               loading="lazy"
-              className="w-full h-auto rounded-xl shadow-lg"
+              className="w-full h-auto rounded shadow-lg"
             />
           </div>
 
@@ -303,7 +303,7 @@ export default function WorkingGeniusAssessment() {
             {sixTypes.map((t) => (
               <div
                 key={t.letter}
-                className="bg-white rounded-xl border border-border shadow-md p-6 hover:shadow-xl transition-shadow"
+                className="bg-white rounded border border-border shadow-md p-6 hover:shadow-xl transition-shadow"
               >
                 <div className="flex items-center gap-4 mb-3">
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -326,7 +326,7 @@ export default function WorkingGeniusAssessment() {
           </h2>
           <div className="space-y-8">
             {reportIncludes.map((section, i) => (
-              <div key={i} className="bg-white rounded-xl p-8 shadow-md">
+              <div key={i} className="bg-white rounded p-8 shadow-md">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <span className="text-sm font-bold text-primary">{i + 1}</span>
@@ -368,7 +368,7 @@ export default function WorkingGeniusAssessment() {
               "You want to lead a team where people fit their roles, not fight them",
               "You're tired of feeling guilty about work you can do but don't love",
             ].map((item, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <div key={i} className="bg-white/10 backdrop-blur-sm rounded p-6">
                 <CheckCircle className="w-8 h-8 mx-auto mb-3 text-white/90" />
                 <p className="text-body -sm text-white/90">{item}</p>
               </div>
@@ -397,7 +397,7 @@ export default function WorkingGeniusAssessment() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Basic Assessment */}
-            <div className="bg-white rounded-xl border border-border shadow-md p-8 flex flex-col">
+            <div className="bg-white rounded border border-border shadow-md p-8 flex flex-col">
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mb-1">
                 Working Genius Assessment
               </h3>
@@ -433,7 +433,7 @@ export default function WorkingGeniusAssessment() {
             </div>
 
             {/* Assessment + Debrief */}
-            <div className="bg-white rounded-xl border-2 border-primary shadow-xl p-8 flex flex-col relative">
+            <div className="bg-white rounded border-2 border-primary shadow-xl p-8 flex flex-col relative">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-semibold px-4 py-1 rounded-full">
                 Most Popular
               </div>
@@ -470,7 +470,7 @@ export default function WorkingGeniusAssessment() {
             </div>
 
             {/* Team / Org */}
-            <div className="bg-muted/40 rounded-xl border border-border shadow-md p-8 flex flex-col">
+            <div className="bg-muted/40 rounded border border-border shadow-md p-8 flex flex-col">
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mb-1">
                 Team or Organization
               </h3>

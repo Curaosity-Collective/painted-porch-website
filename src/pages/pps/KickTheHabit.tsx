@@ -50,7 +50,7 @@ export default function KickTheHabit() {
             Access a replay of our free training session led by Painted Porch Strategies Founder &amp; Organizational Shift Strategist, Amy Yackowski.
           </p>
           <a href="#get-access">
-            <Button className="bg-raspberry hover:bg-raspberry/90 text-white font-semibold text-base px-8 py-5 rounded">
+            <Button className="bg-gold hover:bg-gold/85 text-[#1E2B30] font-semibold text-base px-8 py-5 rounded">
               Access Free Training Replay
             </Button>
           </a>
@@ -60,7 +60,7 @@ export default function KickTheHabit() {
       {/* Video Preview - YouTube embed */}
       <section className="bg-navy py-12">
         <div className="container max-w-3xl mx-auto px-6">
-          <div className="aspect-video bg-black rounded-xl overflow-hidden shadow-xl">
+          <div className="aspect-video bg-black rounded overflow-hidden shadow-xl">
             <iframe
               src="https://www.youtube.com/embed/lhTnIrFUJyc?rel=0"
               title="Kick the Habit: Develop a Change-Ready Mindset"
@@ -143,7 +143,7 @@ export default function KickTheHabit() {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-auto bg-raspberry hover:bg-raspberry/90 text-white font-semibold px-8 py-5 rounded disabled:opacity-50"
+                  className="w-auto bg-gold hover:bg-gold/85 text-[#1E2B30] font-semibold px-8 py-5 rounded disabled:opacity-50"
                 >
                   {submitting ? "Submitting..." : "Access Training"}
                 </Button>

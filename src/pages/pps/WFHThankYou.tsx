@@ -26,7 +26,7 @@ export default function WFHThankYou() {
 
       <section className="py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="bg-white border-2 border-border rounded-2xl shadow-lg p-8 md:p-12">
+          <div className="bg-white border-2 border-border rounded shadow-lg p-8 md:p-12">
             <Mail className="w-12 h-12 text-teal mx-auto mb-4" />
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy mb-4">
               Check Your Email

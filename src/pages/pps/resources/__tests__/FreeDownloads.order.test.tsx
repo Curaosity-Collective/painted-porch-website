@@ -18,7 +18,7 @@ describe("Free Resources order", () => {
         <FreeDownloads />
       </MemoryRouter>,
     );
-    const cards = screen.getAllByRole("heading", { level: 3 }).map((h) => h.closest("div.rounded-xl") as HTMLElement);
+    const cards = screen.getAllByRole("heading", { level: 3 }).map((h) => h.closest("div.rounded") as HTMLElement);
     const soon = cards.map((c) => /Coming Soon/.test(c.textContent ?? ""));
     const firstSoon = soon.indexOf(true);
     expect(firstSoon).toBeGreaterThan(0);
@@ -31,7 +31,7 @@ describe("Free Resources order", () => {
         <FreeDownloads />
       </MemoryRouter>,
     );
-    const card = screen.getByRole("heading", { level: 3, name: "Your Elemental Style Assessment" }).closest("div.rounded-xl") as HTMLElement;
+    const card = screen.getByRole("heading", { level: 3, name: "Your Elemental Style Assessment" }).closest("div.rounded") as HTMLElement;
     expect(card.textContent).not.toMatch(/Coming Soon/);
     expect(card.querySelector('a[href="/elemental-style-assessment"]')).not.toBeNull();
   });

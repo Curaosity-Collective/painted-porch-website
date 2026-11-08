@@ -228,7 +228,7 @@ export default function ArchitectShift() {
                 change it envisioned and authored.
               </p>
             </Prose>
-            <div className="mt-8 border-l-4 border-align bg-linen p-6">
+            <div className="rounded mt-8 border-l-4 border-align bg-linen p-6">
               <p className="label-kicker text-muted-foreground">Format</p>
               <ul className="mt-3 space-y-2 text-sm leading-relaxed text-foreground">
                 <li>Run primarily virtually, with in-person checkpoint sessions when they add real value</li>
@@ -276,7 +276,7 @@ export default function ArchitectShift() {
           </Prose>
           <ol className="mt-10 grid gap-4 sm:grid-cols-3">
             {steps.map((s) => (
-              <li key={s.t} className="h-full border border-align/40 bg-white p-6">
+              <li key={s.t} className="rounded h-full border border-align/40 bg-white p-6">
                 <span aria-hidden="true" className="font-display text-3xl font-bold text-align-deep">
                   {s.n}
                 </span>
@@ -310,7 +310,7 @@ export default function ArchitectShift() {
         </p>
         <ol className="mt-10 grid gap-4 sm:grid-cols-2">
           {catalysts.map((app, i) => (
-            <li key={app.lead} className="flex h-full items-start gap-4 border border-align/40 bg-linen p-5">
+            <li key={app.lead} className="rounded flex h-full items-start gap-4 border border-align/40 bg-linen p-5">
               <span
                 aria-hidden="true"
                 className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-align/20 text-xs font-bold text-[#5A1420]"
@@ -340,7 +340,7 @@ export default function ArchitectShift() {
             <ShIFt onDark /> begins with your aligned ambition and builds the architecture your organization needs to
             carry it, while strengthening how your leaders author every <ShIFt lowercase onDark /> that follows.
           </p>
-          <div className="mt-12 grid gap-px overflow-hidden border border-teal-foreground/15 bg-teal-foreground/15 md:grid-cols-2">
+          <div className="rounded mt-12 grid gap-px overflow-hidden border border-teal-foreground/15 bg-teal-foreground/15 md:grid-cols-2">
             <div className="bg-align-ink p-6 md:p-8">
               <p className="label-kicker text-teal-foreground/75">Traditional implementation consulting</p>
               <ul className="mt-5 space-y-4">
@@ -388,7 +388,7 @@ export default function ArchitectShift() {
               ))}
             </ul>
           </div>
-          <div className="border border-prepare/40 bg-prepare/5 p-6 md:p-8">
+          <div className="rounded border border-prepare/40 bg-prepare/5 p-6 md:p-8">
             <p className="label-kicker text-prepare-deep">
               Prerequisite: the Epic <ShIFt /> Organizational Appraisal
             </p>

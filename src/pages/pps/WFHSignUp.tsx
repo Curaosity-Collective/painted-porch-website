@@ -110,7 +110,7 @@ export default function WFHSignUp() {
           </div>
 
           {/* Right: Form */}
-          <div className="bg-white border-2 border-border rounded-2xl shadow-lg p-8 md:sticky md:top-8">
+          <div className="bg-white border-2 border-border rounded shadow-lg p-8 md:sticky md:top-8">
             <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mb-2">Get My Cape Ready!</h3>
             <p className="text-body -sm text-muted-foreground mb-6">
               Drop your info below and we'll email you access details.

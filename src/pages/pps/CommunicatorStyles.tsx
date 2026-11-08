@@ -63,7 +63,7 @@ export default function CommunicatorStyles() {
       {/* Preview Image */}
       <section className="bg-navy py-12">
         <div className="container max-w-3xl mx-auto px-6">
-          <div className="aspect-video bg-black rounded-xl overflow-hidden shadow-xl">
+          <div className="aspect-video bg-black rounded overflow-hidden shadow-xl">
             <img
               src={mcMasterMessage}
               alt="The 6 Communicator Styles to Master Your Message"

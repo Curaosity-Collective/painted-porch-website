@@ -117,7 +117,7 @@ export default function ChangeReadyTeamAssessment() {
               ref={iframeRef}
               src={ASSESSMENT_URL}
               title="Change-Ready Team Assessment"
-              className="w-full rounded-lg bg-white block"
+              className="w-full rounded bg-white block"
               style={{ height: `${iframeHeight}px`, border: "0", transition: "height 200ms ease-out" }}
               loading="lazy"
               allow="clipboard-write; fullscreen"

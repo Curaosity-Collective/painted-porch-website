@@ -70,7 +70,7 @@ export default function ResourcesHub() {
           <div className="grid md:grid-cols-2 gap-8">
             {resourceCategories.map((category, index) => (
               <Link key={index} to={category.href} className="group">
-                <div className={`${category.color} p-8 rounded-xl transition-all hover:shadow-lg h-full`}>
+                <div className={`${category.color} p-8 rounded transition-all hover:shadow-lg h-full`}>
                   <category.icon className={`w-12 h-12 ${category.iconColor} mb-4`} />
                   <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mb-3">
                     {category.title}
@@ -97,7 +97,7 @@ export default function ResourcesHub() {
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
+            <div className="bg-white p-6 rounded shadow-sm">
               <span className="text-sm font-medium text-primary">Insights</span>
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mt-2 mb-3">
                 Implementation Comes Last
@@ -109,7 +109,7 @@ export default function ResourcesHub() {
                 Read More →
               </Link>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm">
+            <div className="bg-white p-6 rounded shadow-sm">
               <span className="text-sm font-medium text-lime">Download</span>
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mt-2 mb-3">
                 Shift Readiness Playbook
@@ -121,7 +121,7 @@ export default function ResourcesHub() {
                 Download Free →
               </Link>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm">
+            <div className="bg-white p-6 rounded shadow-sm">
               <span className="text-sm font-medium text-raspberry">Video</span>
               <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy mt-2 mb-3">
                 Stoic Leadership Principles

@@ -348,3 +348,12 @@ describe("public-site buttons are set in spaced capitals", () => {
     expect(screen.getByRole("button", { name: "Solid" })).not.toHaveClass("cta-label");
   });
 });
+
+// PPS Admin, 2026-11-08, revising "square for now": "4px on all cards and boxes" (PPS-DEC-0028).
+describe("cards and callout boxes have 4px corners", () => {
+  it("the Partnership Promise note", async () => {
+    const { PartnershipPromiseNote } = await import("@/components/v3/PartnershipPromiseNote");
+    renderAt(<PartnershipPromiseNote />);
+    expect(cornerClasses(screen.getByTestId("partnership-promise"))).toEqual(["rounded"]);
+  });
+});

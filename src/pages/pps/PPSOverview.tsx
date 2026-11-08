@@ -188,7 +188,7 @@ export default function PPSOverview() {
               <Link
                 key={card.title}
                 to={card.href}
-                className={`group relative rounded-xl border-2 p-6 transition-all duration-300 ${colorMap[card.color]}`}
+                className={`group relative rounded border-2 p-6 transition-all duration-300 ${colorMap[card.color]}`}
               >
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">{card.emoji}</span>
@@ -292,7 +292,7 @@ export default function PPSOverview() {
           <div className="mt-10 grid gap-8 md:grid-cols-2">
             {/* Equal Matters */}
             <div className="flex flex-col items-center justify-center rounded-xl bg-white/10 p-8 text-center">
-              <div className="mb-4 overflow-hidden rounded-xl shadow-lg">
+              <div className="mb-4 overflow-hidden rounded shadow-lg">
                 <img
                   src="https://images.pod.co/BDojqLokk-XUwSn0QlNHrCPZfjqFkeyZ3jUw3RlidmM/resize:fill:300:300/plain/artwork/0a538a7b-cc6a-4bb9-b9d5-4a0b290dadc1/equalmatters.jpg"
                   alt="Equal Matters podcast artwork"
@@ -319,7 +319,7 @@ export default function PPSOverview() {
 
             {/* Life & Logos */}
             <div className="flex flex-col items-center justify-center rounded-xl bg-white/10 p-8 text-center">
-              <div className="mb-4 overflow-hidden rounded-xl shadow-lg">
+              <div className="mb-4 overflow-hidden rounded shadow-lg">
                 <img
                   src="https://images.pod.co/-Cj9qH3q7WsT68E1m-CVTQZQSgUHyTatyn5EJWF8SY4/resize:fill:300:300/plain/artwork/1c402a42-483b-4573-be65-f154ea2bee00/on-the-porch.jpg"
                   alt="Life & Logos on The Painted Porch podcast artwork"
@@ -350,7 +350,7 @@ export default function PPSOverview() {
       {/* ── FINAL CTA ────────────────────────────────────────────────── */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-2xl px-6 text-center">
-          <div className="rounded-2xl border-2 border-primary/20 bg-primary/5 px-8 py-12 md:px-12">
+          <div className="rounded border-2 border-primary/20 bg-primary/5 px-8 py-12 md:px-12">
             <span className="text-5xl">🏛️</span>
             <h2 className="text-3xl md:text-4xl mt-4 font-poppins font-bold text-navy">
               Ready to ShIFt?

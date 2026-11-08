@@ -192,7 +192,7 @@ export default function AboutNext() {
           </p>
           <ul className="mt-10 grid gap-6 md:grid-cols-3">
             {CORE_VALUES.map((v) => (
-              <li key={v.title} className={`flex flex-col gap-3 border-t-8 bg-white p-7 ${v.bar}`}>
+              <li key={v.title} className={`rounded flex flex-col gap-3 border-t-8 bg-white p-7 ${v.bar}`}>
                 <span aria-hidden="true" className="font-display text-4xl font-bold text-heading/20">
                   {v.number}
                 </span>
@@ -212,7 +212,7 @@ export default function AboutNext() {
           What We Stand For, and What We Won't Do
         </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          <div className="border border-border border-t-4 border-t-lime-deep bg-white p-7">
+          <div className="rounded border border-border border-t-4 border-t-lime-deep bg-white p-7">
             <h3 className="font-display text-2xl font-semibold text-foreground">What we believe</h3>
             <ul className="mt-5 space-y-3">
               {BELIEFS.map((b) => (
@@ -223,7 +223,7 @@ export default function AboutNext() {
               ))}
             </ul>
           </div>
-          <div className="border border-border border-t-4 border-t-raspberry bg-white p-7">
+          <div className="rounded border border-border border-t-4 border-t-raspberry bg-white p-7">
             <h3 className="font-display text-2xl font-semibold text-foreground">What we reject</h3>
             <ul className="mt-5 space-y-3">
               {REJECTS.map((r) => (
@@ -266,7 +266,7 @@ export default function AboutNext() {
           </h2>
           <ul className="mt-10 grid gap-8 md:grid-cols-3">
             {TEAM.map((p) => (
-              <li key={p.name} className="flex flex-col border-t-4 border-heading bg-white p-6">
+              <li key={p.name} className="rounded flex flex-col border-t-4 border-heading bg-white p-6">
                 {/* Round crops: Amy's speaker photo is already a circular cut-out. */}
                 <img
                   src={p.photo}

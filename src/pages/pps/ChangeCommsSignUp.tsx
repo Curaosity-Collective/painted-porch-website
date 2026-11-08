@@ -112,7 +112,7 @@ export default function ChangeCommsSignUp() {
               href="/downloads/Critical_Steps_for_Effective_Change_Communication_Painted_Porch_Strategies.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="block mb-8 rounded-xl overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow bg-white"
+              className="block mb-8 rounded overflow-hidden border-2 border-border shadow-md hover:shadow-xl transition-shadow bg-white"
               aria-label="Preview the 4 Critical Steps guide"
             >
               <img
@@ -153,7 +153,7 @@ export default function ChangeCommsSignUp() {
           </div>
 
           {/* Form */}
-          <div className="bg-white border-2 border-border rounded-2xl shadow-lg p-8 md:sticky md:top-8">
+          <div className="bg-white border-2 border-border rounded shadow-lg p-8 md:sticky md:top-8">
             <h3 className="text-xl md:text-2xl font-poppins font-bold text-navy mb-2">Send My Free Guide Now</h3>
             <p className="text-body -sm text-muted-foreground mb-6">
               Drop your info below and we'll email it over right away.

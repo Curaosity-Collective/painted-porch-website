@@ -218,7 +218,7 @@ export default function AboutSierra() {
                 <Wrapper
                   key={card.title}
                   {...(wrapperProps as any)}
-                  className={`group relative rounded-xl border-2 p-6 transition-all duration-300 ${colorMap[card.color]}`}
+                  className={`group relative rounded border-2 p-6 transition-all duration-300 ${colorMap[card.color]}`}
                 >
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">{card.emoji}</span>
@@ -253,7 +253,7 @@ export default function AboutSierra() {
           <p className="text-body mt-3 text-foreground/60">
             A moment of mindfulness with Sierra
           </p>
-          <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded-xl shadow-lg">
+          <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded shadow-lg">
             <div className="relative aspect-video">
               <iframe
                 src="https://www.youtube.com/embed/QC_6yGQAPz0"
@@ -354,7 +354,7 @@ export default function AboutSierra() {
       {/* ── COFFEE CTA ───────────────────────────────────────────────── */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-2xl px-6 text-center">
-          <div className="rounded-2xl border-2 border-gold/20 bg-gold/5 px-8 py-12 md:px-12">
+          <div className="rounded border-2 border-gold/20 bg-gold/5 px-8 py-12 md:px-12">
             <span className="text-5xl">🧘</span>
             <h2 className="text-3xl md:text-4xl mt-4 font-poppins font-bold text-navy">
               Ready to Lead with More Joy?

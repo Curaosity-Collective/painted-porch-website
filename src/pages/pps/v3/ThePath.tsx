@@ -279,7 +279,7 @@ export default function ThePath() {
             width={1600}
             height={917}
             loading="lazy"
-            className="h-auto w-full rounded-[8px]"
+            className="h-auto w-full rounded"
           />
           <figcaption id="path-road-caption" className="mt-4 text-base leading-relaxed text-foreground">
             Steps 1 to 6, Prepare and Align, are{" "}
@@ -327,7 +327,7 @@ export default function ThePath() {
                 <div className="md:col-span-4">
                   <div
                     aria-hidden="true"
-                    className={`flex h-36 w-36 items-center justify-center rounded-3xl font-display text-7xl font-bold md:h-44 md:w-44 ${stage.fill}`}
+                    className={`flex h-36 w-36 items-center justify-center rounded font-display text-7xl font-bold md:h-44 md:w-44 ${stage.fill}`}
                   >
                     {stage.letter}
                   </div>
@@ -345,7 +345,7 @@ export default function ThePath() {
                     <span className="label-kicker block text-raspberry">You walk away with</span>
                     <span className="mt-1 block font-semibold">{stage.outcome}</span>
                   </p>
-                  <div className="mt-6 max-w-2xl border-l-4 border-gold bg-cream p-5">
+                  <div className="rounded mt-6 max-w-2xl border-l-4 border-gold bg-cream p-5">
                     <p className="text-sm leading-relaxed text-foreground">
                       <span className="font-semibold">For example: </span>
                       {stage.example}
@@ -416,7 +416,7 @@ export default function ThePath() {
           {/* Mobile map */}
           <ol className="mt-10 space-y-3 md:hidden" aria-label="Which ShIFt partners at each stage">
             {STAGES.map((s) => (
-              <li key={s.letter} className="flex flex-col gap-3 border border-border bg-white p-4">
+              <li key={s.letter} className="rounded flex flex-col gap-3 border border-border bg-white p-4">
                 <span className={`label-kicker self-start px-3 py-1 ${s.fill}`}>{s.name}</span>
                 <SmartLink to={s.partner.to} className={`self-start ${LINK}`}>
                   <span>{s.partner.label}</span>
@@ -480,7 +480,7 @@ export default function ThePath() {
           </p>
           <ul className="mt-12 grid gap-6 md:grid-cols-3">
             {PILLARS.map((p) => (
-              <li key={p.name} className={`flex flex-col gap-3 border-t-8 bg-white p-7 ${p.bar}`}>
+              <li key={p.name} className={`rounded flex flex-col gap-3 border-t-8 bg-white p-7 ${p.bar}`}>
                 <span className={`text-xs font-bold uppercase tracking-[0.14em] ${p.label}`}>{p.focus}</span>
                 <h3 className="font-display text-2xl font-semibold leading-tight text-foreground">{p.name}</h3>
                 <p className="text-base leading-relaxed text-foreground">{p.body}</p>
@@ -503,7 +503,7 @@ export default function ThePath() {
 
           <ol className="mt-12 grid gap-6 lg:grid-cols-3">
             {JOURNEY.map((step) => (
-              <li key={step.number} className={`flex flex-col border-t-4 bg-black/15 p-6 md:p-7 ${step.bar}`}>
+              <li key={step.number} className={`rounded flex flex-col border-t-4 bg-black/15 p-6 md:p-7 ${step.bar}`}>
                 <span className="label-kicker text-[#F4C05E]">
                   {step.number} · {step.promise} · {step.stage}
                 </span>

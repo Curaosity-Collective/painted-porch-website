@@ -48,7 +48,7 @@ export function AudienceOutcomes() {
         </h2>
         <ul className="grid gap-6 md:grid-cols-3">
           {OUTCOMES.map((o) => (
-            <li key={o.title} className="rounded-xl border-t-4 border-primary bg-white p-6 shadow-sm">
+            <li key={o.title} className="rounded border-t-4 border-primary bg-white p-6 shadow-sm">
               <h3 className="font-poppins text-lg font-semibold text-foreground">{o.title}</h3>
               <p className="mt-2 text-body text-foreground">{o.body}</p>
             </li>

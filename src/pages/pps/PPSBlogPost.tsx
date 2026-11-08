@@ -229,7 +229,7 @@ function renderNode(node: TiptapNode, index: number): React.ReactNode {
     case "image":
       return (
         <figure key={index} className="my-8">
-          <img src={node.attrs?.src as string} alt="" className="w-full rounded-lg" loading="lazy" />
+          <img src={node.attrs?.src as string} alt="" className="w-full rounded" loading="lazy" />
         </figure>
       );
     case "youtube": {
@@ -237,7 +237,7 @@ function renderNode(node: TiptapNode, index: number): React.ReactNode {
       const videoId = src?.match(/(?:v=|\/embed\/|youtu\.be\/)([A-Za-z0-9_-]+)/)?.[1];
       if (!videoId) return null;
       return (
-        <div key={index} className="my-8 aspect-video rounded-lg overflow-hidden">
+        <div key={index} className="my-8 aspect-video rounded overflow-hidden">
           <iframe
             src={`https://www.youtube.com/embed/${videoId}`}
             title="YouTube video"
@@ -426,7 +426,7 @@ export default function PPSBlogPost() {
           <img
             src={post.cover_image_url}
             alt={post.title}
-            className="w-full rounded-xl shadow-lg"
+            className="w-full rounded shadow-lg"
           />
         </div>
       )}
@@ -519,7 +519,7 @@ export default function PPSBlogPost() {
                 <Link
                   key={rp.id}
                   to={`/resources/insights/${rp.slug}`}
-                  className="group block bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all h-full"
+                  className="group block bg-card rounded border border-border overflow-hidden hover:shadow-lg transition-all h-full"
                 >
                   {rp.cover_image_url ? (
                     <img

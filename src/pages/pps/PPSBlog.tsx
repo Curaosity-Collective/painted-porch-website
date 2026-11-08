@@ -436,7 +436,7 @@ export default function PPSBlog() {
           {isLoading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {Array.from({ length: perPage }).map((_, i) => (
-                <div key={i} className="bg-muted rounded-xl animate-pulse h-80" />
+                <div key={i} className="bg-muted rounded animate-pulse h-80" />
               ))}
             </div>
           ) : paginatedPosts.length === 0 ? (
@@ -467,7 +467,7 @@ export default function PPSBlog() {
 
                   const cardContent = (
                     <article
-                      className={`bg-card rounded-xl border-l-4 ${borderColor} transition-all hover:shadow-lg h-full flex flex-col overflow-hidden`}
+                      className={`bg-card rounded border-l-4 ${borderColor} transition-all hover:shadow-lg h-full flex flex-col overflow-hidden`}
                     >
                       {post.cover_image_url ? (
                         <div className="relative overflow-hidden">

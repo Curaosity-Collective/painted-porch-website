@@ -134,7 +134,7 @@ export default function TeamChallenge() {
               </p>
             </div>
 
-            <div className="relative isolate aspect-video rounded-xl overflow-hidden shadow-lg bg-navy group" data-testid="team-challenge-video">
+            <div className="relative isolate aspect-video rounded overflow-hidden shadow-lg bg-navy group" data-testid="team-challenge-video">
               {videoFailed ? (
                 <VideoFallback variant="card" state="error" onRetry={handleRetry} />
               ) : !resolved ? (

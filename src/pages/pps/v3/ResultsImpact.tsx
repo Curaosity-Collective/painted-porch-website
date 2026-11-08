@@ -85,7 +85,7 @@ export default function ResultsImpact() {
         <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {TESTIMONIALS.map((t) => (
             <li key={t.who}>
-              <figure className="flex h-full flex-col border-l-4 border-gold bg-cream p-7">
+              <figure className="rounded flex h-full flex-col border-l-4 border-gold bg-cream p-7">
                 <blockquote className="flex-1">
                   {/* Italic, as on the homepage (PPS Admin, 2026-11-07). */}
                   <p className="font-display text-lg font-medium italic leading-snug text-foreground">
@@ -161,9 +161,9 @@ export default function ResultsImpact() {
                   href={c.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  // White cards with 8px corners and a light shadow, like Our Approach's credentials
-                  // (PPS Admin, 2026-11-06). Set in pixels: the redesign's theme makes rounded-lg 4px.
-                  className="flex h-full flex-col items-center justify-center gap-3 rounded-[8px] bg-white px-4 py-5 text-center text-sm font-semibold leading-snug text-foreground shadow-sm transition-shadow hover:text-heading hover:shadow-md"
+                  // White cards with a light shadow, like Our Approach's credentials (PPS Admin, 2026-11-06), at the
+                  // site's 4px card corner (PPS-DEC-0028; PPS Admin, 2026-11-08: "4px on all cards and boxes").
+                  className="flex h-full flex-col items-center justify-center gap-3 rounded bg-white px-4 py-5 text-center text-sm font-semibold leading-snug text-foreground shadow-sm transition-shadow hover:text-heading hover:shadow-md"
                 >
                   <img
                     src={`https://www.google.com/s2/favicons?domain=${new URL(c.href).hostname}&sz=64`}

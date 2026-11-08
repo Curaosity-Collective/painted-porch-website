@@ -81,7 +81,7 @@ function TermsTabBody() {
     <>
       <section className="py-12 md:py-16 bg-muted/30">
         <div className="container max-w-4xl mx-auto px-0">
-          <div className="bg-white rounded-xl p-8 border-l-4 border-primary shadow-sm space-y-4">
+          <div className="bg-white rounded p-8 border-l-4 border-primary shadow-sm space-y-4">
             <p className="text-body text-foreground leading-relaxed">
               Most people open Terms &amp; Conditions, register that it's long, and step back from the rabbit hole entirely. We understand. We've made this one worth the trip down.
             </p>
@@ -95,7 +95,7 @@ function TermsTabBody() {
 
       <section className="py-8 md:py-12 bg-white">
         <div className="container max-w-4xl mx-auto px-0">
-          <div className="bg-muted/30 rounded-xl p-8 border-l-4 border-gold space-y-4">
+          <div className="bg-muted/30 rounded p-8 border-l-4 border-gold space-y-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy">A Note on Communications</h2>
             <p className="text-body text-foreground leading-relaxed">
               When you purchase any product from us, free or paid, we'll add you to our communications database as part of the relationship we're forming. That means you'll hear from us when there's information directly related to your purchase, and when we have a company-wide note we think you'd want to know about (including updates to this very document, see <Link to="/terms?tab=privacy" className="text-primary font-semibold underline">Privacy</Link>).
@@ -424,7 +424,7 @@ function PrivacyTabBody() {
           <p className="text-body">Painted Porch Strategies, LLC<br />Arizona, USA<br /><PolicyLink /></p>
         </Block>
 
-        <div className="bg-muted/30 rounded-xl p-8 border-l-4 border-gold space-y-4">
+        <div className="bg-muted/30 rounded p-8 border-l-4 border-gold space-y-4">
           <p className="text-body text-foreground leading-relaxed font-semibold">One more thing before you go...</p>
           <p className="text-body text-foreground leading-relaxed">
             If you made it this far into the fine print, you are exactly our kind of people. There is a small reward waiting at the bottom of the{" "}
@@ -483,7 +483,7 @@ function CookiesTabBody() {
           <p className="text-body">Email <PolicyLink /> with the subject "Cookies" and we'll get back to you.</p>
         </Block>
 
-        <div className="bg-muted/30 rounded-xl p-8 border-l-4 border-gold space-y-4">
+        <div className="bg-muted/30 rounded p-8 border-l-4 border-gold space-y-4">
           <p className="text-body text-foreground leading-relaxed font-semibold">Still with us? Good.</p>
           <p className="text-body text-foreground leading-relaxed">
             There is a little something hidden at the bottom of the{" "}

@@ -126,7 +126,7 @@ export function FAQSection({
                     <AccordionItem 
                       key={faqIndex} 
                       value={`${catIndex}-${faqIndex}`}
-                      className="bg-white border border-border/40 rounded-lg px-6 shadow-md"
+                      className="bg-white border border-border/40 rounded px-6 shadow-md"
                     >
                       <AccordionTrigger className="text-left font-semibold text-navy hover:text-primary hover:no-underline py-5 text-base">
                         {faq.question}
@@ -146,7 +146,7 @@ export function FAQSection({
               <AccordionItem 
                 key={faq.value} 
                 value={faq.value}
-                className="bg-white border border-border/40 rounded-lg px-6 shadow-md"
+                className="bg-white border border-border/40 rounded px-6 shadow-md"
               >
                 <AccordionTrigger className="text-left font-semibold text-navy hover:text-primary hover:no-underline py-5 text-base">
                   {faq.question}

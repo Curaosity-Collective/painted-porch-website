@@ -123,7 +123,7 @@ export default function TeamHealthAssessment() {
               ref={iframeRef}
               src={ASSESSMENT_URL}
               title="Team Health Assessment"
-              className="w-full rounded-lg bg-white block"
+              className="w-full rounded bg-white block"
               style={{
                 height: `${Math.max(iframeHeight, 1400)}px`,
                 border: "0",

@@ -287,7 +287,7 @@ export default function PPSContact() {
                 </p>
               </div>
             ) : (
-              <div className="bg-muted p-8 rounded-xl">
+              <div className="bg-muted p-8 rounded">
                 {quizPrefill && (
                   <div className="mb-6 flex items-start gap-3 rounded-lg border border-teal/30 bg-teal/5 p-4">
                     <div className="flex-1 text-sm text-navy">
@@ -593,7 +593,7 @@ export default function PPSContact() {
           </div>
 
           <div className="max-w-3xl mx-auto mt-6">
-            <div className="p-6 bg-lime/10 border border-lime/30 rounded-lg">
+            <div className="p-6 bg-lime/10 border border-lime/30 rounded">
               <p className="text-body text-lime font-semibold mb-2">Our Partnership Promise</p>
               <p className="text-body -sm text-foreground">
                 We only enter partnerships where we believe meaningful progress is possible - together. If we're not the right fit, we'll tell you and try to point you in the right direction.

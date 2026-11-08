@@ -315,7 +315,7 @@ export default function HomeNext() {
             </h3>
             <ul className="flex flex-col gap-3">
               {THREE_AM.map((q) => (
-                <li key={q} className="bg-white px-5 py-4 italic leading-normal">
+                <li key={q} className="rounded bg-white px-5 py-4 italic leading-normal">
                   “{q}”
                 </li>
               ))}
@@ -373,7 +373,7 @@ export default function HomeNext() {
           </div>
           <ul className="grid gap-6 md:grid-cols-3">
             {PILLARS.map((p) => (
-              <li key={p.name} className={`flex flex-col gap-3 border-t-8 bg-white p-7 ${p.bar}`}>
+              <li key={p.name} className={`rounded flex flex-col gap-3 border-t-8 bg-white p-7 ${p.bar}`}>
                 <span className={`text-xs font-bold uppercase tracking-[0.14em] ${p.label}`}>{p.name}</span>
                 <h3 className={H3}>{p.question}</h3>
                 <p className="text-base leading-relaxed">{p.body}</p>
@@ -426,7 +426,7 @@ export default function HomeNext() {
           </h3>
           <ul aria-label="How we partner on each stage" className="-mt-4 grid gap-6 lg:grid-cols-3">
             {OFFERS.map((o) => (
-              <li key={o.name} className="flex flex-col border border-[#E6E1D6] bg-white">
+              <li key={o.name} className="rounded flex flex-col border border-[#E6E1D6] bg-white">
                 <div className={`px-6 py-4 ${o.band}`}>
                   <span className={`text-[13px] font-bold uppercase tracking-[0.14em] ${o.tagInk}`}>{o.tag}</span>
                 </div>
@@ -517,7 +517,7 @@ export default function HomeNext() {
           </div>
           <ul data-testid="home-promise" className="grid gap-6 md:grid-cols-3">
             {PROMISE.map((p) => (
-              <li key={p.label} data-testid="home-promise-box" className={`flex flex-col gap-2.5 p-8 ${p.box}`}>
+              <li key={p.label} data-testid="home-promise-box" className={`rounded flex flex-col gap-2.5 p-8 ${p.box}`}>
                 <span className="font-display text-[22px] font-bold leading-tight">{p.label}</span>
                 <p className="text-[17px] leading-relaxed">{p.body}</p>
               </li>
