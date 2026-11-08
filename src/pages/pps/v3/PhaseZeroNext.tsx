@@ -29,8 +29,8 @@ const DESCRIPTION =
 const LINK = "font-semibold text-heading underline decoration-heading/40 underline-offset-4 hover:decoration-heading";
 
 const BETTER_QUESTIONS = [
-  "Is this the right direction?",
-  "What assumptions are we making?",
+  "Is this the right thing to pursue right now?",
+  "What conditions must exist for this to succeed?",
   "What are we overlooking or underweighting?",
   "What will this require of our people, leaders, systems, and culture?",
 ];

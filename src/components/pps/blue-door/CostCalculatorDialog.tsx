@@ -12,7 +12,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Calculator,
-  AlertTriangle,
   ChevronDown,
   CheckCircle2,
   Loader2,
@@ -238,12 +237,12 @@ export default function CostCalculatorDialog({
       <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-navy flex items-center gap-2 font-poppins">
-            <AlertTriangle className="w-5 h-5 text-raspberry" />
-            The Cost of Skipping Phase Zero
+            <Calculator className="w-5 h-5 text-raspberry" />
+            What Clarity Is Worth
           </DialogTitle>
           <DialogDescription>
-            Answer these few questions. We'll estimate what's at risk and how the Epic ShIFt
-            Organizational Appraisal can provide the clarity needed to reduce that exposure.
+            Answer a few questions to see what this change puts at stake, and how much of it early
+            clarity from the Epic ShIFt Organizational Appraisal could save.
           </DialogDescription>
         </DialogHeader>
 
@@ -302,7 +301,7 @@ export default function CostCalculatorDialog({
           <div className="space-y-2">
             <Label className="text-navy font-semibold">Impact scope</Label>
             <p className="text-caption text-muted-foreground -mt-1">
-              How wide is the blast radius? Broader scope means more coordination and higher failure exposure.
+              How far will this change reach? Broader scope means more coordination, and more riding on getting it right.
             </p>
             <div className="grid grid-cols-2 gap-2">
               {Object.values(IMPACT_SCOPES).map((s) => {
@@ -493,15 +492,15 @@ export default function CostCalculatorDialog({
           {/* Phase Zero impact hero strip */}
           <div className="p-4 rounded-lg bg-[hsl(216,100%,30%)]/5 border-2 border-[hsl(216,100%,30%)]/30">
             <p className="text-caption uppercase tracking-wider text-[hsl(216,100%,30%)] font-poppins font-semibold">
-              The Epic ShIFt Organizational Appraisal impact
+              What clarity could save
             </p>
             <p className="text-body text-navy mt-1 !leading-snug">
-              The <span className="font-bold text-[hsl(216,100%,30%)]">{EPIC_SHIFT_APPRAISAL.name}</span>{" "}
-              can provide the clarity needed to reduce the risked{" "}
+              Clarity from the <span className="font-bold text-[hsl(216,100%,30%)]">{EPIC_SHIFT_APPRAISAL.name}</span>{" "}
+              could reduce that exposure by{" "}
               <span className="font-bold text-[hsl(216,100%,30%)] tabular-nums">
                 {fmt(calc.exposureLow)}–{fmt(calc.exposureHigh)}
-              </span>{" "}
-              of this exposure.
+              </span>
+              .
             </p>
             <Button
               asChild
@@ -538,8 +537,8 @@ export default function CostCalculatorDialog({
                 worst-case logic.
               </p>
               <p className="text-body">
-                <span className="font-semibold">Epic ShIFt Organizational Appraisal impact</span> = (overrun +
-                failure) × {Math.round(PHASE_ZERO_IMPACT.min * 100)}–
+                <span className="font-semibold">What clarity could save</span> = (overrun +
+                failure write-off) × {Math.round(PHASE_ZERO_IMPACT.min * 100)}–
                 {Math.round(PHASE_ZERO_IMPACT.max * 100)}% (McKinsey + BCG research
                 on Phase Zero exposure reduction).
               </p>
