@@ -85,7 +85,7 @@ const differenceRows = [
   },
   {
     traditional: "Hands the plan to your team.",
-    sprint: "Builds the architecture with your leaders so they own what comes next.",
+    sprint: "Co-designs the conditions with your leaders so they own what comes next.",
   },
 ];
 
@@ -223,8 +223,8 @@ export default function ArchitectShift() {
               <p>
                 The 90-day strategic sprint that follows fortifies those priorities before your change execution. An
                 organizational architecture blueprint and ongoing advisory equip and fortify your leaders, your teams,
-                and your operations across the three Painted Porch Pillars. We design the architecture with you. You
-                lead the change.
+                and your operations across the three Painted Porch Pillars. Together, we build the decisions,
+                structures, and capacity your leaders need to lead your next <ShIFt lowercase />.
               </p>
             </Prose>
             <div className="rounded mt-8 border-l-4 border-align bg-linen p-6">
