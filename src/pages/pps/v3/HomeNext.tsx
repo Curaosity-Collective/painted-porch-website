@@ -27,7 +27,7 @@ const H2 =
 const H3 = "font-display text-xl font-semibold leading-tight text-foreground md:text-2xl";
 const LINK = "font-bold text-primary underline underline-offset-4 hover:text-primary/80";
 const GOLD_BUTTON =
-  "inline-flex min-h-[52px] items-center gap-2.5 rounded bg-gold px-7 text-[17px] font-bold text-[#1E2B30] transition-colors hover:bg-gold/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+  "cta-label inline-flex min-h-[52px] items-center gap-2.5 rounded bg-gold px-7 text-[17px] font-bold text-[#1E2B30] transition-colors hover:bg-gold/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
 function Eyebrow({ children, onDark = false }: { children: ReactNode; onDark?: boolean }) {
   return (
@@ -446,7 +446,7 @@ export default function HomeNext() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3.5">
             <a
               href="#clarity-call"
-              className="inline-flex min-h-[48px] items-center rounded border-2 border-primary px-6 font-bold text-primary transition-colors hover:bg-primary hover:text-white"
+              className="cta-label inline-flex min-h-[48px] items-center rounded border-2 border-primary px-6 font-bold text-primary transition-colors hover:bg-primary hover:text-white"
             >
               Start with a Clarity Call
             </a>

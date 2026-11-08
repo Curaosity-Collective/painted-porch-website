@@ -142,7 +142,7 @@ export default function StracticalLeaderGuide() {
                 </p>
                 <Link
                   to="/leadership-labs/stractical-leader"
-                  className="inline-flex items-center gap-2 bg-gold text-navy font-poppins font-semibold px-6 py-3 rounded hover:bg-gold/90 transition-colors focus-ring-on-dark"
+                  className="cta-label inline-flex items-center gap-2 bg-gold text-navy font-poppins font-semibold px-6 py-3 rounded hover:bg-gold/90 transition-colors focus-ring-on-dark"
                 >
                   Explore the Leader Lab
                   <ArrowRight className="w-4 h-4" />

@@ -57,7 +57,7 @@ function QuizButton({ onClick, className = "" }: { onClick: () => void; classNam
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex min-h-[44px] items-center justify-center rounded-full bg-gold px-5 text-[15px] font-bold lg:px-4 xl:px-5 text-[#1E2B30] transition-colors hover:bg-gold/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${className}`}
+      className={`cta-label inline-flex min-h-[44px] items-center justify-center rounded-full bg-gold px-5 text-[15px] font-bold lg:px-4 xl:px-5 text-[#1E2B30] transition-colors hover:bg-gold/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${className}`}
     >
       <span className="whitespace-nowrap">
         Find Your Next <ShIFt onFill />

@@ -299,3 +299,52 @@ describe("buttons and form fields have 4px corners", () => {
     expect(cornerClasses(screen.getByRole("link", { name: /Start with a Clarity Call/ }))).toEqual(["rounded"]);
   });
 });
+
+// PPS-DEC-0028: button text on the public site is set in spaced capitals (`cta-label`). PPS Admin, 2026-11-07: "I
+// liked the spaced all caps cta buttons", then, of buttons that say ShIFt, choosing "ShIFt becomes SHIFT".
+describe("public-site buttons are set in spaced capitals", () => {
+  it("the header's Find Your Next ShIFt", () => {
+    renderAt(<SiteHeader />);
+    const button = screen.getAllByRole("button").find((b) => flat(b.textContent ?? "") === "FindYourNextShIFt")!;
+    expect(button).toHaveClass("cta-label");
+  });
+
+  it("the footer's Contact Us and Subscribe", () => {
+    renderAt(<SiteFooter />);
+    expect(screen.getByRole("link", { name: "Contact Us" })).toHaveClass("cta-label");
+    expect(screen.getByRole("button", { name: "Subscribe" })).toHaveClass("cta-label");
+  });
+
+  it("the closing band's button", async () => {
+    const { CTABand } = await import("@/components/v3/Bits");
+    renderAt(<CTABand title="Ready?" body="Let's talk." to="/contact" label="Start with a Clarity Call" />);
+    expect(screen.getByRole("link", { name: /Start with a Clarity Call/ })).toHaveClass("cta-label");
+  });
+
+  it("every shared Button drawn as a button, inside the public site only", async () => {
+    const { Button } = await import("@/components/ui/button");
+    const { PublicSiteContext } = await import("@/components/v3/publicSiteContext");
+    const set = (
+      <>
+        <Button>Solid</Button>
+        <Button variant="outline">Outline</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="destructive">Destructive</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="link">Text link</Button>
+        <Button size="icon" aria-label="Icon only" />
+      </>
+    );
+    const { unmount } = render(<PublicSiteContext.Provider value={true}>{set}</PublicSiteContext.Provider>);
+    for (const name of ["Solid", "Outline", "Secondary", "Destructive"]) {
+      expect(screen.getByRole("button", { name })).toHaveClass("cta-label");
+    }
+    for (const name of ["Ghost", "Text link", "Icon only"]) {
+      expect(screen.getByRole("button", { name })).not.toHaveClass("cta-label");
+    }
+    unmount();
+    // Staff screens render outside the public layout and keep their own button text.
+    render(set);
+    expect(screen.getByRole("button", { name: "Solid" })).not.toHaveClass("cta-label");
+  });
+});

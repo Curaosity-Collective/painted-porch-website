@@ -6,6 +6,7 @@ import SiteHeader from "@/components/v3/SiteHeader";
 import SiteFooter from "@/components/v3/SiteFooter";
 import { usesV3Chrome, usesV3Skin } from "@/config/siteChrome";
 import { V3SkinContext } from "@/components/v3/v3SkinContext";
+import { PublicSiteContext } from "@/components/v3/publicSiteContext";
 import { useV3Preview } from "@/hooks/useV3Preview";
 import { useMoneyMentions } from "@/hooks/useMoneyMentions";
 import PageGate from "@/components/pps/PageGate";
@@ -54,28 +55,28 @@ export default function PPSLayout() {
     };
   }, [pathname, hash]);
 
-
   return (
-    <PathFinderQuizProvider>
-      <div className="min-h-screen flex flex-col overflow-x-clip">
-        <GitHubSyncBanner />
-        {v3Chrome ? <SiteHeader /> : <PPSNavigation />}
-        <main className="flex-1">
-          <V3SkinContext.Provider value={v3Skin}>
-            <PageGate>
-              {v3Skin ? (
-                <div className="v3-skin">
+    <PublicSiteContext.Provider value={true}>
+      <PathFinderQuizProvider>
+        <div className="min-h-screen flex flex-col overflow-x-clip">
+          <GitHubSyncBanner />
+          {v3Chrome ? <SiteHeader /> : <PPSNavigation />}
+          <main className="flex-1">
+            <V3SkinContext.Provider value={v3Skin}>
+              <PageGate>
+                {v3Skin ? (
+                  <div className="v3-skin">
+                    <Outlet />
+                  </div>
+                ) : (
                   <Outlet />
-                </div>
-              ) : (
-                <Outlet />
-              )}
-            </PageGate>
-          </V3SkinContext.Provider>
-        </main>
-        {v3Chrome ? <SiteFooter /> : <PPSFooter />}
-      </div>
-    </PathFinderQuizProvider>
+                )}
+              </PageGate>
+            </V3SkinContext.Provider>
+          </main>
+          {v3Chrome ? <SiteFooter /> : <PPSFooter />}
+        </div>
+      </PathFinderQuizProvider>
+    </PublicSiteContext.Provider>
   );
 }
-

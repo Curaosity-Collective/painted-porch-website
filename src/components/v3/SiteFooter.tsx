@@ -93,7 +93,7 @@ export default function SiteFooter() {
               <h2 className={EYEBROW}>Stay in Touch</h2>
               <Link
                 to="/contact?interest=general"
-                className="mt-4 inline-flex min-h-[44px] items-center rounded border-2 border-white px-5 text-[15px] font-semibold text-white transition-colors hover:bg-white hover:text-[#00505C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4C05E]"
+                className="cta-label mt-4 inline-flex min-h-[44px] items-center rounded border-2 border-white px-5 text-[15px] font-semibold text-white transition-colors hover:bg-white hover:text-[#00505C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4C05E]"
               >
                 Contact Us
               </Link>
@@ -125,7 +125,7 @@ export default function SiteFooter() {
                       <button
                         type="submit"
                         disabled={status === "loading"}
-                        className="inline-flex min-h-[44px] items-center justify-center rounded bg-gold px-5 text-[15px] font-bold text-[#1E2B30] transition-colors hover:bg-white disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4C05E]"
+                        className="cta-label inline-flex min-h-[44px] items-center justify-center rounded bg-gold px-5 text-[15px] font-bold text-[#1E2B30] transition-colors hover:bg-white disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4C05E]"
                       >
                         {status === "loading" ? (
                           <>

@@ -181,14 +181,14 @@ export default function AboutRob() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               to="/contact?interest=general&message=I'd like to connect with Rob."
-              className="inline-flex items-center gap-2 rounded bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
+              className="cta-label inline-flex items-center gap-2 rounded bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
             >
               <Coffee className="h-4 w-4" />
               Let's Connect
             </Link>
             <Link
               to="/speaking/rob"
-              className="inline-flex items-center gap-2 rounded bg-muted-foreground px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="cta-label inline-flex items-center gap-2 rounded bg-muted-foreground px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               <Mic className="h-4 w-4" />
               Book Rob to Speak
@@ -273,7 +273,7 @@ export default function AboutRob() {
               href="https://www.youtube.com/@EqualMatters"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded bg-destructive px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="cta-label inline-flex items-center gap-2 rounded bg-destructive px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               <Youtube className="h-5 w-5" />
               Subscribe on YouTube
@@ -282,7 +282,7 @@ export default function AboutRob() {
               href="https://www.youtube.com/@EqualMatters"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded border-2 border-navy px-6 py-3 font-poppins font-semibold text-navy transition hover:bg-navy hover:text-white"
+              className="cta-label inline-flex items-center gap-2 rounded border-2 border-navy px-6 py-3 font-poppins font-semibold text-navy transition hover:bg-navy hover:text-white"
             >
               View Channel
               <ArrowRight className="h-4 w-4" />
@@ -313,7 +313,7 @@ export default function AboutRob() {
                 <Component
                   key={link.label}
                   {...(props as any)}
-                  className="group flex items-center gap-3 rounded border border-border bg-background px-5 py-4 font-medium text-navy shadow-sm transition-all hover:border-primary hover:shadow-md"
+                  className="cta-label group flex items-center gap-3 rounded border border-border bg-background px-5 py-4 font-medium text-navy shadow-sm transition-all hover:border-primary hover:shadow-md"
                 >
                   <span className="text-lg">{link.emoji}</span>
                   <span className="flex-1">{link.label}</span>
@@ -363,7 +363,7 @@ export default function AboutRob() {
                 href="https://open.spotify.com/show/5lYP2GwhZU71rVNEufvm3U"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 rounded bg-primary px-5 py-2.5 font-semibold text-white transition hover:opacity-90"
+                className="cta-label mt-4 inline-flex items-center gap-2 rounded bg-primary px-5 py-2.5 font-semibold text-white transition hover:opacity-90"
               >
                 <Podcast className="h-4 w-4" />
                 Listen Now
@@ -386,7 +386,7 @@ export default function AboutRob() {
             </p>
             <Link
               to="/contact?interest=general&message=I'd like to connect with Rob."
-              className="mt-8 inline-flex items-center gap-2 rounded bg-primary px-8 py-4 font-poppins font-semibold text-white transition hover:opacity-90"
+              className="cta-label mt-8 inline-flex items-center gap-2 rounded bg-primary px-8 py-4 font-poppins font-semibold text-white transition hover:opacity-90"
             >
               <Coffee className="h-5 w-5" />
               Let's Connect

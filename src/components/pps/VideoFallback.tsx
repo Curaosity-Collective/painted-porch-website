@@ -96,7 +96,7 @@ export default function VideoFallback({
             <button
               type="button"
               onClick={onRetry}
-              className="mt-1 inline-flex items-center gap-2 rounded bg-white/10 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 px-4 py-2 text-sm font-semibold text-white transition-colors backdrop-blur-sm border border-white/20"
+              className="cta-label mt-1 inline-flex items-center gap-2 rounded bg-white/10 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 px-4 py-2 text-sm font-semibold text-white transition-colors backdrop-blur-sm border border-white/20"
             >
               <RotateCw className="w-4 h-4" aria-hidden="true" />
               {retryLabel}
