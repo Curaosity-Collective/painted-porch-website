@@ -77,6 +77,11 @@ const APPRAISAL_REQUIRED =
 // and a guide that is a document or tool ("the Field Guide", "a three-minute directional guide"), are fine.
 const GUIDE_ROLE = /\b(?:meet|with|as) (?:a|your) guide\b|\bguided partnership\b/i;
 
+// "What your organization needs" tells the reader what they need. Share ideas, insights and perspective,
+// and let them decide what they want.
+const TELLS_NEEDS =
+  /\bwhat (?:your|the) (?:organization|team|company)(?:'s)? (?:actually |really )?needs\b|\bwhat you (?:actually |really )?need\b/i;
+
 const APPRAISAL_PAGES = [...PAGES, "BrandLibrary.tsx", "../../components/pps/quiz/PathFinderQuizDialog.tsx"];
 
 describe("public copy invites rather than pushes", () => {
@@ -91,6 +96,10 @@ describe("public copy invites rather than pushes", () => {
 
   it.each(PAGES)("%s doesn't cast Painted Porch as a guide", (path) => {
     expect(read(path)).not.toMatch(GUIDE_ROLE);
+  });
+
+  it.each(PAGES)("%s doesn't tell the reader what they need", (path) => {
+    expect(read(path)).not.toMatch(TELLS_NEEDS);
   });
 
   it.each(PAGES)("%s doesn't compare itself with how most others work", (path) => {
@@ -124,5 +133,9 @@ describe("public copy invites rather than pushes", () => {
     expect("try Find Your Next ShIFt, a three-minute directional guide").not.toMatch(GUIDE_ROLE);
     expect("Get the Field Guide").not.toMatch(GUIDE_ROLE);
     expect("Sierra guides teams through the hard moments").not.toMatch(GUIDE_ROLE);
+    expect("We partner with you to design what your organization needs").toMatch(TELLS_NEEDS);
+    expect("co-design what your organization actually needs").toMatch(TELLS_NEEDS);
+    expect("you decide what you want to build").not.toMatch(TELLS_NEEDS);
+    expect("Everything you need to know about the Lab").not.toMatch(TELLS_NEEDS);
   });
 });

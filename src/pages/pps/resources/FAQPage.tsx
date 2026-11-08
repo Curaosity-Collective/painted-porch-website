@@ -50,7 +50,7 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "How is Painted Porch different from traditional consulting?",
-        answer: "We don't arrive with a packaged solution from somewhere else. We partner with you to design what your organization needs: the culture, structure and systems that will carry your next shIFt. You know your organization best, and we know how lasting change works. Together, we build strength that stays with you, not dependence on us.",
+        answer: "We don't arrive with a packaged solution from somewhere else. We share ideas, insights and perspective, and you decide what you want to build: the culture, structure and systems for your next shIFt. You know your organization best, and we know how lasting change works. Together, we build strength that stays with you, not dependence on us.",
       },
     ],
   },

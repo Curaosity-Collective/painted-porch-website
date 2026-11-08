@@ -428,7 +428,7 @@ export default function WorkingGeniusAssessment() {
                 </Button>
               </a>
               <p className="text-body text-muted-foreground mt-3 text-center">
-                Buying directly on WorkingGenius.com costs less than we'd have to charge for the extra admin setup, so we don't mark it up.
+                Buying directly on WorkingGenius.com costs less than we'd have to charge for the extra admin setup.
               </p>
             </div>
 
