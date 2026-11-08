@@ -462,7 +462,8 @@ export default function CostCalculatorDialog({
 
         {/* RESULTS */}
         <div className="space-y-3 border-t pt-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          {/* Each figure keeps its box's color, not the site's green for money (PPS Admin, 2026-11-08). */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2" data-money-highlight="off">
             <div className="p-3 rounded-lg bg-navy/5 border border-navy/15">
               <p className="text-body text-[0.65rem] uppercase tracking-wider text-navy/70 font-poppins font-semibold">
                 Planned investment
@@ -472,10 +473,10 @@ export default function CostCalculatorDialog({
               </div>
             </div>
             <div className="p-3 rounded-lg bg-gold/10 border border-gold/30">
-              <p className="text-body text-[0.65rem] uppercase tracking-wider text-gold font-poppins font-semibold">
+              <p className="text-body text-[0.65rem] uppercase tracking-wider text-[#8A5A00] font-poppins font-semibold">
                 Likely overrun
               </p>
-              <div className="text-xl font-bold text-gold mt-1 tabular-nums">
+              <div className="text-xl font-bold text-[#8A5A00] mt-1 tabular-nums">
                 {fmt(calc.overrunLow)}–{fmt(calc.overrunHigh)}
               </div>
             </div>
@@ -494,7 +495,7 @@ export default function CostCalculatorDialog({
             <p className="text-caption uppercase tracking-wider text-[hsl(216,100%,30%)] font-poppins font-semibold">
               What clarity could save
             </p>
-            <p className="text-body text-navy mt-1 !leading-snug">
+            <p className="text-body text-navy mt-1 !leading-snug" data-money-highlight="off">
               Clarity from the <span className="font-bold text-[hsl(216,100%,30%)]">{EPIC_SHIFT_APPRAISAL.name}</span>{" "}
               could reduce that exposure by{" "}
               <span className="font-bold text-[hsl(216,100%,30%)] tabular-nums">
