@@ -35,7 +35,7 @@ const eqFaqCategories = [
       {
         question: "How long will I have access to take the assessment?",
         answer:
-          "Shortly after purchase (within 24–48 hours), you will receive an email with a link to access and complete your EQ-i 2.0 assessment. This link will remain active for 30 days. If you are unable to complete the assessment within that time, simply email support@paintedporchstrategies.com to request a new link.",
+          "Shortly after purchase (within 24–48 hours), you will receive an email with a link to access and complete your EQ-i 2.0 assessment. This link will remain active for 30 days. If you are unable to complete the assessment within that time, simply email eq@onthepaintedporch.com to request a new link.",
       },
       {
         question: "What happens after I complete the assessment?",
@@ -173,8 +173,10 @@ function AnimatedStatCard({ stat: s, index: i }: { stat: Stat; index: number }) 
   const c = colorMap[s.color];
   const primary = s.type === "range" ? s.high : s.value!;
   const { value: count, ref } = useCountUp({ end: primary, duration: 1600 });
-  const { value: lowCount } = useCountUp({ end: s.type === "range" ? s.low : 0, duration: 1600 });
   const progress = primary > 0 ? count / primary : 0;
+  // The low end of a range follows the main counter. A second useCountUp would have no element to
+  // watch, so it never started and the card read "0–20%".
+  const lowCount = s.type === "range" ? Math.round(progress * s.low) : 0;
   const starsFilled = Math.round(progress * 5);
 
   return (

@@ -31,7 +31,14 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "What does 'Phase Zero™' mean?",
-        answer: "Phase Zero is the strategic preparation that happens before any project kicks off: the readiness work, mindset, alignment and architectural design that most change initiatives skip. It spans Prepare and Align, the first two stages of the P.A.T.H., and it's the foundation everything at Painted Porch is built on.",
+        answer: (
+          <>
+            Phase Zero is the strategic preparation that happens before a project kicks off: building readiness, the right
+            mindset and alignment. It spans Prepare and Align, the first two stages of
+            our <FaqLink to="/the-path">P.A.T.H. framework</FaqLink>, and it's the foundation your organization (and
+            everything at Painted Porch) is built on.
+          </>
+        ),
       },
       {
         question: "Why is it called 'Painted Porch'?",
@@ -43,7 +50,7 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "How is Painted Porch different from traditional consulting?",
-        answer: "Traditional consultants bring packaged solutions based on what worked somewhere else. We partner with you to co-design the architecture your organization actually needs. You're the expert on your organization; we're experts in transformation architecture. Together, we build permanent capacity, not dependency.",
+        answer: "We don't arrive with a packaged solution from somewhere else. We partner with you to design what your organization needs: the culture, structure and systems that will carry your next shIFt. You know your organization best, and we know how lasting change works. Together, we build strength that stays with you, not dependence on us.",
       },
     ],
   },
@@ -76,10 +83,9 @@ const sitewideFaqCategories: FAQCategory[] = [
         question: "What is the P.A.T.H.?",
         answer: (
           <>
-            The P.A.T.H.™ is our four-stage framework for lasting change: Prepare, Align, Take Off and Habits. Most change
-            methodologies start at Take Off, with a plan and a launch. The P.A.T.H. begins two stages earlier, while there's
-            still room to shape what's possible, and Envision, Architect and Embody ShIFt partner with you across the
-            stages. <FaqLink to="/the-path">See The P.A.T.H.</FaqLink>
+            The P.A.T.H.™ is our four-stage framework for lasting change: Prepare, Align, Take Off and Create Habits. It
+            starts before the plan and the launch, while there's still room to shape what's possible.{" "}
+            <FaqLink to="/the-path">See The P.A.T.H.</FaqLink>
           </>
         ),
       },
@@ -221,9 +227,9 @@ const sitewideFaqCategories: FAQCategory[] = [
         question: "Which assessment should I take first?",
         answer: (
           <>
-            It depends on your development priorities. The Shift Architect Assessment is ideal if you're preparing to lead
-            transformation. EQ-i 2.0 gives you emotional intelligence insights. Working Genius shows your work energy
-            patterns. Performance DNA is your complete success blueprint.{" "}
+            It depends on what you want to work on. EQ-i 2.0 gives you emotional intelligence insights, and Working Genius
+            shows the work that energizes or drains you. Shift Architect <em>(coming soon)</em> is for leading change, and
+            Performance DNA <em>(coming soon)</em> is your complete success blueprint.{" "}
             <FaqLink to="/assessments">Compare the assessments</FaqLink>
           </>
         ),

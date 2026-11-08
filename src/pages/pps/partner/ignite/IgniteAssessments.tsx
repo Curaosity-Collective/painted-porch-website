@@ -22,7 +22,7 @@ const assessments = [
     subtitle: "Emotional Intelligence",
     tagline: "Emotional Intelligence for Leadership and Life",
     description: "Intelligence gets you in the room. Emotional intelligence determines what happens next. The EQ-i 2.0 reveals the invisible patterns that determine whether you connect or clash, inspire or irritate, lead or manage, the competencies behind every powerful connection, brilliant decision under pressure, and moment you've truly been heard.",
-    investment: "Starting at $897 | Team pricing available",
+    investment: "Starting at $997 | Team pricing available",
     link: "/eq",
     isInternal: true,
     color: "bg-raspberry/10",
@@ -66,7 +66,7 @@ const assessments = [
     title: "Shift Architect",
     subtitle: "Change Leadership Capacity",
     tagline: "Reveal Your Capacity to Architect Change",
-    description: "Most leaders learn change the hard way, mid-crisis, mid-implementation. Shift Architect surfaces how you currently think about, prepare for, and lead through change so you can build the strategic capacity required to architect transformation instead of react to it.",
+    description: "Most leaders learn change the hard way, mid-crisis, mid-implementation. Shift Architect shows how you currently think about, prepare for, and lead through change, so you can shape the next change instead of reacting to it.",
     investment: "Coming Soon | Pricing TBD",
     link: "#",
     launchSlug: "shift-architect",
@@ -128,7 +128,7 @@ export default function IgniteAssessments() {
               Uncover Your Talents. Architect Your Future.
             </h1>
             <p className="text-body text-foreground max-w-3xl mx-auto">
-              Decode what makes you shine, assessments that reveal your transformation architect capacity, emotional intelligence, unique talents, and success patterns. Discover the blueprint for your extraordinary performance.
+              Decode what makes you shine with assessments that reveal how you lead change, your emotional intelligence, your natural talents, and your success patterns. Discover the blueprint for your extraordinary performance.
             </p>
           </div>
 

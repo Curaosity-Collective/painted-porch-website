@@ -142,7 +142,7 @@ export default function YouTubePage() {
       <PageHero
         kicker="Video Content"
         title="YouTube Channel"
-        intro="Video content, tutorials, and conversations on leadership, change management, and organizational transformation."
+        intro="Video content, tutorials, and conversations on leadership, change origination, and organizational transformation."
         action={{ label: "Subscribe on YouTube", href: "https://youtube.com/@onthepaintedporch" }}
         image={youtubeHero}
         imageAlt="A video camera filming a backdrop of painted panels between two studio lights"
@@ -392,7 +392,7 @@ export default function YouTubePage() {
             Want to Go Deeper?
           </h2>
           <p className="text-body text-white/90 mb-8 max-w-2xl mx-auto">
-            Our videos are a great introduction, but real transformation requires guided partnership. Let's explore how we can work together.
+            Our videos are a good place to start. When you're ready to go further, let's explore what we could build together.
           </p>
           <Link to="/contact?interest=general&message=I've been watching your videos and would like to explore working together.">
             <Button className="bg-primary hover:bg-primary/90 text-white text-lg py-5 px-8">

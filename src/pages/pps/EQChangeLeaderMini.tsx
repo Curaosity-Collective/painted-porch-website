@@ -30,7 +30,7 @@ const eqFaqCategories = [
       {
         question: "How long will I have access to take the assessment?",
         answer:
-          "Shortly after purchase (within 24–48 hours), you will receive an email with a link to access and complete your EQ-i 2.0 assessment. This link will remain active for 30 days. If you are unable to complete the assessment within that time, simply email support@paintedporchstrategies.com to request a new link.",
+          "Shortly after purchase (within 24–48 hours), you will receive an email with a link to access and complete your EQ-i 2.0 assessment. This link will remain active for 30 days. If you are unable to complete the assessment within that time, simply email eq@onthepaintedporch.com to request a new link.",
       },
       {
         question: "What happens after I complete the assessment?",

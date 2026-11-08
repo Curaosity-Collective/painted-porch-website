@@ -27,7 +27,7 @@ const BATCH_1 = [
   "resources/AsSeenOn.tsx",
   "partner/amplify/AmplifyWorkshops.tsx",
   "partner/ignite/IgniteMasterclasses.tsx",
-  "partner/ignite/igniteFaqs.ts",
+  "partner/ignite/igniteFaqs.tsx",
   "partner/amplify/AmplifyLabs.tsx",
   "partner/amplify/StracticalLeaderWorkshop.tsx",
   "partner/amplify/stracticalFaqs.ts",
@@ -35,7 +35,18 @@ const BATCH_1 = [
   "resources/StracticalLeaderGuide.tsx",
 ];
 
-const PAGES = [...NEW_DESIGN, ...BATCH_1];
+// The older pages reviewed in batch 2 (resources and assessments), under src/pages/pps:
+const BATCH_2 = [
+  "resources/ResourcesHub.tsx",
+  "resources/FreeDownloads.tsx",
+  "resources/YouTubePage.tsx",
+  "resources/FAQPage.tsx",
+  "partner/ignite/IgniteAssessments.tsx",
+  "partner/ignite/WorkingGeniusAssessment.tsx",
+  "partner/ignite/EQAssessment.tsx",
+];
+
+const PAGES = [...NEW_DESIGN, ...BATCH_1, ...BATCH_2];
 
 // The page's text without its code comments, whitespace collapsed.
 const read = (path: string) =>
@@ -62,7 +73,11 @@ const MOST_OTHERS =
 // It is never "required" or "required beforehand"; "prerequisite" and "following the appraisal" are fine now and then.
 const APPRAISAL_REQUIRED =
   /\b(?:is|it's|are) required (?:before|for)\b|\brequired beforehand\b|appraisal required\b|\bnot required for leadership labs\b|require the epic shift/i;
-const APPRAISAL_PAGES = [...PAGES, "resources/FAQPage.tsx", "BrandLibrary.tsx", "../../components/pps/quiz/PathFinderQuizDialog.tsx"];
+// Painted Porch is never "a guide" (Brand Bible: not "guru, guide, or fixer"). "Guide" as a verb,
+// and a guide that is a document or tool ("the Field Guide", "a three-minute directional guide"), are fine.
+const GUIDE_ROLE = /\b(?:meet|with|as) (?:a|your) guide\b|\bguided partnership\b/i;
+
+const APPRAISAL_PAGES = [...PAGES, "BrandLibrary.tsx", "../../components/pps/quiz/PathFinderQuizDialog.tsx"];
 
 describe("public copy invites rather than pushes", () => {
   it.each(APPRAISAL_PAGES)("%s presents the appraisal as the first step, not a requirement", (path) => {
@@ -72,6 +87,10 @@ describe("public copy invites rather than pushes", () => {
   it.each(PAGES)("%s casts Painted Porch as a partner, not a service provider", (path) => {
     expect(read(path)).not.toMatch(SERVICE_VERB);
     expect(read(path)).not.toMatch(SERVICE_PASSIVE);
+  });
+
+  it.each(PAGES)("%s doesn't cast Painted Porch as a guide", (path) => {
+    expect(read(path)).not.toMatch(GUIDE_ROLE);
   });
 
   it.each(PAGES)("%s doesn't compare itself with how most others work", (path) => {
@@ -98,5 +117,12 @@ describe("public copy invites rather than pushes", () => {
     expect("Prerequisites for each potential shift").not.toMatch(APPRAISAL_REQUIRED);
     expect("follow-up workshops designed to help your team apply").toMatch(SERVICE_PASSIVE);
     expect("the art of presence to help professionals eliminate static").toMatch(SERVICE_PASSIVE);
+    expect("Meet Your Guide").toMatch(GUIDE_ROLE);
+    expect("Make the report real with a guide.").toMatch(GUIDE_ROLE);
+    expect("APPLY WITH A GUIDE").toMatch(GUIDE_ROLE);
+    expect("real transformation requires guided partnership").toMatch(GUIDE_ROLE);
+    expect("try Find Your Next ShIFt, a three-minute directional guide").not.toMatch(GUIDE_ROLE);
+    expect("Get the Field Guide").not.toMatch(GUIDE_ROLE);
+    expect("Sierra guides teams through the hard moments").not.toMatch(GUIDE_ROLE);
   });
 });

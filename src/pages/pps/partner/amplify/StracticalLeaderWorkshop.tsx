@@ -599,7 +599,7 @@ export default function StracticalLeaderWorkshop() {
         </div>
       </section>
 
-      {/* ═══ MEET YOUR GUIDE ═══ */}
+      {/* ═══ WHO LEADS THE LAB ═══ */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container max-w-4xl mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
@@ -608,7 +608,7 @@ export default function StracticalLeaderWorkshop() {
             </div>
             <div>
               <span className="inline-block bg-gold/10 text-gold font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-4">
-                Meet Your Guide
+                Leading This Lab
               </span>
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy mb-1">
                 Amy Yackowski
