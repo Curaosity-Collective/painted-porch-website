@@ -27,7 +27,7 @@ const labFaqCategories: FAQCategory[] = [
       },
       {
         question: "How do I know if a Leadership Lab is right for me?",
-        answer: "Leadership Labs are designed for individual leaders ready to deepen their transformation capacity through peer learning, whether you're developing yourself before bringing concepts to your team or investing in your own leadership independent of organizational initiatives.",
+        answer: "Leadership Labs are for individual leaders who want to grow how they lead change, alongside peers. Some come to develop themselves before bringing ideas to their team. Others invest in their own leadership, apart from any organizational initiative.",
       },
       {
         question: "Can I join a Leadership Lab if I'm also bringing my team to a workshop?",
@@ -105,7 +105,7 @@ const cohorts = [
     title: "Goldilocks Leadership",
     slug: "lab-goldilocks-leadership",
     tagline: "Lead with Emotional Intelligence",
-    description: "Is your leadership style 'too hot' or 'too cold'? Unlock the power of Emotional Intelligence to find the right balance and lead your teams 'just right.'",
+    description: "Is your leadership style 'too hot' or 'too cold'? Use Emotional Intelligence to find the right balance and lead your teams 'just right.'",
     image: goldilocksImg,
     comingSoon: true,
   },

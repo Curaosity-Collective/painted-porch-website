@@ -102,7 +102,7 @@ export default function IgniteMasterclasses() {
               Masterclasses & Mini-Workshops
             </h1>
             <p className="text-body text-foreground max-w-3xl mx-auto">
-              Focused, expert-led sessions designed to deepen your transformation capacity. Each masterclass is a 30–90 minute experience you can attend live or watch on replay.
+              Focused, expert-led sessions that deepen how you lead change. Each masterclass is a 30–90 minute experience you can attend live or watch on replay.
             </p>
             {/* Until the first one launches, say so plainly (PPS Admin, 2026-11-08). */}
             <p className="text-body -sm text-primary max-w-3xl mx-auto mt-3">

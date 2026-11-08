@@ -27,7 +27,7 @@ const sitewideFaqCategories: FAQCategory[] = [
     faqs: [
       {
         question: "What does Painted Porch Strategies do?",
-        answer: "We partner with leaders and organizations to architect the capacity for change before implementation begins. Grounded in Stoic philosophy and more than 20 years of change expertise, we co-design the Cultural Cornerstone, Operational Frame and Living Ecosystem that sustainable, human-centered change needs.",
+        answer: "We partner with leaders and organizations to fortify their organizational architecture before the change begins. Grounded in Stoic philosophy and more than 20 years of change expertise, we co-design the three Painted Porch Pillars that human-centered change stands on: the Cultural Cornerstone, Operational Frame and Living Ecosystem.",
       },
       {
         question: "What does 'Phase Zero™' mean?",
@@ -50,7 +50,7 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "How is Painted Porch different from traditional consulting?",
-        answer: "We don't arrive with a packaged solution from somewhere else. We bring deep change expertise, insight from inside your organization and a clear point of view on what will hold. Then we advise you as you shape the culture, structure and systems your next shIFt will stand on. You know your organization best, and we know how lasting change works. Together, we build strength that stays with you, not dependence on us.",
+        answer: "We don't arrive with a packaged solution from somewhere else. We bring deep change expertise, insight from inside your organization and a clear point of view on what will hold. Then we advise you as you fortify your organizational architecture: the culture, structure and systems your next shIFt will stand on. You know your organization best, and we know how lasting change works. Together, we build strength that stays with you, not dependence on us.",
       },
     ],
   },
@@ -135,7 +135,7 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "How is this different from change management?",
-        answer: "Change management starts after the direction is set. It manages resistance and drives adoption of decisions already made. We work earlier, at the moment of strategic authorship. That's change origination: we partner with you to architect the shIFt you intend to lead before a single tool gets launched. It's Phase Zero™ work, the work before the work, and it's where market leadership is actually decided.",
+        answer: "Change management starts after the direction is set. It manages resistance and drives adoption of decisions already made. We work earlier, at the moment of strategic authorship. That's change origination: we partner with you to author the shIFt you intend to lead before a single tool gets launched. It's Phase Zero™ work, the work before the work, and it's where market leadership is actually decided.",
       },
       {
         question: "What does Embody ShIFt look like month to month?",
@@ -147,7 +147,7 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "Can you partner alongside our internal change team?",
-        answer: "Absolutely. We're complementary, not competitive. Internal teams often own execution and adoption beautifully. We work upstream of that, co-designing the strategic architecture and building your team's capacity so the work continues long after our engagement ends.",
+        answer: "Absolutely. We're complementary, not competitive. Internal teams often own execution and adoption beautifully. We work upstream of that, fortifying your organizational architecture and building your team's strength so the work continues long after our engagement ends.",
       },
       {
         question: "What happens if our leadership changes mid-engagement?",
@@ -295,7 +295,7 @@ export default function FAQPage() {
                 Frequently Asked Questions
               </h1>
               <p className={`text-lead md:text-lead text-white/90 leading-relaxed max-w-3xl transition-all duration-700 ease-out delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-                Everything you need to know about Painted Porch Strategies, the P.A.T.H., and how we partner with leaders to architect extraordinary outcomes.
+                Everything you need to know about Painted Porch Strategies, the P.A.T.H., and how we partner with leaders on the change they want to lead.
               </p>
             </div>
           </div>

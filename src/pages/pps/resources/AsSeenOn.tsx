@@ -132,7 +132,7 @@ export default function AsSeenOn() {
 
   useDocumentSeo({
     title: "As Seen On | Painted Porch Strategies",
-    description: "Podcasts, interviews, and media appearances featuring the Painted Porch Strategies team discussing change, leadership, and transformation.",
+    description: "Podcasts, interviews, and media appearances featuring the Painted Porch Strategies team discussing change and leadership.",
     canonical: MEDIA_PAGE_URL,
   });
 
@@ -214,7 +214,7 @@ export default function AsSeenOn() {
       <PageHero
         kicker="Media"
         title="As Seen On"
-        intro="Podcasts, interviews, and media appearances featuring our team sharing insights on change, leadership, and transformation."
+        intro="Podcasts, interviews, and media appearances featuring our team sharing insights on change and leadership."
         action={{ label: "Contact for Media", to: "/contact?interest=speaking&message=I'm reaching out about a media or speaking opportunity." }}
         image={asSeenOnHero}
         imageAlt="A studio microphone and headphones on a round table painted purple, gold and raspberry"
@@ -525,7 +525,7 @@ export default function AsSeenOn() {
             Book Us for Your Podcast or Event
           </h2>
           <p className="text-body text-foreground mb-8 max-w-2xl mx-auto">
-            Our team is available for podcasts, interviews, keynotes, and panel discussions on change origination, leadership, and organizational transformation.
+            Our team is available for podcasts, interviews, keynotes, and panel discussions on change origination, leadership, and organizational change.
           </p>
           <Link to="/speaking">
             <Button className="bg-navy hover:bg-navy/90 text-white text-lg py-5 px-8">

@@ -95,7 +95,7 @@ const CORE_VALUES = [
 ];
 
 const BELIEFS = [
-  "People are the most critical infrastructure of every transformation.",
+  "People are the most critical infrastructure of every change.",
   "Clarity comes before strategy, not after it.",
   "Curious questions are more useful than confident answers.",
   "Frameworks are tools, not religions.",
@@ -166,8 +166,7 @@ export default function AboutNext() {
               </p>
               <p>
                 Painted Porch Strategies is a change-origination practice, and for more than twenty years we've partnered
-                with leaders to use that time well, while there's still room to imagine, align, and architect what comes
-                next.
+                with leaders to use that time well, while there's still room to imagine, align, and author what comes next.
               </p>
               <p>
                 We look at three things at once: your leadership and culture, your systems and workflows, and the human

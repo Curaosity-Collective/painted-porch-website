@@ -92,7 +92,7 @@ const PILLARS = [
     outcomes: [
       "Operations that move strategy forward instead of slowing it down.",
       "Workflows designed for value, not just activity.",
-      "Systems that can support real transformation.",
+      "Systems that can carry real change.",
     ],
   },
   {
@@ -201,8 +201,7 @@ export default function PhaseZeroNext() {
             <Prose>
               <p>
                 The right opportunity strengthens everything around it when the organization is built to carry it. Your
-                organization isn't getting worn down from a lack of effort. It's carrying the accumulated weight of the continual drive to innovate,
-                accelerate, adapt, and grow: unfinished work, competing priorities, disconnected initiatives, and
+                organization isn't getting worn down from a lack of effort. It's carrying the weight of constant pressure to innovate, move faster, adapt, and grow: unfinished work, competing priorities, disconnected initiatives, and
                 directions that never fully aligned in the first place.
               </p>
               <p>

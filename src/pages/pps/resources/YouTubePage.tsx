@@ -142,7 +142,7 @@ export default function YouTubePage() {
       <PageHero
         kicker="Video Content"
         title="YouTube Channel"
-        intro="Video content, tutorials, and conversations on leadership, change origination, and organizational transformation."
+        intro="Videos, tutorials, and conversations on leadership and change origination."
         action={{ label: "Subscribe on YouTube", href: "https://youtube.com/@onthepaintedporch" }}
         image={youtubeHero}
         imageAlt="A video camera filming a backdrop of painted panels between two studio lights"

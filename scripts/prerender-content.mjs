@@ -48,7 +48,7 @@ export const routes = [
     description: "Explore Painted Porch Strategies speaker bios, mission, media appearances and speaking engagements. Download the press kit or contact Media Relations.",
     ogImage: `${SITE}/images/press-kit-share.jpg`,
     h1: "Painted Porch Strategies Press Kit",
-    intro: "Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at the moment where leaders have the greatest leverage: before direction hardens into a plan, while there is still room to imagine, align, and architect what comes next.",
+    intro: "Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at the moment where leaders have the greatest leverage: before direction hardens into a plan, while there is still room to imagine, align, and author what comes next.",
     sections: [
       { h2: "Our Mission", body: "Extraordinary Teams. Epic ShIFt. We build with your leaders rather than for them, expanding their capacity to author the future long after we leave." },
       { h2: "Our Speakers", body: "Amy Yackowski, Founder and Chief Evolution Officer; Rob Hunter, Chief Storytelling Officer; and Sierra Ramm Cantrell, Chief Joy Officer. Topics include change authorship, emotional intelligence, storytelling, communication, mindfulness and resilience." },
@@ -107,7 +107,7 @@ export const routes = [
     sections: [
       {
         h2: "We design your next shIFt. You make it happen.",
-        body: "Every change has a moment when it can still become exactly what you intend. Once it starts moving, it gathers momentum in whatever direction it's pointed. We work in that window: before the rollout, before the roadmap, before resources, credibility, and momentum are committed to a direction. We call it Phase Zero™. Painted Porch Strategies is a change-origination practice, and for more than twenty years we've partnered with leaders to use that time well, while there's still room to imagine, align, and architect what comes next. We look at three things at once: your leadership and culture, your systems and workflows, and the human capacity underneath both.",
+        body: "Every change has a moment when it can still become exactly what you intend. Once it starts moving, it gathers momentum in whatever direction it's pointed. We work in that window: before the rollout, before the roadmap, before resources, credibility, and momentum are committed to a direction. We call it Phase Zero™. Painted Porch Strategies is a change-origination practice, and for more than twenty years we've partnered with leaders to use that time well, while there's still room to imagine, align, and author what comes next. We look at three things at once: your leadership and culture, your systems and workflows, and the human capacity underneath both.",
       },
       {
         h2: "Different disciplines. Shared conviction.",
@@ -193,7 +193,7 @@ export const routes = [
       "An interview-led organizational 360 built on six interviews, from executives to the frontline. Your P.A.T.H. Compass clarifies which change and direction make sense to pursue NOW and what in your organization needs reinforcement first, so you can lead with clarity and build with confidence. Investment: $24,000.",
     h1: "Envision ShIFt — The Epic ShIFt Organizational Appraisal",
     intro:
-      "Every epic shIFt begins at a threshold: an honest appraisal of what your organization is realistically able to carry. The Epic ShIFt Organizational Appraisal is an interview-led organizational 360 that determines which change and direction make sense to pursue next. It begins with a Clarity Call.",
+      "Every epic shIFt begins at a threshold: an honest appraisal of what your organization can realistically carry. The Epic ShIFt Organizational Appraisal is an interview-led organizational 360 that determines which change and direction make sense to pursue next. It begins with a Clarity Call.",
     sections: [
       {
         h2: "What it is",
@@ -223,7 +223,7 @@ export const routes = [
     sections: [
       {
         h2: "It starts before Take Off",
-        body: "Stoicism is the GPS for how we think. The P.A.T.H. is the roadmap for how we work. The P.A.T.H. begins two stages before Take Off, while there's still room to shape the possibility: understanding what your organization is built to carry, and bringing the people who will carry it into genuine alignment.",
+        body: "Stoicism is the GPS for how we think. The P.A.T.H. is the roadmap for how we work. The P.A.T.H. begins two stages before Take Off, while there's still room to shape what's possible. First, understand what your organization is built to carry. Then bring the people who will carry it into real alignment.",
       },
       {
         h2: "Four stages. Three ShIFts. One map.",
@@ -289,7 +289,7 @@ export const routes = [
     sections: [
       {
         h2: "Author. Fortify. Decide.",
-        body: "Grounded in your Epic ShIFt Organizational Appraisal, your senior team spends three days authoring shared direction and identifying which pillar or pillars need reinforcement first. A focused 90-day sprint with your leadership team then reinforces the prioritized pillars and the capability your organization needs before it designs and leads its change. A retrospective decides the next step.",
+        body: "Starting from your Epic ShIFt Organizational Appraisal, your senior team spends three days authoring a shared direction and choosing which pillar or pillars to reinforce first. A focused 90-day sprint with your leadership team then strengthens the priority pillars and capabilities before your organization designs and leads its change. A retrospective decides the next step.",
       },
       {
         h2: "One integrated engagement",
@@ -311,7 +311,7 @@ export const routes = [
       "Ongoing advisory while your organization designs and leads the change it envisioned and authored, reinforcing it as a continuous practice. $9,000–$18,000 per month, depending on advisory depth and need.",
     h1: "Embody ShIFt",
     intro:
-      "Your organization is ready to design and lead the change it envisioned and authored. Ongoing advisory reinforces the habits, judgment, decision authority, and structures that make change, innovation, and transformation a continuous practice.",
+      "Your organization is ready to design and lead the change it envisioned and authored. Ongoing advisory reinforces the habits, judgment, decision authority, and structures that make change and innovation a continuous practice.",
     sections: [
       {
         h2: "Where the shIFt becomes who you are",

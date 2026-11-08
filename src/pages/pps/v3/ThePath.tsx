@@ -63,9 +63,9 @@ const STAGES = [
     subtitle: "The agreement phase",
     outcome: "A coalition that owns the work, not just approves it.",
     question: "Does the room actually agree, on the same thing?",
-    body: "Alignment isn't a survey where everyone picks “strongly agree.” It's your senior team working the same evidence in the executive strategy & authorship intensive, identifying which pillars need reinforcement first, and fortifying those structures and capabilities through a strategic sprint before you execute your change.",
+    body: "Alignment isn't a survey where everyone picks “strongly agree.” It's your senior team working from the same evidence in the executive strategy & authorship intensive to decide which pillars need reinforcement first. A strategic sprint then fortifies them before you execute your change.",
     example:
-      "In the intensive, a leadership team discovers that two executives hold opposite definitions of the transformation's success. Having that argument in week one saves the eighteen months it would have cost in week forty.",
+      "In the intensive, a leadership team discovers that two executives hold opposite definitions of success. Having that argument in week one saves the eighteen months it would have cost in week forty.",
     partner: ARCHITECT,
     fill: "bg-align text-[#5A1420]",
   },
@@ -75,9 +75,9 @@ const STAGES = [
     subtitle: "The launch phase",
     outcome: "Launch energy that holds past the first 90 days.",
     question: "How do we launch so the vision holds, and accelerates?",
-    body: "Take Off is where the vision meets the whole organization. With Preparation and Alignment in place, it becomes the confident translation of ambition into a living reality, with clear decisions, reinforcing structures, and the organizational capacity to sustain velocity.",
+    body: "Take Off is where the vision meets the whole organization. With Prepare and Align in place, ambition becomes reality, with clear decisions, structures that reinforce the change, and the capacity to keep up the pace.",
     example:
-      "A mid-market company begins designing and delivering its AI initiative only after fortifying its governance, communication architecture, and manager capability, with ongoing advisory reinforcing the new way of working.",
+      "A mid-market company starts designing and delivering its AI initiative only after it fortifies its governance, communication architecture, and manager capability. Ongoing advisory then reinforces the new way of working.",
     partner: EMBODY,
     fill: "bg-gold text-[#1E2B30]",
   },
@@ -90,9 +90,7 @@ const STAGES = [
     body: (
       <>
         Change holds when it becomes the way things are done: the rituals, the meeting rhythms, the accountability
-        structures, the stories the organization tells about itself. This is the stage that turns an initiative into
-        an identity: an extraordinary organization with the confidence, shared vocabulary, and cultural stamina to
-        author the next chapter without hesitation, and to make <ShIFt lowercase /> happen again.
+        structures, the stories the organization tells about itself. This is the stage that turns an initiative into an identity. Your organization gains the confidence, shared language, and cultural stamina to author the next chapter without hesitation, and to make <ShIFt lowercase /> happen again.
       </>
     ),
     example:
@@ -207,7 +205,7 @@ const JOURNEY = [
       </>
     ),
     body: "Ongoing advisory as your organization designs and delivers the change it envisioned and authored, through Take Off and Create Habits.",
-    outcome: "Your own change, innovation, and transformation become an ongoing, continuous practice.",
+    outcome: "Change and innovation become an ongoing practice your own people lead.",
     deliverable:
       "Ongoing advisory during your change journey and beyond, reinforcing habits, judgment, decision authority, and the three Painted Porch Pillars.",
     to: "/embody-shift",
@@ -264,8 +262,7 @@ export default function ThePath() {
           <Prose>
             <p>
               Four stages move a change from clarity to commitment to launch to lasting habits. The P.A.T.H. begins
-              two stages before Take Off, while there's still room to shape the possibility: understanding what your organization is
-              built to carry, and bringing the people who will carry it into genuine alignment.
+              two stages before Take Off, while there's still room to shape what's possible. First, understand what your organization is built to carry. Then bring the people who will carry it into real alignment.
             </p>
           </Prose>
         </div>

@@ -61,7 +61,7 @@ const whoItsFor = [
   },
   {
     strong: "The Vision Validation.",
-    body: "You're ready to build a legacy that outlives your tenure, and you need the architecture to make it real.",
+    body: "You're ready to build a legacy that outlives your tenure, with an organizational architecture strong enough to make it real.",
   },
 ];
 
@@ -70,13 +70,13 @@ const steps = [
     n: "01",
     title: "Organizational Interviews",
     time: "Six interviews, executive to frontline",
-    body: "We conduct interviews to surface your organization's strengths, constraints, and capability — the change you envision, the direction of shift, and what must be considered before moving forward.",
+    body: "The interviews bring out your organization's strengths, limits, and capability: the change you envision, the direction it takes, and what to weigh before you move forward.",
   },
   {
     n: "02",
     title: "We Appraise Your Organization",
     time: "Across the three Painted Porch Pillars",
-    body: "We bring the interview perspectives together to identify which change and direction your organization is realistically able to pursue — and what makes sense before committing.",
+    body: "We bring the interviews together to see which change and direction your organization can realistically pursue, and what makes sense before you commit.",
   },
   {
     n: "03",
@@ -133,7 +133,7 @@ export default function EnvisionShift() {
         }
         intro={
           <>
-            Every epic <ShIFt lowercase onDark /> begins at a threshold: an honest appraisal of what your organization is realistically able to carry. An interview-led organizational 360 determines which change and direction make sense to pursue next.
+            Every epic <ShIFt lowercase onDark /> begins at a threshold: an honest appraisal of what your organization can realistically carry. An interview-led organizational 360 determines which change and direction make sense to pursue next.
           </>
         }
         video={{ slotKey: "amplify-hero", poster: amplifyPoster, alt: "A glowing light bulb throwing sparks and flecks of color" }}
@@ -155,10 +155,7 @@ export default function EnvisionShift() {
             </h2>
             <Prose>
               <p>
-                The Epic <ShIFt /> Organizational Appraisal is an interview-led organizational 360. We conduct six interviews across your
-                organization, three with executives and three with people from mid-level through the frontline, to
-                appraise its current architecture — the leadership and culture, the systems and workflows, and the
-                human capacity underneath them.
+                The Epic <ShIFt /> Organizational Appraisal is an interview-led organizational 360. We conduct six interviews across your organization: three with executives and three with people from mid-level through the frontline. Together they show your current organizational architecture: the leadership and culture, the systems and workflows, and the human capacity underneath them.
               </p>
               <EvidenceNote
                 emphasis="88%"
@@ -170,8 +167,7 @@ export default function EnvisionShift() {
                 make possible.
               </EvidenceNote>
               <p>
-                It reveals what your organization is realistically positioned to pursue before your next initiative
-                begins, so you commit to a direction you can actually carry rather than one that looks right on a slide.
+                It shows what your organization can realistically pursue before your next initiative begins, so you commit to a direction you can actually carry, not one that only looks right on a slide.
               </p>
               <p>
                 Your P.A.T.H. Compass isn't designed to funnel every organization toward the same next step. It may point toward
@@ -183,9 +179,7 @@ export default function EnvisionShift() {
                 carry the one you're imagining.
               </p>
               <p>
-                That clarity informs your best next step on the journey to do Epic <ShIFt />. When reinforcement
-                is the right next move, it grounds the executive strategy & authorship intensive within your Architect <ShIFt />
-                engagement.
+                That clarity informs your best next step on the journey to do Epic <ShIFt />. If reinforcement is the right next move, your findings become the starting point for the executive strategy & authorship intensive in Architect <ShIFt />.
               </p>
             </Prose>
           </div>

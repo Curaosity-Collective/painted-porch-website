@@ -31,7 +31,7 @@ export function buildMediaAppearanceSchema(appearances) {
     "@id": `${MEDIA_PAGE_URL}#collection`,
     url: MEDIA_PAGE_URL,
     name: "As Seen On | Painted Porch Strategies",
-    description: "Podcasts, interviews, and media appearances featuring the Painted Porch Strategies team discussing change, leadership, and transformation.",
+    description: "Podcasts, interviews, and media appearances featuring the Painted Porch Strategies team discussing change and leadership.",
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: approved.length,

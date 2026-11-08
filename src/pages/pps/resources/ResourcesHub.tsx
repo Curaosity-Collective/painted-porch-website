@@ -18,7 +18,7 @@ const resourceCategories = [
   {
     icon: BookOpen,
     title: "Insights",
-    description: "Insights on change, leadership, and organizational transformation.",
+    description: "Insights on change and leadership.",
     href: "/resources/insights",
     color: "bg-primary/10",
     iconColor: "text-primary",
@@ -144,7 +144,7 @@ export default function ResourcesHub() {
             Get Insights Delivered
           </h2>
           <p className="text-body text-white/90 mb-8 max-w-2xl mx-auto">
-            Subscribe to receive our latest thinking on change-readiness, leadership development, and organizational transformation.
+            Subscribe for our latest thinking on change, leadership, and organizational growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input

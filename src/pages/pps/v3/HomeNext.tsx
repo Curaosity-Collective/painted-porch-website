@@ -338,7 +338,7 @@ export default function HomeNext() {
             </h2>
             <p className="max-w-[40em] text-[17px] leading-relaxed">
               To do epic <ShIFt lowercase /> is to reject the idea that organizational drift and resistance are
-              inevitable. It means turning ambition into an architectural discipline, and holding yourself to it when
+              inevitable. It means turning ambition into a discipline your organization is built to carry, and holding yourself to it when
               the stakes are highest.
             </p>
           </div>

@@ -138,7 +138,7 @@ const included = [
   { icon: FileText, title: "The Stractical Toolkit", desc: "Strategic questions, language patterns, and frameworks you'll use immediately" },
   { icon: Target, title: "Real-Time Application", desc: "Work through actual scenarios from your organization, not generic case studies" },
   { icon: BookOpen, title: "Personal Blueprint Development", desc: "Create your custom action plan for sustained strategic influence" },
-  { icon: Calendar, title: "One-Month Follow-Up Session", desc: "Review wins, troubleshoot challenges, ensure transformation sticks" },
+  { icon: Calendar, title: "One-Month Follow-Up Session", desc: "Review wins, troubleshoot challenges, make sure your change sticks" },
 ];
 
 const outcomes = [

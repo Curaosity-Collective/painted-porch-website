@@ -7,7 +7,7 @@ export const stracticalFaqCategories: FAQCategory[] = [
     faqs: [
       {
         question: "What's the format of the Stractical Leader Lab?",
-        answer: "The program consists of 5 weekly live sessions via Zoom (Wednesdays, 11:00 AM–12:00 PM MST/PT / 2:00–3:00 PM ET), followed by a one-month follow-up session to review wins, troubleshoot challenges, and ensure your transformation sticks.",
+        answer: "The program consists of 5 weekly live sessions via Zoom (Wednesdays, 11:00 AM–12:00 PM MST/PT / 2:00–3:00 PM ET), followed by a one-month follow-up session to review wins, troubleshoot challenges, and make sure your change sticks.",
       },
       {
         question: "What if I miss a session?",

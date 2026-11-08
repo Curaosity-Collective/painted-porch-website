@@ -208,8 +208,8 @@ const weeks = [
   { week: 2, title: "Stractical Pillar #1: COURAGE", description: "Build the conviction to voice insights that matter. Learn to challenge assumptions respectfully and speak up about misalignment without being difficult." },
   { week: 3, title: "Stractical Pillar #2: CURIOSITY", description: "Master the strategic questions that open conversations and uncover hidden opportunities. Move from accepting directives to exploring alternatives." },
   { week: 4, title: "Stractical Pillar #3: CLARITY", description: "Become the bridge between vision and execution. Learn to translate complex strategic goals into clear team action while conveying ground-level realities upward." },
-  { week: 5, title: "Draft Your Stractical Blueprint™", description: "Synthesize everything into your personal framework. Create your action plan for consistently operating in the strategic integration zone." },
-  { week: 6, title: "One-Month Check-In (Bonus)", description: "Review, reflect, and refine. Share wins, troubleshoot challenges, and make sure your transformation sticks.", bonus: true },
+  { week: 5, title: "Draft Your Stractical Blueprint™", description: "Pull everything together into your personal framework. Create your action plan for working in the strategic integration zone, consistently." },
+  { week: 6, title: "One-Month Check-In (Bonus)", description: "Review, reflect, and refine. Share wins, troubleshoot challenges, and make sure your change sticks.", bonus: true },
 ];
 
 const forYouItems = [
@@ -217,7 +217,7 @@ const forYouItems = [
   "You feel your team's expertise is overlooked in strategic planning",
   "You want to influence business decisions, not just execute them",
   "You're tired of being seen primarily as a directive executor",
-  "You're ready to claim your seat at the table for transformation decisions",
+  "You're ready to claim your seat at the table for the big decisions about change",
   "You want to position yourself as a trusted collaborator, not just a strategy executor",
 ];
 
@@ -342,7 +342,7 @@ export default function StracticalLeaderWorkshop() {
           </div>
           <div className="mt-8 space-y-4 text-lg text-foreground/80 leading-relaxed max-w-3xl mx-auto text-left">
             <p className="text-body">
-              This isn't about choosing between strategy and tactics. It's about mastering both simultaneously, translating fluidly between operational detail and organizational vision.
+              This isn't about choosing between strategy and tactics. It's about mastering both at once, moving easily between operational detail and organizational vision.
             </p>
             <p className="text-body font-semibold text-navy">
               When you're stractical, you become the critical link everyone needs but few can provide.
@@ -618,10 +618,10 @@ export default function StracticalLeaderWorkshop() {
               </p>
               <div className="space-y-3 text-foreground/80 leading-relaxed">
                 <p className="text-body">
-                  Amy specializes in Phase Zero, the critical preparation that comes before change activation and implementation. She partners with leaders and teams to develop the change-readiness, emotional intelligence, and strategic communication needed to make transformation stick.
+                  Amy specializes in Phase Zero, the critical preparation that comes before change activation and implementation. She partners with leaders and teams to develop the change-readiness, emotional intelligence, and strategic communication it takes to make change stick.
                 </p>
                 <p className="text-body">
-                  Her approach blends ancient Stoic wisdom with modern organizational development, creating frameworks that are both philosophically grounded and immediately actionable.
+                  Her approach blends ancient Stoic wisdom with modern organizational development, so her frameworks are grounded in philosophy and ready to use right away.
                 </p>
               </div>
               <blockquote className="text-pullquote mt-6 pl-4 border-l-4 border-gold italic text-foreground/70">
