@@ -83,10 +83,6 @@ const differenceRows = [
     traditional: "Optimizes for a successful go-live.",
     sprint: "Fortifies the organization so your team can design and carry its next change.",
   },
-  {
-    traditional: "Hands the plan to your team.",
-    sprint: "Co-designs and fortifies the conditions with your leaders so they shape what comes next.",
-  },
 ];
 
 const included = [
