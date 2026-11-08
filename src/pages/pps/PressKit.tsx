@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowRight, Check, Copy, Download, Mic, MessageSquare } from "lucide-react";
+import { ArrowRight, Check, Copy, Download, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/pps/Eyebrow";
 import { PageHero } from "@/components/v3/Bits";
