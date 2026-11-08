@@ -9,6 +9,7 @@ import keynoteAiEiOh from "@/assets/speaking/keynote-ai-ei-oh.png.asset.json";
 import keynoteLeadSpeedOfChange from "@/assets/speaking/keynote-cover-speed-of-change.png.asset.json";
 import shiftHappens from "@/assets/speaking/shift-happens.png.asset.json";
 import goldilocksLeadership from "@/assets/speaking/amy-goldilocks-leadership.png";
+import { ShIFt } from "@/components/v3/ShIFt";
 import SpeakerDetailPage, { type SpeakerData } from "./SpeakerDetailPage";
 
 const amy: SpeakerData = {
@@ -16,7 +17,11 @@ const amy: SpeakerData = {
   name: "Amy Yackowski",
   firstName: "Amy",
   title: "Founder | Chief Evolution Officer | Organizational Shift Strategist",
-  seriesName: "The Evolution of Change Leadership Series",
+  seriesName: (
+    <>
+      The Epic <ShIFt onDark large /> Leadership Series
+    </>
+  ),
   heroBadgeLabel: "It's Time to Do Epic ShIFt",
   seriesIntro:
     "Every epic shIFt starts with leaders who stay steady when everything around them is moving. In this speaker series, Amy Yackowski equips modern leaders with Stoic tools, real-world frameworks, and emotional intelligence practices that keep teams grounded and united through every shIFt.",
