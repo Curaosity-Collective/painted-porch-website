@@ -618,7 +618,7 @@ export default function StracticalLeaderWorkshop() {
               </p>
               <div className="space-y-3 text-foreground/80 leading-relaxed">
                 <p className="text-body">
-                  Amy specializes in Phase Zero, the critical preparation that comes before change activation and implementation. She partners with leaders and teams to develop the change-readiness, emotional intelligence, and strategic communication it takes to make epic shIFt stick.
+                  Amy specializes in Phase Zero, the critical preparation that comes before change activation and implementation. She partners with leaders and teams to develop the change capabilities, emotional intelligence, and strategic communication it takes to make epic shIFt stick.
                 </p>
                 <p className="text-body">
                   Her approach blends ancient Stoic wisdom with modern organizational development, so her frameworks are grounded in philosophy and ready to use right away.

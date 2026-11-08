@@ -4,6 +4,7 @@ import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { Flame, Mic, Heart } from "lucide-react";
 import ClientLogoMarquee, { type LogoItem } from "@/components/pps/ClientLogoMarquee";
 import { PageHero } from "@/components/v3/Bits";
+import { ShIFt } from "@/components/v3/ShIFt";
 import speakingHero from "@/assets/heroes/speaking-hero.jpg";
 import amyPhoto from "@/assets/team/amy-speaking-portrait.jpg";
 import robPhoto from "@/assets/team/rob-hunter.jpg";
@@ -90,8 +91,12 @@ export default function Speaking() {
       {/* Hero */}
       <PageHero
         kicker="Three Dynamic Speakers. One Stoic Mission."
-        title="Meet the Voices of Change"
-        intro="We don't show up to motivate. We show up to create movement. We partner with leaders and teams who have decided to architect change, communicate with clarity, and build the capability and mindset to carry what comes next."
+        title={
+          <>
+            Meet the Voices of Epic <ShIFt onDark large />
+          </>
+        }
+        intro="Our talks blend motivation with grounded, practical activation. We partner with leaders and teams who have decided to architect change, communicate with clarity, and build the capability and mindset to carry what comes next."
         action={{ label: "Contact Us", to: "/contact?interest=speaking&message=I'm interested in booking a speaker for our event." }}
         // Shared for now with Speaking Topics, Press and Press Kit; a speaker reel collage will replace it.
         image={speakingHero}
