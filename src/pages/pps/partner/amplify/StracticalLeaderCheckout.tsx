@@ -198,11 +198,11 @@ export default function StracticalLeaderCheckout() {
             )}
           </h1>
           <p className="text-body font-poppins font-medium text-white/90 mb-2">
-            The Stractical Leader Workshop
+            The Stractical Leader Lab
           </p>
           {isExpired ? (
             <p className="text-body text-gold/70">
-              Our latest cohort kicked off {WORKSHOP_DATE_SHORT}. New dates are on the way!
+              Our most recent cohort began {WORKSHOP_DATE_SHORT}. New dates are on the way.
             </p>
           ) : (
             <p className="text-body text-white/60">
@@ -242,7 +242,7 @@ export default function StracticalLeaderCheckout() {
             <div className="bg-white rounded shadow-lg border border-border/40 overflow-hidden">
               <div className="bg-navy p-6 text-center">
                 <p className="text-body text-gold font-poppins font-semibold uppercase tracking-wider mb-1">
-                  {isExpired ? "Workshop Investment" : "Your Investment"}
+                  {isExpired ? "Lab Investment" : "Your Investment"}
                 </p>
                 <p className="text-body text-5xl font-poppins font-bold text-white">{WORKSHOP_PRICE_DISPLAY}</p>
               </div>
@@ -334,7 +334,7 @@ export default function StracticalLeaderCheckout() {
               100% Confidence Guarantee
             </h2>
             <p className="text-body text-foreground/80 leading-relaxed max-w-xl mx-auto mb-4">
-              If after Session 1 you don't feel this workshop will transform your strategic impact, simply let us know and we'll refund your full investment.
+              If after Session 1 you don't feel this Lab will transform your strategic impact, simply let us know and we'll refund your full investment.
             </p>
             <p className="text-body -sm text-foreground/60 italic">
               We're confident because we've seen this framework work. When managers embrace the Stractical Blueprint, they stop executing directives and start shaping strategy.
@@ -346,7 +346,7 @@ export default function StracticalLeaderCheckout() {
       <FAQSection
         tierName="Stractical Leader"
         categories={stracticalFaqCategories}
-        subheadline="Everything you need to know about the Stractical Leader workshop"
+        subheadline="Everything you need to know about the Stractical Leader Lab"
         contactUrl="/contact?scope=Yourself&interest=leadership-lab&message=I%20have%20questions%20about%20your%20Stractical%20Leader%20Lab"
       />
 
@@ -359,7 +359,7 @@ export default function StracticalLeaderCheckout() {
                 Don't Miss the Next Cohort
               </h2>
               <p className="text-body text-white/70 mb-8">
-                Our latest Stractical Leader Lab has kicked off. Join the waitlist to get early access when new dates are announced.
+                New dates for the next Stractical Leader Lab are on the way. Join the waitlist to get early access when they're announced.
               </p>
               <Button
                 onClick={() => setWaitlistOpen(true)}

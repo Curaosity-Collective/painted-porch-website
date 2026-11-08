@@ -273,7 +273,7 @@ export default function StracticalLeaderWorkshop() {
               Become a <span className="text-gold">Stractical Leader</span>
             </h1>
             <p className="text-body font-poppins font-medium text-white/90 mb-8 !not-italic">
-              Stop Executing Directives. Start Shaping Strategy.
+              Shape the Strategy You're Asked to Execute.
             </p>
             <div className="space-y-4 text-lg text-white/80 leading-relaxed mb-10">
               <p className="text-body font-semibold text-white">
@@ -292,14 +292,14 @@ export default function StracticalLeaderWorkshop() {
                 You possess vital insights. But your influence feels limited.
               </p>
               <p className="text-body text-white font-semibold pt-2">
-                This 6-week intensive leader lab changes that dynamic forever.
+                This 6-week intensive leader lab is where that changes.
               </p>
             </div>
 
             {isExpired ? (
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 bg-gold/20 text-gold font-poppins font-semibold text-sm px-4 py-2 rounded-full">
-                  <Clock className="w-4 h-4" /> Our latest cohort has begun
+                  <Clock className="w-4 h-4" /> Next cohort: dates coming soon
                 </div>
                 <div>
                   <Button
@@ -421,7 +421,7 @@ export default function StracticalLeaderWorkshop() {
         <div className="container max-w-4xl mx-auto px-6">
           <div className="text-center mb-4">
             <span className="inline-block bg-gold/20 text-gold font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-4">
-              Leader Lab Workshop Structure
+              Leader Lab Structure
             </span>
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-white mb-2">
               6 Live Sessions
@@ -431,7 +431,7 @@ export default function StracticalLeaderWorkshop() {
             </p>
             {isExpired ? (
               <p className="text-body text-gold/70 font-poppins font-medium mt-2">
-                Our latest cohort kicked off {WORKSHOP_DATE_SHORT}. New dates coming soon!
+                Our most recent cohort began {WORKSHOP_DATE_SHORT}. New dates coming soon.
               </p>
             ) : (
               <>
@@ -535,15 +535,15 @@ export default function StracticalLeaderWorkshop() {
                     <span className="text-gold font-poppins font-semibold text-sm">Next Cohort Coming Soon</span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-poppins font-bold text-white">
-                    Our Latest Lab Has Kicked Off
+                    Be First in Line for the Next Lab
                   </h2>
                   <p className="text-body text-white/70 mt-2">
-                    Registration for this round is closed, but the next one is around the corner. Join the waitlist to be the first to know when new dates are announced.
+                    Join the waitlist to be the first to know when new dates are announced.
                   </p>
                 </div>
                 <div className="p-8 md:p-12 text-center">
                   <p className="text-body text-foreground/80 mb-6 max-w-md mx-auto">
-                    The Stractical Leader Lab is an intimate, highly interactive experience. Spots fill quickly, and waitlist members get early access before public enrollment opens.
+                    The Stractical Leader Lab is an intimate, highly interactive experience. Cohorts stay small, and waitlist members get early access before public enrollment opens.
                   </p>
                   <Button
                     onClick={() => setWaitlistOpen(true)}
@@ -562,7 +562,7 @@ export default function StracticalLeaderWorkshop() {
                     Claim Your Spot
                   </h2>
                   <p className="text-body text-white/70 mt-2">
-                    This is an intimate, highly interactive workshop. You won't be lectured at. You'll work through real scenarios, practice new language patterns, and receive direct feedback on your strategic positioning.
+                    This is an intimate, highly interactive lab. You won't be lectured at. You'll work through real scenarios, practice new language patterns, and receive direct feedback on your strategic positioning.
                   </p>
                 </div>
                 <div className="p-8 md:p-12 text-center">
@@ -589,7 +589,7 @@ export default function StracticalLeaderWorkshop() {
                       onClick={() => setWaitlistOpen(true)}
                       className="text-primary font-poppins font-semibold text-sm underline underline-offset-4 hover:text-primary/80 transition-colors"
                     >
-                      Sign up to receive updates on future workshop dates
+                      Sign up to receive updates on future lab dates
                     </button>
                   </div>
                 </div>
@@ -618,14 +618,14 @@ export default function StracticalLeaderWorkshop() {
               </p>
               <div className="space-y-3 text-foreground/80 leading-relaxed">
                 <p className="text-body">
-                  Amy specializes in Phase Zero, the critical preparation before change activation and implementation that most organizations skip. She partners with leaders and teams to develop the change-readiness, emotional intelligence, and strategic communication needed to make transformation stick.
+                  Amy specializes in Phase Zero, the critical preparation that comes before change activation and implementation. She partners with leaders and teams to develop the change-readiness, emotional intelligence, and strategic communication needed to make transformation stick.
                 </p>
                 <p className="text-body">
                   Her approach blends ancient Stoic wisdom with modern organizational development, creating frameworks that are both philosophically grounded and immediately actionable.
                 </p>
               </div>
               <blockquote className="text-pullquote mt-6 pl-4 border-l-4 border-gold italic text-foreground/70">
-                "You are the expert of you. My role is to uncover and activate that expertise and position it stratically."
+                "You are the expert of you. My role is to uncover and activate that expertise and position it stractically."
               </blockquote>
             </div>
           </div>
@@ -635,7 +635,7 @@ export default function StracticalLeaderWorkshop() {
       <FAQSection
         tierName="Stractical Leader"
         categories={stracticalFaqCategories}
-        subheadline="Everything you need to know about the Stractical Leader workshop"
+        subheadline="Everything you need to know about the Stractical Leader Lab"
         contactUrl="/contact?scope=Yourself&interest=leadership-lab&message=I%20have%20questions%20about%20your%20Stractical%20Leader%20Lab"
       />
 
@@ -648,7 +648,7 @@ export default function StracticalLeaderWorkshop() {
                 The Next Lab Is Coming Soon
               </h2>
               <p className="text-body text-white/80 mb-3">
-                Our latest Stractical Leader Lab has started, but new dates are on the way.
+                New dates for the next Stractical Leader Lab are on the way.
               </p>
               <p className="text-body text-white/80 mb-8">
                 Join the waitlist and be the first to know when enrollment opens for the next cohort.
@@ -670,10 +670,10 @@ export default function StracticalLeaderWorkshop() {
                 Transformation happens through consistent small actions that compound over time.
               </p>
               <p className="text-body text-white/80 mb-8">
-                This workshop gives you the framework, the practice, and the accountability to make that transformation real.
+                This Lab gives you the framework, the practice, and the accountability to make that transformation real.
               </p>
               <p className="text-body text-gold font-poppins font-semibold mb-8">
-                Stop feeling like "just a manager."<br />Start shaping the next big sh<span className="text-strategic font-bold">IF</span>t for your organization.
+                You're more than "just a manager."<br />Shape the next big sh<span className="text-strategic font-bold">IF</span>t for your organization.
               </p>
               <Button
                 onClick={goToEnroll}

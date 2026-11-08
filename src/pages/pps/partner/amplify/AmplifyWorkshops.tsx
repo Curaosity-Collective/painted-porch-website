@@ -27,15 +27,15 @@ const workshopFaqCategories: FAQCategory[] = [
     faqs: [
       {
         question: "Do we need the Epic ShIFt Organizational Appraisal before a workshop?",
-        answer: "The Epic ShIFt Organizational Appraisal is required for all Phase Zero Strategic Workshops and Strategic Sprints. It's not required for our Leadership & Team Development Workshops, though many teams still find it valuable for context.",
+        answer: "The Epic ShIFt Organizational Appraisal is the basis for every Phase Zero Strategic Workshop and for Architect ShIFt. Our Leadership & Team Development Workshops stand on their own, though the appraisal gives many teams insights that add valuable context.",
       },
       {
-        question: "Can we do a workshop first, then decide on a Strategic Sprint?",
-        answer: "Absolutely. Many teams start with a workshop to test fit, then progress to sprint if deeper partnership makes sense.",
+        question: "Can we do a workshop first, then decide on Architect ShIFt?",
+        answer: "Absolutely. Many teams start with a workshop to test fit, then move to Architect ShIFt if deeper partnership makes sense.",
       },
       {
         question: "What if our team is geographically distributed?",
-        answer: "We facilitate virtual workshops effectively. In-person is ideal when possible, but not required.",
+        answer: "Virtual workshops work well. In-person is ideal when possible, but not required.",
       },
     ],
   },
@@ -48,7 +48,7 @@ const workshopFaqCategories: FAQCategory[] = [
       },
       {
         question: "What's included in the investment?",
-        answer: "Pre-work, facilitation, frameworks/tools, post-workshop resources, and ongoing advisory sessions for questions and continued guidance.",
+        answer: "Pre-work, live sessions, frameworks/tools, post-workshop resources, and ongoing advisory sessions for questions and continued guidance.",
       },
     ],
   },
@@ -225,7 +225,7 @@ export default function AmplifyWorkshops() {
             <>
               <div className="text-center mb-8">
                 <span className="inline-block bg-bluedoor/10 text-bluedoor font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-4">
-                  Epic ShIFt Organizational Appraisal Required
+                  Built on the Epic ShIFt Organizational Appraisal
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
                   Phase Zero&trade; Strategic Workshops
@@ -300,7 +300,7 @@ export default function AmplifyWorkshops() {
                     The <span className="font-bold text-bluedoor">Epic ShIFt Organizational Appraisal</span> is our interview-led appraisal that reveals where your business and leadership stands on the path to transformation so that you can lead with clarity and build with confidence.
                   </p>
                   <p className="text-body -sm text-foreground/70 italic mb-3">
-                    Required for Phase Zero Strategic Workshops and all Strategic Sprints. Not required for Leadership &amp; Team Development Workshops.
+                    The basis for Phase Zero Strategic Workshops and Architect ShIFt. Leadership &amp; Team Development Workshops stand on their own.
                   </p>
                   <div className="flex items-center gap-4 text-sm">
                     <span className="font-semibold text-navy">{EPIC_SHIFT_APPRAISAL.priceDisplay}</span>
@@ -393,7 +393,7 @@ export default function AmplifyWorkshops() {
               Don&rsquo;t see exactly what you&rsquo;re looking for?
             </h3>
             <p className="text-body text-white/90 max-w-2xl mx-auto mb-3">
-              The workshops above are a sample of what we run most often. We also offer other sessions across our core topic areas, and most can be delivered as a <Link to="/speaking" className="font-semibold text-gold hover:text-gold/80 underline underline-offset-2">keynote or speaking session</Link> or expanded into a <Link to="/speaking/topics" className="font-semibold text-gold hover:text-gold/80 underline underline-offset-2">workshop</Link>:
+              The workshops above are a sample of what we run most often. We also offer other sessions across our core topic areas, and most also work as a <Link to="/speaking" className="font-semibold text-gold hover:text-gold/80 underline underline-offset-2">keynote or speaking session</Link>, or expand into a <Link to="/speaking/topics" className="font-semibold text-gold hover:text-gold/80 underline underline-offset-2">workshop</Link>:
             </p>
             <p className="text-body text-white/90 max-w-2xl mx-auto mb-6">
               <span className="font-semibold text-gold">Change &amp; Innovation</span>

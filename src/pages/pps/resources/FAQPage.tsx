@@ -188,7 +188,7 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "What's the format for Leadership Labs?",
-        answer: "Leadership Labs are 6–12 week cohort programs with biweekly or monthly sessions, peer accountability and individual coaching touchpoints. Each lab focuses on one theme (Stractical Leadership, Leading Change and others) and is capped at 25 leaders from different organizations.",
+        answer: "Leadership Labs are 6–12 week cohort programs with weekly or biweekly sessions and peer accountability. Each lab focuses on one theme (Stractical Leadership, Leading Change and others) and is capped at 25 leaders from different organizations.",
       },
       {
         question: "What if I'm not in an official leadership role?",

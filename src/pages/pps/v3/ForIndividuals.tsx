@@ -111,7 +111,7 @@ const OPTIONS: { title: string; body: ReactNode; inside: string[]; bestWhen: str
     inside: [
       "6–12 week cohorts",
       "Peer learning and accountability",
-      "Individual coaching touchpoints",
+      "Weekly or biweekly live sessions",
       "Up to 25 leaders from different organizations",
     ],
     bestWhen: "you want depth, community and structure that go beyond self-study.",

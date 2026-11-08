@@ -525,7 +525,7 @@ export default function AsSeenOn() {
             Book Us for Your Podcast or Event
           </h2>
           <p className="text-body text-foreground mb-8 max-w-2xl mx-auto">
-            Our team is available for podcasts, interviews, keynotes, and panel discussions on change management, leadership, and organizational transformation.
+            Our team is available for podcasts, interviews, keynotes, and panel discussions on change origination, leadership, and organizational transformation.
           </p>
           <Link to="/speaking">
             <Button className="bg-navy hover:bg-navy/90 text-white text-lg py-5 px-8">
