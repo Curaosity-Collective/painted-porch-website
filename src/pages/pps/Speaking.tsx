@@ -65,7 +65,7 @@ const speakers = [
   {
     name: "Sierra Ramm Cantrell",
     badge: "Mindful Resilience",
-    tagline: "Sierra guides burnt-out teams back to balance with grace.",
+    tagline: "When the pace won't let up, Sierra brings calm, energy, and joy.",
     description:
       "With humor, heart, and science-backed tools, she guides people to reclaim their energy, focus, and joy, even in the midst of constant change.",
     photo: sierraPhoto,
@@ -107,7 +107,7 @@ export default function Speaking() {
             Grounded in Stoicism. Built for Change.
           </h2>
           <p className="text-body text-white/90 leading-relaxed">
-            At Painted Porch Strategies, we partner with leaders to build permanent organizational capability, not just on paper, but in practice. Grounded in Stoic wisdom and driven by emotional intelligence, our speakers bring clarity, perspective, and actionable architecture to every audience. Whether you're addressing burnout, designing organizational transformation, or aligning your team, we deliver speaking experiences that create lasting impact.
+            At Painted Porch Strategies, we partner with leaders to build permanent organizational capability, not just on paper, but in practice. Grounded in Stoic wisdom and driven by emotional intelligence, our speakers bring clarity, perspective, and actionable architecture to every audience. Whether you're addressing burnout, designing organizational transformation, or aligning your team, every talk is built to keep working long after the applause.
           </p>
         </div>
       </section>

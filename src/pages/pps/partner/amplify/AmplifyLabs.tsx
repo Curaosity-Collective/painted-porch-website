@@ -23,7 +23,7 @@ const labFaqCategories: FAQCategory[] = [
     faqs: [
       {
         question: "What's the format for Leadership Labs?",
-        answer: "Leadership Labs are 6-12 week cohort-style programs with bi-weekly or monthly sessions, peer accountability, and individual coaching touchpoints. Each lab focuses on a specific theme (Stractical Leadership, Leading Change, etc.) and is capped at 25 leaders from different organizations.",
+        answer: "Leadership Labs are 6-12 week cohort-style programs with weekly or biweekly sessions and peer accountability. Each lab focuses on a specific theme (Stractical Leadership, Leading Change, etc.) and is capped at 25 leaders from different organizations.",
       },
       {
         question: "How do I know if a Leadership Lab is right for me?",
@@ -31,11 +31,11 @@ const labFaqCategories: FAQCategory[] = [
       },
       {
         question: "Can I join a Leadership Lab if I'm also bringing my team to a workshop?",
-        answer: "Absolutely. Many leaders participate in labs for their own development while separately engaging their teams in workshops or sprints. Leadership Labs focus on individual leadership capacity; workshops/sprints focus on team alignment.",
+        answer: "Absolutely. Many leaders participate in labs for their own development while separately engaging their teams in workshops or Architect ShIFt. Leadership Labs focus on individual leadership capacity; workshops and Architect ShIFt focus on team and organizational alignment.",
       },
       {
         question: "Do I need the Epic ShIFt Organizational Appraisal before joining a Leadership Lab?",
-        answer: "No. The Epic ShIFt Organizational Appraisal is not required for Leadership Labs. Labs are designed for individual leaders and don't require an organizational assessment.",
+        answer: "No. Leadership Labs are designed for individual leaders, so they stand on their own, without an organizational appraisal.",
       },
       {
         question: "What if I'm not in an official leadership capacity?",
@@ -185,7 +185,7 @@ export default function AmplifyLabs() {
               Peer-Driven Acceleration & Action
             </h1>
             <p className="text-body text-foreground max-w-3xl mx-auto">
-              Explore Phase Zero concepts with other leaders navigating similar challenges. Each Leadership Lab is a 6–12 week cohort-style program with peer accountability, monthly group sessions, and individual coaching touchpoints.
+              Explore Phase Zero concepts with other leaders navigating similar challenges. Each Leadership Lab is a 6–12 week cohort-style program with weekly or biweekly group sessions and peer accountability.
             </p>
           </div>
 

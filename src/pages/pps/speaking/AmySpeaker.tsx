@@ -98,20 +98,20 @@ const amy: SpeakerData = {
   ],
   outcomesHeading: "Lead Through Uncertainty With Clarity & Courage",
   outcomesIntro:
-    "Change doesn't have to suck. In this speaker series, Amy equips modern leaders with Stoic tools, real-world frameworks, and emotional intelligence practices that keep teams grounded and united through transformation.",
+    "Leaders leave Amy's keynotes with Stoic tools for staying grounded, frameworks for turning uncertainty into decisions, and emotional intelligence practices that keep their teams united through the change.",
   outcomes: [
     "Lead through change with purpose and presence",
     "Build trust and candor across your team",
     "Turn chaos into clarity and action",
   ],
-  outcomesClosing: "It's time to stop reacting and start leading with intention.",
+  outcomesClosing: "Change is coming either way. Let's lead it with intention.",
   workshopHeading: "Continue the Work: Team Workshops & Strategy Sessions",
   workshopIntro:
-    "Bring the keynote to life with immersive follow-up workshops designed to help your team apply Amy's change authorship frameworks in real-time. These sessions go beyond inspiration—they're where strategy meets execution.",
+    "Bring the keynote to life with immersive follow-up workshops where your team applies Amy's change authorship frameworks in real-time. These sessions go beyond inspiration—they're where strategy meets execution.",
   workshopDetails: [
     "Pre-session alignment survey",
     "Custom journaling prompts to deepen reflection",
-    "Live facilitation that blends Stoic insight with business practicality",
+    "Live, hands-on sessions that blend Stoic insight with business practicality",
     "Space for authentic dialogue, problem-solving, and action planning",
   ],
   workshopClosing: "Let's turn the message into momentum.",

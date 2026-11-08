@@ -52,7 +52,7 @@ export default function StracticalLeaderGuide() {
               Free Download
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-white mb-6 leading-tight">
-              Stop Feeling Like{" "}
+              You're More Than{" "}
               <span className="text-gold">"Just a Manager"</span>
             </h1>
             <div className="space-y-4 text-lg md:text-xl text-white/90 leading-relaxed mb-8">

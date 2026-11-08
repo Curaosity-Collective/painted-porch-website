@@ -13,6 +13,7 @@ const sierra: SpeakerData = {
   firstName: "Sierra",
   title: "Chief Joy Officer | M.B.A., Mind-Body Architect | Mindfulness Sherpa",
   seriesName: "The Radical Mindfulness Series",
+  heroBadgeLabel: "From Overwhelmed to Om",
   seriesIntro:
     "Seventy-five percent of employees report burnout, but it doesn't have to be that way. In this uplifting speaker series, Sierra guides teams to recharge, refocus, and reconnect through mindfulness-based strategies that build resilience and well-being.",
   bio: [
@@ -68,10 +69,10 @@ const sierra: SpeakerData = {
     "Increase mindfulness, creativity, and emotional agility",
     "Build cultures of wellness that thrive through change",
   ],
-  outcomesClosing: "It's time to stop running on empty, and start leading from within.",
+  outcomesClosing: "Running on empty isn't a strategy. Let's lead from within.",
   workshopHeading: "Continue the Work: Mindfulness Workshops & Wellness Sessions",
   workshopIntro:
-    "Turn inspiration into transformation with follow-up experiences designed to help your team integrate calm, clarity, and resilience into everyday life and leadership.",
+    "Turn inspiration into transformation with follow-up experiences where your team builds calm, clarity, and resilience into everyday life and leadership.",
   workshopDetails: [
     "Guided mindfulness practices to reset and refocus",
     "Personalized tools to manage burnout and emotional fatigue",

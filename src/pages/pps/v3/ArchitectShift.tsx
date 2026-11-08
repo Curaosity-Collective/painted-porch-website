@@ -105,12 +105,12 @@ const faqs: { q: ReactNode; a: ReactNode; key: string }[] = [
     key: "appraisal-first",
     q: (
       <>
-        Do we need the Epic <ShIFt /> Organizational Appraisal first?
+        Where does the Epic <ShIFt /> Organizational Appraisal fit in?
       </>
     ),
     a: (
       <>
-        Yes. The appraisal is required before Architect <ShIFt />, and it begins with a Clarity Call. Your P.A.T.H.
+        It's the first step. Architect <ShIFt /> builds on the appraisal, which begins with a Clarity Call. Your P.A.T.H.
         Compass grounds the intensive in shared evidence about your organization's architecture and capability.
       </>
     ),
@@ -231,7 +231,7 @@ export default function ArchitectShift() {
                 <li>90-day strategic sprint focused on the pillars identified in the intensive</li>
                 <li>1.5-day sprint retrospective and next-steps decision</li>
                 <li>
-                  Epic <ShIFt /> Organizational Appraisal required beforehand
+                  Begins with the Epic <ShIFt /> Organizational Appraisal
                 </li>
               </ul>
               <p className="label-kicker mt-5 text-muted-foreground">Investment</p>
@@ -393,7 +393,7 @@ export default function ArchitectShift() {
               The Epic <ShIFt /> Organizational Appraisal reveals where you really stand on the path to your next
               stage of becoming — and what's blocking progress.
               This interview-led organizational 360 includes six interviews (three executives, and three people from
-              mid-level through the frontline) and your P.A.T.H. Compass. It's required before Architect <ShIFt /> and
+              mid-level through the frontline) and your P.A.T.H. Compass. It's the first step into Architect <ShIFt />, and it
               begins with a Clarity Call.
             </p>
             <Link

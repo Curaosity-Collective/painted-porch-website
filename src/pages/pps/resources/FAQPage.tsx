@@ -156,8 +156,8 @@ const sitewideFaqCategories: FAQCategory[] = [
         question: "Do we need the Epic ShIFt Organizational Appraisal before a workshop?",
         answer: (
           <>
-            No. <FaqLink to="/workshops">Team workshops</FaqLink> stand on their own, though some teams find
-            the appraisal's insight valuable context. The appraisal is required before Architect ShIFt.
+            Not for most. <FaqLink to="/workshops">Leadership and team development workshops</FaqLink> stand on their own, though some teams find
+            the appraisal's insight valuable context. For Phase Zero Strategic Workshops and Architect ShIFt, the appraisal is the first step.
           </>
         ),
       },
@@ -188,7 +188,7 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "What's the format for Leadership Labs?",
-        answer: "Leadership Labs are 6–12 week cohort programs with biweekly or monthly sessions, peer accountability and individual coaching touchpoints. Each lab focuses on one theme (Stractical Leadership, Leading Change and others) and is capped at 25 leaders from different organizations.",
+        answer: "Leadership Labs are 6–12 week cohort programs with weekly or biweekly sessions and peer accountability. Each lab focuses on one theme (Stractical Leadership, Leading Change and others) and is capped at 25 leaders from different organizations.",
       },
       {
         question: "What if I'm not in an official leadership role?",

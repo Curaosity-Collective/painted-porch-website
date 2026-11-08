@@ -495,7 +495,7 @@ export default function SpeakingWorkshopTopics() {
   useDocumentSeo({
     title: "Speaking & Workshop Topics | Painted Porch Strategies",
     description:
-      "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic can be delivered as a keynote, an interactive workshop, or both.",
+      "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic works as a keynote, an interactive workshop, or both.",
     ogImage: speakingHero,
     jsonLd: itemListJsonLd,
   });
@@ -529,7 +529,7 @@ export default function SpeakingWorkshopTopics() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="rounded border border-border bg-muted/30 p-6">
               <div className="text-sm font-poppins font-semibold text-teal uppercase tracking-wide mb-2">Foundational</div>
-              <p className="text-body-sm text-foreground">Leadership, culture, and the Stoic mindset required to lead change instead of survive it.</p>
+              <p className="text-body-sm text-foreground">Leadership, culture, and the Stoic mindset it takes to lead change, not just react to it.</p>
             </div>
             <div className="rounded border border-border bg-muted/30 p-6">
               <div className="text-sm font-poppins font-semibold text-lime-green uppercase tracking-wide mb-2">Operational</div>
@@ -542,7 +542,7 @@ export default function SpeakingWorkshopTopics() {
           </div>
           <div className="mt-10 rounded bg-navy text-white p-6 md:p-8 text-center">
             <p className="text-body text-white/90">
-              <strong className="text-gold">Speaking ignites. Workshops activate.</strong> Every topic below can be delivered as a keynote, expanded into a 2+ hour workshop, or sequenced as both: a keynote to spark the room, then a workshop to turn insight into shared practice.
+              <strong className="text-gold">Speaking ignites. Workshops activate.</strong> Every topic below works as a keynote, expands into a 2+ hour workshop, or runs as both: a keynote to spark the room, then a workshop to turn insight into shared practice.
             </p>
           </div>
         </div>
