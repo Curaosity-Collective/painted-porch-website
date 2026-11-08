@@ -789,7 +789,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
                 if (/\(launching soon\)/.test(h))
                   return "The program your answers point to. Join its launch list to hear first when it opens.";
                 if (/once the epic shift (organizational )?appraisal|once the blue door|after the blue door|after blue door/.test(h))
-                  return "These require the Epic ShIFt Organizational Appraisal first so they can be sequenced to what it surfaces about your organization.";
+                  return "These build on the Epic ShIFt Organizational Appraisal, so they can be sequenced to what it surfaces about your organization.";
                 if (/epic shift (organizational )?appraisal|blue.?door|deeper/.test(h))
                   return "The best next step toward any deeper, organization-wide engagement. It begins with a Clarity Call.";
                 if (/speaking|keynote/.test(h))

@@ -153,7 +153,7 @@ const TERMINOLOGY = [
   { term: "Phase Zero™", rule: "The strategic authorship stage before execution begins. Trademark on first use." },
   { term: "P.A.T.H.™", rule: "Prepare, Align, Take Off, Habit. The execution methodology." },
   { term: "The Painted Porch Pillars™", rule: "Cultural Cornerstone, Operational Frame, Living Ecosystem. Never the deprecated names." },
-  { term: "The Blue Door", rule: "$1,500 organizational appraisal. Bold and cobalt. Prerequisite for organizational engagements." },
+  { term: "The Blue Door", rule: "$1,500 organizational appraisal. Bold and cobalt. The first step into organizational engagements." },
   { term: "Trademarks", rule: "One ™ per page total, on the primary mention of that page's main concept. Never in shared components." },
 ];
 

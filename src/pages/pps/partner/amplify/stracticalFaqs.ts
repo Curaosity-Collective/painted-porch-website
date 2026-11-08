@@ -17,10 +17,6 @@ export const stracticalFaqCategories: FAQCategory[] = [
         question: "What materials do I receive?",
         answer: "You'll receive a comprehensive Stractical Action Guide with frameworks, strategic questions, and language patterns you can apply immediately. You'll also develop your own Personal Stractical Blueprint™ during the program.",
       },
-      {
-        question: "Is there a community or peer support?",
-        answer: "Yes! Participants get access to a private community where you can connect with fellow leaders, share wins, ask questions, and continue the conversation between sessions.",
-      },
     ],
   },
   {
@@ -28,7 +24,7 @@ export const stracticalFaqCategories: FAQCategory[] = [
     faqs: [
       {
         question: `What does the ${WORKSHOP_PRICE_DISPLAY} investment include?`,
-        answer: "Your investment covers all 6 live sessions (including the one-month follow-up), 60-day access to session recordings, the Stractical Toolkit and Action Guide, your Personal Blueprint development, and access to the private community.",
+        answer: "Your investment covers all 6 live sessions (including the one-month follow-up), 60-day access to session recordings, the Stractical Toolkit and Action Guide, and your Personal Blueprint development.",
       },
       {
         question: "Is there a money-back guarantee?",
@@ -49,7 +45,7 @@ export const stracticalFaqCategories: FAQCategory[] = [
       },
       {
         question: "Do I need the Epic ShIFt Organizational Appraisal before joining?",
-        answer: "No. The Epic ShIFt Organizational Appraisal is not required. This Lab focuses on individual leadership capacity and doesn't require an organizational assessment.",
+        answer: "No. This Lab focuses on individual leadership capacity, so it stands on its own, without an organizational appraisal.",
       },
       {
         question: "How is this different from other leadership programs?",

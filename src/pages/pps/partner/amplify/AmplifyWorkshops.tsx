@@ -380,7 +380,7 @@ export default function AmplifyWorkshops() {
                           </ul>
                         </div>
                       )}
-                      <p className="text-body text-foreground/70 italic mt-4">No <span className="font-bold text-bluedoor">Epic ShIFt Organizational Appraisal</span> required</p>
+                      <p className="text-body text-foreground/70 italic mt-4">Open to any team, with or without the <span className="font-bold text-bluedoor">Epic ShIFt Organizational Appraisal</span></p>
                     </div>
                   );
                 })}

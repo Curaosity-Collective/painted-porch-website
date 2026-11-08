@@ -35,7 +35,7 @@ const labFaqCategories: FAQCategory[] = [
       },
       {
         question: "Do I need the Epic ShIFt Organizational Appraisal before joining a Leadership Lab?",
-        answer: "No. The Epic ShIFt Organizational Appraisal is not required for Leadership Labs. Labs are designed for individual leaders and don't require an organizational assessment.",
+        answer: "No. Leadership Labs are designed for individual leaders, so they stand on their own, without an organizational appraisal.",
       },
       {
         question: "What if I'm not in an official leadership capacity?",

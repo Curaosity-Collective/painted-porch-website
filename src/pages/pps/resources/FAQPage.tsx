@@ -156,8 +156,8 @@ const sitewideFaqCategories: FAQCategory[] = [
         question: "Do we need the Epic ShIFt Organizational Appraisal before a workshop?",
         answer: (
           <>
-            No. <FaqLink to="/workshops">Team workshops</FaqLink> stand on their own, though some teams find
-            the appraisal's insight valuable context. The appraisal is required before Architect ShIFt.
+            Not for most. <FaqLink to="/workshops">Leadership and team development workshops</FaqLink> stand on their own, though some teams find
+            the appraisal's insight valuable context. For Phase Zero Strategic Workshops and Architect ShIFt, the appraisal is the first step.
           </>
         ),
       },

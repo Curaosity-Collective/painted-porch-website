@@ -37,8 +37,12 @@ const BATCH_1 = [
 
 const PAGES = [...NEW_DESIGN, ...BATCH_1];
 
+// The page's text without its code comments, whitespace collapsed.
 const read = (path: string) =>
-  readFileSync(join(process.cwd(), "src/pages/pps", path), "utf-8").replace(/\s+/g, " ");
+  readFileSync(join(process.cwd(), "src/pages/pps", path), "utf-8")
+    .replace(/\/\*[\s\S]*?\*\//g, " ")
+    .replace(/^\s*\/\/.*$/gm, " ")
+    .replace(/\s+/g, " ");
 
 // "We help", "we've supported", "we provide"...: Brand Bible 4.4 servant language.
 // Help and support may still describe what clients, cultures, systems or charities do.
@@ -54,7 +58,17 @@ const SERVICE_PASSIVE = /\bcan be delivered\b|\bdesigned to help\b|\bto help (?:
 const MOST_OTHERS =
   /\bmost (?:change work|change methodologies|methodologies|team-building)\b|\bmost (?:organizations|programs) (?:skip|teach|miss|ignore)\b|\bindustry default\b/i;
 
+// The Epic ShIFt Organizational Appraisal is the first step, or the basis, for the work that builds on it.
+// It is never "required", "required beforehand" or a "prerequisite".
+const APPRAISAL_REQUIRED =
+  /\b(?:is|it's|are) required (?:before|for)\b|\brequired beforehand\b|\bprerequisite\b|appraisal required\b|\bnot required for leadership labs\b|require the epic shift/i;
+const APPRAISAL_PAGES = [...PAGES, "resources/FAQPage.tsx", "BrandLibrary.tsx", "../../components/pps/quiz/PathFinderQuizDialog.tsx"];
+
 describe("public copy invites rather than pushes", () => {
+  it.each(APPRAISAL_PAGES)("%s presents the appraisal as the first step, not a requirement", (path) => {
+    expect(read(path)).not.toMatch(APPRAISAL_REQUIRED);
+  });
+
   it.each(PAGES)("%s casts Painted Porch as a partner, not a service provider", (path) => {
     expect(read(path)).not.toMatch(SERVICE_VERB);
     expect(read(path)).not.toMatch(SERVICE_PASSIVE);
@@ -74,6 +88,13 @@ describe("public copy invites rather than pushes", () => {
     expect("For twenty years we've helped leaders").toMatch(SERVICE_VERB);
     expect("Will our culture support this change?").not.toMatch(SERVICE_VERB);
     expect("Every topic can be delivered as a keynote").toMatch(SERVICE_PASSIVE);
+    expect("The appraisal is required before Architect ShIFt.").toMatch(APPRAISAL_REQUIRED);
+    expect("Epic ShIFt Organizational Appraisal required beforehand").toMatch(APPRAISAL_REQUIRED);
+    expect("Prerequisite: the Epic ShIFt Organizational Appraisal").toMatch(APPRAISAL_REQUIRED);
+    expect("Epic ShIFt Organizational Appraisal Required").toMatch(APPRAISAL_REQUIRED);
+    expect("These require the Epic ShIFt Organizational Appraisal first").toMatch(APPRAISAL_REQUIRED);
+    expect("In-person is ideal when possible, but not required.").not.toMatch(APPRAISAL_REQUIRED);
+    expect("Prerequisites for each potential shift").not.toMatch(APPRAISAL_REQUIRED);
     expect("follow-up workshops designed to help your team apply").toMatch(SERVICE_PASSIVE);
     expect("the art of presence to help professionals eliminate static").toMatch(SERVICE_PASSIVE);
   });
