@@ -89,7 +89,7 @@ export const routes = [
       },
       {
         h2: "Other ways in",
-        body: "Team workshops for leadership and cross-functional teams; keynotes from Amy Yackowski, Rob Hunter and Sierra Ramm Cantrell; and mini courses, masterclasses, labs and assessments for individuals.",
+        body: "Team workshops for leadership and cross-functional teams; keynotes from Amy Yackowski, Rob Hunter and Sierra Cantrell; and mini courses, masterclasses, labs and assessments for individuals.",
       },
     ],
     links: commonLinks,
@@ -110,13 +110,13 @@ export const routes = [
       },
       {
         h2: "Different disciplines. Shared conviction.",
-        body: "Amy Yackowski, Founder, Chief Evolution Officer and Organizational Shift Strategist. Rob Hunter, Chief Storytelling Officer and M.C., Master of Communication. Sierra Ramm Cantrell, Chief Joy Officer, M.B.A. (Mind-Body Architect) and Mindfulness Sherpa.",
+        body: "Amy Yackowski, Founder, Chief Evolution Officer and Organizational Shift Strategist. Rob Hunter, Chief Storytelling Officer and M.C., Master of Communication. Sierra Cantrell, Chief Joy Officer, M.B.A. (Mind-Body Architect) and Mindfulness Sherpa.",
       },
     ],
     links: [
       { href: "/speaking/amy", label: "Amy Yackowski" },
       { href: "/speaking/rob", label: "Rob Hunter" },
-      { href: "/speaking/sierra", label: "Sierra Ramm Cantrell" },
+      { href: "/speaking/sierra", label: "Sierra Cantrell" },
       { href: "/phase-zero", label: "Phase Zero: our approach" },
       { href: "/about/impact", label: "Results & Impact" },
       { href: "/#clarity-call", label: "Start with a Clarity Call" },

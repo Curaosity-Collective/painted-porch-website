@@ -183,7 +183,7 @@ const OTHER_WAYS = [
   // No price here (PPS-DEC-0022). Workshops start at $7,500; each one's price is on the
   // Workshops page (PPS Admin, 2026-11-05).
   { title: "Team Workshops", to: "/workshops", body: "For leadership and cross-functional teams." },
-  { title: "Speaking", to: "/speaking", body: "Keynotes from Amy Yackowski, Rob Hunter and Sierra Ramm Cantrell." },
+  { title: "Speaking", to: "/speaking", body: "Keynotes from Amy Yackowski, Rob Hunter and Sierra Cantrell." },
   { title: "For individuals", to: "/for-individuals", body: "Assessments, masterclasses and mini courses, and Leadership Labs, in one place." },
 ];
 
