@@ -365,7 +365,9 @@ function buildHtml(route) {
   html = replaceTag(
     html,
     /<div id="root">[\s\S]*?<\/div>/,
-    `<div id="root">${renderBody(route)}</div>`,
+    // Crawler text sits in <noscript> so JS-enabled visitors never see a
+    // flash of unstyled text before React mounts.
+    `<div id="root"></div><noscript>${renderBody(route)}</noscript>`,
   );
 
   return html;
