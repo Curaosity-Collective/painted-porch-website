@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { getCurrentPageUrl, getSiteUrl, toAbsoluteSiteUrl } from "@/lib/site-url";
+import approvedPages from "@/config/approvedPageMetadata.json";
 
 type SeoConfig = {
   title?: string;
@@ -134,13 +135,13 @@ const overrideCache = new Map<string, SeoOverride | null>();
 
 function useSeoOverride(pathname: string): SeoOverride | null {
   const [override, setOverride] = useState<SeoOverride | null>(
-    overrideCache.has(pathname) ? overrideCache.get(pathname)! : null,
+    overrideCache.get(pathname) ?? null,
   );
 
   useEffect(() => {
     let cancelled = false;
     if (overrideCache.has(pathname)) {
-      setOverride(overrideCache.get(pathname)!);
+      setOverride(overrideCache.get(pathname) ?? null);
       return;
     }
     supabase
@@ -186,6 +187,7 @@ export function useDocumentSeo({
 
   useEffect(() => {
     const defaultSeo = getDefaultSeo();
+    const approved = (approvedPages as Record<string, { ogImage?: string; robots?: string }>)[location.pathname];
 
     // Resolution order: DB override > inline hook arg > default
     const resolvedTitle = override?.title || title || defaultSeo.title;
@@ -199,7 +201,7 @@ export function useDocumentSeo({
       : keywords?.length
         ? keywords
         : null;
-    const resolvedRobots = override?.robots || robots || defaultSeo.robots;
+    const resolvedRobots = approved?.robots || override?.robots || robots || defaultSeo.robots;
 
     // Merge FAQ JSON-LD from AEO overrides with any code-supplied jsonLd.
     const baseJsonLd = override?.jsonld ?? jsonLd;
@@ -225,7 +227,7 @@ export function useDocumentSeo({
       ? toAbsoluteSiteUrl(canonicalSource)
       : defaultSeo.canonical;
 
-    const ogImageSource = override?.og_image || ogImage;
+    const ogImageSource = override?.og_image || approved?.ogImage || ogImage;
     const resolvedOgImage = ogImageSource ? toAbsoluteSiteUrl(ogImageSource) : defaultSeo.ogImage;
 
     document.title = resolvedTitle;
