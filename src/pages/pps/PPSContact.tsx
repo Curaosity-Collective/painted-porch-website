@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
@@ -8,6 +8,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/v3/Bits";
+import { ShIFt } from "@/components/v3/ShIFt";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import contactHero from "@/assets/heroes/contact-hero.jpg";
@@ -240,7 +241,7 @@ export default function PPSContact() {
       console.error("Contact form error:", err);
       toast({
         title: "Something went wrong",
-        description: "Please try again or email us directly.",
+        description: "Please try again, or email us at explore@onthepaintedporch.com.",
         variant: "destructive",
       });
     } finally {
@@ -254,8 +255,8 @@ export default function PPSContact() {
       <PageHero
         kicker="Get In Touch"
         title="Let's Start a Conversation"
-        intro="Whether you're exploring possibilities or ready to move forward, we'd love to hear from you to determine next steps for partnering together on the Painted Porch."
-        action={{ label: "Contact Us", to: "#contact-options" }}
+        intro="Whether you're exploring what's possible or ready to move forward, tell us what you're working toward. We'll find the right next step together."
+        action={{ label: "Drop Us a Line", to: `#${CONTACT_FORM_SECTION_ID}` }}
         // Contact's own photo, colourful porch chairs waiting for a conversation (PPS Admin, 2026-11-07).
         image={contactHero}
         imageAlt="Adirondack chairs painted teal, raspberry and lime on a porch in warm evening light"
@@ -271,7 +272,7 @@ export default function PPSContact() {
                 Drop Us a Line
               </h2>
               <p className="text-body text-muted-foreground">
-                You've got questions. We've got answers. Send us a message with the form below and we'll start a conversation on the porch.
+                Send us a note below, and we'll start a conversation on the porch.
               </p>
             </div>
 
@@ -282,8 +283,12 @@ export default function PPSContact() {
                   Your message has been received. We'll review it and get back to you soon.
                 </p>
                 <p className="text-body -sm text-muted-foreground">
-                  In the meantime, feel free to explore our{" "}
-                  <a href="/partner" className="text-primary underline">partnership options</a>.
+                  {/* /partner only forwards here; the link names where it goes (PPS Admin, 2026-11-09). */}
+                  In the meantime, explore{" "}
+                  <Link to="/the-path" className="text-primary underline">
+                    The P.A.T.H. to Epic <ShIFt />
+                  </Link>
+                  .
                 </p>
               </div>
             ) : (
@@ -452,7 +457,7 @@ export default function PPSContact() {
                           What's your budget? <span className="text-destructive">*</span>
                         </label>
                         <p className="text-body text-muted-foreground mb-2">
-                          If unknown, select a reasonable estimated amount. Our Workshops, Speaking, and Advisory/Coaching start at $5,000.
+                          Not sure yet? Pick your best estimate. Workshops start at $7,500; speaking and advisory start at $5,000.
                         </p>
                         <select
                           name="budget-range"
@@ -527,7 +532,7 @@ export default function PPSContact() {
                     <>
                       <div>
                         <label className="block text-sm font-medium text-navy mb-2">
-                          Give Us the details <span className="text-destructive">*</span>
+                          Give us the details <span className="text-destructive">*</span>
                         </label>
                         <textarea
                           rows={5}
@@ -596,7 +601,7 @@ export default function PPSContact() {
             <div className="p-6 bg-lime/10 border border-lime/30 rounded">
               <p className="text-body text-lime font-semibold mb-2">Our Partnership Promise</p>
               <p className="text-body -sm text-foreground">
-                We only enter partnerships where we believe meaningful progress is possible - together. If we're not the right fit, we'll tell you and try to point you in the right direction.
+                We only enter partnerships where we believe meaningful progress is possible, together. If we're not the right fit, we'll tell you that, too, and connect you with the right partner for your stage.
               </p>
             </div>
           </div>

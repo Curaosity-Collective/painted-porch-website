@@ -47,7 +47,8 @@ export default function FAQSectionAlt() {
   const { ref: sectionRef, isVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   return (
-    <section className="py-12 md:py-20 bg-muted/50">
+    // Dollar amounts in FAQs keep the answer text's color, not the green money highlight (PPS Admin, 2026-11-09).
+    <section className="py-12 md:py-20 bg-muted/50" data-money-highlight="off">
       <div className="container max-w-4xl mx-auto px-6">
         <div className="text-center"><Eyebrow variant="plain" tone="gold" as="p">Got Questions?</Eyebrow></div>
         <h2 className="text-3xl md:text-4xl font-bold text-navy text-center mb-4">

@@ -163,7 +163,7 @@ const nextSteps = [
   {
     phase: "During the Program",
     items: [
-      "Weekly live sessions every Wednesday at 11am MST/PT (2pm ET)",
+      "Weekly live sessions every Wednesday at 11am PT (2pm ET)",
       "Weekly reflection prompts and application exercises",
       "60-day access to all session recordings",
     ],
@@ -194,7 +194,7 @@ export default function StracticalLeaderCheckout() {
             {isExpired ? (
               <>Next <span className="text-gold">Stractical Leader</span> Lab Coming Soon</>
             ) : (
-              <>Transforming Your <span className="text-gold">Leadership Impact</span></>
+              <>Become a <span className="text-gold">Stractical Leader</span></>
             )}
           </h1>
           <p className="text-body font-poppins font-medium text-white/90 mb-2">
@@ -206,7 +206,7 @@ export default function StracticalLeaderCheckout() {
             </p>
           ) : (
             <p className="text-body text-white/60">
-              6 Live Sessions &nbsp;|&nbsp; Wednesdays 11:00 AM - 12:00 PM MST/PT (2:00 PM - 3:00 PM ET) &nbsp;|&nbsp; Starting {WORKSHOP_DATE_SHORT}
+              6 Live Sessions &nbsp;|&nbsp; Wednesdays 11:00 AM - 12:00 PM PT (2:00 PM - 3:00 PM ET) &nbsp;|&nbsp; Starting {WORKSHOP_DATE_SHORT}
             </p>
           )}
         </div>
@@ -249,8 +249,8 @@ export default function StracticalLeaderCheckout() {
               <div className="p-6 text-center">
                 <p className="text-body -sm text-foreground/70 mb-6">
                   {isExpired
-                    ? "This is more than a workshop. It's a fundamental shift in how you show up, how you're perceived, and how you influence decisions. Join the waitlist to secure early access to the next cohort."
-                    : "This is more than a workshop. It's a fundamental shift in how you show up, how you're perceived, and how you influence decisions."
+                    ? "This is more than a workshop. It's a fundamental shIFt in how you show up, how you're perceived, and how you influence decisions. Join the waitlist to secure early access to the next cohort."
+                    : "This is more than a workshop. It's a fundamental shIFt in how you show up, how you're perceived, and how you influence decisions."
                   }
                 </p>
                 {isExpired ? (
@@ -334,7 +334,7 @@ export default function StracticalLeaderCheckout() {
               100% Confidence Guarantee
             </h2>
             <p className="text-body text-foreground/80 leading-relaxed max-w-xl mx-auto mb-4">
-              If after Session 1 you don't feel this Lab will transform your strategic impact, simply let us know and we'll refund your full investment.
+              If, after Session 1, you don't feel this Lab will grow your strategic influence, let us know within 7 days and we'll refund your full investment.
             </p>
             <p className="text-body -sm text-foreground/60 italic">
               We're confident because we've seen this framework work. When managers embrace the Stractical Blueprint, they stop executing directives and start shaping strategy.
@@ -356,7 +356,7 @@ export default function StracticalLeaderCheckout() {
           {isExpired ? (
             <>
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-white mb-4">
-                Don't Miss the Next Cohort
+                Be First for the Next Cohort
               </h2>
               <p className="text-body text-white/70 mb-8">
                 New dates for the next Stractical Leader Lab are on the way. Join the waitlist to get early access when they're announced.
@@ -372,7 +372,7 @@ export default function StracticalLeaderCheckout() {
           ) : (
             <>
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-white mb-4">
-                Secure Your Spot Now
+                Claim Your Seat
               </h2>
               <p className="text-body text-white/50 mb-1 font-poppins uppercase tracking-wider">Total Investment</p>
               <p className="text-body text-5xl font-poppins font-bold text-gold mb-8">{WORKSHOP_PRICE_DISPLAY}</p>
@@ -392,7 +392,7 @@ export default function StracticalLeaderCheckout() {
           </p>
           {!isExpired && (
             <p className="text-body text-gold font-poppins font-semibold mt-8">
-              You're ready. Your team is ready. Let's make this transformation real.
+              Claim your seat at the table for the decisions that shape what's next.
             </p>
           )}
         </div>

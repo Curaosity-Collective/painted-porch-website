@@ -16,10 +16,12 @@ import amyPhoto from "@/assets/team/amy-speaking-portrait.jpg";
 import robPhoto from "@/assets/team/rob-hunter.jpg";
 import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
 
-const BIO = "Painted Porch Strategies is a change-origination practice. For more than twenty years, we've worked at the moment where leaders have the greatest leverage: before direction hardens into a plan, while there is still room to imagine, align, and architect what comes next. We build with your leaders rather than for them, expanding their capacity to author the future long after we leave.";
+const BIO = "Painted Porch Strategies is a change-origination practice. We've led transformation and implementation work since 2005, and founded the firm in 2020 to close the gaps we kept seeing in how change was done. We work at the moment where leaders have the most influence: before direction hardens into a plan, while there is still room to imagine, align, and architect what comes next. We build with your leaders rather than for them, expanding their capacity to author the future long after we leave.";
+// Amy's photo is a tall portrait: a centred square crop showed her chin and shoulders, so hers is anchored to the
+// top, which centres her face in the circle (PPS Admin, 2026-11-09: "center her face more").
 const SPEAKERS = [
-  { name: "Amy Yackowski", role: "Founder | Chief Evolution Officer | Organizational Shift Strategist", photo: amyPhoto, href: "/speaking/amy", color: "border-primary", bio: "Amy blends Stoic philosophy, emotional intelligence, and practical change tools. For over 20 years, she has partnered with leaders and teams in staffing, energy, and healthcare to turn uncertainty into aligned action.", topics: ["Change Authorship", "Team Alignment", "Emotional Intelligence", "Stoicism at Work"] },
-  { name: "Rob Hunter", role: "Chief Storytelling Officer | M.C., Master of Communication", photo: robPhoto, href: "/speaking/rob", color: "border-muted-foreground", bio: "Rob is a radio host, journalist, and storyteller with 27 years of broadcasting experience. He brings the science of messaging and the art of storytelling together to help leaders speak with impact, listen with intention, and lead with presence.", topics: ["High-Fidelity Communication", "The Power of Story", "Executive Presence"] },
+  { name: "Amy Yackowski", role: "Founder | Chief Evolution Officer | Organizational Shift Strategist", photo: amyPhoto, photoPosition: "object-top", href: "/speaking/amy", color: "border-primary", bio: "Amy blends Stoic philosophy, emotional intelligence, and practical change tools. For over 20 years, she has partnered with leaders and teams in staffing, energy, and healthcare to turn uncertainty into aligned action.", topics: ["Change Authorship", "Team Alignment", "Emotional Intelligence", "Stoicism at Work"] },
+  { name: "Rob Hunter", role: "Chief Storytelling Officer | M.C., Master of Communication", photo: robPhoto, href: "/speaking/rob", color: "border-muted-foreground", bio: "Rob is a radio host, journalist, and storyteller with 27 years of broadcasting experience. He brings the science of messaging and the art of storytelling together, so leaders speak with impact, listen with intention, and lead with presence.", topics: ["High-Fidelity Communication", "The Power of Story", "Executive Presence"] },
   { name: "Sierra Ramm Cantrell", role: "Chief Joy Officer | M.B.A., Mind-Body Architect | Mindfulness Sherpa", photo: sierraPhoto, href: "/speaking/sierra", color: "border-gold", bio: "Sierra is a mindfulness coach, speaker, and wellness leader. For over 15 years, she has guided teams and leaders through stress, burnout, and change with simple, science-backed practices that build lasting resilience.", topics: ["Mindfulness", "Burnout Recovery", "Resilience & Well-being"] },
 ];
 const ENGAGEMENTS = [
@@ -81,7 +83,7 @@ export default function PressKit() {
       <section id="mission" aria-labelledby="mission-heading" className="bg-primary/10 border-y border-primary/20">
         <div className={SECTION}><Eyebrow tone="teal">Our Mission</Eyebrow><h2 id="mission-heading" className={`${H2} max-w-4xl`}>Extraordinary Teams. Epic <span>Sh<span className="text-primary">IF</span>t™.</span></h2>
           <p className="text-lead max-w-4xl mt-6">Everything we do serves one purpose: developing extraordinary teams who can do epic shIFt and carry the mission further than any single leader could.</p>
-          <p className="text-body max-w-4xl mt-5">We look at leadership and culture, systems and workflows, and the human capacity underneath both. Grounded in Stoic wisdom and driven by emotional intelligence, we help leaders imagine, align, and author what comes next.</p>
+          <p className="text-body max-w-4xl mt-5">We look at leadership and culture, systems and workflows, and the human capacity underneath both. Grounded in Stoic wisdom and driven by emotional intelligence, we partner with leaders to imagine, align, and architect what comes next.</p>
         </div>
       </section>
 
@@ -89,7 +91,7 @@ export default function PressKit() {
         <Eyebrow tone="purple">The Voices of the Porch</Eyebrow><h2 id="speakers-heading" className={H2}>Meet Our Speakers</h2>
         <div className="grid gap-8 md:grid-cols-3 mt-10">
           {SPEAKERS.map((speaker) => <article key={speaker.name} className={`border-t-4 ${speaker.color} pt-6 flex flex-col items-start`}>
-            <img src={speaker.photo} alt={speaker.name} width={160} height={160} loading="lazy" className="w-40 h-40 rounded-full object-cover" />
+            <img src={speaker.photo} alt={speaker.name} width={160} height={160} loading="lazy" className={`w-40 h-40 rounded-full object-cover ${"photoPosition" in speaker ? speaker.photoPosition : ""}`} />
             <h3 className="font-poppins text-2xl font-semibold text-navy mt-6">{speaker.name}</h3>
             <p className="text-body-sm text-primary font-semibold mt-2">{speaker.role}</p>
             <p className="text-body mt-4">{speaker.bio}</p>
@@ -127,7 +129,7 @@ export default function PressKit() {
       <section id="press-contact" aria-labelledby="press-contact-heading" className="bg-muted/50 border-y border-border">
         <div className={SECTION}><Eyebrow tone="teal">Press Inquiries</Eyebrow><h2 id="press-contact-heading" className={H2}>Press Contact</h2>
           <p className="text-lead mt-5">Media Relations</p>
-          <p className="text-body mt-3 break-words">speaking@onthepaintedporch.com</p>
+          <p className="text-body mt-3 break-words"><a href="mailto:speaking@onthepaintedporch.com" className="text-primary font-semibold underline underline-offset-2 hover:text-primary/80">speaking@onthepaintedporch.com</a></p>
           <p className="text-body mt-3 max-w-3xl">For interviews, speaking opportunities, speaker photos, or additional press materials, contact our team.</p>
           <div className="flex flex-wrap gap-4 mt-6"><Button asChild variant="outline" className="gap-2"><a href="/downloads/painted-porch-strategies-press-kit.pdf" download="painted-porch-strategies-press-kit.pdf"><Download className="h-4 w-4" />Download Press Kit PDF</a></Button></div>
           <div className="max-w-3xl mt-10"><h3 className="font-poppins text-2xl font-semibold text-navy mb-6">Send a Press Inquiry</h3><PressInquiryForm /></div>

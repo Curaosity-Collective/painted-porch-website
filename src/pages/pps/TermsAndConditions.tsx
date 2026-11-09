@@ -29,9 +29,9 @@ const TermsAndConditions = () => {
   };
 
   const headlines: Record<string, { headline: string; sub: string }> = {
-    terms: { headline: "Terms of The Porch.", sub: "The Version You Might Actually Read" },
+    terms: { headline: "Terms of The Porch.", sub: "The version you might actually read" },
     privacy: { headline: "Privacy on The Porch.", sub: "What we collect, why, and how to make us forget" },
-    cookies: { headline: "Cookies on The Porch.", sub: "Crumbs, not cookies (and we'll explain the difference)" },
+    cookies: { headline: "Cookies on The Porch.", sub: "Crumbs, not cookies: the few we use, and why" },
   };
 
   return (
@@ -42,7 +42,7 @@ const TermsAndConditions = () => {
         intro={
           <>
             <p>{headlines[tab].sub}</p>
-            <p className="mt-3 italic">Last Updated: November 6, 2026</p>
+            <p className="mt-3 italic">Last Updated: November 9, 2026</p>
           </>
         }
         image={termsHero}
@@ -83,7 +83,7 @@ function TermsTabBody() {
         <div className="container max-w-4xl mx-auto px-0">
           <div className="bg-white rounded p-8 border-l-4 border-primary shadow-sm space-y-4">
             <p className="text-body text-foreground leading-relaxed">
-              Most people open Terms &amp; Conditions, register that it's long, and step back from the rabbit hole entirely. We understand. We've made this one worth the trip down.
+              Most of us open Terms &amp; Conditions, see how long they are, and back away from the rabbit hole. We get it. We've made this one worth the trip down.
             </p>
             <p className="text-body text-foreground leading-relaxed">
               The name "Painted Porch" didn't come from marketing. It came from a place, a colonnade in ancient Athens where serious thinkers gathered to reason carefully about how to live and work. That discipline applies here too. This document is the actual agreement between us: what we owe each other, stated plainly.
@@ -101,7 +101,7 @@ function TermsTabBody() {
               When you purchase any product from us, free or paid, we'll add you to our communications database as part of the relationship we're forming. That means you'll hear from us when there's information directly related to your purchase, and when we have a company-wide note we think you'd want to know about (including updates to this very document, see <Link to="/terms?tab=privacy" className="text-primary font-semibold underline">Privacy</Link>).
             </p>
             <p className="text-body text-foreground leading-relaxed">
-              We don't do traditional email marketing. You can unsubscribe at any time, though please know that unsubscribing means you'll also stop receiving updates directly related to products you've purchased.
+              We keep our emails worth opening: insights from our newsletter, the email series you sign up for, and news about what you've purchased, never a flood of sales pitches. You can unsubscribe at any time, though please know that unsubscribing means you'll also stop receiving updates directly related to products you've purchased.
             </p>
           </div>
         </div>
@@ -139,7 +139,7 @@ function TermsTabBody() {
               <li className="text-body">Reverse-engineer, scrape, or harvest content beyond what your license allows.</li>
               <li className="text-body">Impersonate another person, mis-state your affiliation, or share login credentials.</li>
               <li className="text-body">Upload anything unlawful, harassing, defamatory, infringing, or malware-flavored.</li>
-              <li className="text-body">Interfere with the site's operation, no probing, no flooding, no funny business.</li>
+              <li className="text-body">Interfere with the site's operation: no probing, no flooding, no funny business.</li>
               <li className="text-body">Use our AI-assisted tools (assessments, etc.) to generate content for resale or to train another model.</li>
             </ul>
             <p className="text-body italic text-muted-foreground">Inconceivable that we'd have to say it, but here we are.</p>
@@ -193,7 +193,7 @@ function TermsTabBody() {
           </Block>
 
           <Block title="If Things Don't Work Out">
-            <p className="text-body">We're not the Queen of Hearts, we won't be shouting "Off with their heads!" at the first sign of trouble. But if CLIENT is behind in payment or otherwise in default of this AGREEMENT, full payment becomes immediately due and CLIENT is barred from accessing COMPANY's services. COMPANY may immediately collect all outstanding Fees and cease providing services.</p>
+            <p className="text-body">We're not the Queen of Hearts. We won't be shouting "Off with their heads!" at the first sign of trouble. But if CLIENT is behind in payment or otherwise in default of this AGREEMENT, full payment becomes immediately due and CLIENT is barred from accessing COMPANY's services. COMPANY may immediately collect all outstanding Fees and cease providing services.</p>
           </Block>
 
           <Block title="The Money Part">
@@ -211,7 +211,8 @@ function TermsTabBody() {
             <p className="text-body">If CLIENT has accessed a free product, no refund applies.</p>
             <p className="text-body">Upon execution of this AGREEMENT, CLIENT is responsible for the full Fee. If CLIENT decides to cancel or not participate, COMPANY may provide a refund according to the following:</p>
             <ul className="list-disc pl-6 space-y-1">
-              <li className="text-body"><strong>Individual programs:</strong> refund requests within 14 days of purchase</li>
+              <li className="text-body"><strong>On-demand and instant-access programs:</strong> refund requests within 14 days of purchase</li>
+              <li className="text-body"><strong>Leadership Labs:</strong> refund requests within 7 days of the first live session</li>
               <li className="text-body"><strong>Bundled programs:</strong> refund requests within 21 days of purchase</li>
             </ul>
             <p className="text-body">Refund requests may be submitted to <PolicyLink />.</p>
@@ -221,9 +222,9 @@ function TermsTabBody() {
           <Block title="What Kind of Access You Have">
             <p className="text-body">COMPANY may offer different license types:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li className="text-body"><strong>Single-User License</strong>, for your individual use only. Not for client work or sharing.</li>
-              <li className="text-body"><strong>Multi-User License</strong>, for yourself plus the number of licenses purchased. Designed for working with clients who need the PROGRAM for their accounts.</li>
-              <li className="text-body"><strong>Multi-User License + Client Content Access</strong>, same as above, with the addition that your clients may also purchase their own individual access to the PROGRAM.</li>
+              <li className="text-body"><strong>Single-User License</strong>: for your individual use only. Not for client work or sharing.</li>
+              <li className="text-body"><strong>Multi-User License</strong>: for yourself plus the number of licenses purchased. Designed for working with clients who need the PROGRAM for their accounts.</li>
+              <li className="text-body"><strong>Multi-User License + Client Content Access</strong>: same as above, with the addition that your clients may also purchase their own individual access to the PROGRAM.</li>
             </ul>
           </Block>
 
@@ -235,7 +236,7 @@ function TermsTabBody() {
 
           <Block title="Please Don't Make It Weird with Your Bank">
             <p className="text-body">By providing credit card information, CLIENT authorizes COMPANY to charge that card for any unpaid amounts on the agreed payment dates.</p>
-            <p className="text-body">CLIENT agrees not to initiate chargebacks or cancel the card provided as security without COMPANY's prior written consent. Any disputed charges must be raised with COMPANY within 42 calendar days of the billing date, the Answer to Life, the Universe, and Everything, and apparently also the window for billing disputes. CLIENT is responsible for any fees associated with chargebacks or collection efforts.</p>
+            <p className="text-body">CLIENT agrees not to initiate chargebacks or cancel the card provided as security without COMPANY's prior written consent. Any disputed charges must be raised with COMPANY within 42 calendar days of the billing date. (Forty-two: the Answer to Life, the Universe, and Everything, and apparently also the window for billing disputes.) CLIENT is responsible for any fees associated with chargebacks or collection efforts.</p>
             <p className="text-body">CLIENT agrees not to change credit card information without advance notice to COMPANY.</p>
           </Block>
 
@@ -271,7 +272,7 @@ function TermsTabBody() {
           </Block>
 
           <Block title="Where We Land If It Gets Legal">
-            <p className="text-body">If something goes sideways, we'd rather reason through it than fight about it. That instinct has a name, the Stoics called it <em>preferred indifference to conflict</em>, the practice of meeting disputes <em>sine ira et studio</em> (without anger, without favor), and it's why we've chosen arbitration over interpretive dance, megaphone-wielding, or full-blown litigation.</p>
+            <p className="text-body">If something goes sideways, we'd rather reason through it than fight about it. That's a Stoic instinct, reason over reaction, and the Roman historian Tacitus had a phrase for it: <em>sine ira et studio</em>, without anger or bias. It's why we've chosen arbitration over interpretive dance, megaphone-wielding, or full-blown litigation.</p>
             <p className="text-body">This AGREEMENT is governed by the laws of the State of Arizona without giving effect to any principles of conflicts of law. Any dispute or controversy arising out of or relating to this AGREEMENT will be resolved by binding arbitration in Phoenix, Maricopa County, Arizona, under the rules of the American Arbitration Association. The arbitration is binding upon the PARTIES and their successors in interest. The prevailing party may collect all reasonable legal fees from the non-prevailing party.</p>
             <p className="text-body"><strong>Class-action waiver.</strong> To the maximum extent permitted by law, each party waives any right to bring or participate in a class, collective, or representative action against the other. Disputes proceed only on an individual basis.</p>
             <p className="text-body"><strong>Jury trial waiver.</strong> Each party waives the right to a jury trial for any dispute not subject to arbitration.</p>
@@ -295,9 +296,9 @@ function TermsTabBody() {
 
           <div className="pt-6 border-t border-border">
             <p className="text-body text-muted-foreground -sm leading-relaxed italic">
-              You made it to the end. That puts you in rare company. There are five things hidden across these three policies for the truly curious, references, callbacks, a Stoic phrase or two, and at least one moment where the legal language gets a little… galactic. If you found one and know what it means, there's a form waiting at{" "}
+              You made it to the end. That puts you in rare company. There are five things hidden across these three policies for the truly curious: references, callbacks, a Stoic phrase or two, and at least one moment where the legal language gets a little… galactic. If you found one and know what it means, there's a form waiting at{" "}
               <Link to="/found-it" className="text-primary font-semibold underline underline-offset-2 hover:text-primary/80 transition-colors">
-                paintedporchstrategies.com/found-it
+                onthepaintedporch.com/found-it
               </Link>
               . Find one, tell us what it is, and we'll donate $25 to a charity of your choice. So long, and thanks for all the fish.
             </p>
@@ -329,7 +330,7 @@ function PrivacyTabBody() {
 
         <Block title="What We Collect">
           <ul className="list-disc pl-6 space-y-2">
-            <li className="text-body"><strong>You give us:</strong> name, email, phone, organization, role, message content, form responses, assessment answers, payment details (handled by Stripe, we never see your card number), files you upload, and anything you submit via our contact, opt-in, or assessment forms.</li>
+            <li className="text-body"><strong>You give us:</strong> name, email, phone, organization, role, message content, form responses, assessment answers, payment details (handled by Stripe; we never see your card number), files you upload, and anything you submit via our contact, opt-in, or assessment forms.</li>
             <li className="text-body"><strong>Automatically:</strong> IP address (anonymized for analytics), device/browser type, referrer, pages visited, approximate location (city/region), and session timestamps.</li>
             <li className="text-body"><strong>Cookies & similar:</strong> see the <Link to="/terms?tab=cookies" className="text-primary font-semibold underline">Cookie Policy</Link>.</li>
             <li className="text-body"><strong>From third parties:</strong> if you sign in via a social provider or interact with us through our CRM (GoHighLevel), we receive identifiers and engagement metadata.</li>
@@ -338,13 +339,13 @@ function PrivacyTabBody() {
 
         <Block title="Why We Use It (Purposes & Legal Bases)">
           <ul className="list-disc pl-6 space-y-2">
-            <li className="text-body"><strong>Deliver what you bought / signed up for</strong>, legal basis: contract (GDPR Art. 6(1)(b)).</li>
-            <li className="text-body"><strong>Send transactional emails</strong> (receipts, account notices, course delivery, policy updates like this one), contract / legitimate interests.</li>
-            <li className="text-body"><strong>Run analytics and improve the site</strong>, legitimate interests (with IP anonymization and Google Signals disabled). EEA/UK visitors: see "Your rights" below to object.</li>
-            <li className="text-body"><strong>AI-assisted analysis</strong>, contract / legitimate interests. Our site's AI features use Lovable AI to summarize content and create search metadata.</li>
-            <li className="text-body"><strong>Manage advisory client projects</strong> in ClickUp (if you're an advisory client and a project workspace is created for you), contract.</li>
-            <li className="text-body"><strong>Legal compliance, fraud prevention, security</strong>, legal obligation / legitimate interests.</li>
-            <li className="text-body"><strong>Tell you about updates to this policy or our Terms</strong>, legitimate interest in keeping you informed.</li>
+            <li className="text-body"><strong>Deliver what you bought / signed up for</strong>: contract (GDPR Art. 6(1)(b)).</li>
+            <li className="text-body"><strong>Send transactional emails</strong> (receipts, account notices, course delivery, policy updates like this one): contract / legitimate interests.</li>
+            <li className="text-body"><strong>Run analytics and improve the site</strong>: legitimate interests (with IP anonymization and Google Signals disabled). EEA/UK visitors: see "Your rights" below to object.</li>
+            <li className="text-body"><strong>AI-assisted analysis</strong>: contract / legitimate interests. Our site's AI features use Lovable AI to summarize content and create search metadata.</li>
+            <li className="text-body"><strong>Manage advisory client projects</strong> in ClickUp (if you're an advisory client and a project workspace is created for you): contract.</li>
+            <li className="text-body"><strong>Legal compliance, fraud prevention, security</strong>: legal obligation / legitimate interests.</li>
+            <li className="text-body"><strong>Tell you about updates to this policy or our Terms</strong>: legitimate interest in keeping you informed.</li>
           </ul>
           <p className="text-body">We do <strong>not</strong> sell your personal information. We do <strong>not</strong> use it for cross-context behavioral advertising. (CCPA/CPRA: this means we don't "sell" or "share" as those terms are defined.)</p>
         </Block>
@@ -352,17 +353,17 @@ function PrivacyTabBody() {
         <Block title="Who We Share It With (Sub-processors)">
           <p className="text-body">We share personal data with the following service providers strictly to operate the site and deliver our services. Each is bound by a data processing agreement (or equivalent terms):</p>
           <ul className="list-disc pl-6 space-y-1">
-            <li className="text-body"><strong>Lovable Cloud / Supabase</strong>, hosting, database, auth, storage (US)</li>
-            <li className="text-body"><strong>Stripe</strong>, payments (US)</li>
-            <li className="text-body"><strong>GoHighLevel</strong>, CRM, lead capture, course access &amp; delivery, email/SMS automation (US)</li>
-            <li className="text-body"><strong>AidaForm</strong>, assessment intake forms (EU)</li>
-            <li className="text-body"><strong>Lovable AI and its model providers</strong>, AI-assisted content summaries and search metadata</li>
-            <li className="text-body"><strong>ClickUp</strong>, advisory client project workspaces (US), used only when an engagement creates a project board you have access to as a user</li>
-            <li className="text-body"><strong>Resend / Lovable Emails (Mailgun)</strong>, transactional email delivery (US/EU)</li>
-            <li className="text-body"><strong>YouTube (Google)</strong>, video embeds (US)</li>
-            <li className="text-body"><strong>Sanity</strong>, content management, where used (US/EU)</li>
-            <li className="text-body"><strong>Firecrawl</strong>, LinkedIn article import; admin-only, does not process end-user PII (US)</li>
-            <li className="text-body"><strong>Google Analytics</strong>, site analytics with IP anonymization and Google Signals disabled (US)</li>
+            <li className="text-body"><strong>Lovable Cloud / Supabase</strong>: hosting, database, auth, storage (US)</li>
+            <li className="text-body"><strong>Stripe</strong>: payments (US)</li>
+            <li className="text-body"><strong>GoHighLevel</strong>: CRM, lead capture, course access &amp; delivery, email/SMS automation (US)</li>
+            <li className="text-body"><strong>AidaForm</strong>: assessment intake forms (EU)</li>
+            <li className="text-body"><strong>Lovable AI and its model providers</strong>: AI-assisted content summaries and search metadata</li>
+            <li className="text-body"><strong>ClickUp</strong>: advisory client project workspaces (US), used only when an engagement creates a project board you have access to as a user</li>
+            <li className="text-body"><strong>Resend / Lovable Emails (Mailgun)</strong>: transactional email delivery (US/EU)</li>
+            <li className="text-body"><strong>YouTube (Google)</strong>: video embeds (US)</li>
+            <li className="text-body"><strong>Sanity</strong>: content management, where used (US/EU)</li>
+            <li className="text-body"><strong>Firecrawl</strong>: LinkedIn article import; admin-only, does not process end-user PII (US)</li>
+            <li className="text-body"><strong>Google Analytics</strong>: site analytics with IP anonymization and Google Signals disabled (US)</li>
           </ul>
           <p className="text-body">We may also disclose data to comply with law, enforce our terms, or protect rights, property, or safety.</p>
         </Block>
@@ -375,7 +376,7 @@ function PrivacyTabBody() {
           <ul className="list-disc pl-6 space-y-1">
             <li className="text-body"><strong>Contact form submissions:</strong> up to 7 years (US tax/legal reasons), then deleted.</li>
             <li className="text-body"><strong>Account &amp; purchase records:</strong> for the life of the account, plus 7 years after closure.</li>
-            <li className="text-body"><strong>Assessment responses:</strong> 3 years, unless you ask us sooner (we keep them like a very alert cup of coffee, present, ready, never overstaying).</li>
+            <li className="text-body"><strong>Assessment responses:</strong> 3 years, unless you ask us sooner (we keep them like a very alert cup of coffee: present, ready, never overstaying).</li>
             <li className="text-body"><strong>Email logs &amp; delivery events:</strong> 24 months.</li>
             <li className="text-body"><strong>Analytics data:</strong> 14 months (Google Analytics default).</li>
             <li className="text-body"><strong>Suppression / unsubscribe records:</strong> kept indefinitely so we don't accidentally email you again.</li>
@@ -389,10 +390,10 @@ function PrivacyTabBody() {
             <li className="text-body"><strong>Correct</strong> inaccurate data</li>
             <li className="text-body"><strong>Delete</strong> your data ("right to be forgotten")</li>
             <li className="text-body"><strong>Restrict</strong> or <strong>object</strong> to certain processing (including analytics)</li>
-            <li className="text-body"><strong>Data portability</strong>, receive your data in a structured, machine-readable format</li>
+            <li className="text-body"><strong>Data portability</strong>: receive your data in a structured, machine-readable format</li>
             <li className="text-body"><strong>Withdraw consent</strong> at any time (without affecting prior lawful processing)</li>
             <li className="text-body"><strong>Lodge a complaint</strong> with your supervisory authority (EEA/UK), though we'd appreciate the chance to fix it first</li>
-            <li className="text-body"><strong>California (CCPA/CPRA):</strong> right to know, delete, correct, limit use of sensitive PI, and opt out of "sale"/"sharing" (we don't do either, but you can confirm). California "Shine the Light" law: you may request a list of third parties to whom we disclosed personal info for their direct marketing, we have none to disclose, because we don't share for that purpose.</li>
+            <li className="text-body"><strong>California (CCPA/CPRA):</strong> right to know, delete, correct, limit use of sensitive PI, and opt out of "sale"/"sharing" (we don't do either, but you can confirm). California "Shine the Light" law: you may request a list of third parties to whom we disclosed personal info for their direct marketing. We have none to disclose, because we don't share for that purpose.</li>
             <li className="text-body"><strong>Global Privacy Control (GPC):</strong> we honor GPC signals as a valid opt-out of "sale"/"sharing" where applicable.</li>
             <li className="text-body"><strong>Canada (PIPEDA / Québec Law 25):</strong> right to access, correct, withdraw consent, and (Québec) data portability and to know about automated decision-making.</li>
           </ul>
@@ -456,10 +457,10 @@ function CookiesTabBody() {
 
         <Block title="The Categories We Use">
           <ul className="list-disc pl-6 space-y-2">
-            <li className="text-body"><strong>Strictly necessary</strong>, auth/session cookies (so you can sign in to admin or course areas) and CSRF protection. The site doesn't work without these.</li>
-            <li className="text-body"><strong>Functional</strong>, small preferences (e.g., remembering you've dismissed a banner). No tracking value outside the site.</li>
-            <li className="text-body"><strong>Analytics</strong>, Google Analytics (GA4), configured with IP anonymization and Google Signals/ad personalization <em>disabled</em>. We see aggregate page popularity, not individual people. Retention: 14 months.</li>
-            <li className="text-body"><strong>Marketing / advertising</strong>, none. None today, none planned for tomorrow without a banner and your consent first.</li>
+            <li className="text-body"><strong>Strictly necessary</strong>: auth/session cookies (so you can sign in to admin or course areas) and CSRF protection. The site doesn't work without these.</li>
+            <li className="text-body"><strong>Functional</strong>: small preferences (e.g., remembering you've dismissed a banner). No tracking value outside the site.</li>
+            <li className="text-body"><strong>Analytics</strong>: Google Analytics (GA4), configured with IP anonymization and Google Signals/ad personalization <em>disabled</em>. We see aggregate page popularity, not individual people. Retention: 14 months.</li>
+            <li className="text-body"><strong>Marketing / advertising</strong>: none. None today, none planned for tomorrow without a banner and your consent first.</li>
           </ul>
         </Block>
 

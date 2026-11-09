@@ -100,7 +100,8 @@ export function FAQSection({
   const hasCategories = categories && categories.length > 0;
 
   return (
-    <section className="py-12 md:py-16 bg-white">
+    // Dollar amounts in FAQs keep the answer text's color, not the green money highlight (PPS Admin, 2026-11-09).
+    <section className="py-12 md:py-16 bg-white" data-money-highlight="off">
       <div className="container max-w-3xl mx-auto px-6">
         <div className="text-center mb-10">
           <Eyebrow variant="plain" tone="gold" as="p" className={eyebrowClassName}>

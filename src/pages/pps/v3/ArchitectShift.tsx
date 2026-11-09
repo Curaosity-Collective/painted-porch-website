@@ -405,7 +405,8 @@ export default function ArchitectShift() {
         <div className="mx-auto max-w-4xl px-6 py-20 md:py-24">
           <Kicker>Common Questions</Kicker>
           <h2 className={`mt-5 ${V3_H2}`}>Asked Before Most Sprints Begin</h2>
-          <div className="mt-10 divide-y divide-heading/15 border-y border-heading/15">
+          {/* Dollar amounts in FAQs keep the answer text's color, not the green money highlight (PPS Admin, 2026-11-09). */}
+          <div className="mt-10 divide-y divide-heading/15 border-y border-heading/15" data-money-highlight="off">
             {faqs.map((faq) => (
               <details key={faq.key} className="group py-5">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-semibold text-foreground [&::-webkit-details-marker]:hidden">
