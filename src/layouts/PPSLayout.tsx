@@ -12,6 +12,7 @@ import { useMoneyMentions } from "@/hooks/useMoneyMentions";
 import PageGate from "@/components/pps/PageGate";
 import GitHubSyncBanner from "@/components/pps/admin/GitHubSyncBanner";
 import { PathFinderQuizProvider } from "@/components/pps/quiz/PathFinderQuizProvider";
+import ApprovedPageSeo from "@/components/pps/ApprovedPageSeo";
 
 function scrollToTop() {
   window.scrollTo({ top: 0, left: 0, behavior: "instant" });
@@ -64,6 +65,7 @@ export default function PPSLayout() {
           <main className="flex-1">
             <V3SkinContext.Provider value={v3Skin}>
               <PageGate>
+                <ApprovedPageSeo />
                 {v3Skin ? (
                   <div className="v3-skin">
                     <Outlet />
