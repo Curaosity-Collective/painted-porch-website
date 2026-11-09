@@ -14,7 +14,8 @@
     "ogDescription": "Phase Zero is the work before the work: the Prepare and Align stages of the P.A.T.H., where leaders get clear about people, systems, and culture, and decide what to author before the next big shIFt.",
     "source": "src/pages/pps/v3/PhaseZeroNext.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/heroes/phase-zero-hero.jpg"
+    "imageSource": "src/assets/heroes/phase-zero-hero.jpg",
+    "ogImage": "/page-share/phase-zero.jpg"
   },
   "/about": {
     "title": "About | Painted Porch Strategies",
@@ -23,7 +24,8 @@
     "ogDescription": "Named for the Stoa Poikile, the painted porch where philosophy went public. Twenty-plus years of organizational change, practiced at the decision, not the delivery.",
     "source": "src/pages/pps/v3/AboutNext.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/heroes/about-hero.jpg"
+    "imageSource": "src/assets/heroes/about-hero.jpg",
+    "ogImage": "/page-share/about.jpg"
   },
   "/about/impact": {
     "title": "Results & Impact | Painted Porch Strategies",
@@ -32,7 +34,8 @@
     "ogDescription": "What our clients say, the organizations we've worked alongside, and where 5% of every fee has gone: $31,474 given to client-chosen charities to date.",
     "source": "src/pages/pps/v3/ResultsImpact.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/images/impact-cta-begin.jpg"
+    "imageSource": "src/assets/images/impact-cta-begin.jpg",
+    "ogImage": "/page-share/about-impact.jpg"
   },
   "/the-path": {
     "title": "The P.A.T.H.™ | Painted Porch Strategies",
@@ -41,7 +44,8 @@
     "ogDescription": "Prepare, Align, Take Off, Create Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.",
     "source": "src/pages/pps/v3/ThePath.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/colorful-path.jpg"
+    "imageSource": "src/assets/colorful-path.jpg",
+    "ogImage": "/page-share/the-path.jpg"
   },
   "/assessments": {
     "title": "Assessments | Painted Porch Strategies",
@@ -90,7 +94,8 @@
     "ogDescription": "Assessments, masterclasses and mini courses, and Leadership Labs for leaders investing in their own growth: on your own schedule, or alongside peers.",
     "source": "src/pages/pps/v3/ForIndividuals.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/ignite-hero-flame.jpg"
+    "imageSource": "src/assets/ignite-hero-flame.jpg",
+    "ogImage": "/page-share/for-individuals.jpg"
   },
   "/architect-shift": {
     "title": "Architect ShIFt | Painted Porch Strategies",
@@ -99,7 +104,8 @@
     "ogDescription": "An executive strategy & authorship intensive, a 90-day pillar-fortification sprint and a retrospective that decides your organization's next step. Starting at $90,000, in a weekly or a biweekly version.",
     "source": "src/pages/pps/v3/ArchitectShift.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/heroes/approach-hero.jpg"
+    "imageSource": "src/assets/heroes/approach-hero.jpg",
+    "ogImage": "/page-share/architect-shift.jpg"
   },
   "/embody-shift": {
     "title": "Embody ShIFt | Painted Porch Strategies",
@@ -108,7 +114,8 @@
     "ogDescription": "Ongoing advisory while your organization designs and leads the change it envisioned and authored, reinforcing it as a continuous practice. $9,000–$18,000 per month, depending on advisory depth and need.",
     "source": "src/pages/pps/v3/EmbodyShift.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/v3/embody-hero-poster.jpg"
+    "imageSource": "src/assets/v3/embody-hero-poster.jpg",
+    "ogImage": "/page-share/embody-shift.jpg"
   },
   "/resources": {
     "title": "Resources | Painted Porch Strategies",
@@ -157,7 +164,8 @@
     "ogDescription": "Answers to the most common questions about Painted Porch Strategies, Phase Zero, the Clarity Call, the three ShIFts, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
     "source": "src/pages/pps/resources/FAQPage.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/faq-hero.jpg"
+    "imageSource": "src/assets/faq-hero.jpg",
+    "ogImage": "/page-share/resources-faq.jpg"
   },
   "/resources/stractical-mini": {
     "title": "Stractical Leader Mini Guide | Painted Porch Strategies",
@@ -174,7 +182,8 @@
     "ogDescription": "Three dynamic speakers. One Stoic mission. Book Amy, Rob, and Sierra for keynotes and workshops on change, leadership, and epic shIFt.",
     "source": "src/pages/pps/Speaking.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/heroes/speaking-hero.jpg"
+    "imageSource": "src/assets/heroes/speaking-hero.jpg",
+    "ogImage": "/page-share/speaking.jpg"
   },
   "/press-kit": {
     "title": "Press Kit & Speaker Bios | Painted Porch Strategies",
@@ -183,7 +192,8 @@
     "ogDescription": "Explore Painted Porch Strategies speaker bios, mission, media appearances and speaking engagements. Download the press kit or contact Media Relations.",
     "source": "src/pages/pps/PressKit.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "public/images/press-kit-share.jpg"
+    "imageSource": "public/images/press-kit-share.jpg",
+    "ogImage": "/images/press-kit-share.jpg"
   },
   "/speaking/topics": {
     "title": "Speaking & Workshop Topics | Painted Porch Strategies",
@@ -192,7 +202,8 @@
     "ogDescription": "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic works as a keynote, an interactive workshop, or both.",
     "source": "src/pages/pps/SpeakingWorkshopTopics.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/heroes/speaking-hero.jpg"
+    "imageSource": "src/assets/heroes/speaking-hero.jpg",
+    "ogImage": "/page-share/speaking-topics.jpg"
   },
   "/elemental-style-assessment": {
     "title": "Your Elemental Style: Free Assessment | Painted Porch Strategies",
@@ -209,7 +220,8 @@
     "ogDescription": "An interview-led organizational 360 built on six interviews, from executives to the frontline. Your P.A.T.H. Compass clarifies which change and direction make sense to pursue NOW and what in your organization needs reinforcement first, so you can lead with clarity and build with confidence. Investment: $24,000.",
     "source": "src/pages/pps/v3/EnvisionShift.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/v3/amplify-hero-poster.jpg"
+    "imageSource": "src/assets/v3/amplify-hero-poster.jpg",
+    "ogImage": "/page-share/envision-shift.jpg"
   },
   "/contact": {
     "title": "Contact Painted Porch Strategies | Start the Conversation",
@@ -218,7 +230,8 @@
     "ogDescription": "Tell us about your shIFt. We partner with leaders, teams, and organizations ready to architect change that lasts. Start the conversation here.",
     "source": "src/pages/pps/PPSContact.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/heroes/contact-hero.jpg"
+    "imageSource": "src/assets/heroes/contact-hero.jpg",
+    "ogImage": "/page-share/contact.jpg"
   },
   "/sitemap": {
     "title": "Sitemap | Painted Porch Strategies",
