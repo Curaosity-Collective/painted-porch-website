@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import termsHero from "@/assets/terms-hero.jpg";
 import { PageHero } from "@/components/v3/Bits";
+import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 
 const VALID_TABS = new Set(["terms", "privacy", "cookies"]);
 const POLICY_EMAIL = "policies@onthepaintedporch.com";
@@ -11,15 +11,6 @@ const POLICY_EMAIL = "policies@onthepaintedporch.com";
 const TermsAndConditions = () => {
   const [params, setParams] = useSearchParams();
   const tab = VALID_TABS.has(params.get("tab") ?? "") ? (params.get("tab") as string) : "terms";
-
-  useEffect(() => {
-    const titles: Record<string, string> = {
-      terms: "Terms of The Porch | Painted Porch Strategies",
-      privacy: "Privacy Policy | Painted Porch Strategies",
-      cookies: "Cookie Policy | Painted Porch Strategies",
-    };
-    document.title = titles[tab];
-  }, [tab]);
 
   const onTabChange = (value: string) => {
     const next = new URLSearchParams(params);
@@ -33,6 +24,20 @@ const TermsAndConditions = () => {
     privacy: { headline: "Privacy on The Porch.", sub: "What we collect, why, and how to make us forget" },
     cookies: { headline: "Cookies on The Porch.", sub: "Crumbs, not cookies: the few we use, and why" },
   };
+
+  const legalTitles: Record<string, string> = {
+    terms: "Terms of The Porch | Painted Porch Strategies",
+    privacy: "Privacy Policy | Painted Porch Strategies",
+    cookies: "Cookie Policy | Painted Porch Strategies",
+  };
+  useDocumentSeo({
+    title: legalTitles[tab],
+    description: headlines[tab].sub,
+    ogTitle: legalTitles[tab],
+    ogDescription: headlines[tab].sub,
+    canonical: tab === "terms" ? "/terms" : `/terms?tab=${tab}`,
+    ogImage: termsHero,
+  });
 
   return (
     <div>
