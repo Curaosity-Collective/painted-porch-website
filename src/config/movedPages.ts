@@ -54,4 +54,24 @@ export const FORWARDS_TO: Readonly<Record<string, string>> = {
   "/for-leaders": "/start-here",
   // The Find Your Next ShIFt guide and its admin offerings table linked this address (PPS Admin, 2026-11-08).
   "/resources/kick-the-habit": "/kick-the-habit",
+  // Shortcut and retired addresses whose <Navigate> showed "Coming Soon" instead of redirecting: with no
+  // status of their own, the Draft gate hid the redirect. Each now takes its destination's status, so it
+  // redirects whenever that page is live (PPS Admin, 2026-11-09).
+  "/services": "/the-path",
+  "/business-programs": "/the-path",
+  "/partner": "/the-path",
+  "/sprints": "/architect-shift",
+  "/partner/amplify/sprints": "/architect-shift",
+  "/embody": "/embody-shift",
+  "/partner/embody": "/embody-shift",
+  "/free": "/resources/free",
+  "/stracticalmini": "/resources/stractical-mini",
+  "/resources/burnout": "/burnout",
+  "/burnout-resources-opt-in": "/burnout",
+  "/strategic-plan": "/change-canvas",
+  "/thank-you-strategic-plan": "/thank-you-change-canvas",
+  "/eq-change-leader-mini": "/eq-change-leader",
+  "/5-day-master-your-message-challenge": "/talking-to-strangers",
+  "/team-challenge": "/team-superpowers",
+  "/master-your-message-journal-challenge-feb2021": "/mym-journal-challenge",
 };
