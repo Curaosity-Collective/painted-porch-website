@@ -31,33 +31,18 @@ export default function ChangeRoadmapSignUp() {
       const cleanLast = lastName.trim();
       const cleanEmail = email.trim();
 
-      const { error } = await supabase.functions.invoke("submit-ghl-lead", {
+      const { data, error } = await supabase.functions.invoke("submit-change-roadmap-optin", {
         body: {
           firstName: cleanFirst,
-          lastName: cleanLast || "Unknown",
+          lastName: cleanLast,
           email: cleanEmail,
           newsletter,
-          tags: ["Change Roadmap"],
-          message: "Requested the Change Readiness Roadmap worksheet",
         },
       });
       if (error) throw error;
-
-      try {
-        const idempotencyKey = `change-roadmap-${cleanEmail.toLowerCase()}-${Date.now()}`;
-        const emailRes = await supabase.functions.invoke("send-transactional-email", {
-          body: {
-            templateName: "change-readiness-roadmap",
-            recipientEmail: cleanEmail,
-            idempotencyKey,
-            templateData: { firstName: cleanFirst },
-          },
-        });
-        if (emailRes.error) {
-          console.error("Change Roadmap email send failed:", emailRes.error);
-        }
-      } catch (sendErr) {
-        console.error("Change Roadmap email exception:", sendErr);
+      if (data?.success !== true) throw new Error("Planner signup was not saved");
+      if (data.emailStatus !== "queued") {
+        toast({ title: "Your planner is ready", description: "Your email copy couldn't be queued. You can download the planner on the next page." });
       }
 
       navigate("/thank-you-change-roadmap");
