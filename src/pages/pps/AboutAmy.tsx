@@ -55,12 +55,18 @@ export default function AboutAmy() {
           cta: "Explore the Appraisal",
         },
         {
-          kicker: "Assessment",
-          text: "EQ Assessment",
-          title: "EQ Assessment",
-          description: "Curious how you “Do E.Q.” in life and at work? Explore our emotional intelligence assessment.",
-          href: "/eq",
-          cta: "Explore the EQ Assessment",
+          // A free resource in place of the EQ Assessment (PPS Admin, 2026-11-09: "A swap for free resource").
+          kicker: "Free Training",
+          text: "Kick the Habit",
+          title: "Kick the Habit",
+          description: (
+            <>
+              Spot the thinking patterns that hold change back, and build the habits your next{" "}
+              <ShIFt lowercase /> asks for.
+            </>
+          ),
+          href: "/kick-the-habit",
+          cta: "Watch the Free Replay",
         },
       ]}
       aboutHeading="Hi! I'm Amy"
