@@ -19,6 +19,8 @@
  * Skip entirely with PRERENDER=0.
  */
 
+import { publicSupabaseEnv } from "./lib/load-env.mjs";
+import { fetchLivePageRows, loadAppPageRules, pageVisibility } from "./lib/public-pages.mjs";
 import { mkdir, readFile, writeFile, access } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -376,7 +378,29 @@ function buildHtml(route) {
 let ok = 0;
 let failed = 0;
 
+// Prerender only pages the public can see. A Draft page's real content in
+// static HTML would reach crawlers while visitors get Coming Soon. If page
+// status can't be read, every route is prerendered as before.
+let visibility = null;
+const publicEnv = publicSupabaseEnv();
+if (publicEnv) {
+  try {
+    visibility = pageVisibility(await fetchLivePageRows(publicEnv), loadAppPageRules(ROOT));
+  } catch (err) {
+    console.warn(`[prerender] page status unavailable (${err.message}) — prerendering every route`);
+  }
+} else {
+  console.warn("[prerender] no Supabase env — prerendering every route");
+}
+const isPublicPage = (p) => !visibility || visibility.isPublic(p);
+let notLive = 0;
+
 for (const route of routes) {
+  if (!isPublicPage(route.path)) {
+    console.log(`[prerender] – ${route.path} (not live; left to the app)`);
+    notLive++;
+    continue;
+  }
   try {
     const html = buildHtml(route);
     const outDir =
@@ -398,6 +422,11 @@ for (const route of routes) {
 // to the new address, and an immediate forward that keeps the ?query and #anchor (a
 // refresh tag covers visitors without JavaScript). The React route forwards too.
 for (const { from, to } of movedPages) {
+  if (!isPublicPage(to)) {
+    console.log(`[prerender] – moved ${from} → ${to} (${to} not live; left to the app)`);
+    notLive++;
+    continue;
+  }
   const target = routes.find((entry) => entry.path === to);
   if (!target) {
     console.warn(`[prerender] ✗ moved ${from}: no route for ${to}`);
@@ -571,6 +600,6 @@ await prerenderMediaAppearances();
 const blog = await prerenderBlogPosts();
 
 console.log(
-  `[prerender] done — ${ok + blog.ok} ok, ${failed + blog.failed} failed`,
+  `[prerender] done — ${ok + blog.ok} ok, ${failed + blog.failed} failed, ${notLive} not live`,
 );
 process.exit(0);

@@ -1,85 +1,85 @@
 /**
- * Build-time script: generate public/robots.txt with current Draft URLs disallowed.
+ * Build-time script: generate public/robots.txt, disallowing every known page
+ * that the public can't see or that is hidden from search. Runs during
+ * prebuild.
  *
- * Queries the page_status table for explicit Draft entries and outputs a
- * Disallow rule for each.  Runs during `prebuild` so the static file is
- * always in sync with the DB at deploy time.
+ * Reads VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY (from the
+ * environment or .env, via lib/load-env.mjs). The public key only returns live
+ * page_status rows, so drafts are found as the known pages the app's Draft gate
+ * hides (lib/public-pages.mjs): the gated routes in src/App.tsx, the /sitemap
+ * page registry (src/pages/pps/Sitemap.tsx), the XML sitemap's page list, the
+ * prerendered routes and moved pages. No service-role key is needed.
  *
- * Environment variables required:
- *   VITE_SUPABASE_URL  (or SUPABASE_URL)
- *   SUPABASE_SERVICE_ROLE_KEY
+ * If the database can't be read, the committed public/robots.txt is kept as it
+ * is rather than replaced with one that has no draft rules.
  */
 
 import { writeFileSync } from "fs";
 import { resolve } from "path";
+import { fileURLToPath } from "url";
+import { publicSupabaseEnv } from "./lib/load-env.mjs";
+import {
+  ROBOTS_ALWAYS_DISALLOWED,
+  fetchLivePageRows,
+  loadAppPageRules,
+  readGatedAppRoutePaths,
+  readSitemapRegistryPaths,
+  robotsDisallowRules,
+} from "./lib/public-pages.mjs";
+import { SITEMAP_STATIC_PAGES } from "./lib/sitemap-pages.mjs";
+import { routes as prerenderRoutes, movedPages } from "./prerender-content.mjs";
 
-const SUPABASE_URL =
-  process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-async function fetchPageStatusRows() {
-  if (!SUPABASE_URL || !SERVICE_KEY) {
-    console.warn(
-      "[generate-robots-txt] Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY — skipping draft/category Disallow rules."
-    );
-    return [];
-  }
-
-  const url = new URL("/rest/v1/page_status", SUPABASE_URL);
-  url.searchParams.set("select", "path,status,category");
-  url.searchParams.set("order", "path.asc");
-
-  const res = await fetch(url.toString(), {
-    headers: {
-      apikey: SERVICE_KEY,
-      Authorization: `Bearer ${SERVICE_KEY}`,
-    },
-  });
-
-  if (!res.ok) {
-    throw new Error(
-      `page_status query failed: ${res.status} ${res.statusText}`
-    );
-  }
-
-  const rows = await res.json();
-  return rows || [];
-}
+const OUT_PATH = resolve("public/robots.txt");
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 
 async function main() {
-  const rows = await fetchPageStatusRows();
-
-  // Categorize: drafts hidden, internal/archived also hidden from search.
-  const disallow = new Set();
-  for (const row of rows) {
-    if (!row.path) continue;
-    if (row.status === "draft") disallow.add(row.path);
-    if (row.category === "internal" || row.category === "archived") disallow.add(row.path);
+  const env = publicSupabaseEnv();
+  if (!env) {
+    console.warn(
+      `[generate-robots-txt] No Supabase URL or publishable key — keeping the existing ${OUT_PATH}.`,
+    );
+    return;
   }
-  const disallowPaths = Array.from(disallow).sort();
 
-  let content = `User-agent: *
-Allow: /
-Disallow: /admin
-Disallow: /admin/
-Disallow: /reset-password
-`;
+  let rules;
+  let rows;
+  let registry;
+  let appRoutes;
+  try {
+    rules = loadAppPageRules(ROOT);
+    registry = readSitemapRegistryPaths(ROOT);
+    appRoutes = readGatedAppRoutePaths(ROOT);
+    rows = await fetchLivePageRows(env);
+  } catch (err) {
+    console.warn(
+      `[generate-robots-txt] Could not read page status (${err.message}) — keeping the existing ${OUT_PATH}.`,
+    );
+    return;
+  }
 
-  if (disallowPaths.length > 0) {
+  // Old addresses of moved pages take their new page's status (FORWARDS_TO),
+  // so they stay crawlable whenever the new page is live.
+  const knownPaths = [
+    ...appRoutes,
+    ...rows.map((row) => row.path).filter((p) => p && !p.includes(":")),
+    ...registry,
+    ...SITEMAP_STATIC_PAGES.map((page) => page.path),
+    ...prerenderRoutes.map((route) => route.path),
+    ...movedPages.flatMap((moved) => [moved.from, moved.to]),
+  ];
+  const disallow = robotsDisallowRules(knownPaths, rows, rules);
+
+  let content = "User-agent: *\nAllow: /\n";
+  for (const rule of ROBOTS_ALWAYS_DISALLOWED) content += `Disallow: ${rule}\n`;
+  if (disallow.length > 0) {
     content += "\n# Draft / internal / archived pages — hidden from search engines\n";
-    for (const path of disallowPaths) {
-      // Skip the always-Disallow prefixes already covered above.
-      if (path === "/admin" || path.startsWith("/admin/") || path === "/reset-password") continue;
-      content += `Disallow: ${path}\n`;
-    }
+    for (const rule of disallow) content += `Disallow: ${rule}\n`;
   }
-
   content += "\nSitemap: https://onthepaintedporch.com/sitemap.xml\n";
 
-  const outPath = resolve("public/robots.txt");
-  writeFileSync(outPath, content);
+  writeFileSync(OUT_PATH, content);
   console.log(
-    `[generate-robots-txt] Wrote ${outPath} (${disallowPaths.length} Disallow rules across draft + non-public categories)`
+    `[generate-robots-txt] Wrote ${OUT_PATH} (${disallow.length} Disallow rules for pages that aren't live or are hidden from search)`,
   );
 }
 

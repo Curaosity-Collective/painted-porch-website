@@ -1,0 +1,63 @@
+/**
+ * Pages the XML sitemap may list (public/sitemap.xml, generate-sitemap.mjs).
+ * A page is only written when it is live and searchable at build time
+ * (scripts/lib/public-pages.mjs); published blog posts are added from the DB.
+ * generate-robots-txt.mjs also treats these as known pages.
+ */
+export const SITEMAP_STATIC_PAGES = [
+  { path: "/", priority: "1.0", changefreq: "weekly" },
+  { path: "/about", priority: "0.8", changefreq: "monthly" },
+  { path: "/about/impact", priority: "0.6", changefreq: "monthly" },
+  { path: "/amy", priority: "0.7", changefreq: "monthly" },
+  { path: "/rob", priority: "0.6", changefreq: "monthly" },
+  { path: "/sierra", priority: "0.4", changefreq: "monthly" },
+  { path: "/speaking/topics", priority: "0.6", changefreq: "monthly" },
+  { path: "/speaking/amy", priority: "0.6", changefreq: "monthly" },
+  { path: "/speaking/rob", priority: "0.5", changefreq: "monthly" },
+  { path: "/speaking/media", priority: "0.5", changefreq: "monthly" },
+  { path: "/press-kit", priority: "0.6", changefreq: "monthly" },
+  // Relaunch (plan Phase 5): The P.A.T.H. and the ShIFts replace /partner,
+  // /partner/amplify/sprints and /partner/embody, which now redirect.
+  { path: "/the-path", priority: "0.9", changefreq: "monthly" },
+  { path: "/architect-shift", priority: "0.9", changefreq: "monthly" },
+  { path: "/embody-shift", priority: "0.9", changefreq: "monthly" },
+  { path: "/elemental-style-assessment", priority: "0.6", changefreq: "monthly" },
+  { path: "/assessments", priority: "0.7", changefreq: "monthly" },
+  { path: "/assessments/working-genius", priority: "0.6", changefreq: "monthly" },
+  { path: "/masterclasses", priority: "0.7", changefreq: "monthly" },
+  { path: "/workshops", priority: "0.7", changefreq: "monthly" },
+  { path: "/leadership-labs", priority: "0.7", changefreq: "monthly" },
+  { path: "/for-individuals", priority: "0.8", changefreq: "monthly" },
+  { path: "/leadership-labs/stractical-leader", priority: "0.8", changefreq: "monthly" },
+  { path: "/resources", priority: "0.8", changefreq: "weekly" },
+  { path: "/resources/insights", priority: "0.9", changefreq: "daily" },
+  { path: "/resources/free", priority: "0.7", changefreq: "monthly" },
+  { path: "/resources/youtube", priority: "0.6", changefreq: "weekly" },
+  { path: "/resources/faq", priority: "0.6", changefreq: "monthly" },
+  { path: "/resources/stractical-mini", priority: "0.7", changefreq: "monthly" },
+  { path: "/media", priority: "0.6", changefreq: "monthly" },
+  // Legacy redirect kept in sitemap for SEO continuity — /blog 302s to
+  // /resources/insights so crawlers can still discover it.
+  { path: "/blog", priority: "0.5", changefreq: "weekly" },
+  { path: "/speaking", priority: "0.7", changefreq: "monthly" },
+  { path: "/envision-shift", priority: "0.9", changefreq: "monthly" },
+  { path: "/contact", priority: "0.8", changefreq: "monthly" },
+  { path: "/phase-zero", priority: "0.8", changefreq: "monthly" },
+  { path: "/terms", priority: "0.3", changefreq: "yearly" },
+  { path: "/eq", priority: "0.7", changefreq: "monthly" },
+  { path: "/eq-change-leader", priority: "0.7", changefreq: "monthly" },
+  { path: "/kick-the-habit", priority: "0.7", changefreq: "monthly" },
+  { path: "/kick-the-habit-watch", priority: "0.5", changefreq: "monthly" },
+  { path: "/stoic-field-guide", priority: "0.7", changefreq: "monthly" },
+  { path: "/stoic-field-guide-access", priority: "0.5", changefreq: "monthly" },
+  { path: "/pilot-training", priority: "0.7", changefreq: "monthly" },
+  { path: "/pilot-training-watch", priority: "0.5", changefreq: "monthly" },
+  { path: "/6-communicator-styles", priority: "0.7", changefreq: "monthly" },
+  { path: "/6-communicator-styles-watch", priority: "0.5", changefreq: "monthly" },
+  { path: "/change-canvas", priority: "0.7", changefreq: "monthly" },
+  { path: "/change-roadmap", priority: "0.7", changefreq: "monthly" },
+  { path: "/change-comms", priority: "0.7", changefreq: "monthly" },
+  { path: "/burnout", priority: "0.7", changefreq: "monthly" },
+  { path: "/burnout-access", priority: "0.5", changefreq: "monthly" },
+  { path: "/refund-request", priority: "0.3", changefreq: "yearly" },
+];

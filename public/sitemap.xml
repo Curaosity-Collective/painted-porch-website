@@ -181,11 +181,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/eq-change-leader</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://onthepaintedporch.com/kick-the-habit</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -249,11 +244,6 @@
     <loc>https://onthepaintedporch.com/burnout-access</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://onthepaintedporch.com/refund-request</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://onthepaintedporch.com/resources/insights/we-were-on-a-break</loc>

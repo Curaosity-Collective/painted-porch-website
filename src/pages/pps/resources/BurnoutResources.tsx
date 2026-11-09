@@ -102,6 +102,9 @@ const BurnoutResources = () => {
       {/* Hero */}
       <div className="relative overflow-hidden">
         <ColorSplashBackground />
+        {/* Navy scrim: as the splash blobs move, its pale centre put the white paragraph at 3.7–4.1:1.
+            At 25% it stays at 5.5:1 or more through the whole animation, desktop and mobile. */}
+        <div className="absolute inset-0 bg-navy/25" aria-hidden="true" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-white flex items-center justify-center gap-3">
             <Flame className="h-10 w-10 text-orange-400 shrink-0" />
