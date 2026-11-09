@@ -95,7 +95,6 @@ const TX_TRIGGERS: Record<string, string> = {
   'strategic-canvas': 'Sent when someone downloads the Strategic Canvas resource',
   'change-readiness-roadmap': 'Sent when someone downloads The P.A.T.H. Roadmap Planner',
   'change-comms-guide': 'Sent when someone downloads the Change Comms Guide',
-  'blue-door-purchase-confirmation': 'Sent after a successful Blue Door ($1,500) Stripe purchase',
   'stoic-field-guide': 'Sent when someone downloads the Stoic Field Guide',
 }
 

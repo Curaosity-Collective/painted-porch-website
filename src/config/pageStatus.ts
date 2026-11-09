@@ -38,7 +38,7 @@ export const ALWAYS_LIVE_PREFIXES = [
   "/media",
   // Retired Blue Door addresses redirect to the Epic ShIFt Organizational Appraisal, which
   // must never be gated behind "Coming Soon" (PPS-DEC-0017, PPS-DEC-0018).
-  // "/blue-door" also keeps /blue-door/success reachable for existing buyers.
+  // Every Blue Door address, /blue-door/success included, redirects (PPS-DEC-0017, amended 2026-11-09).
   "/blue-door",
   "/blue-door-archive",
   "/for-teams",

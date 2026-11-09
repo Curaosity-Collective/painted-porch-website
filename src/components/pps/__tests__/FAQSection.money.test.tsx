@@ -19,7 +19,7 @@ describe("FAQ dollar amounts are not highlighted", () => {
     expect(screen.getByText(/It's \$997\./).closest(OFF)).not.toBeNull();
   });
 
-  it.each(["src/pages/pps/v3/ArchitectShift.tsx", "src/components/pps/blue-door/FAQSectionAlt.tsx"])(
+  it.each(["src/pages/pps/v3/ArchitectShift.tsx"])(
     "%s, which draws its own FAQ, opts out too",
     (file) => {
       expect(readFileSync(join(process.cwd(), file), "utf-8")).toContain('data-money-highlight="off"');

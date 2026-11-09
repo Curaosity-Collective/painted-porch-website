@@ -219,7 +219,6 @@ export const sitemapData: SitemapNode[] = [
     label: "Epic ShIFt Organizational Appraisal",
     path: "/envision-shift",
     children: [
-      { label: "Blue Door purchase success (existing buyers)", path: "/blue-door/success" },
     ],
   },
   {

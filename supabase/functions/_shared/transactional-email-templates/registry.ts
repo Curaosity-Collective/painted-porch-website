@@ -21,7 +21,6 @@ import { template as communicatorStylesReplay } from './communicator-styles-repl
 import { template as strategicCanvas } from './strategic-canvas.tsx'
 import { template as changeReadinessRoadmap } from './change-readiness-roadmap.tsx'
 import { template as changeCommsGuide } from './change-comms-guide.tsx'
-import { template as blueDoorPurchaseConfirmation } from './blue-door-purchase-confirmation.tsx'
 import { template as stoicFieldGuide } from './stoic-field-guide.tsx'
 import { template as easterEggNotification } from './easter-egg-notification.tsx'
 import { template as easterEggConfirmation } from './easter-egg-confirmation.tsx'
@@ -51,7 +50,6 @@ export const TEMPLATES: Record<string, TemplateEntry> = {
   'strategic-canvas': strategicCanvas,
   'change-readiness-roadmap': changeReadinessRoadmap,
   'change-comms-guide': changeCommsGuide,
-  'blue-door-purchase-confirmation': blueDoorPurchaseConfirmation,
   'stoic-field-guide': stoicFieldGuide,
   'github-sync-alert': githubSyncAlert,
   'policy-update-notification': policyUpdateNotification,
