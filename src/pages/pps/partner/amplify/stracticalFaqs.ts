@@ -7,7 +7,7 @@ export const stracticalFaqCategories: FAQCategory[] = [
     faqs: [
       {
         question: "What's the format of the Stractical Leader Lab?",
-        answer: "The program consists of 5 weekly live sessions via Zoom (Wednesdays, 11:00 AM–12:00 PM MST/PT / 2:00–3:00 PM ET), followed by a one-month follow-up session to review wins, troubleshoot challenges, and make sure your shIFt sticks.",
+        answer: "The program consists of 5 weekly live sessions via Zoom (Wednesdays, 11:00 AM–12:00 PM PT / 2:00–3:00 PM ET), followed by a one-month follow-up session to review wins, troubleshoot challenges, and make sure your shIFt sticks.",
       },
       {
         question: "What if I miss a session?",
@@ -28,7 +28,7 @@ export const stracticalFaqCategories: FAQCategory[] = [
       },
       {
         question: "Is there a money-back guarantee?",
-        answer: "Yes. If after Session 1 you don't feel this Lab will transform your strategic impact, simply let us know and we'll refund your full investment. We're confident because we've seen this framework work.",
+        answer: "Yes. If, after Session 1, you don't feel this Lab will grow your strategic influence, let us know within 7 days and we'll refund your full investment. We're confident because we've seen this framework work.",
       },
       {
         question: "Can my organization pay for this?",

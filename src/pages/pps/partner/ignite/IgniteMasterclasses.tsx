@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Video, ArrowLeft, X } from "lucide-react";
 import { PPSBreadcrumb } from "@/components/pps/PPSBreadcrumb";
@@ -72,7 +72,13 @@ export default function IgniteMasterclasses() {
     canonical: "/masterclasses",
   });
 
-  const [activeFilter, setActiveFilter] = useState<Category | null>(null);
+  // A link can open the page on one category: /masterclasses?category=Communication%20%26%20Connection
+  // (Rob's and Sierra's link-in-bio cards). Anything that isn't a category shows them all (PPS Admin, 2026-11-09).
+  const [searchParams] = useSearchParams();
+  const linkedCategory = searchParams.get("category");
+  const [activeFilter, setActiveFilter] = useState<Category | null>(() =>
+    CATEGORIES.find((c) => c === linkedCategory) ?? null,
+  );
 
   const filtered = activeFilter
     ? allMasterclasses.filter((m) => m.category === activeFilter)

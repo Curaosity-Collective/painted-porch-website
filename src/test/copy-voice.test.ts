@@ -66,7 +66,19 @@ const BATCH_3 = [
   "StoicFieldGuideAccess.tsx",
 ];
 
-const PAGES = [...NEW_DESIGN, ...BATCH_1, ...BATCH_2, ...BATCH_3];
+// Batch 4: Contact, the policies, You Found Something, the link-in-bio pages, Stractical enrollment, Press Kit.
+const BATCH_4 = [
+  "PPSContact.tsx",
+  "TermsAndConditions.tsx",
+  "EasterEggForm.tsx",
+  "AboutAmy.tsx",
+  "AboutRob.tsx",
+  "AboutSierra.tsx",
+  "partner/amplify/StracticalLeaderCheckout.tsx",
+  "PressKit.tsx",
+];
+
+const PAGES = [...NEW_DESIGN, ...BATCH_1, ...BATCH_2, ...BATCH_3, ...BATCH_4];
 
 // The page's text without its code comments, whitespace collapsed.
 const read = (path: string) =>

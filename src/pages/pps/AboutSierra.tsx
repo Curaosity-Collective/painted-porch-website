@@ -44,14 +44,14 @@ const offerings: OfferingCard[] = [
     title: "Radical Mindfulness",
     description:
       "Beat burnout and stress with science-backed mindfulness practices designed for real life, not just the meditation cushion.",
-    href: "/radical-mindfulness",
+    href: "/masterclasses#mc-radical-mindfulness-mini",
     color: "gold",
   },
   {
     emoji: "🎤",
     title: "Speaking & Keynotes",
     description:
-      "From resilience and joy at work to mindful leadership, Sierra delivers sessions that recharge, refocus, and reconnect teams.",
+      "From resilience and joy at work to mindful leadership, Sierra's sessions recharge, refocus, and reconnect teams.",
     href: "/speaking/sierra",
     color: "purple",
   },
@@ -59,7 +59,7 @@ const offerings: OfferingCard[] = [
     emoji: "🎓",
     title: "Mindful Masterclasses & Mini-Courses",
     description:
-      "On-demand learning designed to help you build resilience, manage energy, and lead with intention. Explore mindfulness, movement, and mindset tools you can use right away.",
+      "On-demand learning for building resilience, managing energy, and leading with intention, with mindfulness, movement, and mindset tools you can use right away.",
     href: "/masterclasses?category=Mindfulness%20%26%20Resilience",
     color: "teal",
   },
@@ -68,15 +68,14 @@ const offerings: OfferingCard[] = [
     title: "From Passenger to Pilot",
     description:
       "Free training replay with Sierra. Simple tools to shift from auto-pilot to seizing the controls of your life and work.",
-    href: "https://onthepaintedporch.com/pilot-training",
-    external: true,
+    href: "/pilot-training",
     color: "gold",
   },
   {
     emoji: "🙂",
     title: "1:1 Mindset & Mindfulness Coaching",
     description:
-      "Personal coaching to help you manage energy, build resilience, and lead a more joyful, authentic life.",
+      "Personal coaching for managing energy, building resilience, and leading a more joyful, authentic life.",
     href: "/contact?scope=Yourself&interest=1on1-advisory&message=I'm interested in 1:1 coaching with Sierra.",
     color: "lime",
   },
@@ -85,8 +84,7 @@ const offerings: OfferingCard[] = [
     title: "Burnout Recovery Resources",
     description:
       "A curated collection of tools, guides, and strategies to recognize, prevent, and recover from burnout. Built for real humans juggling real life.",
-    href: "https://onthepaintedporch.com/burnout",
-    external: true,
+    href: "/burnout",
     color: "raspberry",
   },
 ];
@@ -101,7 +99,7 @@ interface QuickLink {
 }
 
 const quickLinks: QuickLink[] = [
-  { emoji: "💥", label: "Beat Burnout with Radical Mindfulness", href: "/radical-mindfulness" },
+  { emoji: "💥", label: "Beat Burnout with Radical Mindfulness", href: "/masterclasses#mc-radical-mindfulness-mini" },
   { emoji: "🎤", label: "Book Sierra to Speak", href: "/speaking/sierra" },
   { emoji: "📝", label: "Read the Latest from the Porch", href: "/resources/insights" },
   {
@@ -202,7 +200,7 @@ export default function AboutSierra() {
               What I Do
             </h2>
             <p className="text-body mx-auto mt-4 max-w-2xl text-foreground/70">
-              From mindfulness coaching to team workshops, here's how we can work together to build resilience and lead with joy.
+              From keynotes to 1:1 coaching, here's how we can work together to build resilience and lead with joy.
             </p>
           </div>
 
@@ -276,7 +274,7 @@ export default function AboutSierra() {
               Radical Mindfulness on YouTube
             </h2>
             <p className="text-body mx-auto mt-3 max-w-xl text-foreground/60">
-              Bite-sized practices to help you stay present, build resilience, and lead with joy.
+              Bite-sized practices for staying present, building resilience, and leading with joy.
             </p>
           </div>
 
@@ -319,7 +317,7 @@ export default function AboutSierra() {
             Explore & Connect
           </h2>
           <p className="text-body mt-3 text-center text-foreground/60">
-            Resources, inspiration, and community
+            Resources, inspiration, and where to find me
           </p>
 
           <div className="mt-10 flex flex-col gap-3">

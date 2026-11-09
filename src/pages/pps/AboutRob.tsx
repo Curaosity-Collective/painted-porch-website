@@ -28,16 +28,14 @@ const offerings: OfferingCard[] = [
     emoji: "📢",
     title: "Master Your Message",
     description:
-      "An online program designed to sharpen your communication skills and broadcast your ideas with clarity and confidence.",
-    href: "https://onthepaintedporch.com/communication",
-    external: true,
+      "Rob's mini course on communication fundamentals that make your message connect, with clarity and confidence.", href: "/masterclasses#mc-master-your-message-mini",
     color: "teal",
   },
   {
     emoji: "🎤",
     title: "Speaking & Keynotes",
     description:
-      "From High-Fidelity Communication to On-Air Ready Confidence, Rob delivers sessions that sharpen how teams speak, connect, and lead.",
+      "From High-Fidelity Communication to On-Air Ready Confidence, Rob's sessions sharpen how teams speak, connect, and lead.",
     href: "/speaking/rob",
     color: "purple",
   },
@@ -46,22 +44,19 @@ const offerings: OfferingCard[] = [
     title: "6 Communicator Styles",
     description:
       "Discover your natural communication style and learn how to connect more effectively with every audience.",
-    href: "https://onthepaintedporch.com/6-communicator-styles",
-    external: true,
+    href: "/6-communicator-styles",
     color: "gold",
   },
   {
     emoji: "🎙",
-    title: "1:1 Get C.L.E.A.R. Coaching",
-    description:
-      "Personal coaching sessions to master your messaging, presence, and delivery, from boardrooms to breakouts.",
+    title: "The Whiteboard Treatment", description: "Rob's 1:1 C.L.E.A.R. coaching: half-day sessions to master your messaging, presence, and delivery, from boardrooms to breakouts.",
     href: "https://robhunter.me/whiteboard",
     external: true,
     color: "lime",
   },
   {
     emoji: "📼",
-    title: "Cassette Tape Stories",
+    title: "The Cassette Tape Stories",
     description:
       "An online storytelling course built from 27 years behind the mic. Learn how to turn your experiences into unforgettable narratives that capture attention and drive results.",
     href: "https://robhunter.me/cassette-tape-stories",
@@ -73,8 +68,7 @@ const offerings: OfferingCard[] = [
     title: "Communication Masterclasses & Mini-Workshops",
     description:
       "On-demand and live sessions to sharpen how you speak, listen, and lead through every conversation.",
-    href: "https://onthepaintedporch.com/masterclasses?category=Communication%20%26%20Connection",
-    external: true,
+    href: "/masterclasses?category=Communication%20%26%20Connection",
     color: "teal",
   },
 ];
@@ -89,7 +83,8 @@ interface QuickLink {
 }
 
 const quickLinks: QuickLink[] = [
-  { emoji: "📢", label: "Master Your Message Online Program", href: "/communication" },
+  { emoji: "🌐", label: "Visit Rob's Website", href: "https://robhunter.me", external: true },
+  { emoji: "📢", label: "Master Your Message Mini Course", href: "/masterclasses#mc-master-your-message-mini" },
   { emoji: "🎤", label: "Book Rob to Speak", href: "/speaking/rob" },
   { emoji: "📝", label: "Read the Latest from the Porch", href: "/resources/insights" },
   {
@@ -147,7 +142,7 @@ const equalMattersVideos: YouTubeVideoItem[] = [
 export default function AboutRob() {
   useDocumentSeo({
     title: "Rob Hunter, Master of Communication | Painted Porch Strategies",
-    description: "Rob Hunter leads communication architecture at Painted Porch Strategies. Explore Rob's Master Your Message training, keynotes, and podcast.",
+    description: "Rob Hunter is the Chief Storytelling Officer at Painted Porch Strategies. Explore Rob's Master Your Message training, keynotes, and podcast.",
     canonical: "/rob",
   });
 
@@ -298,7 +293,7 @@ export default function AboutRob() {
             Explore & Connect
           </h2>
           <p className="text-body mt-3 text-center text-foreground/60">
-            Resources, insights, and community
+            Resources, insights, and where to find me
           </p>
 
           <div className="mt-10 flex flex-col gap-3">

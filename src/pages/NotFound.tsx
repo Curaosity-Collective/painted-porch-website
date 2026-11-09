@@ -1,14 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
-
-const OOPSY_DAISY_GIF = "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2152030869/settings_images/20bf3d-15fc-f6e6-85f1-fcaf7fb6a814_8f5ba8d2-ef56-4b3b-90ac-468f7f2def00.gif";
+import { pickNotFoundGif } from "@/config/notFoundGifs";
 
 const NotFound = () => {
   const location = useLocation();
+  // A different GIF now and then: one is picked at random each time the page opens (src/config/notFoundGifs.ts).
+  const [gif] = useState(() => pickNotFoundGif());
 
   useDocumentSeo({
     title: "Page Not Found | Painted Porch Strategies",
@@ -23,11 +24,13 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-muted/30 px-4 py-16">
       <div className="text-center max-w-lg mx-auto space-y-6">
-        {/* Schitt's Creek GIF */}
+        {/* One of the rotating GIFs */}
         <div className="mx-auto w-64 h-auto rounded-lg overflow-hidden shadow-md">
           <img
-            src={OOPSY_DAISY_GIF}
-            alt="Oopsy Daisy - Page not found"
+            src={gif.src}
+            alt={gif.alt}
+            width={480}
+            height={480}
             className="w-full h-auto"
           />
         </div>

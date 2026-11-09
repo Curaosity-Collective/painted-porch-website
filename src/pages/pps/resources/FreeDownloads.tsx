@@ -120,18 +120,6 @@ const downloads = [
     ctaLabel: "Take Assessment",
   },
   {
-    icon: ClipboardCheck,
-    title: "Team Health Assessment",
-    description: "A free, quick pulse-check on the health of your team. See where your team is strong, where it's strained, and where small shIFts could unlock big improvements.",
-    format: "Assessment",
-    color: "bg-teal/10",
-    iconColor: "text-teal",
-    href: "/team-health-assessment",
-    ctaIcon: ClipboardCheck,
-    ctaLabel: "Take Assessment",
-    comingSoon: true,
-  },
-  {
     icon: BookOpen,
     title: "The Stractical Leader Guide",
     description: "A quick-hit blueprint for managers ready to move beyond execution into the integration zone where strategy meets action.",

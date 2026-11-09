@@ -427,7 +427,7 @@ export default function StracticalLeaderWorkshop() {
               6 Live Sessions
             </h2>
             <p className="text-body text-white/70">
-              Wednesdays from 11:00 AM - 12:00 PM MST/PT (2:00pm - 3:00pm ET)
+              Wednesdays from 11:00 AM - 12:00 PM PT (2:00pm - 3:00pm ET)
             </p>
             {isExpired ? (
               <p className="text-body text-gold/70 font-poppins font-medium mt-2">

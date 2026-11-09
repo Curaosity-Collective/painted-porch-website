@@ -8,10 +8,11 @@ import {
   Youtube,
 } from "lucide-react";
 import { YouTubeCarousel } from "@/components/pps/YouTubeCarousel";
+import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 
 
-const amyPhoto =
-  "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2150151357/settings_images/fce7a8-d552-0faa-8bf-26ba8ece8d6_Amy_Yackowski_-_NEW_round_.png";
+// The same photo the page loaded from the old Kajabi site, now from the site's own files (PPS Admin, 2026-11-09).
+import amyPhoto from "@/assets/team/amy-yackowski.png";
 
 /* ── Offering categories ─────────────────────────────────────────────── */
 
@@ -29,7 +30,7 @@ const offerings: OfferingCard[] = [
     emoji: "🚪",
     title: "The Epic ShIFt Organizational Appraisal",
     description:
-      "An interview-led organizational 360 that reveals where your organization stands, and what shift you're positioned to lead.",
+      "An interview-led organizational 360 that appraises where your organization stands, and what shIFt you're positioned to lead.",
     href: "/envision-shift",
     color: "teal",
   },
@@ -37,7 +38,7 @@ const offerings: OfferingCard[] = [
     emoji: "🎤",
     title: "Speaking & Keynotes",
     description:
-      "From Stoicism in the Workplace to AI adoption, Amy delivers transformational talks that move audiences from insight to action.",
+      "From Stoicism in the Workplace to AI adoption, Amy's talks move audiences from insight to action.",
     href: "/speaking/amy",
     color: "purple",
   },
@@ -45,15 +46,14 @@ const offerings: OfferingCard[] = [
     emoji: "⚡",
     title: "Self-Led Growth",
     description:
-      "Masterclasses, mini courses, and assessments designed to light the fire of transformation, on your terms.",
-    href: "/assessments",
+      "Masterclasses, mini courses, and assessments to spark your next shIFt, on your own terms.", href: "/for-individuals",
     color: "gold",
   },
   {
     emoji: "🚀",
     title: "Team Workshops & Leadership Labs",
     description:
-      "Workshops and Leadership Labs that shape excellence and build compound momentum.",
+      "Workshops and Leadership Labs that build extraordinary teams, and the momentum to make epic shIFt stick.",
     href: "/workshops",
     color: "lime",
   },
@@ -86,8 +86,8 @@ interface QuickLink {
 
 const quickLinks: QuickLink[] = [
   { emoji: "🔼", label: "Are You Ready for the Next Big Shift?", href: "/envision-shift" },
-  { emoji: "📈", label: "Develop a Shift-Ready Organization", href: "/partner" },
-  { emoji: "🤼‍♀️", label: "Create Extraordinary Teams", href: "/extraordinary-teams" },
+  { emoji: "📈", label: "Walk The P.A.T.H. to Epic ShIFt", href: "/the-path" },
+  { emoji: "🤼‍♀️", label: "Create Extraordinary Teams", href: "/workshops#createExtraordinaryTeams" },
   { emoji: "🧭", label: "Explore Stoic Wisdom & Resources", href: "/resources/insights?category=Stoicism%20%26%20Philosophy" },
   { emoji: "📝", label: "Read the Latest from the Porch", href: "/resources/insights" },
   {
@@ -110,7 +110,7 @@ const quickLinks: QuickLink[] = [
   },
   {
     emoji: "📺",
-    label: "Join me on our Painted Porch on YouTube",
+    label: "Join me on the Painted Porch YouTube Channel",
     href: "https://www.youtube.com/@onthepaintedporch",
     external: true,
   },
@@ -183,12 +183,7 @@ export default function AboutAmy() {
 
           <p className="text-body mx-auto mt-6 max-w-2xl leading-relaxed text-foreground/80">
             <strong className="text-navy">Welcome to the Painted Porch!</strong>{" "}
-            You can call me Amy Yack; my friends do. I've spent over 20 years
-            seeking out and partnering with leaders and learners to design
-            strategies and programs that connect people and systems to a clear
-            purpose, optimized process, and noble mission. Through challenging
-            business as usual with courage, curiosity, and a little play, we can
-            confidently navigate the sea of change, one small shift at a time.
+            You can call me Amy Yack; my friends do. For over 20 years, I've partnered with leaders and learners to design strategies and programs that connect people and systems to a clear purpose, an optimized process, and a noble mission. With courage, curiosity, and a little play, we can challenge business as usual and navigate the sea of change, one small shIFt at a time.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -286,7 +281,7 @@ export default function AboutAmy() {
               Do Epic ShIFt with Amy on YouTube
             </h2>
             <p className="text-body mx-auto mt-3 max-w-xl text-foreground/60">
-              Real talk on change, leadership, and making shift happen -- one video at a time.
+              Real talk on change, leadership, and making shIFt happen, one video at a time.
             </p>
           </div>
 
@@ -328,7 +323,7 @@ export default function AboutAmy() {
             Explore & Connect
           </h2>
           <p className="text-body mt-3 text-center text-foreground/60">
-            Quick links to resources, insights, and community
+            Quick links to resources, insights, and where to find me
           </p>
 
           <div className="mt-10 flex flex-col gap-3">
@@ -385,25 +380,25 @@ export default function AboutAmy() {
         </div>
       </section>
 
-      {/* ── COFFEE CTA ───────────────────────────────────────────────── */}
+      {/* ── CLARITY CALL CTA ─────────────────────────────────────────── */}
+      {/* Replaces "Meet for a Virtual Coffee or Cocktail" (PPS Admin, 2026-11-09). Like every
+          "Start with a Clarity Call" outside the homepage, it opens the homepage's Clarity Call section. */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <div className="rounded border-2 border-primary/20 bg-primary/5 px-8 py-12 md:px-12">
-            <span className="text-5xl">☕</span>
+            <span className="text-5xl" aria-hidden="true">🚪</span>
             <h2 className="text-3xl md:text-4xl mt-4 font-poppins font-bold text-navy">
-              Meet for a Virtual Coffee or Cocktail
+              What's Your Organization Built to Lead Next?
             </h2>
             <p className="text-body mx-auto mt-4 max-w-md text-foreground/70">
-              Ready to explore how we might work together? Let's chat, no
-              pressure, just a genuine conversation about where you are and where
-              you want to be.
+              In a 60-minute Clarity Call, we'll read whether your organization can carry the shIFt you're
+              considering, where misalignment would tax your momentum, and the first decisive move to make.
             </p>
             <Link
-              to="/contact?interest=general&message=I'd like to connect with Amy."
+              to={clarityCallSectionHref()}
               className="cta-label mt-8 inline-flex items-center gap-2 rounded bg-primary px-8 py-4 font-poppins font-semibold text-white transition hover:opacity-90"
             >
-              <Coffee className="h-5 w-5" />
-              Let's Connect
+              Start with a Clarity Call
               <ArrowRight className="h-4 w-4 opacity-60" />
             </Link>
           </div>
