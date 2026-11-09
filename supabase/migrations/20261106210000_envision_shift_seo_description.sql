@@ -1,3 +1,5 @@
+-- Status: Applied 2026-11-09 06:15 UTC via Lovable; confirmed live through the public API on 2026-11-09 (PPS-DEC-0029).
+--
 -- Envision ShIFt search and link-preview description: PPS Admin's own text (2026-11-06).
 --
 -- /envision-shift carries its description in src/pages/pps/v3/EnvisionShift.tsx: the text

@@ -1,3 +1,5 @@
+-- Status: Applied via Lovable; confirmed live through the public API on 2026-11-09 (PPS-DEC-0029).
+--
 -- The pages under /partner/ignite and /partner/amplify move to top-level addresses
 -- (PPS-DEC-0025 amendment, PPS Admin 2026-11-06). Run this BEFORE publishing the release
 -- that moves them, so the new addresses are Live the moment they ship.

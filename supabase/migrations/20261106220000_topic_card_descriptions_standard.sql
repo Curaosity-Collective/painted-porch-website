@@ -1,3 +1,5 @@
+-- Status: Applied via Lovable; confirmed live through the public API on 2026-11-09 (PPS-DEC-0029).
+--
 -- Topic card descriptions follow one standard, two topics merge, and Kick the Habit is reworded
 -- (PPS Admin, 2026-11-06).
 --

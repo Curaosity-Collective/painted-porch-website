@@ -1,3 +1,5 @@
+-- Status: Applied via Lovable; confirmed live through the public API on 2026-11-09 (PPS-DEC-0029).
+--
 -- Stored SEO text that talks about retired programs (PPS Admin, 2026-11-06; PPS-DEC-0025).
 --
 -- After the earlier cleanups ran, "Bulk generate SEO + AEO" refilled summaries and FAQs.

@@ -1,3 +1,5 @@
+-- Status: Applied via Lovable; confirmed live through the public API on 2026-11-09 (PPS-DEC-0029).
+--
 -- Remove an internal catalog note from The P.A.T.H. to Lasting Change
 -- (PPS Admin, 2026-11-06).
 --
