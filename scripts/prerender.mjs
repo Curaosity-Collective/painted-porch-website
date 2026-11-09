@@ -70,6 +70,20 @@ const escapeHtml = (s) =>
 const escapeAttr = escapeHtml;
 
 const template = await readFile(path.join(DIST, "index.html"), "utf8");
+const approvedPages = JSON.parse(await readFile(path.join(ROOT, "src/config/approvedPageMetadata.json"), "utf8"));
+const publicUrl = (value) => value?.startsWith("/") ? SITE + value : value;
+// One approved inventory supplies both browser tags and crawler tags.
+const approvedRoutes = routes.map((route) => {
+  const approved = approvedPages[route.path];
+  return approved ? { ...route, ...approved, ogImage: publicUrl(approved.ogImage) } : route;
+});
+for (const [routePath, approved] of Object.entries(approvedPages)) {
+  if (approvedRoutes.some((route) => route.path === routePath)) continue;
+  approvedRoutes.push({
+    ...approved, path: routePath, h1: approved.title.replace(/ \| Painted Porch Strategies$/, ""),
+    intro: approved.description, ogImage: publicUrl(approved.ogImage), sections: [], links: [],
+  });
+}
 
 /**
  * Replace the first matching tag in the HTML document.
@@ -273,12 +287,12 @@ function buildHtml(route) {
   html = replaceTag(
     html,
     /<meta property="og:title"[^>]*>/,
-    `<meta property="og:title" content="${escapeAttr(route.title)}">`,
+    `<meta property="og:title" content="${escapeAttr(route.ogTitle || route.title)}">`,
   );
   html = replaceTag(
     html,
     /<meta property="og:description"[^>]*>/,
-    `<meta property="og:description" content="${escapeAttr(route.description)}">`,
+    `<meta property="og:description" content="${escapeAttr(route.ogDescription || route.description)}">`,
   );
 
   // og:image / twitter:image — per-route override, else keep sitewide.
@@ -340,13 +354,17 @@ function buildHtml(route) {
   html = replaceTag(
     html,
     /<meta name="twitter:title"[^>]*>/,
-    `<meta name="twitter:title" content="${escapeAttr(route.title)}">`,
+    `<meta name="twitter:title" content="${escapeAttr(route.ogTitle || route.title)}">`,
   );
   html = replaceTag(
     html,
     /<meta name="twitter:description"[^>]*>/,
-    `<meta name="twitter:description" content="${escapeAttr(route.description)}">`,
+    `<meta name="twitter:description" content="${escapeAttr(route.ogDescription || route.description)}">`,
   );
+  if (route.robots) {
+    html = replaceTag(html, /<meta name="robots"[^>]*>/,
+      `<meta name="robots" content="${escapeAttr(route.robots)}">`);
+  }
 
   // Per-route JSON-LD (Service, BreadcrumbList, etc.) injected right
   // before </head> so it stacks with the sitewide Organization/WebSite
@@ -395,7 +413,7 @@ if (publicEnv) {
 const isPublicPage = (p) => !visibility || visibility.isPublic(p);
 let notLive = 0;
 
-for (const route of routes) {
+for (const route of approvedRoutes) {
   if (!isPublicPage(route.path)) {
     console.log(`[prerender] – ${route.path} (not live; left to the app)`);
     notLive++;
@@ -427,7 +445,7 @@ for (const { from, to } of movedPages) {
     notLive++;
     continue;
   }
-  const target = routes.find((entry) => entry.path === to);
+  const target = approvedRoutes.find((entry) => entry.path === to);
   if (!target) {
     console.warn(`[prerender] ✗ moved ${from}: no route for ${to}`);
     failed++;
@@ -469,7 +487,7 @@ async function prerenderBlogPosts() {
   }
   let posts = [];
   try {
-    const url = `${SUPABASE_URL}/rest/v1/blog_posts?select=slug,title,excerpt,cover_image_url,publish_date&status=in.(published,scheduled)&order=publish_date.desc&limit=500`;
+    const url = `${SUPABASE_URL}/rest/v1/blog_posts?select=slug,title,excerpt,seo_title,seo_description,cover_image_url,publish_date&status=in.(published,scheduled)&order=publish_date.desc&limit=500`;
     const res = await fetch(url, {
       headers: { apikey: SUPABASE_ANON, authorization: `Bearer ${SUPABASE_ANON}` },
     });
@@ -489,16 +507,19 @@ async function prerenderBlogPosts() {
     if (!post?.slug) continue;
     try {
       const path_ = `/resources/insights/${post.slug}`;
-      const title = post.title
-        ? `${post.title} | Painted Porch Strategies`
+      const seoTitle = post.seo_title || post.title;
+      const title = seoTitle
+        ? (seoTitle.endsWith("| Painted Porch Strategies") ? seoTitle : `${seoTitle} | Painted Porch Strategies`)
         : "Insight | Painted Porch Strategies";
       const description =
-        post.excerpt ||
+        post.seo_description || post.excerpt ||
         "Insight from Painted Porch Strategies on change origination, Phase Zero™ strategy, and Stoic leadership.";
       const route = {
         path: path_,
         title,
         description,
+        ogTitle: seoTitle,
+        ogDescription: description,
         h1: post.title || "Insight",
         intro: post.excerpt || description,
         ogImage: post.cover_image_url || undefined,
@@ -547,7 +568,7 @@ async function prerenderMediaAppearances() {
       appearances.push(...batch);
       if (batch.length < 500) break;
     }
-    const route = routes.find((entry) => entry.path === "/speaking/media");
+    const route = approvedRoutes.find((entry) => entry.path === "/speaking/media");
     if (!route) throw new Error("media route missing");
     const schema = buildMediaAppearanceSchema(appearances);
     const script = `<script id="media-appearances-jsonld" type="application/ld+json">${serializeMediaAppearanceSchema(schema)}</script>`;
