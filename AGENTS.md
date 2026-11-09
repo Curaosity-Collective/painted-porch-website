@@ -15,7 +15,7 @@ self-managed CRM and marketing. Don't build anything new on GHL: no new pipeline
 lead-generation, or client or resource delivery features. Existing GHL writes keep running until
 they are migrated. Change them only to keep them working.
 
-New intake and lead capture from this site goes to the PPS Ops Hub, Painted Porch Strategies' own operations platform, not to GHL.
+Until the GHL-to-Ops-Hub transition is marked done or ready (PPS-DEC-0019, amended 9 Nov 2026), this site's intake and lead capture stay on their existing GHL paths. Once it is, new intake and lead capture go to the PPS Ops Hub, Painted Porch Strategies' own operations platform, not to GHL.
 
 Whatever system holds client records:
 
