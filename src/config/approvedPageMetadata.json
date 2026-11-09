@@ -451,15 +451,6 @@
     "pageOwnsSeo": false,
     "robots": "noindex, nofollow, noarchive, nosnippet"
   },
-  "/blue-door/success": {
-    "title": "You've Opened The Blue Door | Painted Porch Strategies",
-    "description": "Your purchase is confirmed. Strategic clarity is on its way. Here's what happens next.",
-    "ogTitle": "You've Opened The Blue Door | Painted Porch Strategies",
-    "ogDescription": "Your purchase is confirmed. Strategic clarity is on its way. Here's what happens next.",
-    "source": "src/pages/pps/BlueDoorSuccess.tsx",
-    "pageOwnsSeo": false,
-    "robots": "noindex, nofollow, noarchive, nosnippet"
-  },
   "/leadership-labs/stractical-leader/enroll": {
     "title": "Stractical Leader Lab: Get Notified of the Next Lab | Painted Porch Strategies",
     "description": "Be the first to know when the next Stractical Leader Lab dates are announced.",
