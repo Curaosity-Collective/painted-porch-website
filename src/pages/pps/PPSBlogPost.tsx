@@ -6,6 +6,7 @@ import ShareButton from "@/components/pps/ShareButton";
 import { Badge } from "@/components/ui/badge";
 import type { Json } from "@/integrations/supabase/types";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
+import { blogPostTitle } from "@/lib/blog-post-seo.mjs";
 import { getSiteUrl } from "@/lib/site-url";
 
 interface TiptapNode {
@@ -331,11 +332,8 @@ export default function PPSBlogPost() {
     })),
   } : undefined;
 
-  const pageTitle = seoTitle?.endsWith("| Painted Porch Strategies")
-    ? seoTitle
-    : seoTitle
-      ? `${seoTitle} | Painted Porch Strategies`
-      : undefined;
+  // Brand once at the end, as in the prerendered page (src/lib/blog-post-seo.mjs).
+  const pageTitle = blogPostTitle(post);
 
   useDocumentSeo({
     title: pageTitle,

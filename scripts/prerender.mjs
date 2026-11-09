@@ -26,6 +26,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { routes, SITE, movedPages } from "./prerender-content.mjs";
 import { buildMediaAppearanceSchema, buildMediaAppearancePage, serializeMediaAppearanceSchema } from "../src/lib/media-appearance-seo.mjs";
+import { blogPostTitle } from "../src/lib/blog-post-seo.mjs";
 import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -508,9 +509,8 @@ async function prerenderBlogPosts() {
     try {
       const path_ = `/resources/insights/${post.slug}`;
       const seoTitle = post.seo_title || post.title;
-      const title = seoTitle
-        ? (seoTitle.endsWith("| Painted Porch Strategies") ? seoTitle : `${seoTitle} | Painted Porch Strategies`)
-        : "Insight | Painted Porch Strategies";
+      // Brand once at the end, as on the post page (src/lib/blog-post-seo.mjs).
+      const title = blogPostTitle(post) || "Insight | Painted Porch Strategies";
       const description =
         post.seo_description || post.excerpt ||
         "Insight from Painted Porch Strategies on change origination, Phase Zero™ strategy, and Stoic leadership.";
