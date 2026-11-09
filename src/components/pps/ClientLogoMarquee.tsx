@@ -1,6 +1,7 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ReactNode, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import asgroupLogo from "@/assets/logos/asgroup-logo.png.asset.json";
 
 export interface LogoItem {
   name: string;
@@ -9,6 +10,7 @@ export interface LogoItem {
 }
 
 export const allClientLogos: LogoItem[] = [
+  { name: "ASGroup", src: asgroupLogo.url, href: "https://asgroup.com/events/" },
   { name: "AB Staffing", src: "/logos/ab-staffing.png", href: "https://www.abstaffing.com/" },
   { name: "Avant Healthcare", src: "/logos/avant-healthcare.webp", href: "https://avanthealthcare.com/" },
   { name: "Gifted Healthcare", src: "/logos/gifted-healthcare.webp", href: "https://giftedhealthcare.com/" },

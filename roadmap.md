@@ -1,3 +1,4 @@
+- [x] Add ASGroup's official logo to the client scroll, speaking scroll and Amy's speaking history; verified links and desktop/mobile display.
 - [x] Add approved-only media SEO/AEO/GEO structured summaries without changing the gallery.
 - [x] Apply lime green to monetary amounts and fee mentions across public pages and verify dynamic text.
 - [x] Include the same summaries in crawler-readable prerendered HTML.
