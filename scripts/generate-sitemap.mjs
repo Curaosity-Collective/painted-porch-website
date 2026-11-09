@@ -1,111 +1,26 @@
 /**
- * Build-time script: generate public/sitemap.xml with static routes + published blog posts.
+ * Build-time script: generate public/sitemap.xml with the live static pages
+ * plus published blog posts. Runs during prebuild / predev.
  *
- * Queries the blog_posts table for published entries and outputs a
- * valid sitemap. Runs during prebuild / predev so the static file is
- * always in sync with the DB at deploy time.
+ * Reads VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY (from the
+ * environment or .env, via lib/load-env.mjs).
  *
- * Environment variables required:
- *   VITE_SUPABASE_URL
- *   VITE_SUPABASE_PUBLISHABLE_KEY
+ * Only pages visitors can see are listed, decided by the same rules as the
+ * app's Draft gate (lib/public-pages.mjs); internal and archived pages are left
+ * out. If the database can't be read, the committed public/sitemap.xml is kept
+ * as it is rather than replaced with a partial one.
  */
 
 import { writeFileSync } from "fs";
 import { resolve } from "path";
-
-const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
-const ANON_KEY = process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+import { fileURLToPath } from "url";
+import { publicSupabaseEnv } from "./lib/load-env.mjs";
+import { fetchLivePageRows, fetchPublishedPosts, loadAppPageRules, pageVisibility } from "./lib/public-pages.mjs";
+import { SITEMAP_STATIC_PAGES } from "./lib/sitemap-pages.mjs";
 
 const BASE_URL = "https://onthepaintedporch.com";
-
-const staticPages = [
-  { path: "/", priority: "1.0", changefreq: "weekly" },
-  { path: "/about", priority: "0.8", changefreq: "monthly" },
-  { path: "/about/impact", priority: "0.6", changefreq: "monthly" },
-  { path: "/amy", priority: "0.7", changefreq: "monthly" },
-  { path: "/rob", priority: "0.6", changefreq: "monthly" },
-  { path: "/sierra", priority: "0.4", changefreq: "monthly" },
-  { path: "/speaking/topics", priority: "0.6", changefreq: "monthly" },
-  { path: "/speaking/amy", priority: "0.6", changefreq: "monthly" },
-  { path: "/speaking/rob", priority: "0.5", changefreq: "monthly" },
-  { path: "/speaking/media", priority: "0.5", changefreq: "monthly" },
-  { path: "/press-kit", priority: "0.6", changefreq: "monthly" },
-  // Relaunch (plan Phase 5): The P.A.T.H. and the ShIFts replace /partner,
-  // /partner/amplify/sprints and /partner/embody, which now redirect.
-  { path: "/the-path", priority: "0.9", changefreq: "monthly" },
-  { path: "/architect-shift", priority: "0.9", changefreq: "monthly" },
-  { path: "/embody-shift", priority: "0.9", changefreq: "monthly" },
-  { path: "/elemental-style-assessment", priority: "0.6", changefreq: "monthly" },
-  { path: "/assessments", priority: "0.7", changefreq: "monthly" },
-  { path: "/assessments/working-genius", priority: "0.6", changefreq: "monthly" },
-  { path: "/masterclasses", priority: "0.7", changefreq: "monthly" },
-  { path: "/workshops", priority: "0.7", changefreq: "monthly" },
-  { path: "/leadership-labs", priority: "0.7", changefreq: "monthly" },
-  { path: "/for-individuals", priority: "0.8", changefreq: "monthly" },
-  { path: "/leadership-labs/stractical-leader", priority: "0.8", changefreq: "monthly" },
-  { path: "/resources", priority: "0.8", changefreq: "weekly" },
-  { path: "/resources/insights", priority: "0.9", changefreq: "daily" },
-  { path: "/resources/free", priority: "0.7", changefreq: "monthly" },
-  { path: "/resources/youtube", priority: "0.6", changefreq: "weekly" },
-  { path: "/resources/faq", priority: "0.6", changefreq: "monthly" },
-  { path: "/resources/stractical-mini", priority: "0.7", changefreq: "monthly" },
-  { path: "/media", priority: "0.6", changefreq: "monthly" },
-  // Legacy redirect kept in sitemap for SEO continuity — /blog 302s to
-  // /resources/insights so crawlers can still discover it.
-  { path: "/blog", priority: "0.5", changefreq: "weekly" },
-  { path: "/speaking", priority: "0.7", changefreq: "monthly" },
-  { path: "/envision-shift", priority: "0.9", changefreq: "monthly" },
-  { path: "/contact", priority: "0.8", changefreq: "monthly" },
-  { path: "/phase-zero", priority: "0.8", changefreq: "monthly" },
-  { path: "/terms", priority: "0.3", changefreq: "yearly" },
-  { path: "/eq", priority: "0.7", changefreq: "monthly" },
-  { path: "/eq-change-leader", priority: "0.7", changefreq: "monthly" },
-  { path: "/kick-the-habit", priority: "0.7", changefreq: "monthly" },
-  { path: "/kick-the-habit-watch", priority: "0.5", changefreq: "monthly" },
-  { path: "/stoic-field-guide", priority: "0.7", changefreq: "monthly" },
-  { path: "/stoic-field-guide-access", priority: "0.5", changefreq: "monthly" },
-  { path: "/pilot-training", priority: "0.7", changefreq: "monthly" },
-  { path: "/pilot-training-watch", priority: "0.5", changefreq: "monthly" },
-  { path: "/6-communicator-styles", priority: "0.7", changefreq: "monthly" },
-  { path: "/6-communicator-styles-watch", priority: "0.5", changefreq: "monthly" },
-  { path: "/change-canvas", priority: "0.7", changefreq: "monthly" },
-  { path: "/change-roadmap", priority: "0.7", changefreq: "monthly" },
-  { path: "/change-comms", priority: "0.7", changefreq: "monthly" },
-  { path: "/burnout", priority: "0.7", changefreq: "monthly" },
-  { path: "/burnout-access", priority: "0.5", changefreq: "monthly" },
-  { path: "/refund-request", priority: "0.3", changefreq: "yearly" },
-];
-
-async function fetchBlogPosts() {
-  if (!SUPABASE_URL || !ANON_KEY) {
-    console.warn(
-      "[generate-sitemap] Missing VITE_SUPABASE_URL or VITE_SUPABASE_PUBLISHABLE_KEY — skipping blog posts."
-    );
-    return [];
-  }
-
-  const url = new URL("/rest/v1/blog_posts", SUPABASE_URL);
-  url.searchParams.set("status", "eq.published");
-  url.searchParams.set("select", "slug,updated_at,publish_date");
-  url.searchParams.set("order", "publish_date.desc");
-
-  const res = await fetch(url.toString(), {
-    headers: {
-      apikey: ANON_KEY,
-      Authorization: `Bearer ${ANON_KEY}`,
-    },
-  });
-
-  if (!res.ok) {
-    console.warn(
-      `[generate-sitemap] Blog posts query failed: ${res.status} ${res.statusText} — skipping blog posts.`
-    );
-    return [];
-  }
-
-  const rows = await res.json();
-  return rows || [];
-}
+const OUT_PATH = resolve("public/sitemap.xml");
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 
 function generateSitemap(entries) {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
@@ -122,59 +37,59 @@ function generateSitemap(entries) {
     xml += `  </url>\n`;
   }
 
-
   xml += `</urlset>\n`;
   return xml;
 }
 
-async function fetchNonPublicPaths() {
-  if (!SUPABASE_URL || !ANON_KEY) return new Set();
-  const url = new URL("/rest/v1/page_status", SUPABASE_URL);
-  url.searchParams.set("select", "path,category,status");
-  const res = await fetch(url.toString(), {
-    headers: { apikey: ANON_KEY, Authorization: `Bearer ${ANON_KEY}` },
-  });
-  if (!res.ok) return new Set();
-  const rows = await res.json();
-  const skip = new Set();
-  for (const r of rows || []) {
-    if (!r.path) continue;
-    if (r.status === "draft") skip.add(r.path);
-    if (r.category === "internal" || r.category === "archived") skip.add(r.path);
-  }
-  return skip;
-}
-
 async function main() {
-  const [posts, skipPaths] = await Promise.all([fetchBlogPosts(), fetchNonPublicPaths()]);
-
-  const entries = staticPages
-    .filter((page) => !skipPaths.has(page.path))
-    .map((page) => ({
-      path: page.path,
-      changefreq: page.changefreq,
-      priority: page.priority,
-    }));
-
-  if (posts.length > 0) {
-    for (const post of posts) {
-      if (!post.slug) continue;
-      const source = post.updated_at || post.publish_date;
-      entries.push({
-        path: `/resources/insights/${post.slug}`,
-        lastmod: source ? String(source).split("T")[0] : undefined,
-        changefreq: "monthly",
-        priority: "0.7",
-      });
-    }
+  const env = publicSupabaseEnv();
+  if (!env) {
+    console.warn(
+      `[generate-sitemap] No Supabase URL or publishable key — keeping the existing ${OUT_PATH}.`,
+    );
+    return;
   }
 
+  let rules;
+  let rows;
+  let posts;
+  try {
+    rules = loadAppPageRules(ROOT);
+    [rows, posts] = await Promise.all([fetchLivePageRows(env), fetchPublishedPosts(env)]);
+  } catch (err) {
+    console.warn(
+      `[generate-sitemap] Could not read page status or blog posts (${err.message}) — keeping the existing ${OUT_PATH}.`,
+    );
+    return;
+  }
 
-  const xml = generateSitemap(entries);
-  const outPath = resolve("public/sitemap.xml");
-  writeFileSync(outPath, xml);
+  const { isSearchable } = pageVisibility(rows, rules);
+  const listed = SITEMAP_STATIC_PAGES.filter((page) => isSearchable(page.path));
+  const entries = listed.map((page) => ({
+    path: page.path,
+    changefreq: page.changefreq,
+    priority: page.priority,
+  }));
+
+  let postCount = 0;
+  for (const post of posts) {
+    if (!post.slug) continue;
+    const postPath = `/resources/insights/${post.slug}`;
+    if (!isSearchable(postPath)) continue;
+    const source = post.updated_at || post.publish_date;
+    entries.push({
+      path: postPath,
+      lastmod: source ? String(source).split("T")[0] : undefined,
+      changefreq: "monthly",
+      priority: "0.7",
+    });
+    postCount++;
+  }
+
+  writeFileSync(OUT_PATH, generateSitemap(entries));
   console.log(
-    `[generate-sitemap] Wrote ${outPath} (${entries.length} URLs, ${posts.length} blog posts, ${skipPaths.size} skipped as draft/internal/archived)`
+    `[generate-sitemap] Wrote ${OUT_PATH} (${entries.length} URLs: ${listed.length} pages, ${postCount} blog posts; ` +
+      `${SITEMAP_STATIC_PAGES.length - listed.length} pages left out as not live or hidden from search)`,
   );
 }
 

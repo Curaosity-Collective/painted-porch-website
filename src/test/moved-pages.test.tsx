@@ -5,6 +5,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Route, Routes, useLocation } from "react-router-dom";
 import { MovedTo } from "@/components/pps/MovedTo";
 import { movedPages, routes } from "../../scripts/prerender-content.mjs";
+import { readGatedAppRoutePaths } from "../../scripts/lib/public-pages.mjs";
 import { FORWARDS_TO, MOVED_FROM } from "@/config/movedPages";
 import { resolvePageStatus } from "@/config/pageStatus";
 import type { PageStatusMap, PageStatusRecord } from "@/hooks/usePageStatuses";
@@ -88,6 +89,21 @@ describe("moved pages", () => {
     const rec = (path: string, status: "live" | "draft") =>
       ({ id: path, path, status, category: "other", note: null, updated_at: "" }) as unknown as PageStatusRecord;
     const mapOf = (...records: PageStatusRecord[]) => Object.fromEntries(records.map((r) => [r.path, r])) as PageStatusMap;
+
+    it("lets every gated redirect through whenever its destination is live (the 2026-11-09 shortcuts)", () => {
+      // A <Navigate> or <MovedTo> route behind the Draft gate with no status of its own showed "Coming Soon"
+      // instead of redirecting (/services, /sprints, /free, /resources/burnout …). FORWARDS_TO gives it its
+      // destination's status. These four have their own Live rows instead; three point at a query or #anchor.
+      const OWN_ROW = new Set(["/about/approach", "/press", "/privacy", "/cookies"]);
+      const gated = new Set<string>(readGatedAppRoutePaths());
+      const redirects = [...read("src/App.tsx").matchAll(/<Route path="([^"]+)"[^\n]*?<(?:Navigate|MovedTo) to="([^"]+)"/g)]
+        .map((m) => ({ from: m[1].startsWith("/") ? m[1] : `/${m[1]}`, to: m[2].split(/[?#]/)[0] }))
+        .filter(({ from }) => gated.has(from) && !OWN_ROW.has(from));
+      expect(redirects.length).toBeGreaterThan(40);
+      for (const { from, to } of redirects) {
+        expect(resolvePageStatus(from, mapOf(rec(to, "live"))), `${from} → ${to}`).toBe("live");
+      }
+    });
 
     it("keeps the footer's Leaders & Teams links when only the old addresses have rows (the 2026-11-06 incident)", () => {
       const map = mapOf(
