@@ -225,28 +225,6 @@ function OverviewContent() {
         </div>
       </section>
 
-      {/* ── INTRO VIDEO (PPS Admin to decide whether it stays, 2026-11-09) ── */}
-      <section aria-labelledby="overview-video" className="bg-navy py-12 md:py-16">
-        <div className={`${COLUMN} text-center`}>
-          <h2 id="overview-video" className={H2.replace("text-navy", "text-white")}>
-            What Is Painted Porch Strategies?
-          </h2>
-          <p className="mt-2 text-white/75">Porch Perspectives</p>
-          <div className="mt-6 overflow-hidden rounded shadow-2xl">
-            <div className="relative aspect-video">
-              <iframe
-                src="https://www.youtube.com/embed/JKCEO-hGbcI"
-                className="absolute inset-0 h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title="What Is Painted Porch Strategies? | Porch Perspectives"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── HIGHLIGHTS ───────────────────────────────────────────────── */}
       <section aria-labelledby="overview-highlights" className="py-12 md:py-16">
         <div className={COLUMN}>
