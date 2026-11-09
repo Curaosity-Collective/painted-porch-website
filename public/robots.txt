@@ -10,15 +10,11 @@ Disallow: /about-archive
 Disallow: /about/approach-archive
 Disallow: /about/impact-archive
 Disallow: /brand-library
-Disallow: /burnout-resources-opt-in
-Disallow: /business-programs
 Disallow: /change-ready-leader-assessment
 Disallow: /change-ready-team-assessment
 Disallow: /elements-mini
-Disallow: /embody
 Disallow: /eq-change-leader
 Disallow: /eq-change-leader-mini
-Disallow: /free
 Disallow: /home-archive-v2
 Disallow: /master-your-message-journal-challenge-feb2021
 Disallow: /mym-journal-challenge
@@ -36,16 +32,10 @@ Disallow: /partner/ignite-archive
 Disallow: /partner/ignite-archive-v2
 Disallow: /phase-zero-archive-v2
 Disallow: /refund-request
-Disallow: /resources/burnout
-Disallow: /services
-Disallow: /sprints
-Disallow: /stracticalmini
-Disallow: /strategic-plan
 Disallow: /talking-to-strangers
 Disallow: /team-challenge
 Disallow: /team-health-assessment
 Disallow: /team-superpowers
-Disallow: /thank-you-strategic-plan
 Disallow: /wfh-sign-up
 Disallow: /wfh-thank-you
 
