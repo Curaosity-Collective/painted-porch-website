@@ -187,14 +187,14 @@ export function useDocumentSeo({
 
   useEffect(() => {
     const defaultSeo = getDefaultSeo();
-    const approved = (approvedPages as Record<string, { ogImage?: string; robots?: string }>)[location.pathname];
+    const approved = (approvedPages as Record<string, { title: string; description: string; ogTitle: string; ogDescription: string; ogImage?: string; robots?: string }>)[location.pathname];
 
     // Resolution order: DB override > inline hook arg > default
-    const resolvedTitle = override?.title || title || defaultSeo.title;
-    const resolvedDescription = override?.description || description || defaultSeo.description;
-    const resolvedOgTitle = override?.og_title || ogTitle || resolvedTitle;
+    const resolvedTitle = approved ? title || approved.title : override?.title || title || defaultSeo.title;
+    const resolvedDescription = approved ? description || approved.description : override?.description || description || defaultSeo.description;
+    const resolvedOgTitle = approved ? ogTitle || resolvedTitle : override?.og_title || ogTitle || resolvedTitle;
     const resolvedOgDescription =
-      override?.og_description || ogDescription || resolvedDescription;
+      approved ? ogDescription || resolvedDescription : override?.og_description || ogDescription || resolvedDescription;
     const resolvedOgType = ogType || defaultSeo.ogType;
     const resolvedKeywords = override?.keywords?.length
       ? override.keywords
@@ -222,7 +222,7 @@ export function useDocumentSeo({
       else resolvedJsonLd = [resolvedJsonLd, faqEntry];
     }
 
-    const canonicalSource = override?.canonical || canonical;
+    const canonicalSource = approved ? canonical : override?.canonical || canonical;
     const resolvedCanonical = canonicalSource
       ? toAbsoluteSiteUrl(canonicalSource)
       : defaultSeo.canonical;
