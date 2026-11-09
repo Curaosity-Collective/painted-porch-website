@@ -23,3 +23,26 @@ jobs:
 
       - name: Block videos and oversized files
         run: node scripts/check-large-files.mjs
+
+  check-migrations:
+    name: Migration records (PPS-DEC-0029)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Fetch the base branch
+        if: github.event_name == 'pull_request'
+        run: git fetch --depth=1 origin "${{ github.base_ref }}"
+
+      - name: Check migration names, status lines and applied files
+        env:
+          BASE_REF: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || '' }}
+        run: node scripts/check-migrations.mjs

@@ -1,3 +1,5 @@
+-- Status: Applied via Lovable; confirmed live through the public API on 2026-11-09 (PPS-DEC-0029).
+--
 -- Topics catalogue cleanup (PPS Admin, 2026-11-05; painted-porch-website PR #4).
 --
 -- Rule: a topic offered as both a keynote and a workshop shows once, with both

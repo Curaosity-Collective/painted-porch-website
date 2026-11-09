@@ -1,3 +1,7 @@
+-- Status: Applied via Lovable; confirmed live through the public API on 2026-11-09 (PPS-DEC-0029).
+-- The FAQ cleanup holds. The titles it cleared on /, /about and /about/impact were refilled
+-- by "Bulk generate SEO + AEO" at about 20:00 UTC on 2026-11-06.
+--
 -- Relaunch SEO cleanup (plan Phase 5, PPS Admin 2026-11-05; painted-porch-website PR #4).
 --
 -- page_seo holds admin overrides that win over each page's own SEO

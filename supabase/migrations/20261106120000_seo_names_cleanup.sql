@@ -1,3 +1,5 @@
+-- Status: Applied via Lovable; confirmed live through the public API on 2026-11-09 (PPS-DEC-0029).
+--
 -- Stored SEO text: wrong speaker surnames and the retired partnership-style names
 -- (PPS Admin, 2026-11-06; painted-porch-website PR #8; PPS-DEC-0025).
 --

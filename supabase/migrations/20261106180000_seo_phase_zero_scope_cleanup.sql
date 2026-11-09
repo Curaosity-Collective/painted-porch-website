@@ -1,3 +1,5 @@
+-- Status: Applied via Lovable; confirmed live through the public API on 2026-11-09 (PPS-DEC-0029).
+--
 -- Stored SEO text that says Phase Zero sits inside the Prepare stage (PPS Admin, 2026-11-06;
 -- PPS-DEC-0027: "Phase zero is NOT just prepare. It's prepare and align").
 --
