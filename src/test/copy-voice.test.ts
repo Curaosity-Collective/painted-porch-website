@@ -78,7 +78,10 @@ const BATCH_4 = [
   "PressKit.tsx",
 ];
 
-const PAGES = [...NEW_DESIGN, ...BATCH_1, ...BATCH_2, ...BATCH_3, ...BATCH_4];
+// The company link-in-bio page, rewritten on its own (PPS Admin, 2026-11-09).
+const LINK_IN_BIO = ["PPSOverview.tsx"];
+
+const PAGES = [...NEW_DESIGN, ...BATCH_1, ...BATCH_2, ...BATCH_3, ...BATCH_4, ...LINK_IN_BIO];
 
 // The page's text without its code comments, whitespace collapsed.
 const read = (path: string) =>
