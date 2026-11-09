@@ -59,7 +59,7 @@ export const HEADER_MENU: NavGroup[] = [
     children: [
       { label: "Amy Yackowski", href: "/speaking/amy" },
       { label: "Rob Hunter", href: "/speaking/rob" },
-      { label: "Sierra Cantrell", href: "/speaking/sierra" },
+      { label: "Sierra Ramm Cantrell", href: "/speaking/sierra" },
       { label: "Speaking Topics", href: "/speaking/topics" },
       { label: "As Seen On", href: "/speaking/media" },
     ],

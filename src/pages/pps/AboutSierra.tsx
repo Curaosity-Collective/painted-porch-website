@@ -17,14 +17,14 @@ export default function AboutSierra() {
     <LinkInBioPage
       accent="gold"
       seo={{
-        title: "Sierra Ramm-Cantrell, Chief Joy Officer | Painted Porch Strategies",
+        title: "Sierra Ramm Cantrell, Chief Joy Officer | Painted Porch Strategies",
         description:
-          "Sierra Ramm-Cantrell is the Chief Joy Officer at Painted Porch Strategies. Explore Sierra's keynotes, 1:1 coaching, Radical Mindfulness and free resources on burnout.",
+          "Sierra Ramm Cantrell is the Chief Joy Officer at Painted Porch Strategies. Explore Sierra's keynotes, 1:1 coaching, Radical Mindfulness and free resources on burnout.",
         canonical: "/sierra",
       }}
       photo={sierraPhoto}
-      photoAlt="Sierra Ramm-Cantrell"
-      name="Sierra Ramm-Cantrell"
+      photoAlt="Sierra Ramm Cantrell"
+      name="Sierra Ramm Cantrell"
       title="Chief Joy Officer · Mindfulness Sherpa"
       intro="I'm the one who makes animal noises, breaks into song, and brings you back to the present moment."
       links={[

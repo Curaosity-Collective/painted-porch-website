@@ -153,7 +153,7 @@ const TEAM = [
   { name: "Amy Yackowski", title: "Founder | Chief Evolution Officer | Organizational Shift Strategist", href: "/amy" },
   { name: "Rob Hunter", title: "Chief Storytelling Officer | M.C., Master of Communication", href: "/rob" },
   {
-    name: "Sierra Ramm-Cantrell",
+    name: "Sierra Ramm Cantrell",
     title: "Chief Joy Officer | M.B.A., Mind-Body Architect | Mindfulness Sherpa",
     href: "/sierra",
   },
