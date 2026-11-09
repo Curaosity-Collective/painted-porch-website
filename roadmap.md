@@ -1,3 +1,4 @@
+- [ ] Align all active public-page titles, descriptions and Open Graph tags with approved page copy; archive prior metadata, preserve dynamic editorial metadata, and verify without bulk generation.
 - [x] Add ASGroup's official logo to the client scroll, speaking scroll and Amy's speaking history; verified links and desktop/mobile display.
 - [x] Repair the P.A.T.H. Roadmap Planner's existing GoHighLevel sign-up; new and repeat real submissions matched one contact, preserved identity and consent, created no work leads, queued both email copies, and opened immediate access. Test contact removed.
 - [x] Add approved-only media SEO/AEO/GEO structured summaries without changing the gallery.
