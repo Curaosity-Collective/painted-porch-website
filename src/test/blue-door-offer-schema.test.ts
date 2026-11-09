@@ -45,17 +45,6 @@ describe("Blue Door offer schema — runtime", () => {
     expect(blueDoorSeoDescription()).toContain("Coming Soon");
     expect(blueDoorCheckoutSeoDescription()).toContain("Coming Soon");
   });
-
-  it("attaches the schema on both Blue Door routes", () => {
-    for (const page of [
-      "src/pages/pps/BlueDoorLanding.tsx",
-      "src/pages/pps/BlueDoorPurchase.tsx",
-    ]) {
-      const src = read(page);
-      expect(src).toContain("blueDoorServiceJsonLd");
-      expect(src).toMatch(/jsonLd:\s*blueDoorServiceJsonLd\(\)/);
-    }
-  });
 });
 
 describe("Retired Blue Door — prerendered HTML (PPS-DEC-0017)", () => {

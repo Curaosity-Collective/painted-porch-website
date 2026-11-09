@@ -419,7 +419,7 @@ const App = () => (
             <Route path="blue-door" element={<Navigate to="/envision-shift" replace />} />
             <Route path="blue-door-archive" element={<Navigate to="/envision-shift" replace />} />
             <Route path="blue-door/purchase" element={<Navigate to="/envision-shift" replace />} />
-            {/* Archived 2026-11-09 (PPS Admin; PPS-DEC-0017 amendment): BlueDoorSuccess.tsx is kept for reference only. */}
+            {/* Every Blue Door page and its purchase flow were removed on 2026-11-09 (PPS-DEC-0017 amendment). */}
             <Route path="blue-door/success" element={<Navigate to="/envision-shift" replace />} />
             <Route path="contact" element={<PPSContact />} />
             <Route path="terms" element={<TermsAndConditions />} />
