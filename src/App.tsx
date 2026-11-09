@@ -84,7 +84,6 @@ import PPSOverview from "./pages/pps/PPSOverview";
 // Blue Door: public sale retired (PPS-DEC-0017). Only the success page stays,
 // for existing purchasers; every other Blue Door address redirects to the
 // Epic ShIFt Organizational Appraisal (PPS-DEC-0018).
-import BlueDoorSuccess from "./pages/pps/BlueDoorSuccess";
 
 // Epic ShIFt redesign ("v3") pages ported from pps-simplified
 import EnvisionShift from "./pages/pps/v3/EnvisionShift";
@@ -220,7 +219,6 @@ function RouteSeoGuards() {
   const isInternalOnlyRoute = [
     "/reset-password",
     "/unsubscribe",
-    "/blue-door/success",
     "/wfh-thank-you",
     "/thank-you-change-canvas",
     "/thank-you-change-roadmap",
@@ -421,7 +419,8 @@ const App = () => (
             <Route path="blue-door" element={<Navigate to="/envision-shift" replace />} />
             <Route path="blue-door-archive" element={<Navigate to="/envision-shift" replace />} />
             <Route path="blue-door/purchase" element={<Navigate to="/envision-shift" replace />} />
-            <Route path="blue-door/success" element={<BlueDoorSuccess />} />
+            {/* Archived 2026-11-09 (PPS Admin; PPS-DEC-0017 amendment): BlueDoorSuccess.tsx is kept for reference only. */}
+            <Route path="blue-door/success" element={<Navigate to="/envision-shift" replace />} />
             <Route path="contact" element={<PPSContact />} />
             <Route path="terms" element={<TermsAndConditions />} />
             <Route path="privacy" element={<Navigate to="/terms?tab=privacy" replace />} />

@@ -1,3 +1,6 @@
+// ARCHIVED 2026-11-09 (PPS Admin: "Blue door pages should be archived and redirect to envision/epic shift
+// appraisal"; PPS-DEC-0017 amendment). Not routed: /blue-door/success redirects to /envision-shift.
+// Kept for reference only; don't restyle, update or delete.
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
