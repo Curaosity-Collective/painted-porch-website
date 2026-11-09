@@ -1,409 +1,95 @@
-import { Link } from "react-router-dom";
-import { useDocumentSeo } from "@/hooks/useDocumentSeo";
-import {
-  Mic,
-  Coffee,
-  ExternalLink,
-  ArrowRight,
-  Youtube,
-} from "lucide-react";
-import { YouTubeCarousel } from "@/components/pps/YouTubeCarousel";
+import { LinkInBioPage } from "@/components/pps/link-in-bio/LinkInBioPage";
+import { ShIFt } from "@/components/v3/ShIFt";
 import { clarityCallSectionHref } from "@/config/epicShiftAppraisal";
-
 
 // The same photo the page loaded from the old Kajabi site, now from the site's own files (PPS Admin, 2026-11-09).
 import amyPhoto from "@/assets/team/amy-yackowski.png";
 
-/* ── Offering categories ─────────────────────────────────────────────── */
-
-interface OfferingCard {
-  emoji: string;
-  title: string;
-  description: string;
-  href: string;
-  external?: boolean;
-  color: "teal" | "gold" | "purple" | "lime" | "raspberry";
-}
-
-const offerings: OfferingCard[] = [
-  {
-    emoji: "🚪",
-    title: "The Epic ShIFt Organizational Appraisal",
-    description:
-      "An interview-led organizational 360 that appraises where your organization stands, and what shIFt you're positioned to lead.",
-    href: "/envision-shift",
-    color: "teal",
-  },
-  {
-    emoji: "🎤",
-    title: "Speaking & Keynotes",
-    description:
-      "From Stoicism in the Workplace to AI adoption, Amy's talks move audiences from insight to action.",
-    href: "/speaking/amy",
-    color: "purple",
-  },
-  {
-    emoji: "⚡",
-    title: "Self-Led Growth",
-    description:
-      "Masterclasses, mini courses, and assessments to spark your next shIFt, on your own terms.", href: "/for-individuals",
-    color: "gold",
-  },
-  {
-    emoji: "🚀",
-    title: "Team Workshops & Leadership Labs",
-    description:
-      "Workshops and Leadership Labs that build extraordinary teams, and the momentum to make epic shIFt stick.",
-    href: "/workshops",
-    color: "lime",
-  },
-  {
-    emoji: "🏛️",
-    title: "Organization-Wide Partnership",
-    description:
-      "Envision, Architect and Embody ShIFt: the appraisal, the architecture and the ongoing advisory for leaders ready to build unshakeable foundations.",
-    href: "/the-path",
-    color: "raspberry",
-  },
-  {
-    emoji: "🧠",
-    title: "EQ Assessment",
-    description:
-      "Curious about how to 'Do E.Q.' and lead in life & work? Explore our emotional intelligence assessment.",
-    href: "/eq",
-    color: "teal",
-  },
-];
-
-/* ── Quick links ─────────────────────────────────────────────────────── */
-
-interface QuickLink {
-  emoji: string;
-  label: string;
-  href: string;
-  external?: boolean;
-}
-
-const quickLinks: QuickLink[] = [
-  { emoji: "🔼", label: "Are You Ready for the Next Big Shift?", href: "/envision-shift" },
-  { emoji: "📈", label: "Walk The P.A.T.H. to Epic ShIFt", href: "/the-path" },
-  { emoji: "🤼‍♀️", label: "Create Extraordinary Teams", href: "/workshops#createExtraordinaryTeams" },
-  { emoji: "🧭", label: "Explore Stoic Wisdom & Resources", href: "/resources/insights?category=Stoicism%20%26%20Philosophy" },
-  { emoji: "📝", label: "Read the Latest from the Porch", href: "/resources/insights" },
-  {
-    emoji: "👋",
-    label: "Connect with me on LinkedIn",
-    href: "https://www.linkedin.com/in/ayackowski/",
-    external: true,
-  },
-  {
-    emoji: "📖",
-    label: "Follow me on Medium",
-    href: "https://medium.com/@amyyack",
-    external: true,
-  },
-  {
-    emoji: "🎵",
-    label: "Join our Dance Party on Spotify",
-    href: "https://open.spotify.com/playlist/1F6mkBYTllBzwawCXDEmry",
-    external: true,
-  },
-  {
-    emoji: "📺",
-    label: "Join me on the Painted Porch YouTube Channel",
-    href: "https://www.youtube.com/@onthepaintedporch",
-    external: true,
-  },
-];
-
-/* ── Color helpers ───────────────────────────────────────────────────── */
-
-const colorMap: Record<OfferingCard["color"], string> = {
-  teal: "border-primary/30 hover:border-primary bg-primary/5 hover:bg-primary/10",
-  gold: "border-secondary/30 hover:border-secondary bg-secondary/5 hover:bg-secondary/10",
-  purple: "border-strategic/30 hover:border-strategic bg-strategic/5 hover:bg-strategic/10",
-  lime: "border-accent/30 hover:border-accent bg-accent/5 hover:bg-accent/10",
-  raspberry: "border-destructive/30 hover:border-destructive bg-destructive/5 hover:bg-destructive/10",
-};
-
-const dotColorMap: Record<OfferingCard["color"], string> = {
-  teal: "bg-primary",
-  gold: "bg-secondary",
-  purple: "bg-strategic",
-  lime: "bg-accent",
-  raspberry: "bg-destructive",
-};
-
-/* ── Do Epic ShIFt on YouTube ─────────────────────────────────────────── */
-
-interface YouTubeVideoItem {
-  id: string;
-  title: string;
-}
-
-const doEpicShiftVideos: YouTubeVideoItem[] = [
-  { id: "VENNusJo1PI", title: "Tech Change with Courage: When Shift Happens with Amy Yackowski" },
-  { id: "LFGbm__t5M4", title: "If your change plan is just comms & training, you're not ready." },
-  { id: "PKAJaUl7ui8", title: "From Hype to Habit: Turning AI Talk into Action" },
-  { id: "hwDE_vPLprQ", title: "Phase Zero: The Hidden Advantage In Change - Podcast With Amy Yackowski" },
-  { id: "_VwR3vrqFdE", title: "Fix Your Workplace Culture with Amy Yackowski | Your Inside Track to Success" },
-  { id: "zGcJ58ddTuo", title: "GROW Your Staffing Agency in 2025 with These Proven Strategies!" },
-  { id: "OiTJJna-YR0", title: "WEBINAR | Change Readiness Essentials | Part IV: Empowering People for Change" },
-  { id: "La5_9N0lHvU", title: "WEBINAR | Change Readiness Essentials | Part III: Streamlining Processes for Success" },
-];
-
-/* ── Component ───────────────────────────────────────────────────────── */
-
+/** Amy's link-in-bio page. Layout and order: LinkInBioPage (PPS Admin, 2026-11-09). */
 export default function AboutAmy() {
-  useDocumentSeo({
-    title: "Amy Yackowski, Founder | Painted Porch Strategies",
-    description: "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, masterclasses, and thought leadership on change origination.",
-    canonical: "/amy",
-  });
-
   return (
-    <>
-
-      {/* ── HERO ─────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-muted/50 to-background">
-        <div className="mx-auto max-w-4xl px-6 pt-20 pb-12 text-center md:pt-28 md:pb-16">
-          {/* Photo */}
-          <div className="mx-auto mb-8 h-44 w-44 overflow-hidden rounded-full border-4 border-primary shadow-lg md:h-56 md:w-56">
-            <img
-              src={amyPhoto}
-              alt="Amy Yackowski"
-              className="h-full w-full object-cover"
-              loading="eager"
-            />
-          </div>
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-navy">
-            Hi! I'm Amy
-          </h1>
-
-          <p className="text-body mx-auto mt-6 max-w-2xl leading-relaxed text-foreground/80">
-            <strong className="text-navy">Welcome to the Painted Porch!</strong>{" "}
-            You can call me Amy Yack; my friends do. For over 20 years, I've partnered with leaders and learners to design strategies and programs that connect people and systems to a clear purpose, an optimized process, and a noble mission. With courage, curiosity, and a little play, we can challenge business as usual and navigate the sea of change, one small shIFt at a time.
+    <LinkInBioPage
+      accent="teal"
+      seo={{
+        title: "Amy Yackowski, Founder | Painted Porch Strategies",
+        description:
+          "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, the Epic ShIFt Organizational Appraisal and her writing on change origination.",
+        canonical: "/amy",
+      }}
+      photo={amyPhoto}
+      photoAlt="Amy Yackowski"
+      name="Amy Yackowski"
+      title="Founder · Chief Evolution Officer"
+      intro={
+        <>
+          I partner with leaders to architect their next <ShIFt onDark lowercase />, starting before the plan does.
+        </>
+      }
+      links={[
+        { text: "Start with a Clarity Call", label: "Start with a Clarity Call", href: clarityCallSectionHref() },
+        { text: "Book Amy to Speak", label: "Book Amy to Speak", href: "/speaking/amy" },
+        {
+          text: "The Epic ShIFt Organizational Appraisal",
+          label: <>The Epic <ShIFt onFill /> Organizational Appraisal</>,
+          href: "/envision-shift",
+        },
+        {
+          text: "Walk The P.A.T.H. to Epic ShIFt",
+          label: <>Walk The P.A.T.H. to Epic <ShIFt onFill /></>,
+          href: "/the-path",
+        },
+        { text: "Read the Latest from the Porch", label: "Read the Latest from the Porch", href: "/resources/insights" },
+      ]}
+      featured={[
+        {
+          kicker: "The First Step",
+          text: "The Epic ShIFt Organizational Appraisal",
+          title: <>The Epic <ShIFt /> Organizational Appraisal</>,
+          description: (
+            <>
+              An interview-led organizational 360 that appraises where your organization stands, and what{" "}
+              <ShIFt lowercase /> you're positioned to lead.
+            </>
+          ),
+          href: "/envision-shift",
+          cta: "Explore the Appraisal",
+        },
+        {
+          // A free resource in place of the EQ Assessment (PPS Admin, 2026-11-09: "A swap for free resource").
+          kicker: "Free Training",
+          text: "Kick the Habit",
+          title: "Kick the Habit",
+          description: (
+            <>
+              Spot the thinking patterns that hold change back, and build the habits your next{" "}
+              <ShIFt lowercase /> asks for.
+            </>
+          ),
+          href: "/kick-the-habit",
+          cta: "Watch the Free Replay",
+        },
+      ]}
+      aboutHeading="Hi! I'm Amy"
+      about={
+        <>
+          <p>
+            You can call me Amy Yack; my friends do. I founded Painted Porch Strategies to start change where it
+            starts: before the plan, while the questions are still open and the choices are still yours.
           </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              to="/contact?interest=general&message=I'd like to connect with Amy."
-              className="cta-label inline-flex items-center gap-2 rounded bg-primary px-6 py-3 font-poppins font-semibold text-primary-foreground transition hover:opacity-90"
-            >
-              <Coffee className="h-4 w-4" />
-              Let's Connect
-            </Link>
-            <Link
-              to="/speaking/amy"
-              className="cta-label inline-flex items-center gap-2 rounded bg-secondary px-6 py-3 font-poppins font-semibold text-secondary-foreground transition hover:opacity-90"
-            >
-              <Mic className="h-4 w-4" />
-              Book Amy to Speak
-            </Link>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ── WHAT I DO ────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy">
-              What I Do
-            </h2>
-            <p className="text-body mx-auto mt-4 max-w-2xl text-foreground/70">
-              From strategic assessments to embedded partnerships, here's how we
-              can work together to architect extraordinary outcomes.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {offerings.map((card) => (
-              <Link
-                key={card.title}
-                to={card.href}
-                className={`group relative rounded border-2 p-6 transition-all duration-300 ${colorMap[card.color]}`}
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">{card.emoji}</span>
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy group-hover:text-primary transition-colors">
-                      {card.title}
-                    </h3>
-                    <p className="text-body mt-2 -sm leading-relaxed text-foreground/70">
-                      {card.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100">
-                  Explore <ArrowRight className="h-3.5 w-3.5" />
-                </div>
-                <span
-                  className={`absolute top-4 right-4 h-2 w-2 rounded-full ${dotColorMap[card.color]}`}
-                />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── YOUTUBE EMBED ────────────────────────────────────────────── */}
-      <section className="py-16 md:py-20">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy">
-            From the Porch
-          </h2>
-          <p className="text-body mt-3 text-foreground/60">
-            How to take a Stoic perspective to conflict
+          <p>
+            I've cheered, documented and advised my way through more rollouts than I can count (a few of them on
+            time, most of them on hope), which is why our work begins with what your organization is built to carry.
+            With courage, curiosity and a little play, we co-architect what comes next, one small{" "}
+            <ShIFt lowercase /> at a time.
           </p>
-          <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded shadow-lg">
-            <div className="relative aspect-video">
-              <iframe
-                src="https://www.youtube.com/embed/9aumBiSDyOg"
-                className="absolute inset-0 h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title="How to Take a Stoic Perspective to Conflict"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── DO EPIC SHIFt ON YOUTUBE ─────────────────────────────────── */}
-      <section className="py-16 md:py-24 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-navy">
-              Do Epic ShIFt with Amy on YouTube
-            </h2>
-            <p className="text-body mx-auto mt-3 max-w-xl text-foreground/60">
-              Real talk on change, leadership, and making shIFt happen, one video at a time.
-            </p>
-          </div>
-
-          <YouTubeCarousel
-            videos={doEpicShiftVideos}
-            getHref={(video) =>
-              `https://www.youtube.com/watch?v=${video.id}&list=PLhdPibIQvwhEhvaMycdAgzOM4dMMaFTVI`
-            }
-          />
-
-
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="https://www.youtube.com/@onthepaintedporch"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-label inline-flex items-center gap-2 rounded bg-destructive px-6 py-3 font-poppins font-semibold text-white transition hover:opacity-90"
-            >
-              <Youtube className="h-5 w-5" />
-              Subscribe on YouTube
-            </a>
-            <a
-              href="https://youtube.com/playlist?list=PLhdPibIQvwhEhvaMycdAgzOM4dMMaFTVI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-label inline-flex items-center gap-2 rounded border-2 border-navy px-6 py-3 font-poppins font-semibold text-navy transition hover:bg-navy hover:text-white"
-            >
-              View Playlist
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── QUICK LINKS ──────────────────────────────────────────────── */}
-      <section className="bg-muted/50 py-16 md:py-20">
-        <div className="mx-auto max-w-2xl px-6">
-          <h2 className="text-3xl md:text-4xl text-center font-poppins font-bold text-navy">
-            Explore & Connect
-          </h2>
-          <p className="text-body mt-3 text-center text-foreground/60">
-            Quick links to resources, insights, and where to find me
-          </p>
-
-          <div className="mt-10 flex flex-col gap-3">
-            {quickLinks.map((link) => {
-              const isExternal = link.external;
-              const Component = isExternal ? "a" : Link;
-              const props = isExternal
-                ? { href: link.href, target: "_blank", rel: "noopener noreferrer" }
-                : { to: link.href };
-
-              return (
-                <Component
-                  key={link.label}
-                  {...(props as any)}
-                  className="cta-label group flex items-center gap-3 rounded border border-border bg-background px-5 py-4 font-medium text-navy shadow-sm transition-all hover:border-primary hover:shadow-md"
-                >
-                  <span className="text-lg">{link.emoji}</span>
-                  <span className="flex-1">{link.label}</span>
-                  {isExternal ? (
-                    <ExternalLink className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
-                  ) : (
-                    <ArrowRight className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
-                  )}
-                </Component>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── SPOTIFY ────────────────────────────────────────── */}
-      <section className="bg-navy py-16 md:py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-3xl md:text-4xl text-center font-poppins font-bold text-white">
-            Listen In
-          </h2>
-          <p className="text-body mt-3 text-center text-white/60">
-            Our dance party playlist
-          </p>
-
-          <div className="mt-10 max-w-md mx-auto">
-            <div className="overflow-hidden rounded shadow-lg">
-              <iframe
-                src="https://open.spotify.com/embed/playlist/1F6mkBYTllBzwawCXDEmry?utm_source=generator&theme=0"
-                width="100%"
-                height="352"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-                className="rounded border-0"
-                title="Painted Porch Playlist on Spotify"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CLARITY CALL CTA ─────────────────────────────────────────── */}
-      {/* Replaces "Meet for a Virtual Coffee or Cocktail" (PPS Admin, 2026-11-09). Like every
-          "Start with a Clarity Call" outside the homepage, it opens the homepage's Clarity Call section. */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-2xl px-6 text-center">
-          <div className="rounded border-2 border-primary/20 bg-primary/5 px-8 py-12 md:px-12">
-            <span className="text-5xl" aria-hidden="true">🚪</span>
-            <h2 className="text-3xl md:text-4xl mt-4 font-poppins font-bold text-navy">
-              What's Your Organization Built to Lead Next?
-            </h2>
-            <p className="text-body mx-auto mt-4 max-w-md text-foreground/70">
-              In a 60-minute Clarity Call, we'll read whether your organization can carry the shIFt you're
-              considering, where misalignment would tax your momentum, and the first decisive move to make.
-            </p>
-            <Link
-              to={clarityCallSectionHref()}
-              className="cta-label mt-8 inline-flex items-center gap-2 rounded bg-primary px-8 py-4 font-poppins font-semibold text-white transition hover:opacity-90"
-            >
-              Start with a Clarity Call
-              <ArrowRight className="h-4 w-4 opacity-60" />
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+        </>
+      }
+      socials={[
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/ayackowski/" },
+        { label: "Medium", href: "https://medium.com/@amyyack" },
+        { label: "YouTube", href: "https://www.youtube.com/@onthepaintedporch" },
+        { label: "Spotify Playlist", href: "https://open.spotify.com/playlist/1F6mkBYTllBzwawCXDEmry" },
+      ]}
+    />
   );
 }
