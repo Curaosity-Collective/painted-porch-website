@@ -1,0 +1,475 @@
+{
+  "/": {
+    "title": "Painted Porch Strategies | Build an Organization That Can Do Epic ShIFt",
+    "description": "You have a vision for who your organization can become next. Is that future being authored with intention, or inherited through assumption?",
+    "ogTitle": "Painted Porch Strategies | Build an Organization That Can Do Epic ShIFt",
+    "ogDescription": "You have a vision for who your organization can become next. Is that future being authored with intention, or inherited through assumption?",
+    "source": "src/pages/pps/v3/HomeNext.tsx",
+    "pageOwnsSeo": true
+  },
+  "/phase-zero": {
+    "title": "Phase Zero™: Our Approach | Painted Porch Strategies",
+    "description": "Phase Zero is the work before the work: the Prepare and Align stages of the P.A.T.H., where leaders get clear about people, systems, and culture, and decide what to author before the next big shIFt.",
+    "ogTitle": "Phase Zero™: Our Approach | Painted Porch Strategies",
+    "ogDescription": "Phase Zero is the work before the work: the Prepare and Align stages of the P.A.T.H., where leaders get clear about people, systems, and culture, and decide what to author before the next big shIFt.",
+    "source": "src/pages/pps/v3/PhaseZeroNext.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/heroes/phase-zero-hero.jpg"
+  },
+  "/about": {
+    "title": "About | Painted Porch Strategies",
+    "description": "Named for the Stoa Poikile, the painted porch where philosophy went public. Twenty-plus years of organizational change, practiced at the decision, not the delivery.",
+    "ogTitle": "About | Painted Porch Strategies",
+    "ogDescription": "Named for the Stoa Poikile, the painted porch where philosophy went public. Twenty-plus years of organizational change, practiced at the decision, not the delivery.",
+    "source": "src/pages/pps/v3/AboutNext.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/heroes/about-hero.jpg"
+  },
+  "/about/impact": {
+    "title": "Results & Impact | Painted Porch Strategies",
+    "description": "What our clients say, the organizations we've worked alongside, and where 5% of every fee has gone: $31,474 given to client-chosen charities to date.",
+    "ogTitle": "Results & Impact | Painted Porch Strategies",
+    "ogDescription": "What our clients say, the organizations we've worked alongside, and where 5% of every fee has gone: $31,474 given to client-chosen charities to date.",
+    "source": "src/pages/pps/v3/ResultsImpact.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/images/impact-cta-begin.jpg"
+  },
+  "/the-path": {
+    "title": "The P.A.T.H.™ | Painted Porch Strategies",
+    "description": "Prepare, Align, Take Off, Create Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.",
+    "ogTitle": "The P.A.T.H.™ | Painted Porch Strategies",
+    "ogDescription": "Prepare, Align, Take Off, Create Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.",
+    "source": "src/pages/pps/v3/ThePath.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/colorful-path.jpg"
+  },
+  "/assessments": {
+    "title": "Assessments | Painted Porch Strategies",
+    "description": "Individual and team assessments from Painted Porch Strategies: EQ-i 2.0, Working Genius, and the Painted Porch Pillars™ diagnostic.",
+    "ogTitle": "Assessments | Painted Porch Strategies",
+    "ogDescription": "Individual and team assessments from Painted Porch Strategies: EQ-i 2.0, Working Genius, and the Painted Porch Pillars™ diagnostic.",
+    "source": "src/pages/pps/partner/ignite/IgniteAssessments.tsx",
+    "pageOwnsSeo": true
+  },
+  "/masterclasses": {
+    "title": "Masterclasses | Painted Porch Strategies",
+    "description": "Live and on-demand masterclasses on leadership, communication, mindfulness, and team dynamics from Painted Porch Strategies.",
+    "ogTitle": "Masterclasses | Painted Porch Strategies",
+    "ogDescription": "Live and on-demand masterclasses on leadership, communication, mindfulness, and team dynamics from Painted Porch Strategies.",
+    "source": "src/pages/pps/partner/ignite/IgniteMasterclasses.tsx",
+    "pageOwnsSeo": true
+  },
+  "/workshops": {
+    "title": "Team Workshops | Painted Porch Strategies",
+    "description": "Team workshops from Painted Porch Strategies: the P.A.T.H.™ to Lasting Change, organizational architecture, leadership development, and team building, in 1–3 day team engagements.",
+    "ogTitle": "Team Workshops | Painted Porch Strategies",
+    "ogDescription": "Team workshops from Painted Porch Strategies: the P.A.T.H.™ to Lasting Change, organizational architecture, leadership development, and team building, in 1–3 day team engagements.",
+    "source": "src/pages/pps/partner/amplify/AmplifyWorkshops.tsx",
+    "pageOwnsSeo": true
+  },
+  "/leadership-labs": {
+    "title": "Leadership Labs | Painted Porch Strategies",
+    "description": "Cohort-based Leadership Labs from Painted Porch Strategies: 6–12 week programs on Stractical Leadership, Leading Change, Stoicism at Work, AI+EI, and more.",
+    "ogTitle": "Leadership Labs | Painted Porch Strategies",
+    "ogDescription": "Cohort-based Leadership Labs from Painted Porch Strategies: 6–12 week programs on Stractical Leadership, Leading Change, Stoicism at Work, AI+EI, and more.",
+    "source": "src/pages/pps/partner/amplify/AmplifyLabs.tsx",
+    "pageOwnsSeo": true
+  },
+  "/leadership-labs/stractical-leader": {
+    "title": "Stractical Leader 6-Week Intensive | Painted Porch Strategies",
+    "description": "The Stractical Leader is a 6-week cohort intensive for managers ready to master strategic vision and tactical execution together.",
+    "ogTitle": "Stractical Leader 6-Week Intensive | Painted Porch Strategies",
+    "ogDescription": "The Stractical Leader is a 6-week cohort intensive for managers ready to master strategic vision and tactical execution together.",
+    "source": "src/pages/pps/partner/amplify/StracticalLeaderWorkshop.tsx",
+    "pageOwnsSeo": true
+  },
+  "/for-individuals": {
+    "title": "For Individual Leaders | Painted Porch Strategies",
+    "description": "Assessments, masterclasses and mini courses, and Leadership Labs for leaders investing in their own growth: on your own schedule, or alongside peers.",
+    "ogTitle": "For Individual Leaders | Painted Porch Strategies",
+    "ogDescription": "Assessments, masterclasses and mini courses, and Leadership Labs for leaders investing in their own growth: on your own schedule, or alongside peers.",
+    "source": "src/pages/pps/v3/ForIndividuals.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/ignite-hero-flame.jpg"
+  },
+  "/architect-shift": {
+    "title": "Architect ShIFt | Painted Porch Strategies",
+    "description": "An executive strategy & authorship intensive, a 90-day pillar-fortification sprint and a retrospective that decides your organization's next step. Starting at $90,000, in a weekly or a biweekly version.",
+    "ogTitle": "Architect ShIFt | Painted Porch Strategies",
+    "ogDescription": "An executive strategy & authorship intensive, a 90-day pillar-fortification sprint and a retrospective that decides your organization's next step. Starting at $90,000, in a weekly or a biweekly version.",
+    "source": "src/pages/pps/v3/ArchitectShift.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/heroes/approach-hero.jpg"
+  },
+  "/embody-shift": {
+    "title": "Embody ShIFt | Painted Porch Strategies",
+    "description": "Ongoing advisory while your organization designs and leads the change it envisioned and authored, reinforcing it as a continuous practice. $9,000–$18,000 per month, depending on advisory depth and need.",
+    "ogTitle": "Embody ShIFt | Painted Porch Strategies",
+    "ogDescription": "Ongoing advisory while your organization designs and leads the change it envisioned and authored, reinforcing it as a continuous practice. $9,000–$18,000 per month, depending on advisory depth and need.",
+    "source": "src/pages/pps/v3/EmbodyShift.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/v3/embody-hero-poster.jpg"
+  },
+  "/resources": {
+    "title": "Resources | Painted Porch Strategies",
+    "description": "Free tools, insights, YouTube library, and FAQs from Painted Porch Strategies. Practical wisdom for change origination and leadership.",
+    "ogTitle": "Resources | Painted Porch Strategies",
+    "ogDescription": "Free tools, insights, YouTube library, and FAQs from Painted Porch Strategies. Practical wisdom for change origination and leadership.",
+    "source": "src/pages/pps/resources/ResourcesHub.tsx",
+    "pageOwnsSeo": true
+  },
+  "/resources/free": {
+    "title": "Free Downloads & Resources | Painted Porch Strategies",
+    "description": "Free playbooks, guides, and tools from Painted Porch Strategies. Includes the Stractical Leader mini-guide, burnout resource kit, and more.",
+    "ogTitle": "Free Downloads & Resources | Painted Porch Strategies",
+    "ogDescription": "Free playbooks, guides, and tools from Painted Porch Strategies. Includes the Stractical Leader mini-guide, burnout resource kit, and more.",
+    "source": "src/pages/pps/resources/FreeDownloads.tsx",
+    "pageOwnsSeo": true
+  },
+  "/resources/insights": {
+    "title": "Insights | Painted Porch Strategies",
+    "description": "Explore Painted Porch Strategies articles, ideas, and media on leadership, communication, resilience, and organizational shift.",
+    "ogTitle": "Insights | Painted Porch Strategies",
+    "ogDescription": "Explore Painted Porch Strategies articles, ideas, and media on leadership, communication, resilience, and organizational shift.",
+    "source": "src/pages/pps/PPSBlog.tsx",
+    "pageOwnsSeo": true
+  },
+  "/resources/youtube": {
+    "title": "YouTube Library | Painted Porch Strategies",
+    "description": "Videos, mini-trainings, and conversations from Painted Porch Strategies on change origination, leadership, communication, and Stoic practical wisdom.",
+    "ogTitle": "YouTube Library | Painted Porch Strategies",
+    "ogDescription": "Videos, mini-trainings, and conversations from Painted Porch Strategies on change origination, leadership, communication, and Stoic practical wisdom.",
+    "source": "src/pages/pps/resources/YouTubePage.tsx",
+    "pageOwnsSeo": true
+  },
+  "/speaking/media": {
+    "title": "As Seen On | Painted Porch Strategies",
+    "description": "Podcasts, interviews, and media appearances featuring the Painted Porch Strategies team discussing change origination, strategic authorship, and leadership.",
+    "ogTitle": "As Seen On | Painted Porch Strategies",
+    "ogDescription": "Podcasts, interviews, and media appearances featuring the Painted Porch Strategies team discussing change origination, strategic authorship, and leadership.",
+    "source": "src/pages/pps/resources/AsSeenOn.tsx",
+    "pageOwnsSeo": true
+  },
+  "/resources/faq": {
+    "title": "FAQ | Painted Porch Strategies",
+    "description": "Answers to the most common questions about Painted Porch Strategies, Phase Zero, the Clarity Call, the three ShIFts, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
+    "ogTitle": "FAQ | Painted Porch Strategies",
+    "ogDescription": "Answers to the most common questions about Painted Porch Strategies, Phase Zero, the Clarity Call, the three ShIFts, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
+    "source": "src/pages/pps/resources/FAQPage.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/faq-hero.jpg"
+  },
+  "/resources/stractical-mini": {
+    "title": "Stractical Leader Mini Guide | Painted Porch Strategies",
+    "description": "Download the free Stractical Leader mini guide. A short blueprint for managers ready to master strategic vision and tactical execution together.",
+    "ogTitle": "Stractical Leader Mini Guide | Painted Porch Strategies",
+    "ogDescription": "Download the free Stractical Leader mini guide. A short blueprint for managers ready to master strategic vision and tactical execution together.",
+    "source": "src/pages/pps/resources/StracticalLeaderGuide.tsx",
+    "pageOwnsSeo": true
+  },
+  "/speaking": {
+    "title": "Speaking | Book Amy, Rob & Sierra | Painted Porch Strategies",
+    "description": "Three dynamic speakers. One Stoic mission. Book Amy, Rob, and Sierra for keynotes and workshops on change, leadership, and epic shIFt.",
+    "ogTitle": "Speaking | Book Amy, Rob & Sierra | Painted Porch Strategies",
+    "ogDescription": "Three dynamic speakers. One Stoic mission. Book Amy, Rob, and Sierra for keynotes and workshops on change, leadership, and epic shIFt.",
+    "source": "src/pages/pps/Speaking.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/heroes/speaking-hero.jpg"
+  },
+  "/press-kit": {
+    "title": "Press Kit & Speaker Bios | Painted Porch Strategies",
+    "description": "Explore Painted Porch Strategies speaker bios, mission, media appearances and speaking engagements. Download the press kit or contact Media Relations.",
+    "ogTitle": "Press Kit & Speaker Bios | Painted Porch Strategies",
+    "ogDescription": "Explore Painted Porch Strategies speaker bios, mission, media appearances and speaking engagements. Download the press kit or contact Media Relations.",
+    "source": "src/pages/pps/PressKit.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "public/images/press-kit-share.jpg"
+  },
+  "/speaking/topics": {
+    "title": "Speaking & Workshop Topics | Painted Porch Strategies",
+    "description": "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic works as a keynote, an interactive workshop, or both.",
+    "ogTitle": "Speaking & Workshop Topics | Painted Porch Strategies",
+    "ogDescription": "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic works as a keynote, an interactive workshop, or both.",
+    "source": "src/pages/pps/SpeakingWorkshopTopics.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/heroes/speaking-hero.jpg"
+  },
+  "/elemental-style-assessment": {
+    "title": "Your Elemental Style: Free Assessment | Painted Porch Strategies",
+    "description": "A free five-minute quiz on your natural communication and collaboration style: how you show up, where you shine, and how you connect best with others. No sign-up.",
+    "ogTitle": "Your Elemental Style: Free Assessment | Painted Porch Strategies",
+    "ogDescription": "A free five-minute quiz on your natural communication and collaboration style: how you show up, where you shine, and how you connect best with others. No sign-up.",
+    "source": "src/pages/pps/ElementalStyleAssessment.tsx",
+    "pageOwnsSeo": true
+  },
+  "/envision-shift": {
+    "title": "The Epic ShIFt Organizational Appraisal | Painted Porch Strategies",
+    "description": "An interview-led organizational 360 built on six interviews, from executives to the frontline. Your P.A.T.H. Compass clarifies which change and direction make sense to pursue NOW and what in your organization needs reinforcement first, so you can lead with clarity and build with confidence. Investment: $24,000.",
+    "ogTitle": "The Epic ShIFt Organizational Appraisal | Painted Porch Strategies",
+    "ogDescription": "An interview-led organizational 360 built on six interviews, from executives to the frontline. Your P.A.T.H. Compass clarifies which change and direction make sense to pursue NOW and what in your organization needs reinforcement first, so you can lead with clarity and build with confidence. Investment: $24,000.",
+    "source": "src/pages/pps/v3/EnvisionShift.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/v3/amplify-hero-poster.jpg"
+  },
+  "/contact": {
+    "title": "Contact Painted Porch Strategies | Start the Conversation",
+    "description": "Tell us about your shIFt. We partner with leaders, teams, and organizations ready to architect change that lasts. Start the conversation here.",
+    "ogTitle": "Contact Painted Porch Strategies | Start the Conversation",
+    "ogDescription": "Tell us about your shIFt. We partner with leaders, teams, and organizations ready to architect change that lasts. Start the conversation here.",
+    "source": "src/pages/pps/PPSContact.tsx",
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/heroes/contact-hero.jpg"
+  },
+  "/sitemap": {
+    "title": "Sitemap | Painted Porch Strategies",
+    "description": "Complete list of all pages on the Painted Porch Strategies website, organized by section.",
+    "ogTitle": "Sitemap | Painted Porch Strategies",
+    "ogDescription": "Complete list of all pages on the Painted Porch Strategies website, organized by section.",
+    "source": "src/pages/pps/Sitemap.tsx",
+    "pageOwnsSeo": true,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/amy": {
+    "title": "Amy Yackowski, Founder | Painted Porch Strategies",
+    "description": "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, masterclasses, and thought leadership on change origination.",
+    "ogTitle": "Amy Yackowski, Founder | Painted Porch Strategies",
+    "ogDescription": "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, masterclasses, and thought leadership on change origination.",
+    "source": "src/pages/pps/AboutAmy.tsx",
+    "pageOwnsSeo": true
+  },
+  "/rob": {
+    "title": "Rob Hunter, Master of Communication | Painted Porch Strategies",
+    "description": "Rob Hunter is the Chief Storytelling Officer at Painted Porch Strategies. Explore Rob's Master Your Message training, keynotes, and podcast.",
+    "ogTitle": "Rob Hunter, Master of Communication | Painted Porch Strategies",
+    "ogDescription": "Rob Hunter is the Chief Storytelling Officer at Painted Porch Strategies. Explore Rob's Master Your Message training, keynotes, and podcast.",
+    "source": "src/pages/pps/AboutRob.tsx",
+    "pageOwnsSeo": true
+  },
+  "/sierra": {
+    "title": "Sierra Ramm-Cantrell, Chief Joy Officer | Painted Porch Strategies",
+    "description": "Sierra Ramm-Cantrell is the Chief Joy Officer at Painted Porch Strategies. Explore Radical Mindfulness practices and Mindful Moments for leaders.",
+    "ogTitle": "Sierra Ramm-Cantrell, Chief Joy Officer | Painted Porch Strategies",
+    "ogDescription": "Sierra Ramm-Cantrell is the Chief Joy Officer at Painted Porch Strategies. Explore Radical Mindfulness practices and Mindful Moments for leaders.",
+    "source": "src/pages/pps/AboutSierra.tsx",
+    "pageOwnsSeo": true
+  },
+  "/assessments/working-genius": {
+    "title": "Discover your gifts. Transform your work. | Painted Porch Strategies",
+    "description": "Some work gives you energy. Some drains it. Working Genius names the kinds of work that fit your natural gifts so you can spend more time doing what brings you joy and impact.",
+    "ogTitle": "Discover your gifts. Transform your work. | Painted Porch Strategies",
+    "ogDescription": "Some work gives you energy. Some drains it. Working Genius names the kinds of work that fit your natural gifts so you can spend more time doing what brings you joy and impact.",
+    "source": "src/pages/pps/partner/ignite/WorkingGeniusAssessment.tsx",
+    "pageOwnsSeo": false
+  },
+  "/eq": {
+    "title": "What Can E.Q. Do For You? | Painted Porch Strategies",
+    "description": "Uncover your own strengths and opportunities to show up, be heard, connect, drive change, and have resilience to the challenges presented in life, work, and anywhere in between.",
+    "ogTitle": "What Can E.Q. Do For You? | Painted Porch Strategies",
+    "ogDescription": "Uncover your own strengths and opportunities to show up, be heard, connect, drive change, and have resilience to the challenges presented in life, work, and anywhere in between.",
+    "source": "src/pages/pps/partner/ignite/EQAssessment.tsx",
+    "pageOwnsSeo": false
+  },
+  "/kick-the-habit": {
+    "title": "Access the Kick the Habit Training Replay | Painted Porch Strategies",
+    "description": "Access a replay of our free training session led by Painted Porch Strategies Founder & Organizational Shift Strategist, Amy Yackowski.",
+    "ogTitle": "Access the Kick the Habit Training Replay | Painted Porch Strategies",
+    "ogDescription": "Access a replay of our free training session led by Painted Porch Strategies Founder & Organizational Shift Strategist, Amy Yackowski.",
+    "source": "src/pages/pps/KickTheHabit.tsx",
+    "pageOwnsSeo": false
+  },
+  "/kick-the-habit-watch": {
+    "title": "Kick the Habit Training Replay | Painted Porch Strategies",
+    "description": "Here's the replay of our Kick the Habit training.",
+    "ogTitle": "Kick the Habit Training Replay | Painted Porch Strategies",
+    "ogDescription": "Here's the replay of our Kick the Habit training.",
+    "source": "src/pages/pps/KickTheHabitWatch.tsx",
+    "pageOwnsSeo": false,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/stoic-field-guide": {
+    "title": "The Stoic Leader's Field Guide | Painted Porch Strategies",
+    "description": "An introduction to applying timeless Stoic principles in modern leadership. Daily practices, reflection prompts, and practical tools to lead with clarity, courage, and calm.",
+    "ogTitle": "The Stoic Leader's Field Guide | Painted Porch Strategies",
+    "ogDescription": "An introduction to applying timeless Stoic principles in modern leadership. Daily practices, reflection prompts, and practical tools to lead with clarity, courage, and calm.",
+    "source": "src/pages/pps/StoicFieldGuide.tsx",
+    "pageOwnsSeo": false
+  },
+  "/stoic-field-guide-access": {
+    "title": "The Stoic Leader's Field Guide | Painted Porch Strategies",
+    "description": "Your free field guide is ready. Download it below and keep it close as you put these practices to work.",
+    "ogTitle": "The Stoic Leader's Field Guide | Painted Porch Strategies",
+    "ogDescription": "Your free field guide is ready. Download it below and keep it close as you put these practices to work.",
+    "source": "src/pages/pps/StoicFieldGuideAccess.tsx",
+    "pageOwnsSeo": false,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/pilot-training": {
+    "title": "Access the From Passenger to Pilot Training Replay | Painted Porch Strategies",
+    "description": "Access a replay of our recent training session led by Painted Porch Strategies Chief Joy Officer & Mind-Body Architect, Sierra Ramm Cantrell, where she shares simple tools you can use to shift from being on auto-pilot to seizing the controls and steering the direction of your life and work.",
+    "ogTitle": "Access the From Passenger to Pilot Training Replay | Painted Porch Strategies",
+    "ogDescription": "Access a replay of our recent training session led by Painted Porch Strategies Chief Joy Officer & Mind-Body Architect, Sierra Ramm Cantrell, where she shares simple tools you can use to shift from being on auto-pilot to seizing the controls and steering the direction of your life and work.",
+    "source": "src/pages/pps/PilotTraining.tsx",
+    "pageOwnsSeo": false
+  },
+  "/pilot-training-watch": {
+    "title": "From Passenger to Pilot Training Replay | Painted Porch Strategies",
+    "description": "Here's the replay of Sierra Ramm Cantrell's 'Grow on the Porch' training session.",
+    "ogTitle": "From Passenger to Pilot Training Replay | Painted Porch Strategies",
+    "ogDescription": "Here's the replay of Sierra Ramm Cantrell's 'Grow on the Porch' training session.",
+    "source": "src/pages/pps/PilotTrainingWatch.tsx",
+    "pageOwnsSeo": false,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/6-communicator-styles": {
+    "title": "The 6 Communicator Styles Training Replay | Painted Porch Strategies",
+    "description": "A training session led by Painted Porch Strategies' \"M.C.\" (Master of Communication), Rob Hunter, on how to create stronger connections and communicate with impact by understanding the 6 styles of Communicators in your life and work.",
+    "ogTitle": "The 6 Communicator Styles Training Replay | Painted Porch Strategies",
+    "ogDescription": "A training session led by Painted Porch Strategies' \"M.C.\" (Master of Communication), Rob Hunter, on how to create stronger connections and communicate with impact by understanding the 6 styles of Communicators in your life and work.",
+    "source": "src/pages/pps/CommunicatorStyles.tsx",
+    "pageOwnsSeo": false
+  },
+  "/6-communicator-styles-watch": {
+    "title": "The 6 Communicator Styles Training Replay | Painted Porch Strategies",
+    "description": "Here's the replay of our training on mastering your message.",
+    "ogTitle": "The 6 Communicator Styles Training Replay | Painted Porch Strategies",
+    "ogDescription": "Here's the replay of our training on mastering your message.",
+    "source": "src/pages/pps/CommunicatorStylesWatch.tsx",
+    "pageOwnsSeo": false,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/change-canvas": {
+    "title": "The Strategic Change Canvas | Painted Porch Strategies",
+    "description": "A one-page planning tool to architect change before you build it, so your next shIFt actually sticks.",
+    "ogTitle": "The Strategic Change Canvas | Painted Porch Strategies",
+    "ogDescription": "A one-page planning tool to architect change before you build it, so your next shIFt actually sticks.",
+    "source": "src/pages/pps/StrategicCanvasSignUp.tsx",
+    "pageOwnsSeo": false
+  },
+  "/thank-you-change-canvas": {
+    "title": "Your Canvas is Ready! 🎉 | Painted Porch Strategies",
+    "description": "Your Strategic Change Canvas is ready to download.",
+    "ogTitle": "Your Canvas is Ready! 🎉 | Painted Porch Strategies",
+    "ogDescription": "Your Strategic Change Canvas is ready to download.",
+    "source": "src/pages/pps/StrategicCanvasThankYou.tsx",
+    "pageOwnsSeo": false,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/change-roadmap": {
+    "title": "Your P.A.T.H. Roadmap Planner | Painted Porch Strategies",
+    "description": "Ten stops, ten honest questions, and a checklist to keep your route in view, before your next big change kicks off.",
+    "ogTitle": "Your P.A.T.H. Roadmap Planner | Painted Porch Strategies",
+    "ogDescription": "Ten stops, ten honest questions, and a checklist to keep your route in view, before your next big change kicks off.",
+    "source": "src/pages/pps/ChangeRoadmapSignUp.tsx",
+    "pageOwnsSeo": false
+  },
+  "/thank-you-change-roadmap": {
+    "title": "📑 Here's Your Roadmap Planner | Painted Porch Strategies",
+    "description": "Thank you for downloading The P.A.T.H. Roadmap Planner.",
+    "ogTitle": "📑 Here's Your Roadmap Planner | Painted Porch Strategies",
+    "ogDescription": "Thank you for downloading The P.A.T.H. Roadmap Planner.",
+    "source": "src/pages/pps/ChangeRoadmapThankYou.tsx",
+    "pageOwnsSeo": false,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/change-comms": {
+    "title": "4 Critical Steps for Effective Change Communication | Painted Porch Strategies",
+    "description": "Plan messaging that builds awareness, understanding, and adoption of your next change.",
+    "ogTitle": "4 Critical Steps for Effective Change Communication | Painted Porch Strategies",
+    "ogDescription": "Plan messaging that builds awareness, understanding, and adoption of your next change.",
+    "source": "src/pages/pps/ChangeCommsSignUp.tsx",
+    "pageOwnsSeo": false
+  },
+  "/change-comms-thank-you": {
+    "title": "📑 Here's Your Guide | Painted Porch Strategies",
+    "description": "Thank you for downloading our 4 Critical Steps for Effective Change Communication guide.",
+    "ogTitle": "📑 Here's Your Guide | Painted Porch Strategies",
+    "ogDescription": "Thank you for downloading our 4 Critical Steps for Effective Change Communication guide.",
+    "source": "src/pages/pps/ChangeCommsThankYou.tsx",
+    "pageOwnsSeo": false,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/burnout": {
+    "title": "Bust Burnout | Painted Porch Strategies",
+    "description": "You've started to spot the signs of burnout. These resources are for busting burnout in yourself, with tools your team can use to take the reins of resilience.",
+    "ogTitle": "Bust Burnout | Painted Porch Strategies",
+    "ogDescription": "You've started to spot the signs of burnout. These resources are for busting burnout in yourself, with tools your team can use to take the reins of resilience.",
+    "source": "src/pages/pps/BurnoutOptIn.tsx",
+    "pageOwnsSeo": false
+  },
+  "/terms": {
+    "title": "Terms of The Porch | Painted Porch Strategies",
+    "description": "The version you might actually read",
+    "ogTitle": "Terms of The Porch | Painted Porch Strategies",
+    "ogDescription": "The version you might actually read",
+    "source": "src/pages/pps/TermsAndConditions.tsx",
+    "pageOwnsSeo": false
+  },
+  "/found-it": {
+    "title": "🎉🐣 You Found Something. | Painted Porch Strategies",
+    "description": "Most of us never make it this far. Tell us what you found and where, and we'll donate $25 to a charity of your choice.",
+    "ogTitle": "🎉🐣 You Found Something. | Painted Porch Strategies",
+    "ogDescription": "Most of us never make it this far. Tell us what you found and where, and we'll donate $25 to a charity of your choice.",
+    "source": "src/pages/pps/EasterEggForm.tsx",
+    "pageOwnsSeo": false
+  },
+  "/unsubscribe": {
+    "title": "Email Preferences | Painted Porch Strategies",
+    "description": "Would you like to unsubscribe from emails from Painted Porch Strategies?",
+    "ogTitle": "Email Preferences | Painted Porch Strategies",
+    "ogDescription": "Would you like to unsubscribe from emails from Painted Porch Strategies?",
+    "source": "src/pages/pps/Unsubscribe.tsx",
+    "pageOwnsSeo": false,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/stractical-mini-thank-you": {
+    "title": "You're In, Stractical Leader! | Painted Porch Strategies",
+    "description": "Your Stractical Leader Mini Guide is on its way to your inbox.",
+    "ogTitle": "You're In, Stractical Leader! | Painted Porch Strategies",
+    "ogDescription": "Your Stractical Leader Mini Guide is on its way to your inbox.",
+    "source": "src/pages/pps/resources/StracticalMiniThankYou.tsx",
+    "pageOwnsSeo": false,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/blue-door/success": {
+    "title": "You've Opened The Blue Door | Painted Porch Strategies",
+    "description": "Your purchase is confirmed. Strategic clarity is on its way. Here's what happens next.",
+    "ogTitle": "You've Opened The Blue Door | Painted Porch Strategies",
+    "ogDescription": "Your purchase is confirmed. Strategic clarity is on its way. Here's what happens next.",
+    "source": "src/pages/pps/BlueDoorSuccess.tsx",
+    "pageOwnsSeo": false,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/leadership-labs/stractical-leader/enroll": {
+    "title": "Next Stractical Leader Lab Coming Soon | Painted Porch Strategies",
+    "description": "The Stractical Leader Lab",
+    "ogTitle": "Next Stractical Leader Lab Coming Soon | Painted Porch Strategies",
+    "ogDescription": "The Stractical Leader Lab",
+    "source": "src/pages/pps/partner/amplify/StracticalLeaderCheckout.tsx",
+    "pageOwnsSeo": false,
+    "robots": "noindex, nofollow, noarchive, nosnippet"
+  },
+  "/speaking/amy": {
+    "title": "The Epic ShIFt Leadership Series | Painted Porch Strategies",
+    "description": "Leading well starts with staying steady when everything around you is moving. In this speaker series, Amy Yackowski equips modern leaders with Stoic tools, real-world frameworks, and emotional intelligence practices that keep teams grounded and united through every shIFt.",
+    "ogTitle": "The Epic ShIFt Leadership Series | Painted Porch Strategies",
+    "ogDescription": "Leading well starts with staying steady when everything around you is moving. In this speaker series, Amy Yackowski equips modern leaders with Stoic tools, real-world frameworks, and emotional intelligence practices that keep teams grounded and united through every shIFt.",
+    "source": "src/pages/pps/speaking/AmySpeaker.tsx",
+    "pageOwnsSeo": false
+  },
+  "/speaking/rob": {
+    "title": "The Clear & Courageous Communication Series | Painted Porch Strategies",
+    "description": "In a world full of noise, leaders who communicate with clarity and conviction rise above the rest. Rob Hunter, a #1-rated radio host and journalist turned communication impact strategist, teaches high-fidelity messaging practices to speak so your signal is clear, and people act.",
+    "ogTitle": "The Clear & Courageous Communication Series | Painted Porch Strategies",
+    "ogDescription": "In a world full of noise, leaders who communicate with clarity and conviction rise above the rest. Rob Hunter, a #1-rated radio host and journalist turned communication impact strategist, teaches high-fidelity messaging practices to speak so your signal is clear, and people act.",
+    "source": "src/pages/pps/speaking/RobSpeaker.tsx",
+    "pageOwnsSeo": false
+  },
+  "/speaking/sierra": {
+    "title": "The Radical Mindfulness Series | Painted Porch Strategies",
+    "description": "Seventy-five percent of employees report burnout, but it doesn't have to be that way. In this uplifting speaker series, Sierra guides teams to recharge, refocus, and reconnect through mindfulness-based strategies that build resilience and well-being.",
+    "ogTitle": "The Radical Mindfulness Series | Painted Porch Strategies",
+    "ogDescription": "Seventy-five percent of employees report burnout, but it doesn't have to be that way. In this uplifting speaker series, Sierra guides teams to recharge, refocus, and reconnect through mindfulness-based strategies that build resilience and well-being.",
+    "source": "src/pages/pps/speaking/SierraSpeaker.tsx",
+    "pageOwnsSeo": false
+  }
+}
