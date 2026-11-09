@@ -11,6 +11,7 @@ import shiftHappens from "@/assets/speaking/shift-happens.png.asset.json";
 import goldilocksLeadership from "@/assets/speaking/amy-goldilocks-leadership.png";
 import { ShIFt } from "@/components/v3/ShIFt";
 import SpeakerDetailPage, { type SpeakerData } from "./SpeakerDetailPage";
+import asgroupLogo from "@/assets/logos/asgroup-logo.png.asset.json";
 
 const amy: SpeakerData = {
   facilitatorKey: "Amy",
@@ -126,6 +127,7 @@ const amy: SpeakerData = {
   trustSignals: {
     heading: <>Where Amy Has Spoken</>,
     logos: [
+      { name: "ASGroup", src: asgroupLogo.url, href: "https://asgroup.com/events/" },
       { name: "ProjectWorld", src: "/logos/projectworld.png", href: "https://www.pmbaconferences.com/" },
       { name: "Project Summit", src: "/logos/project-summit.png", href: "https://www.pmbaconferences.com/" },
       { name: "PMBA Global", src: "/logos/pmba-global.png", href: "https://www.pmbaconferences.com/" },

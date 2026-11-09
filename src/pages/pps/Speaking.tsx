@@ -12,10 +12,12 @@ import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
 import { MoreTopicsCallout } from "@/components/pps/MoreTopicsCallout";
 import { AudienceOutcomes, HowBookingWorks } from "@/components/v3/SpeakingExtras";
 import { useV3Skin } from "@/components/v3/v3SkinContext";
+import asgroupLogo from "@/assets/logos/asgroup-logo.png.asset.json";
 
 const SPEAKING_CONTACT = "/contact?interest=speaking&message=I'm interested in booking a speaker for our event.";
 
 const speakingLogos: LogoItem[] = [
+  { name: "ASGroup", src: asgroupLogo.url, href: "https://asgroup.com/events/" },
   { name: "ProjectWorld", src: "/logos/projectworld.png", href: "https://www.pmbaconferences.com/" },
   { name: "Project Summit", src: "/logos/project-summit.png", href: "https://www.pmbaconferences.com/" },
   { name: "PMBA Global", src: "/logos/pmba-global.png", href: "https://www.pmbaconferences.com/" },
