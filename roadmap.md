@@ -1,5 +1,5 @@
 - [x] Add ASGroup's official logo to the client scroll, speaking scroll and Amy's speaking history; verified links and desktop/mobile display.
-- [ ] Repair the P.A.T.H. Roadmap Planner's existing GoHighLevel sign-up, verify new/repeat contacts without work leads, and retain immediate access and email copy.
+- [x] Repair the P.A.T.H. Roadmap Planner's existing GoHighLevel sign-up; new and repeat real submissions matched one contact, preserved identity and consent, created no work leads, queued both email copies, and opened immediate access. Test contact removed.
 - [x] Add approved-only media SEO/AEO/GEO structured summaries without changing the gallery.
 - [x] Apply lime green to monetary amounts and fee mentions across public pages and verify dynamic text.
 - [x] Include the same summaries in crawler-readable prerendered HTML.
