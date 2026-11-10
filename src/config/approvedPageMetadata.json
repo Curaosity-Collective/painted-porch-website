@@ -259,10 +259,10 @@
     "pageOwnsSeo": true
   },
   "/sierra": {
-    "title": "Sierra Ramm-Cantrell, Chief Joy Officer | Painted Porch Strategies",
-    "description": "Sierra Ramm-Cantrell is the Chief Joy Officer at Painted Porch Strategies. Explore Sierra's keynotes, 1:1 coaching, Radical Mindfulness and free resources on burnout.",
-    "ogTitle": "Sierra Ramm-Cantrell, Chief Joy Officer | Painted Porch Strategies",
-    "ogDescription": "Sierra Ramm-Cantrell is the Chief Joy Officer at Painted Porch Strategies. Explore Sierra's keynotes, 1:1 coaching, Radical Mindfulness and free resources on burnout.",
+    "title": "Sierra Ramm Cantrell, Chief Joy Officer | Painted Porch Strategies",
+    "description": "Sierra Ramm Cantrell is the Chief Joy Officer at Painted Porch Strategies. Explore Sierra's keynotes, 1:1 coaching, Radical Mindfulness and free resources on burnout.",
+    "ogTitle": "Sierra Ramm Cantrell, Chief Joy Officer | Painted Porch Strategies",
+    "ogDescription": "Sierra Ramm Cantrell is the Chief Joy Officer at Painted Porch Strategies. Explore Sierra's keynotes, 1:1 coaching, Radical Mindfulness and free resources on burnout.",
     "source": "src/pages/pps/AboutSierra.tsx",
     "pageOwnsSeo": true
   },
