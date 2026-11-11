@@ -10,6 +10,7 @@ import { Reveal } from "@/components/v3/Reveal";
 import { ShIFt } from "@/components/v3/ShIFt";
 import { PartnershipPromiseNote } from "@/components/v3/PartnershipPromiseNote";
 import { usePathFinderQuiz } from "@/components/pps/quiz/PathFinderQuizProvider";
+import CostCalculatorDialog from "@/components/pps/blue-door/CostCalculatorDialog";
 import { EPIC_SHIFT_APPRAISAL, clarityCallSectionHref } from "@/config/epicShiftAppraisal";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
@@ -292,6 +293,23 @@ export default function EnvisionShift() {
                 </ul>
               </div>
             </Reveal>
+          </div>
+          <div className="rounded mt-12 max-w-3xl border-l-4 border-raspberry p-7 md:p-8">
+            <Kicker>See the Cost in Your Own Numbers</Kicker>
+            <h3 className="mt-3 font-display text-2xl font-semibold leading-tight text-foreground">
+              What Clarity Is Worth
+            </h3>
+            <p className="text-body mt-3 text-foreground">
+              Explore the industry-benchmarked cost of misaligned change for your team size, focus, and timeline,
+              and what early clarity from the Epic ShIFt Organizational Appraisal could save.
+            </p>
+            <div className="mt-6">
+              <CostCalculatorDialog
+                triggerLabel="See what clarity could save"
+                triggerVariant="default"
+                triggerClassName="cta-label h-auto min-h-12 w-full whitespace-normal rounded bg-raspberry px-5 py-4 text-primary-foreground hover:bg-raspberry/90 sm:w-auto"
+              />
+            </div>
           </div>
         </div>
       </section>
