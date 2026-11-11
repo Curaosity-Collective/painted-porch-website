@@ -411,14 +411,26 @@ export default function ThePath() {
 
           {/* Mobile map */}
           <ol className="mt-10 space-y-3 md:hidden" aria-label="Which ShIFt partners at each stage">
-            {STAGES.map((s) => (
-              <li key={s.letter} className="rounded flex flex-col gap-3 border border-border bg-white p-4">
+            {STAGES.slice(0, 2).map((s) => (
+              <li key={s.letter} className="rounded flex flex-col gap-3 border border-border bg-background p-4">
                 <span className={`label-kicker self-start px-3 py-1 ${s.fill}`}>{s.name}</span>
                 <SmartLink to={s.partner.to} className={`self-start ${LINK}`}>
                   <span>{s.partner.label}</span>
                 </SmartLink>
               </li>
             ))}
+            <li className="rounded flex flex-col gap-3 border border-border bg-background p-4">
+              <div className="flex flex-wrap gap-2">
+                {STAGES.slice(2).map((s) => (
+                  <span key={s.letter} className={`label-kicker rounded px-3 py-2 ${s.fill}`}>
+                    {s.name}
+                  </span>
+                ))}
+              </div>
+              <SmartLink to={EMBODY.to} className={`self-start ${LINK}`}>
+                <span>{EMBODY.label}</span>
+              </SmartLink>
+            </li>
           </ol>
 
           <p className="mt-6 flex max-w-3xl gap-3 text-sm leading-relaxed text-foreground">
