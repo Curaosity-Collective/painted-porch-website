@@ -336,6 +336,7 @@ export default function PPSBlog() {
               <input
                 type="text"
                 placeholder="Search articles..."
+                aria-label="Search articles"
                 value={searchQuery}
                 onChange={(e) => handleSearchChange(e.target.value)}
                 className="w-full pl-10 pr-9 py-2.5 rounded border border-border bg-muted text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow"
@@ -344,6 +345,7 @@ export default function PPSBlog() {
                 <button
                   onClick={() => handleSearchChange("")}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  aria-label="Clear article search"
                 >
                   <X className="w-4 h-4" />
                 </button>
