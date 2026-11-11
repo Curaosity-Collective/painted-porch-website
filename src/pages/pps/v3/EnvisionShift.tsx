@@ -295,7 +295,7 @@ export default function EnvisionShift() {
             </Reveal>
           </div>
           <div className="rounded mt-12 max-w-3xl border-l-4 border-raspberry p-7 md:p-8">
-            <Kicker className="text-raspberry">See the Cost in Your Own Numbers</Kicker>
+            <Kicker>See the Cost in Your Own Numbers</Kicker>
             <h3 className="mt-3 font-display text-2xl font-semibold leading-tight text-foreground">
               What Clarity Is Worth
             </h3>
