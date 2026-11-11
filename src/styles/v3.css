@@ -39,6 +39,14 @@
   --v3-habits-deep: 77 99% 26%;
   --v3-habits-ink: 94 62% 20%;
   --v3-journey-foreground: 0 0% 100%;
+  --v3-home-hero-shade: 193 85% 11%;
+  --v3-home-hero-mobile-wash: hsl(var(--v3-home-hero-shade) / 0.15);
+  --v3-home-hero-mobile-text-wash: linear-gradient(
+    180deg,
+    hsl(var(--v3-home-hero-shade) / 0) 0,
+    hsl(var(--v3-home-hero-shade) / 0.70) 96px,
+    hsl(var(--v3-home-hero-shade) / 0.84) 100%
+  );
 }
 
 .pps-v3 {
