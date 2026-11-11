@@ -12,7 +12,7 @@
  * - Lime Green: #70A300 → hsl(77, 100%, 32%)
  * - Purple: #523387 → hsl(263, 44%, 36%)
  * - Raspberry: #DB0043 → hsl(342, 100%, 43%)
- * - Gold: #E8A231 → hsl(40, 81%, 55%)
+ * - Gold: #E8A231 → hsl(37.04918, 79.912664%, 55.098039%)
  * - Navy: #00006B → hsl(240, 100%, 21%)
  * - Charcoal: #545454 → hsl(0, 0%, 33%)
  */
@@ -35,7 +35,8 @@
     --primary-foreground: 0 0% 100%;
 
     /* Secondary - Gold #E8A231 */
-    --secondary: 40 81% 55%;
+    --brand-gold: 37.04918 79.912664% 55.098039%;
+    --secondary: var(--brand-gold);
     --secondary-foreground: 240 100% 21%; /* Navy text on gold */
 
     /* Muted */
@@ -59,7 +60,7 @@
     --navy-foreground: 0 0% 100%;
 
     /* Gold - Warm accent #E8A231 */
-    --gold: 40 81% 55%;
+    --gold: var(--brand-gold);
     --gold-foreground: 240 100% 21%;
 
     /* Blue Door - Cobalt #0047AB */
@@ -106,7 +107,7 @@
     --primary: 192 100% 35%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 81% 50%;
+    --secondary: var(--brand-gold);
     --secondary-foreground: 240 100% 10%;
 
     --muted: 240 15% 18%;
@@ -124,7 +125,7 @@
     --navy: 240 80% 30%;
     --navy-foreground: 0 0% 100%;
 
-    --gold: 40 81% 55%;
+    --gold: var(--brand-gold);
     --gold-foreground: 240 100% 10%;
 
     --bluedoor: 215 100% 40%;
