@@ -215,7 +215,7 @@ export default function HomeNext() {
         />
         {/* Light overlay across the photo, deepening toward the text side on tablets and desktops; on phones the
             shade travels with the text block, below. */}
-        <div aria-hidden="true" className="absolute inset-0 bg-[rgba(4,40,50,0.2)] md:hidden" />
+        <div aria-hidden="true" className="absolute inset-0 bg-[var(--v3-home-hero-mobile-wash)] md:hidden" />
         <div
           aria-hidden="true"
           className="absolute inset-0 hidden md:block"
@@ -235,11 +235,7 @@ export default function HomeNext() {
                 screen and however the text wraps. */}
             <div
               aria-hidden="true"
-              className="absolute -bottom-7 -left-5 -top-24 -z-10 w-[100vw] md:hidden"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(4,40,50,0) 0, rgba(4,40,50,0.82) 96px, rgba(4,40,50,0.94) 100%)",
-              }}
+              className="home-hero-mobile-text-shade absolute -bottom-7 -left-5 -top-24 -z-10 w-[100vw] md:hidden"
             />
             {/* Tablets and up: on top of the side shade above, a soft shade behind the text block only, fading
                 out at its edges, so the pillars around the text stay bright (PPS Admin, 2026-11-07: "JUST darken
