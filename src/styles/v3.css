@@ -65,7 +65,7 @@
   --card-foreground: 211 9% 20%;
   --primary: 185 100% 25%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 37 80% 55%;
+  --secondary: var(--brand-gold);
   --secondary-foreground: 186 100% 16%;
   --muted: 206 34% 96%;
   --muted-foreground: 211 5% 41%;
@@ -75,7 +75,7 @@
   --border: 182 16% 86%;
   --input: 182 16% 86%;
   --ring: 185 100% 25%;
-  --gold: 37 80% 55%;
+  --gold: var(--brand-gold);
   --gold-foreground: 186 100% 14%;
   --navy: 240 100% 21%;
   --lime: 79 100% 32%;
