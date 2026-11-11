@@ -1,5 +1,5 @@
 - [x] Align active public-page metadata with approved copy using a shared 56-page inventory; archive 55 changed records, preserve Envision's exact saved description and dynamic editorial metadata, and verify browser tags and 10 tests without bulk generation. The internal sitemap renders Coming Soon for public checks, so its page-specific tags remain unverified.
-- [ ] Lighten the homepage's mobile hero with a soft shade focused behind the text, leaving the surrounding photo brighter; verify phone and desktop views.
+- [ ] Lighten the homepage's mobile hero with a soft shade focused behind the text, leaving the surrounding photo brighter; verify raspberry IF contrast and phone/desktop views.
 - [x] Add ASGroup's official logo to the client scroll, speaking scroll and Amy's speaking history; verified links and desktop/mobile display.
 - [x] Repair the P.A.T.H. Roadmap Planner's existing GoHighLevel sign-up; new and repeat real submissions matched one contact, preserved identity and consent, created no work leads, queued both email copies, and opened immediate access. Test contact removed.
 - [x] Add approved-only media SEO/AEO/GEO structured summaries without changing the gallery.

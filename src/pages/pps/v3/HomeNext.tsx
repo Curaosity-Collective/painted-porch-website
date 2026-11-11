@@ -235,7 +235,7 @@ export default function HomeNext() {
                 screen and however the text wraps. */}
             <div
               aria-hidden="true"
-              className="absolute -bottom-7 -left-5 -top-24 -z-10 w-[100vw] bg-[image:var(--v3-home-hero-mobile-text-wash)] md:hidden"
+              className="home-hero-mobile-text-shade absolute -bottom-7 -left-5 -top-24 -z-10 w-[100vw] md:hidden"
             />
             {/* Tablets and up: on top of the side shade above, a soft shade behind the text block only, fading
                 out at its edges, so the pillars around the text stay bright (PPS Admin, 2026-11-07: "JUST darken
