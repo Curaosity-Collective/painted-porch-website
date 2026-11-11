@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Youtube, Play, Search, X, ChevronLeft, ChevronRight, Star, ArrowUpDown } from "lucide-react";
+import { Youtube, Play, Search, X, ChevronLeft, ChevronRight, Star, ArrowUpDown, SlidersHorizontal, ChevronDown } from "lucide-react";
 import { PageHero } from "@/components/v3/Bits";
 import youtubeHero from "@/assets/heroes/youtube-hero.jpg";
 import { useQuery } from "@tanstack/react-query";
@@ -98,6 +98,7 @@ export default function YouTubePage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState<SortOption>("date-desc");
   const [currentPage, setCurrentPage] = useState(1);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const PER_PAGE = 12;
 
   const playlists = useMemo(() => {
@@ -127,6 +128,7 @@ export default function YouTubePage() {
   }, [videos, contentTypeFilter, playlistFilter, selectedCategory, searchQuery, sortBy]);
 
   const hasActiveFilters = contentTypeFilter !== "all" || playlistFilter !== "all" || selectedCategory !== "all" || searchQuery.length > 0;
+  const activeFilterCount = [contentTypeFilter, playlistFilter, selectedCategory].filter((value) => value !== "all").length;
 
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
   const safeCurrentPage = Math.min(currentPage, Math.max(1, totalPages));
@@ -150,18 +152,35 @@ export default function YouTubePage() {
       />
 
       {/* Filters */}
-      <section className="py-6 bg-white border-b sticky top-[72px] z-20">
+      <section aria-label="Video search and filters" className="py-4 md:py-6 bg-background border-b border-border">
         <div className="container max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap gap-3 items-center">
-            <div className="relative flex-1 min-w-[200px] max-w-sm">
+            <div className="relative w-full md:flex-1 md:min-w-[200px] md:max-w-sm">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search videos..."
+                aria-label="Search videos"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-9"
               />
             </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              aria-expanded={filtersOpen}
+              aria-controls="youtube-filter-options"
+              onClick={() => setFiltersOpen((open) => !open)}
+              className="md:hidden"
+            >
+              <SlidersHorizontal className="mr-2 h-4 w-4" />
+              Filters & sort{activeFilterCount > 0 ? ` (${activeFilterCount})` : ""}
+              <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${filtersOpen ? "rotate-180" : ""}`} />
+            </Button>
+            <div
+              id="youtube-filter-options"
+              className={`${filtersOpen ? "grid" : "hidden"} w-full grid-cols-1 gap-3 sm:grid-cols-2 md:flex md:w-auto md:flex-wrap md:items-center [&>button]:w-full md:[&>button]:w-auto`}
+            >
             <Select value={contentTypeFilter} onValueChange={setContentTypeFilter}>
               <SelectTrigger className="w-[150px]" aria-label="Filter by content type">
                 <SelectValue placeholder="All Types" />
@@ -211,6 +230,7 @@ export default function YouTubePage() {
                 <SelectItem value="playlist">By Playlist</SelectItem>
               </SelectContent>
             </Select>
+            </div>
             {hasActiveFilters && (
               <Button
                 variant="ghost"
@@ -231,7 +251,7 @@ export default function YouTubePage() {
       </section>
 
       {/* Videos Grid */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-8 md:py-24 bg-background">
         <div className="container max-w-7xl mx-auto px-6">
           {isLoading ? (
             <div className="text-center py-12 text-muted-foreground">Loading videos...</div>
