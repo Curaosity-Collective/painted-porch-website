@@ -1,3 +1,4 @@
+- [x] Make YouTube search scroll away and collapse mobile filters; real search/filter and unobstructed phone/desktop video checks passed, along with 286 existing tests.
 - [x] Combine Take Off and Create Habits in one Embody callout in the mobile P.A.T.H. map; desktop and stage details unchanged, eight tests and phone/desktop checks passed.
 - [x] Add the existing cost calculator to Envision ShIFt near Practicalities; 281 related checks passed, and phone/desktop opening, result updates and closing verified.
 - [x] Align active public-page metadata with approved copy using a shared 56-page inventory; archive 55 changed records, preserve Envision's exact saved description and dynamic editorial metadata, and verify browser tags and 10 tests without bulk generation. The internal sitemap renders Coming Soon for public checks, so its page-specific tags remain unverified.
