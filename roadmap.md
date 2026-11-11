@@ -1,3 +1,4 @@
+- [ ] Save emailed quiz results to an email-matched GHL contact with a results note, independently of newsletter consent; test real email and repeat submissions.
 - [x] Make YouTube search scroll away and collapse mobile filters; real search/filter and unobstructed phone/desktop video checks passed, along with 286 existing tests.
 - [x] Combine Take Off and Create Habits in one Embody callout in the mobile P.A.T.H. map; desktop and stage details unchanged, eight tests and phone/desktop checks passed.
 - [x] Add the existing cost calculator to Envision ShIFt near Practicalities; 281 related checks passed, and phone/desktop opening, result updates and closing verified.
