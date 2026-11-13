@@ -353,7 +353,7 @@ export default function PhaseZeroNext() {
         </p>
         <ul className="mt-12 grid gap-6 lg:grid-cols-3">
           {PILLARS.map((p) => (
-            <li key={p.name} className={`rounded flex flex-col gap-4 border border-border border-t-8 bg-white p-7 ${p.bar}`}>
+            <li key={p.name} id={p.name.toLowerCase().replace(/ /g, "-")} className={`scroll-mt-24 rounded flex flex-col gap-4 border border-border border-t-8 bg-white p-7 ${p.bar}`}>
               <span className={`text-xs font-bold uppercase tracking-[0.14em] ${p.label}`}>{p.focus}</span>
               <h3 className="font-display text-2xl font-semibold leading-tight text-foreground">{p.name}</h3>
               <p className="text-base leading-relaxed text-foreground">{p.definition}</p>
