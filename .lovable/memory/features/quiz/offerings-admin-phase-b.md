@@ -6,9 +6,9 @@ type: feature
 
 # Phase B status
 
-`/admin/path-finder-offerings` is the **routing** editor only. Canonical narrative fields are sourced from the **PPS Op Platform** Offerings Master Register (the canonical offerings catalog formerly referred to internally as "Blue Door") and rendered read-only with an **Edit in PPS Op Platform** deep link per row.
+`/admin/path-finder-offerings` is the **routing** editor only. Canonical narrative fields are sourced from the **PPS Ops Hub** PPS offerings register (`offerings_unified`) and rendered read-only with an **Edit in PPS Op Platform** deep link per row. The Drive Offerings Master Register is historical evidence only (PPS-DEC-0047).
 
-> Naming note: the public self-guided Blue Door is retired; its successor is the **Epic ShIFt Organizational Appraisal** (PPS-DEC-0017/0018). It is unrelated to this register. "PPS Op Platform" only refers to the master offerings register / admin project.
+> Naming note: the public self-guided Blue Door is retired; its successor is the **Epic ShIFt Organizational Appraisal** (PPS-DEC-0017/0018). It is unrelated to this register. "PPS Op Platform" only refers to the admin project; the current register is the PPS Ops Hub `offerings_unified` catalog. The Drive Offerings Master Register is historical evidence (PPS-DEC-0047).
 
 ## Ownership boundary (canonical)
 
@@ -34,7 +34,7 @@ The three collapsed "live" states are now separated. See `mem://features/quiz/of
 
 ## New offerings
 
-The in-app "New offering" dialog is replaced by a **New in PPS Op Platform** outbound link. New offerings must be authored in the PPS Op Platform Offerings Register first; the reconciliation pass (Phase C, not built yet) will surface them here.
+The in-app "New offering" dialog is replaced by a **New in PPS Op Platform** outbound link. New offerings must be authored in the PPS Ops Hub PPS offerings register (`offerings_unified`) first; the reconciliation pass (Phase C, not built yet) will surface them here.
 
 ## Deep link
 

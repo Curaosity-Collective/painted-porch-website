@@ -1,29 +1,25 @@
 ---
-name: Offerings Master Register
-description: PPS Op Platform project (paintedporch-ops.lovable.app) owns the canonical offerings catalog. PPS site path_finder_offerings is a one-way mirror. Topic + delivery split is the long-term model.
+name: PPS offerings register
+description: PPS Ops Hub (pps-ops-hub) owns the canonical offerings catalog via offerings_unified (topics × deliveries). PPS site path_finder_offerings is a one-way mirror. The Drive Offerings Master Register is historical evidence only (PPS-DEC-0047).
 type: feature
 ---
 
-**Canonical:** PPS Op Platform project `offerings` table (Phase 2 → `topics` + `deliveries`). Project URL: `https://paintedporch-ops.lovable.app`. Internally referenced in older docs and code as the "Blue Door project" — same thing, different name.
-**Mirror:** PPS site `path_finder_offerings`. One-way sync from PPS Op Platform.
+**Canonical:** PPS Ops Hub Supabase `offerings_unified` (`topics × deliveries`). The repository register file lives in `Curaosity-Collective/pps-ops-hub`. The admin editing surface is the PPS Op Platform project at `https://paintedporch-ops.lovable.app`; older docs call it the "Blue Door project."
 
-> Do not confuse with the **public product** "The Blue Door Organizational Appraisal" ($1,500 org appraisal). That product keeps its name and is unrelated to this register's naming change.
+**Mirror:** PPS site `path_finder_offerings`. One-way sync from the PPS Ops Hub catalog.
 
-**Why:** PPS Op Platform's schema (path_stage, pillar_alignment, pricing JSONB, icp_routing, etc.) is built for diagnostic-driven recommendations. PPS site needs only the routing/display slice (name, blurb, URL, anchor, tier, eligibility). Two apps, two DBs, one source of truth.
+**Public product note:** The public Blue Door sale is retired; its successor is the **Epic ShIFt Organizational Appraisal** (PPS-DEC-0017/0018). It is unrelated to this register. The Drive Offerings Master Register is frozen historical evidence and must not be used for current offer names, routing, or pricing (PPS-DEC-0047).
+
+**Why:** The PPS Ops Hub schema (path_stage, pillar_alignment, pricing JSONB, icp_routing, etc.) is built for diagnostic-driven recommendations. The PPS site needs only the routing/display slice (name, blurb, URL, anchor, tier, eligibility). Two apps, two databases, one current register.
 
 **Topic + delivery model:** One *topic* (e.g. "AI EI Oh") → N *deliveries* (speaking / workshop / lab / keynote / course) with their own URL, price, anchor, and audience. Avoids duplicated blurbs and price drift.
 
 **Sync key:** `offering_key = ${topic.slug}--${delivery.format}` (deterministic, stable across runs).
 
-**Phase 1 (current):** Documentation + audit script + admin banner. No DB changes.
-- Canonical schema doc: `docs/offerings-master-schema.md`
-- PPS sync plan: `.lovable/plan-offerings-sync.md`
-- Audit script: `scripts/audit-offerings-overlap.mjs` (reads both DBs, writes markdown)
+**Current state:** The live `offerings_unified` catalog is the operational state. The repository register file carries the mapping and governance record. The two are current in their own layer; do not create a third current register.
 
-**Phase 2 (future):** PPS Op Platform adds `topics`/`deliveries`; export edge fn; PPS site `import-offerings-from-bluedoor` edge fn; PPS site admin flips canonical fields to read-only (routing fields stay editable).
+**Edit rule:** Canonical fields are edited in the PPS Ops Hub only. Routing fields remain editable in the website admin.
 
-**Edit rule (post-Phase 2):** Canonical fields edited in PPS Op Platform only. Routing fields editable in either admin.
+**Do NOT:** Build cross-project Supabase reads (fragile RLS, separate auth contexts, brittle env). Always go through the sync. Do not use the Drive OMR for current specs.
 
-**Do NOT:** Build cross-project Supabase reads (fragile RLS, separate auth contexts, brittle env). Always go through the sync.
-
-**Naming/code:** File paths and code identifiers retain "bluedoor" / "BlueDoor" prefixes (e.g. `src/integrations/bluedoor/`, `useBlueDoorRecommendations`, `BlueDoorEditLink`). Only **user-visible copy** uses "PPS Op Platform". Renaming identifiers is out of scope. The project URL itself was updated to `https://paintedporch-ops.lovable.app`; update the URL whenever it appears in admin deep links or docs.
+**Naming/code:** File paths and code identifiers retain "bluedoor" / "BlueDoor" prefixes (e.g. `src/integrations/bluedoor/`, `useBlueDoorRecommendations`, `BlueDoorEditLink`). Only **user-visible copy** uses current names. Renaming identifiers is out of scope.

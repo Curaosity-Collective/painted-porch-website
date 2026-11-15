@@ -64,7 +64,7 @@ CHAT CONTINUITY
 PPS work stays inside its project. If tools fail or tokens run low, write a Session Handoff, then start a new chat in the same project. Use a chat outside a project only for work that belongs to none.
 
 SKILLS
-SKILL.md = procedure (how/when/where), under 5,000 words / 500 lines; description 200–300 characters. Strategy-dependent content (offerings, pricing, positioning, ICP) lives in source documents; stable support (samples, templates, examples) in references/. Four content authorities: GTM Strategy, ICP Intelligence, Brand & Identity Bible, Offerings Master Register.
+SKILL.md = procedure (how/when/where), under 5,000 words / 500 lines; description 200–300 characters. Strategy-dependent content (offerings, pricing, positioning, ICP) lives in source documents; stable support (samples, templates, examples) in references/. Four content authorities: GTM Strategy, ICP Intelligence, Brand & Identity Bible, and the PPS offerings register (`pps-ops-hub`) + `offerings_unified`. The Drive Offerings Master Register is historical evidence only (PPS-DEC-0047).
 ```
 <!-- CURAOSITY-HUB:END -->
 
