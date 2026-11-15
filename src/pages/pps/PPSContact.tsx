@@ -457,7 +457,7 @@ export default function PPSContact() {
                           What's your budget? <span className="text-destructive">*</span>
                         </label>
                         <p className="text-body text-muted-foreground mb-2">
-                          Not sure yet? Pick your best estimate. Workshops start at $7,500; speaking and advisory start at $5,000.
+                          Not sure yet? Pick your best estimate. Workshops start at $7,500; speaking, advisory, and 1:1 coaching start at $5,000.
                         </p>
                         <select
                           name="budget-range"
