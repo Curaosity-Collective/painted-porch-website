@@ -259,7 +259,7 @@ export default function SpeakerDetailPage({ speaker }: { speaker: SpeakerData })
             Book {speaker.firstName} for Your Event
           </h2>
           <p className="text-body text-white/90 mb-8 max-w-2xl mx-auto">
-            Every keynote can be expanded into a half-day or full-day workshop for deeper, lasting team impact.
+            Speaking engagements start at $5,000. Every keynote can be expanded into a half-day or full-day workshop for deeper, lasting team impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact?interest=speaking&message=I'm interested in booking a speaker for our event.">
