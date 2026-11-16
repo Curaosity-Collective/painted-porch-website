@@ -85,6 +85,13 @@
       "when": 1794856629178,
       "tag": "0011_email_admin_static_sql",
       "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1794856646156,
+      "tag": "0012_fix_dlq_list_shape",
+      "breakpoints": true
     }
   ]
 }
