@@ -71,7 +71,7 @@ jobs:
           ATTEMPTS="${STEP_ATTEMPTS:-1}"
           {
             echo "## Site a11y (axe) — retry report"
-            echo "
+            echo ""
             echo "- Step attempts: $ATTEMPTS"
             echo "- Step outcome: $STEP_OUTCOME"
             echo "- Workflow run attempt: $RUN_ATTEMPT"
@@ -83,7 +83,7 @@ jobs:
               done
             fi
             if [ "$ATTEMPTS" -gt 1 ] && [ "$STEP_OUTCOME" = "success" ]; then
-              echo "
+              echo ""
               echo "Passed after $ATTEMPTS attempt(s); earlier attempts within this job failed transiently."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
