@@ -12,6 +12,10 @@ on:
       - ".github/workflows/visual-regression.yml"
   workflow_dispatch:
 
+env:
+  VITE_SUPABASE_URL: http://127.0.0.1:54321
+  VITE_SUPABASE_PUBLISHABLE_KEY: test-publishable-key
+
 jobs:
   visual:
     runs-on: ubuntu-latest

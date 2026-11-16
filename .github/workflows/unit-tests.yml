@@ -6,6 +6,10 @@ on:
   push:
     branches: [main]
 
+env:
+  VITE_SUPABASE_URL: http://127.0.0.1:54321
+  VITE_SUPABASE_PUBLISHABLE_KEY: test-publishable-key
+
 jobs:
   test:
     name: Run Vitest suite
@@ -46,4 +50,3 @@ jobs:
             src/test/contact-and-optin-safety.test.ts \
             src/test/scroll-and-anchor-behavior.test.ts \
             src/test/a11y-key-pages-coverage.test.ts
-
