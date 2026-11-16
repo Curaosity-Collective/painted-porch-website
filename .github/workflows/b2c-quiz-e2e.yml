@@ -18,8 +18,8 @@ on:
   workflow_dispatch:
 
 env:
-  VITE_SUPABASE_URL: http://127.0.0.1:54321
-  VITE_SUPABASE_PUBLISHABLE_KEY: test-publishable-key
+  VITE_SUPABASE_URL: "https://dkpxjivoupqpmvzwxpef.supabase.co"
+  VITE_SUPABASE_PUBLISHABLE_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrcHhqaXZvdXBxcG12end4cGVmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMDc2MjAsImV4cCI6MjA5MzU4MzYyMH0.wYGKqj6Q7E1M_rQMNHuchOHAVV04WqyozEK937u1VBo"
 
 jobs:
   b2c-quiz:
@@ -72,7 +72,7 @@ jobs:
           ATTEMPTS="${STEP_ATTEMPTS:-1}"
           {
             echo "## B2C quiz E2E — retry report"
-            echo ""
+            echo "
             echo "- Step attempts: $ATTEMPTS"
             echo "- Step outcome: $STEP_OUTCOME"
             echo "- Workflow run attempt: $RUN_ATTEMPT"
@@ -84,7 +84,7 @@ jobs:
               done
             fi
             if [ "$ATTEMPTS" -gt 1 ] && [ "$STEP_OUTCOME" = "success" ]; then
-              echo ""
+              echo "
               echo "Passed after $ATTEMPTS attempt(s); earlier attempts within this job failed transiently."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
@@ -138,7 +138,7 @@ jobs:
           ATTEMPTS="${STEP_ATTEMPTS:-1}"
           {
             echo "## Cross-browser keyboard — retry report"
-            echo ""
+            echo "
             echo "- Step attempts: $ATTEMPTS"
             echo "- Step outcome: $STEP_OUTCOME"
             echo "- Workflow run attempt: $RUN_ATTEMPT"
@@ -150,7 +150,7 @@ jobs:
               done
             fi
             if [ "$ATTEMPTS" -gt 1 ] && [ "$STEP_OUTCOME" = "success" ]; then
-              echo ""
+              echo "
               echo "Passed after $ATTEMPTS attempt(s); earlier attempts within this job failed transiently."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
