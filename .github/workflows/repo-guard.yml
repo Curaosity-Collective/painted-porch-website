@@ -60,3 +60,40 @@ jobs:
         env:
           BASE_REF: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || '' }}
         run: node scripts/check-migrations.mjs
+
+  main-pr-audit:
+    name: Verify main changes came through a PR
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify every pushed commit has a merged pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            echo "Initial push; no predecessor to audit."
+            exit 0
+          fi
+          failed=0
+          while IFS= read -r sha; do
+            [ -n "$sha" ] || continue
+            count=$(gh api "repos/${GITHUB_REPOSITORY}/commits/${sha}/pulls" \
+              --jq '[.[] | select(.merged_at != null)] | length')
+            if [ "$count" = "0" ]; then
+              echo "::error title=Direct push to main::Commit ${sha} is not associated with a merged pull request."
+              failed=1
+            else
+              echo "Commit ${sha} has a merged pull request."
+            fi
+          done < <(git rev-list "${BEFORE}..${AFTER}")
+          exit "$failed"
