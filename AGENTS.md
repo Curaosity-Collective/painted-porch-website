@@ -68,6 +68,13 @@ SKILL.md = procedure (how/when/where), under 5,000 words / 500 lines; descriptio
 ```
 <!-- CURAOSITY-HUB:END -->
 
+## Repository change control (repo-owned)
+
+- All changes to `main` go through a pull request. Direct pushes to `main` are prohibited, including pushes by Manus, Claude, or any other automation. Use a branch and a PR; merge only after checks pass.
+- `public/` is Vite's static-asset root and is served publicly. It is for browser assets only: no Markdown, internal audits, specifications, test reports, client material, or draft copy. Internal documents belong in `docs/`.
+- `npm run repo:check-public-docs` and the Repo guard workflow enforce the `public/` rule. If a document must be public, publish it through an intentional, reviewed route rather than dropping it into `public/`.
+
+
 # Project rules
 - Website imagery follows PPS-DEC-0023 in the PPS Ops Hub (`docs/decisions/PPS-DEC-0023-website-imagery-rules.md`): never an AI-generated face; hands or other parts of a figure with no face showing are allowed; otherwise use abstract imagery, objects and scenes; no cartoon-style images; each image on one page only. Real photos of the real team are allowed. The speaking hero, four workshop thumbnails and talk covers are existing exceptions listed in the record; don't add to them. Why: PPS Admin set these rules on 2026-11-05, restated them on 2026-11-07, and the same day narrowed the people rule to faces ("passenger to pilot only has hands, that's ok and allowed. It's just not faces"). Check every candidate image before proposing it, unused files included. Unused files showing AI-generated faces, among them portraits named after Amy, Rob and Sierra that were not them, were deleted on 2026-11-07 at PPS Admin's request. Images load from the site's own files, never from the old Kajabi site, which may close (PPS Admin, 2026-11-09); a test fails on any `kajabi-cdn` address. The Page not found screen picks one GIF at random from `src/config/notFoundGifs.ts` each time it opens (PPS Admin, 2026-11-09: "a rotating set ... just a fun rotation here and there"); add one there, as an animated WebP with alt text that says what happens in it.
 

@@ -24,6 +24,20 @@ jobs:
       - name: Block videos and oversized files
         run: node scripts/check-large-files.mjs
 
+  check-public-docs:
+    name: Block Markdown in public assets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Block Markdown under public/
+        run: npm run repo:check-public-docs
   check-migrations:
     name: Migration records (PPS-DEC-0029)
     runs-on: ubuntu-latest

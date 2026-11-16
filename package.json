@@ -39,7 +39,8 @@
     "audit:anchors": "node scripts/audit-anchor-coverage.mjs",
     "validate:routing": "node scripts/validate-workshop-routing.mjs",
     "validate:routing:live": "node scripts/validate-workshop-routing.mjs --live",
-    "audit:links": "node scripts/audit-workshop-links.mjs"
+    "audit:links": "node scripts/audit-workshop-links.mjs",
+    "repo:check-public-docs": "node scripts/check-public-docs.mjs"
   },
   "dependencies": {
     "@ffmpeg/ffmpeg": "^0.12.15",
