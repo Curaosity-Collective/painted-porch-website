@@ -1,3 +1,4 @@
+- [x] Generate Radiant Dawn and Illuminated Architecture images and desktop/phone homepage previews for selection; homepage unchanged, selection pending.
 - [ ] Resolve failing SEO findings while preserving retired pages and approved copy; finish Search Console verification and sitemap submission.
 - [x] Save emailed quiz results to an email-matched GHL contact independently of newsletter consent; B2C/B2B real emails logged sent, two matching results notes and one unchanged-identity contact verified, with 38 tests passing.
 - [x] Make YouTube search scroll away and collapse mobile filters; real search/filter and unobstructed phone/desktop video checks passed, along with 286 existing tests.
