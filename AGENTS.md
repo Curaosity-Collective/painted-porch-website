@@ -11,9 +11,12 @@ voice or data in here.
 ### Client records
 
 Every business in the portfolio is moving off GoHighLevel (GHL), the CRM in use today, to
-self-managed CRM and marketing. Don't build anything new on GHL: no new pipeline, nurture,
-lead-generation, or client or resource delivery features. Existing GHL writes keep running until
-they are migrated. Change them only to keep them working.
+self-managed CRM and marketing. For Painted Porch Strategies, new GHL setup (pipelines, stages,
+workflows, automations, forms, fields, tags and integrations) is allowed until its move to the PPS
+Ops Hub is complete. Document each piece for conversion when you build it: add a row to the PPS GHL
+Conversion Register (`docs/architecture/PPS-GHL-Conversion-Register.md` in the PPS Ops Hub) in the
+same change (PPS-DEC-0019, amended 19 Nov 2026). Existing GHL writes keep running until they are
+migrated.
 
 Until the GHL-to-Ops-Hub transition is marked done or ready (PPS-DEC-0019, amended 9 Nov 2026), this site's intake and lead capture stay on their existing GHL paths. Once it is, new intake and lead capture go to the PPS Ops Hub, Painted Porch Strategies' own operations platform, not to GHL.
 
