@@ -1,4 +1,5 @@
 - [ ] Resolve failing SEO findings while preserving retired pages and approved copy; finish Search Console verification and sitemap submission.
+- [x] Replace the homepage hero photo with the approved illuminated portico image and brighten its overlay; verified desktop and phone views, raspberry IF contrast of 3.33:1 or better, and 286 tests passing.
 - [x] Save emailed quiz results to an email-matched GHL contact independently of newsletter consent; B2C/B2B real emails logged sent, two matching results notes and one unchanged-identity contact verified, with 38 tests passing.
 - [x] Make YouTube search scroll away and collapse mobile filters; real search/filter and unobstructed phone/desktop video checks passed, along with 286 existing tests.
 - [x] Combine Take Off and Create Habits in one Embody callout in the mobile P.A.T.H. map; desktop and stage details unchanged, eight tests and phone/desktop checks passed.
