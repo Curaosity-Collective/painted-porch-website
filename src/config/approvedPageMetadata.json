@@ -5,7 +5,9 @@
     "ogTitle": "Painted Porch Strategies | Build an Organization That Can Do Epic ShIFt",
     "ogDescription": "You have a vision for who your organization can become next. Is that future being authored with intention, or inherited through assumption?",
     "source": "src/pages/pps/v3/HomeNext.tsx",
-    "pageOwnsSeo": true
+    "pageOwnsSeo": true,
+    "imageSource": "src/assets/v3/home-hero-illuminated-portico.jpg",
+    "ogImage": "https://onthepaintedporch.com/__l5e/assets-v1/2161d8ce-ace5-466e-9e11-d84083153d71/home-illuminated-portico-share.jpg"
   },
   "/phase-zero": {
     "title": "Phase Zero™: Our Approach | Painted Porch Strategies",
