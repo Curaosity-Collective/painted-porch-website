@@ -18,7 +18,8 @@ env:
 
 jobs:
   visual:
-    runs-on: ubuntu-latest
+    # Pinned: Playwright 1.57 can't install Chromium on ubuntu-latest (Ubuntu 26.04) since 19 Nov 2026.
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
