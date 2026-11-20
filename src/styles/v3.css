@@ -44,9 +44,9 @@
   --v3-home-hero-mobile-text-wash: linear-gradient(
     180deg,
     hsl(var(--v3-home-hero-shade) / 0) 0,
-    hsl(var(--v3-home-hero-shade) / 0.85) 96px,
-    hsl(var(--v3-home-hero-shade) / 0.85) 65%,
-    hsl(var(--v3-home-hero-shade) / 0.75) 100%
+    hsl(var(--v3-home-hero-shade) / 0.92) 96px,
+    hsl(var(--v3-home-hero-shade) / 0.92) 65%,
+    hsl(var(--v3-home-hero-shade) / 0.82) 100%
   );
 }
 

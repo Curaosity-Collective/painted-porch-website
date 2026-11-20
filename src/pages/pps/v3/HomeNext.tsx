@@ -215,13 +215,15 @@ export default function HomeNext() {
         />
         {/* The photo runs at full daylight. Only the text side carries a shade, so the bright columns on the
             right stay as lit as the photo itself (PPS Admin, 2026-11-10: brighten the hero, keep an overlay
-            behind the text so it stands out). On phones the shade travels with the text block, below. */}
+            behind the text so it stands out). On phones the shade travels with the text block, below.
+            The text-side shade is as light as it can be while the raspberry IF keeps 3:1 contrast on every
+            screen in e2e/home-hero-fit.spec.ts (weakest: 3.25:1 on iPhone SE, 20 Nov 2026). */}
         <div
           aria-hidden="true"
           className="absolute inset-0 hidden md:block"
           style={{
             background:
-              "linear-gradient(90deg, rgba(4,40,50,0.8) 0%, rgba(4,40,50,0.62) 30%, rgba(4,40,50,0.16) 50%, rgba(4,40,50,0) 64%)",
+              "linear-gradient(90deg, rgba(4,40,50,0.86) 0%, rgba(4,40,50,0.74) 30%, rgba(4,40,50,0.24) 50%, rgba(4,40,50,0) 64%)",
           }}
         />
         {/* The whole text block fits the first screen on phones, tablets and laptops (PPS Admin, 2026-11-07):
@@ -245,7 +247,7 @@ export default function HomeNext() {
                 IF's color. */}
             <div
               aria-hidden="true"
-              className="absolute -inset-x-14 -inset-y-9 -z-10 hidden rounded-[48px] bg-[rgba(4,40,50,0.78)] blur-[40px] md:block"
+              className="absolute -inset-x-14 -inset-y-9 -z-10 hidden rounded-[48px] bg-[rgba(4,40,50,0.9)] blur-[40px] md:block"
             />
             <Eyebrow onDark>Are You Built for What's Next?</Eyebrow>
             <h1
