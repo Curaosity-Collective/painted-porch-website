@@ -259,6 +259,10 @@ function autoJsonLd(route) {
 function buildHtml(route) {
   const url = SITE + (route.path === "/" ? "" : route.path);
   let html = template;
+  // The portico animation belongs to the homepage, not every template-derived page.
+  if (route.path !== "/") {
+    html = html.replace(/\n\s*<meta property="og:video(?::[^"]*)?"[^>]*>/g, "");
+  }
 
   // Title & meta description
   html = replaceTag(
