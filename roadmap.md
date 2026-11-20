@@ -1,3 +1,4 @@
+- [x] Update homepage sharing to a 1200×630 illuminated-portico crop; browser tags and image delivery verified, 32 metadata tests passed. Former hero retained; About's Stoa Poikile story is the recommended replacement location, pending preview/approval; no other page changed.
 - [ ] Resolve failing SEO findings while preserving retired pages and approved copy; finish Search Console verification and sitemap submission.
 - [x] Replace the homepage hero photo with the approved illuminated portico image and brighten its overlay; verified desktop and phone views, raspberry IF contrast of 3.33:1 or better, and 286 tests passing.
 - [x] Save emailed quiz results to an email-matched GHL contact independently of newsletter consent; B2C/B2B real emails logged sent, two matching results notes and one unchanged-identity contact verified, with 38 tests passing.
