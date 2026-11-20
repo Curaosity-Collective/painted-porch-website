@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight, Lightbulb } from "lucide-react";
-import porchColumns from "@/assets/v3/painted-porch-columns.jpg";
+import heroPortico from "@/assets/v3/home-hero-illuminated-portico.jpg";
 import amySquare from "@/assets/v3/amy-yackowski-square.jpg";
 import { ShIFt } from "@/components/v3/ShIFt";
 import { FEATURED_TESTIMONIALS } from "./testimonials";
@@ -205,23 +205,25 @@ export default function HomeNext() {
   return (
     <div className="bg-white text-foreground">
       {/* 1 · Hero: headline and photo as one piece */}
-      <section aria-labelledby="home-hero-heading" className="v3-under-header relative overflow-hidden bg-[#0B3A44]">
+      <section aria-labelledby="home-hero-heading" className="v3-under-header relative overflow-hidden bg-[#14606F]">
         <img
-          src={porchColumns}
-          alt="A columned porch painted blue, purple, lime and gold, looking out over a city at sunrise"
-          width={1264}
-          height={848}
-          className="absolute inset-0 h-full w-full object-cover object-[78%_50%] md:object-[50%_42%]"
+          src={heroPortico}
+          alt="A modern portico with tall columns painted blue, purple, teal, gold and lime, opening onto a bright coastline and city at sunrise"
+          width={1920}
+          height={1280}
+          className="absolute inset-0 h-full w-full object-cover object-[78%_50%] md:object-[50%_44%]"
         />
-        {/* Light overlay across the photo, deepening toward the text side on tablets and desktops; on phones the
-            shade travels with the text block, below. */}
-        <div aria-hidden="true" className="absolute inset-0 bg-[var(--v3-home-hero-mobile-wash)] md:hidden" />
+        {/* The photo runs at full daylight. Only the text side carries a shade, so the bright columns on the
+            right stay as lit as the photo itself (PPS Admin, 2026-11-10: brighten the hero, keep an overlay
+            behind the text so it stands out). On phones the shade travels with the text block, below.
+            The text-side shade is as light as it can be while the raspberry IF keeps 3:1 contrast on every
+            screen in e2e/home-hero-fit.spec.ts (weakest: 3.25:1 on iPhone SE, 20 Nov 2026). */}
         <div
           aria-hidden="true"
           className="absolute inset-0 hidden md:block"
           style={{
             background:
-              "linear-gradient(90deg, rgba(4,40,50,0.86) 0%, rgba(4,40,50,0.7) 32%, rgba(4,40,50,0.2) 52%, rgba(4,40,50,0) 66%), linear-gradient(rgba(4,40,50,0.2), rgba(4,40,50,0.2))",
+              "linear-gradient(90deg, rgba(4,40,50,0.86) 0%, rgba(4,40,50,0.74) 30%, rgba(4,40,50,0.24) 50%, rgba(4,40,50,0) 64%)",
           }}
         />
         {/* The whole text block fits the first screen on phones, tablets and laptops (PPS Admin, 2026-11-07):
@@ -245,7 +247,7 @@ export default function HomeNext() {
                 IF's color. */}
             <div
               aria-hidden="true"
-              className="absolute -inset-x-14 -inset-y-9 -z-10 hidden rounded-[48px] bg-[rgba(4,40,50,0.8)] blur-[40px] md:block"
+              className="absolute -inset-x-14 -inset-y-9 -z-10 hidden rounded-[48px] bg-[rgba(4,40,50,0.9)] blur-[40px] md:block"
             />
             <Eyebrow onDark>Are You Built for What's Next?</Eyebrow>
             <h1
