@@ -48,7 +48,7 @@ describe("Crawler error and access output", () => {
       SITE: "https://onthepaintedporch.com", DIST: "/output", ROOT: "/project",
       approvedRoutes: [
         { path: "/about", title: "About", description: "Private About copy", h1: "Private About copy" },
-        { path: "/speaking/media", title: "Media", description: "Approved media", h1: "Media" },
+        { path: "/speaking/media", title: "Media", description: "Approved media", h1: "Media", intro: "Approved media" },
       ], movedPages: [], publicSupabaseEnv: () => ({}),
       fetchLivePageRows: async () => [], loadAppPageRules: () => ({}),
       pageVisibility: () => ({ isPublic: (p: string) => p !== "/about" }),
@@ -68,5 +68,11 @@ describe("Crawler error and access output", () => {
     const media = files.get("/output/media/index.html") || "";
     expect(media).toContain('content="noindex, follow"');
     expect(media).toContain('href="https://onthepaintedporch.com/speaking/media"');
+    // Extractors that discard noscript must still receive the generated text.
+    const html = files.get("/output/speaking/media/index.html") || "";
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    doc.querySelectorAll("noscript").forEach((el) => el.remove());
+    expect(doc.querySelector("#root h1")?.textContent).toBe("Media");
+    expect(doc.querySelector("#root p")?.textContent).toBe("Approved media");
   });
 });

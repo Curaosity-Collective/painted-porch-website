@@ -1,3 +1,4 @@
+- [x] Move existing generated crawler text from noscript into #root without changing its wording or metadata; these are still short summaries rather than full page content, and React replaces them on mount.
 - [x] Replace public draft Coming Soon screens with noindex error pages and crawler stubs; preserve live About and burnout access per clarification, add private-access noindex and legacy-media noindex forwarding, and remove both excluded addresses from the XML sitemap. Desktop/phone flows verified.
 - [ ] Configure actual HTTP error statuses outside Classic hosting; application HTML cannot return 404/410. About and burnout access are not retired, so neither should return 410.
 - [x] Audit technical SEO, link existing brand icon, remove inline canonical rewrite, enforce one primary-domain canonical per route and explicit noindex priority; 43 tests and ten-route browser checks passed. Full AI markdown verified, thin Googlebot/static HTML identified; not published.

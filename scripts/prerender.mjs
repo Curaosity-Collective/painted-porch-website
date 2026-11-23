@@ -387,14 +387,12 @@ function buildHtml(route) {
     html = replaceTag(html, /<\/head>/, `    ${scripts}\n  </head>`);
   }
 
-  // Inject body content inside #root. Preserves everything after it
-  // (noscript, script tags).
+  // Keep crawler-readable text in the ordinary document body. React's
+  // createRoot replaces this static content when the application mounts.
   html = replaceTag(
     html,
     /<div id="root">[\s\S]*?<\/div>/,
-    // Crawler text sits in <noscript> so JS-enabled visitors never see a
-    // flash of unstyled text before React mounts.
-    `<div id="root"></div><noscript>${renderBody(route)}</noscript>`,
+    `<div id="root">${renderBody(route)}</div>`,
   );
 
   return html;
