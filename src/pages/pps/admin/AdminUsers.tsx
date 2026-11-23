@@ -156,10 +156,14 @@ export default function AdminUsers() {
   };
 
   const fetchProfiles = async () => {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("profiles")
       .select("id, email, full_name, role, is_active, is_author, is_guest_author, author_bio, avatar_url, created_at, editor_sections")
       .order("created_at", { ascending: true });
+    if (error) {
+      toast({ title: "Users could not be loaded", description: error.message, variant: "destructive" });
+      return;
+    }
     setProfiles((data as Profile[]) || []);
   };
 
@@ -254,11 +258,11 @@ export default function AdminUsers() {
           if (inviteShowAuthorFields) Object.assign(profileUpdates, authorFields);
           if (inviteRole === "editor") profileUpdates.editor_sections = inviteEditorSections;
           if (Object.keys(profileUpdates).length > 0) {
-            const { error: updateError } = await supabase.from("profiles").update(profileUpdates as never).eq("id", userId);
-            if (updateError) throw new Error("The account was created, but its profile settings could not be saved. Edit the user in the Users list to finish setting them up.");
+            const { data: saved, error: updateError } = await supabase.from("profiles").update(profileUpdates as never).eq("id", userId).select("id").single();
+            if (updateError || !saved) throw new Error("The account was created, but its profile settings could not be saved. Edit the user in the Users list to finish setting them up.");
           }
         }
-        toast({ title: "User created", description: `${inviteEmail} has been added as ${inviteRole}.` });
+        toast({ title: "User added", description: `${inviteEmail} has been added as ${inviteRole}. A password setup email has been requested.` });
       }
 
       setDialogOpen(false);
@@ -394,10 +398,10 @@ export default function AdminUsers() {
   const handleResetPassword = async (email: string) => {
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/admin/login`,
+        redirectTo: `${window.location.origin}/reset-password`,
       });
       if (error) throw error;
-      toast({ title: "Password reset email sent", description: `A reset link was sent to ${email}.` });
+      toast({ title: "Password reset requested", description: `A reset email has been requested for ${email}.` });
     } catch (err: any) {
       toast({ title: "Error", description: err.message, variant: "destructive" });
     }
@@ -687,11 +691,11 @@ export default function AdminUsers() {
                 )}
 
                 <Button type="submit" className="w-full" disabled={inviting}>
-                  {inviting ? "Creating..." : inviteRole === "author" ? "Create Author Profile" : "Create Account"}
+                  {inviting ? "Creating..." : inviteRole === "author" ? "Create Author Profile" : "Send Invitation"}
                 </Button>
                 {inviteRole !== "author" && (
                   <p className="text-xs text-muted-foreground text-center">
-                    A temporary password will be generated. The user should reset their password on first login.
+                    The user will receive a secure email link to set their password.
                   </p>
                 )}
               </form>
