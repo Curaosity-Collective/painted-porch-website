@@ -1,9 +1,9 @@
 import { Check, MessageSquare } from "lucide-react";
 
 import amplifyPoster from "@/assets/v3/amplify-hero-poster.jpg";
-import colonnadeVantage from "@/assets/v3/envision-colonnade-vantage.jpg";
-import compassChart from "@/assets/v3/envision-compass-chart.jpg";
-import crossroadsRidge from "@/assets/v3/envision-crossroads-ridge.jpg";
+import paintedGazebo from "@/assets/v3/envision-painted-gazebo.jpg";
+import paintedCompass from "@/assets/v3/envision-painted-compass.jpg";
+import paintedSteps from "@/assets/v3/envision-painted-steps.jpg";
 import { CTABand, EvidenceNote, Kicker, NumberedList, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { GhostLayer, ParallaxImage, StickyMedia } from "@/components/v3/Motion";
 import { Reveal } from "@/components/v3/Reveal";
@@ -144,11 +144,11 @@ export default function EnvisionShift() {
 
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <StickyMedia
-          src={colonnadeVantage}
-          alt="Looking out between teal stone columns of an open portico onto a wide valley and distant ridges at sunrise"
+          src={paintedGazebo}
+          alt="Looking up from the center of a round porch whose columns and beams are painted teal, lime, gold, purple, raspberry and orange, circling open blue sky"
+          imagePositionClassName="object-center lg:object-[12%_50%]"
           width={1536}
           height={1024}
-          imagePositionClassName="object-[50%_50%] lg:object-[24%_50%]"
         >
           <div>
             <Kicker>What It Is</Kicker>
@@ -203,9 +203,9 @@ export default function EnvisionShift() {
 
       <section className="relative">
         <ParallaxImage
-          src={crossroadsRidge}
-          alt="A stone path on a mountain ridge at sunrise forks: one firm paved way toward the summit, the other a rough trail fading into mist."
-          imagePositionClassName="object-[35%_60%] md:object-[40%_55%]"
+          src={paintedSteps}
+          alt="Porch steps painted raspberry, purple, gold, lime and teal lead down onto open grass toward a bright sunset horizon."
+          imagePositionClassName="object-[40%_60%] md:object-[50%_55%]"
           className="h-[42vh] w-full md:h-[62vh]"
           speed={55}
           width={1672}
@@ -343,8 +343,8 @@ export default function EnvisionShift() {
             .
           </>
         }
-        image={compassChart}
-        imageAlt="Hands measure a topographic map with brass dividers beside a brass compass on a lamplit wooden desk"
+        image={paintedCompass}
+        imageAlt="A compass rose painted in teal, lime, gold, purple, raspberry and orange set into sunlit wooden porch floorboards"
         imagePositionClassName="object-[55%_50%]"
         imageWidth={1536}
         imageHeight={1024}
