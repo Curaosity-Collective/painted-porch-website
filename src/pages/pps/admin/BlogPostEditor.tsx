@@ -449,15 +449,18 @@ export default function BlogPostEditor() {
       }
 
       // Sync categories with primary flag
-      await supabase.from("blog_post_categories").delete().eq("post_id", postId!);
+      if (!postId) throw new Error("Post could not be identified after saving.");
+      const { error: categoryDeleteError } = await supabase.from("blog_post_categories").delete().eq("post_id", postId);
+      if (categoryDeleteError) throw categoryDeleteError;
       if (selectedCategories.length > 0) {
-        await supabase.from("blog_post_categories").insert(
+        const { error: categoryInsertError } = await supabase.from("blog_post_categories").insert(
           selectedCategories.map((catId) => ({
-            post_id: postId!,
+            post_id: postId,
             category_id: catId,
             is_primary: catId === primaryCategoryId,
           }))
         );
+        if (categoryInsertError) throw categoryInsertError;
       }
 
       toast({ title: "Saved!", description: `Post ${isNew ? "created" : "updated"} successfully.` });
