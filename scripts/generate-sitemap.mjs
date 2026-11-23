@@ -15,7 +15,7 @@ import { writeFileSync } from "fs";
 import { resolve } from "path";
 import { fileURLToPath } from "url";
 import { publicSupabaseEnv } from "./lib/load-env.mjs";
-import { fetchLivePageRows, fetchPublishedPosts, loadAppPageRules, pageVisibility } from "./lib/public-pages.mjs";
+import { fetchLivePageRows, fetchPublishedPosts, loadAppPageRules, pageVisibility, readIndexableAppPagePaths } from "./lib/public-pages.mjs";
 import { SITEMAP_STATIC_PAGES } from "./lib/sitemap-pages.mjs";
 
 const BASE_URL = "https://onthepaintedporch.com";
@@ -64,7 +64,9 @@ async function main() {
   }
 
   const { isSearchable } = pageVisibility(rows, rules);
-  const listed = SITEMAP_STATIC_PAGES.filter((page) => isSearchable(page.path));
+  const preferences = new Map(SITEMAP_STATIC_PAGES.map((page) => [page.path, page]));
+  const listed = readIndexableAppPagePaths(ROOT).filter(isSearchable).map((path) =>
+    preferences.get(path) || { path, changefreq: "monthly", priority: "0.5" });
   const entries = listed.map((page) => ({
     path: page.path,
     changefreq: page.changefreq,
@@ -89,7 +91,7 @@ async function main() {
   writeFileSync(OUT_PATH, generateSitemap(entries));
   console.log(
     `[generate-sitemap] Wrote ${OUT_PATH} (${entries.length} URLs: ${listed.length} pages, ${postCount} blog posts; ` +
-      `${SITEMAP_STATIC_PAGES.length - listed.length} pages left out as not live or hidden from search)`,
+      `using actual indexable page routes)`,
   );
 }
 

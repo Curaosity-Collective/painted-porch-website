@@ -14,6 +14,7 @@ import {
   loadAppPageRules,
   pageVisibility,
   readGatedAppRoutePaths,
+  readIndexableAppPagePaths,
   readSitemapRegistryPaths,
   robotsDisallowRules,
 } from "../../scripts/lib/public-pages.mjs";
@@ -111,6 +112,15 @@ describe("build scripts follow the app's Draft gate", () => {
 });
 
 describe("router reading (robots.txt known pages)", () => {
+  it("includes the actual Phase Zero pages and excludes redirects and private access", () => {
+    const pages = readIndexableAppPagePaths();
+    for (const p of ["/phase-zero", "/the-path", "/envision-shift", "/architect-shift", "/embody-shift"]) {
+      expect(pages).toContain(p);
+    }
+    for (const p of ["/media", "/blog", "/blue-door", "/burnout-access", "/stoic-field-guide-access", "/sitemap"]) {
+      expect(pages).not.toContain(p);
+    }
+  });
   it("lists pages behind the Draft gate and leaves out admin, ungated redirects and wildcards", () => {
     const routes = readGatedAppRoutePaths();
     for (const p of ["/", "/amy", "/phase-zero", "/resources/free"]) expect(routes).toContain(p);
@@ -130,6 +140,12 @@ describe("router reading (robots.txt known pages)", () => {
 });
 
 describe("robots.txt rules", () => {
+  it("allows the live Phase Zero destinations while hiding its archive", () => {
+    const paths = ["/phase-zero", "/the-path", "/envision-shift", "/architect-shift", "/embody-shift"];
+    const rows = paths.map((path) => ({ path, status: "live", category: "public" }));
+    expect(robotsDisallowRules([...paths, "/phase-zero-archive-v2"], rows, appRules))
+      .toEqual(["/phase-zero-archive-v2"]);
+  });
   it("disallow known pages that aren't live or are hidden from search, and nothing live", () => {
     const rules = robotsDisallowRules(["/", "/about", "/draft-page", "/old-landing", "/team-notes"], liveRows, testRules);
     expect(rules).toEqual(["/draft-page", "/old-landing", "/team-notes"]);

@@ -145,7 +145,7 @@ export function readSitemapRegistryPaths(root = process.cwd()) {
  * are always reachable, so they are never listed. Reads one <Route> per line,
  * as App.tsx is written; a test pins known examples.
  */
-export function readGatedAppRoutePaths(root = process.cwd()) {
+export function readGatedAppRoutePaths(root = process.cwd(), pagesOnly = false) {
   const src = readSource(root, "src/App.tsx");
   const join = (parent, child) =>
     child.startsWith("/") ? child : `${parent === "/" ? "" : parent}/${child}`;
@@ -167,10 +167,39 @@ export function readGatedAppRoutePaths(root = process.cwd()) {
       stack.push({ path: fullPath, gated });
       continue;
     }
+    if (pagesOnly && /<(?:Navigate|MovedTo|RedirectBlogToInsights)\b/.test(tag)) continue;
     if (fullPath && gated && !fullPath.includes("*") && !fullPath.includes(":")) out.add(fullPath);
   }
   if (out.size === 0) throw new Error("no gated routes read from src/App.tsx");
   return [...out].sort();
+}
+
+/** Actual page routes, excluding forwarding URLs and explicit noindex pages. */
+export function readIndexableAppPagePaths(root = process.cwd()) {
+  const app = readSource(root, "src/App.tsx");
+  const approved = JSON.parse(readSource(root, "src/config/approvedPageMetadata.json"));
+  const hidden = new Set(["/sitemap", "/unsubscribe", "/brand-library"]);
+  for (const [p, metadata] of Object.entries(approved)) {
+    if (metadata.robots?.includes("noindex")) hidden.add(p);
+  }
+  // Read the page's own declaration too, including private resource access.
+  const modules = new Map();
+  for (const m of app.matchAll(/(?:import (\w+) from|const (\w+) = lazyPage\(\(\) => import\()\s*["'](\.\/pages\/[^"']+)["']/g)) {
+    modules.set(m[1] || m[2], m[3]);
+  }
+  const paths = readGatedAppRoutePaths(root, true);
+  return paths.filter((p) => {
+    if (hidden.has(p) || /(thank-you|success)$/.test(p)) return false;
+    const own = p === "/" ? undefined : p.slice(1);
+    const line = app.split("\n").find((line) => p === "/"
+      ? /<Route index element=\{<HomeNext/.test(line)
+      : line.includes(`path="${own}"`) || line.includes(`path="${p}"`));
+    const component = line?.match(/element=\{(?:<PageGate>)?<([A-Za-z]\w*)/)?.[1];
+    const module = modules.get(component);
+    if (!module) return true;
+    const source = readSource(root, `src/${module.slice(2)}.tsx`);
+    return !/robots:\s*["']noindex/.test(source);
+  });
 }
 
 /**
