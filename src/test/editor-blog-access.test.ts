@@ -62,6 +62,15 @@ describe.skipIf(!databaseAvailable)("Operations Editor blog permissions", () => 
     const published = await request("blog_posts", false, "PATCH", { status: "published" });
     results.editor_can_publish = published.length === 1 && published[0]?.status === "published";
     results.anonymous_published_visible = (await request("blog_posts", true)).length === 1;
+    await request("blog_posts", false, "DELETE");
+    const created = await request("blog_posts", false, "POST", {
+      id: postId, title: "Editor-created draft", status: "draft", author_id: authors[0]?.id,
+    });
+    results.editor_can_create_draft = created.length === 1 && created[0]?.status === "draft";
+    const savedDraft = await request("blog_posts", false, "PATCH", { title: "Updated Editor draft", status: "draft" });
+    const readDraft = await request("blog_posts", false);
+    results.editor_can_save_draft = savedDraft.length === 1 && readDraft[0]?.title === "Updated Editor draft" && readDraft[0]?.status === "draft";
+    results.anonymous_draft_hidden = (await request("blog_posts", true)).length === 0;
   }, 30000);
   afterAll(async () => { await request("blog_posts", false, "DELETE"); });
 
@@ -73,6 +82,9 @@ describe.skipIf(!databaseAvailable)("Operations Editor blog permissions", () => 
   it("lets Operations remove existing post categories", () => expect(results.editor_can_remove_categories).toBe(true));
   it("lets Operations assign post categories", () => expect(results.editor_can_assign_categories).toBe(true));
   it("lets Operations mark reviewed posts published", () => expect(results.editor_can_publish).toBe(true));
+  it("lets Editors create a draft assigned to an author", () => expect(results.editor_can_create_draft).toBe(true));
+  it("lets Editors save and reopen draft edits", () => expect(results.editor_can_save_draft).toBe(true));
+  it("keeps Editor-created drafts private from visitors", () => expect(results.anonymous_draft_hidden).toBe(true));
   it("keeps pending posts private from visitors", () => expect(results.anonymous_pending_hidden).toBe(true));
   it("keeps pending category assignments private from visitors", () => expect(results.anonymous_pending_categories_hidden).toBe(true));
   it("makes published posts visible to visitors", () => expect(results.anonymous_published_visible).toBe(true));
