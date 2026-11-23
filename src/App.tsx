@@ -9,6 +9,7 @@ function RedirectBlogToInsights() {
   return <Navigate to={`/resources/insights/${slug ?? ""}`} replace />;
 }
 import { useEffect } from "react";
+import { lazyPage } from "./lib/lazy-page";
 import ScrollToTop from "./components/ScrollToTop";
 import { getSiteUrl } from "@/lib/site-url";
 import NotFound from "./pages/NotFound";
@@ -16,154 +17,154 @@ import NotFound from "./pages/NotFound";
 // Painted Porch Strategies Pages
 import PPSLayout from "./layouts/PPSLayout";
 import PageGate from "./components/pps/PageGate";
-import PPSHome from "./pages/pps/PPSHome";
-import PhaseZero from "./pages/pps/PhaseZero";
-import PPSAbout from "./pages/pps/PPSAbout";
-import PPSPricing from "./pages/pps/PPSPricing";
-import PPSBlog from "./pages/pps/PPSBlog";
-import PPSBlogPost from "./pages/pps/PPSBlogPost";
-import PPSContact from "./pages/pps/PPSContact";
+const PPSHome = lazyPage(() => import("./pages/pps/PPSHome"));
+const PhaseZero = lazyPage(() => import("./pages/pps/PhaseZero"));
+const PPSAbout = lazyPage(() => import("./pages/pps/PPSAbout"));
+const PPSPricing = lazyPage(() => import("./pages/pps/PPSPricing"));
+const PPSBlog = lazyPage(() => import("./pages/pps/PPSBlog"));
+const PPSBlogPost = lazyPage(() => import("./pages/pps/PPSBlogPost"));
+const PPSContact = lazyPage(() => import("./pages/pps/PPSContact"));
 
 // New About Section
-import OurApproach from "./pages/pps/about/OurApproach";
+const OurApproach = lazyPage(() => import("./pages/pps/about/OurApproach"));
 
-import OurImpact from "./pages/pps/about/OurImpact";
+const OurImpact = lazyPage(() => import("./pages/pps/about/OurImpact"));
 
 // New Partner Section
-import PartnerWithUs from "./pages/pps/partner/PartnerWithUs";
-import PartnerWithUsAlt from "./pages/pps/partner/PartnerWithUsAlt";
-import IgnitePath from "./pages/pps/partner/IgnitePath";
-import IgnitePathAlt from "./pages/pps/partner/IgnitePathAlt";
-import AmplifyPath from "./pages/pps/partner/AmplifyPath";
-import AmplifyPathAlt from "./pages/pps/partner/AmplifyPathAlt";
-import EmbodyPath from "./pages/pps/partner/EmbodyPath";
-import EmbodyPathAlt from "./pages/pps/partner/EmbodyPathAlt";
-import EmbodyPathAltArchiveV2 from "./pages/pps/partner/EmbodyPathAltArchiveV2";
+const PartnerWithUs = lazyPage(() => import("./pages/pps/partner/PartnerWithUs"));
+const PartnerWithUsAlt = lazyPage(() => import("./pages/pps/partner/PartnerWithUsAlt"));
+const IgnitePath = lazyPage(() => import("./pages/pps/partner/IgnitePath"));
+const IgnitePathAlt = lazyPage(() => import("./pages/pps/partner/IgnitePathAlt"));
+const AmplifyPath = lazyPage(() => import("./pages/pps/partner/AmplifyPath"));
+const AmplifyPathAlt = lazyPage(() => import("./pages/pps/partner/AmplifyPathAlt"));
+const EmbodyPath = lazyPage(() => import("./pages/pps/partner/EmbodyPath"));
+const EmbodyPathAlt = lazyPage(() => import("./pages/pps/partner/EmbodyPathAlt"));
+const EmbodyPathAltArchiveV2 = lazyPage(() => import("./pages/pps/partner/EmbodyPathAltArchiveV2"));
 
 // NOTE: "Alt" components are now the PRIMARY pages.
 // Original components are archived at -archive routes.
 
 // IGNITE Subpages
-import IgniteAssessments from "./pages/pps/partner/ignite/IgniteAssessments";
-import IgniteMasterclasses from "./pages/pps/partner/ignite/IgniteMasterclasses";
-import EQAssessment from "./pages/pps/partner/ignite/EQAssessment";
-import WorkingGeniusAssessment from "./pages/pps/partner/ignite/WorkingGeniusAssessment";
-import EQChangeLeaderMini from "./pages/pps/EQChangeLeaderMini";
+const IgniteAssessments = lazyPage(() => import("./pages/pps/partner/ignite/IgniteAssessments"));
+const IgniteMasterclasses = lazyPage(() => import("./pages/pps/partner/ignite/IgniteMasterclasses"));
+const EQAssessment = lazyPage(() => import("./pages/pps/partner/ignite/EQAssessment"));
+const WorkingGeniusAssessment = lazyPage(() => import("./pages/pps/partner/ignite/WorkingGeniusAssessment"));
+const EQChangeLeaderMini = lazyPage(() => import("./pages/pps/EQChangeLeaderMini"));
 
 // AMPLIFY Subpages
-import AmplifyWorkshops from "./pages/pps/partner/amplify/AmplifyWorkshops";
+const AmplifyWorkshops = lazyPage(() => import("./pages/pps/partner/amplify/AmplifyWorkshops"));
 import { MovedTo } from "./components/pps/MovedTo";
-import StartHere from "./pages/pps/StartHere";
-import AmplifySprints from "./pages/pps/partner/amplify/AmplifySprints";
-import AmplifySprintsArchive from "./pages/pps/partner/amplify/AmplifySprintsArchive";
-import AmplifyLabs from "./pages/pps/partner/amplify/AmplifyLabs";
-import StracticalLeaderWorkshop from "./pages/pps/partner/amplify/StracticalLeaderWorkshop";
-import StracticalLeaderCheckout from "./pages/pps/partner/amplify/StracticalLeaderCheckout";
+const StartHere = lazyPage(() => import("./pages/pps/StartHere"));
+const AmplifySprints = lazyPage(() => import("./pages/pps/partner/amplify/AmplifySprints"));
+const AmplifySprintsArchive = lazyPage(() => import("./pages/pps/partner/amplify/AmplifySprintsArchive"));
+const AmplifyLabs = lazyPage(() => import("./pages/pps/partner/amplify/AmplifyLabs"));
+const StracticalLeaderWorkshop = lazyPage(() => import("./pages/pps/partner/amplify/StracticalLeaderWorkshop"));
+const StracticalLeaderCheckout = lazyPage(() => import("./pages/pps/partner/amplify/StracticalLeaderCheckout"));
 
 // New Resources Section
-import ResourcesHub from "./pages/pps/resources/ResourcesHub";
-import FreeDownloads from "./pages/pps/resources/FreeDownloads";
-import YouTubePage from "./pages/pps/resources/YouTubePage";
-import AsSeenOn from "./pages/pps/resources/AsSeenOn";
-import MediaAppearance from "./pages/pps/resources/MediaAppearance";
-import FAQPage from "./pages/pps/resources/FAQPage";
-import StracticalLeaderGuide from "./pages/pps/resources/StracticalLeaderGuide";
-import StracticalMiniThankYou from "./pages/pps/resources/StracticalMiniThankYou";
+const ResourcesHub = lazyPage(() => import("./pages/pps/resources/ResourcesHub"));
+const FreeDownloads = lazyPage(() => import("./pages/pps/resources/FreeDownloads"));
+const YouTubePage = lazyPage(() => import("./pages/pps/resources/YouTubePage"));
+const AsSeenOn = lazyPage(() => import("./pages/pps/resources/AsSeenOn"));
+const MediaAppearance = lazyPage(() => import("./pages/pps/resources/MediaAppearance"));
+const FAQPage = lazyPage(() => import("./pages/pps/resources/FAQPage"));
+const StracticalLeaderGuide = lazyPage(() => import("./pages/pps/resources/StracticalLeaderGuide"));
+const StracticalMiniThankYou = lazyPage(() => import("./pages/pps/resources/StracticalMiniThankYou"));
 
-import BurnoutResources from "./pages/pps/resources/BurnoutResources";
-import BurnoutOptIn from "./pages/pps/BurnoutOptIn";
+const BurnoutResources = lazyPage(() => import("./pages/pps/resources/BurnoutResources"));
+const BurnoutOptIn = lazyPage(() => import("./pages/pps/BurnoutOptIn"));
 
 // Program Detail Pages
 
 // About Team Hubs
-import AboutAmy from "./pages/pps/AboutAmy";
-import AboutRob from "./pages/pps/AboutRob";
-import AboutSierra from "./pages/pps/AboutSierra";
-import PPSOverview from "./pages/pps/PPSOverview";
+const AboutAmy = lazyPage(() => import("./pages/pps/AboutAmy"));
+const AboutRob = lazyPage(() => import("./pages/pps/AboutRob"));
+const AboutSierra = lazyPage(() => import("./pages/pps/AboutSierra"));
+const PPSOverview = lazyPage(() => import("./pages/pps/PPSOverview"));
 
 // Blue Door: public sale retired (PPS-DEC-0017). Only the success page stays,
 // for existing purchasers; every other Blue Door address redirects to the
 // Epic ShIFt Organizational Appraisal (PPS-DEC-0018).
 
 // Epic ShIFt redesign ("v3") pages ported from pps-simplified
-import EnvisionShift from "./pages/pps/v3/EnvisionShift";
+const EnvisionShift = lazyPage(() => import("./pages/pps/v3/EnvisionShift"));
 import HomeNext from "./pages/pps/v3/HomeNext";
-import ArchitectShift from "./pages/pps/v3/ArchitectShift";
-import ForIndividuals from "./pages/pps/v3/ForIndividuals";
-import EmbodyShift from "./pages/pps/v3/EmbodyShift";
-import ThePath from "./pages/pps/v3/ThePath";
-import ResultsImpact from "./pages/pps/v3/ResultsImpact";
-import AboutNext from "./pages/pps/v3/AboutNext";
-import PhaseZeroNext from "./pages/pps/v3/PhaseZeroNext";
+const ArchitectShift = lazyPage(() => import("./pages/pps/v3/ArchitectShift"));
+const ForIndividuals = lazyPage(() => import("./pages/pps/v3/ForIndividuals"));
+const EmbodyShift = lazyPage(() => import("./pages/pps/v3/EmbodyShift"));
+const ThePath = lazyPage(() => import("./pages/pps/v3/ThePath"));
+const ResultsImpact = lazyPage(() => import("./pages/pps/v3/ResultsImpact"));
+const AboutNext = lazyPage(() => import("./pages/pps/v3/AboutNext"));
+const PhaseZeroNext = lazyPage(() => import("./pages/pps/v3/PhaseZeroNext"));
 
 // Other Pages
-import Speaking from "./pages/pps/Speaking";
-import PressKit from "./pages/pps/PressKit";
-import SpeakingWorkshopTopics from "./pages/pps/SpeakingWorkshopTopics";
-import AmySpeaker from "./pages/pps/speaking/AmySpeaker";
-import RobSpeaker from "./pages/pps/speaking/RobSpeaker";
-import SierraSpeaker from "./pages/pps/speaking/SierraSpeaker";
-import KickTheHabit from "./pages/pps/KickTheHabit";
-import StoicFieldGuide from "./pages/pps/StoicFieldGuide";
-import StoicFieldGuideAccess from "./pages/pps/StoicFieldGuideAccess";
-import PilotTraining from "./pages/pps/PilotTraining";
-import PilotTrainingWatch from "./pages/pps/PilotTrainingWatch";
-import FiveDayMasterYourMessage from "./pages/pps/FiveDayMasterYourMessage";
-import RefundRequest from "./pages/pps/RefundRequest";
-import TeamChallenge from "./pages/pps/TeamChallenge";
-import JournalingChallenge from "./pages/pps/JournalingChallenge";
-import KickTheHabitWatch from "./pages/pps/KickTheHabitWatch";
-import CommunicatorStyles from "./pages/pps/CommunicatorStyles";
-import CommunicatorStylesWatch from "./pages/pps/CommunicatorStylesWatch";
-import WFHSignUp from "./pages/pps/WFHSignUp";
-import WFHThankYou from "./pages/pps/WFHThankYou";
-import ElementsMiniSignUp from "./pages/pps/ElementsMiniSignUp";
-import StrategicCanvasSignUp from "./pages/pps/StrategicCanvasSignUp";
-import StrategicCanvasThankYou from "./pages/pps/StrategicCanvasThankYou";
-import ChangeRoadmapSignUp from "./pages/pps/ChangeRoadmapSignUp";
-import ChangeRoadmapThankYou from "./pages/pps/ChangeRoadmapThankYou";
-import ChangeCommsSignUp from "./pages/pps/ChangeCommsSignUp";
-import ChangeReadyTeamAssessment from "./pages/pps/ChangeReadyTeamAssessment";
-import ChangeReadyLeaderAssessment from "./pages/pps/ChangeReadyLeaderAssessment";
-import ElementalStyleAssessment from "./pages/pps/ElementalStyleAssessment";
-import TeamHealthAssessment from "./pages/pps/TeamHealthAssessment";
-import ChangeCommsThankYou from "./pages/pps/ChangeCommsThankYou";
-import TermsAndConditions from "./pages/pps/TermsAndConditions";
-import Sitemap from "./pages/pps/Sitemap";
-import EasterEggForm from "./pages/pps/EasterEggForm";
-import BrandLibrary from "./pages/pps/BrandLibrary";
-import Unsubscribe from "./pages/pps/Unsubscribe";
+const Speaking = lazyPage(() => import("./pages/pps/Speaking"));
+const PressKit = lazyPage(() => import("./pages/pps/PressKit"));
+const SpeakingWorkshopTopics = lazyPage(() => import("./pages/pps/SpeakingWorkshopTopics"));
+const AmySpeaker = lazyPage(() => import("./pages/pps/speaking/AmySpeaker"));
+const RobSpeaker = lazyPage(() => import("./pages/pps/speaking/RobSpeaker"));
+const SierraSpeaker = lazyPage(() => import("./pages/pps/speaking/SierraSpeaker"));
+const KickTheHabit = lazyPage(() => import("./pages/pps/KickTheHabit"));
+const StoicFieldGuide = lazyPage(() => import("./pages/pps/StoicFieldGuide"));
+const StoicFieldGuideAccess = lazyPage(() => import("./pages/pps/StoicFieldGuideAccess"));
+const PilotTraining = lazyPage(() => import("./pages/pps/PilotTraining"));
+const PilotTrainingWatch = lazyPage(() => import("./pages/pps/PilotTrainingWatch"));
+const FiveDayMasterYourMessage = lazyPage(() => import("./pages/pps/FiveDayMasterYourMessage"));
+const RefundRequest = lazyPage(() => import("./pages/pps/RefundRequest"));
+const TeamChallenge = lazyPage(() => import("./pages/pps/TeamChallenge"));
+const JournalingChallenge = lazyPage(() => import("./pages/pps/JournalingChallenge"));
+const KickTheHabitWatch = lazyPage(() => import("./pages/pps/KickTheHabitWatch"));
+const CommunicatorStyles = lazyPage(() => import("./pages/pps/CommunicatorStyles"));
+const CommunicatorStylesWatch = lazyPage(() => import("./pages/pps/CommunicatorStylesWatch"));
+const WFHSignUp = lazyPage(() => import("./pages/pps/WFHSignUp"));
+const WFHThankYou = lazyPage(() => import("./pages/pps/WFHThankYou"));
+const ElementsMiniSignUp = lazyPage(() => import("./pages/pps/ElementsMiniSignUp"));
+const StrategicCanvasSignUp = lazyPage(() => import("./pages/pps/StrategicCanvasSignUp"));
+const StrategicCanvasThankYou = lazyPage(() => import("./pages/pps/StrategicCanvasThankYou"));
+const ChangeRoadmapSignUp = lazyPage(() => import("./pages/pps/ChangeRoadmapSignUp"));
+const ChangeRoadmapThankYou = lazyPage(() => import("./pages/pps/ChangeRoadmapThankYou"));
+const ChangeCommsSignUp = lazyPage(() => import("./pages/pps/ChangeCommsSignUp"));
+const ChangeReadyTeamAssessment = lazyPage(() => import("./pages/pps/ChangeReadyTeamAssessment"));
+const ChangeReadyLeaderAssessment = lazyPage(() => import("./pages/pps/ChangeReadyLeaderAssessment"));
+const ElementalStyleAssessment = lazyPage(() => import("./pages/pps/ElementalStyleAssessment"));
+const TeamHealthAssessment = lazyPage(() => import("./pages/pps/TeamHealthAssessment"));
+const ChangeCommsThankYou = lazyPage(() => import("./pages/pps/ChangeCommsThankYou"));
+const TermsAndConditions = lazyPage(() => import("./pages/pps/TermsAndConditions"));
+const Sitemap = lazyPage(() => import("./pages/pps/Sitemap"));
+const EasterEggForm = lazyPage(() => import("./pages/pps/EasterEggForm"));
+const BrandLibrary = lazyPage(() => import("./pages/pps/BrandLibrary"));
+const Unsubscribe = lazyPage(() => import("./pages/pps/Unsubscribe"));
 
 // Admin Pages
-import AdminLogin from "./pages/pps/admin/AdminLogin";
+const AdminLogin = lazyPage(() => import("./pages/pps/admin/AdminLogin"));
 import AdminLayout from "./layouts/AdminLayout";
-import AdminDashboard from "./pages/pps/admin/AdminDashboard";
-import BlogPostList from "./pages/pps/admin/BlogPostList";
-import BlogPostEditor from "./pages/pps/admin/BlogPostEditor";
-import AdminUsers from "./pages/pps/admin/AdminUsers";
-import MediaAppearanceList from "./pages/pps/admin/MediaAppearanceList";
-import MediaAppearanceEditor from "./pages/pps/admin/MediaAppearanceEditor";
-import YouTubeVideoList from "./pages/pps/admin/YouTubeVideoList";
-import YouTubeVideoEditor from "./pages/pps/admin/YouTubeVideoEditor";
-import AccountSettings from "./pages/pps/admin/AccountSettings";
-import SiteVideosManager from "./pages/pps/admin/SiteVideosManager";
-import PageStatusManager from "./pages/pps/admin/PageStatusManager";
-import PathFinderOfferings from "./pages/pps/admin/PathFinderOfferings";
-import PathFinderOfferingDetail from "./pages/pps/admin/PathFinderOfferingDetail";
-import QuizRoutingRules from "./pages/pps/admin/QuizRoutingRules";
-import BackupsManager from "./pages/pps/admin/BackupsManager";
-import MigrateManager from "./pages/pps/admin/MigrateManager";
-import RestoreWizard from "./pages/pps/admin/RestoreWizard";
-import IntegrityCheck from "./pages/pps/admin/IntegrityCheck";
-import SecretsHandoff from "./pages/pps/admin/SecretsHandoff";
-import MigrationChecklist from "./pages/pps/admin/MigrationChecklist";
-import SiteEmails from "./pages/pps/admin/SiteEmails";
-import EmailOps from "./pages/pps/admin/EmailOps";
-import ResetPassword from "./pages/pps/admin/ResetPassword";
-import PolicyNotifications from "./pages/pps/admin/PolicyNotifications";
-import RefundRequestsManager from "./pages/pps/admin/RefundRequestsManager";
-import CourseLaunchManager from "./pages/pps/admin/CourseLaunchManager";
-import SecurityFindingsExplained from "./pages/pps/admin/SecurityFindingsExplained";
+const AdminDashboard = lazyPage(() => import("./pages/pps/admin/AdminDashboard"));
+const BlogPostList = lazyPage(() => import("./pages/pps/admin/BlogPostList"));
+const BlogPostEditor = lazyPage(() => import("./pages/pps/admin/BlogPostEditor"));
+const AdminUsers = lazyPage(() => import("./pages/pps/admin/AdminUsers"));
+const MediaAppearanceList = lazyPage(() => import("./pages/pps/admin/MediaAppearanceList"));
+const MediaAppearanceEditor = lazyPage(() => import("./pages/pps/admin/MediaAppearanceEditor"));
+const YouTubeVideoList = lazyPage(() => import("./pages/pps/admin/YouTubeVideoList"));
+const YouTubeVideoEditor = lazyPage(() => import("./pages/pps/admin/YouTubeVideoEditor"));
+const AccountSettings = lazyPage(() => import("./pages/pps/admin/AccountSettings"));
+const SiteVideosManager = lazyPage(() => import("./pages/pps/admin/SiteVideosManager"));
+const PageStatusManager = lazyPage(() => import("./pages/pps/admin/PageStatusManager"));
+const PathFinderOfferings = lazyPage(() => import("./pages/pps/admin/PathFinderOfferings"));
+const PathFinderOfferingDetail = lazyPage(() => import("./pages/pps/admin/PathFinderOfferingDetail"));
+const QuizRoutingRules = lazyPage(() => import("./pages/pps/admin/QuizRoutingRules"));
+const BackupsManager = lazyPage(() => import("./pages/pps/admin/BackupsManager"));
+const MigrateManager = lazyPage(() => import("./pages/pps/admin/MigrateManager"));
+const RestoreWizard = lazyPage(() => import("./pages/pps/admin/RestoreWizard"));
+const IntegrityCheck = lazyPage(() => import("./pages/pps/admin/IntegrityCheck"));
+const SecretsHandoff = lazyPage(() => import("./pages/pps/admin/SecretsHandoff"));
+const MigrationChecklist = lazyPage(() => import("./pages/pps/admin/MigrationChecklist"));
+const SiteEmails = lazyPage(() => import("./pages/pps/admin/SiteEmails"));
+const EmailOps = lazyPage(() => import("./pages/pps/admin/EmailOps"));
+const ResetPassword = lazyPage(() => import("./pages/pps/admin/ResetPassword"));
+const PolicyNotifications = lazyPage(() => import("./pages/pps/admin/PolicyNotifications"));
+const RefundRequestsManager = lazyPage(() => import("./pages/pps/admin/RefundRequestsManager"));
+const CourseLaunchManager = lazyPage(() => import("./pages/pps/admin/CourseLaunchManager"));
+const SecurityFindingsExplained = lazyPage(() => import("./pages/pps/admin/SecurityFindingsExplained"));
 
 // Legacy redirect: forward /pps/* paths to clean URLs
 function LegacyPPSRedirect() {
