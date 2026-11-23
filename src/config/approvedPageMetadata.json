@@ -7,7 +7,8 @@
     "source": "src/pages/pps/v3/HomeNext.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/v3/home-hero-illuminated-portico.jpg",
-    "ogImage": "https://onthepaintedporch.com/__l5e/assets-v1/2161d8ce-ace5-466e-9e11-d84083153d71/home-illuminated-portico-share.jpg"
+    "ogImage": "https://onthepaintedporch.com/__l5e/assets-v1/2161d8ce-ace5-466e-9e11-d84083153d71/home-illuminated-portico-share.jpg",
+    "ogImageAlt": "A sunlit modern portico with blue, purple, teal, gold and lime columns overlooking a coastal city"
   },
   "/phase-zero": {
     "title": "Phase Zero™: Our Approach | Painted Porch Strategies",
@@ -17,7 +18,8 @@
     "source": "src/pages/pps/v3/PhaseZeroNext.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/heroes/phase-zero-hero.jpg",
-    "ogImage": "/page-share/phase-zero.jpg"
+    "ogImage": "/page-share/phase-zero.jpg",
+    "ogImageAlt": "Stone columns tinted gold, green and pink at sunset, beside scaffolding on a new foundation"
   },
   "/about": {
     "title": "About | Painted Porch Strategies",
@@ -27,7 +29,8 @@
     "source": "src/pages/pps/v3/AboutNext.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/heroes/about-hero.jpg",
-    "ogImage": "/page-share/about.jpg"
+    "ogImage": "/page-share/about.jpg",
+    "ogImageAlt": "Two rocking chairs on a painted porch at sunset, between white columns and sheer curtains"
   },
   "/about/impact": {
     "title": "Results & Impact | Painted Porch Strategies",
@@ -37,7 +40,8 @@
     "source": "src/pages/pps/v3/ResultsImpact.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/images/impact-cta-begin.jpg",
-    "ogImage": "/page-share/about-impact.jpg"
+    "ogImage": "/page-share/about-impact.jpg",
+    "ogImageAlt": "An open double door leading from a dark room onto a sunlit garden path"
   },
   "/the-path": {
     "title": "The P.A.T.H.™ | Painted Porch Strategies",
@@ -47,7 +51,8 @@
     "source": "src/pages/pps/v3/ThePath.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/colorful-path.jpg",
-    "ogImage": "/page-share/the-path.jpg"
+    "ogImage": "/page-share/the-path.jpg",
+    "ogImageAlt": "A winding path of painted planks in pink, gold, green, teal and navy across a sunlit field"
   },
   "/assessments": {
     "title": "Assessments | Painted Porch Strategies",
@@ -97,7 +102,8 @@
     "source": "src/pages/pps/v3/ForIndividuals.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/ignite-hero-flame.jpg",
-    "ogImage": "/page-share/for-individuals.jpg"
+    "ogImage": "/page-share/for-individuals.jpg",
+    "ogImageAlt": "Swirling flames in teal, green, orange and purple on a black background"
   },
   "/architect-shift": {
     "title": "Architect ShIFt | Painted Porch Strategies",
@@ -107,7 +113,8 @@
     "source": "src/pages/pps/v3/ArchitectShift.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/heroes/approach-hero.jpg",
-    "ogImage": "/page-share/architect-shift.jpg"
+    "ogImage": "/page-share/architect-shift.jpg",
+    "ogImageAlt": "Small glowing buildings linked by a curving line of light across a dark blueprint"
   },
   "/embody-shift": {
     "title": "Embody ShIFt | Painted Porch Strategies",
@@ -117,7 +124,8 @@
     "source": "src/pages/pps/v3/EmbodyShift.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/v3/embody-hero-poster.jpg",
-    "ogImage": "/page-share/embody-shift.jpg"
+    "ogImage": "/page-share/embody-shift.jpg",
+    "ogImageAlt": "A glowing teal outline of a columned portico on a dark blue background"
   },
   "/resources": {
     "title": "Resources | Painted Porch Strategies",
@@ -167,7 +175,8 @@
     "source": "src/pages/pps/resources/FAQPage.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/faq-hero.jpg",
-    "ogImage": "/page-share/resources-faq.jpg"
+    "ogImage": "/page-share/resources-faq.jpg",
+    "ogImageAlt": "A question mark drawn in light on the back wall of a dark, graffiti-covered alley"
   },
   "/resources/stractical-mini": {
     "title": "Stractical Leader Mini Guide | Painted Porch Strategies",
@@ -185,7 +194,8 @@
     "source": "src/pages/pps/Speaking.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/heroes/speaking-hero.jpg",
-    "ogImage": "/page-share/speaking.jpg"
+    "ogImage": "/page-share/speaking.jpg",
+    "ogImageAlt": "A speaker at a podium on a stage with painted wooden panels in teal, gold, purple and lime, facing an audience"
   },
   "/press-kit": {
     "title": "Press Kit & Speaker Bios | Painted Porch Strategies",
@@ -195,7 +205,8 @@
     "source": "src/pages/pps/PressKit.tsx",
     "pageOwnsSeo": true,
     "imageSource": "public/images/press-kit-share.jpg",
-    "ogImage": "/images/press-kit-share.jpg"
+    "ogImage": "/images/press-kit-share.jpg",
+    "ogImageAlt": "A speaker at a podium on a stage with painted wooden panels in teal, gold, purple and lime, facing an audience"
   },
   "/speaking/topics": {
     "title": "Speaking & Workshop Topics | Painted Porch Strategies",
@@ -205,7 +216,8 @@
     "source": "src/pages/pps/SpeakingWorkshopTopics.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/heroes/speaking-hero.jpg",
-    "ogImage": "/page-share/speaking-topics.jpg"
+    "ogImage": "/page-share/speaking-topics.jpg",
+    "ogImageAlt": "A speaker at a podium on a stage with painted wooden panels in teal, gold, purple and lime, facing an audience"
   },
   "/elemental-style-assessment": {
     "title": "Your Elemental Style: Free Assessment | Painted Porch Strategies",
@@ -223,7 +235,8 @@
     "source": "src/pages/pps/v3/EnvisionShift.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/v3/amplify-hero-poster.jpg",
-    "ogImage": "/page-share/envision-shift.jpg"
+    "ogImage": "/page-share/envision-shift.jpg",
+    "ogImageAlt": "A glass light bulb glowing with colorful filaments amid sparkling confetti"
   },
   "/contact": {
     "title": "Contact Painted Porch Strategies | Start the Conversation",
@@ -233,7 +246,8 @@
     "source": "src/pages/pps/PPSContact.tsx",
     "pageOwnsSeo": true,
     "imageSource": "src/assets/heroes/contact-hero.jpg",
-    "ogImage": "/page-share/contact.jpg"
+    "ogImage": "/page-share/contact.jpg",
+    "ogImageAlt": "Painted wooden porch chairs in teal, gold, red and lime around small tables with coffee cups"
   },
   "/sitemap": {
     "title": "Sitemap | Painted Porch Strategies",
