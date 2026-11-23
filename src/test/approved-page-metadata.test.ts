@@ -12,6 +12,17 @@ type Approved = {
 };
 
 describe("approved page metadata inventory", () => {
+  const reviewedPaths = ["/", "/the-path", "/envision-shift", "/architect-shift", "/embody-shift", "/workshops", "/leadership-labs", "/assessments", "/masterclasses", "/for-individuals"];
+  it.each(reviewedPaths)("%s keeps the approved search title under 60 characters", (path) => {
+    expect((approvedPages as Record<string, Approved>)[path].title.length).toBeLessThan(60);
+  });
+  it.each(reviewedPaths)("%s keeps the approved search description under 155 characters", (path) => {
+    expect((approvedPages as Record<string, Approved>)[path].description.length).toBeLessThan(155);
+  });
+  it("uses unique titles across all ten reviewed routes", () => {
+    const titles = reviewedPaths.map((path) => (approvedPages as Record<string, Approved>)[path].title);
+    expect(new Set(titles).size).toBe(10);
+  });
   it("keeps page-specific defaults traceable to current page sources", () => {
     for (const metadata of Object.values(approvedPages)) {
       expect(readFileSync(metadata.source, "utf8").length).toBeGreaterThan(0);

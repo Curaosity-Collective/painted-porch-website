@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { getCurrentPageUrl, getSiteUrl, toAbsoluteSiteUrl } from "@/lib/site-url";
 import approvedPages from "@/config/approvedPageMetadata.json";
+import { canonicalPageUrl } from "@/lib/canonical-url";
 
 type SeoConfig = {
   title?: string;
@@ -84,7 +85,7 @@ function getDefaultSeo() {
 
   return {
     ...DEFAULT_SEO,
-    canonical: pageUrl,
+    canonical: canonicalPageUrl(pageUrl),
     ogImage: `${siteUrl}/og-image.jpg`,
     ogUrl: pageUrl,
   };
@@ -108,6 +109,9 @@ function setLink(rel: string, href: string) {
     document.head.appendChild(el);
   }
   el.setAttribute("href", href);
+  document.head.querySelectorAll(`link[rel="${rel}"]`).forEach((link) => {
+    if (link !== el) link.remove();
+  });
 }
 
 function upsertJsonLd(jsonLd?: SeoConfig["jsonLd"]) {
@@ -201,7 +205,7 @@ export function useDocumentSeo({
       : keywords?.length
         ? keywords
         : null;
-    const resolvedRobots = approved?.robots || override?.robots || robots || defaultSeo.robots;
+    const resolvedRobots = robots?.includes("noindex") ? robots : approved?.robots || override?.robots || robots || defaultSeo.robots;
 
     // Merge FAQ JSON-LD from AEO overrides with any code-supplied jsonLd.
     const baseJsonLd = override?.jsonld ?? jsonLd;
@@ -224,7 +228,7 @@ export function useDocumentSeo({
 
     const canonicalSource = approved ? canonical : override?.canonical || canonical;
     const resolvedCanonical = canonicalSource
-      ? toAbsoluteSiteUrl(canonicalSource)
+      ? canonicalPageUrl(canonicalSource)
       : defaultSeo.canonical;
 
     const ogImageSource = override?.og_image || approved?.ogImage || ogImage;

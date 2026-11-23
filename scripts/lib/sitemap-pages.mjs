@@ -35,7 +35,6 @@ export const SITEMAP_STATIC_PAGES = [
   { path: "/resources/youtube", priority: "0.6", changefreq: "weekly" },
   { path: "/resources/faq", priority: "0.6", changefreq: "monthly" },
   { path: "/resources/stractical-mini", priority: "0.7", changefreq: "monthly" },
-  { path: "/media", priority: "0.6", changefreq: "monthly" },
   // Legacy redirect kept in sitemap for SEO continuity — /blog 302s to
   // /resources/insights so crawlers can still discover it.
   { path: "/blog", priority: "0.5", changefreq: "weekly" },
@@ -58,6 +57,5 @@ export const SITEMAP_STATIC_PAGES = [
   { path: "/change-roadmap", priority: "0.7", changefreq: "monthly" },
   { path: "/change-comms", priority: "0.7", changefreq: "monthly" },
   { path: "/burnout", priority: "0.7", changefreq: "monthly" },
-  { path: "/burnout-access", priority: "0.5", changefreq: "monthly" },
   { path: "/refund-request", priority: "0.3", changefreq: "yearly" },
 ];

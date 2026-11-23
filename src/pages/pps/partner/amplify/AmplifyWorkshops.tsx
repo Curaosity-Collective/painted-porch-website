@@ -161,7 +161,7 @@ const RETIRED_WORKSHOPS = new Set(["architectChange"]);
 export default function AmplifyWorkshops() {
   useDocumentSeo({
     title: "Team Workshops | Painted Porch Strategies",
-    description: "Team workshops from Painted Porch Strategies: the P.A.T.H.™ to Lasting Change, organizational architecture, leadership development, and team building, in 1–3 day team engagements.",
+    description: "Team workshops on the P.A.T.H.™ to Lasting Change, organizational architecture, leadership development and team building. 1–3 day engagements.",
     canonical: "/workshops",
   });
 

@@ -6,19 +6,23 @@ Disallow: /reset-password
 
 # Draft / internal / archived pages — hidden from search engines
 Disallow: /5-day-master-your-message-challenge
+Disallow: /6-communicator-styles-watch
 Disallow: /about-archive
 Disallow: /about/approach-archive
 Disallow: /about/impact-archive
 Disallow: /brand-library
+Disallow: /burnout-access
+Disallow: /change-comms-thank-you
 Disallow: /change-ready-leader-assessment
 Disallow: /change-ready-team-assessment
 Disallow: /elements-mini
 Disallow: /eq-change-leader
 Disallow: /eq-change-leader-mini
 Disallow: /home-archive-v2
+Disallow: /kick-the-habit-watch
+Disallow: /leadership-labs/stractical-leader/enroll
 Disallow: /master-your-message-journal-challenge-feb2021
 Disallow: /mym-journal-challenge
-Disallow: /overview
 Disallow: /partner-archive
 Disallow: /partner-archive-v2
 Disallow: /partner/amplify-archive
@@ -31,11 +35,18 @@ Disallow: /partner/embody-archive-v3
 Disallow: /partner/ignite-archive
 Disallow: /partner/ignite-archive-v2
 Disallow: /phase-zero-archive-v2
+Disallow: /pilot-training-watch
 Disallow: /refund-request
+Disallow: /sitemap
+Disallow: /stoic-field-guide-access
+Disallow: /stractical-mini-thank-you
 Disallow: /talking-to-strangers
 Disallow: /team-challenge
 Disallow: /team-health-assessment
 Disallow: /team-superpowers
+Disallow: /thank-you-change-canvas
+Disallow: /thank-you-change-roadmap
+Disallow: /unsubscribe
 Disallow: /wfh-sign-up
 Disallow: /wfh-thank-you
 

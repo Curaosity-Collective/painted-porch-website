@@ -23,6 +23,7 @@ import {
   fetchLivePageRows,
   loadAppPageRules,
   readGatedAppRoutePaths,
+  readIndexableAppPagePaths,
   readSitemapRegistryPaths,
   robotsDisallowRules,
 } from "./lib/public-pages.mjs";
@@ -67,7 +68,12 @@ async function main() {
     ...prerenderRoutes.map((route) => route.path),
     ...movedPages.flatMap((moved) => [moved.from, moved.to]),
   ];
-  const disallow = robotsDisallowRules(knownPaths, rows, rules);
+  const indexable = new Set(readIndexableAppPagePaths(ROOT));
+  const realPages = readGatedAppRoutePaths(ROOT, true);
+  const disallow = [...new Set([
+    ...robotsDisallowRules(knownPaths, rows, rules),
+    ...realPages.filter((p) => !indexable.has(p)),
+  ])].sort();
 
   let content = "User-agent: *\nAllow: /\n";
   for (const rule of ROBOTS_ALWAYS_DISALLOWED) content += `Disallow: ${rule}\n`;
