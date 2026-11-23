@@ -9,11 +9,12 @@
  *   - For each route in scripts/prerender-content.mjs, produces
  *     dist/<route>/index.html with:
  *       • rewritten <title>, meta description, canonical, og:*, twitter:*
- *       • real HTML content injected into <div id="root"> (H1, intro,
- *         section headings, key links)
- *   - Real users still get the SPA. main.tsx uses createRoot (not
- *     hydrateRoot), so React replaces the #root children on mount —
- *     no hydration mismatch warnings.
+ *       • real HTML content in a <noscript> after an empty <div id="root">
+ *         (H1, intro, section headings, key links)
+ *   - Real users get the SPA and never see that text: in #root it showed as
+ *     plain unstyled text until the app loaded, 8–11 s on slow mobile
+ *     (PPS Admin, 2026-11-23: "yes, move it back to noscript"). Search and
+ *     AI crawlers that Lovable verifies get the fully rendered page instead.
  *
  * Failures are non-fatal: warnings logged, build continues.
  * Skip entirely with PRERENDER=0.
@@ -114,10 +115,7 @@ function renderBody(route) {
     )
     .join("\n");
 
-  // This content lives inside <div id="root">. Since main.tsx uses
-  // createRoot (not hydrateRoot), React replaces these children on
-  // mount — no hydration warnings, no visual flash for users because
-  // the SPA styles hide untyped body content behind the app shell.
+  // This content lives in a <noscript> beside the empty #root (see buildHtml).
   return `<div style="max-width:760px;margin:2rem auto;padding:1.5rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.6;color:#1a1a2e">
       <h1>${escapeHtml(route.h1)}</h1>
       <p>${escapeHtml(route.intro)}</p>
@@ -401,12 +399,14 @@ function buildHtml(route) {
     html = replaceTag(html, /<\/head>/, `    ${scripts}\n  </head>`);
   }
 
-  // Keep crawler-readable text in the ordinary document body. React's
-  // createRoot replaces this static content when the application mounts.
+  // Crawler text sits in <noscript>, not in #root: in #root visitors saw it
+  // as plain unstyled text until React mounted, about 0.5 s on desktop and
+  // 8–11 s on slow mobile (measured 2026-11-23). Commit 0d2ad4a first moved
+  // it here for the same reason; 5ad82b0 moved it back into #root.
   html = replaceTag(
     html,
     /<div id="root">[\s\S]*?<\/div>/,
-    `<div id="root">${renderBody(route)}</div>`,
+    `<div id="root"></div><noscript>${renderBody(route)}</noscript>`,
   );
 
   return html;
