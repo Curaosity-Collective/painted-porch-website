@@ -26,7 +26,7 @@ import { getSiteUrl } from "@/lib/site-url";
 
 const TITLE = "Architect ShIFt | Painted Porch Strategies";
 const DESCRIPTION =
-  "An executive strategy & authorship intensive, a 90-day pillar-fortification sprint and a retrospective that decides your organization's next step. Starting at $90,000, in a weekly or a biweekly version.";
+  "An executive strategy & authorship intensive, a 90-day sprint and a retrospective to decide your next step. Starting at $90,000.";
 
 const LINK = "font-semibold text-heading underline decoration-heading/40 underline-offset-4 hover:decoration-heading";
 

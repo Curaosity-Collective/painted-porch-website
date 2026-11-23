@@ -27,7 +27,7 @@ import { getSiteUrl } from "@/lib/site-url";
 
 const TITLE = "The P.A.T.H.™ | Painted Porch Strategies";
 const DESCRIPTION =
-  "Prepare, Align, Take Off, Create Habits: the four stages of change behind every Painted Porch engagement, and how Envision, Architect and Embody ShIFt partner on each.";
+  "Prepare, Align, Take Off, Create Habits: the four stages of the P.A.T.H., with Envision, Architect and Embody ShIFt.";
 
 const LINK = "font-semibold text-heading underline decoration-heading/40 underline-offset-4 hover:decoration-heading";
 const LINK_ON_DARK = "font-semibold text-white underline decoration-white/50 underline-offset-4 hover:decoration-white";

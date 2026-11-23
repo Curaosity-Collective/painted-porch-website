@@ -28,9 +28,9 @@ import { getSiteUrl } from "@/lib/site-url";
  *   page is brought over (plan Phase 2).
  */
 
-const TITLE = "The Epic ShIFt Organizational Appraisal | Painted Porch Strategies";
+const TITLE = "The Epic ShIFt Organizational Appraisal";
 const DESCRIPTION =
-  "An interview-led organizational 360 built on six interviews, from executives to the frontline. Your P.A.T.H. Compass clarifies which change and direction make sense to pursue NOW and what in your organization needs reinforcement first, so you can lead with clarity and build with confidence. Investment: $24,000.";
+  "Six interviews, from executives to the frontline, inform your P.A.T.H. Compass and recommended next step. Investment: $24,000.";
 
 const produces = [
   {

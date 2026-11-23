@@ -23,7 +23,7 @@ import { getSiteUrl } from "@/lib/site-url";
 
 const TITLE = "Embody ShIFt | Painted Porch Strategies";
 const DESCRIPTION =
-  "Ongoing advisory while your organization designs and leads the change it envisioned and authored, reinforcing it as a continuous practice. $9,000–$18,000 per month, depending on advisory depth and need.";
+  "Ongoing advisory while your organization designs and leads its change, reinforcing it as a continuous practice. $9,000–$18,000 per month.";
 
 const LINK = "font-semibold text-heading underline decoration-heading/40 underline-offset-4 hover:decoration-heading";
 

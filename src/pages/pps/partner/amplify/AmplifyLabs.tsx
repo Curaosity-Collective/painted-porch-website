@@ -155,7 +155,7 @@ const cohorts = [
 export default function AmplifyLabs() {
   useDocumentSeo({
     title: "Leadership Labs | Painted Porch Strategies",
-    description: "Cohort-based Leadership Labs from Painted Porch Strategies: 6–12 week programs on Stractical Leadership, Leading Change, Stoicism at Work, AI+EI, and more.",
+    description: "Leadership Labs from Painted Porch Strategies: 6–12 week cohorts on Stractical Leadership, Leading Change, Stoicism at Work, and AI+EI.",
     canonical: "/leadership-labs",
   });
 

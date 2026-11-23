@@ -16,9 +16,9 @@
 
 Fresh foundations review: 23 November 2026. Content, Search Console and extended metadata results are stale; their earlier passing results are not a fresh review. The two vague-description findings were already corrected. The ignored consulting-page suggestion remains untouched.
 
-## Proposed metadata diff, not applied
+## Approved metadata diff, applied 23 November 2026
 
-Only search/sharing metadata would change, not headings, offer names, pricing or visible marketing copy. Existing titles not shown below remain unchanged. Each new description would also become its matching Open Graph and Twitter description. Approval would replace Envision's previously locked long metadata description with the shorter version below, retaining its investment.
+Only search/sharing metadata changed, not headings, offer names, pricing or visible marketing copy. Existing titles not shown below remain unchanged. Each new description also became its matching Open Graph and Twitter description. PPS Admin's approval replaced Envision's previously locked long metadata description with the shorter version below, retaining its investment.
 
 ```diff
 Route: /

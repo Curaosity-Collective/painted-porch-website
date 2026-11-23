@@ -197,9 +197,9 @@ export default function HomeNext() {
   const bookClarityCallHref = clarityTopic ? clarityCallHrefFor(CLARITY_CALL_TOPICS[clarityTopic]) : CLARITY_CALL_CONTACT_HREF;
 
   useDocumentSeo({
-    title: "Painted Porch Strategies | Build an Organization That Can Do Epic ShIFt",
+    title: "Painted Porch Strategies | Epic ShIFt",
     description:
-      "Painted Porch Strategies partners with leaders on organizational change and strategic positioning, beginning at Phase Zero to prepare, align and architect what comes next.",
+      "Painted Porch Strategies partners with leaders on organizational change and strategic positioning, beginning at Phase Zero: Prepare and Align.",
   });
 
   return (
