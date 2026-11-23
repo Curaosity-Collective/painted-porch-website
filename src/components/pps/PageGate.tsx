@@ -3,7 +3,7 @@ import { usePageStatuses } from "@/hooks/usePageStatuses";
 import { useUserRole } from "@/hooks/useUserRole";
 import { resolvePageStatus } from "@/config/pageStatus";
 import { isLovableEditorPreview } from "@/lib/lovablePreview";
-import ComingSoon from "@/pages/pps/ComingSoon";
+import NotFound from "@/pages/NotFound";
 
 interface PageGateProps {
   children: React.ReactNode;
@@ -12,10 +12,10 @@ interface PageGateProps {
 /**
  * Inspects the current pathname against the live page-status map (DB).
  * - "live" routes render normally.
- * - "draft" routes show <ComingSoon /> to the public.
+ * - "draft" routes show the noindex error page to the public.
  * - Only admin or editor roles bypass and see the real page. Other
  *   authenticated users (contributors, authors, public assessment users) are
- *   treated as visitors and see <ComingSoon />.
+ *   treated as visitors and see the noindex error page.
  * - The Lovable editor preview iframe always bypasses (preview-only).
  *
  * Wrap this around <Outlet /> in PPSLayout so every route is gated centrally.
@@ -31,11 +31,11 @@ export default function PageGate({ children }: PageGateProps) {
   // Lovable editor preview iframe always bypasses gating (preview-only).
   if (isLovableEditorPreview()) return <>{children}</>;
 
-  // Avoid a flash of "Coming Soon" before role + status resolve.
+  // Avoid a flash of the error page before role + status resolve.
   if (roleLoading || statusLoading) return null;
 
   // Only admins and editors can preview draft pages.
   if (role === "admin" || role === "editor") return <>{children}</>;
 
-  return <ComingSoon />;
+  return <NotFound />;
 }

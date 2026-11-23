@@ -141,11 +141,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://onthepaintedporch.com/media</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://onthepaintedporch.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -239,11 +234,6 @@
     <loc>https://onthepaintedporch.com/burnout</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://onthepaintedporch.com/burnout-access</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://onthepaintedporch.com/resources/insights/we-were-on-a-break</loc>

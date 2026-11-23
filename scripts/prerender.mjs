@@ -367,8 +367,10 @@ function buildHtml(route) {
     `<meta name="twitter:description" content="${escapeAttr(route.ogDescription || route.description)}">`,
   );
   if (route.robots) {
-    html = replaceTag(html, /<meta name="robots"[^>]*>/,
-      `<meta name="robots" content="${escapeAttr(route.robots)}">`);
+    const robotsTag = `<meta name="robots" content="${escapeAttr(route.robots)}">`;
+    html = /<meta name="robots"[^>]*>/.test(html)
+      ? replaceTag(html, /<meta name="robots"[^>]*>/, robotsTag)
+      : html.replace("</head>", `${robotsTag}\n</head>`);
   }
 
   // Per-route JSON-LD (Service, BreadcrumbList, etc.) injected right
@@ -418,12 +420,22 @@ if (publicEnv) {
 const isPublicPage = (p) => !visibility || visibility.isPublic(p);
 let notLive = 0;
 
-for (const route of approvedRoutes) {
-  if (!isPublicPage(route.path)) {
-    console.log(`[prerender] – ${route.path} (not live; left to the app)`);
-    notLive++;
-    continue;
-  }
+// Private access URLs must never inherit the homepage's indexable fallback.
+const accessPage = {
+  path: "/burnout-access", title: "Burnout Recovery Resources | Painted Porch Strategies",
+  description: "A curated toolkit for spotting, squashing, and preventing burnout. Videos, guides, and mindfulness practices from Painted Porch Strategies.",
+  h1: "Burnout-Busting Resources", intro: "", sections: [], links: [],
+  robots: "noindex, nofollow",
+};
+for (const candidate of [...approvedRoutes.filter((r) => r.path !== accessPage.path), accessPage]) {
+  const isLive = isPublicPage(candidate.path);
+  const route = isLive ? candidate : {
+    path: candidate.path, title: "Page Not Found | Painted Porch Strategies",
+    description: "The page you are looking for doesn't exist or has been moved.",
+    h1: "Page not found", intro: "The page you are looking for doesn't exist or has been moved.",
+    robots: "noindex, nofollow", sections: [], links: [],
+  };
+  if (!isLive) notLive++;
   try {
     const html = buildHtml(route);
     const outDir =
@@ -444,7 +456,7 @@ for (const route of approvedRoutes) {
 // so each old address gets the new page's title, description and H1, a canonical link
 // to the new address, and an immediate forward that keeps the ?query and #anchor (a
 // refresh tag covers visitors without JavaScript). The React route forwards too.
-for (const { from, to } of movedPages) {
+for (const { from, to } of [...movedPages.filter((p) => p.from !== "/media"), { from: "/media", to: "/speaking/media" }]) {
   if (!isPublicPage(to)) {
     console.log(`[prerender] – moved ${from} → ${to} (${to} not live; left to the app)`);
     notLive++;
@@ -461,7 +473,8 @@ for (const { from, to } of movedPages) {
     const forward =
       `<script>location.replace(${JSON.stringify(to)} + location.search + location.hash);</script>\n` +
       `<noscript><meta http-equiv="refresh" content="0; url=${escapeAttr(dest)}"></noscript>\n`;
-    const html = buildHtml(target).replace("<head>", `<head>\n${forward}`);
+    const html = buildHtml(from === "/media" ? { ...target, robots: "noindex, follow" } : target)
+      .replace("<head>", `<head>\n${forward}`);
     const outDir = path.join(DIST, from.replace(/^\//, ""));
     await mkdir(outDir, { recursive: true });
     await writeFile(path.join(outDir, "index.html"), html, "utf8");

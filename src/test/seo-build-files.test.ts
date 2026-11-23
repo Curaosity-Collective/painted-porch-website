@@ -219,9 +219,8 @@ describe("wiring", () => {
     }
   });
 
-  it("prerender skips pages that aren't live, including moved-page targets", () => {
+  it("prerender skips redirects whose targets aren't live", () => {
     const src = read("scripts/prerender.mjs");
-    expect(src).toMatch(/if \(!isPublicPage\(route\.path\)\)/);
     expect(src).toMatch(/if \(!isPublicPage\(to\)\)/);
   });
 });

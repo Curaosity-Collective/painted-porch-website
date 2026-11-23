@@ -61,6 +61,7 @@ const BurnoutResources = () => {
     title: "Burnout Recovery Resources | Painted Porch Strategies",
     description: "A curated toolkit for spotting, squashing, and preventing burnout. Videos, guides, and mindfulness practices from Painted Porch Strategies.",
     canonical: "/burnout",
+    robots: "noindex, nofollow",
   });
 
   const navigate = useNavigate();
