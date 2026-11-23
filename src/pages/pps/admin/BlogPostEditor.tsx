@@ -197,11 +197,7 @@ export default function BlogPostEditor() {
       });
 
     supabase
-      .from("profiles")
-      .select("id, full_name, is_guest_author")
-      .eq("is_author", true)
-      .eq("is_active", true)
-      .order("full_name")
+      .rpc("list_editorial_authors")
       .then(({ data }) => {
         if (data) setAuthors(data);
       });
@@ -449,15 +445,18 @@ export default function BlogPostEditor() {
       }
 
       // Sync categories with primary flag
-      await supabase.from("blog_post_categories").delete().eq("post_id", postId!);
+      if (!postId) throw new Error("Post could not be identified after saving.");
+      const { error: categoryDeleteError } = await supabase.from("blog_post_categories").delete().eq("post_id", postId);
+      if (categoryDeleteError) throw categoryDeleteError;
       if (selectedCategories.length > 0) {
-        await supabase.from("blog_post_categories").insert(
+        const { error: categoryInsertError } = await supabase.from("blog_post_categories").insert(
           selectedCategories.map((catId) => ({
-            post_id: postId!,
+            post_id: postId,
             category_id: catId,
             is_primary: catId === primaryCategoryId,
           }))
         );
+        if (categoryInsertError) throw categoryInsertError;
       }
 
       toast({ title: "Saved!", description: `Post ${isNew ? "created" : "updated"} successfully.` });
@@ -540,9 +539,10 @@ export default function BlogPostEditor() {
                     <AlertDialogAction
                       className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                       onClick={async () => {
+                        if (!id) return;
                         try {
-                          await supabase.from("blog_post_categories").delete().eq("post_id", id!);
-                          const { error } = await supabase.from("blog_posts").delete().eq("id", id!);
+                          // Category rows cascade with the post; one verified delete.
+                          const { error } = await supabase.from("blog_posts").delete().eq("id", id);
                           if (error) throw error;
                           toast({ title: "Deleted", description: "Post removed." });
                           navigate("/admin/posts");

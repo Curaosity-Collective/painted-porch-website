@@ -74,7 +74,7 @@ export default function ImportLinkedInDialog({ onImported }: ImportLinkedInDialo
         title: data.reimported ? "Article re-imported!" : "Article imported!",
         description: data.reimported
           ? `"${data.title}" content overwritten.`
-          : `"${data.title}" saved as approved, ready for review.`,
+          : `"${data.title}" saved as pending, ready for review.`,
       });
 
       setUrl("");
@@ -148,7 +148,7 @@ export default function ImportLinkedInDialog({ onImported }: ImportLinkedInDialo
           <DialogTitle>Import LinkedIn Article</DialogTitle>
           <DialogDescription>
             Paste a URL to import a single article, or scan for all new posts.
-            Articles are saved as <strong>Approved</strong> for review before publishing.
+            Articles are saved as <strong>Pending</strong> for review before publishing.
           </DialogDescription>
         </DialogHeader>
 

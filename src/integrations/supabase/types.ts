@@ -1488,6 +1488,14 @@ export type Database = {
       is_admin: { Args: { _user_id: string }; Returns: boolean }
       is_admin_or_editor: { Args: { _user_id: string }; Returns: boolean }
       is_unpublished_path: { Args: { _path: string }; Returns: boolean }
+      list_editorial_authors: {
+        Args: never
+        Returns: {
+          full_name: string
+          id: string
+          is_guest_author: boolean
+        }[]
+      }
       move_to_dlq: {
         Args: {
           dlq_name: string

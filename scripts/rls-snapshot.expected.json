@@ -188,7 +188,7 @@
       "cmd": "SELECT",
       "permissive": "PERMISSIVE",
       "policyname": "Authenticated can read categories for visible posts",
-      "qual": "((EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND ((bp.status = 'published'::blog_post_status) OR ((bp.status = 'scheduled'::blog_post_status) AND (bp.publish_date IS NOT NULL) AND (bp.publish_date <= now())))))) OR is_admin(auth.uid()) OR (EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND (bp.author_id = auth.uid())))))",
+      "qual": "(is_admin_or_editor(auth.uid()) OR (EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE (bp.id = blog_post_categories.post_id))))",
       "roles": [
         "authenticated"
       ],
@@ -200,7 +200,7 @@
       "cmd": "DELETE",
       "permissive": "PERMISSIVE",
       "policyname": "Authors or admins can delete post categories",
-      "qual": "(is_admin(auth.uid()) OR (EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND (bp.author_id = auth.uid())))))",
+      "qual": "(is_admin_or_editor(auth.uid()) OR (EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND (bp.author_id = auth.uid())))))",
       "roles": [
         "authenticated"
       ],
@@ -218,7 +218,7 @@
       ],
       "schemaname": "public",
       "tablename": "blog_post_categories",
-      "with_check": "(is_admin(auth.uid()) OR (EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND (bp.author_id = auth.uid())))))"
+      "with_check": "(is_admin_or_editor(auth.uid()) OR (EXISTS ( SELECT 1\n   FROM blog_posts bp\n  WHERE ((bp.id = blog_post_categories.post_id) AND (bp.author_id = auth.uid())))))"
     },
     {
       "cmd": "INSERT",
@@ -236,7 +236,7 @@
       "cmd": "SELECT",
       "permissive": "PERMISSIVE",
       "policyname": "Authenticated users can read own or published posts",
-      "qual": "((auth.uid() = author_id) OR (status = 'published'::blog_post_status) OR is_admin(auth.uid()))",
+      "qual": "((auth.uid() = author_id) OR (status = 'published'::blog_post_status) OR is_admin_or_editor(auth.uid()))",
       "roles": [
         "authenticated"
       ],
@@ -307,10 +307,21 @@
     {
       "cmd": "SELECT",
       "permissive": "PERMISSIVE",
-      "policyname": "Anyone can read course launch status",
-      "qual": "true",
+      "policyname": "Public can read announced course launches",
+      "qual": "(status = ANY (ARRAY['coming_soon'::text, 'live'::text]))",
       "roles": [
-        "anon",
+        "anon"
+      ],
+      "schemaname": "public",
+      "tablename": "course_launch_status",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "permissive": "PERMISSIVE",
+      "policyname": "Signed-in can read announced launches or admin all",
+      "qual": "((status = ANY (ARRAY['coming_soon'::text, 'live'::text])) OR is_admin(auth.uid()))",
+      "roles": [
         "authenticated"
       ],
       "schemaname": "public",
@@ -560,14 +571,37 @@
     {
       "cmd": "SELECT",
       "permissive": "PERMISSIVE",
-      "policyname": "Anyone can read page seo",
-      "qual": "true",
+      "policyname": "Public can read seo for live pages",
+      "qual": "(NOT is_unpublished_path(path))",
       "roles": [
-        "anon",
+        "anon"
+      ],
+      "schemaname": "public",
+      "tablename": "page_seo",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "permissive": "PERMISSIVE",
+      "policyname": "Signed-in can read seo for live pages or staff",
+      "qual": "(is_admin_or_editor(auth.uid()) OR (NOT is_unpublished_path(path)))",
+      "roles": [
         "authenticated"
       ],
       "schemaname": "public",
       "tablename": "page_seo",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "permissive": "PERMISSIVE",
+      "policyname": "Admins and editors can read archived page SEO",
+      "qual": "is_admin_or_editor(auth.uid())",
+      "roles": [
+        "authenticated"
+      ],
+      "schemaname": "public",
+      "tablename": "page_seo_archive",
       "with_check": null
     },
     {
@@ -676,6 +710,42 @@
       ],
       "schemaname": "public",
       "tablename": "path_finder_offerings",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "permissive": "PERMISSIVE",
+      "policyname": "Admins and editors can read archived offerings",
+      "qual": "is_admin_or_editor(auth.uid())",
+      "roles": [
+        "authenticated"
+      ],
+      "schemaname": "public",
+      "tablename": "path_finder_offerings_archive",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "permissive": "PERMISSIVE",
+      "policyname": "Admins and editors can read offering text changes",
+      "qual": "is_admin_or_editor(auth.uid())",
+      "roles": [
+        "authenticated"
+      ],
+      "schemaname": "public",
+      "tablename": "path_finder_offerings_text_changes",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "permissive": "PERMISSIVE",
+      "policyname": "Admins and editors can read offering URL moves",
+      "qual": "is_admin_or_editor(auth.uid())",
+      "roles": [
+        "authenticated"
+      ],
+      "schemaname": "public",
+      "tablename": "path_finder_offerings_url_moves",
       "with_check": null
     },
     {
@@ -1226,6 +1296,7 @@
     "blog_categories",
     "blog_post_categories",
     "blog_posts",
+    "content_sweep_credentials",
     "course_launch_status",
     "email_send_log",
     "email_send_state",
@@ -1235,8 +1306,12 @@
     "media_appearance_categories",
     "media_appearances",
     "page_seo",
+    "page_seo_archive",
     "page_status",
     "path_finder_offerings",
+    "path_finder_offerings_archive",
+    "path_finder_offerings_text_changes",
+    "path_finder_offerings_url_moves",
     "policy_update_notifications",
     "profiles",
     "refund_requests",
