@@ -72,6 +72,8 @@ const escapeAttr = escapeHtml;
 
 const template = await readFile(path.join(DIST, "index.html"), "utf8");
 const approvedPages = JSON.parse(await readFile(path.join(ROOT, "src/config/approvedPageMetadata.json"), "utf8"));
+// Archived address → the page that replaced it (same list PageGate uses).
+const archivedPages = JSON.parse(await readFile(path.join(ROOT, "src/config/archivedPages.json"), "utf8"));
 const publicUrl = (value) => value?.startsWith("/") ? SITE + value : value;
 // One approved inventory supplies both browser tags and crawler tags.
 const approvedRoutes = routes.map((route) => {
@@ -427,10 +429,13 @@ const accessPage = {
 };
 for (const candidate of [...approvedRoutes.filter((r) => r.path !== accessPage.path), accessPage]) {
   const isLive = isPublicPage(candidate.path);
+  // An unfinished (draft) page gets the Coming Soon page, kept out of search, and
+  // none of its real copy (PPS Admin, 2026-11-23). It matches src/pages/pps/ComingSoon.tsx.
   const route = isLive ? candidate : {
-    path: candidate.path, title: "Page Not Found | Painted Porch Strategies",
-    description: "The page you are looking for doesn't exist or has been moved.",
-    h1: "Page not found", intro: "The page you are looking for doesn't exist or has been moved.",
+    path: candidate.path, title: "Coming Soon | Painted Porch Strategies",
+    description: "We're building something here. Check back soon, or get in touch.",
+    h1: "Painting this porch as we speak",
+    intro: "We're still adding the finishing brushstrokes. Pull up a chair and check back soon, or reach out and we'll let you know when it's ready.",
     robots: "noindex, nofollow", sections: [], links: [],
   };
   if (!isLive) notLive++;
@@ -454,7 +459,14 @@ for (const candidate of [...approvedRoutes.filter((r) => r.path !== accessPage.p
 // so each old address gets the new page's title, description and H1, a canonical link
 // to the new address, and an immediate forward that keeps the ?query and #anchor (a
 // refresh tag covers visitors without JavaScript). The React route forwards too.
-for (const { from, to } of [...movedPages.filter((p) => p.from !== "/media"), { from: "/media", to: "/speaking/media" }]) {
+// Archived pages forward the same way, kept out of search (PPS Admin, 2026-11-23: "If its
+// archived it should redirect"); PageGate forwards visitors in the app.
+const forwards = [
+  ...movedPages.filter((p) => p.from !== "/media"),
+  { from: "/media", to: "/speaking/media", noindex: true },
+  ...Object.entries(archivedPages).map(([from, to]) => ({ from, to, noindex: true })),
+];
+for (const { from, to, noindex } of forwards) {
   if (!isPublicPage(to)) {
     console.log(`[prerender] – moved ${from} → ${to} (${to} not live; left to the app)`);
     notLive++;
@@ -471,7 +483,7 @@ for (const { from, to } of [...movedPages.filter((p) => p.from !== "/media"), { 
     const forward =
       `<script>location.replace(${JSON.stringify(to)} + location.search + location.hash);</script>\n` +
       `<noscript><meta http-equiv="refresh" content="0; url=${escapeAttr(dest)}"></noscript>\n`;
-    const html = buildHtml(from === "/media" ? { ...target, robots: "noindex, follow" } : target)
+    const html = buildHtml(noindex ? { ...target, robots: "noindex, follow" } : target)
       .replace("<head>", `<head>\n${forward}`);
     const outDir = path.join(DIST, from.replace(/^\//, ""));
     await mkdir(outDir, { recursive: true });
