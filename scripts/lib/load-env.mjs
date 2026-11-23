@@ -8,11 +8,15 @@
  * needs a service-role key.
  */
 import { loadEnv } from "vite";
+import { publicBuildEnv } from "./public-build-env.mjs";
 
 const mode = process.env.NODE_ENV === "development" ? "development" : "production";
-const fileEnv = loadEnv(mode, process.cwd(), ["VITE_", "SUPABASE_"]);
+const fileEnv = {
+  ...loadEnv(mode, process.cwd(), ["VITE_", "SUPABASE_"]),
+  ...publicBuildEnv(mode),
+};
 for (const [key, value] of Object.entries(fileEnv)) {
-  if (process.env[key] === undefined) process.env[key] = value;
+  if (!process.env[key] && value) process.env[key] = value;
 }
 
 /** The project URL and public key, or null when either is missing. */

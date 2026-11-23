@@ -1,3 +1,4 @@
+- [x] Prevent missing .env from crashing repository builds using verified public connection defaults; 22 regression/search-build checks passed, including missing/blank settings and hosting overrides. Homepage and live page settings verified; generated files unchanged, not published.
 - [x] Create and attach the homepage Apple Messages animation; five-second 1200×630 silent loop under 1 MB, browser playback and 49 SEO checks passed. Other routes strip video tags; still image and old hero retained. Apple Messages itself awaits publish/device verification.
 - [x] Update homepage sharing to a 1200×630 illuminated-portico crop; browser tags and image delivery verified, 32 metadata tests passed. Former hero retained; About's Stoa Poikile story is the recommended replacement location, pending preview/approval; no other page changed.
 - [ ] Resolve failing SEO findings while preserving retired pages and approved copy; finish Search Console verification and sitemap submission.
