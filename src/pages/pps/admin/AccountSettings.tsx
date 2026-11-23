@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import { Mail, Lock, ArrowLeft, UserCircle, Upload, Crop } from "lucide-react";
 import { Link } from "react-router-dom";
 import HeadshotEditor from "@/components/pps/admin/HeadshotEditor";
+import { accountActionError } from "@/lib/invitation-error";
 
 interface Profile {
   is_author: boolean;
@@ -75,11 +76,14 @@ export default function AccountSettings() {
 
     setEmailLoading(true);
     try {
-      const { error } = await supabase.functions.invoke("update-user-email", {
+      const { data, error } = await supabase.functions.invoke("update-user-email", {
         body: { userId: user.id, newEmail: newEmail.trim() },
       });
-      if (error) throw error;
-      toast({ title: "Email updated", description: `Your email has been changed to ${newEmail.trim()}.` });
+      if (error) throw await accountActionError(error);
+      if (data?.error) throw new Error(data.error);
+      toast(data?.pendingConfirmation
+        ? { title: "Check your email", description: "Confirm the link sent to your new address to finish changing your email." }
+        : { title: "Email updated", description: `Your email has been changed to ${newEmail.trim()}.` });
       setNewEmail("");
     } catch (err: any) {
       toast({ title: "Error", description: err.message || "Failed to update email.", variant: "destructive" });

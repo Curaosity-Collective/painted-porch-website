@@ -50,7 +50,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ArrowLeft, UserPlus, Shield, MoreHorizontal, Pencil, KeyRound, UserCog, UserX, UserCheck, Trash2, Upload, Mail, Crop } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { invitationError } from "@/lib/invitation-error";
+import { accountActionError, invitationError } from "@/lib/invitation-error";
 
 interface Profile {
   id: string;
@@ -237,8 +237,8 @@ export default function AdminUsers() {
             role: inviteRole,
           },
         });
-        if (error) throw await invitationError(error);
-        if (data?.error) throw await invitationError(new Error(data.error));
+        if (error) throw await invitationError(error, inviteRole);
+        if (data?.error) throw await invitationError(new Error(data.error), inviteRole);
 
         // Update the profile with author/section fields if needed, wait for trigger to create it
         const userId = data?.userId ?? data?.user?.id;
@@ -439,7 +439,7 @@ export default function AdminUsers() {
         const { data, error } = await supabase.functions.invoke("delete-user", {
           body: { userId: deletingProfile.id },
         });
-        if (error) throw error;
+        if (error) throw await accountActionError(error);
         if (data?.error) throw new Error(data.error);
       }
 
@@ -461,7 +461,7 @@ export default function AdminUsers() {
       const { data, error } = await supabase.functions.invoke("update-user-email", {
         body: { userId: emailChangeProfile.id, newEmail },
       });
-      if (error) throw error;
+      if (error) throw await accountActionError(error);
       if (data?.error) throw new Error(data.error);
 
       setProfiles((prev) =>
