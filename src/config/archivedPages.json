@@ -1,0 +1,18 @@
+{
+  "/home-archive-v2": "/",
+  "/phase-zero-archive-v2": "/phase-zero",
+  "/about-archive": "/about",
+  "/about/approach-archive": "/phase-zero",
+  "/about/impact-archive": "/about/impact",
+  "/partner-archive": "/the-path",
+  "/partner-archive-v2": "/the-path",
+  "/partner/ignite-archive": "/for-individuals",
+  "/partner/ignite-archive-v2": "/for-individuals",
+  "/partner/amplify-archive": "/workshops",
+  "/partner/amplify-archive-v2": "/workshops",
+  "/partner/amplify/sprints-archive": "/architect-shift",
+  "/partner/amplify/sprints-archive-v2": "/architect-shift",
+  "/partner/embody-archive": "/embody-shift",
+  "/partner/embody-archive-v2": "/embody-shift",
+  "/partner/embody-archive-v3": "/embody-shift"
+}

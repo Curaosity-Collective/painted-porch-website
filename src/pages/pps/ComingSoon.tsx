@@ -13,6 +13,8 @@ export default function ComingSoon() {
   useDocumentSeo({
     title: "Coming Soon | Painted Porch Strategies",
     description: "We're building something here. Check back soon, or get in touch.",
+    // Unfinished pages stay out of search until they go live (PPS Admin, 2026-11-23).
+    robots: "noindex, nofollow",
   });
 
   return (
