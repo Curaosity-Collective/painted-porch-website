@@ -50,6 +50,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ArrowLeft, UserPlus, Shield, MoreHorizontal, Pencil, KeyRound, UserCog, UserX, UserCheck, Trash2, Upload, Mail, Crop } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { accountActionError, invitationError } from "@/lib/invitation-error";
 
 interface Profile {
   id: string;
@@ -236,15 +237,15 @@ export default function AdminUsers() {
             role: inviteRole,
           },
         });
-        if (error) throw error;
-        if (data?.error) throw new Error(data.error);
-        toast({ title: "User created", description: `${inviteEmail} has been added as ${inviteRole}.` });
+        if (error) throw await invitationError(error, inviteRole);
+        if (data?.error) throw await invitationError(new Error(data.error), inviteRole);
 
         // Update the profile with author/section fields if needed, wait for trigger to create it
-        if (data?.userId) {
+        const userId = data?.userId ?? data?.user?.id;
+        if (userId) {
           let retries = 0;
           while (retries < 10) {
-            const { data: existing } = await supabase.from("profiles").select("id").eq("id", data.userId).single();
+            const { data: existing } = await supabase.from("profiles").select("id").eq("id", userId).single();
             if (existing) break;
             await new Promise((r) => setTimeout(r, 500));
             retries++;
@@ -253,9 +254,11 @@ export default function AdminUsers() {
           if (inviteShowAuthorFields) Object.assign(profileUpdates, authorFields);
           if (inviteRole === "editor") profileUpdates.editor_sections = inviteEditorSections;
           if (Object.keys(profileUpdates).length > 0) {
-            await supabase.from("profiles").update(profileUpdates as never).eq("id", data.userId);
+            const { error: updateError } = await supabase.from("profiles").update(profileUpdates as never).eq("id", userId);
+            if (updateError) throw new Error("The account was created, but its profile settings could not be saved. Edit the user in the Users list to finish setting them up.");
           }
         }
+        toast({ title: "User created", description: `${inviteEmail} has been added as ${inviteRole}.` });
       }
 
       setDialogOpen(false);
@@ -436,7 +439,7 @@ export default function AdminUsers() {
         const { data, error } = await supabase.functions.invoke("delete-user", {
           body: { userId: deletingProfile.id },
         });
-        if (error) throw error;
+        if (error) throw await accountActionError(error);
         if (data?.error) throw new Error(data.error);
       }
 
@@ -458,7 +461,7 @@ export default function AdminUsers() {
       const { data, error } = await supabase.functions.invoke("update-user-email", {
         body: { userId: emailChangeProfile.id, newEmail },
       });
-      if (error) throw error;
+      if (error) throw await accountActionError(error);
       if (data?.error) throw new Error(data.error);
 
       setProfiles((prev) =>

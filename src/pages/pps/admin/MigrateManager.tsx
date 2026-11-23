@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { accountActionError } from "@/lib/invitation-error";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -31,7 +32,7 @@ const COPY_BATCH = 8; // files per edge call, keeps each call well under CPU lim
 
 async function invoke<T = any>(fn: string, body: any): Promise<T> {
   const { data, error } = await supabase.functions.invoke(fn, { body });
-  if (error) throw error;
+  if (error) throw await accountActionError(error);
   if (data?.error) throw new Error(data.error);
   return data as T;
 }

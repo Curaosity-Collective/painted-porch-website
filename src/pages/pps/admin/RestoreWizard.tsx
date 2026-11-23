@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { accountActionError } from "@/lib/invitation-error";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -34,7 +35,7 @@ function fmt(b: number) {
 
 async function invoke<T = any>(fn: string, body: any): Promise<T> {
   const { data, error } = await supabase.functions.invoke(fn, { body });
-  if (error) throw error;
+  if (error) throw await accountActionError(error);
   if ((data as any)?.error) throw new Error((data as any).error);
   return data as T;
 }
