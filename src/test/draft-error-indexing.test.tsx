@@ -140,11 +140,13 @@ describe("Crawler error and access output", () => {
     // An archived page whose replacement isn't live is left to the app, never written.
     expect(files.has("/output/about-archive/index.html")).toBe(false);
 
-    // Extractors that discard noscript must still receive the generated text.
+    // Crawler text sits in <noscript>, never in #root, so visitors don't see it as plain
+    // unstyled text before the app loads (PPS Admin, 2026-11-23: "yes, move it back to noscript").
     const html = files.get("/output/speaking/media/index.html") || "";
-    const doc = new DOMParser().parseFromString(html, "text/html");
-    doc.querySelectorAll("noscript").forEach((el) => el.remove());
-    expect(doc.querySelector("#root h1")?.textContent).toBe("Media");
-    expect(doc.querySelector("#root p")?.textContent).toBe("Approved media");
+    expect(html).toContain('<div id="root"></div><noscript>');
+    const noscript = html.match(/<div id="root"><\/div><noscript>([\s\S]*?)<\/noscript>/)?.[1] ?? "";
+    const crawlerText = new DOMParser().parseFromString(noscript, "text/html");
+    expect(crawlerText.querySelector("h1")?.textContent).toBe("Media");
+    expect(crawlerText.querySelector("p")?.textContent).toBe("Approved media");
   });
 });
