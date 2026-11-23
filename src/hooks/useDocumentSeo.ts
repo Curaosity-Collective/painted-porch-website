@@ -198,7 +198,7 @@ export function useDocumentSeo({
 
   useEffect(() => {
     const defaultSeo = getDefaultSeo();
-    const approved = (approvedPages as Record<string, { title: string; description: string; ogTitle: string; ogDescription: string; ogImage?: string; robots?: string }>)[location.pathname];
+    const approved = (approvedPages as Record<string, { title: string; description: string; ogTitle: string; ogDescription: string; ogImage?: string; ogImageAlt?: string; robots?: string }>)[location.pathname];
 
     // Resolution order: DB override > inline hook arg > default
     const resolvedTitle = approved ? title || approved.title : override?.title || title || defaultSeo.title;
@@ -255,6 +255,14 @@ export function useDocumentSeo({
       setMeta("property", "og:image:alt", DEFAULT_SHARE_IMAGE_ALT);
       setMeta("property", "og:image:width", String(DEFAULT_SHARE_IMAGE_WIDTH));
       setMeta("property", "og:image:height", String(DEFAULT_SHARE_IMAGE_HEIGHT));
+    } else if (
+      approved?.ogImage &&
+      approved.ogImageAlt &&
+      resolvedOgImage === toAbsoluteSiteUrl(approved.ogImage)
+    ) {
+      // A page's own approved image carries its own description (PPS Admin, 2026-11-23),
+      // never the homepage portico's from index.html.
+      setMeta("property", "og:image:alt", approved.ogImageAlt);
     }
     setMeta("property", "og:url", resolvedCanonical);
     setMeta("name", "twitter:title", resolvedOgTitle);

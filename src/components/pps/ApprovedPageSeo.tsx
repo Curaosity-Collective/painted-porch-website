@@ -8,6 +8,7 @@ type ApprovedMetadata = {
   ogTitle: string;
   ogDescription: string;
   ogImage?: string;
+  ogImageAlt?: string;
   robots?: string;
   pageOwnsSeo: boolean;
 };
