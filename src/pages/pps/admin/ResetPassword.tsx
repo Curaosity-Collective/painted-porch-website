@@ -19,7 +19,7 @@ export default function ResetPassword() {
     // Listen for the PASSWORD_RECOVERY event from the auth state change
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event) => {
-        if (event === "PASSWORD_RECOVERY") {
+        if (event === "PASSWORD_RECOVERY" || (event === "SIGNED_IN" && window.location.hash.includes("type=invite"))) {
           setIsRecovery(true);
         }
       }
@@ -27,7 +27,7 @@ export default function ResetPassword() {
 
     // Also check the URL hash for type=recovery (handles page refresh)
     const hash = window.location.hash;
-    if (hash.includes("type=recovery")) {
+    if (hash.includes("type=recovery") || hash.includes("type=invite")) {
       setIsRecovery(true);
     }
 

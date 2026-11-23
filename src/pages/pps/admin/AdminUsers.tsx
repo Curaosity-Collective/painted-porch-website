@@ -258,7 +258,7 @@ export default function AdminUsers() {
             if (updateError) throw new Error("The account was created, but its profile settings could not be saved. Edit the user in the Users list to finish setting them up.");
           }
         }
-        toast({ title: "User created", description: `${inviteEmail} has been added as ${inviteRole}.` });
+        toast({ title: "User added", description: `${inviteEmail} has been added as ${inviteRole}. A password setup email has been requested.` });
       }
 
       setDialogOpen(false);
@@ -394,7 +394,7 @@ export default function AdminUsers() {
   const handleResetPassword = async (email: string) => {
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/admin/login`,
+        redirectTo: `${window.location.origin}/reset-password`,
       });
       if (error) throw error;
       toast({ title: "Password reset email sent", description: `A reset link was sent to ${email}.` });
@@ -687,11 +687,11 @@ export default function AdminUsers() {
                 )}
 
                 <Button type="submit" className="w-full" disabled={inviting}>
-                  {inviting ? "Creating..." : inviteRole === "author" ? "Create Author Profile" : "Create Account"}
+                  {inviting ? "Creating..." : inviteRole === "author" ? "Create Author Profile" : "Send Invitation"}
                 </Button>
                 {inviteRole !== "author" && (
                   <p className="text-xs text-muted-foreground text-center">
-                    A temporary password will be generated. The user should reset their password on first login.
+                    The user will receive a secure email link to set their password.
                   </p>
                 )}
               </form>
