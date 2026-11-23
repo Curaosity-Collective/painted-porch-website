@@ -21,6 +21,7 @@ import { publicSupabaseEnv } from "./lib/load-env.mjs";
 import {
   ROBOTS_ALWAYS_DISALLOWED,
   fetchLivePageRows,
+  listPublicFiles,
   loadAppPageRules,
   readGatedAppRoutePaths,
   readIndexableAppPagePaths,
@@ -31,6 +32,7 @@ import { SITEMAP_STATIC_PAGES } from "./lib/sitemap-pages.mjs";
 import { routes as prerenderRoutes, movedPages } from "./prerender-content.mjs";
 
 const OUT_PATH = resolve("public/robots.txt");
+const SITEMAP_PATH = "/sitemap.xml";
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 
 async function main() {
@@ -70,10 +72,13 @@ async function main() {
   ];
   const indexable = new Set(readIndexableAppPagePaths(ROOT));
   const realPages = readGatedAppRoutePaths(ROOT, true);
-  const disallow = [...new Set([
-    ...robotsDisallowRules(knownPaths, rows, rules),
-    ...realPages.filter((p) => !indexable.has(p)),
-  ])].sort();
+  // Live pages kept out of search (/sitemap, noindex pages) go through the same
+  // prefix check as drafts, so `/sitemap` becomes `/sitemap$` and never blocks
+  // the /sitemap.xml this file points to, nor any other public file.
+  const disallow = robotsDisallowRules(knownPaths, rows, rules, {
+    hidden: realPages.filter((p) => !indexable.has(p)),
+    keepCrawlable: [SITEMAP_PATH, ...listPublicFiles(ROOT)],
+  }).sort();
 
   let content = "User-agent: *\nAllow: /\n";
   for (const rule of ROBOTS_ALWAYS_DISALLOWED) content += `Disallow: ${rule}\n`;
@@ -81,7 +86,7 @@ async function main() {
     content += "\n# Draft / internal / archived pages — hidden from search engines\n";
     for (const rule of disallow) content += `Disallow: ${rule}\n`;
   }
-  content += "\nSitemap: https://onthepaintedporch.com/sitemap.xml\n";
+  content += `\nSitemap: https://onthepaintedporch.com${SITEMAP_PATH}\n`;
 
   writeFileSync(OUT_PATH, content);
   console.log(

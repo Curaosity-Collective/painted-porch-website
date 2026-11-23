@@ -16,7 +16,7 @@
  *
  * Shared by generate-sitemap.mjs, generate-robots-txt.mjs and prerender.mjs.
  */
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 
 /** Always disallowed in robots.txt, whatever their status. */
@@ -203,23 +203,44 @@ export function readIndexableAppPagePaths(root = process.cwd()) {
 }
 
 /**
- * Disallow rules for robots.txt: every known page that isn't live or is hidden
- * from search. Robots rules match by prefix, so a hidden page with public pages
- * beneath it (a draft /resources over the always-live /resources/insights)
- * gets an end-anchored rule (`/resources$`) instead of hiding the whole branch.
+ * Disallow rules for robots.txt: every known page that isn't live, and every
+ * page in `hidden` (live but kept out of search, such as /sitemap or a noindex
+ * page). Robots rules match by plain prefix, so `Disallow: /sitemap` also blocks
+ * /sitemap.xml and `Disallow: /resources` blocks /resources/insights. A hidden
+ * path that is the start of anything that must stay crawlable (a public page, or
+ * a public file in `keepCrawlable` such as the sitemap) gets an end-anchored rule
+ * (`/sitemap$`, `/resources$`) instead of hiding everything that starts with it.
  */
-export function robotsDisallowRules(knownPaths, rows, rules) {
+export function robotsDisallowRules(knownPaths, rows, rules, { hidden = [], keepCrawlable = [] } = {}) {
   const { isPublic, isSearchable, livePaths } = pageVisibility(rows, rules);
-  const publicCandidates = [
-    ...new Set([...knownPaths, ...livePaths, ...rules.alwaysLive, ...Object.keys(rules.movedFrom)]),
-  ].filter(isPublic);
+  const hiddenSet = new Set(hidden);
+  const crawlable = [
+    ...[...new Set([...knownPaths, ...livePaths, ...rules.alwaysLive, ...Object.keys(rules.movedFrom)])]
+      .filter((p) => isPublic(p) && !hiddenSet.has(p)),
+    ...keepCrawlable,
+  ];
   const out = new Set();
-  for (const p of [...new Set(knownPaths)].sort()) {
+  for (const p of [...new Set([...knownPaths, ...hidden])].sort()) {
     if (!p.startsWith("/") || p === "/") continue;
     if (p === "/admin" || p.startsWith("/admin/") || p === "/reset-password") continue;
-    if (isSearchable(p)) continue;
-    const shadowsPublic = publicCandidates.some((q) => q.startsWith(`${p}/`));
-    out.add(shadowsPublic ? `${p}$` : p);
+    if (isSearchable(p) && !hiddenSet.has(p)) continue;
+    const shadowsCrawlable = crawlable.some((q) => q !== p && q.startsWith(p));
+    out.add(shadowsCrawlable ? `${p}$` : p);
   }
   return [...out];
+}
+
+/** Every file under public/ as a site path (/sitemap.xml, /og/og-default.jpg, ...). */
+export function listPublicFiles(root = process.cwd()) {
+  const base = path.join(root, "public");
+  const out = [];
+  const walk = (dir, rel) => {
+    for (const name of readdirSync(dir)) {
+      const full = path.join(dir, name);
+      if (statSync(full).isDirectory()) walk(full, `${rel}/${name}`);
+      else out.push(`${rel}/${name}`);
+    }
+  };
+  if (existsSync(base)) walk(base, "");
+  return out.sort();
 }

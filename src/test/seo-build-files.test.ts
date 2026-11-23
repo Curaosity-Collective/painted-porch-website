@@ -11,6 +11,7 @@ import {
 import { FORWARDS_TO, MOVED_FROM } from "@/config/movedPages";
 import { collectSitemapPaths, sitemapData } from "@/pages/pps/Sitemap";
 import {
+  listPublicFiles,
   loadAppPageRules,
   pageVisibility,
   readGatedAppRoutePaths,
@@ -167,6 +168,21 @@ describe("robots.txt rules", () => {
     ).toEqual(["/partner$"]);
   });
 
+  it("end-anchor a hidden live page whose path starts a public file, such as /sitemap and /sitemap.xml", () => {
+    // Robots rules match by plain prefix: `Disallow: /sitemap` would block the sitemap itself.
+    const rows = [{ path: "/sitemap", status: "live" }];
+    expect(robotsDisallowRules(["/sitemap"], rows, testRules, { hidden: ["/sitemap"], keepCrawlable: ["/sitemap.xml"] }))
+      .toEqual(["/sitemap$"]);
+    // Not only after a slash: /pps would also block /pps-logo.png.
+    expect(robotsDisallowRules(["/pps"], [], testRules, { keepCrawlable: ["/pps-logo.png"] })).toEqual(["/pps$"]);
+  });
+
+  it("keep a plain rule for a hidden page that starts nothing public", () => {
+    const rows = [{ path: "/unsubscribe", status: "live" }];
+    expect(robotsDisallowRules(["/unsubscribe"], rows, testRules, { hidden: ["/unsubscribe"], keepCrawlable: ["/sitemap.xml"] }))
+      .toEqual(["/unsubscribe"]);
+  });
+
   it("keep a moved page's old and new addresses crawlable while the old one is live", () => {
     const rows = [{ path: "/old-home", status: "live" }];
     expect(robotsDisallowRules(["/old-home", "/new-home"], rows, testRules)).toEqual([]);
@@ -238,5 +254,33 @@ describe("wiring", () => {
   it("prerender skips redirects whose targets aren't live", () => {
     const src = read("scripts/prerender.mjs");
     expect(src).toMatch(/if \(!isPublicPage\(to\)\)/);
+  });
+});
+
+describe("the committed robots.txt", () => {
+  // Google's matching: a rule matches any path it starts, `*` matches anything,
+  // and a trailing `$` anchors the end.
+  const matches = (rule: string, target: string) =>
+    new RegExp(
+      "^" + rule.replace(/[.+?^{}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*").replace(/\\\$$|\$$/, "$"),
+    ).test(target);
+  const robots = read("public/robots.txt");
+  const disallow = robots
+    .split("\n")
+    .filter((line) => /^Disallow:\s*\S/.test(line))
+    .map((line) => line.replace(/^Disallow:\s*/, "").trim());
+  const sitemapUrls = [...read("public/sitemap.xml").matchAll(/<loc>https:\/\/onthepaintedporch\.com([^<]*)<\/loc>/g)]
+    .map((m) => m[1] || "/");
+
+  it("never blocks the sitemap it points to", () => {
+    expect(robots).toContain("Sitemap: https://onthepaintedporch.com/sitemap.xml");
+    expect(disallow.filter((rule) => matches(rule, "/sitemap.xml"))).toEqual([]);
+  });
+
+  it("never blocks a page the sitemap lists or a public file", () => {
+    const blocked = [...sitemapUrls, ...listPublicFiles()].flatMap((target) =>
+      disallow.filter((rule) => matches(rule, target)).map((rule) => `${target} ← Disallow: ${rule}`),
+    );
+    expect(blocked).toEqual([]);
   });
 });
