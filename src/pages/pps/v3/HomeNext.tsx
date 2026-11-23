@@ -199,7 +199,7 @@ export default function HomeNext() {
   useDocumentSeo({
     title: "Painted Porch Strategies | Build an Organization That Can Do Epic ShIFt",
     description:
-      "You have a vision for who your organization can become next. Is that future being authored with intention, or inherited through assumption?",
+      "Painted Porch Strategies partners with leaders on organizational change and strategic positioning, beginning at Phase Zero to prepare, align and architect what comes next.",
   });
 
   return (
