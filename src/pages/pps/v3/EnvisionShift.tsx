@@ -1,9 +1,9 @@
 import { Check, MessageSquare } from "lucide-react";
 
 import amplifyPoster from "@/assets/v3/amplify-hero-poster.jpg";
-import blueDoorDusk from "@/assets/v3/blue-door-dusk.jpg";
-import porchEvening from "@/assets/v3/porch-evening.jpg";
-import thresholdDusk from "@/assets/v3/threshold-dusk.jpg";
+import colonnadeVantage from "@/assets/v3/envision-colonnade-vantage.jpg";
+import compassChart from "@/assets/v3/envision-compass-chart.jpg";
+import crossroadsRidge from "@/assets/v3/envision-crossroads-ridge.jpg";
 import { CTABand, EvidenceNote, Kicker, NumberedList, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { GhostLayer, ParallaxImage, StickyMedia } from "@/components/v3/Motion";
 import { Reveal } from "@/components/v3/Reveal";
@@ -144,10 +144,11 @@ export default function EnvisionShift() {
 
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <StickyMedia
-          src={blueDoorDusk}
-          alt="An open cobalt blue door with lamplight spilling onto a porch at dusk"
-          width={1920}
-          height={1280}
+          src={colonnadeVantage}
+          alt="Looking out between teal stone columns of an open portico onto a wide valley and distant ridges at sunrise"
+          width={1536}
+          height={1024}
+          imagePositionClassName="object-[50%_50%] lg:object-[24%_50%]"
         >
           <div>
             <Kicker>What It Is</Kicker>
@@ -202,13 +203,13 @@ export default function EnvisionShift() {
 
       <section className="relative">
         <ParallaxImage
-          src={thresholdDusk}
-          alt="An open blue wooden door with a brass kick plate above a stone threshold, with warm lamplight spilling onto porch boards at dusk."
-          imagePositionClassName="object-[52%_65%] md:object-[50%_60%]"
+          src={crossroadsRidge}
+          alt="A stone path on a mountain ridge at sunrise forks: one firm paved way toward the summit, the other a rough trail fading into mist."
+          imagePositionClassName="object-[35%_60%] md:object-[40%_55%]"
           className="h-[42vh] w-full md:h-[62vh]"
           speed={55}
-          width={1920}
-          height={1280}
+          width={1672}
+          height={940}
         />
       </section>
 
@@ -342,11 +343,11 @@ export default function EnvisionShift() {
             .
           </>
         }
-        image={porchEvening}
-        imageAlt="A hanging lantern illuminates a teal-painted porch with wooden railings, a blue front door, and stone steps beneath trees at dusk."
-        imagePositionClassName="object-[64%_50%] md:object-[50%_55%]"
-        imageWidth={2528}
-        imageHeight={1696}
+        image={compassChart}
+        imageAlt="Hands measure a topographic map with brass dividers beside a brass compass on a lamplit wooden desk"
+        imagePositionClassName="object-[55%_50%]"
+        imageWidth={1536}
+        imageHeight={1024}
       />
     </div>
   );
