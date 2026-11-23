@@ -27,6 +27,7 @@ import { fileURLToPath } from "node:url";
 import { routes, SITE, movedPages } from "./prerender-content.mjs";
 import { buildMediaAppearanceSchema, buildMediaAppearancePage, serializeMediaAppearanceSchema } from "../src/lib/media-appearance-seo.mjs";
 import { blogPostTitle } from "../src/lib/blog-post-seo.mjs";
+import { DEFAULT_SHARE_IMAGE_ALT, DEFAULT_SHARE_IMAGE_PATH } from "../src/lib/default-share-image.mjs";
 import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -302,9 +303,11 @@ function buildHtml(route) {
     `<meta property="og:description" content="${escapeAttr(route.ogDescription || route.description)}">`,
   );
 
-  // og:image / twitter:image — per-route override, else keep sitewide.
-  if (route.ogImage) {
-    const img = route.ogImage;
+  // og:image / twitter:image — the page's own image, else the default Painted Porch card
+  // (PPS Admin, 2026-11-23: "Dark works"). The homepage keeps the template's portico.
+  const defaultShare = !route.ogImage && route.path !== "/";
+  if (route.ogImage || defaultShare) {
+    const img = route.ogImage || SITE + DEFAULT_SHARE_IMAGE_PATH;
     html = replaceTag(
       html,
       /<meta property="og:image"[^>]*>/,
@@ -315,10 +318,19 @@ function buildHtml(route) {
       /<meta name="twitter:image"[^>]*>/,
       `<meta name="twitter:image" content="${escapeAttr(img)}">`,
     );
-    // Strip fixed 1200x630 dimension hints — per-route images may differ.
-    html = html
-      .replace(/\n\s*<meta property="og:image:width"[^>]*>/g, "")
-      .replace(/\n\s*<meta property="og:image:height"[^>]*>/g, "");
+    if (defaultShare) {
+      // The card is 1200x630 like the template's hints; only its description differs.
+      html = replaceTag(
+        html,
+        /<meta property="og:image:alt"[^>]*>/,
+        `<meta property="og:image:alt" content="${escapeAttr(DEFAULT_SHARE_IMAGE_ALT)}">`,
+      );
+    } else {
+      // Strip fixed 1200x630 dimension hints — per-route images may differ.
+      html = html
+        .replace(/\n\s*<meta property="og:image:width"[^>]*>/g, "")
+        .replace(/\n\s*<meta property="og:image:height"[^>]*>/g, "");
+    }
     if (route.ogImageAlt) {
       html = replaceTag(
         html,

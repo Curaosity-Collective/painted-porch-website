@@ -4,6 +4,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { getCurrentPageUrl, getSiteUrl, toAbsoluteSiteUrl } from "@/lib/site-url";
 import approvedPages from "@/config/approvedPageMetadata.json";
 import { canonicalPageUrl } from "@/lib/canonical-url";
+import {
+  DEFAULT_SHARE_IMAGE_ALT,
+  DEFAULT_SHARE_IMAGE_HEIGHT,
+  DEFAULT_SHARE_IMAGE_PATH,
+  DEFAULT_SHARE_IMAGE_WIDTH,
+} from "@/lib/default-share-image.mjs";
 
 type SeoConfig = {
   title?: string;
@@ -86,7 +92,8 @@ function getDefaultSeo() {
   return {
     ...DEFAULT_SEO,
     canonical: canonicalPageUrl(pageUrl),
-    ogImage: `${siteUrl}/og-image.jpg`,
+    // Pages without their own share image use the dark Painted Porch card (PPS Admin, 2026-11-23).
+    ogImage: `${siteUrl}${DEFAULT_SHARE_IMAGE_PATH}`,
     ogUrl: pageUrl,
   };
 }
@@ -243,6 +250,12 @@ export function useDocumentSeo({
     setMeta("property", "og:description", resolvedOgDescription);
     setMeta("property", "og:type", resolvedOgType);
     setMeta("property", "og:image", resolvedOgImage);
+    if (resolvedOgImage === defaultSeo.ogImage) {
+      // The default card carries its own description and size, not the homepage portico's.
+      setMeta("property", "og:image:alt", DEFAULT_SHARE_IMAGE_ALT);
+      setMeta("property", "og:image:width", String(DEFAULT_SHARE_IMAGE_WIDTH));
+      setMeta("property", "og:image:height", String(DEFAULT_SHARE_IMAGE_HEIGHT));
+    }
     setMeta("property", "og:url", resolvedCanonical);
     setMeta("name", "twitter:title", resolvedOgTitle);
     setMeta("name", "twitter:description", resolvedOgDescription);
