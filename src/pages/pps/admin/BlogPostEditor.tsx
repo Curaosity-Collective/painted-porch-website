@@ -197,11 +197,7 @@ export default function BlogPostEditor() {
       });
 
     supabase
-      .from("profiles")
-      .select("id, full_name, is_guest_author")
-      .eq("is_author", true)
-      .eq("is_active", true)
-      .order("full_name")
+      .rpc("list_editorial_authors")
       .then(({ data }) => {
         if (data) setAuthors(data);
       });
@@ -543,9 +539,10 @@ export default function BlogPostEditor() {
                     <AlertDialogAction
                       className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                       onClick={async () => {
+                        if (!id) return;
                         try {
-                          await supabase.from("blog_post_categories").delete().eq("post_id", id!);
-                          const { error } = await supabase.from("blog_posts").delete().eq("id", id!);
+                          // Category rows cascade with the post; one verified delete.
+                          const { error } = await supabase.from("blog_posts").delete().eq("id", id);
                           if (error) throw error;
                           toast({ title: "Deleted", description: "Post removed." });
                           navigate("/admin/posts");

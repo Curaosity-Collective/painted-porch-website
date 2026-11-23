@@ -42,6 +42,19 @@ describe.skipIf(!databaseAvailable)("Operations Editor blog permissions", () => 
     results.anonymous_pending_categories_hidden = (await request("blog_post_categories", true)).length === 0;
     results.editor_pending_visible = (await request("blog_posts", false)).length === 1;
     results.editor_categories_visible = (await request("blog_post_categories", false)).length === 1;
+    const authorResponse = await fetch(`${process.env.VITE_SUPABASE_URL}/rest/v1/rpc/list_editorial_authors`, {
+      method: "POST",
+      headers: { apikey: process.env.VITE_SUPABASE_PUBLISHABLE_KEY || "", Authorization: `Bearer ${process.env.BLOG_EDITOR_TEST_TOKEN}`, "Content-Type": "application/json" },
+      body: "{}",
+    });
+    expect(authorResponse.status).toBe(200);
+    const authors = await authorResponse.json() as Array<{ id: string; full_name: string | null; is_guest_author: boolean }>;
+    const expectedAuthors = spawnSync("psql", ["-X", "-q", "-t", "-A", "-c", "SELECT id FROM public.profiles WHERE is_author=true AND is_active=true ORDER BY id"], { encoding: "utf8" });
+    expect(expectedAuthors.status).toBe(0);
+    const expectedIds = expectedAuthors.stdout.trim().split("\n").filter(Boolean);
+    expect(expectedIds.length).toBeGreaterThan(0);
+    results.editor_authors_visible = JSON.stringify(authors.map(a => a.id).sort()) === JSON.stringify(expectedIds);
+    results.author_private_fields_hidden = authors.every(a => Object.keys(a).sort().join(",") === "full_name,id,is_guest_author");
     const edited = await request("blog_posts", false, "PATCH", { title: "Cleaned up by Operations" });
     results.editor_can_edit = edited.length === 1 && edited[0]?.title === "Cleaned up by Operations";
     results.editor_can_remove_categories = (await request("blog_post_categories", false, "DELETE")).length === 1;
@@ -55,6 +68,8 @@ describe.skipIf(!databaseAvailable)("Operations Editor blog permissions", () => 
   it("lets Operations review another author's pending posts", () => expect(results.editor_pending_visible).toBe(true));
   it("lets Operations clean up another author's content", () => expect(results.editor_can_edit).toBe(true));
   it("lets Operations read pending post categories", () => expect(results.editor_categories_visible).toBe(true));
+  it("lets Operations choose every active author", () => expect(results.editor_authors_visible).toBe(true));
+  it("does not expose private account fields with author choices", () => expect(results.author_private_fields_hidden).toBe(true));
   it("lets Operations remove existing post categories", () => expect(results.editor_can_remove_categories).toBe(true));
   it("lets Operations assign post categories", () => expect(results.editor_can_assign_categories).toBe(true));
   it("lets Operations mark reviewed posts published", () => expect(results.editor_can_publish).toBe(true));

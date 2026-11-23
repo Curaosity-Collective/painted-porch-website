@@ -72,11 +72,7 @@ export default function BlogPostList() {
       .then(({ data }) => { if (data) setCategories(data); });
 
     supabase
-      .from("profiles")
-      .select("id, full_name")
-      .eq("is_author", true)
-      .eq("is_active", true)
-      .order("full_name")
+      .rpc("list_editorial_authors")
       .then(({ data }) => { if (data) setAuthors(data); });
   }, []);
 
@@ -85,10 +81,10 @@ export default function BlogPostList() {
     const fetchPosts = async () => {
       setLoading(true);
 
-      // Fetch posts with author join
+      // Names come from the narrow editorial author list, not private profiles.
       let query = supabase
         .from("blog_posts")
-        .select("id, title, slug, status, featured, publish_date, created_at, updated_at, author_id, profiles!blog_posts_author_id_fkey(full_name)")
+        .select("id, title, slug, status, featured, publish_date, created_at, updated_at, author_id")
         .order("updated_at", { ascending: false });
 
       if (statusFilter !== "all") {
@@ -112,7 +108,8 @@ export default function BlogPostList() {
       if (postCats) {
         for (const pc of postCats) {
           if (!catMap.has(pc.post_id)) catMap.set(pc.post_id, { primary: null, ids: [] });
-          const entry = catMap.get(pc.post_id)!;
+          const entry = catMap.get(pc.post_id);
+          if (!entry) continue;
           entry.ids.push(pc.category_id);
           if (pc.is_primary) entry.primary = pc.category_id;
         }
@@ -133,7 +130,7 @@ export default function BlogPostList() {
           created_at: p.created_at,
           updated_at: p.updated_at,
           author_id: p.author_id,
-          author_name: p.profiles?.full_name || null,
+          author_name: authors.find((author) => author.id === p.author_id)?.full_name || null,
           primary_category: primaryCatId ? categoryLookup.get(primaryCatId) || null : null,
           category_ids: cats?.ids || [],
         };
@@ -153,7 +150,7 @@ export default function BlogPostList() {
       setLoading(false);
     };
     fetchPosts();
-  }, [user, search, statusFilter, authorFilter, categoryFilter, featuredOnly, categories]);
+  }, [user, search, statusFilter, authorFilter, categoryFilter, featuredOnly, categories, authors]);
 
   const sortedPosts = useMemo(() => {
     return [...posts].sort((a, b) => {

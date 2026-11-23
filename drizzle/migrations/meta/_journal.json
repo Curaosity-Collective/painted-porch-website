@@ -99,6 +99,13 @@
       "when": 1795474275767,
       "tag": "0013_editor_blog_review_access",
       "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1795474655306,
+      "tag": "0014_editorial_author_choices",
+      "breakpoints": true
     }
   ]
 }
