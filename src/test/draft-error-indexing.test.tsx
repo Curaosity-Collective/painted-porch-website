@@ -108,6 +108,7 @@ describe("Crawler error and access output", () => {
         { path: "/speaking/media", title: "Media", description: "Approved media", h1: "Media", intro: "Approved media" },
       ], movedPages: [], publicSupabaseEnv: () => ({}),
       archivedPages: { "/speaking/media-archive": "/speaking/media", "/about-archive": "/about" },
+      DEFAULT_SHARE_IMAGE_PATH: "/og/og-default.jpg", DEFAULT_SHARE_IMAGE_ALT: "Default card",
       fetchLivePageRows: async () => [], loadAppPageRules: () => ({}),
       pageVisibility: () => ({ isPublic: (p: string) => p !== "/about" }),
       path: { join: (...parts: string[]) => parts.join("/") },
