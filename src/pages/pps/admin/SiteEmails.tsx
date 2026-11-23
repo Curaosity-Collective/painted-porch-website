@@ -124,7 +124,7 @@ export default function SiteEmails() {
         // Other auth flows fire from real signup/invite/etc.
         if (item.key === "recovery") {
           const { error: e } = await supabase.auth.resetPasswordForEmail(testEmail.trim(), {
-            redirectTo: `${window.location.origin}/admin/reset-password`,
+            redirectTo: `${window.location.origin}/reset-password`,
           });
           if (e) throw e;
           toast.success("Recovery email queued");

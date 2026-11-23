@@ -463,7 +463,7 @@ export default function MigrationChecklist() {
       if (mode === "auth-recovery") {
         const t0 = performance.now();
         const { error } = await supabase.auth.resetPasswordForEmail(testEmail, {
-          redirectTo: `${window.location.origin}/admin`,
+          redirectTo: `${window.location.origin}/reset-password`,
         });
         const invokeMs = Math.round(performance.now() - t0);
         if (error) {

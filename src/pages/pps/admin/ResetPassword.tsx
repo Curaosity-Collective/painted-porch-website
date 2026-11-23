@@ -16,18 +16,20 @@ export default function ResetPassword() {
   const { toast } = useToast();
 
   useEffect(() => {
+    // Capture link type before the Auth client consumes and clears the hash.
+    const hash = window.location.hash;
+    const isSetupLink = hash.includes("type=recovery") || hash.includes("type=invite");
     // Listen for the PASSWORD_RECOVERY event from the auth state change
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event) => {
-        if (event === "PASSWORD_RECOVERY" || (event === "SIGNED_IN" && window.location.hash.includes("type=invite"))) {
+        if (event === "PASSWORD_RECOVERY" || (event === "SIGNED_IN" && isSetupLink)) {
           setIsRecovery(true);
         }
       }
     );
 
     // Also check the URL hash for type=recovery (handles page refresh)
-    const hash = window.location.hash;
-    if (hash.includes("type=recovery") || hash.includes("type=invite")) {
+    if (isSetupLink) {
       setIsRecovery(true);
     }
 

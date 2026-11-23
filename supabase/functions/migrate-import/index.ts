@@ -125,7 +125,7 @@ async function recreateAuthUsers(
   let page = 1;
   while (true) {
     const { data, error } = await sb.auth.admin.listUsers({ page, perPage: 1000 });
-    if (error) break;
+    if (error) throw new Error("Unable to check existing accounts; restore stopped before creating users.");
     const list = data?.users ?? [];
     for (const u of list) {
       if (u.email) existingByEmail.set(u.email.toLowerCase(), u.id);
@@ -149,7 +149,10 @@ async function recreateAuthUsers(
         avatar_url: u.avatar_url ?? undefined,
       };
       if (opts.sendInvites) {
-        const { data, error } = await sb.auth.admin.inviteUserByEmail(u.email, { data: meta });
+        const { data, error } = await sb.auth.admin.inviteUserByEmail(u.email, {
+          data: meta,
+          redirectTo: "https://onthepaintedporch.com/reset-password",
+        });
         if (error || !data?.user) throw new Error(error?.message ?? "invite failed");
         idMap[u.id] = data.user.id;
       } else {

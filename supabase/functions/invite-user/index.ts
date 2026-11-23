@@ -22,11 +22,13 @@ Deno.serve(async (req) => {
       });
     }
 
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseUrl = Deno.env.get("SUPABASE_URL");
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY");
+    if (!supabaseUrl || !supabaseServiceKey || !supabaseAnonKey) throw new Error("Account setup is temporarily unavailable.");
 
     // Client with caller's JWT to check their role
-    const callerClient = createClient(supabaseUrl, Deno.env.get("SUPABASE_ANON_KEY")!, {
+    const callerClient = createClient(supabaseUrl, supabaseAnonKey, {
       global: { headers: { Authorization: authHeader } },
     });
 
@@ -119,10 +121,13 @@ Deno.serve(async (req) => {
 
     // Update role on profile (trigger creates it with default 'editor')
     if (assignedRole !== "editor" && newUser.user) {
-      await adminClient
+      const { data: savedProfile, error: roleError } = await adminClient
         .from("profiles")
         .update({ role: assignedRole })
-        .eq("id", newUser.user.id);
+        .eq("id", newUser.user.id)
+        .select("id")
+        .single();
+      if (roleError || !savedProfile) throw new Error("The invitation was sent, but the requested role could not be saved. Edit the user in the Users list.");
     }
 
     return new Response(
@@ -142,7 +147,7 @@ Deno.serve(async (req) => {
       }
     );
   } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), {
+    return new Response(JSON.stringify({ error: err instanceof Error ? err.message : "Account setup failed. Please retry." }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });

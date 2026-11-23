@@ -168,7 +168,7 @@ export default function RestoreWizard() {
           map = r.idMap || {};
           setIdMap(map);
           const detail = `${r.matched} matched, ${r.created} ${sendInvites ? "invited" : "created"}, ${r.skipped} skipped${r.failures?.length ? `, ${r.failures.length} failed` : ""}`;
-          updateStep("auth", { status: "done", detail });
+          updateStep("auth", { status: r.failures?.length ? "error" : "done", detail });
           appendLog(`  auth-users: ${detail}`);
           if (r.failures?.length) for (const f of r.failures.slice(0, 5)) appendLog(`    ⚠ ${f.email}: ${f.error}`);
         } catch (e: any) {
@@ -263,7 +263,7 @@ export default function RestoreWizard() {
           map = r.idMap || {};
           setIdMap(map);
           const detail = `${r.matched} matched, ${r.created} ${sendInvites ? "invited" : "created"}, ${r.skipped} skipped${r.failures?.length ? `, ${r.failures.length} failed` : ""}`;
-          updateStep("auth", { status: "done", detail });
+          updateStep("auth", { status: r.failures?.length ? "error" : "done", detail });
           appendLog(`  auth-users: ${detail}`);
           if (r.failures?.length) for (const f of r.failures.slice(0, 5)) appendLog(`    ⚠ ${f.email}: ${f.error}`);
         } catch (e: any) {
