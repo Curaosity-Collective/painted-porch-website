@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, Compass, Loader2, Mail, Mic, RotateCcw } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { ShIFt } from "@/components/v3/ShIFt";
 import { supabase } from "@/integrations/supabase/client";
 import { usePathFinderOverrides, usePathFinderRtPools } from "@/hooks/usePathFinderOverrides";
 import { PQ1, PQ2_B2C, B2C_QUESTIONS, ORG_PQ2, TEAM_BRANCH, CHANGE_BRANCH, CAP_BRANCH, STRATEGIC_BRANCH, buildResult, type Answers, type Question, type QuizResult, type Track, type Offering, leadWithLiveStart, START_TODAY_HEADING } from "@/data/pathFinderQuiz";
@@ -60,7 +61,7 @@ function BoldShiftName({ name }: { name: string }) {
   const [before, after] = name.split(match[0]);
   return (
     <>
-      {before}<span className="whitespace-nowrap">{match[1]}h<span className="font-bold">IF</span>t</span>{after}
+      {before}<span className="whitespace-nowrap">{match[1]}h<span className="font-bold if-blend-light">IF</span>t</span>{after}
     </>
   );
 }
@@ -511,7 +512,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
         <DialogHeader className="px-6 pt-6 pb-2">
           <DialogTitle className="font-poppins text-2xl text-navy flex items-center gap-2">
             <Compass className="w-6 h-6 text-primary" aria-hidden="true" />
-            {showResult ? "Your Next ShIFt: Where to Start" : "Find Your Next ShIFt"}
+            {showResult ? <>Your Next <ShIFt />: Where to Start</> : <>Find Your Next <ShIFt /></>}
           </DialogTitle>
           <DialogDescription className="text-foreground">
             {showResult ? "Your starting point and what's available when you're ready for more." : "About 3 minutes. You'll know exactly where to step onto the Porch."}
