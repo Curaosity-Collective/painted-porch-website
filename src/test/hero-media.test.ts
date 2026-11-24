@@ -52,7 +52,7 @@ describe("hero videos and closing photos", () => {
     expect(videos).toEqual({
       HomeNext: null,
       AboutNext: null,
-      EnvisionShift: "amplify-hero",
+      EnvisionShift: "envision-hero",
       // Swapped in the Lovable editor on 2026-11-24 ("Swapped hero animations"): Architect
       // now opens on the temple, Embody on the lantern road.
       ArchitectShift: "embody-hero",
@@ -117,14 +117,12 @@ describe("hero videos and closing photos", () => {
   });
 
   it("doesn't show a hero scene twice: no page's video poster is used on another page", () => {
-    // Envision temporarily retains the lightbulb while its replacement draft awaits selection.
     // Began as the lantern scene on Architect; generalised when Architect and Embody swapped
     // heroes, so each page's poster (and its fallback share image) stays its own.
     const posters = PAGES.map((p) => [p, heroPoster(source(p))] as const).filter(([, poster]) => poster);
     expect(posters.map(([p]) => p)).toEqual(expect.arrayContaining(["ArchitectShift", "EmbodyShift"]));
     for (const [owner, poster] of posters) {
       for (const page of PAGES.filter((p) => p !== owner)) {
-        if ([owner, page].every((p) => p === "EnvisionShift" || p === "ForIndividuals")) continue;
         expect(source(page), `${owner}'s poster on ${page}`).not.toContain(`"${poster}"`);
       }
     }

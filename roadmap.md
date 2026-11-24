@@ -72,3 +72,4 @@
 - [x] Correct Team Workshops destination and restore Leaders & Teams footer links without exposing drafts; verified all four links and workshop navigation.
 - [x] Ensure For Individuals opens its available page instead of Coming Soon; verified masterclasses navigation.
 - [x] Upload the compressed gold pathway video to Approach and the porch video to Contact in Site Videos; About unchanged, both entries and playable files verified.
+- [x] Wire the approved blended Envision animation into the page: new Envision hero video slot holding the eight-second spyglass, compass and topographic-map clip, with its own poster and share image; For Individuals keeps the lightbulb and its share image now shows that scene. Both play and pause on desktop and 360×598 phone, and a one-shot start nudge plays clips some phone viewports decline to autoplay. 17 tests passed; needs publishing.
