@@ -68,8 +68,8 @@ export default function SiteFooter() {
 
   return (
     <footer className="pps-v3">
-      {/* Deep teal so the IF can use the brighter raspberry at 4.5:1 (PPS-DEC-0022; PPS Admin, 2026-11-24). */}
-      <div className="footer-deep bg-[#021E24] text-teal-foreground">
+      {/* Footer-only static multicolor IF trial; the rest of the site's wordmarks stay unchanged. */}
+      <div className="footer-deep text-teal-foreground">
         <div className="mx-auto max-w-7xl px-6 py-14 md:py-16">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[minmax(0,1.3fr)_repeat(3,minmax(0,1fr))_minmax(0,1.4fr)] lg:gap-8">
             {/* Brand */}
