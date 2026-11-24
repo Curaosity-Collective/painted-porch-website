@@ -1,6 +1,7 @@
 import type { ComponentType, ReactNode } from "react";
 import { ArrowRight, CheckCircle, Compass, Layers, Lightbulb, Target } from "lucide-react";
 import igniteHeroFlame from "@/assets/ignite-hero-flame.jpg";
+import lightbulbPoster from "@/assets/v3/amplify-hero-poster.jpg";
 import paintedWall from "@/assets/ignite-final-cta-bg.jpg";
 import { CTABand, Kicker, PageHero, V3_H2 } from "@/components/v3/Bits";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -18,7 +19,7 @@ import { getSiteUrl } from "@/lib/site-url";
  * - No "Phase Zero foundations": Phase Zero is an organization's Prepare and Align work (PPS-DEC-0027).
  * - No prices: they stay on each offering's own page.
  * - The four types keep IGNITE's colour shading; titles and icons use AA-passing inks on their tints.
- * - The hero is IGNITE's spark animation (site_videos slot "ignite-hero"), under the title as on the
+ * - The hero is the lightbulb animation (site_videos slot "amplify-hero"), under the title as on the
  *   ShIFt pages, with a pause button.
  * - /partner/ignite and /ignite forward here (src/config/movedPages.ts).
  */
@@ -182,7 +183,7 @@ export default function ForIndividuals() {
           ),
           onClick: openGuide,
         }}
-        video={{ slotKey: "ignite-hero", poster: igniteHeroFlame, alt: "Sparks of colored light rising like a flame" }}
+        video={{ slotKey: "amplify-hero", poster: lightbulbPoster, alt: "A glowing light bulb throwing sparks and flecks of color" }}
         ghost="S"
       />
 
