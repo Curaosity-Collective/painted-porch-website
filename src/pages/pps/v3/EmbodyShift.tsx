@@ -1,5 +1,4 @@
 import { Check } from "lucide-react";
-import embodyPoster from "@/assets/v3/embody-hero-poster.jpg";
 import lanternPath from "@/assets/heroes/approach-hero.jpg";
 import stoa from "@/assets/embody-concept-stoa.jpg";
 import pergola from "@/assets/embody-hero-option10.jpg";
@@ -42,7 +41,7 @@ export default function EmbodyShift() {
   useDocumentSeo({
     title: TITLE,
     description: DESCRIPTION,
-    ogImage: embodyPoster,
+    ogImage: lanternPath,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Service",

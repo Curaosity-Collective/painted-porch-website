@@ -34,7 +34,14 @@ function heroVideo(src: string): string | null {
 
 function closingPhoto(src: string): string | null {
   const band = src.slice(src.lastIndexOf("<CTABand"));
-  const variable = band.match(/image=\{(\w+)\}/)?.[1];
+  // `image={photo}` for a bundled file, `image={photo.url}` for a Lovable asset pointer.
+  const variable = band.match(/image=\{(\w+)(?:\.url)?\}/)?.[1];
+  return variable ? assetOf(src, variable) : null;
+}
+
+/** The asset behind a page's hero video poster, or null for a page without one. */
+function heroPoster(src: string): string | null {
+  const variable = src.match(/video=\{\{ slotKey: "[a-z0-9-]+", poster: (\w+)/)?.[1];
   return variable ? assetOf(src, variable) : null;
 }
 
@@ -46,8 +53,10 @@ describe("hero videos and closing photos", () => {
       HomeNext: null,
       AboutNext: null,
       EnvisionShift: "amplify-hero",
-      ArchitectShift: "approach-hero",
-      EmbodyShift: "embody-hero",
+      // Swapped in the Lovable editor on 2026-11-24 ("Swapped hero animations"): Architect
+      // now opens on the temple, Embody on the lantern road.
+      ArchitectShift: "embody-hero",
+      EmbodyShift: "approach-hero",
       ThePath: "partner-hub-hero",
       PhaseZeroNext: "home-hero",
       ResultsImpact: "impact-hero",
@@ -107,10 +116,20 @@ describe("hero videos and closing photos", () => {
     }
   });
 
-  it("doesn't show the lantern scene twice: Architect's video poster isn't another page's photo", () => {
-    const lantern = assetOf(source("ArchitectShift"), "lanternPath");
-    for (const page of PAGES.filter((p) => p !== "ArchitectShift")) {
-      expect(source(page), page).not.toContain(`"${lantern}"`);
+  it("doesn't show a hero scene twice: no page's video poster is used on another page", () => {
+    // Began as the lantern scene on Architect; generalised when Architect and Embody swapped
+    // heroes, so each page's poster (and its fallback share image) stays its own.
+    const posters = PAGES.map((p) => [p, heroPoster(source(p))] as const).filter(([, poster]) => poster);
+    expect(posters.map(([p]) => p)).toEqual(expect.arrayContaining(["ArchitectShift", "EmbodyShift"]));
+    for (const [owner, poster] of posters) {
+      for (const page of PAGES.filter((p) => p !== owner)) {
+        expect(source(page), `${owner}'s poster on ${page}`).not.toContain(`"${poster}"`);
+      }
     }
+  });
+
+  it("covers the closing photos stored as Lovable asset pointers", () => {
+    expect(closingPhoto(source("EnvisionShift"))).toBe("@/assets/v3/envision-painted-compass.jpg.asset.json");
+    expect(closingPhoto(source("ArchitectShift"))).toBe("@/assets/v3/architect-shift-fortify-framework.webp.asset.json");
   });
 });

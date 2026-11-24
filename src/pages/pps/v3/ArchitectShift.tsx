@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
-import lanternPath from "@/assets/heroes/approach-hero.jpg";
 import embodyPoster from "@/assets/v3/embody-hero-poster.jpg";
 import colorfulPlan from "@/assets/v3/architect-shift-colorful-plan.webp.asset.json";
 import fortifyFramework from "@/assets/v3/architect-shift-fortify-framework.webp.asset.json";
@@ -155,7 +154,7 @@ export default function ArchitectShift() {
   useDocumentSeo({
     title: TITLE,
     description: DESCRIPTION,
-    ogImage: lanternPath,
+    ogImage: embodyPoster,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Service",
