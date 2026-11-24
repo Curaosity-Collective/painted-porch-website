@@ -116,7 +116,8 @@ describe("hero videos and closing photos", () => {
     expect(read("pages/pps/PPSContact.tsx")).toMatch(/image=\{contactHero\}/);
     // 2026-11-24 (PPS Admin): Speaking opens on the colorful stage with the teal podium; the painted
     // stones are held unused. Topics keeps the same stage only until its compass-screen hero is approved.
-    expect(read("pages/pps/PressKit.tsx")).toMatch(/image=\{speakingHero\}/);
+    // The Press Kit left the shared stage photo for its own interview scene (PPS-DEC-0023).
+    expect(read("pages/pps/PressKit.tsx")).toMatch(/image=\{pressMicNotebook\.url\}/);
     expect(read("pages/pps/Speaking.tsx")).toMatch(/image=\{emptyStage\}/);
     expect(read("pages/pps/SpeakingWorkshopTopics.tsx")).toMatch(/image=\{emptyStage\}/);
   });
