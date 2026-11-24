@@ -432,7 +432,10 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
       : !!answers[current.id]
     : false;
 
-  const isLast = index === questions.length - 1;
+  // The path is only fully known once the opening question(s) that choose a
+  // branch are answered; until then there is always another question.
+  const pathKnown = track === "b2c" || (track === "b2b" && !!answers["OrgPQ2"]);
+  const isLast = pathKnown && index === questions.length - 1;
 
   const onNext = () => {
     if (!canAdvance) return;
@@ -497,7 +500,10 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
   };
 
   // --- progress ---
-  const progressPct = Math.min(100, Math.round(((index + (showResult ? 1 : 0)) / Math.max(questions.length, 1)) * 100));
+  // The guide branches, so the total isn't fixed. Show a bar only, using a
+  // typical length until the branch is chosen so it never jumps backwards.
+  const estimatedTotal = pathKnown ? questions.length : Math.max(questions.length + 1, 7);
+  const progressPct = Math.min(100, Math.round(((index + (showResult ? 1 : 0)) / Math.max(estimatedTotal, 1)) * 100));
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -528,7 +534,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
         {!showResult && current && (
           <div className="px-6 pb-6">
             <p className="text-caption uppercase tracking-wider text-primary font-semibold mb-2" aria-live="polite">
-              Question {index + 1} of {questions.length}
+              {isLast ? "Last question" : `Question ${index + 1}`}
             </p>
             <h3 id={`pf-q-${current.id}`} className="font-poppins text-xl text-navy mb-1">{current.prompt}</h3>
             {current.helper && (
