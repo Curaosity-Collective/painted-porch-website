@@ -366,3 +366,10 @@
   margin-top: calc(-1 * var(--site-header-h));
   padding-top: var(--site-header-h);
 }
+
+/* The deep footer (#021E24) lets the IF use the homepage's brighter raspberry at 4.6:1 instead of the light
+   pink (PPS Admin, 2026-11-24). The charcoal closing bands were measured too and stay pink: their photos
+   show through the wash, so the brighter raspberry fell to about 2:1 there. */
+.footer-deep .text-berry-on-dark {
+  color: hsl(var(--v3-raspberry-bright));
+}
