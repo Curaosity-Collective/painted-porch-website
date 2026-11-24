@@ -4,7 +4,8 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [main]
+    # Lovable sync branches too: their checks gate the automatic merge (lovable-sync.yml).
+    branches: [main, "lovable-sync", "lovable-sync-*"]
 
 jobs:
   check-large-files:
@@ -53,17 +54,17 @@ jobs:
           node-version: "22"
 
       - name: Fetch the base branch
-        if: github.event_name == 'pull_request'
-        run: git fetch --depth=1 origin "${{ github.base_ref }}"
+        if: github.ref != 'refs/heads/main'
+        run: git fetch --depth=1 origin "${{ github.base_ref || 'main' }}"
 
       - name: Check migration names, status lines and applied files
         env:
-          BASE_REF: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || '' }}
+          BASE_REF: ${{ github.ref != 'refs/heads/main' && format('origin/{0}', github.base_ref || 'main') || '' }}
         run: node scripts/check-migrations.mjs
 
   main-pr-audit:
     name: Verify main changes came through a PR
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
