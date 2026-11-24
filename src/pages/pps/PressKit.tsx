@@ -83,7 +83,7 @@ export default function PressKit() {
       </section>
 
       <section id="mission" aria-labelledby="mission-heading" className="bg-primary/10 border-y border-primary/20">
-        <div className={SECTION}><Eyebrow tone="teal">Our Mission</Eyebrow><h2 id="mission-heading" className={`${H2} max-w-4xl`}>Extraordinary Teams. Epic <span>Sh<span className="text-primary">IF</span>t™.</span></h2>
+        <div className={SECTION}><Eyebrow tone="teal">Our Mission</Eyebrow><h2 id="mission-heading" className={`${H2} max-w-4xl`}>Extraordinary Teams. Epic <span className="whitespace-nowrap">Sh<span className="text-primary">IF</span>t™.</span></h2>
           <p className="text-lead max-w-4xl mt-6">Everything we do serves one purpose: developing extraordinary teams who can do epic shIFt and carry the mission further than any single leader could.</p>
           <p className="text-body max-w-4xl mt-5">We look at leadership and culture, systems and workflows, and the human capacity underneath both. Grounded in Stoic wisdom and driven by emotional intelligence, we partner with leaders to imagine, align, and architect what comes next.</p>
         </div>

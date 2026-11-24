@@ -42,10 +42,11 @@ export function ShIFt({
         ? "if-blend"
         : "if-blend-light";
   return (
-    <>
+    // The wordmark is one word: never let a line break orphan the "t".
+    <span className="whitespace-nowrap">
       {lowercase ? "sh" : "Sh"}
       <span className={`font-bold ${color} ${className}`.trim()}>IF</span>
       {plural ? "ts" : "t"}
-    </>
+    </span>
   );
 }

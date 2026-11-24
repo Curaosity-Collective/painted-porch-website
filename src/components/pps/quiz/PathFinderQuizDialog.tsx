@@ -60,7 +60,7 @@ function BoldShiftName({ name }: { name: string }) {
   const [before, after] = name.split(match[0]);
   return (
     <>
-      {before}{match[1]}h<span className="font-bold">IF</span>t{after}
+      {before}<span className="whitespace-nowrap">{match[1]}h<span className="font-bold">IF</span>t</span>{after}
     </>
   );
 }
