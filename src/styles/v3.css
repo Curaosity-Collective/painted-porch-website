@@ -31,16 +31,19 @@
   --v3-raspberry-bright: 344 100% 56%;
   /* Footer teal restored (PPS Admin, 2026-11-24: "I don't like that the footer is no longer teal"). */
   --v3-footer-background: 187 100% 18%;
-  /* Footer-only static trial: a top-to-bottom blend across more brand colors,
-     each lifted toward white so small text stays readable on the teal. */
+  /* Footer-only static trial: a top-to-bottom blend across more brand colors.
+     Each stop keeps just enough of its brand color to clear 4.5:1 on the teal
+     (color-mix keeps the first share, so a lower number means more white).
+     Lime appears twice, once mid-blend and once at the base (PPS Admin, 2026-11-24). */
   --v3-footer-if-blend: linear-gradient(
     180deg,
-    color-mix(in srgb, hsl(var(--primary)) 55%, white) 0%,
-    color-mix(in srgb, hsl(var(--bluedoor)) 55%, white) 18%,
-    color-mix(in srgb, hsl(var(--strategic)) 66%, white) 36%,
-    color-mix(in srgb, hsl(var(--v3-raspberry-bright)) 90%, white) 54%,
-    color-mix(in srgb, hsl(var(--gold)) 88%, white) 74%,
-    color-mix(in srgb, hsl(var(--lime)) 85%, white) 100%
+    color-mix(in srgb, hsl(var(--primary)) 45%, white) 0%,
+    color-mix(in srgb, hsl(var(--bluedoor)) 36%, white) 16%,
+    color-mix(in srgb, hsl(var(--strategic)) 37%, white) 32%,
+    color-mix(in srgb, hsl(var(--v3-raspberry-bright)) 45%, white) 46%,
+    color-mix(in srgb, hsl(var(--lime)) 65%, white) 58%,
+    color-mix(in srgb, hsl(var(--gold)) 85%, white) 72%,
+    color-mix(in srgb, hsl(var(--lime)) 65%, white) 100%
   );
   --v3-prepare: 197 64% 60%;
   --v3-prepare-deep: 195 100% 31%;
