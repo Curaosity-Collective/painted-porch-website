@@ -44,9 +44,10 @@
   --v3-home-hero-mobile-text-wash: linear-gradient(
     180deg,
     hsl(var(--v3-home-hero-shade) / 0) 0,
-    hsl(var(--v3-home-hero-shade) / 0.92) 96px,
-    hsl(var(--v3-home-hero-shade) / 0.92) 65%,
-    hsl(var(--v3-home-hero-shade) / 0.82) 100%
+    hsl(var(--v3-home-hero-shade) / 0.4) 36px,
+    hsl(var(--v3-home-hero-shade) / 0.9) 80px,
+    hsl(var(--v3-home-hero-shade) / 0.9) 65%,
+    hsl(var(--v3-home-hero-shade) / 0.8) 100%
   );
 }
 
@@ -218,7 +219,7 @@
     180deg,
     hsl(var(--bluedoor) / 0.45) 0%,
     color-mix(in oklab, hsl(var(--bluedoor) / 0.4), hsl(var(--v3-teal-deep) / 0.55)) 55%,
-    hsl(var(--v3-teal-deep) / 0.84) 100%
+    hsl(var(--v3-teal-deep) / 0.8) 100%
   );
 }
 

@@ -234,12 +234,12 @@ export default function HomeNext() {
         <div className="relative mx-auto flex min-h-[calc(100svh-var(--site-header-h))] max-w-[1200px] flex-col justify-end px-5 pb-7 pt-10 md:min-h-[min(660px,calc(100svh-var(--site-header-h)))] md:justify-center md:px-6 md:py-[clamp(24px,calc(100svh-744px),96px)]">
           <div className="relative isolate flex max-w-[560px] flex-col gap-4 md:gap-[clamp(12px,calc(5svh-18px),22px)] [@media(max-width:767px)_and_(max-height:600px)]:gap-3">
             {/* Phones: the shade starts above the eyebrow and runs to the bottom of the hero, however tall the
-                screen and however the text wraps. It reaches 160px above the text block so the full-strength
-                wash (which takes the first 96px to build) is already solid well above the eyebrow, and the
+                screen and however the text wraps. It reaches 96px above the text block with a soft 80px ramp, so full shade starts just above
+                the eyebrow, below the menu bar, and the photo stays partly visible through it, and the
                 text box doesn't read as starting at the eyebrow's top edge (PPS Admin, 2026-11-24). */}
             <div
               aria-hidden="true"
-              className="home-hero-mobile-text-shade absolute -bottom-7 -left-5 -top-40 -z-10 w-[100vw] md:hidden"
+              className="home-hero-mobile-text-shade absolute -bottom-7 -left-5 -top-24 -z-10 w-[100vw] md:hidden"
             />
             {/* Tablets and up: on top of the side shade above, a soft shade behind the text block only, fading
                 out at its edges, so the pillars around the text stay bright (PPS Admin, 2026-11-07: "JUST darken
@@ -250,7 +250,7 @@ export default function HomeNext() {
                 box doesn't read as starting at the eyebrow's top edge (PPS Admin, 2026-11-24). */}
             <div
               aria-hidden="true"
-              className="absolute -bottom-9 -left-20 -right-14 -top-20 -z-10 hidden rounded-[48px] bg-[rgba(4,40,50,0.9)] blur-[40px] md:block"
+              className="absolute -bottom-9 -left-20 -right-14 -top-12 -z-10 hidden rounded-[48px] bg-[rgba(4,40,50,0.89)] blur-[40px] md:block"
             />
             <Eyebrow onDark>Are You Built for What's Next?</Eyebrow>
             <h1
