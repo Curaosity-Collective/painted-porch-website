@@ -37,7 +37,7 @@
     color-mix(in srgb, hsl(var(--bluedoor)) 50%, white) 16%,
     color-mix(in srgb, hsl(var(--navy)) 40%, white) 32%,
     color-mix(in srgb, hsl(var(--strategic)) 55%, white) 48%,
-    hsl(var(--v3-raspberry-bright)) 64%,
+    color-mix(in srgb, hsl(var(--v3-raspberry-bright)) 92%, white) 64%,
     hsl(var(--gold)) 82%,
     color-mix(in srgb, hsl(var(--lime)) 80%, white) 100%
   );
