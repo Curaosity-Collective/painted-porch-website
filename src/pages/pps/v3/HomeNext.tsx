@@ -272,12 +272,6 @@ export default function HomeNext() {
               </button>
               <p className="text-sm text-[#E3EFF1]">A three-minute guide to where your journey begins.</p>
             </div>
-            <a
-              href="#clarity-call"
-              className="self-start font-semibold text-white underline underline-offset-4 hover:text-white/85"
-            >
-              Or book a Clarity Call →
-            </a>
           </div>
         </div>
       </section>
