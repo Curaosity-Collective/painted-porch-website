@@ -234,20 +234,23 @@ export default function HomeNext() {
         <div className="relative mx-auto flex min-h-[calc(100svh-var(--site-header-h))] max-w-[1200px] flex-col justify-end px-5 pb-7 pt-10 md:min-h-[min(660px,calc(100svh-var(--site-header-h)))] md:justify-center md:px-6 md:py-[clamp(24px,calc(100svh-744px),96px)]">
           <div className="relative isolate flex max-w-[560px] flex-col gap-4 md:gap-[clamp(12px,calc(5svh-18px),22px)] [@media(max-width:767px)_and_(max-height:600px)]:gap-3">
             {/* Phones: the shade starts above the eyebrow and runs to the bottom of the hero, however tall the
-                screen and however the text wraps. */}
+                screen and however the text wraps. It reaches 160px above the text block so the full-strength
+                wash (which takes the first 96px to build) is already solid well above the eyebrow, and the
+                text box doesn't read as starting at the eyebrow's top edge (PPS Admin, 2026-11-24). */}
             <div
               aria-hidden="true"
-              className="home-hero-mobile-text-shade absolute -bottom-7 -left-5 -top-24 -z-10 w-[100vw] md:hidden"
+              className="home-hero-mobile-text-shade absolute -bottom-7 -left-5 -top-40 -z-10 w-[100vw] md:hidden"
             />
             {/* Tablets and up: on top of the side shade above, a soft shade behind the text block only, fading
                 out at its edges, so the pillars around the text stay bright (PPS Admin, 2026-11-07: "JUST darken
                 the area behind the text as a gradient"; "Too much of the pillars get hidden if its too dark"; then,
                 choosing between the mock-ups, "I like the option that includes the side shade"). It keeps the
                 bright IF at 3:1 or better over the photo, as PPS-DEC-0022 item 6 requires, without changing the
-                IF's color. */}
+                IF's color. It reaches past the left edge of the screen and 80px above the eyebrow, so the text
+                box doesn't read as starting at the eyebrow's top edge (PPS Admin, 2026-11-24). */}
             <div
               aria-hidden="true"
-              className="absolute -inset-x-14 -inset-y-9 -z-10 hidden rounded-[48px] bg-[rgba(4,40,50,0.9)] blur-[40px] md:block"
+              className="absolute -bottom-9 -left-20 -right-14 -top-20 -z-10 hidden rounded-[48px] bg-[rgba(4,40,50,0.9)] blur-[40px] md:block"
             />
             <Eyebrow onDark>Are You Built for What's Next?</Eyebrow>
             <h1
