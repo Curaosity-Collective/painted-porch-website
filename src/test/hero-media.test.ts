@@ -70,9 +70,11 @@ describe("hero videos and closing photos", () => {
   });
 
   it("darkens the closing bands that would otherwise run into the teal footer with the charcoal wash", () => {
-    // Architect and Embody too: their burgundy and green washes left the light-raspberry IF under AA.
+    // Architect too: its burgundy wash left the light-raspberry IF under AA.
     // About joined on 2026-11-07 with the blue door; the homepage's band is not a photo band.
-    for (const page of ["AboutNext", "EnvisionShift", "ArchitectShift", "EmbodyShift", "ThePath", "PhaseZeroNext", "ResultsImpact", "ForIndividuals"]) {
+    // Embody's band has had no photo since 2026-11-24 (PPS Admin: "No I dont want that table").
+    expect(closingPhoto(source("EmbodyShift"))).toBeNull();
+    for (const page of ["AboutNext", "EnvisionShift", "ArchitectShift", "ThePath", "PhaseZeroNext", "ResultsImpact", "ForIndividuals"]) {
       const band = source(page).slice(source(page).lastIndexOf("<CTABand"));
       expect(band, page).toMatch(/photoProfile="cta-photo-charcoal\b/);
     }
@@ -84,8 +86,9 @@ describe("hero videos and closing photos", () => {
     expect(assetOf(about, "robPhoto")).toBe("@/assets/team/rob-hunter-desk.jpg");
   });
 
-  it("closes The P.A.T.H. with the painted lanes: \"Find Out Where You Are on the P.A.T.H.\" (PPS Admin, 2026-11-07)", () => {
-    expect(closingPhoto(source("ThePath"))).toBe("@/assets/heroes/start-here-hero.jpg");
+  it("closes The P.A.T.H. with the colorful hanging mobile: \"Path final cta\" (PPS Admin, 2026-11-24)", () => {
+    // It replaced the painted lanes (PPS Admin, 2026-11-07), placed in the Lovable editor.
+    expect(closingPhoto(source("ThePath"))).toBe("@/assets/v3/path-kinetic-mobile.webp");
   });
 
   it("runs the v3 heroes up under the floating header (PPS Admin, 2026-11-07)", () => {
