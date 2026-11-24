@@ -1,5 +1,6 @@
 /**
- * The ShIFt wordmark. Its "IF" is always bold Raspberry (PPS-DEC-0022, item 6):
+ * The ShIFt wordmark. Its "IF" carries the logo-order brand blend (PPS Admin, 2026-11-24);
+ * with `problem` it stays bold Raspberry (PPS-DEC-0022, item 6):
  *
  * - on light backgrounds: Raspberry (#DB0043)
  * - on dark backgrounds: a lighter raspberry so it stays readable. The light
@@ -17,6 +18,7 @@ export function ShIFt({
   onFill = false,
   lowercase = false,
   plural = false,
+  problem = false,
   className = "",
 }: {
   onDark?: boolean;
@@ -24,15 +26,21 @@ export function ShIFt({
   onFill?: boolean;
   lowercase?: boolean;
   plural?: boolean;
+  /** The phrase frames a problem or cost: keep solid raspberry. */
+  problem?: boolean;
   className?: string;
 }) {
   const color = onFill
     ? ""
-    : onDark
-      ? large
-        ? "text-raspberry-bright"
-        : "text-berry-on-dark"
-      : "text-raspberry";
+    : problem
+      ? onDark
+        ? large
+          ? "text-raspberry-bright"
+          : "text-berry-on-dark"
+        : "text-raspberry"
+      : onDark
+        ? "if-blend"
+        : "if-blend-light";
   return (
     <>
       {lowercase ? "sh" : "Sh"}

@@ -342,7 +342,7 @@ export default function HomeNext() {
               <li key={item.letter} className="grid grid-cols-[56px_minmax(0,1fr)] gap-x-[18px] gap-y-1">
                 <span
                   aria-hidden="true"
-                  className="row-span-2 font-display text-[56px] font-bold leading-none text-raspberry"
+                  className="row-span-2 font-display text-[56px] font-bold leading-none if-blend-light justify-self-start self-start"
                 >
                   {item.letter}
                 </span>
