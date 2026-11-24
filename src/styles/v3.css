@@ -47,7 +47,8 @@
     hsl(var(--v3-home-hero-shade) / 0.4) 36px,
     hsl(var(--v3-home-hero-shade) / 0.9) 80px,
     hsl(var(--v3-home-hero-shade) / 0.9) 65%,
-    hsl(var(--v3-home-hero-shade) / 0.8) 100%
+    hsl(var(--v3-home-hero-shade) / 0.82) calc(100% - 44px),
+    hsl(var(--v3-home-hero-shade) / 0) 100%
   );
 }
 
