@@ -193,9 +193,9 @@
     "ogDescription": "Three dynamic speakers. One Stoic mission. Book Amy, Rob, and Sierra for keynotes and workshops on change, leadership, and epic shIFt.",
     "source": "src/pages/pps/Speaking.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/heroes/speaking-hero.jpg",
+    "imageSource": "src/assets/v3/topics-empty-stage.webp",
     "ogImage": "/page-share/speaking.jpg",
-    "ogImageAlt": "A speaker at a podium on a stage with painted wooden panels in teal, gold, purple and lime, facing an audience"
+    "ogImageAlt": "An empty stage with a teal podium in front of brightly painted wooden panels, with seats facing it"
   },
   "/press-kit": {
     "title": "Press Kit & Speaker Bios | Painted Porch Strategies",
@@ -215,9 +215,9 @@
     "ogDescription": "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic works as a keynote, an interactive workshop, or both.",
     "source": "src/pages/pps/SpeakingWorkshopTopics.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/heroes/speaking-hero.jpg",
+    "imageSource": "src/assets/v3/topics-empty-stage.webp",
     "ogImage": "/page-share/speaking-topics.jpg",
-    "ogImageAlt": "A speaker at a podium on a stage with painted wooden panels in teal, gold, purple and lime, facing an audience"
+    "ogImageAlt": "An empty stage with a teal podium in front of brightly painted wooden panels, with seats facing it"
   },
   "/elemental-style-assessment": {
     "title": "Your Elemental Style: Free Assessment | Painted Porch Strategies",
