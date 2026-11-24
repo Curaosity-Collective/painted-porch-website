@@ -114,9 +114,10 @@ describe("hero videos and closing photos", () => {
     // Contact: its own photo of porch chairs (PPS Admin, 2026-11-07). The stage photo is shared, for now, by the
     // speaking pages and the Press Kit. (The Press page was retired on 2026-11-08: /press now redirects to the Press Kit.)
     expect(read("pages/pps/PPSContact.tsx")).toMatch(/image=\{contactHero\}/);
-    // 2026-11-24 (PPS Admin): Speaking opens on the painted stones, Topics on an empty stage with no person.
+    // 2026-11-24 (PPS Admin): Speaking opens on the colorful stage with the teal podium; the painted
+    // stones are held unused. Topics keeps the same stage only until its compass-screen hero is approved.
     expect(read("pages/pps/PressKit.tsx")).toMatch(/image=\{speakingHero\}/);
-    expect(read("pages/pps/Speaking.tsx")).toMatch(/image=\{stoneStack\}/);
+    expect(read("pages/pps/Speaking.tsx")).toMatch(/image=\{emptyStage\}/);
     expect(read("pages/pps/SpeakingWorkshopTopics.tsx")).toMatch(/image=\{emptyStage\}/);
   });
 

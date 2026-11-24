@@ -6,7 +6,7 @@ import { Flame, Mic, Heart } from "lucide-react";
 import ClientLogoMarquee, { type LogoItem } from "@/components/pps/ClientLogoMarquee";
 import { PageHero } from "@/components/v3/Bits";
 import { ShIFt } from "@/components/v3/ShIFt";
-import stoneStack from "@/assets/v3/speaking-stone-sculpture.webp";
+import emptyStage from "@/assets/v3/topics-empty-stage.webp";
 import amyPhoto from "@/assets/team/amy-speaking-portrait.jpg";
 import robPhoto from "@/assets/team/rob-hunter.jpg";
 import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
@@ -87,7 +87,7 @@ export default function Speaking() {
   useDocumentSeo({
     title: "Speaking | Book Amy, Rob & Sierra | Painted Porch Strategies",
     description: "Three dynamic speakers. One Stoic mission. Book Amy, Rob, and Sierra for keynotes and workshops on change, leadership, and epic shIFt.",
-    ogImage: stoneStack,
+    ogImage: emptyStage,
   });
   return (
     <div>
@@ -101,9 +101,9 @@ export default function Speaking() {
         }
         intro="Our talks blend motivation with grounded, practical activation. We partner with leaders and teams who have decided to architect change, communicate with clarity, and build the capability and mindset to carry what comes next."
         action={{ label: "Contact Us", to: "/contact?interest=speaking&message=I'm interested in booking a speaker for our event." }}
-        // Painted stones moved up from the Stoicism strip for now (PPS Admin, 2026-11-24).
-        image={stoneStack}
-        imageAlt="Painted stones balanced one on another on a porch rail at sunset"
+        // Colorful stage podium moved here from Topics (PPS Admin, 2026-11-24).
+        image={emptyStage}
+        imageAlt="An empty stage with a teal podium in front of wooden panels painted gold, raspberry, purple, cobalt and lime"
         ghost="S"
       />
 
