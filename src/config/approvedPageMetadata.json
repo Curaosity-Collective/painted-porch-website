@@ -112,9 +112,9 @@
     "ogDescription": "An executive strategy & authorship intensive, a 90-day sprint and a retrospective to decide your next step. Starting at $90,000.",
     "source": "src/pages/pps/v3/ArchitectShift.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/heroes/approach-hero.jpg",
+    "imageSource": "src/assets/v3/embody-hero-poster.jpg",
     "ogImage": "/page-share/architect-shift.jpg",
-    "ogImageAlt": "Small glowing buildings linked by a curving line of light across a dark blueprint"
+    "ogImageAlt": "A glowing teal outline of a columned portico on a dark blue background"
   },
   "/embody-shift": {
     "title": "Embody ShIFt | Painted Porch Strategies",
@@ -123,9 +123,9 @@
     "ogDescription": "Ongoing advisory while your organization designs and leads its change, reinforcing it as a continuous practice. $9,000–$18,000 per month.",
     "source": "src/pages/pps/v3/EmbodyShift.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/v3/embody-hero-poster.jpg",
+    "imageSource": "src/assets/heroes/approach-hero.jpg",
     "ogImage": "/page-share/embody-shift.jpg",
-    "ogImageAlt": "A glowing teal outline of a columned portico on a dark blue background"
+    "ogImageAlt": "Small glowing buildings linked by a curving line of light across a dark blueprint"
   },
   "/resources": {
     "title": "Resources | Painted Porch Strategies",
