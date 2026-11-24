@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import lanternPath from "@/assets/heroes/approach-hero.jpg";
-import architecturalModel from "@/assets/embody-concept-model.jpg";
-import sunlitColumns from "@/assets/embody-concept-pillars.jpg";
+import colorfulPlan from "@/assets/v3/architect-shift-colorful-plan.webp.asset.json";
+import fortifyFramework from "@/assets/v3/architect-shift-fortify-framework.webp.asset.json";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { GhostLayer, StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -194,10 +194,11 @@ export default function ArchitectShift() {
       {/* The shape */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <StickyMedia
-          src={architecturalModel}
-          alt="A translucent architectural model lit by a single spotlight on a dark stage"
-          width={1920}
-          height={1080}
+          src={colorfulPlan.url}
+          alt="Brass drafting tools beside a sunlit organizational plan with connected zones in teal, lime, gold, purple and raspberry"
+          imagePositionClassName="object-center lg:object-[24%_50%]"
+          width={1672}
+          height={941}
         >
           <div>
             <Kicker>The Shape</Kicker>
@@ -444,11 +445,12 @@ export default function ArchitectShift() {
         }
         to={clarityCallSectionHref("architect")}
         label="Start with a Clarity Call"
-        image={sunlitColumns}
+        image={fortifyFramework.url}
+        imagePositionClassName="object-[50%_50%]"
         photoProfile="cta-photo-charcoal cta-photo-bright"
-        imageAlt="Sunlight streaming between the columns of an enduring stone colonnade"
-        imageWidth={1920}
-        imageHeight={1080}
+        imageAlt="Painted teal, lime, gold, purple and raspberry timber members joined and braced over an organizational plan"
+        imageWidth={1672}
+        imageHeight={941}
         secondary={
           <>
             Not sure where to begin?{" "}
