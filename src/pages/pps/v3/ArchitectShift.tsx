@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import lanternPath from "@/assets/heroes/approach-hero.jpg";
+import embodyPoster from "@/assets/v3/embody-hero-poster.jpg";
 import colorfulPlan from "@/assets/v3/architect-shift-colorful-plan.webp.asset.json";
 import fortifyFramework from "@/assets/v3/architect-shift-fortify-framework.webp.asset.json";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
@@ -186,7 +187,7 @@ export default function ArchitectShift() {
             organization is ready to design and lead its next epic <ShIFt lowercase onDark />.
           </>
         }
-        video={{ slotKey: "approach-hero", poster: lanternPath, alt: "Glowing lanterns along a winding road of golden light drawn across a dark blueprint" }}
+        video={{ slotKey: "embody-hero", poster: embodyPoster, alt: "A classical temple whose pillars light up one by one in teal, gold, lime, raspberry and purple" }}
         tone="align"
         ghost="A"
       />

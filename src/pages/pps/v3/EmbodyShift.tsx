@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import embodyPoster from "@/assets/v3/embody-hero-poster.jpg";
+import lanternPath from "@/assets/heroes/approach-hero.jpg";
 import stoa from "@/assets/embody-concept-stoa.jpg";
 import pergola from "@/assets/embody-hero-option10.jpg";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
@@ -79,7 +80,7 @@ export default function EmbodyShift() {
             the habits, judgment, decision authority, and structures that make epic <ShIFt lowercase onDark /> a continuous practice.
           </>
         }
-        video={{ slotKey: "embody-hero", poster: embodyPoster, alt: "A classical temple whose pillars light up one by one in teal, gold, lime, raspberry and purple" }}
+        video={{ slotKey: "approach-hero", poster: lanternPath, alt: "Glowing lanterns along a winding road of golden light drawn across a dark blueprint" }}
         tone="habits"
         ghost="E"
       />
