@@ -4,8 +4,11 @@ import { ShIFt } from "./ShIFt";
 /**
  * Renders a menu label, styling the IF wherever "ShIFt" appears (PPS-DEC-0022).
  *
- * `plain`: the IF stays bold but takes the label's own colour. Used throughout the header,
- * including dropdowns and the phone menu (PPS Admin, 2026-11-07). Footer labels keep their own styling.
+ * `plain`: the header's labels sit on light backgrounds, so the IF carries the
+ * brand blend for light backgrounds (PPS Admin, 2026-11-24: "Lets also update
+ * the top menu IFs"). Footer labels pass `onDark` instead and carry the blend
+ * for dark backgrounds. Problem wording still stays solid raspberry through
+ * `ShIFt` itself.
  */
 export function NavLabel({ label, onDark = false, plain = false }: { label: string; onDark?: boolean; plain?: boolean }) {
   const parts = label.split("ShIFt");
@@ -15,7 +18,7 @@ export function NavLabel({ label, onDark = false, plain = false }: { label: stri
       {parts.map((part, i) => (
         <Fragment key={i}>
           {part}
-          {i < parts.length - 1 && <ShIFt onDark={onDark} onFill={plain} />}
+          {i < parts.length - 1 && <ShIFt onDark={onDark && !plain} />}
         </Fragment>
       ))}
     </>

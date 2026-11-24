@@ -392,8 +392,8 @@
   --v3-if-blend-light: linear-gradient(
     100deg,
     hsl(var(--v3-teal-deep, var(--primary))) 0%,
-    hsl(var(--v3-habits-deep)) 22%,
-    hsl(36 90% 38%) 44%,
+    hsl(77 99% 25%) 22%,
+    hsl(36 90% 34%) 44%,
     hsl(var(--raspberry)) 66%,
     hsl(var(--strategic)) 88%,
     hsl(var(--bluedoor)) 100%
