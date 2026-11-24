@@ -103,6 +103,7 @@ export function StickyMedia({
   reverse = false,
   width,
   height,
+  imagePositionClassName = "object-center",
 }: {
   src: string;
   alt: string;
@@ -110,12 +111,13 @@ export function StickyMedia({
   reverse?: boolean;
   width?: number;
   height?: number;
+  imagePositionClassName?: string;
 }) {
   return (
     <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
       <div className={`order-2 lg:col-span-5 ${reverse ? "lg:order-2" : "lg:order-1"}`}>
         <div className="lg:sticky lg:top-24">
-          <ParallaxImage src={src} alt={alt} width={width} height={height} className="h-72 w-full lg:h-[70vh]" speed={40} />
+          <ParallaxImage src={src} alt={alt} width={width} height={height} imagePositionClassName={imagePositionClassName} className="h-72 w-full lg:h-[70vh]" speed={40} />
         </div>
       </div>
       <div className={`order-1 lg:col-span-7 ${reverse ? "lg:order-1" : "lg:order-2"}`}>{children}</div>
