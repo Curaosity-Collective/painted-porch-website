@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import porchWorkshopCircle from "@/assets/v3/porch-workshop-circle.webp";
 import { CredentialBadges } from "@/components/v3/SpeakingExtras";
 import { useV3Skin } from "@/components/v3/v3SkinContext";
 import { Button } from "@/components/ui/button";
@@ -253,8 +254,9 @@ export default function SpeakerDetailPage({ speaker }: { speaker: SpeakerData })
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-gradient-strategic text-white">
-        <div className="container max-w-4xl mx-auto px-6 text-center">
+      <section className="relative overflow-hidden py-16 md:py-24 bg-gradient-strategic text-white">
+        <img src={porchWorkshopCircle} alt="" aria-hidden="true" width={1312} height={1199} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+        <div className="container relative z-10 max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Book {speaker.firstName} for Your Event
           </h2>
