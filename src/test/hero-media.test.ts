@@ -80,9 +80,9 @@ describe("hero videos and closing photos", () => {
     }
   });
 
-  it("closes About with the blue door, and shows Rob centred at his desk on its team card (PPS Admin, 2026-11-07)", () => {
+  it("closes About with the clarity lens (PPS Admin, 2026-11-24), and shows Rob centred at his desk on its team card (PPS Admin, 2026-11-07)", () => {
     const about = source("AboutNext");
-    expect(closingPhoto(about)).toBe("@/assets/v3/blue-door.jpg");
+    expect(closingPhoto(about)).toBe("@/assets/v3/about-clarity-lens.webp.asset.json");
     expect(assetOf(about, "robPhoto")).toBe("@/assets/team/rob-hunter-desk.jpg");
   });
 
