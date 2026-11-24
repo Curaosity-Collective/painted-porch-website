@@ -1,9 +1,9 @@
 import { Check, MessageSquare } from "lucide-react";
 
 import amplifyPoster from "@/assets/v3/amplify-hero-poster.jpg";
-import blueDoorDusk from "@/assets/v3/blue-door-dusk.jpg";
-import porchEvening from "@/assets/v3/porch-evening.jpg";
-import thresholdDusk from "@/assets/v3/threshold-dusk.jpg";
+import paintedGazebo from "@/assets/v3/envision-painted-gazebo.jpg.asset.json";
+import paintedCompass from "@/assets/v3/envision-painted-compass.jpg.asset.json";
+import paintedSteps from "@/assets/v3/envision-painted-steps.jpg.asset.json";
 import { CTABand, EvidenceNote, Kicker, NumberedList, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { GhostLayer, ParallaxImage, StickyMedia } from "@/components/v3/Motion";
 import { Reveal } from "@/components/v3/Reveal";
@@ -144,10 +144,11 @@ export default function EnvisionShift() {
 
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <StickyMedia
-          src={blueDoorDusk}
-          alt="An open cobalt blue door with lamplight spilling onto a porch at dusk"
-          width={1920}
-          height={1280}
+          src={paintedGazebo.url}
+          alt="Looking up from the center of a round porch whose columns and beams are painted teal, lime, gold, purple, raspberry and orange, circling open blue sky"
+          imagePositionClassName="object-center lg:object-[12%_50%]"
+          width={1536}
+          height={1024}
         >
           <div>
             <Kicker>What It Is</Kicker>
@@ -202,13 +203,13 @@ export default function EnvisionShift() {
 
       <section className="relative">
         <ParallaxImage
-          src={thresholdDusk}
-          alt="An open blue wooden door with a brass kick plate above a stone threshold, with warm lamplight spilling onto porch boards at dusk."
-          imagePositionClassName="object-[52%_65%] md:object-[50%_60%]"
+          src={paintedSteps.url}
+          alt="Porch steps painted raspberry, purple, gold, lime and teal lead down onto open grass toward a bright sunset horizon."
+          imagePositionClassName="object-[40%_60%] md:object-[50%_55%]"
           className="h-[42vh] w-full md:h-[62vh]"
           speed={55}
-          width={1920}
-          height={1280}
+          width={1672}
+          height={941}
         />
       </section>
 
@@ -342,11 +343,11 @@ export default function EnvisionShift() {
             .
           </>
         }
-        image={porchEvening}
-        imageAlt="A hanging lantern illuminates a teal-painted porch with wooden railings, a blue front door, and stone steps beneath trees at dusk."
-        imagePositionClassName="object-[64%_50%] md:object-[50%_55%]"
-        imageWidth={2528}
-        imageHeight={1696}
+        image={paintedCompass.url}
+        imageAlt="A compass rose painted in teal, lime, gold, purple, raspberry and orange set into sunlit wooden porch floorboards"
+        imagePositionClassName="object-[55%_50%]"
+        imageWidth={1536}
+        imageHeight={1024}
       />
     </div>
   );
