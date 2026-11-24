@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Check, X } from "lucide-react";
 import phaseZeroHero from "@/assets/heroes/phase-zero-hero.jpg";
 import paintedFloor from "@/assets/heroes/home-hero.jpg";
+import lenses from "@/assets/v3/phase-zero-layered-lenses.webp";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { PartnershipPromiseNote } from "@/components/v3/PartnershipPromiseNote";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -258,6 +259,16 @@ export default function PhaseZeroNext() {
               shapes everything that follows.
             </p>
           </Prose>
+          {/* Colored lenses, each giving a different view of the same scene, for appraisal before commitment
+              (PPS Admin, 2026-11-24). */}
+          <img
+            src={lenses}
+            alt="Four colored glass lenses standing on a weathered white porch table, each throwing its own color of light across the boards, with a garden and water beyond the railing"
+            className="mt-12 w-full rounded object-cover"
+            width={1536}
+            height={1024}
+            loading="lazy"
+          />
         </div>
       </section>
 

@@ -188,7 +188,7 @@
   --cta-wash-text: 70%;
   --cta-wash-bottom: 58%;
 }
-/* Bright photos (Architect's sunlit columns, Embody's pergola on a pale ground) need a deeper wash
+/* Bright photos (Architect's sunlit columns, the P.A.T.H. closing mobile under a white ceiling) need a deeper wash
    behind the text for the light-raspberry IF to clear 4.5:1. */
 .cta-photo-charcoal.cta-photo-bright {
   --cta-wash-top: 62%;

@@ -47,7 +47,7 @@ describe("For Individuals", () => {
     expect(flat(screen.getByRole("heading", { level: 1 }).textContent ?? "")).toBe(
       flat("Spark Your Next ShIFt, at Your Own Pace"),
     );
-    expect(screen.getByTestId("hero-video")).toHaveAttribute("data-slot", "ignite-hero");
+    expect(screen.getByTestId("hero-video")).toHaveAttribute("data-slot", "amplify-hero");
     expect(screen.getByRole("button", { name: "Pause the background video" })).toBeInTheDocument();
     const guideButtons = screen.getAllByRole("button").filter((b) => flat(b.textContent ?? "") === "FindYourNextShIFt");
     expect(guideButtons).toHaveLength(2);

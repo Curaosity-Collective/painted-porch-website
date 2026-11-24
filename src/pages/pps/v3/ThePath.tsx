@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import colorfulPath from "@/assets/colorful-path.jpg";
 import pillarsOnBlueprint from "@/assets/embody-hero-option2.jpg";
 import pathRoad from "@/assets/v3/path-to-shift-road.webp";
-import paintedLanes from "@/assets/heroes/start-here-hero.jpg";
+import kineticMobile from "@/assets/v3/path-kinetic-mobile.webp";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { ShIFt } from "@/components/v3/ShIFt";
 import { SmartLink } from "@/components/pps/SmartLink";
@@ -541,13 +541,12 @@ export default function ThePath() {
         body="Every journey starts with a Clarity Call: 60 minutes with Amy to read where your organization is on the P.A.T.H. and what makes sense next."
         to={clarityCallSectionHref("path")}
         label="Start with a Clarity Call"
-        // Painted lanes, each a different route, for "where you are on the P.A.T.H." (PPS Admin, 2026-11-07).
-        // It was the Start Here page's hero; PPS Admin no longer uses that page.
-        image={paintedLanes}
-        photoProfile="cta-photo-charcoal"
-        imageAlt="Boardwalk paths painted teal, gold, purple, raspberry and lime, winding apart through a garden"
-        imageWidth={1920}
-        imageHeight={1080}
+        // A colorful hanging mobile: separate parts finding balance together (PPS Admin, 2026-11-24).
+        image={kineticMobile}
+        photoProfile="cta-photo-charcoal cta-photo-bright"
+        imageAlt="A hanging mobile of teal, gold, raspberry, cobalt, purple and lime shapes turning under a white porch ceiling"
+        imageWidth={1536}
+        imageHeight={1024}
         secondary={
           <>
             Not sure yet?{" "}
