@@ -36,14 +36,13 @@
      (color-mix keeps the first share, so a lower number means more white).
      Lime appears twice, once mid-blend and once at the base (PPS Admin, 2026-11-24). */
   --v3-footer-if-blend: linear-gradient(
-    180deg,
+    100deg,
     color-mix(in srgb, hsl(var(--primary)) 45%, white) 0%,
-    color-mix(in srgb, hsl(var(--bluedoor)) 36%, white) 16%,
-    color-mix(in srgb, hsl(var(--strategic)) 37%, white) 32%,
-    color-mix(in srgb, hsl(var(--v3-raspberry-bright)) 45%, white) 46%,
-    color-mix(in srgb, hsl(var(--lime)) 65%, white) 58%,
-    color-mix(in srgb, hsl(var(--gold)) 85%, white) 72%,
-    color-mix(in srgb, hsl(var(--lime)) 65%, white) 100%
+    color-mix(in srgb, hsl(var(--lime)) 65%, white) 22%,
+    color-mix(in srgb, hsl(var(--gold)) 85%, white) 44%,
+    color-mix(in srgb, hsl(var(--raspberry)) 80%, white) 66%,
+    color-mix(in srgb, hsl(var(--strategic)) 75%, white) 88%,
+    color-mix(in srgb, hsl(var(--bluedoor)) 36%, white) 100%
   );
   --v3-prepare: 197 64% 60%;
   --v3-prepare-deep: 195 100% 31%;
