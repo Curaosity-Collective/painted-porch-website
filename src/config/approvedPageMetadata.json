@@ -101,9 +101,9 @@
     "ogDescription": "Assessments, masterclasses and mini courses, and Leadership Labs for leaders investing in their own growth: on your own schedule, or alongside peers.",
     "source": "src/pages/pps/v3/ForIndividuals.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/ignite-hero-flame.jpg",
+    "imageSource": "src/assets/v3/amplify-hero-poster.jpg",
     "ogImage": "/page-share/for-individuals.jpg",
-    "ogImageAlt": "Swirling flames in teal, green, orange and purple on a black background"
+    "ogImageAlt": "A glowing light bulb throwing sparks and flecks of color"
   },
   "/architect-shift": {
     "title": "Architect ShIFt | Painted Porch Strategies",
@@ -234,9 +234,9 @@
     "ogDescription": "Six interviews, from executives to the frontline, inform your P.A.T.H. Compass and recommended next step. Investment: $24,000.",
     "source": "src/pages/pps/v3/EnvisionShift.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/v3/amplify-hero-poster.jpg",
+    "imageSource": "src/assets/v3/envision-hero-poster.jpg",
     "ogImage": "/page-share/envision-shift.jpg",
-    "ogImageAlt": "A glass light bulb glowing with colorful filaments amid sparkling confetti"
+    "ogImageAlt": "A brass spyglass lying on painted porch boards beside a compass and a colorful topographic map"
   },
   "/contact": {
     "title": "Contact Painted Porch Strategies | Start the Conversation",

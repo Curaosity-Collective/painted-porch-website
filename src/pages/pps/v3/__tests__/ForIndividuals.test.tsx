@@ -42,13 +42,11 @@ function renderPage() {
 describe("For Individuals", () => {
   beforeEach(() => openGuide.mockClear());
 
-  it("opens with the lightbulb animation under the title and the guide as its one action", () => {
+  it("opens with the spark animation under the title and the guide as its one action", () => {
     renderPage();
     expect(flat(screen.getByRole("heading", { level: 1 }).textContent ?? "")).toBe(
       flat("Spark Your Next ShIFt, at Your Own Pace"),
     );
-    // Moved from the IGNITE spark ("ignite-hero") in the Lovable editor on 2026-11-24: "Move lightbulb hero
-    // to For Individuals". Envision keeps the lightbulb only until its new animation is chosen.
     expect(screen.getByTestId("hero-video")).toHaveAttribute("data-slot", "amplify-hero");
     expect(screen.getByRole("button", { name: "Pause the background video" })).toBeInTheDocument();
     const guideButtons = screen.getAllByRole("button").filter((b) => flat(b.textContent ?? "") === "FindYourNextShIFt");

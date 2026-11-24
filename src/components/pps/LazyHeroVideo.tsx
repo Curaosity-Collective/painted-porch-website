@@ -92,6 +92,23 @@ export default function LazyHeroVideo({
     };
   }, [slotKey, retryToken]);
 
+  // Some viewports decline autoplay for a muted clip even though the browser
+  // allows it, which left the hero stuck on its first frame. Nudge it once,
+  // and only while it hasn't started, so the pause button still wins.
+  useEffect(() => {
+    if (!videoUrl || errored) return;
+    const el = containerRef.current?.querySelector("video");
+    if (!el) return;
+    const timer = window.setTimeout(() => {
+      if (el.paused && el.currentTime === 0) {
+        el.play().catch(() => {
+          /* autoplay still declined: the poster stands in */
+        });
+      }
+    }, 600);
+    return () => window.clearTimeout(timer);
+  }, [videoUrl, errored]);
+
   // Only show the "Video unavailable" overlay when we also can't show the poster.
   // Otherwise the poster is a perfectly fine hero image and we shouldn't draw
   // an alert icon on top of it.

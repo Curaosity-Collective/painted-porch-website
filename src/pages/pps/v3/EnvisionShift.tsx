@@ -1,6 +1,6 @@
 import { Check, MessageSquare } from "lucide-react";
 
-import amplifyPoster from "@/assets/v3/amplify-hero-poster.jpg";
+import envisionPoster from "@/assets/v3/envision-hero-poster.jpg";
 import paintedGazebo from "@/assets/v3/envision-painted-gazebo.jpg.asset.json";
 import paintedCompass from "@/assets/v3/envision-painted-compass.jpg.asset.json";
 import paintedSteps from "@/assets/v3/envision-painted-steps.jpg.asset.json";
@@ -106,7 +106,7 @@ export default function EnvisionShift() {
   useDocumentSeo({
     title: TITLE,
     description: DESCRIPTION,
-    ogImage: amplifyPoster,
+    ogImage: envisionPoster,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -137,7 +137,7 @@ export default function EnvisionShift() {
             Every epic <ShIFt lowercase onDark /> begins at a threshold: an honest appraisal of what your organization can realistically carry. An interview-led organizational 360 determines which change and direction make sense to pursue next.
           </>
         }
-        video={{ slotKey: "amplify-hero", poster: amplifyPoster, alt: "A glowing light bulb throwing sparks and flecks of color" }}
+        video={{ slotKey: "envision-hero", poster: envisionPoster, alt: "A brass spyglass lying on painted porch boards beside a compass and a colorful topographic map" }}
         tone="prepare"
         ghost="B"
       />

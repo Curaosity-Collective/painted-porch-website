@@ -1,7 +1,6 @@
 import { Check } from "lucide-react";
 import lanternPath from "@/assets/heroes/approach-hero.jpg";
-import stoa from "@/assets/embody-concept-stoa.jpg";
-import pergola from "@/assets/embody-hero-option10.jpg";
+import stoa from "@/assets/v3/embody-colorful-loom.webp";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -88,9 +87,9 @@ export default function EmbodyShift() {
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <StickyMedia
           src={stoa}
-          alt="A long stone colonnade in warm afternoon light"
-          width={1920}
-          height={1080}
+          alt="A wooden loom on a painted porch holding a finished, brightly woven panel"
+          width={1536}
+          height={1024}
         >
           <div>
             <Kicker>The Practice</Kicker>
@@ -174,11 +173,6 @@ export default function EmbodyShift() {
         }
         to={clarityCallSectionHref("embody")}
         label="Start with a Clarity Call"
-        image={pergola}
-        photoProfile="cta-photo-charcoal cta-photo-bright"
-        imageAlt="A finished pergola with teal, purple, lime, gold and raspberry beams standing on its blueprint"
-        imageWidth={1344}
-        imageHeight={768}
         secondary={
           <>
             Not sure where to begin?{" "}

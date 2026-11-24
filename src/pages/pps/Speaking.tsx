@@ -6,6 +6,7 @@ import ClientLogoMarquee, { type LogoItem } from "@/components/pps/ClientLogoMar
 import { PageHero } from "@/components/v3/Bits";
 import { ShIFt } from "@/components/v3/ShIFt";
 import speakingHero from "@/assets/heroes/speaking-hero.jpg";
+import stoneStack from "@/assets/v3/speaking-stone-sculpture.webp";
 import amyPhoto from "@/assets/team/amy-speaking-portrait.jpg";
 import robPhoto from "@/assets/team/rob-hunter.jpg";
 import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
@@ -108,7 +109,17 @@ export default function Speaking() {
 
       {/* Philosophy Strip */}
       <section className="relative py-16 md:py-20 bg-navy/90 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1920&q=60')] bg-cover bg-center opacity-20" />
+        {/* Painted stones balanced one on another, for Stoic grounding (PPS Admin, 2026-11-24).
+            Replaces the old Unsplash background so this page loads only its own files. */}
+        <img
+          src={stoneStack}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover opacity-25"
+          width={1536}
+          height={1024}
+          loading="lazy"
+        />
         <div className="container max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Grounded in Stoicism. Built for Change.
