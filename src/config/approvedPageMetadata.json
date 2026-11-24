@@ -215,9 +215,9 @@
     "ogDescription": "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic works as a keynote, an interactive workshop, or both.",
     "source": "src/pages/pps/SpeakingWorkshopTopics.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/v3/topics-empty-stage.webp",
+    "imageSource": "src/assets/v3/topics-keynote-compass-screen.webp",
     "ogImage": "/page-share/speaking-topics.jpg",
-    "ogImageAlt": "An empty stage with a teal podium in front of brightly painted wooden panels, with seats facing it"
+    "ogImageAlt": "A colorful stage with a teal podium and a big screen showing a painted compass rose, with empty seats in front"
   },
   "/elemental-style-assessment": {
     "title": "Your Elemental Style: Free Assessment | Painted Porch Strategies",

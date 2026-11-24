@@ -119,7 +119,7 @@ describe("hero videos and closing photos", () => {
     // The Press Kit left the shared stage photo for its own interview scene (PPS-DEC-0023).
     expect(read("pages/pps/PressKit.tsx")).toMatch(/image=\{pressMicNotebook\.url\}/);
     expect(read("pages/pps/Speaking.tsx")).toMatch(/image=\{emptyStage\}/);
-    expect(read("pages/pps/SpeakingWorkshopTopics.tsx")).toMatch(/image=\{emptyStage\}/);
+    expect(read("pages/pps/SpeakingWorkshopTopics.tsx")).toMatch(/image=\{compassStage\}/);
   });
 
   it("doesn't show a hero scene twice: no page's video poster is used on another page", () => {

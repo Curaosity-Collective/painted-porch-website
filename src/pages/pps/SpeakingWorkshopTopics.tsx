@@ -11,7 +11,7 @@ import { useUserRole } from "@/hooks/useUserRole";
 import { PageHero } from "@/components/v3/Bits";
 import { Eyebrow } from "@/components/pps/Eyebrow";
 import { ParallaxCTA } from "@/components/pps/ParallaxCTA";
-import emptyStage from "@/assets/v3/topics-empty-stage.webp";
+import compassStage from "@/assets/v3/topics-keynote-compass-screen.webp";
 import workshopTable from "@/assets/v3/workshop-table-notes.webp";
 
 
@@ -497,7 +497,7 @@ export default function SpeakingWorkshopTopics() {
     title: "Speaking & Workshop Topics | Painted Porch Strategies",
     description:
       "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic works as a keynote, an interactive workshop, or both.",
-    ogImage: emptyStage,
+    ogImage: compassStage,
     jsonLd: itemListJsonLd,
   });
 
@@ -509,7 +509,7 @@ export default function SpeakingWorkshopTopics() {
         intro="Every topic below can show up as a 60-minute keynote, an interactive workshop, or both. Speaking ignites the spark. The workshop turns it into action and lasting change."
         action={{ label: "Meet Our Speakers", to: "/speaking" }}
         secondary={{ label: "Inquire About a Topic", to: "/contact?interest=speaking&message=I'm interested in one of your speaking or workshop topics." }}
-        image={emptyStage}
+        image={compassStage}
         imageAlt="An empty stage with a teal podium in front of wooden panels painted gold, raspberry, purple, cobalt and lime"
         ghost="T"
       />
