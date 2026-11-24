@@ -1,7 +1,6 @@
 import { Check } from "lucide-react";
 import lanternPath from "@/assets/heroes/approach-hero.jpg";
 import stoa from "@/assets/v3/embody-colorful-loom.webp";
-import pergola from "@/assets/v3/embody-round-table.webp";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
 import { StickyMedia } from "@/components/v3/Motion";
 import { ShIFt } from "@/components/v3/ShIFt";
@@ -174,11 +173,6 @@ export default function EmbodyShift() {
         }
         to={clarityCallSectionHref("embody")}
         label="Start with a Clarity Call"
-        image={pergola}
-        photoProfile="cta-photo-charcoal cta-photo-bright"
-        imageAlt="A round porch table set with coffee and notebooks, circled by chairs painted different colors"
-        imageWidth={1536}
-        imageHeight={1024}
         secondary={
           <>
             Not sure where to begin?{" "}
