@@ -5,7 +5,6 @@ import { Flame, Mic, Heart } from "lucide-react";
 import ClientLogoMarquee, { type LogoItem } from "@/components/pps/ClientLogoMarquee";
 import { PageHero } from "@/components/v3/Bits";
 import { ShIFt } from "@/components/v3/ShIFt";
-import speakingHero from "@/assets/heroes/speaking-hero.jpg";
 import stoneStack from "@/assets/v3/speaking-stone-sculpture.webp";
 import amyPhoto from "@/assets/team/amy-speaking-portrait.jpg";
 import robPhoto from "@/assets/team/rob-hunter.jpg";
@@ -87,7 +86,7 @@ export default function Speaking() {
   useDocumentSeo({
     title: "Speaking | Book Amy, Rob & Sierra | Painted Porch Strategies",
     description: "Three dynamic speakers. One Stoic mission. Book Amy, Rob, and Sierra for keynotes and workshops on change, leadership, and epic shIFt.",
-    ogImage: speakingHero,
+    ogImage: stoneStack,
   });
   return (
     <div>
@@ -101,25 +100,14 @@ export default function Speaking() {
         }
         intro="Our talks blend motivation with grounded, practical activation. We partner with leaders and teams who have decided to architect change, communicate with clarity, and build the capability and mindset to carry what comes next."
         action={{ label: "Contact Us", to: "/contact?interest=speaking&message=I'm interested in booking a speaker for our event." }}
-        // Shared for now with Speaking Topics, Press and Press Kit; a speaker reel collage will replace it.
-        image={speakingHero}
-        imageAlt="A speaker at a podium on a stage of painted panels under teal, purple and gold spotlights, facing an audience"
+        // Painted stones moved up from the Stoicism strip for now (PPS Admin, 2026-11-24).
+        image={stoneStack}
+        imageAlt="Painted stones balanced one on another on a porch rail at sunset"
         ghost="S"
       />
 
       {/* Philosophy Strip */}
       <section className="relative py-16 md:py-20 bg-navy/90 overflow-hidden">
-        {/* Painted stones balanced one on another, for Stoic grounding (PPS Admin, 2026-11-24).
-            Replaces the old Unsplash background so this page loads only its own files. */}
-        <img
-          src={stoneStack}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover opacity-25"
-          width={1536}
-          height={1024}
-          loading="lazy"
-        />
         <div className="container max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Grounded in Stoicism. Built for Change.
