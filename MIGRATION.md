@@ -5,14 +5,21 @@ removes the "what if this happens again" anxiety.
 
 **Audience:** You (Amy), or any future dev. Plain English, every command spelled out.
 
+> **25 Nov 2026:** the one-click move tools from May 2026 (Migrate, Restore Wizard,
+> Integrity Check, Secrets Handoff, Migration Checklist, and the `migrate-import` /
+> `migrate-export` functions) were removed from the admin area. PPS Admin: "Yes, remove
+> them in one PR". This manual runbook is now the recovery path. If you ever want the old
+> tools back, they are in git history: `main` at `2d47a60a` is the last commit that has them.
+> The integration checks from Secrets Handoff moved to `/admin/integrations`.
+
 ---
 
 ## What you're keeping vs. rebuilding
 
 | Thing | Status in migration |
 |---|---|
-| Database tables + rows | ✅ Exported via `/admin/backups` zip |
-| Storage files (blog images, videos, email assets) | ✅ Now included as binaries inside the zip under `storage/<bucket>/...` (files >75MB listed in `skipped_large_files` for manual fetch) |
+| Database tables + rows | ✅ In every backup; "Prepare restore zip" on `/admin/backups` bundles them as `json/<table>.json` |
+| Storage files (blog images, videos, email assets) | ⚠️ Each full backup copies them into its folder in the private `backups` bucket (`<backup folder>/storage/<bucket>/...`). The downloadable restore zip lists them (`storage-manifest.json`) but leaves the files out |
 | Auth users (passwords) | ❌ Cannot be exported. Team gets re-invited. |
 | Edge Functions code | ✅ Already in repo (`supabase/functions/`) — redeploys cleanly |
 | RLS policies + DB functions | ✅ Already in repo (`supabase/migrations/`) — runs cleanly on a fresh project |
@@ -26,9 +33,12 @@ and a handful of secrets need human re-entry.
 
 ## Phase 0 — Before you start (do this once, today)
 
-1. Go to `/admin/backups`, click **Run Backup Now**.
-2. Click the download icon on the new row → save the `.zip` somewhere safe.
-3. Open the zip and confirm you see `csv/`, `json/`, `storage-manifest.json`, `lovable-snapshot.json`, and `README.txt`.
+1. Go to `/admin/backups`, click **Run Backup Now** (backups also run on their own every
+   Sunday and on the 1st of each month).
+2. Click **Prepare restore zip**, then save the `.zip` somewhere safe.
+3. Open the zip and confirm you see `json/`, `auth-users.json`, `lovable-snapshot.json`,
+   `storage-manifest.json`, `schema.sql`, `config.sql`, `auth-config.md`,
+   `secrets-checklist.md` and `README.txt`.
 
 That's it. You now have a recoverable copy. You can stop here.
 
@@ -112,6 +122,12 @@ This creates every table, RLS policy, function, trigger, and the
 If `db push` complains about `pgmq` or `pg_cron`, enable them once in the
 Supabase Dashboard → Database → Extensions, then re-run.
 
+Note: some of the site's database changes live in `drizzle/migrations/` (Lovable's own
+folder, PPS-DEC-0029), which `supabase db push` does not run. Whether the two folders
+together rebuild the full schema has not been tested `[TBD]`. The restore zip's `schema.sql`
+is a dump of the live schema taken at backup time; run it in the SQL editor if `db push`
+leaves tables or functions missing.
+
 ---
 
 ## Phase 3 — Restore your data (~30 min)
@@ -122,11 +138,12 @@ From the backup zip:
 unzip pps-backup-manual-*.zip -d backup/
 ```
 
-Then for each table, import the JSON file. Easiest path: Supabase Dashboard
-→ Table Editor → pick table → "Insert" → "Import data from CSV" and upload
-the matching `csv/<table>.csv`.
+Each table is in the zip as `json/<table>.json`. The zip has no CSV files, so either
+convert each JSON file to CSV first and use Supabase Dashboard → Table Editor → pick table
+→ "Insert" → "Import data from CSV", or load the JSON with a short script. No tested
+import script exists in this repo `[GAP]`.
 
-Or, scripted with `psql` (faster for big tables):
+If you have converted to CSV, `psql` is faster for big tables:
 
 ```bash
 export PGURL="postgresql://postgres:<DB_PASSWORD>@db.<NEW_REF>.supabase.co:5432/postgres"
@@ -147,11 +164,13 @@ will repopulate on their own.)
 
 ## Phase 4 — Re-upload storage files (~1 hr, mostly waiting)
 
-The backup contains a **manifest** (`storage-manifest.json`) listing every
-file in every bucket — names, sizes, paths — but **not the binaries**
-(those would balloon the zip past 1 GB).
+The restore zip contains a **manifest** (`storage-manifest.json`) listing every
+file in every bucket — names, sizes, paths — but **not the files themselves**
+(about 950 MB on 25 Nov 2026). Each full backup also copies the files into its
+folder in the private `backups` bucket, under `storage/<bucket>/...`; download them
+from there while the old project is still reachable.
 
-You re-upload from your originals:
+Then re-upload them:
 
 1. In the new Supabase Dashboard → Storage, create the four buckets:
    - `blog-images` (public)
@@ -164,6 +183,7 @@ You re-upload from your originals:
    for help if needed.
 3. For site videos: same approach. The `/admin/videos` page lets you
    re-add them via "Migrate from URL" once the new project is connected.
+4. Run the checks on `/admin/integrations` once the secrets in Phase 5 are in.
 
 ---
 

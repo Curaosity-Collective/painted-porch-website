@@ -1,0 +1,21 @@
+-- Status: Pending
+--
+-- Retire admin_apply_sql, the raw-SQL runner built for the May 2026 move to this project.
+--
+-- Why: PPS Admin, 2026-11-25, approving removal of the May migration tooling from the admin
+-- area: "Yes, remove them in one PR". Its only caller was the migrate-import edge function
+-- (the Restore Wizard and Migrate pages), which this change also removes. A function whose
+-- whole job is EXECUTE of caller-supplied text should not outlive the move it was built for.
+--
+-- What it does: drops public.admin_apply_sql(text). Nothing else.
+--
+-- What it keeps: admin_dump_schema(), admin_dump_config() and admin_schema_object_counts().
+-- The Backups page still uses the first two (auto-backup: "Prepare restore zip" and the
+-- schema export), so they stay.
+--
+-- Effects to expect: none on the live site. Execute on admin_apply_sql was already revoked
+-- from anon and authenticated (migrations 20260505045027 and 20260506020438), and its own
+-- is_admin(auth.uid()) check fails when the service role calls it, so it was not reachable
+-- in practice. Dropping it removes the code, not a live path. Safe to run twice.
+
+DROP FUNCTION IF EXISTS public.admin_apply_sql(text);

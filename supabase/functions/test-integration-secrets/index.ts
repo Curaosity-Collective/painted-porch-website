@@ -1,7 +1,6 @@
 // Admin-only liveness probes for third-party integration secrets.
 // Each probe makes a single low-cost read call so we can confirm credentials work
-// in the CURRENT project. Run from /admin/secrets-handoff to validate the
-// migration end-to-end.
+// in the CURRENT project. Run from /admin/integrations (Integration Health).
 
 import { createClient } from "npm:@supabase/supabase-js@2.57.2";
 import { classifyLovableAiCatalog } from "../_shared/lovable-ai-health.ts";

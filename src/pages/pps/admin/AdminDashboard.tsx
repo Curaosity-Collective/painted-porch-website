@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
-import { FileText, Mic, Users, Youtube, ToggleLeft, Database, PackageOpen, Mail, Receipt, Rocket, Shield } from "lucide-react";
+import { FileText, Mic, Users, Youtube, ToggleLeft, Database, Mail, Receipt, Rocket, Shield } from "lucide-react";
 
 interface Stats {
   posts: number;
@@ -40,7 +40,6 @@ export default function AdminDashboard() {
     { title: "Users", count: stats.users, icon: Users, href: "/admin/users", description: "Manage team accounts and roles" },
     { title: "Page Status", count: 0, icon: ToggleLeft, href: "/admin/pages", description: "Mark pages as Live or Draft" },
     { title: "Backups", count: 0, icon: Database, href: "/admin/backups", description: "View history and run backups now" },
-    { title: "Migrate", count: 0, icon: PackageOpen, href: "/admin/migrate", description: "Export everything for a remix or import into a new project" },
     { title: "Site Emails", count: 0, icon: Mail, href: "/admin/emails", description: "Preview, test, and view source for every system email" },
     { title: "Refund Requests", count: 0, icon: Receipt, href: "/admin/refunds", description: "Review refund requests and notify customers" },
     { title: "Program Launches", count: 0, icon: Rocket, href: "/admin/course-launches", description: "Flip programs Live and notify the launch list" },
