@@ -86,3 +86,4 @@
 - [ ] Wire the drafted compass-screen Topics hero (topics-keynote-compass-screen.jpg in Files) once approved, keeping one image per page.
 - [x] Give the Press Kit its own pictures (PPS Admin, 2026-11-24: "Lets update thr image on the press pages too"): the interview scene of a vintage microphone, open notebook and reel-to-reel recorder on the painted porch rail opens the page, two painted chairs around a microphone with papers close it, and the social sharing picture is redrawn from the new scene; the old stage photo stays on the brand library only. hero-media, share-image-alt, press-kit and copy-voice checks (297) passed; hero and closing band verified on desktop and 360×598 phone with no overflow. Needs publishing.
 - [x] Logo-order IF blend on every non-problem IF (heroes, menu, closing sections) and the E P I C letters; problem IFs stay raspberry (PPS Admin, 2026-11-24)
+- [x] Audit which recent changes were overwritten by the backup merge
