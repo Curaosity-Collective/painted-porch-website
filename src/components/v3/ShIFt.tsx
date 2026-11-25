@@ -1,6 +1,8 @@
 /**
- * The ShIFt wordmark. Its "IF" carries the logo-order brand blend (PPS Admin, 2026-11-24);
- * with `problem` it stays bold Raspberry (PPS-DEC-0022, item 6):
+ * The ShIFt wordmark. Its "IF" carries the logo-order brand blend (PPS Admin, 2026-11-24).
+ * As a brand name the blend is exempt from contrast minimums (WCAG 2.2 SC 1.4.3; PPS Admin,
+ * 2026-11-25: "How the font shows now is what's approved"; PPS-DEC-0022 item 6).
+ * With `problem` it stays bold Raspberry (PPS-DEC-0022, item 6):
  *
  * - on light backgrounds: Raspberry (#DB0043)
  * - on dark backgrounds: a lighter raspberry so it stays readable. The light

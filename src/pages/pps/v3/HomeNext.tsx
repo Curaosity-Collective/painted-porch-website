@@ -216,8 +216,10 @@ export default function HomeNext() {
         {/* The photo runs at full daylight. Only the text side carries a shade, so the bright columns on the
             right stay as lit as the photo itself (PPS Admin, 2026-11-10: brighten the hero, keep an overlay
             behind the text so it stands out). On phones the shade travels with the text block, below.
-            The text-side shade is as light as it can be while the raspberry IF keeps 3:1 contrast on every
-            screen in e2e/home-hero-fit.spec.ts (weakest: 3.25:1 on iPhone SE, 20 Nov 2026). */}
+            The text-side shade was set on 20 Nov 2026 as light as it could be while the IF, then solid bright
+            raspberry, kept 3:1 on every screen in e2e/home-hero-fit.spec.ts (weakest: 3.25:1 on iPhone SE). Since
+            25 Nov the IF's blend is exempt as a brand name (PPS-DEC-0022 item 6); the test still holds the
+            other hero text to its minimums. */}
         <div
           aria-hidden="true"
           className="absolute inset-0 hidden md:block"
@@ -245,8 +247,7 @@ export default function HomeNext() {
                 out at its edges, so the pillars around the text stay bright (PPS Admin, 2026-11-07: "JUST darken
                 the area behind the text as a gradient"; "Too much of the pillars get hidden if its too dark"; then,
                 choosing between the mock-ups, "I like the option that includes the side shade"). It keeps the
-                bright IF at 3:1 or better over the photo, as PPS-DEC-0022 item 6 requires, without changing the
-                IF's color. It reaches past the left edge of the screen and 80px above the eyebrow, so the text
+                hero text readable over the photo without changing its colors. It reaches past the left edge of the screen and 80px above the eyebrow, so the text
                 box doesn't read as starting at the eyebrow's top edge (PPS Admin, 2026-11-24). */}
             <div
               aria-hidden="true"

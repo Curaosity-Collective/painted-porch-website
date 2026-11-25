@@ -32,8 +32,11 @@
   /* Footer teal restored (PPS Admin, 2026-11-24: "I don't like that the footer is no longer teal"). */
   --v3-footer-background: 187 100% 18%;
   /* Footer-only static trial: a top-to-bottom blend across more brand colors.
-     Each stop keeps just enough of its brand color to clear 4.5:1 on the teal
-     (color-mix keeps the first share, so a lower number means more white).
+     color-mix keeps the first share, so a lower number means more white. On the
+     footer teal the teal, lime, gold and blue stops clear 4.5:1; the raspberry and
+     purple measure about 2.1:1 and 1.9:1 (25 Nov 2026). The IF is exempt from
+     contrast minimums as a brand name (WCAG 2.2 SC 1.4.3, PPS-DEC-0022 item 6; PPS
+     Admin, 2026-11-25: "How the font shows now is what's approved").
      Lime appears twice, once mid-blend and once at the base (PPS Admin, 2026-11-24). */
   --v3-footer-if-blend: linear-gradient(
     100deg,
