@@ -4,7 +4,8 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [main]
+    # Lovable sync branches too: their checks gate the automatic merge (lovable-sync.yml).
+    branches: [main, "lovable-sync", "lovable-sync-*"]
 
 env:
   VITE_SUPABASE_URL: "https://dkpxjivoupqpmvzwxpef.supabase.co"
