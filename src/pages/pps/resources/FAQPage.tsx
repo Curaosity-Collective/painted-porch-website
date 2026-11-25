@@ -107,7 +107,7 @@ const sitewideFaqCategories: FAQCategory[] = [
         answer: (
           <>
             They partner with you across the P.A.T.H. <FaqLink to="/envision-shift">Envision ShIFt</FaqLink> (Prepare) is
-            the Epic ShIFt Organizational Appraisal: an honest read of what your organization is ready to carry.{" "}
+            the Organizational Appraisal: an honest read of what your organization is ready to carry.{" "}
             <FaqLink to="/architect-shift">Architect ShIFt</FaqLink> (Align) authors the direction with your leaders and
             fortifies the pillars that need to hold first. <FaqLink to="/embody-shift">Embody ShIFt</FaqLink> (Take Off and
             Create Habits) is ongoing advisory while your organization designs and leads the change.
@@ -115,7 +115,7 @@ const sitewideFaqCategories: FAQCategory[] = [
         ),
       },
       {
-        question: "What's the Epic ShIFt Organizational Appraisal, and what's the P.A.T.H. Compass?",
+        question: "What's the Organizational Appraisal, and what's the P.A.T.H. Compass?",
         answer: (
           <>
             The appraisal is an interview-led organizational 360: six interviews, three with executives and three with people
@@ -159,7 +159,7 @@ const sitewideFaqCategories: FAQCategory[] = [
     name: "Team Workshops & Leadership Labs",
     faqs: [
       {
-        question: "Do we need the Epic ShIFt Organizational Appraisal before a workshop?",
+        question: "Do we need the Organizational Appraisal before a workshop?",
         answer: (
           <>
             Not for most. <FaqLink to="/workshops">Leadership and team development workshops</FaqLink> stand on their own, though some teams find
@@ -169,7 +169,7 @@ const sitewideFaqCategories: FAQCategory[] = [
       },
       {
         question: "Can we start with a workshop and go deeper later?",
-        answer: "Absolutely. Many teams start with a workshop to see how we work together, then go deeper with the Epic ShIFt Organizational Appraisal and Architect ShIFt when the work surfaces something more structural.",
+        answer: "Absolutely. Many teams start with a workshop to see how we work together, then go deeper with the Organizational Appraisal and Architect ShIFt when the work surfaces something more structural.",
       },
       {
         question: "What if our team is spread out geographically?",

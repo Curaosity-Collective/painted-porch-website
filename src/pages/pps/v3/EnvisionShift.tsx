@@ -16,7 +16,7 @@ import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { getSiteUrl } from "@/lib/site-url";
 
 /*
- * Envision ShIFt — the Epic ShIFt Organizational Appraisal (PPS-DEC-0018).
+ * Envision ShIFt — the Organizational Appraisal (PPS-DEC-0018).
  * Ported from pps-simplified src/routes/envision-shift.tsx. This is the page
  * every retired Blue Door link now lands on (PPS-DEC-0017).
  *
@@ -28,7 +28,7 @@ import { getSiteUrl } from "@/lib/site-url";
  *   page is brought over (plan Phase 2).
  */
 
-const TITLE = "The Epic ShIFt Organizational Appraisal";
+const TITLE = "The Organizational Appraisal";
 const DESCRIPTION =
   "Six interviews, from executives to the frontline, inform your P.A.T.H. Compass and recommended next step. Investment: $24,000.";
 
@@ -157,7 +157,7 @@ export default function EnvisionShift() {
             </h2>
             <Prose>
               <p>
-                The Epic <ShIFt /> Organizational Appraisal is an interview-led organizational 360. We conduct six interviews across your organization: three with executives and three with people from mid-level through the frontline. Together they show your current organizational architecture: the leadership and culture, the systems and workflows, and the human capacity underneath them.
+                The Organizational Appraisal is an interview-led organizational 360. We conduct six interviews across your organization: three with executives and three with people from mid-level through the frontline. Together they show your current organizational architecture: the leadership and culture, the systems and workflows, and the human capacity underneath them.
               </p>
               <EvidenceNote
                 emphasis="88%"
@@ -302,7 +302,7 @@ export default function EnvisionShift() {
             </h3>
             <p className="text-body mt-3 text-foreground">
               Explore the industry-benchmarked cost of misaligned change for your team size, focus, and timeline,
-              and what early clarity from the Epic ShIFt Organizational Appraisal could save.
+              and what early clarity from the Organizational Appraisal could save.
             </p>
             <div className="mt-6">
               <CostCalculatorDialog
@@ -324,7 +324,7 @@ export default function EnvisionShift() {
         title="Ready to Begin?"
         body={
           <>
-            The Epic <ShIFt onDark /> Organizational Appraisal begins with a Clarity Call. Start there, and the appraisal
+            The Organizational Appraisal begins with a Clarity Call. Start there, and the appraisal
             becomes your natural next step.
           </>
         }

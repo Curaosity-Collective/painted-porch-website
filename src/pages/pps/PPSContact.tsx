@@ -20,7 +20,8 @@ const allInterestOptions = [
   { value: "assessments", label: "Assessments" },
   { value: "self-paced", label: "Self-Paced Learning" },
   { value: "leadership-lab", label: "Leadership Lab" },
-  { value: "blue-door", label: "Clarity Call / Epic ShIFt Organizational Appraisal" },
+  { value: "Clarity Call", label: "Clarity Call" },
+  { value: "blue-door", label: "Organizational Appraisal" },
   { value: "workshops", label: "Team Workshops" },
   { value: "strategic-partnership", label: "Strategic Partnership" },
   { value: "organizational-advisory", label: "Organizational Advisory" },
@@ -32,6 +33,7 @@ const allInterestOptions = [
 // Options hidden when "Yourself" is selected in scope
 const hiddenForYourself = new Set([
   "workshops",
+  "Clarity Call",
   "blue-door",
   "strategic-partnership",
   "organizational-advisory",
@@ -272,7 +274,7 @@ export default function PPSContact() {
                 Drop Us a Line
               </h2>
               <p className="text-body text-muted-foreground">
-                Send us a note below, and we'll start a conversation on the porch.
+                Choose a Clarity Call, an Organizational Appraisal, or another interest below, and we'll start a conversation on the porch.
               </p>
             </div>
 

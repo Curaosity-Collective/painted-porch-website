@@ -72,17 +72,17 @@ describe("hero videos and closing photos", () => {
   it("darkens the closing bands that would otherwise run into the teal footer with the charcoal wash", () => {
     // Architect too: its burgundy wash left the light-raspberry IF under AA.
     // About joined on 2026-11-07 with the blue door; the homepage's band is not a photo band.
-    // Embody's band has had no photo since 2026-11-24 (PPS Admin: "No I dont want that table").
-    expect(closingPhoto(source("EmbodyShift"))).toBeNull();
-    for (const page of ["AboutNext", "EnvisionShift", "ArchitectShift", "ThePath", "PhaseZeroNext", "ResultsImpact", "ForIndividuals"]) {
+    // Embody's table was removed (PPS Admin, 2026-11-24: "No I dont want that table"); the painted columns replaced it.
+    expect(closingPhoto(source("EmbodyShift"))).toBe("@/assets/v3/embody-painted-columns-porch.webp");
+    for (const page of ["EmbodyShift", "AboutNext", "EnvisionShift", "ArchitectShift", "ThePath", "PhaseZeroNext", "ResultsImpact", "ForIndividuals"]) {
       const band = source(page).slice(source(page).lastIndexOf("<CTABand"));
       expect(band, page).toMatch(/photoProfile="cta-photo-charcoal\b/);
     }
   });
 
-  it("closes About with the blue door, and shows Rob centred at his desk on its team card (PPS Admin, 2026-11-07)", () => {
+  it("closes About with the clarity lens (PPS Admin, 2026-11-24), and shows Rob centred at his desk on its team card (PPS Admin, 2026-11-07)", () => {
     const about = source("AboutNext");
-    expect(closingPhoto(about)).toBe("@/assets/v3/blue-door.jpg");
+    expect(closingPhoto(about)).toBe("@/assets/v3/about-clarity-lens.webp.asset.json");
     expect(assetOf(about, "robPhoto")).toBe("@/assets/team/rob-hunter-desk.jpg");
   });
 
@@ -114,9 +114,12 @@ describe("hero videos and closing photos", () => {
     // Contact: its own photo of porch chairs (PPS Admin, 2026-11-07). The stage photo is shared, for now, by the
     // speaking pages and the Press Kit. (The Press page was retired on 2026-11-08: /press now redirects to the Press Kit.)
     expect(read("pages/pps/PPSContact.tsx")).toMatch(/image=\{contactHero\}/);
-    for (const page of ["Speaking", "SpeakingWorkshopTopics", "PressKit"]) {
-      expect(read(`pages/pps/${page}.tsx`), page).toMatch(/image=\{speakingHero\}/);
-    }
+    // 2026-11-24 (PPS Admin): Speaking opens on the colorful stage with the teal podium; the painted
+    // stones are held unused. Topics keeps the same stage only until its compass-screen hero is approved.
+    // The Press Kit left the shared stage photo for its own interview scene (PPS-DEC-0023).
+    expect(read("pages/pps/PressKit.tsx")).toMatch(/image=\{pressMicNotebook\.url\}/);
+    expect(read("pages/pps/Speaking.tsx")).toMatch(/image=\{emptyStage\}/);
+    expect(read("pages/pps/SpeakingWorkshopTopics.tsx")).toMatch(/image=\{compassStage\}/);
   });
 
   it("doesn't show a hero scene twice: no page's video poster is used on another page", () => {

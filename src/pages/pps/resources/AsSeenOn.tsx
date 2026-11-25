@@ -1,8 +1,10 @@
 import { useState, useMemo, useEffect } from "react";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { buildMediaAppearanceSchema, serializeMediaAppearanceSchema, MEDIA_PAGE_URL, mediaAppearancePath, type MediaSeoRecord } from "@/lib/media-appearance-seo.mjs";
-import { PageHero } from "@/components/v3/Bits";
+import { CTABand, PageHero } from "@/components/v3/Bits";
+import { ShIFt } from "@/components/v3/ShIFt";
 import asSeenOnHero from "@/assets/heroes/as-seen-on-hero.jpg";
+import asSeenOnDoor from "@/assets/v3/as-seen-on-open-door.webp";
 import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Mic, Radio, Newspaper, Video, MonitorPlay, Users, Search, X, ChevronLeft, ChevronRight, ChevronDown, ExternalLink } from "lucide-react";
@@ -535,22 +537,31 @@ export default function AsSeenOn() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 md:py-24 bg-gradient-strategic text-white">
-        <div className="container max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Organization?
-          </h2>
-          <p className="text-body text-white/90 mb-8 max-w-2xl mx-auto">
-            Hearing about transformation is inspiring. Making it happen requires partnership.
-          </p>
-          <Link to="/contact?scope=organization&interest=organizational-advisory&message=I'm interested in learning more after watching your media appearances.">
-            <Button className="bg-primary hover:bg-primary/90 text-white text-lg py-5 px-8">
-              Contact Us
-            </Button>
-          </Link>
-        </div>
-      </section>
+      {/* CTA: the painted porch door stands open, the next step is yours to pick (PPS Admin, 2026-11-24). */}
+      <CTABand
+        title={
+          <>
+            Ready to <ShIFt onDark large /> What You Become Next?
+          </>
+        }
+        body={
+          <>
+            You have heard the ideas. See which <ShIFt onDark lowercase /> fits where you are right now.
+          </>
+        }
+        to="/start-here"
+        label={
+          <>
+            Find Your Next <ShIFt onFill />
+          </>
+        }
+        image={asSeenOnDoor}
+        photoProfile="cta-photo-charcoal cta-photo-bright"
+        imageAlt="A painted porch with an open teal door glowing with warm light, steps painted teal, gold, raspberry and cobalt, and a small notebook on the top step"
+        imageWidth={1536}
+        imageHeight={1024}
+        tone="purple"
+      />
     </div>
   );
 }

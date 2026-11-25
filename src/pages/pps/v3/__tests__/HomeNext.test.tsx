@@ -55,7 +55,7 @@ describe("HomeNext (draft go-forward homepage)", () => {
     expect(h1s[0]).toHaveTextContent("Build an Organization That Can Do Epic ShIFt");
   });
 
-  it("styles every IF in shIFt: bold everywhere, raspberry except on solid fills", () => {
+  it("styles every IF in shIFt: bold everywhere, logo blend except on solid fills", () => {
     const { container } = renderHome();
     const ifSpans = Array.from(container.querySelectorAll("span")).filter((s) => s.textContent === "IF");
     const ifInText = (container.textContent ?? "").match(/IF/g) ?? [];
@@ -69,7 +69,7 @@ describe("HomeNext (draft go-forward homepage)", () => {
       if (onFill) {
         expect(span.className).not.toMatch(/text-(raspberry|berry)/);
       } else {
-        expect(span.className).toMatch(/text-(raspberry|raspberry-bright|berry-on-dark)\b/);
+        expect(span.className).toMatch(/if-blend(?:-light)?\b/);
       }
     }
   });

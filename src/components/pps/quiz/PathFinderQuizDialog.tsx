@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, Compass, Loader2, Mail, Mic, RotateCcw } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { ShIFt } from "@/components/v3/ShIFt";
 import { supabase } from "@/integrations/supabase/client";
 import { usePathFinderOverrides, usePathFinderRtPools } from "@/hooks/usePathFinderOverrides";
 import { PQ1, PQ2_B2C, B2C_QUESTIONS, ORG_PQ2, TEAM_BRANCH, CHANGE_BRANCH, CAP_BRANCH, STRATEGIC_BRANCH, buildResult, type Answers, type Question, type QuizResult, type Track, type Offering, leadWithLiveStart, START_TODAY_HEADING } from "@/data/pathFinderQuiz";
@@ -60,7 +61,7 @@ function BoldShiftName({ name }: { name: string }) {
   const [before, after] = name.split(match[0]);
   return (
     <>
-      {before}{match[1]}h<span className="font-bold">IF</span>t{after}
+      {before}<span className="whitespace-nowrap">{match[1]}h<span className="font-bold if-blend-light">IF</span>t</span>{after}
     </>
   );
 }
@@ -81,7 +82,7 @@ export function displayTier(tier: string): string {
 
 /** Links each mention of the appraisal in result copy to its admin-set URL. */
 function BlueDoorInlineLink({ text, href }: { text: string; href: string }) {
-  const phrase = "Epic ShIFt Organizational Appraisal";
+  const phrase = "Organizational Appraisal";
   const parts = text.split(phrase);
   if (parts.length === 1) return <>{text}</>;
   return (
@@ -432,7 +433,10 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
       : !!answers[current.id]
     : false;
 
-  const isLast = index === questions.length - 1;
+  // The path is only fully known once the opening question(s) that choose a
+  // branch are answered; until then there is always another question.
+  const pathKnown = track === "b2c" || (track === "b2b" && !!answers["OrgPQ2"]);
+  const isLast = pathKnown && index === questions.length - 1;
 
   const onNext = () => {
     if (!canAdvance) return;
@@ -497,7 +501,10 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
   };
 
   // --- progress ---
-  const progressPct = Math.min(100, Math.round(((index + (showResult ? 1 : 0)) / Math.max(questions.length, 1)) * 100));
+  // The guide branches, so the total isn't fixed. Show a bar only, using a
+  // typical length until the branch is chosen so it never jumps backwards.
+  const estimatedTotal = pathKnown ? questions.length : Math.max(questions.length + 1, 7);
+  const progressPct = Math.min(100, Math.round(((index + (showResult ? 1 : 0)) / Math.max(estimatedTotal, 1)) * 100));
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -505,7 +512,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
         <DialogHeader className="px-6 pt-6 pb-2">
           <DialogTitle className="font-poppins text-2xl text-navy flex items-center gap-2">
             <Compass className="w-6 h-6 text-primary" aria-hidden="true" />
-            {showResult ? "Your Next ShIFt: Where to Start" : "Find Your Next ShIFt"}
+            {showResult ? <>Your Next <ShIFt />: Where to Start</> : <>Find Your Next <ShIFt /></>}
           </DialogTitle>
           <DialogDescription className="text-foreground">
             {showResult ? "Your starting point and what's available when you're ready for more." : "About 3 minutes. You'll know exactly where to step onto the Porch."}
@@ -528,7 +535,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
         {!showResult && current && (
           <div className="px-6 pb-6">
             <p className="text-caption uppercase tracking-wider text-primary font-semibold mb-2" aria-live="polite">
-              Question {index + 1} of {questions.length}
+              {isLast ? "Last question" : `Question ${index + 1}`}
             </p>
             <h3 id={`pf-q-${current.id}`} className="font-poppins text-xl text-navy mb-1">{current.prompt}</h3>
             {current.helper && (
@@ -623,7 +630,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
                 </p>
                 <p className="text-[11px] italic text-foreground/70 mb-2">
                   Why: {result.strongestNextStep.kind === "blueDoor"
-                    ? "Your answers point to an organization-level question — not a training gap. The Epic ShIFt Organizational Appraisal is your best next step, and a Clarity Call is where it begins."
+                    ? "Your answers point to an organization-level question — not a training gap. The Organizational Appraisal is your best next step, and a Clarity Call is where it begins."
                     : `Your answers point most strongly to ${(result.headline || "this area").toLowerCase()} — and this is the tightest match.`}
                 </p>
                 {(result.strongestNextStep.offering as { isComingSoon?: boolean }).isComingSoon && (
@@ -724,7 +731,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
                 effectivePrimary = { ...result.primaryGroup, offerings: parallelSafe };
                 if (bdr.length > 0) {
                   bdrGroup = {
-                    heading: "Once the Epic ShIFt Organizational Appraisal Is Complete",
+                    heading: "Once the Organizational Appraisal Is Complete",
                     offerings: bdr,
                   };
                 }
@@ -788,9 +795,9 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
                 const h = heading.toLowerCase();
                 if (/\(launching soon\)/.test(h))
                   return "The program your answers point to. Join its launch list to hear first when it opens.";
-                if (/once the epic shift (organizational )?appraisal|once the blue door|after the blue door|after blue door/.test(h))
-                  return "These build on the Epic ShIFt Organizational Appraisal, so they can be sequenced to what it surfaces about your organization.";
-                if (/epic shift (organizational )?appraisal|blue.?door|deeper/.test(h))
+                if (/once the organizational appraisal|once the epic shift (organizational )?appraisal|once the blue door|after the blue door|after blue door/.test(h))
+                  return "These build on the Organizational Appraisal, so they can be sequenced to what it surfaces about your organization.";
+                if (/organizational appraisal|epic shift (organizational )?appraisal|blue.?door|deeper/.test(h))
                   return "The best next step toward any deeper, organization-wide engagement. It begins with a Clarity Call.";
                 if (/speaking|keynote/.test(h))
                   return `A bookable keynote on ${headlineLower}.`;

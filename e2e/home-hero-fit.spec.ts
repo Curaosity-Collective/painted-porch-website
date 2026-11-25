@@ -13,7 +13,7 @@ async function expectHeroTextOnFirstScreen(page: Page) {
   await page.goto("/");
   const hero = page.locator('section[aria-labelledby="home-hero-heading"]');
   const eyebrow = hero.getByText("Are You Built for What's Next?");
-  const lastLine = hero.getByRole("link", { name: /Or book a Clarity Call/ });
+  const lastLine = hero.getByText("A three-minute guide to where your journey begins.");
   await expect(lastLine).toBeVisible();
 
   const header = await page.getByTestId("site-header").boundingBox();
@@ -33,7 +33,7 @@ async function expectHeroTextOnFirstScreen(page: Page) {
  * shade, keeps it readable without darkening the rest of the photo (PPS Admin, 2026-11-07: "JUST darken the
  * area behind the text as a gradient", then "I like the option that includes the side shade").
  */
-const MINIMUM = { eyebrow: 4.5, headline: 3, IF: 3, paragraph: 4.5, caption: 4.5, link: 4.5 } as const;
+const MINIMUM = { eyebrow: 4.5, headline: 3, IF: 3, paragraph: 4.5, caption: 4.5 } as const;
 type Item = keyof typeof MINIMUM;
 
 async function heroTextContrast(page: Page) {
@@ -51,7 +51,6 @@ async function heroTextContrast(page: Page) {
       IF: h1.querySelector("span.font-bold")!,
       paragraph: h1.nextElementSibling!,
       caption: block.find((c) => c.querySelector("button"))!.querySelector("p")!,
-      link: block.find((c) => c.tagName === "A")!,
     };
     return Object.fromEntries(
       Object.entries(elements).map(([name, el]) => {

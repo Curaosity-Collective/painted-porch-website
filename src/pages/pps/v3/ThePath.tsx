@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Check } from "lucide-react";
 import colorfulPath from "@/assets/colorful-path.jpg";
-import pillarsOnBlueprint from "@/assets/embody-hero-option2.jpg";
+import interlockingFloor from "@/assets/v3/path-interlocking-floorboards.webp";
 import pathRoad from "@/assets/v3/path-to-shift-road.webp";
 import kineticMobile from "@/assets/v3/path-kinetic-mobile.webp";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
@@ -453,7 +453,7 @@ export default function ThePath() {
               Your P.A.T.H., in One Page
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-foreground">
-              The Epic <ShIFt /> Organizational Appraisal produces it: which stage your organization's actually
+              The Organizational Appraisal produces it: which stage your organization's actually
               on, what's blocking the next one, and the sequence that makes each hold. It's the map the
               rest of the journey is drawn from.
             </p>
@@ -465,10 +465,10 @@ export default function ThePath() {
           </div>
           <div className="lg:col-span-5">
             <img
-              src={pillarsOnBlueprint}
-              alt="Painted pillars in teal, purple, gold and lime rising from an architectural blueprint"
-              width={1920}
-              height={1080}
+              src={interlockingFloor}
+              alt="Painted porch floorboards in teal, gold, raspberry, purple and lime fitted together, with a map and brass compass"
+              width={1312}
+              height={1400}
               loading="lazy"
               className="h-72 w-full object-cover lg:h-96"
             />
