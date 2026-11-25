@@ -1,6 +1,6 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 import { BlobReader, BlobWriter, ZipWriter } from "https://deno.land/x/zipjs@v2.7.45/index.js";
-import { resolveCronSecret } from "../_shared/cron-secret.ts";
+import { getCronSecret } from "../_shared/cron-secret.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -11,8 +11,6 @@ const corsHeaders = {
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-// Vault first, BACKUP_CRON_SECRET as fallback: see _shared/cron-secret.ts.
-const CRON_SECRET = await resolveCronSecret(SUPABASE_URL, SERVICE_KEY);
 const AUTO_BACKUP_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/auto-backup`;
 
 const TABLES = [
@@ -123,9 +121,12 @@ function statePath(folder: string) {
   return `${folder}/__state.json`;
 }
 
-function isInternalRequest(req: Request) {
+// The cron token comes from Vault, looked up per request: see _shared/cron-secret.ts.
+async function isInternalRequest(req: Request) {
   const cronSecret = req.headers.get("x-cron-secret");
-  return !!CRON_SECRET && cronSecret === CRON_SECRET;
+  if (!cronSecret) return false;
+  const expected = await getCronSecret(SUPABASE_URL, SERVICE_KEY);
+  return !!expected && cronSecret === expected;
 }
 
 function makeFolderName(kind: string, isRetry: boolean) {
@@ -589,12 +590,15 @@ async function copyStorageObject(
 }
 
 async function scheduleProcess(runId: string) {
-  if (!CRON_SECRET) throw new Error("BACKUP_CRON_SECRET is required for backup scheduling");
+  const cronSecret = await getCronSecret(SUPABASE_URL, SERVICE_KEY);
+  if (!cronSecret) {
+    throw new Error("Backup scheduling needs the cron token: Vault backup_cron_secret, or BACKUP_CRON_SECRET");
+  }
   const response = await fetch(AUTO_BACKUP_FUNCTION_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "x-cron-secret": CRON_SECRET,
+      "x-cron-secret": cronSecret,
     },
     body: JSON.stringify({ action: "process", run_id: runId }),
   });
@@ -1133,7 +1137,7 @@ function buildAuthConfigNotes(): string {
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
   const url = new URL(req.url);
-  const internalRequest = isInternalRequest(req);
+  const internalRequest = await isInternalRequest(req);
 
   try {
     let action = url.searchParams.get("action") ?? "";

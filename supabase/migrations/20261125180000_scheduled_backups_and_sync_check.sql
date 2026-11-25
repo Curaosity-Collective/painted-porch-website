@@ -1,4 +1,4 @@
--- Status: Pending
+-- Status: Applied 2026-11-25 via Lovable database connector, run by a Claude session because Lovable's chat agent may not touch Vault. PPS Admin approved this route: "Yes to both, apply it and add the guard". Read-only check after: 4 active jobs, 1 Vault entry, RPC callable by service_role only.
 --
 -- Schedule the automatic backups and repair the daily GitHub sync check.
 --
