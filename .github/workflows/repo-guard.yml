@@ -62,6 +62,38 @@ jobs:
           BASE_REF: ${{ github.ref != 'refs/heads/main' && format('origin/{0}', github.base_ref || 'main') || '' }}
         run: node scripts/check-migrations.mjs
 
+  lovable-sync-first:
+    # Edits made in the Lovable editor go live from Lovable's own copy and reach this
+    # repo on lovable-sync-* branches. A pull request merged ahead of them makes main
+    # older than the live site, and Lovable then takes that older main (25 Nov 2026,
+    # PR #69). PPS Admin, 2026-11-25: "Merge Lovable's pending sync into main first,
+    # now and before any future merge, so main always matches the live editor".
+    name: Lovable edits are on main first
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fail while the newest Lovable sync has commits this merge lacks
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --quiet origin '+refs/heads/lovable-sync-*:refs/remotes/origin/lovable-sync-*'
+          newest=$(git for-each-ref --sort=-committerdate --count=1 --format='%(refname:short)' 'refs/remotes/origin/lovable-sync-*')
+          if [ -z "$newest" ]; then
+            echo "No lovable-sync-* branch exists; nothing from Lovable is waiting."
+            exit 0
+          fi
+          missing=$(git rev-list --count "HEAD..${newest}")
+          if [ "$missing" != "0" ]; then
+            echo "::error title=Lovable edits not on main::${newest} has ${missing} commit(s) that this merge would leave out. Merge that branch's pull request into main first, then update this branch from main and re-run this check."
+            git log --oneline --max-count=20 "HEAD..${newest}"
+            exit 1
+          fi
+          echo "${newest} is fully contained in this merge."
+
   main-pr-audit:
     name: Verify main changes came through a PR
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'

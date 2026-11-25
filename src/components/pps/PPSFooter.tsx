@@ -9,7 +9,7 @@ export default function PPSFooter() {
 
   const quickLinks = [
     { label: "About Us", href: "/about" },
-    { label: "Epic ShIFt Organizational Appraisal", href: "/envision-shift" },
+    { label: "Organizational Appraisal", href: "/envision-shift" },
     { label: "Partner with Us", href: "/partner" },
     { label: "Insights & Resources", href: "/resources" },
     { label: "Speaking", href: "/speaking" },
@@ -151,7 +151,7 @@ export default function PPSFooter() {
         {/* Charity Note */}
         <div className="mt-6 pt-6 text-center">
           <h4 className="text-ui-label font-poppins font-bold text-lime mb-1">
-            Let's Do Good Sh<span className="text-red-500 font-bold">IF</span>t
+            Let's Do Good <span className="whitespace-nowrap">Sh<span className="text-red-500 font-bold">IF</span>t</span>
           </h4>
           <p className="text-body-sm text-white/80">
             To do <em>well</em>, we must also do <em>good</em>.{" "}

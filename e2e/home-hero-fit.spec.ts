@@ -13,7 +13,7 @@ async function expectHeroTextOnFirstScreen(page: Page) {
   await page.goto("/");
   const hero = page.locator('section[aria-labelledby="home-hero-heading"]');
   const eyebrow = hero.getByText("Are You Built for What's Next?");
-  const lastLine = hero.getByRole("link", { name: /Or book a Clarity Call/ });
+  const lastLine = hero.getByText("A three-minute guide to where your journey begins.");
   await expect(lastLine).toBeVisible();
 
   const header = await page.getByTestId("site-header").boundingBox();
@@ -28,12 +28,17 @@ async function expectHeroTextOnFirstScreen(page: Page) {
 
 /**
  * WCAG contrast of each line of hero text against the photo behind it: the text is hidden, and its color is
- * compared with the brightest 2% of the pixels where it sits. The IF stays its bright raspberry over the photo
- * (PPS-DEC-0022 item 6, 3:1 for a large heading); a soft shade behind the text block, on top of the light side
- * shade, keeps it readable without darkening the rest of the photo (PPS Admin, 2026-11-07: "JUST darken the
- * area behind the text as a gradient", then "I like the option that includes the side shade").
+ * compared with the brightest 2% of the pixels where it sits. A soft shade behind the text block, on top of the
+ * light side shade, keeps it readable without darkening the rest of the photo (PPS Admin, 2026-11-07: "JUST
+ * darken the area behind the text as a gradient", then "I like the option that includes the side shade").
+ *
+ * The IF in ShIFt is not held to a minimum: it is the ShIFt wordmark, and WCAG 2.2 SC 1.4.3 says "Text that is
+ * part of a logo or brand name has no contrast requirement" (PPS-DEC-0022 item 6). PPS Admin, 2026-11-25, of its
+ * logo-order blend: "How the font shows now is what's approved", then choosing the brand-name exception ("A").
+ * Measured that day over the photo, the blend's teal, lime, gold and blue cleared 5.8:1 and its raspberry and
+ * purple 2.4-3.4:1. The exemption covers that wordmark only; the check below fails if it would cover anything else.
  */
-const MINIMUM = { eyebrow: 4.5, headline: 3, IF: 3, paragraph: 4.5, caption: 4.5, link: 4.5 } as const;
+const MINIMUM = { eyebrow: 4.5, headline: 3, paragraph: 4.5, caption: 4.5 } as const;
 type Item = keyof typeof MINIMUM;
 
 async function heroTextContrast(page: Page) {
@@ -42,33 +47,54 @@ async function heroTextContrast(page: Page) {
   await expect(hero.getByRole("heading", { level: 1 })).toBeVisible();
   await hero.locator("img").first().evaluate((img: HTMLImageElement) => img.decode());
   await page.evaluate(() => document.fonts.ready);
+  // The only text in the headline with a color of its own is the IF of the ShIFt wordmark.
+  const ownColor = await hero.evaluate((section) =>
+    [...section.querySelectorAll("h1 *")]
+      .filter((el) => getComputedStyle(el).color !== getComputedStyle(section.querySelector("h1")!).color)
+      .map((el) => `${el.parentElement!.textContent}/${el.textContent}`),
+  );
+  expect(ownColor, "only the ShIFt wordmark's IF is exempt").toEqual(["ShIFt/IF"]);
   const items = await hero.evaluate((section) => {
     const h1 = section.querySelector("h1")!;
     const block = [...h1.parentElement!.children];
     const elements = {
       eyebrow: h1.previousElementSibling!,
       headline: h1,
-      IF: h1.querySelector("span.font-bold")!,
       paragraph: h1.nextElementSibling!,
       caption: block.find((c) => c.querySelector("button"))!.querySelector("p")!,
-      link: block.find((c) => c.tagName === "A")!,
+    };
+    const toRgb = (color: string) => {
+      const probe = document.createElement("span");
+      probe.style.color = color;
+      document.body.appendChild(probe);
+      const value = getComputedStyle(probe).color;
+      probe.remove();
+      const n = value.match(/[\d.]+/g)!.map(Number);
+      return value.startsWith("color(") ? n.slice(0, 3).map((v) => v * 255) : n.slice(0, 3);
+    };
+    // Text painted through a gradient (background-clip: text) has a transparent fill, so its CSS color says
+    // nothing about what is seen: each of the gradient's colors is measured instead, and the weakest counts.
+    const colorsOf = (el: Element) => {
+      const style = getComputedStyle(el);
+      const fill = style.webkitTextFillColor || style.color;
+      const stops = style.backgroundImage.match(/color\([^)]*\)|rgba?\([^)]*\)/g) ?? [];
+      return /^rgba\(0, 0, 0, 0\)$|^transparent$/.test(fill) && stops.length ? stops.map(toRgb) : [toRgb(style.color)];
     };
     return Object.fromEntries(
       Object.entries(elements).map(([name, el]) => {
         const r = el.getBoundingClientRect();
-        const rgb = getComputedStyle(el).color.match(/\d+/g)!.slice(0, 3).map(Number);
-        return [name, { x: r.x, y: r.y, width: r.width, height: r.height, rgb }];
+        return [name, { x: r.x, y: r.y, width: r.width, height: r.height, colors: colorsOf(el) }];
       }),
-    ) as Record<Item, { x: number; y: number; width: number; height: number; rgb: number[] }>;
+    ) as Record<Item, { x: number; y: number; width: number; height: number; colors: number[][] }>;
   });
   await page.addStyleTag({
     content: 'section[aria-labelledby="home-hero-heading"] :is(h1, p, a, button, span) { visibility: hidden !important; }',
   });
   const ratios = {} as Record<Item, number>;
-  for (const [name, { rgb, ...clip }] of Object.entries(items) as [Item, (typeof items)[Item]][]) {
+  for (const [name, { colors, ...clip }] of Object.entries(items) as [Item, (typeof items)[Item]][]) {
     const png = (await page.screenshot({ clip })).toString("base64");
     ratios[name] = await page.evaluate(
-      async ({ png, rgb }) => {
+      async ({ png, colors }) => {
         const img = new Image();
         img.src = `data:image/png;base64,${png}`;
         await img.decode();
@@ -84,10 +110,14 @@ async function heroTextContrast(page: Page) {
         for (let i = 0; i < px.length; i += 4) behind.push(lum(px[i], px[i + 1], px[i + 2]));
         behind.sort((a, b) => b - a);
         const bg = behind[Math.floor(behind.length * 0.02)];
-        const fg = lum(rgb[0], rgb[1], rgb[2]);
-        return (Math.max(fg, bg) + 0.05) / (Math.min(fg, bg) + 0.05);
+        return Math.min(
+          ...colors.map(([r, g, b]) => {
+            const fg = lum(r, g, b);
+            return (Math.max(fg, bg) + 0.05) / (Math.min(fg, bg) + 0.05);
+          }),
+        );
       },
-      { png, rgb },
+      { png, colors },
     );
   }
   return ratios;

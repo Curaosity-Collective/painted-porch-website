@@ -13,7 +13,7 @@ export default function AboutAmy() {
       seo={{
         title: "Amy Yackowski, Founder | Painted Porch Strategies",
         description:
-          "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, the Epic ShIFt Organizational Appraisal and her writing on change origination.",
+          "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, the Organizational Appraisal and her writing on change origination.",
         canonical: "/amy",
       }}
       photo={amyPhoto}
@@ -29,8 +29,8 @@ export default function AboutAmy() {
         { text: "Start with a Clarity Call", label: "Start with a Clarity Call", href: clarityCallSectionHref() },
         { text: "Book Amy to Speak", label: "Book Amy to Speak", href: "/speaking/amy" },
         {
-          text: "The Epic ShIFt Organizational Appraisal",
-          label: <>The Epic <ShIFt onFill /> Organizational Appraisal</>,
+          text: "The Organizational Appraisal",
+          label: <>The Organizational Appraisal</>,
           href: "/envision-shift",
         },
         {
@@ -43,8 +43,8 @@ export default function AboutAmy() {
       featured={[
         {
           kicker: "The First Step",
-          text: "The Epic ShIFt Organizational Appraisal",
-          title: <>The Epic <ShIFt /> Organizational Appraisal</>,
+          text: "The Organizational Appraisal",
+          title: <>The Organizational Appraisal</>,
           description: (
             <>
               An interview-led organizational 360 that appraises where your organization stands, and what{" "}

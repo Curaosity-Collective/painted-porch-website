@@ -33,11 +33,9 @@ describe("share image descriptions in the approved inventory", () => {
   });
 
   it("describes the same image the same way, and different images differently", () => {
-    // The press kit's share image is its own file but the same stage photo as Speaking
-    // (pixel difference 0.010 at 320x168, against 0.38 for a different photo such as About's).
-    const SAME_PHOTO: Record<string, string> = {
-      "public/images/press-kit-share.jpg": "src/assets/heroes/speaking-hero.jpg",
-    };
+    // The press kit now carries its own interview scene (PPS Admin, 2026-11-24), so no page
+    // shares another page's photo here; add a mapping if a share image is ever re-used.
+    const SAME_PHOTO: Record<string, string> = {};
     const altByPhoto = new Map<string, string>();
     for (const [path, page] of withImage) {
       const photo = SAME_PHOTO[page.imageSource!] ?? page.imageSource!;

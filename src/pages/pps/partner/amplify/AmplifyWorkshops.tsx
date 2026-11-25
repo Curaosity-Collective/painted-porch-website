@@ -26,8 +26,8 @@ const workshopFaqCategories: FAQCategory[] = [
     name: "Workshops",
     faqs: [
       {
-        question: "Do we need the Epic ShIFt Organizational Appraisal before a workshop?",
-        answer: "The Epic ShIFt Organizational Appraisal is the basis for every Phase Zero Strategic Workshop and for Architect ShIFt. Our Leadership & Team Development Workshops stand on their own, though the appraisal gives many teams insights that add valuable context.",
+        question: "Do we need the Organizational Appraisal before a workshop?",
+        answer: "The Organizational Appraisal is the basis for every Phase Zero Strategic Workshop and for Architect ShIFt. Our Leadership & Team Development Workshops stand on their own, though the appraisal gives many teams insights that add valuable context.",
       },
       {
         question: "Can we do a workshop first, then decide on Architect ShIFt?",
@@ -225,7 +225,7 @@ export default function AmplifyWorkshops() {
             <>
               <div className="text-center mb-8">
                 <span className="inline-block bg-bluedoor/10 text-bluedoor font-poppins font-semibold text-sm px-4 py-1.5 rounded-full mb-4">
-                  Built on the Epic ShIFt Organizational Appraisal
+                  Built on the Organizational Appraisal
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
                   Phase Zero&trade; Strategic Workshops
@@ -297,7 +297,7 @@ export default function AmplifyWorkshops() {
                     <h3 className="text-xl md:text-2xl font-poppins font-semibold text-navy">Authoring Your Next Sh<span data-if="" className="text-strategic font-bold">IF</span>t Begins With Clarity</h3>
                   </div>
                   <p className="text-body -sm text-foreground mb-2 mt-4">
-                    The <span className="font-bold text-bluedoor">Epic ShIFt Organizational Appraisal</span> is our interview-led appraisal. It shows where your business and leaders stand before your next shIFt, so you can lead with clarity and build with confidence.
+                    The <span className="font-bold text-bluedoor">Organizational Appraisal</span> is our interview-led appraisal. It shows where your business and leaders stand before your next shIFt, so you can lead with clarity and build with confidence.
                   </p>
                   <p className="text-body -sm text-foreground/70 italic mb-3">
                     The basis for Phase Zero Strategic Workshops and Architect ShIFt. Leadership &amp; Team Development Workshops stand on their own.
@@ -380,7 +380,7 @@ export default function AmplifyWorkshops() {
                           </ul>
                         </div>
                       )}
-                      <p className="text-body text-foreground/70 italic mt-4">Open to any team, with or without the <span className="font-bold text-bluedoor">Epic ShIFt Organizational Appraisal</span></p>
+                      <p className="text-body text-foreground/70 italic mt-4">Open to any team, with or without the <span className="font-bold text-bluedoor">Organizational Appraisal</span></p>
                     </div>
                   );
                 })}

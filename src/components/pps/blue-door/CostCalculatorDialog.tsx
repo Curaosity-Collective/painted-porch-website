@@ -242,7 +242,7 @@ export default function CostCalculatorDialog({
           </DialogTitle>
           <DialogDescription>
             Answer a few questions to see what this change puts at stake, and how much of it early
-            clarity from the Epic ShIFt Organizational Appraisal could save.
+            clarity from the Organizational Appraisal could save.
           </DialogDescription>
         </DialogHeader>
 

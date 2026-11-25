@@ -34,7 +34,7 @@ const labFaqCategories: FAQCategory[] = [
         answer: "Absolutely. Many leaders participate in labs for their own development while separately engaging their teams in workshops or Architect ShIFt. Leadership Labs focus on individual leadership capacity; workshops and Architect ShIFt focus on team and organizational alignment.",
       },
       {
-        question: "Do I need the Epic ShIFt Organizational Appraisal before joining a Leadership Lab?",
+        question: "Do I need the Organizational Appraisal before joining a Leadership Lab?",
         answer: "No. Leadership Labs are designed for individual leaders, so they stand on their own, without an organizational appraisal.",
       },
       {

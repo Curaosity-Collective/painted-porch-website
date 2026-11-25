@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
+import porchMicrophone from "@/assets/v3/porch-microphone-gathering.webp";
 import { Button } from "@/components/ui/button";
 import { useDocumentSeo } from "@/hooks/useDocumentSeo";
 import { Flame, Mic, Heart } from "lucide-react";
 import ClientLogoMarquee, { type LogoItem } from "@/components/pps/ClientLogoMarquee";
 import { PageHero } from "@/components/v3/Bits";
 import { ShIFt } from "@/components/v3/ShIFt";
-import speakingHero from "@/assets/heroes/speaking-hero.jpg";
-import stoneStack from "@/assets/v3/speaking-stone-sculpture.webp";
+import emptyStage from "@/assets/v3/topics-empty-stage.webp";
 import amyPhoto from "@/assets/team/amy-speaking-portrait.jpg";
 import robPhoto from "@/assets/team/rob-hunter.jpg";
 import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
@@ -87,7 +87,7 @@ export default function Speaking() {
   useDocumentSeo({
     title: "Speaking | Book Amy, Rob & Sierra | Painted Porch Strategies",
     description: "Three dynamic speakers. One Stoic mission. Book Amy, Rob, and Sierra for keynotes and workshops on change, leadership, and epic shIFt.",
-    ogImage: speakingHero,
+    ogImage: emptyStage,
   });
   return (
     <div>
@@ -101,25 +101,14 @@ export default function Speaking() {
         }
         intro="Our talks blend motivation with grounded, practical activation. We partner with leaders and teams who have decided to architect change, communicate with clarity, and build the capability and mindset to carry what comes next."
         action={{ label: "Contact Us", to: "/contact?interest=speaking&message=I'm interested in booking a speaker for our event." }}
-        // Shared for now with Speaking Topics, Press and Press Kit; a speaker reel collage will replace it.
-        image={speakingHero}
-        imageAlt="A speaker at a podium on a stage of painted panels under teal, purple and gold spotlights, facing an audience"
+        // Colorful stage podium moved here from Topics (PPS Admin, 2026-11-24).
+        image={emptyStage}
+        imageAlt="An empty stage with a teal podium in front of wooden panels painted gold, raspberry, purple, cobalt and lime"
         ghost="S"
       />
 
       {/* Philosophy Strip */}
       <section className="relative py-16 md:py-20 bg-navy/90 overflow-hidden">
-        {/* Painted stones balanced one on another, for Stoic grounding (PPS Admin, 2026-11-24).
-            Replaces the old Unsplash background so this page loads only its own files. */}
-        <img
-          src={stoneStack}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover opacity-25"
-          width={1536}
-          height={1024}
-          loading="lazy"
-        />
         <div className="container max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Grounded in Stoicism. Built for Change.
@@ -215,8 +204,9 @@ export default function Speaking() {
       />
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-gradient-strategic text-white">
-        <div className="container max-w-4xl mx-auto px-6 text-center">
+      <section className="relative overflow-hidden py-16 md:py-24 bg-gradient-strategic text-white">
+        <img src={porchMicrophone} alt="" aria-hidden="true" width={1312} height={1199} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+        <div className="container relative z-10 max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Bring Our Porch to Your Next Event
           </h2>

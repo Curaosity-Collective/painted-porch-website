@@ -28,7 +28,7 @@ const commonLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Painted Porch Strategies" },
   { href: "/the-path", label: "The P.A.T.H." },
-  { href: "/envision-shift", label: "Envision ShIFt: the Epic ShIFt Organizational Appraisal" },
+  { href: "/envision-shift", label: "Envision ShIFt: the Organizational Appraisal" },
   { href: "/architect-shift", label: "Architect ShIFt" },
   { href: "/embody-shift", label: "Embody ShIFt" },
   { href: "/for-individuals", label: "For individual leaders" },
@@ -85,7 +85,7 @@ export const routes = [
       },
       {
         h2: "Start with a Clarity Call",
-        body: "In 60 minutes with Amy, you'll read whether your current architecture can carry the shIFt, where misalignment would tax your momentum, and the first decisive move to make. It's also where the Epic ShIFt Organizational Appraisal begins.",
+        body: "In 60 minutes with Amy, you'll read whether your current architecture can carry the shIFt, where misalignment would tax your momentum, and the first decisive move to make. A Clarity Call stands on its own and is also the first step toward an Organizational Appraisal.",
       },
       {
         h2: "Other ways in",
@@ -160,7 +160,7 @@ export const routes = [
     links: [
       { href: "/about", label: "About Painted Porch Strategies" },
       { href: "/rob", label: "Meet Rob Hunter" },
-      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
+      { href: "/envision-shift", label: "The Organizational Appraisal" },
       { href: "/contact", label: "Contact Amy" },
     ],
   },
@@ -185,14 +185,14 @@ export const routes = [
     links: commonLinks,
   },
   {
-    // Epic ShIFt Organizational Appraisal (PPS-DEC-0018). Retired /blue-door redirects here (PPS-DEC-0017).
+    // Organizational Appraisal (PPS-DEC-0018). Retired /blue-door redirects here (PPS-DEC-0017).
     path: "/envision-shift",
-    title: "The Epic ShIFt Organizational Appraisal | Painted Porch Strategies",
+    title: "The Organizational Appraisal | Painted Porch Strategies",
     description:
       "An interview-led organizational 360 built on six interviews, from executives to the frontline. Your P.A.T.H. Compass clarifies which change and direction make sense to pursue NOW and what in your organization needs reinforcement first, so you can lead with clarity and build with confidence. Investment: $24,000.",
-    h1: "Envision ShIFt — The Epic ShIFt Organizational Appraisal",
+    h1: "Envision ShIFt — The Organizational Appraisal",
     intro:
-      "Every epic shIFt begins at a threshold: an honest appraisal of what your organization can realistically carry. The Epic ShIFt Organizational Appraisal is an interview-led organizational 360 that determines which change and direction make sense to pursue next. It begins with a Clarity Call.",
+      "Every epic shIFt begins at a threshold: an honest appraisal of what your organization can realistically carry. The Organizational Appraisal is an interview-led organizational 360 that determines which change and direction make sense to pursue next. It begins with a Clarity Call.",
     sections: [
       {
         h2: "What it is",
@@ -234,7 +234,7 @@ export const routes = [
       },
       {
         h2: "Your P.A.T.H., in one page",
-        body: "The Epic ShIFt Organizational Appraisal produces your P.A.T.H. Compass: which stage your organization is actually on, what's blocking the next one, and the sequence that makes each hold. Every stage reads your organization through the three Painted Porch Pillars™: Cultural Cornerstone, Operational Frame, and Living Ecosystem.",
+        body: "The Organizational Appraisal produces your P.A.T.H. Compass: which stage your organization is actually on, what's blocking the next one, and the sequence that makes each hold. Every stage reads your organization through the three Painted Porch Pillars™: Cultural Cornerstone, Operational Frame, and Living Ecosystem.",
       },
     ],
     links: [
@@ -265,7 +265,7 @@ export const routes = [
       },
       {
         h2: "From Spark to Momentum",
-        body: "When you're ready, bring it to your team through Team Workshops, or lead change across your organization starting with the Epic ShIFt Organizational Appraisal.",
+        body: "When you're ready, bring it to your team through Team Workshops, or lead change across your organization starting with the Organizational Appraisal.",
       },
     ],
     links: [
@@ -288,11 +288,11 @@ export const routes = [
     sections: [
       {
         h2: "Author. Fortify. Decide.",
-        body: "Starting from your Epic ShIFt Organizational Appraisal, your senior team spends three days authoring a shared direction and choosing which pillar or pillars to reinforce first. A focused 90-day sprint with your leadership team then strengthens the priority pillars and capabilities before your organization designs and leads its change. A retrospective decides the next step.",
+        body: "Starting from your Organizational Appraisal, your senior team spends three days authoring a shared direction and choosing which pillar or pillars to reinforce first. A focused 90-day sprint with your leadership team then strengthens the priority pillars and capabilities before your organization designs and leads its change. A retrospective decides the next step.",
       },
       {
         h2: "One integrated engagement",
-        body: "Starting at $90,000, offered in a weekly and a biweekly version. Architect ShIFt follows the Epic ShIFt Organizational Appraisal, and the appraisal begins with a Clarity Call.",
+        body: "Starting at $90,000, offered in a weekly and a biweekly version. Architect ShIFt follows the Organizational Appraisal, and the appraisal begins with a Clarity Call.",
       },
     ],
     links: [
@@ -341,7 +341,7 @@ export const routes = [
       { href: "/resources/faq", label: "Frequently asked questions" },
       { href: "/resources/youtube", label: "YouTube channel" },
       { href: "/resources/stractical-mini", label: "Stractical Leader mini guide" },
-      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
+      { href: "/envision-shift", label: "The Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -356,7 +356,7 @@ export const routes = [
     links: [
       { href: "/resources/stractical-mini", label: "Stractical Leader mini guide" },
       { href: "/resources/insights", label: "Insights and thought leadership" },
-      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
+      { href: "/envision-shift", label: "The Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -364,10 +364,10 @@ export const routes = [
     path: "/resources/faq",
     title: "FAQ | Painted Porch Strategies",
     description:
-      "Frequently asked questions about Painted Porch Strategies: the Clarity Call, the three ShIFts, the Epic ShIFt Organizational Appraisal, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
+      "Frequently asked questions about Painted Porch Strategies: the Clarity Call, the three ShIFts, the Organizational Appraisal, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
     h1: "Frequently Asked Questions",
     intro:
-      "Answers to the questions we hear most often: where to start, what happens in a Clarity Call, how Envision, Architect and Embody ShIFt work, the Epic ShIFt Organizational Appraisal and P.A.T.H. Compass, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
+      "Answers to the questions we hear most often: where to start, what happens in a Clarity Call, how Envision, Architect and Embody ShIFt work, the Organizational Appraisal and P.A.T.H. Compass, team workshops and Leadership Labs, and self-led assessments and masterclasses.",
     links: commonLinks,
   },
   {
@@ -393,7 +393,7 @@ export const routes = [
       { href: "/architect-shift", label: "Architect ShIFt" },
       { href: "/leadership-labs", label: "Leadership Labs" },
       { href: "/leadership-labs/stractical-leader", label: "Stractical Leader Intensive" },
-      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
+      { href: "/envision-shift", label: "The Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -423,7 +423,7 @@ export const routes = [
     links: [
       { href: "/resources/stractical-mini", label: "Stractical mini guide (free)" },
       { href: "/the-path", label: "The P.A.T.H." },
-      { href: "/envision-shift", label: "The Epic ShIFt Organizational Appraisal" },
+      { href: "/envision-shift", label: "The Organizational Appraisal" },
       { href: "/contact", label: "Contact us" },
     ],
   },
@@ -526,10 +526,10 @@ export const routes = [
     path: "/contact",
     title: "Contact Painted Porch Strategies",
     description:
-      "Get in touch with Painted Porch Strategies to discuss partnership, the Epic ShIFt Organizational Appraisal, speaking, or workshops.",
+      "Get in touch with Painted Porch Strategies to discuss partnership, the Organizational Appraisal, speaking, or workshops.",
     h1: "Contact Painted Porch Strategies",
     intro:
-      "Ready to talk? Send us a message and we will respond within one business day. For engagement inquiries, we recommend starting with a Clarity Call and the Epic ShIFt Organizational Appraisal, our interview-led appraisal.",
+      "Ready to talk? Send us a message and we will respond within one business day. Choose a Clarity Call, an Organizational Appraisal, or another interest on the form.",
     links: [
       { href: "/envision-shift", label: "Envision ShIFt" },
       { href: "/the-path", label: "The P.A.T.H." },

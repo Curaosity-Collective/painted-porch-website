@@ -1485,6 +1485,7 @@ export type Database = {
         Args: { payload: Json; queue_name: string }
         Returns: number
       }
+      get_backup_cron_secret: { Args: never; Returns: string }
       is_admin: { Args: { _user_id: string }; Returns: boolean }
       is_admin_or_editor: { Args: { _user_id: string }; Returns: boolean }
       is_unpublished_path: { Args: { _path: string }; Returns: boolean }

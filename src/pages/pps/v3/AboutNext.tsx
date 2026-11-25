@@ -1,6 +1,6 @@
 import porchTemple from "@/assets/about/painted-porch-temple.jpg";
 import porchSunset from "@/assets/heroes/about-hero.jpg";
-import blueDoor from "@/assets/v3/blue-door.jpg";
+import clarityLens from "@/assets/v3/about-clarity-lens.webp.asset.json";
 import amyPhoto from "@/assets/team/amy-yackowski.png";
 import robPhoto from "@/assets/team/rob-hunter-desk.jpg";
 import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
@@ -352,12 +352,12 @@ export default function AboutNext() {
         body="If your organization is being called toward something greater, start with a Clarity Call: 60 minutes with Amy to see what's possible."
         to={clarityCallSectionHref()}
         label="Start with a Clarity Call"
-        // The blue door: what comes next, and where the Clarity Call leads (PPS Admin, 2026-11-07). The
-        // charcoal wash sets the band apart from the teal footer, as on the other main pages.
-        image={blueDoor}
-        imageAlt="A cobalt-blue door set into a pale stone wall"
-        imageWidth={1408}
-        imageHeight={1008}
+        // A lens bringing a colorful map into focus: the clarity the Clarity Call brings (PPS Admin,
+        // 2026-11-24, replacing the Blue Door-coded door). The charcoal wash sets the band apart from the teal footer, as on the other main pages.
+        image={clarityLens.url}
+        imageAlt="A magnifying glass bringing a colorful map into focus on a porch table painted in bright colors"
+        imageWidth={1536}
+        imageHeight={1024}
         photoProfile="cta-photo-charcoal"
         secondary={
           <>
