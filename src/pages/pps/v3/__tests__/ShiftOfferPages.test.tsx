@@ -181,10 +181,10 @@ describe("The six trigger moments (ICP Intelligence §3; PPS Admin, 2026-11-06)"
   it("says the appraisal comes first whether or not a moment is listed", () => {
     const section = catalystsSection();
     const intro = section.querySelector("h2 + p")!;
-    expect(intro.textContent).toMatch(/Whether or not yours is listed, the Epic ShIFt Organizational Appraisal comes first\./);
+    expect(intro.textContent).toMatch(/Whether or not yours is listed, the Organizational Appraisal comes first\./);
     expect(intro.textContent).not.toMatch(/If yours isn't listed/);
     const link = intro.querySelector('a[href="/envision-shift"]');
-    expect(link?.textContent).toBe("Epic ShIFt Organizational Appraisal");
+    expect(link?.textContent).toBe("Organizational Appraisal");
   });
 
   it("describes merger work as after the deal, since the appraisal holds back on an active merger", () => {

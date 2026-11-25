@@ -453,7 +453,7 @@ export default function ThePath() {
               Your P.A.T.H., in One Page
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-foreground">
-              The Epic <ShIFt /> Organizational Appraisal produces it: which stage your organization's actually
+              The Organizational Appraisal produces it: which stage your organization's actually
               on, what's blocking the next one, and the sequence that makes each hold. It's the map the
               rest of the journey is drawn from.
             </p>

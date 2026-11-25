@@ -60,10 +60,10 @@ const GROUPS: HighlightGroup[] = [
         icon: RouteIcon,
       },
       {
-        name: "The Epic ShIFt Organizational Appraisal",
+        name: "The Organizational Appraisal",
         label: (
           <>
-            The Epic <ShIFt /> Organizational Appraisal
+            The Organizational Appraisal
           </>
         ),
         line: (
@@ -190,7 +190,7 @@ function OverviewContent() {
   useDocumentSeo({
     title: "Painted Porch Strategies | Highlights & Links",
     description:
-      "Highlights from Painted Porch Strategies: the Epic ShIFt Organizational Appraisal, the P.A.T.H., workshops, Leadership Labs, keynotes, free downloads and the team.",
+      "Highlights from Painted Porch Strategies: the Organizational Appraisal, the P.A.T.H., workshops, Leadership Labs, keynotes, free downloads and the team.",
     canonical: "/overview",
   });
 
@@ -304,7 +304,7 @@ function OverviewContent() {
             </h2>
             <p className="mx-auto mt-4 max-w-[30em] text-[17px] leading-relaxed text-foreground/80">
               A Clarity Call is 60 minutes with Amy on where your organization stands and the first decisive move to
-              make. It's also where the Epic <ShIFt /> Organizational Appraisal begins.
+              make. It's also where the Organizational Appraisal begins.
             </p>
             <div className="mt-7">
               <Link to={clarityCallSectionHref()} className={SOLID_BUTTON}>

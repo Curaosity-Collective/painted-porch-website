@@ -549,7 +549,7 @@ export default function HomeNext() {
               Bring the vision you haven't had the words for, or the roadblock everyone else has accepted as normal. In
               60 minutes with Amy, you'll read whether your current architecture can carry the{" "}
               <ShIFt lowercase onDark />, where misalignment would tax your momentum, and the first decisive move to
-              make. It's also where the Epic <ShIFt onDark /> Organizational Appraisal begins.
+              make. A Clarity Call stands on its own and is also the first step toward an Organizational Appraisal.
             </p>
             <p className="flex flex-wrap items-baseline gap-x-3.5 gap-y-1">
               <span className="font-display text-[40px] font-bold leading-none text-[#F4C05E]">$750</span>

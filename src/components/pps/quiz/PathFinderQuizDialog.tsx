@@ -82,7 +82,7 @@ export function displayTier(tier: string): string {
 
 /** Links each mention of the appraisal in result copy to its admin-set URL. */
 function BlueDoorInlineLink({ text, href }: { text: string; href: string }) {
-  const phrase = "Epic ShIFt Organizational Appraisal";
+  const phrase = "Organizational Appraisal";
   const parts = text.split(phrase);
   if (parts.length === 1) return <>{text}</>;
   return (
@@ -630,7 +630,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
                 </p>
                 <p className="text-[11px] italic text-foreground/70 mb-2">
                   Why: {result.strongestNextStep.kind === "blueDoor"
-                    ? "Your answers point to an organization-level question — not a training gap. The Epic ShIFt Organizational Appraisal is your best next step, and a Clarity Call is where it begins."
+                    ? "Your answers point to an organization-level question — not a training gap. The Organizational Appraisal is your best next step, and a Clarity Call is where it begins."
                     : `Your answers point most strongly to ${(result.headline || "this area").toLowerCase()} — and this is the tightest match.`}
                 </p>
                 {(result.strongestNextStep.offering as { isComingSoon?: boolean }).isComingSoon && (
@@ -731,7 +731,7 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
                 effectivePrimary = { ...result.primaryGroup, offerings: parallelSafe };
                 if (bdr.length > 0) {
                   bdrGroup = {
-                    heading: "Once the Epic ShIFt Organizational Appraisal Is Complete",
+                    heading: "Once the Organizational Appraisal Is Complete",
                     offerings: bdr,
                   };
                 }
@@ -795,9 +795,9 @@ export default function PathFinderQuizDialog({ open, onOpenChange }: Props) {
                 const h = heading.toLowerCase();
                 if (/\(launching soon\)/.test(h))
                   return "The program your answers point to. Join its launch list to hear first when it opens.";
-                if (/once the epic shift (organizational )?appraisal|once the blue door|after the blue door|after blue door/.test(h))
-                  return "These build on the Epic ShIFt Organizational Appraisal, so they can be sequenced to what it surfaces about your organization.";
-                if (/epic shift (organizational )?appraisal|blue.?door|deeper/.test(h))
+                if (/once the organizational appraisal|once the epic shift (organizational )?appraisal|once the blue door|after the blue door|after blue door/.test(h))
+                  return "These build on the Organizational Appraisal, so they can be sequenced to what it surfaces about your organization.";
+                if (/organizational appraisal|epic shift (organizational )?appraisal|blue.?door|deeper/.test(h))
                   return "The best next step toward any deeper, organization-wide engagement. It begins with a Clarity Call.";
                 if (/speaking|keynote/.test(h))
                   return `A bookable keynote on ${headlineLower}.`;

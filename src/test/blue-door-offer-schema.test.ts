@@ -64,7 +64,7 @@ describe("Retired Blue Door — prerendered HTML (PPS-DEC-0017)", () => {
       prerender.indexOf('"/envision-shift": {'),
       prerender.indexOf('"/partner": {'),
     );
-    expect(block).toContain('name: "The Epic ShIFt Organizational Appraisal"');
+    expect(block).toContain('name: "The Organizational Appraisal"');
     expect(block).toContain('price: "24000"');
     // Not sold directly: it begins with a Clarity Call, so no purchase availability.
     expect(block).not.toContain("availability");

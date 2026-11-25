@@ -405,7 +405,7 @@
 .if-blend, .footer-deep .text-berry-on-dark { color: hsl(var(--v3-raspberry-bright)); }
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   .if-blend, .if-blend-light, .footer-deep .text-berry-on-dark {
-    display: inline-block;
+    display: inline;
     background-image: var(--v3-footer-if-blend);
     background-size: 100% 100%;
     background-repeat: no-repeat;
