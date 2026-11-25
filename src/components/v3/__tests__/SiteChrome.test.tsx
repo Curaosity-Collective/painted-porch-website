@@ -96,17 +96,21 @@ describe("SiteHeader", () => {
     expect(HEADER_MENU.flatMap((g) => g.children).filter((c) => c.href === "/phase-zero")).toHaveLength(1);
   });
 
-  it("keeps the IF bold but plain in the header's top labels and phone menu (PPS Admin, 2026-11-07)", () => {
+  it("carries the brand blend on the IF in the header's top labels and phone menu (PPS Admin, 2026-11-24)", () => {
     renderAt(<SiteHeader />);
     const nav = screen.getAllByRole("navigation", { name: "Main" })[0];
     const link = within(nav).getByRole("link", { name: named(PATH_MENU_LABEL) });
     const topIf = within(link).getByText("IF");
     expect(topIf).toHaveClass("font-bold");
+    // The header sits on a light pill, so the IF takes the light-background blend.
+    expect(topIf).toHaveClass("if-blend-light");
     expect(topIf).not.toHaveClass("text-raspberry");
     fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
     const phone = document.getElementById("site-mobile-menu")!;
     const phoneLink = within(phone).getByRole("link", { name: named(PATH_MENU_LABEL) });
-    expect(within(phoneLink).getByText("IF")).not.toHaveClass("text-raspberry");
+    const phoneIf = within(phoneLink).getByText("IF");
+    expect(phoneIf).toHaveClass("if-blend-light");
+    expect(phoneIf).not.toHaveClass("text-raspberry");
   });
 
   it("marks the current section with an underline, not a colour (PPS Admin, 2026-11-07)", () => {

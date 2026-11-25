@@ -68,8 +68,8 @@ export default function SiteFooter() {
 
   return (
     <footer className="pps-v3">
-      {/* #00505C, not teal-deep: the light-raspberry IF needs it for 4.5:1 (PPS-DEC-0022). */}
-      <div className="bg-[#00505C] text-teal-foreground">
+      {/* Footer-only static multicolor IF trial; the rest of the site's wordmarks stay unchanged. */}
+      <div className="footer-deep text-teal-foreground">
         <div className="mx-auto max-w-7xl px-6 py-14 md:py-16">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[minmax(0,1.3fr)_repeat(3,minmax(0,1fr))_minmax(0,1.4fr)] lg:gap-8">
             {/* Brand */}
@@ -93,7 +93,7 @@ export default function SiteFooter() {
               <h2 className={EYEBROW}>Stay in Touch</h2>
               <Link
                 to="/contact?interest=general"
-                className="cta-label mt-4 inline-flex min-h-[44px] items-center rounded border-2 border-white px-5 text-[15px] font-semibold text-white transition-colors hover:bg-white hover:text-[#00505C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4C05E]"
+                className="cta-label mt-4 inline-flex min-h-[44px] items-center rounded border-2 border-white px-5 text-[15px] font-semibold text-white transition-colors hover:bg-white hover:text-[#021E24] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4C05E]"
               >
                 Contact Us
               </Link>

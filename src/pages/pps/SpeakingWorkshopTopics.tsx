@@ -11,7 +11,8 @@ import { useUserRole } from "@/hooks/useUserRole";
 import { PageHero } from "@/components/v3/Bits";
 import { Eyebrow } from "@/components/pps/Eyebrow";
 import { ParallaxCTA } from "@/components/pps/ParallaxCTA";
-import speakingHero from "@/assets/heroes/speaking-hero.jpg";
+import compassStage from "@/assets/v3/topics-keynote-compass-screen.webp";
+import workshopTable from "@/assets/v3/workshop-table-notes.webp";
 
 
 // Topic images (existing assets). Keyed by normalized base name.
@@ -496,7 +497,7 @@ export default function SpeakingWorkshopTopics() {
     title: "Speaking & Workshop Topics | Painted Porch Strategies",
     description:
       "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic works as a keynote, an interactive workshop, or both.",
-    ogImage: speakingHero,
+    ogImage: compassStage,
     jsonLd: itemListJsonLd,
   });
 
@@ -508,9 +509,8 @@ export default function SpeakingWorkshopTopics() {
         intro="Every topic below can show up as a 60-minute keynote, an interactive workshop, or both. Speaking ignites the spark. The workshop turns it into action and lasting change."
         action={{ label: "Meet Our Speakers", to: "/speaking" }}
         secondary={{ label: "Inquire About a Topic", to: "/contact?interest=speaking&message=I'm interested in one of your speaking or workshop topics." }}
-        // Shared for now with Speaking, Press and Press Kit; a speaker reel collage will replace it.
-        image={speakingHero}
-        imageAlt="A speaker at a podium on a stage of painted panels under teal, purple and gold spotlights, facing an audience"
+        image={compassStage}
+        imageAlt="An empty stage with a teal podium in front of wooden panels painted gold, raspberry, purple, cobalt and lime"
         ghost="T"
       />
 
@@ -694,6 +694,7 @@ export default function SpeakingWorkshopTopics() {
         headline="Pick a topic. We'll shape it to your moment."
         description="Speaking engagements start at $5,000. Every topic above adapts to your audience, your industry, and your current shIFt. Tell us where you are and we'll recommend the right format: keynote, workshop, or a combination that creates lasting change."
         overlayTone="teal"
+        backgroundImage={workshopTable}
         actions={[
           { label: "Contact Us", to: "/contact?interest=speaking&message=I'd like to talk about a speaking or workshop topic for our team.", variant: "primary" },
           { label: "Meet Our Speakers", to: "/speaking", variant: "secondary" },

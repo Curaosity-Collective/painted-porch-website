@@ -105,7 +105,7 @@ const faqs: { q: ReactNode; a: ReactNode; key: string }[] = [
     key: "appraisal-first",
     q: (
       <>
-        Where does the Epic <ShIFt /> Organizational Appraisal fit in?
+        Where does the Organizational Appraisal fit in?
       </>
     ),
     a: (
@@ -211,7 +211,7 @@ export default function ArchitectShift() {
               </p>
               <p>
                 Architect <ShIFt /> combines the executive strategy & authorship intensive and strategic sprint in one engagement.
-                Starting from your Epic <ShIFt /> Organizational Appraisal, your senior team spends three days authoring a shared direction and choosing which pillar or pillars to reinforce first.
+                Starting from your Organizational Appraisal, your senior team spends three days authoring a shared direction and choosing which pillar or pillars to reinforce first.
               </p>
               <p>
                 The 90-day strategic sprint that follows fortifies those priorities before your change execution. An
@@ -228,7 +228,7 @@ export default function ArchitectShift() {
                 <li>90-day strategic sprint focused on the pillars identified in the intensive</li>
                 <li>1.5-day sprint retrospective and next-steps decision</li>
                 <li>
-                  Begins with the Epic <ShIFt /> Organizational Appraisal
+                  Begins with the Organizational Appraisal
                 </li>
               </ul>
               <p className="label-kicker mt-5 text-muted-foreground">Investment</p>
@@ -294,7 +294,7 @@ export default function ArchitectShift() {
           more of the organization than its current architecture can carry. Authoring and architecting <ShIFt lowercase />{" "}
           fortifies it first, before your team designs and leads the change. Whether or not yours is listed, the{" "}
           <Link to="/envision-shift" className={LINK}>
-            Epic <ShIFt /> Organizational Appraisal
+            Organizational Appraisal
           </Link>{" "}
           comes first. It tells us whether architecting <ShIFt lowercase /> is the right next step.
         </p>
@@ -379,13 +379,13 @@ export default function ArchitectShift() {
           </div>
           <div className="rounded border border-prepare/40 bg-prepare/5 p-6 md:p-8">
             <p className="label-kicker text-prepare-deep">
-              Prerequisite: the Epic <ShIFt /> Organizational Appraisal
+              Prerequisite: the Organizational Appraisal
             </p>
             <h3 className="mt-3 font-display text-2xl font-semibold text-foreground">
               Every Architect engagement begins with an honest read.
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-foreground">
-              The Epic <ShIFt /> Organizational Appraisal reveals where you really stand on the path to your next
+              The Organizational Appraisal reveals where you really stand on the path to your next
               stage of becoming — and what's blocking progress.
               This interview-led organizational 360 includes six interviews (three executives, and three people from
               mid-level through the frontline) and your P.A.T.H. Compass. It's the first step into Architect <ShIFt />, and it
@@ -439,7 +439,7 @@ export default function ArchitectShift() {
         title="Every Journey Starts With a Clarity Call"
         body={
           <>
-            Architect <ShIFt onDark /> follows the Epic <ShIFt onDark /> Organizational Appraisal, and the appraisal
+            Architect <ShIFt onDark /> follows the Organizational Appraisal, and the appraisal
             begins with a Clarity Call.
           </>
         }

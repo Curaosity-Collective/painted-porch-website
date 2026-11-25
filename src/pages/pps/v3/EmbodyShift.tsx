@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import paintedColumns from "@/assets/v3/embody-painted-columns-porch.webp";
 import lanternPath from "@/assets/heroes/approach-hero.jpg";
 import stoa from "@/assets/v3/embody-colorful-loom.webp";
 import { CTABand, Kicker, PageHero, Prose, V3_H2 } from "@/components/v3/Bits";
@@ -160,6 +161,11 @@ export default function EmbodyShift() {
 
       <CTABand
         tone="habits"
+        image={paintedColumns}
+        photoProfile="cta-photo-charcoal cta-photo-bright"
+        imageAlt="A porch with columns painted teal, gold, raspberry, purple, cobalt and lime and a woven rug"
+        imageWidth={1145}
+        imageHeight={1374}
         title={
           <>
             Ready to Make <ShIFt onDark /> a Practice?

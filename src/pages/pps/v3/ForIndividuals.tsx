@@ -132,7 +132,7 @@ const NEXT: { title: string; body: ReactNode; to: string; cta: ReactNode }[] = [
     title: "Lead change across your organization",
     body: (
       <>
-        The Epic <ShIFt /> Organizational Appraisal shows what change your organization can carry, and what needs to
+        The Organizational Appraisal shows what change your organization can carry, and what needs to
         hold first.
       </>
     ),

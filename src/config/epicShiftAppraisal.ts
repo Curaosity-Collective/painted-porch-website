@@ -14,7 +14,7 @@
 
 export const EPIC_SHIFT_APPRAISAL = {
   /** Public offering name. */
-  name: "Epic ShIFt Organizational Appraisal",
+  name: "Organizational Appraisal",
   /** Canonical page ("Envision ShIFt"; "Epic" is dropped in titles and menus, PPS-DEC-0018). */
   path: "/envision-shift",
   /** Label for buttons that open the appraisal page. */
@@ -32,7 +32,7 @@ export const EPIC_SHIFT_APPRAISAL = {
 
 /** What a Clarity Call request is about, by the page it started from. */
 export const CLARITY_CALL_TOPICS = {
-  appraisal: "the Epic ShIFt Organizational Appraisal",
+  appraisal: "the Organizational Appraisal",
   architect: "Architect ShIFt",
   embody: "Embody ShIFt",
   path: "where we are on the P.A.T.H.",
@@ -64,12 +64,23 @@ export const CONTACT_FORM_SECTION_ID = "contact-form";
 /**
  * The homepage section's "Book a Clarity Call" button, until the GHL booking calendar is
  * connected (PPS-DEC-0019): the working contact form, prefilled, opened at the form. The
- * `blue-door` interest value is the existing GHL opportunity_type mapping.
+ * The Clarity Call is its own interest, separate from the appraisal's legacy `blue-door` value.
  */
+/**
+ * The line the contact form opens with. A Clarity Call request never names the
+ * Organizational Appraisal (PPS Admin, 2026-11-25): the call stands on its own, so the
+ * appraisal topic prefills a plain request. Other topics still name what they're about.
+ */
+export function clarityCallMessageFor(topic: string): string {
+  return topic === CLARITY_CALL_TOPICS.appraisal
+    ? "I'd like to start with a Clarity Call."
+    : `I'd like to start with a Clarity Call about ${topic}.`;
+}
+
 export function clarityCallHrefFor(topic: string): string {
   return (
-    "/contact?scope=Company&interest=blue-door&message=" +
-    encodeURIComponent(`I'd like to start with a Clarity Call about ${topic}.`) +
+    "/contact?scope=Company&interest=Clarity%20Call&message=" +
+    encodeURIComponent(clarityCallMessageFor(topic)) +
     `#${CONTACT_FORM_SECTION_ID}`
   );
 }

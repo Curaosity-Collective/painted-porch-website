@@ -193,9 +193,9 @@
     "ogDescription": "Three dynamic speakers. One Stoic mission. Book Amy, Rob, and Sierra for keynotes and workshops on change, leadership, and epic shIFt.",
     "source": "src/pages/pps/Speaking.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/heroes/speaking-hero.jpg",
+    "imageSource": "src/assets/v3/topics-empty-stage.webp",
     "ogImage": "/page-share/speaking.jpg",
-    "ogImageAlt": "A speaker at a podium on a stage with painted wooden panels in teal, gold, purple and lime, facing an audience"
+    "ogImageAlt": "An empty stage with a teal podium in front of brightly painted wooden panels, with seats facing it"
   },
   "/press-kit": {
     "title": "Press Kit & Speaker Bios | Painted Porch Strategies",
@@ -206,7 +206,7 @@
     "pageOwnsSeo": true,
     "imageSource": "public/images/press-kit-share.jpg",
     "ogImage": "/images/press-kit-share.jpg",
-    "ogImageAlt": "A speaker at a podium on a stage with painted wooden panels in teal, gold, purple and lime, facing an audience"
+    "ogImageAlt": "A vintage microphone, an open notebook and a reel-to-reel recorder on the painted rail of a porch"
   },
   "/speaking/topics": {
     "title": "Speaking & Workshop Topics | Painted Porch Strategies",
@@ -215,9 +215,9 @@
     "ogDescription": "Every speaking and workshop topic we offer, filterable by theme and speaker. Each topic works as a keynote, an interactive workshop, or both.",
     "source": "src/pages/pps/SpeakingWorkshopTopics.tsx",
     "pageOwnsSeo": true,
-    "imageSource": "src/assets/heroes/speaking-hero.jpg",
+    "imageSource": "src/assets/v3/topics-keynote-compass-screen.webp",
     "ogImage": "/page-share/speaking-topics.jpg",
-    "ogImageAlt": "A speaker at a podium on a stage with painted wooden panels in teal, gold, purple and lime, facing an audience"
+    "ogImageAlt": "A colorful stage with a teal podium and a big screen showing a painted compass rose, with empty seats in front"
   },
   "/elemental-style-assessment": {
     "title": "Your Elemental Style: Free Assessment | Painted Porch Strategies",
@@ -228,9 +228,9 @@
     "pageOwnsSeo": true
   },
   "/envision-shift": {
-    "title": "The Epic ShIFt Organizational Appraisal",
+    "title": "The Organizational Appraisal",
     "description": "Six interviews, from executives to the frontline, inform your P.A.T.H. Compass and recommended next step. Investment: $24,000.",
-    "ogTitle": "The Epic ShIFt Organizational Appraisal",
+    "ogTitle": "The Organizational Appraisal",
     "ogDescription": "Six interviews, from executives to the frontline, inform your P.A.T.H. Compass and recommended next step. Investment: $24,000.",
     "source": "src/pages/pps/v3/EnvisionShift.tsx",
     "pageOwnsSeo": true,
@@ -260,9 +260,9 @@
   },
   "/amy": {
     "title": "Amy Yackowski, Founder | Painted Porch Strategies",
-    "description": "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, the Epic ShIFt Organizational Appraisal and her writing on change origination.",
+    "description": "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, the Organizational Appraisal and her writing on change origination.",
     "ogTitle": "Amy Yackowski, Founder | Painted Porch Strategies",
-    "ogDescription": "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, the Epic ShIFt Organizational Appraisal and her writing on change origination.",
+    "ogDescription": "Amy Yackowski is the Founder and Organizational Shift Strategist at Painted Porch Strategies. Explore Amy's keynotes, the Organizational Appraisal and her writing on change origination.",
     "source": "src/pages/pps/AboutAmy.tsx",
     "pageOwnsSeo": true
   },
@@ -284,9 +284,9 @@
   },
   "/overview": {
     "title": "Painted Porch Strategies | Highlights & Links",
-    "description": "Highlights from Painted Porch Strategies: the Epic ShIFt Organizational Appraisal, the P.A.T.H., workshops, Leadership Labs, keynotes, free downloads and the team.",
+    "description": "Highlights from Painted Porch Strategies: the Organizational Appraisal, the P.A.T.H., workshops, Leadership Labs, keynotes, free downloads and the team.",
     "ogTitle": "Painted Porch Strategies | Highlights & Links",
-    "ogDescription": "Highlights from Painted Porch Strategies: the Epic ShIFt Organizational Appraisal, the P.A.T.H., workshops, Leadership Labs, keynotes, free downloads and the team.",
+    "ogDescription": "Highlights from Painted Porch Strategies: the Organizational Appraisal, the P.A.T.H., workshops, Leadership Labs, keynotes, free downloads and the team.",
     "source": "src/pages/pps/PPSOverview.tsx",
     "pageOwnsSeo": true
   },

@@ -44,7 +44,7 @@ export const stracticalFaqCategories: FAQCategory[] = [
         answer: "The Stractical Leader Lab is designed for mid-level leaders - managers, directors, team leads - who feel stuck executing directives and want to develop the skills to influence strategic decisions. If you've ever thought 'I'm just a manager,' this is for you.",
       },
       {
-        question: "Do I need the Epic ShIFt Organizational Appraisal before joining?",
+        question: "Do I need the Organizational Appraisal before joining?",
         answer: "No. This Lab focuses on individual leadership capacity, so it stands on its own, without an organizational appraisal.",
       },
       {

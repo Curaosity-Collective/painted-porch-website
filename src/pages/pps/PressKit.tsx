@@ -11,7 +11,8 @@ import { useToast } from "@/hooks/use-toast";
 import { fetchPressAppearances } from "@/lib/press-kit";
 import { PressInquiryForm } from "@/components/pps/PressInquiryForm";
 import { mediaAppearancePath } from "@/lib/media-appearance-seo.mjs";
-import speakingHero from "@/assets/heroes/speaking-hero.jpg";
+import pressMicNotebook from "@/assets/v3/press-mic-notebook-railing.webp.asset.json";
+import pressInterviewChairs from "@/assets/v3/press-interview-chairs.webp.asset.json";
 import amyPhoto from "@/assets/team/amy-speaking-portrait.jpg";
 import robPhoto from "@/assets/team/rob-hunter.jpg";
 import sierraPhoto from "@/assets/team/sierra-ramm-cantrell.jpg";
@@ -58,9 +59,10 @@ export default function PressKit() {
         kicker="Press & Speaking"
         title={<>Painted Porch Strategies<span className="mt-4 block text-2xl font-medium md:text-3xl">Press Kit</span></>}
         intro="The people, purpose, and voices behind extraordinary teams and Epic ShIFt."
-        // Shared for now with Speaking, Speaking Topics and Press; a speaker reel collage will replace it.
-        image={speakingHero}
-        imageAlt="A speaker at a podium on a stage of painted panels under teal, purple and gold spotlights, facing an audience"
+        // Each picture appears on one page only (PPS-DEC-0023): the press kit opens on its own
+        // interview scene, not the stage photo the Speaking pages use.
+        image={pressMicNotebook.url}
+        imageAlt="A vintage microphone, an open notebook and a reel-to-reel recorder on the painted rail of a porch"
         ghost="K"
       />
 
@@ -81,7 +83,7 @@ export default function PressKit() {
       </section>
 
       <section id="mission" aria-labelledby="mission-heading" className="bg-primary/10 border-y border-primary/20">
-        <div className={SECTION}><Eyebrow tone="teal">Our Mission</Eyebrow><h2 id="mission-heading" className={`${H2} max-w-4xl`}>Extraordinary Teams. Epic <span>Sh<span className="text-primary">IF</span>t™.</span></h2>
+        <div className={SECTION}><Eyebrow tone="teal">Our Mission</Eyebrow><h2 id="mission-heading" className={`${H2} max-w-4xl`}>Extraordinary Teams. Epic <span className="whitespace-nowrap">Sh<span className="text-primary">IF</span>t™.</span></h2>
           <p className="text-lead max-w-4xl mt-6">Everything we do serves one purpose: developing extraordinary teams who can do epic shIFt and carry the mission further than any single leader could.</p>
           <p className="text-body max-w-4xl mt-5">We look at leadership and culture, systems and workflows, and the human capacity underneath both. Grounded in Stoic wisdom and driven by emotional intelligence, we partner with leaders to imagine, align, and architect what comes next.</p>
         </div>
@@ -135,7 +137,7 @@ export default function PressKit() {
           <div className="max-w-3xl mt-10"><h3 className="font-poppins text-2xl font-semibold text-navy mb-6">Send a Press Inquiry</h3><PressInquiryForm /></div>
         </div>
       </section>
-      <ParallaxCTA backgroundImage={speakingHero} overlayTone="purple" eyebrow="Press & Speaking Inquiries" headline="Bring the Porch to Your Audience" description="For interviews, speaking opportunities, or additional press materials, get in touch with our team." actions={[{ label: "Contact Us", to: "/contact?interest=speaking", variant: "primary" }]} />
+      <ParallaxCTA backgroundImage={pressInterviewChairs.url} overlayTone="purple" eyebrow="Press & Speaking Inquiries" headline="Bring the Porch to Your Audience" description="For interviews, speaking opportunities, or additional press materials, get in touch with our team." actions={[{ label: "Contact Us", to: "/contact?interest=speaking", variant: "primary" }]} />
     </div>
   );
 }
