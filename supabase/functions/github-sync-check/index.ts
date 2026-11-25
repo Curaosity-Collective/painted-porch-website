@@ -1,7 +1,7 @@
 // GitHub sync check - fetches latest commit via GitHub API and validates freshness.
 // Used for: manual admin trigger, scheduled cron freshness check.
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.45.0'
-import { resolveCronSecret } from '../_shared/cron-secret.ts'
+import { getCronSecret } from '../_shared/cron-secret.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -13,8 +13,6 @@ const SERVICE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
 const ANON_KEY = Deno.env.get('SUPABASE_ANON_KEY')!
 const TOKEN = Deno.env.get('GITHUB_TOKEN') ?? ''
 const REPO = Deno.env.get('GITHUB_REPO') ?? ''
-// Vault first, BACKUP_CRON_SECRET as fallback: see _shared/cron-secret.ts.
-const BACKUP_CRON_SECRET = await resolveCronSecret(SUPABASE_URL, SERVICE_KEY)
 
 const ALERT_EMAILS = ['admin@paintedporchstrategies.com', 'operations@paintedporchstrategies.com']
 const STALE_HOURS = 72 // alert if no commit activity in this window
@@ -26,7 +24,9 @@ Deno.serve(async (req) => {
   try {
     const url = new URL(req.url)
     const cronToken = url.searchParams.get('cron_token') ?? req.headers.get('x-cron-token') ?? ''
-    const isCron = !!BACKUP_CRON_SECRET && cronToken === BACKUP_CRON_SECRET
+    // The cron token comes from Vault, looked up per request: see _shared/cron-secret.ts.
+    const expected = cronToken ? await getCronSecret(SUPABASE_URL, SERVICE_KEY) : ''
+    const isCron = !!expected && cronToken === expected
     let source: 'manual' | 'cron' = isCron ? 'cron' : 'manual'
 
     // Authorize: cron via secret, otherwise admin/editor JWT
