@@ -1,5 +1,6 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 import { BlobReader, BlobWriter, ZipWriter } from "https://deno.land/x/zipjs@v2.7.45/index.js";
+import { resolveCronSecret } from "../_shared/cron-secret.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -10,7 +11,8 @@ const corsHeaders = {
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-const CRON_SECRET = Deno.env.get("BACKUP_CRON_SECRET") ?? "";
+// Vault first, BACKUP_CRON_SECRET as fallback: see _shared/cron-secret.ts.
+const CRON_SECRET = await resolveCronSecret(SUPABASE_URL, SERVICE_KEY);
 const AUTO_BACKUP_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/auto-backup`;
 
 const TABLES = [
@@ -602,20 +604,33 @@ async function scheduleProcess(runId: string) {
   }
 }
 
+// A run that logged nothing for this long has lost its self-chained next step. Each step
+// ends well inside the Edge Function time limit (at most about 400 s), so a run that is
+// still advancing always logs sooner than this.
+const STALLED_RUN_MS = 15 * 60 * 1000;
+
+// Called by the auto-backup-process-queue cron job. It resumes only a stalled run, so it
+// never processes a step at the same time as the run's own chain.
 async function processNextRunningRun() {
   const sb = admin();
-  const { data: nextRun, error } = await sb
+  const { data: runs, error } = await sb
     .from("backup_runs")
-    .select("id")
+    .select("id, logs, started_at, created_at")
     .eq("status", "running")
     .order("created_at", { ascending: true })
-    .limit(1)
-    .maybeSingle();
+    .limit(5);
 
-  if (error) throw new Error(`Load next running backup: ${error.message}`);
-  if (!nextRun?.id) return { ok: true, processed: false };
+  if (error) throw new Error(`Load running backups: ${error.message}`);
+  const now = Date.now();
+  const stalled = (runs ?? []).find((run) => {
+    const logs = Array.isArray(run.logs) ? (run.logs as { ts?: string }[]) : [];
+    const lastActivity = logs.length > 0 ? logs[logs.length - 1]?.ts : run.started_at ?? run.created_at;
+    const lastMs = lastActivity ? new Date(lastActivity).getTime() : 0;
+    return now - lastMs > STALLED_RUN_MS;
+  });
+  if (!stalled) return { ok: true, processed: false, running: (runs ?? []).length };
 
-  return await processBackupRun(nextRun.id);
+  return await processBackupRun(stalled.id);
 }
 
 async function startBackupRun(
@@ -1564,7 +1579,7 @@ Excluded: storage binaries (re-upload those separately when needed)
         SUPABASE_PUBLISHABLE_KEY: { category: "Supabase Core", description: "New publishable key format.", required: false },
         SUPABASE_JWKS: { category: "Supabase Core", description: "Used for in-function JWT validation.", required: false },
         SUPABASE_DB_URL: { category: "Supabase Core", description: "Direct Postgres URL.", required: false },
-        BACKUP_CRON_SECRET: { category: "Internal", description: "Shared secret for cron-triggered backups.", required: true },
+        BACKUP_CRON_SECRET: { category: "Internal", description: "Fallback for the cron token. Scheduled jobs use the backup_cron_secret entry in Vault, created by migration 20261125180000.", required: false },
         
         STRIPE_SECRET_KEY: { category: "Payments", description: "Stripe live/test secret key.", required: true },
         STRIPE_WEBHOOK_SECRET: { category: "Payments", description: "Stripe webhook signing secret.", required: true },
