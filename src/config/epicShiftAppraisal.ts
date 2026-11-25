@@ -66,10 +66,21 @@ export const CONTACT_FORM_SECTION_ID = "contact-form";
  * connected (PPS-DEC-0019): the working contact form, prefilled, opened at the form. The
  * The Clarity Call is its own interest, separate from the appraisal's legacy `blue-door` value.
  */
+/**
+ * The line the contact form opens with. A Clarity Call request never names the
+ * Organizational Appraisal (PPS Admin, 2026-11-25): the call stands on its own, so the
+ * appraisal topic prefills a plain request. Other topics still name what they're about.
+ */
+export function clarityCallMessageFor(topic: string): string {
+  return topic === CLARITY_CALL_TOPICS.appraisal
+    ? "I'd like to start with a Clarity Call."
+    : `I'd like to start with a Clarity Call about ${topic}.`;
+}
+
 export function clarityCallHrefFor(topic: string): string {
   return (
     "/contact?scope=Company&interest=Clarity%20Call&message=" +
-    encodeURIComponent(`I'd like to start with a Clarity Call about ${topic}.`) +
+    encodeURIComponent(clarityCallMessageFor(topic)) +
     `#${CONTACT_FORM_SECTION_ID}`
   );
 }

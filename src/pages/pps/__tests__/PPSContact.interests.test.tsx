@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { CLARITY_CALL_CONTACT_HREF } from "@/config/epicShiftAppraisal";
+import { CLARITY_CALL_CONTACT_HREF, CLARITY_CALL_TOPICS, clarityCallHrefFor, clarityCallMessageFor } from "@/config/epicShiftAppraisal";
 
 const { invoke } = vi.hoisted(() => ({ invoke: vi.fn() }));
 vi.mock("@/integrations/supabase/client", () => ({ supabase: { functions: { invoke } } }));
@@ -45,5 +45,28 @@ describe("Separate Clarity Call and Organizational Appraisal requests", () => {
     expect(invoke).toHaveBeenCalledWith("submit-ghl-lead", expect.objectContaining({
       body: expect.objectContaining({ interests: ["blue-door"] }),
     }));
+  });
+
+  // PPS Admin (2026-11-25): the prefilled Clarity Call line must not reference the appraisal.
+  it("prefills the Clarity Call message without naming the Organizational Appraisal", () => {
+    render(<MemoryRouter initialEntries={[CLARITY_CALL_CONTACT_HREF]}><PPSContact /></MemoryRouter>);
+    const details = document.querySelector("textarea") as HTMLTextAreaElement;
+    expect(details.value).toContain("Clarity Call");
+    expect(details.value.toLowerCase()).not.toContain("appraisal");
+  });
+
+  it.each(Object.entries(CLARITY_CALL_TOPICS))(
+    "the %s Clarity Call message never names the appraisal",
+    (_topic, label) => {
+      const message = clarityCallMessageFor(label);
+      expect(message.toLowerCase()).not.toContain("appraisal");
+      expect(decodeURIComponent(clarityCallHrefFor(label))).toContain(message);
+    },
+  );
+
+  it("keeps naming the offering for Clarity Calls that start from one", () => {
+    expect(clarityCallMessageFor(CLARITY_CALL_TOPICS.architect)).toContain("Architect ShIFt");
+    expect(clarityCallMessageFor(CLARITY_CALL_TOPICS.embody)).toContain("Embody ShIFt");
+    expect(clarityCallMessageFor(CLARITY_CALL_TOPICS.path)).toContain("P.A.T.H.");
   });
 });
