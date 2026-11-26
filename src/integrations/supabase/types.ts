@@ -1361,7 +1361,6 @@ export type Database = {
       }
     }
     Functions: {
-      admin_apply_sql: { Args: { _sql: string }; Returns: string }
       admin_check_email_infra: { Args: never; Returns: Json }
       admin_dump_config: { Args: never; Returns: string }
       admin_dump_schema: { Args: never; Returns: string }
