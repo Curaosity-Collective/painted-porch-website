@@ -1,4 +1,4 @@
--- Status: Pending
+-- Status: Applied 2026-11-26 via Lovable database connector, run by a Claude session after PR #73 merged. PPS Admin approved merging and applying it: "Yes". Read-only check after: admin_apply_sql gone; admin_dump_schema, admin_dump_config and admin_schema_object_counts still present.
 --
 -- Retire admin_apply_sql, the raw-SQL runner built for the May 2026 move to this project.
 --
