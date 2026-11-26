@@ -268,6 +268,31 @@ the Auth webhook at it and the templates serve themselves.
 3. Disable the old Lovable Cloud project (or leave it read-only as a backup
    for 30 days).
 
+### Status of the May 2026 move's old project (26 Nov 2026)
+
+Step 3 was not done in May. The old project, "(OLD) Painted Porch Strategies"
+in Lovable (backend `kzbcudiorvnsqqgyzusl`), is unpublished, but its backend
+was still live on 26 Nov 2026. It held 4 login accounts and 92 blog posts, and
+three scheduled jobs were still running on it.
+
+- **Done 26 Nov 2026:** its three scheduled jobs were switched off
+  (`cron.alter_job(..., active := false)`). The jobs are still defined, and
+  nothing else changed. PPS Admin: "Yes, switch them off".
+
+  | Job id | Name | Schedule (UTC) |
+  |---|---|---|
+  | 2 | `daily-scan-linkedin-articles` | `0 9 * * *` |
+  | 7 | `auto-backup-weekly` | `0 3 * * 0` |
+  | 8 | `auto-backup-monthly` | `30 3 1 * *` |
+
+  To undo: `select cron.alter_job(job_id := <id>, active := true);` on that project.
+- **Not done yet `[TBD]`:** pausing or deleting the old project, and rotating
+  the API keys it may still hold (Stripe, GHL, Firecrawl and others). Wait
+  until the live site's first scheduled backup succeeds (the weekly run, first
+  due Sunday 29 Nov 2026, 03:00 UTC). Until then, the May exports in the live
+  site's `backups` bucket (about 760 MB from 5–6 May) are its only full
+  backup, so keep them.
+
 ---
 
 ## Estimated total time: 3-4 hours of focused work
