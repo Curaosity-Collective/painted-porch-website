@@ -153,11 +153,7 @@ const PathFinderOfferings = lazyPage(() => import("./pages/pps/admin/PathFinderO
 const PathFinderOfferingDetail = lazyPage(() => import("./pages/pps/admin/PathFinderOfferingDetail"));
 const QuizRoutingRules = lazyPage(() => import("./pages/pps/admin/QuizRoutingRules"));
 const BackupsManager = lazyPage(() => import("./pages/pps/admin/BackupsManager"));
-const MigrateManager = lazyPage(() => import("./pages/pps/admin/MigrateManager"));
-const RestoreWizard = lazyPage(() => import("./pages/pps/admin/RestoreWizard"));
-const IntegrityCheck = lazyPage(() => import("./pages/pps/admin/IntegrityCheck"));
-const SecretsHandoff = lazyPage(() => import("./pages/pps/admin/SecretsHandoff"));
-const MigrationChecklist = lazyPage(() => import("./pages/pps/admin/MigrationChecklist"));
+const IntegrationHealth = lazyPage(() => import("./pages/pps/admin/IntegrationHealth"));
 const SiteEmails = lazyPage(() => import("./pages/pps/admin/SiteEmails"));
 const EmailOps = lazyPage(() => import("./pages/pps/admin/EmailOps"));
 const ResetPassword = lazyPage(() => import("./pages/pps/admin/ResetPassword"));
@@ -486,11 +482,14 @@ const App = () => (
             <Route path="videos" element={<SiteVideosManager />} />
             <Route path="pages" element={<PageStatusManager />} />
             <Route path="backups" element={<BackupsManager />} />
-            <Route path="migrate" element={<MigrateManager />} />
-            <Route path="restore" element={<RestoreWizard />} />
-            <Route path="verify" element={<IntegrityCheck />} />
-            <Route path="secrets-handoff" element={<SecretsHandoff />} />
-            <Route path="migration-checklist" element={<MigrationChecklist />} />
+            <Route path="integrations" element={<IntegrationHealth />} />
+            {/* The May 2026 move tools were retired on 2026-11-25 (PPS Admin: "Yes, remove
+                them in one PR"). Old bookmarks land on the page that replaced each one. */}
+            <Route path="secrets-handoff" element={<Navigate to="/admin/integrations" replace />} />
+            <Route path="migrate" element={<Navigate to="/admin/backups" replace />} />
+            <Route path="restore" element={<Navigate to="/admin/backups" replace />} />
+            <Route path="verify" element={<Navigate to="/admin/backups" replace />} />
+            <Route path="migration-checklist" element={<Navigate to="/admin/backups" replace />} />
             <Route path="emails" element={<SiteEmails />} />
             <Route path="emails/health" element={<Navigate to="/admin/emails/queue" replace />} />
             <Route path="emails/queue" element={<EmailOps />} />

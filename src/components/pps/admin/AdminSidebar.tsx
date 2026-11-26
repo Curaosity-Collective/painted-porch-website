@@ -1,4 +1,4 @@
-import { FileText, Mic, Users, LayoutDashboard, Settings, Youtube, Video, Database, Wand2, ShieldCheck, KeyRound, ListChecks, Mail, Inbox, ScrollText, ToggleLeft, Map, Compass, Shield, Route as RouteIcon } from "lucide-react";
+import { FileText, Mic, Users, LayoutDashboard, Settings, Youtube, Video, Database, PlugZap, Mail, Inbox, ScrollText, ToggleLeft, Map, Compass, Shield, Route as RouteIcon } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
 import { useAdminSections, type AdminSection } from "@/hooks/useAdminSections";
@@ -21,11 +21,8 @@ const navItems: { title: string; url: string; icon: any; section?: AdminSection 
   { title: "YouTube Videos", url: "/admin/youtube", icon: Youtube, section: "YouTube" },
   { title: "Site Videos", url: "/admin/videos", icon: Video },
   { title: "Backups", url: "/admin/backups", icon: Database },
-  { title: "Restore Wizard", url: "/admin/restore", icon: Wand2 },
-  { title: "Integrity Check", url: "/admin/verify", icon: ShieldCheck },
   { title: "Security Findings", url: "/admin/security", icon: Shield },
-  { title: "Secrets Handoff", url: "/admin/secrets-handoff", icon: KeyRound },
-  { title: "Migration Checklist", url: "/admin/migration-checklist", icon: ListChecks },
+  { title: "Integration Health", url: "/admin/integrations", icon: PlugZap },
   { title: "Site Emails", url: "/admin/emails", icon: Mail },
   { title: "Email Health & Queue", url: "/admin/emails/queue", icon: Inbox },
   { title: "Policy Notifications", url: "/admin/policy-notifications", icon: ScrollText },
@@ -59,10 +56,7 @@ export function AdminSidebar() {
     if (item.url === "/admin/videos" && role !== "admin") return false;
     // Backups is admin-only
     if (item.url === "/admin/backups" && role !== "admin") return false;
-    if (item.url === "/admin/restore" && role !== "admin") return false;
-    if (item.url === "/admin/verify" && role !== "admin") return false;
-    if (item.url === "/admin/secrets-handoff" && role !== "admin") return false;
-    if (item.url === "/admin/migration-checklist" && role !== "admin") return false;
+    if (item.url === "/admin/integrations" && role !== "admin") return false;
     if (item.url === "/admin/emails" && role !== "admin") return false;
     if (item.url === "/admin/emails/queue" && role !== "admin") return false;
     if (item.url === "/admin/policy-notifications" && role !== "admin") return false;
