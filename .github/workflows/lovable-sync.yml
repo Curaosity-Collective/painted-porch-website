@@ -1,0 +1,119 @@
+name: Lovable sync
+
+# Lovable can't push to main (changes reach main only through a pull request), so each editor change
+# lands on a lovable-sync branch and Lovable shows "out of sync" until it's merged. This opens the pull
+# request and merges it once every check on Lovable's commit passes (PPS Admin, 2026-11-24: "Yes option 1").
+# When it can't, it comments why and leaves the pull request open. Rules: scripts/lib/lovable-sync-rules.mjs.
+#
+# Needs: Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests".
+# The checks run on the push itself (unit-tests, repo-guard, check-large-files, site-a11y,
+# visual-regression all trigger on lovable-sync branches), because a pull request opened by this
+# workflow doesn't start other workflows.
+
+on:
+  push:
+    branches: ["lovable-sync", "lovable-sync-*"]
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: read
+
+concurrency:
+  group: lovable-sync-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  merge:
+    name: Merge Lovable sync
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BRANCH: ${{ github.ref_name }}
+      SHA: ${{ github.sha }}
+      PUSHER_ID: ${{ github.actor_id }}
+    steps:
+      # The rules run from main, so a branch can't loosen the rules that judge it.
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Decide
+        id: decide
+        run: |
+          git fetch --no-tags origin "+refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}"
+          node scripts/lovable-sync.mjs decide
+
+      - name: Open the pull request
+        id: pr
+        if: steps.decide.outputs.action == 'merge' || steps.decide.outputs.action == 'hold'
+        env:
+          TITLE: ${{ steps.decide.outputs.title }}
+        run: |
+          set -euo pipefail
+          pr=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$BRANCH" --base main --state open --json number --jq '.[0].number // empty')
+          if [ -z "$pr" ]; then
+            if ! url=$(gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$BRANCH" --title "$TITLE" --body-file "$RUNNER_TEMP/lovable-sync/body.md"); then
+              echo "::error title=Couldn't open the pull request::Turn on Settings → Actions → General → 'Allow GitHub Actions to create and approve pull requests' (for the organization too, if it's set there)."
+              exit 1
+            fi
+            pr="${url##*/}"
+          fi
+          echo "number=$pr" >> "$GITHUB_OUTPUT"
+          echo "Pull request #$pr"
+
+      - name: Wait for the checks on Lovable's commit
+        id: checks
+        if: steps.decide.outputs.action == 'merge'
+        run: node scripts/lovable-sync.mjs wait-checks
+
+      - name: Merge
+        if: steps.checks.outputs.result == 'pass'
+        env:
+          PR: ${{ steps.pr.outputs.number }}
+          TITLE: ${{ steps.decide.outputs.title }}
+        run: |
+          set -euo pipefail
+          # Main may have moved while the checks ran (another sync merged first). Decide again.
+          git fetch --no-tags origin "+refs/heads/main:refs/remotes/origin/main"
+          node scripts/lovable-sync.mjs decide > "$RUNNER_TEMP/redecide.txt"
+          action=$(sed -n 's/^action=//p' "$RUNNER_TEMP/redecide.txt" | tail -1)
+          if [ "$action" = "skip" ]; then
+            echo "Main already contains this branch."
+            exit 0
+          fi
+          # Otherwise the new decision's reasons are in hold.md, for the next step.
+          [ "$action" = "merge" ] || exit 1
+          if ! gh pr merge "$PR" --repo "$GITHUB_REPOSITORY" --merge --match-head-commit "$SHA" \
+            --subject "Merge PR #${PR}: Lovable sync (${TITLE#Lovable sync: })" 2> "$RUNNER_TEMP/merge-error.txt"; then
+            cat "$RUNNER_TEMP/merge-error.txt"
+            {
+              echo "**Held: GitHub refused the merge** (${SHA:0:8})"
+              echo
+              echo '```'
+              cat "$RUNNER_TEMP/merge-error.txt"
+              echo '```'
+              echo
+              echo "The checks passed, so this is a repository setting: main's branch protection may require an approving review, or may not let GitHub Actions merge. Lovable will show \"out of sync\" until this is merged."
+              echo
+              echo "_Posted by the Lovable sync workflow._"
+            } > "$RUNNER_TEMP/lovable-sync/hold.md"
+            exit 1
+          fi
+
+      # A held branch also shows as a failed check on the pull request, so it isn't missed.
+      - name: Explain the hold
+        if: steps.pr.outputs.number != '' && (failure() || steps.decide.outputs.action == 'hold')
+        env:
+          PR: ${{ steps.pr.outputs.number }}
+        run: |
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/lovable-sync/hold.md"
+          exit 1

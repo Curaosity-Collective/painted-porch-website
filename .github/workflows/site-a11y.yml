@@ -14,6 +14,9 @@ on:
       - "playwright.config.ts"
       - "playwright-fixture.ts"
       - ".github/workflows/site-a11y.yml"
+  push:
+    # Every Lovable sync push, whatever it changes: this check gates the automatic merge (lovable-sync.yml).
+    branches: ["lovable-sync", "lovable-sync-*"]
   workflow_dispatch:
 
 env:
